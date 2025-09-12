@@ -1,5 +1,3 @@
-
-
 .checkout-section{
   position: relative;
 }
@@ -347,8 +345,8 @@
 }
 
 .checkout-section .custom-control.material-checkbox .material-control-input:checked ~ .material-control-indicator{
-  border-color: #DE2C2C;
-  background: #DE2C2C;
+  border-color: #09D3FB;
+  background: #09D3FB;
 }
 
 .checkout-section .custom-control.material-checkbox .material-control-indicator:before{
