@@ -536,7 +536,9 @@ img {
   top: 0;
   height: 100%;
   width: 100%;
-  background: red;
+  background: #09D3FB;
+    background: #09D3FB;
+    background: #09D3FB;
 }
 
 .scroll-to-top .scroll-bar .bar-inner {
@@ -551,7 +553,9 @@ img {
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  color: red;
+  color: #09D3FB;
+    color: #09D3FB;
+    color: #09D3FB;
   transition: all 500ms ease;
 }
 
@@ -765,7 +769,7 @@ img {
 }
 
 .search-popup .close-search:hover {
-  color: red;
+  color: #09D3FB;
 }
 
 .search-popup .search-form {
