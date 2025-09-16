@@ -1,3 +1,4 @@
+
 .feature-section .row.clearfix {
     display: flex;
     flex-wrap: wrap;
@@ -27,6 +28,97 @@
     display: none !important;
 }
 
+.expertise-section .content_block_three .content-box p {
+    text-align: justify;
+}
+
+/* =================================================================
+   AIVRIC FINAL MENU STYLES V4 (Forced Override)
+   These rules are highly specific to override the template and precisely match the "Hyper Lens" style.
+   ================================================================= */
+
+/* --- Main Megamenu Container (for "Solutions") --- */
+header.main-header .main-menu .navigation > li.dropdown .megamenu {
+    position: absolute;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 680px !important;
+    padding: 35px 20px !important;
+    background-color: #ffffff !important;
+    border-radius: 12px !important;
+    box-shadow: 0px 20px 60px -10px rgba(22, 30, 48, 0.18) !important;
+    border: none !important;
+    margin-top: 15px !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: all 0.3s ease !important;
+}
+
+/* --- Megamenu Column Structure & Divider --- */
+header.main-header .main-menu .navigation > li.dropdown .megamenu .column {
+    padding: 0 35px !important;
+}
+header.main-header .main-menu .navigation > li.dropdown .megamenu .column + .column {
+    border-left: 1px solid #e9eef5 !important;
+}
+
+/* --- Megamenu Headings (The "Hyper Lens" Style) --- */
+header.main-header .main-menu .navigation > li.dropdown .megamenu .column h4 {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    color: #161e31 !important;
+    margin-bottom: 25px !important;
+    padding: 0 !important;
+    text-transform: none !important; /* This ensures it's not ALL CAPS */
+    letter-spacing: 0px !important;
+}
+
+/* --- Megamenu Links (The "Hyper Lens" Style) --- */
+header.main-header .main-menu .navigation > li.dropdown .megamenu .column ul li a {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 400 !important;
+    color: #5b6474 !important;
+    padding: 7px 0 !important; /* Tighter padding for the clean list look */
+    display: block !important;
+    transition: all 0.2s ease-in-out !important;
+    background-color: transparent !important;
+    border-bottom: none !important;
+    text-align: left !important;
+}
+
+/* --- Standard Dropdown Container (for "Platform" & "Resources") --- */
+header.main-header .main-menu .navigation > li > ul {
+    margin-top: 15px !important;
+    border-radius: 12px !important;
+    box-shadow: 0px 20px 60px -10px rgba(22, 30, 48, 0.18) !important;
+    border: none !important;
+    background: #ffffff !important;
+    padding: 10px 0 !important;
+    width: 260px !important;
+}
+
+/* --- Standard Dropdown Links --- */
+header.main-header .main-menu .navigation > li > ul > li > a {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    color: #241E2F !important;
+    background-color: #ffffff !important;
+    padding: 10px 25px !important;
+    border-bottom: none !important;
+    text-align: left !important;
+}
+
+
+/* --- HOVER EFFECTS for ALL Dropdown Links --- */
+header.main-header .main-menu .navigation > li.dropdown .megamenu ul li a:hover,
+header.main-header .main-menu .navigation > li > ul > li > a:hover {
+    color: #09d3fb !important;
+    transform: translateX(4px) !important;
+}
+
 
 /* --- Make Dropdowns Appear on Hover --- */
 header.main-header .main-menu .navigation > li.dropdown:hover .megamenu,
@@ -34,12 +126,4 @@ header.main-header .main-menu .navigation > li.dropdown:hover > ul {
     opacity: 1 !important;
     visibility: visible !important;
     margin-top: 0 !important;
-}
-
-.banner-carousel .owl-nav {
-    display: none !important;
-}
-
-.expertise-section .content_block_three .content-box p {
-    text-align: justify;
 }
