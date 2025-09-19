@@ -302,24 +302,8 @@
 			smartSpeed: 500,
 			autoplay: 1000,
 			navText: [ '<span class="fal fa-angle-left"></span>', '<span class="fal fa-angle-right"></span>' ],
-			responsive:{
-				0:{
-					items:1
-				},
-				480:{
-					items:1
-				},
-				600:{
-					items:2
-				},
-				800:{
-					items:2
-				},			
-				1200:{
-					items:3
-				}
-
-			}
+            items:3,
+            autoWidth: false
 		});    		
 	}
 
@@ -622,6 +606,23 @@
 	$(window).on('load', function() {
 		handlePreloader();
 		enableMasonry();
+		function equalizeFeatureHeight() {
+		    if($('.feature-block-one .inner-box').length){
+		        var maxHeight = 0;
+		        $('.feature-block-one .inner-box').each(function(){
+		            $(this).css('height', 'auto');
+		            if($(this).height() > maxHeight){
+		                maxHeight = $(this).height();
+		            }
+		        });
+		        $('.feature-block-one .inner-box').height(maxHeight);
+		    }
+		}
+
+		equalizeFeatureHeight();
+		$(window).on('resize', function(){
+		    equalizeFeatureHeight();
+		});
 	});
 
 	

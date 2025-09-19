@@ -39,3 +39,7 @@ header.main-header .main-menu .navigation > li.dropdown:hover > ul {
 .banner-carousel .owl-nav {
     display: none !important;
 }
+
+.expertise-section .content_block_three .content-box p {
+    text-align: justify;
+}
