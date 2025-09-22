@@ -1,3 +1,18 @@
+/* --- Custom: Center Testimonial Headings --- */
+.testimonial-section .sec-title {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+.testimonial-section .sec-title .sub-title,
+.testimonial-section .sec-title h2 {
+  text-align: center;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
 /* --- Custom: Solution Cards Styling --- */
 .solution-card {
   background: #fff;
@@ -1994,14 +2009,20 @@ div#mCSB_1_container{
   margin-top: -14px;
 }
 
-.main-footer .logo-widget .footer-logo{
-  position: relative;
-  max-width: 184px;
-  margin-bottom: 32px;
+.main-footer .footer-tagline {
+    margin-bottom: 20px;
 }
 
-.main-footer .logo-widget .footer-logo img{
-  width: 100%;
+.main-footer .footer-tagline h3 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.main-footer .footer-tagline p {
+    color: #fff;
+    font-size: 16px;
 }
 
 .main-footer .logo-widget .text p{
@@ -2458,4 +2479,69 @@ div#mCSB_1_container{
 
 
 
+.main-footer .logo-widget .social-links{
+  position: relative;
+  display: block;
+}
 
+.main-footer .logo-widget .social-links li{
+  position: relative;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.main-footer .logo-widget .social-links li:last-child{
+  margin-right: 0px;
+}
+
+.main-footer .logo-widget .social-links li a{
+  position: relative;
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  background: #241E2F;
+  color: #fff;
+  border-radius: 50%;
+  transition: all 500ms ease;
+}
+
+.main-footer .logo-widget .social-links li a:hover{
+  background: #09D3FB;
+}
+
+
+.main-footer .subscribe-form {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.main-footer .subscribe-form .form-group {
+    position: relative;
+}
+
+.main-footer .subscribe-form .form-group input[type="email"] {
+    width: 100%;
+    height: 50px;
+    border-radius: 30px;
+    background: #fff;
+    border: none;
+    padding: 10px 20px;
+    color: #222;
+}
+
+.main-footer .subscribe-form .form-group button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background: #09D3FB;
+    color: #fff;
+    border-radius: 50%;
+    border: none;
+    font-size: 16px;
+}
