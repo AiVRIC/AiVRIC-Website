@@ -1,4 +1,5 @@
 
+
 .feature-section .row.clearfix {
     display: flex;
     flex-wrap: wrap;
@@ -29,7 +30,7 @@
 }
 
 .expertise-section .content_block_three .content-box p {
-    text-align: justify;
+    
 }
 
 /* =================================================================
@@ -127,3 +128,4 @@ header.main-header .main-menu .navigation > li.dropdown:hover > ul {
     visibility: visible !important;
     margin-top: 0 !important;
 }
+
