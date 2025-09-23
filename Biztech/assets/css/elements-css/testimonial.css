@@ -209,23 +209,21 @@
 	margin-bottom: 30px;
 }
 
+.testimonial-block-one .inner-box {
+    position: relative;
+    display: block;
+    padding: 50px 50px 45px 50px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,.1);
+}
 
+.testimonial-block-one .text-box .fa-quote-left {
+    font-size: 30px;
+    color: #ffc93d;
+    margin-bottom: 20px;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.testimonial-block-one .author-box {
+    margin-top: 20px;
+}
