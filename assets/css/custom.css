@@ -1,3 +1,38 @@
+
+
+.feature-section .row.clearfix {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.feature-section .feature-block-one {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.feature-section .feature-block-one .inner-box {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+
+.feature-section .feature-block-one .lower-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.banner-carousel .owl-nav {
+    display: none !important;
+}
+
+.expertise-section .content_block_three .content-box p {
+    
+}
+
 /* =================================================================
    AIVRIC FINAL MENU STYLES V4 (Forced Override)
    These rules are highly specific to override the template and precisely match the "Hyper Lens" style.
@@ -93,3 +128,4 @@ header.main-header .main-menu .navigation > li.dropdown:hover > ul {
     visibility: visible !important;
     margin-top: 0 !important;
 }
+

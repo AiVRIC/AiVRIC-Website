@@ -3,128 +3,51 @@
 	position: relative;
 }
 
-.working-process-section .inner-container{
+.working-process-block-one .inner-box{
 	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+    padding: 30px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 10px 40px rgba(0,0,0,.1);
+    margin-bottom: 30px;
 }
 
-.working-block-one .inner-box{
+.working-process-block-one .icon-box{
 	position: relative;
-	max-width: 320px;
-	padding-right: 0px;
+    display: inline-block;
+    font-size: 40px;
+    color: #ffc93d;
+    margin-bottom: 20px;
 }
 
-.working-block-one .inner-box .count-text{
-	position: absolute;
-	top: -25px;
-	right: -15px;
-	z-index: 1;
+.working-process-block-one .icon-box h3{
+	font-size: 18px;
+    font-weight: 700;
+    color: #2d2d2d;
+    margin-top: 10px;
 }
 
-.working-block-one:last-child .inner-box .count-text{
-	right: 15px;
-}
-
-.working-block-one:last-child .inner-box{
-	padding-right: 30px;
-}
-
-.working-block-one .inner-box .count-text h3{
-	position: relative;
-	display: inline-block;
-	width: 90px;
-	height: 90px;
-	text-align: center;
-	border-radius: 50%;
+.working-process-block-one h4{
 	font-size: 22px;
-	line-height: 22px;
-	font-weight: 600;
-	color: #fff;
-	padding-top: 23px;
+    font-weight: 700;
+    color: #2d2d2d;
+    margin-bottom: 15px;
 }
 
-.working-block-one .inner-box .count-text h3:before{
-	position: absolute;
-	content: '';
-	width: 120px;
-	height: 120px;
-	left: -15px;
-	top: -15px;
-	border-radius: 50%;
-}
-
-.working-block-one .inner-box .count-text h3 span{
-	display: block;
+.working-process-block-one p{
 	font-size: 16px;
-	font-weight: 500;
+    line-height: 26px;
 }
 
-.working-block-one .inner-box .text{
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 290px;
-	height: 290px;
-	text-align: center;
-	background: #fff;
-	border-radius: 50%;
-	box-shadow: 0px 0px 120px rgba(0, 0, 0, 0.07);
-	padding: 0px 40px;
-}
-
-.working-block-one .inner-box .text h3{
-	display: block;
-	font-size: 24px;
-	line-height: 28px;
-	font-weight: 600;
-	margin-bottom: 15px;
-}
-
-.working-block-one .inner-box .shape{
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	right: -48%;
-	width: 80px;
-	height: 19px;
-	background-repeat: no-repeat;
-}
-
-
-.working-process-section.alternat-2 .working-block-one .inner-box .text{
-	border-radius: 10px;
-	padding-top: 30px;
-}
-
-.working-process-section.alternat-2 .working-block-one .inner-box .count-text h3:before{
-	border-radius: 30px;
-}
-
-.working-process-section.alternat-2 .working-block-one .inner-box .count-text h3{
-	border-radius: 10px;
-}
-
-.working-process-section .pattern-layer .pattern-1{
-	position: absolute;
-	left: 0px;
-	top: 0px;
-	width: 640px;
-	height: 100%;
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-
-.working-process-section .pattern-layer .pattern-2{
-	position: absolute;
-	right: 0px;
-	top: 0px;
-	width: 640px;
-	height: 100%;
-	background-size: cover;
-	background-repeat: no-repeat;
+.working-process-section .row .working-process-block:not(:last-child) .working-process-block-one .inner-box::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -40px;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 2px;
+    background: #ffc93d;
 }
 
 
