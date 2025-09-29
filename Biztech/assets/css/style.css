@@ -1,3 +1,5 @@
+/* Hide Home link on home page */
+.hide-home { display: none !important; }
 /* --- Custom: Center Testimonial Headings --- */
 .testimonial-section .sec-title {
   text-align: center;
