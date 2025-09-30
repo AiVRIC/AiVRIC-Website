@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  vercel:
+    build:
+      context: .
+      dockerfile: Dockerfile.vercel
+    volumes:
+      - .:/app
+      - ${HOME}/.vercel:/root/.vercel
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    environment:
+      - VERCEL_ORG_ID=${VERCEL_ORG_ID}
+      - VERCEL_PROJECT_ID=${VERCEL_PROJECT_ID}
+      - VERCEL_TOKEN=${VERCEL_TOKEN}
