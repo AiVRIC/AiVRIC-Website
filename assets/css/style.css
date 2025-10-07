@@ -533,8 +533,36 @@ img {
   transition: all 500ms ease;
 }
 
+.banner-carousel .owl-nav {
+  display: none !important;
+}
+
 .theme-btn-one:hover:before{
   transform: scale(1,1);
+}
+
+.theme-btn-outline{
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  color: #fff !important;
+  text-align: center;
+  padding: 18px 40px;
+  text-transform: capitalize;
+  z-index: 1;
+  border: 1px solid #fff;
+  border-radius: 30px;
+  transition: all 500ms ease;
+}
+
+.theme-btn-outline:hover{
+  background: #fff;
+  color: #241E2F !important;
 }
 
 .theme-btn-two{
