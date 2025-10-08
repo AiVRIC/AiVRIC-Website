@@ -29,6 +29,9 @@
 <link href="assets/css/elements-css/pricing.css" rel="stylesheet">
 <link href="assets/css/responsive.css" rel="stylesheet">
 
+<!-- Stripe.js -->
+<script src="https://js.stripe.com/v3/"></script>
+
 </head>
 
 
@@ -244,160 +247,153 @@
         <section class="pricing-section sec-pad">
             <div class="auto-container">
                 <div class="sec-title centred mb_50">
-                    <span class="sub-title">Pricing Table</span>
-                    <h2>Not Any Hidden Charge, Choose <br />Our Pricing Plan</h2>
+                    <span class="sub-title">Subscription Plans</span>
+                    <h2>Choose the Right Security Platform <br />for Your Organization</h2>
+                    <p class="mt_20">All plans include 14-day free trial. No credit card required.</p>
                 </div>
-                <div class="tabs-box">
-                    <div class="tab-btn-box p_relative d_block mb_60 centred">
-                        <ul class="tab-btns tab-buttons clearfix p_relative d_iblock">
-                            <li class="tab-btn active-btn" data-tab="#tab-1">Monthly</li>
-                            <li class="tab-btn" data-tab="#tab-2">Yearly</li>
-                        </ul>
-                    </div>
-                    <div class="tabs-content">
-                        <div class="tab active-tab" id="tab-1">
-                            <div class="row clearfix">
-                                <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                                    <div class="pricing-block-one">
-                                        <div class="pricing-table">
-                                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-38.png);"></div>
-                                            <div class="table-header mb_35">
-                                                <span class="title">Basic Pack</span>
-                                                <h2>$24.50/<span>mo</span></h2>
-                                            </div>
-                                            <div class="table-content">
-                                                <ul class="feature-list list-style-one clearfix">
-                                                    <li>Powerful Admin Panel</li>
-                                                    <li>1 Native Android App</li>
-                                                    <li>Multi-Language Support</li>
-                                                    <li class="light">Advance Options</li>
-                                                    <li class="light">24/7 Tech Support</li>
-                                                </ul>
-                                            </div>
-                                            <div class="table-footer">
-                                                <a href="pricing.html" class="theme-btn-one">Get Started Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                <!-- Single Products View (No Tabs) -->
+                <div class="row clearfix">
+                    <!-- Defense -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                        <div class="pricing-block-one">
+                            <div class="pricing-table">
+                                <div class="shape-1" style="background-image: url(assets/images/shape/shape-38.png);"></div>
+                                <div class="table-header mb_35">
+                                    <span class="title">AiVRIC Defense</span>
+                                    <h2>$549/<span>mo</span></h2>
+                                    <p class="text-muted">Cloud Security Scanner</p>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                                    <div class="pricing-block-one active-block">
-                                        <div class="pricing-table">
-                                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-39.png);"></div>
-                                            <div class="table-header mb_35">
-                                                <span class="title">Standard Pack</span>
-                                                <h2>$45.50/<span>mo</span></h2>
-                                            </div>
-                                            <div class="table-content">
-                                                <ul class="feature-list list-style-one clearfix">
-                                                    <li>Powerful Admin Panel</li>
-                                                    <li>1 Native Android App</li>
-                                                    <li>Multi-Language Support</li>
-                                                    <li>Advance Options</li>
-                                                    <li class="light">24/7 Tech Support</li>
-                                                </ul>
-                                            </div>
-                                            <div class="table-footer">
-                                                <a href="pricing.html" class="theme-btn-one">Get Started Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="table-content">
+                                    <ul class="feature-list list-style-one clearfix">
+                                        <li>Multi-Cloud Security Scanning</li>
+                                        <li>Compliance Frameworks (PCI DSS, SOC 2, ISO 27001)</li>
+                                        <li>Automated Vulnerability Detection</li>
+                                        <li>Real-time Alerting</li>
+                                        <li>Custom Compliance Policies</li>
+                                        <li>API Access</li>
+                                        <li>24/7 Support</li>
+                                    </ul>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                                    <div class="pricing-block-one">
-                                        <div class="pricing-table">
-                                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-38.png);"></div>
-                                            <div class="table-header mb_35">
-                                                <span class="title">Advanced Pack</span>
-                                                <h2>$55.50/<span>mo</span></h2>
-                                            </div>
-                                            <div class="table-content">
-                                                <ul class="feature-list list-style-one clearfix">
-                                                    <li>Powerful Admin Panel</li>
-                                                    <li>1 Native Android App</li>
-                                                    <li>Multi-Language Support</li>
-                                                    <li>Advance Options</li>
-                                                    <li>24/7 Tech Support</li>
-                                                </ul>
-                                            </div>
-                                            <div class="table-footer">
-                                                <a href="pricing.html" class="theme-btn-one">Get Started Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="table-footer">
+                                    <button type="button" class="theme-btn-one" data-stripe-subscribe data-product="defense" data-price-id="price_XXXXXXXXXX">Start Free Trial</button>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab" id="tab-2">
-                            <div class="row clearfix">
-                                <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                                    <div class="pricing-block-one">
-                                        <div class="pricing-table">
-                                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-38.png);"></div>
-                                            <div class="table-header mb_35">
-                                                <span class="title">Basic Pack</span>
-                                                <h2>$69.50/<span>ye</span></h2>
-                                            </div>
-                                            <div class="table-content">
-                                                <ul class="feature-list list-style-one clearfix">
-                                                    <li>Powerful Admin Panel</li>
-                                                    <li>1 Native Android App</li>
-                                                    <li>Multi-Language Support</li>
-                                                    <li class="light">Advance Options</li>
-                                                    <li class="light">24/7 Tech Support</li>
-                                                </ul>
-                                            </div>
-                                            <div class="table-footer">
-                                                <a href="pricing.html" class="theme-btn-one">Get Started Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                    </div>
+
+                    <!-- Offense -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                        <div class="pricing-block-one">
+                            <div class="pricing-table">
+                                <div class="shape-1" style="background-image: url(assets/images/shape/shape-38.png);"></div>
+                                <div class="table-header mb_35">
+                                    <span class="title">AiVRIC Offense</span>
+                                    <h2>$599/<span>mo</span></h2>
+                                    <p class="text-muted">Penetration Testing Platform</p>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                                    <div class="pricing-block-one active-block">
-                                        <div class="pricing-table">
-                                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-39.png);"></div>
-                                            <div class="table-header mb_35">
-                                                <span class="title">Standard Pack</span>
-                                                <h2>$79.50/<span>ye</span></h2>
-                                            </div>
-                                            <div class="table-content">
-                                                <ul class="feature-list list-style-one clearfix">
-                                                    <li>Powerful Admin Panel</li>
-                                                    <li>1 Native Android App</li>
-                                                    <li>Multi-Language Support</li>
-                                                    <li>Advance Options</li>
-                                                    <li class="light">24/7 Tech Support</li>
-                                                </ul>
-                                            </div>
-                                            <div class="table-footer">
-                                                <a href="pricing.html" class="theme-btn-one">Get Started Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="table-content">
+                                    <ul class="feature-list list-style-one clearfix">
+                                        <li>Automated Penetration Testing</li>
+                                        <li>Vulnerability Assessment Tools</li>
+                                        <li>Network & Web App Scanning</li>
+                                        <li>Exploit Framework Integration</li>
+                                        <li>Detailed Remediation Reports</li>
+                                        <li>API Access</li>
+                                        <li>24/7 Support</li>
+                                    </ul>
                                 </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                                    <div class="pricing-block-one">
-                                        <div class="pricing-table">
-                                            <div class="shape-1" style="background-image: url(assets/images/shape/shape-38.png);"></div>
-                                            <div class="table-header mb_35">
-                                                <span class="title">Advanced Pack</span>
-                                                <h2>$99.50/<span>ye</span></h2>
-                                            </div>
-                                            <div class="table-content">
-                                                <ul class="feature-list list-style-one clearfix">
-                                                    <li>Powerful Admin Panel</li>
-                                                    <li>1 Native Android App</li>
-                                                    <li>Multi-Language Support</li>
-                                                    <li>Advance Options</li>
-                                                    <li>24/7 Tech Support</li>
-                                                </ul>
-                                            </div>
-                                            <div class="table-footer">
-                                                <a href="pricing.html" class="theme-btn-one">Get Started Now</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="table-footer">
+                                    <button type="button" class="theme-btn-one" data-stripe-subscribe data-product="offense" data-price-id="price_XXXXXXXXXX">Start Free Trial</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vision -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                        <div class="pricing-block-one">
+                            <div class="pricing-table">
+                                <div class="shape-1" style="background-image: url(assets/images/shape/shape-38.png);"></div>
+                                <div class="table-header mb_35">
+                                    <span class="title">AiVRIC Vision</span>
+                                    <h2>$579/<span>mo</span></h2>
+                                    <p class="text-muted">AI Security Analytics</p>
+                                </div>
+                                <div class="table-content">
+                                    <ul class="feature-list list-style-one clearfix">
+                                        <li>AI-Powered Threat Detection</li>
+                                        <li>Security Analytics Dashboard</li>
+                                        <li>Predictive Risk Modeling</li>
+                                        <li>Automated Incident Response</li>
+                                        <li>Machine Learning Insights</li>
+                                        <li>API Access</li>
+                                        <li>24/7 Support</li>
+                                    </ul>
+                                </div>
+                                <div class="table-footer">
+                                    <button type="button" class="theme-btn-one" data-stripe-subscribe data-product="vision" data-price-id="price_XXXXXXXXXX">Start Free Trial</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bundle Plans Row -->
+                <div class="row clearfix mt_50 justify-content-center">
+                    <!-- Defense + Offense Bundle -->
+                    <div class="col-lg-5 col-md-6 col-sm-12 pricing-block">
+                        <div class="pricing-block-one active-block">
+                            <div class="pricing-table">
+                                <div class="shape-1" style="background-image: url(assets/images/shape/shape-39.png);"></div>
+                                <div class="table-header mb_35">
+                                    <span class="badge bg-success mb-2">POPULAR</span>
+                                    <span class="title">Defense + Offense Bundle</span>
+                                    <h2>$1,129/<span>mo</span></h2>
+                                    <p class="text-muted">Complete Attack & Defense</p>
+                                    <small class="text-success">Save $19/month</small>
+                                </div>
+                                <div class="table-content">
+                                    <ul class="feature-list list-style-one clearfix">
+                                        <li><strong>All Defense Features</strong></li>
+                                        <li><strong>All Offense Features</strong></li>
+                                        <li>Integrated Workflow</li>
+                                        <li>Unified Reporting</li>
+                                        <li>Priority Support</li>
+                                        <li>Dedicated Account Manager</li>
+                                    </ul>
+                                </div>
+                                <div class="table-footer">
+                                    <button type="button" class="theme-btn-one" data-stripe-subscribe data-product="bundle_defense_offense" data-price-id="price_XXXXXXXXXX">Start Free Trial</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Complete Platform Bundle -->
+                    <div class="col-lg-5 col-md-6 col-sm-12 pricing-block">
+                        <div class="pricing-block-one active-block">
+                            <div class="pricing-table">
+                                <div class="shape-1" style="background-image: url(assets/images/shape/shape-39.png);"></div>
+                                <div class="table-header mb_35">
+                                    <span class="badge bg-primary mb-2">BEST VALUE</span>
+                                    <span class="title">Complete Platform</span>
+                                    <h2>$1,399/<span>mo</span></h2>
+                                    <p class="text-muted">All Products Included</p>
+                                    <small class="text-success">Save $328/month</small>
+                                </div>
+                                <div class="table-content">
+                                    <ul class="feature-list list-style-one clearfix">
+                                        <li><strong>All Defense Features</strong></li>
+                                        <li><strong>All Offense Features</strong></li>
+                                        <li><strong>All Vision Features</strong></li>
+                                        <li>Complete Platform Integration</li>
+                                        <li>Advanced AI Insights</li>
+                                        <li>VIP Support & Training</li>
+                                        <li>Dedicated Security Consultant</li>
+                                    </ul>
+                                </div>
+                                <div class="table-footer">
+                                    <button type="button" class="theme-btn-one" data-stripe-subscribe data-product="bundle_all" data-price-id="price_XXXXXXXXXX">Start Free Trial</button>
                                 </div>
                             </div>
                         </div>
@@ -520,6 +516,9 @@
 
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
+
+    <!-- Stripe Checkout Integration -->
+    <script src="assets/js/stripe-checkout.js"></script>
 
 </body><!-- End of .page_wrapper -->
 </html>
