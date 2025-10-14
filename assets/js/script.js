@@ -206,7 +206,7 @@
         $('.banner-carousel').owlCarousel({
             loop:true,
 			margin:0,
-			nav:true,
+			nav:false,
 			animateOut: 'fadeOut',
     		animateIn: 'fadeIn',
     		active: true,
