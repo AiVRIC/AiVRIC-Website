@@ -1,4 +1,4 @@
-
+﻿
 
 .feature-section{
 	position: relative;
@@ -82,6 +82,13 @@
 
 .feature-block-one .inner-box .lower-content h3 a:hover{
 
+}
+
+.feature-block-one .inner-box .lower-content p {
+    text-align: justify;
+    word-spacing: normal;
+    letter-spacing: normal;
+    hyphens: auto;
 }
 
 .feature-section .pattern-layer .pattern-1{
@@ -318,6 +325,7 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 }
+
 
 
 

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * jQuery One Page Nav Plugin
  * http://github.com/davist11/jQuery-One-Page-Nav
  *

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * jQuery.appear
  * https://github.com/bas2k/jquery.appear/
  * http://code.google.com/p/jquery-appear/
@@ -149,3 +149,4 @@
     });
 
 })(jQuery);
+
