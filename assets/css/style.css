@@ -330,7 +330,7 @@ p{
   font-weight: 400;
   margin: 0px;
   transition: all 500ms ease;
-  text-align: justify;
+  text-align: left;
 }
 
 h1,h2,h3,h4,h5,h6{
