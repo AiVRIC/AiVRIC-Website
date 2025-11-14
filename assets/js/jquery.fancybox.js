@@ -1,4 +1,4 @@
-// ==================================================
+﻿// ==================================================
 // fancyBox v3.2.10
 //
 // Licensed GPLv3 for open source use
@@ -391,15 +391,15 @@
             'de' : {
                 CLOSE       : 'Schliessen',
                 NEXT        : 'Weiter',
-                PREV        : 'Zurück',
-                ERROR       : 'Die angeforderten Daten konnten nicht geladen werden. <br/> Bitte versuchen Sie es später nochmal.',
+                PREV        : 'ZurÃ¼ck',
+                ERROR       : 'Die angeforderten Daten konnten nicht geladen werden. <br/> Bitte versuchen Sie es spÃ¤ter nochmal.',
                 PLAY_START  : 'Diaschau starten',
                 PLAY_STOP   : 'Diaschau beenden',
                 FULL_SCREEN : 'Vollbild',
                 THUMBS      : 'Vorschaubilder',
                 DOWNLOAD    : 'Herunterladen',
                 SHARE       : 'Teilen',
-                ZOOM        : 'Maßstab'
+                ZOOM        : 'MaÃŸstab'
             }
         }
 
@@ -5236,3 +5236,4 @@
     });
 
 }( document, window.jQuery || jQuery ));
+

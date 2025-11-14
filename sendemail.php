@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 // Define some constants
 define( "RECIPIENT_NAME", "John Doe" );

@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+﻿name: Deploy to GitHub Pages
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
           # Replace %%STRIPE_PUBLISHABLE_KEY%% placeholder with actual key from GitHub Secrets
           find . -type f \( -name "*.js" -o -name "*.html" \) -exec sed -i "s|%%STRIPE_PUBLISHABLE_KEY%%|${{ secrets.STRIPE_PUBLISHABLE_KEY }}|g" {} +
 
-          echo "✅ Stripe publishable key injected successfully"
+          echo "âœ… Stripe publishable key injected successfully"
         env:
           STRIPE_PUBLISHABLE_KEY: ${{ secrets.STRIPE_PUBLISHABLE_KEY }}
 
@@ -57,13 +57,14 @@ jobs:
 
       - name: Deployment Summary
         run: |
-          echo "## Deployment Complete! 🚀" >> $GITHUB_STEP_SUMMARY
+          echo "## Deployment Complete! ðŸš€" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "Your AiVRIC website has been deployed to GitHub Pages." >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Site URL:** ${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "### Injected Secrets:" >> $GITHUB_STEP_SUMMARY
-          echo "- ✅ Stripe Publishable Key" >> $GITHUB_STEP_SUMMARY
+          echo "- âœ… Stripe Publishable Key" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "**Note:** The Stripe publishable key has been securely injected from GitHub Secrets." >> $GITHUB_STEP_SUMMARY
+

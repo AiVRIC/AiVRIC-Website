@@ -1,4 +1,4 @@
-name: Deploy to Vercel Preview
+﻿name: Deploy to Vercel Preview
 
 on:
   push:
@@ -44,12 +44,12 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: '🚀 Preview deployment ready at: ${{ steps.deploy.outputs.deployment_url }}'
+              body: 'ðŸš€ Preview deployment ready at: ${{ steps.deploy.outputs.deployment_url }}'
             })
 
       - name: Summary
         run: |
           echo "## Deployment Summary" >> $GITHUB_STEP_SUMMARY
-          echo "✅ Successfully deployed to Vercel" >> $GITHUB_STEP_SUMMARY
-          echo "🔗 Preview URL: ${{ steps.deploy.outputs.deployment_url }}" >> $GITHUB_STEP_SUMMARY
-          echo "🔒 Password protection is enabled" >> $GITHUB_STEP_SUMMARY
+          echo "âœ… Successfully deployed to Vercel" >> $GITHUB_STEP_SUMMARY
+          echo "ðŸ”— Preview URL: ${{ steps.deploy.outputs.deployment_url }}" >> $GITHUB_STEP_SUMMARY
+          echo "ðŸ”’ Password protection is enabled" >> $GITHUB_STEP_SUMMARY

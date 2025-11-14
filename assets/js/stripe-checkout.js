@@ -1,4 +1,4 @@
-/**
+﻿/**
  * AiVRIC Stripe Checkout Integration
  *
  * This file handles Stripe Checkout session creation and Customer Portal redirection
@@ -13,7 +13,7 @@
 
     // Configuration
     const CONFIG = {
-        defenseApiUrl: 'https://defense-api.aivric.com',
+        defenseApiUrl: 'https://defense-api.AiVRIC.com',
         stripePublishableKey: '%%STRIPE_PUBLISHABLE_KEY%%', // Replaced by GitHub Actions
         successUrl: window.location.origin + '/success.html',
         cancelUrl: window.location.origin + '/pricing.html'
@@ -372,3 +372,4 @@
     };
 
 })();
+

@@ -1,4 +1,4 @@
-/* Hide Home link on home page */
+﻿/* Hide Home link on home page */
 .hide-home { display: none !important; }
 /* --- Custom: Center Testimonial Headings --- */
 .testimonial-section .sec-title {
@@ -330,7 +330,7 @@ p{
   font-weight: 400;
   margin: 0px;
   transition: all 500ms ease;
-  text-align: justify;
+  text-align: left;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -445,7 +445,7 @@ h1,h2,h3,h4,h5,h6{
   border-top-color: rgba(255, 255, 255, 0.5); 
 }
 
-/* AnimaciÃ³n del preloader */
+/* AnimaciÃƒÂ³n del preloader */
 @keyframes spinner {
   to {
     transform: rotateZ(360deg);

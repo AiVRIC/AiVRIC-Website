@@ -1,4 +1,4 @@
-# Vercel Setup Instructions
+﻿# Vercel Setup Instructions
 
 ## Prerequisites
 - Docker Desktop running
@@ -10,7 +10,7 @@
 ### 1. Get Vercel Token
 1. Go to https://vercel.com/account/tokens
 2. Click "Create Token"
-3. Name it "AIVric Preview Deploy"
+3. Name it "AiVRIC Preview Deploy"
 4. Copy the token
 
 ### 2. Link Vercel Project (Using Docker)
@@ -23,7 +23,7 @@ vercel-docker.bat link
 
 When prompted:
 - Choose "Create a new project"
-- Enter a project name (e.g., "aivric-preview")
+- Enter a project name (e.g., "AiVRIC-preview")
 - Select your Vercel team/account
 - Confirm the settings
 
@@ -62,7 +62,7 @@ To set/change the password:
 
 1. Go to your Vercel dashboard
 2. Select your project
-3. Go to Settings → Environment Variables
+3. Go to Settings â†’ Environment Variables
 4. Add `VERCEL_AUTHENTICATION_PASSWORD` with your desired password
 5. This password will be required to access the preview site
 
