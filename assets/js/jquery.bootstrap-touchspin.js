@@ -1,4 +1,4 @@
-(function($) {
+﻿(function($) {
   'use strict';
 
   var _currentSpinnerId = 0;
@@ -687,3 +687,4 @@
   };
 
 })(jQuery);
+

@@ -1,4 +1,4 @@
-
+﻿
 
 .feature-section .row.clearfix {
     display: flex;
@@ -34,7 +34,7 @@
 }
 
 /* =================================================================
-   AIVRIC FINAL MENU STYLES V4 (Forced Override)
+   AiVRIC FINAL MENU STYLES V4 (Forced Override)
    These rules are highly specific to override the template and precisely match the "Hyper Lens" style.
    ================================================================= */
 
@@ -128,4 +128,5 @@ header.main-header .main-menu .navigation > li.dropdown:hover > ul {
     visibility: visible !important;
     margin-top: 0 !important;
 }
+
 

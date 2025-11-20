@@ -1,4 +1,4 @@
-howMany = 12;
+﻿howMany = 12;
 listButton = $('button.list-view');
 gridButton = $('button.grid-view');
 wrapper = $('div.wrapper');
@@ -18,3 +18,4 @@ gridButton.on('click',function(){
   wrapper.removeClass('list').addClass('grid');
   
 });
+

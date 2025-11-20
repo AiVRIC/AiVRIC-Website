@@ -1,4 +1,4 @@
-"use strict"; // Start of use strict
+﻿"use strict"; // Start of use strict
 
 // 7. google map
 function gMap () {
@@ -136,3 +136,4 @@ jQuery(document).on('ready', function () {
         gMap();
     })(jQuery);
 });
+

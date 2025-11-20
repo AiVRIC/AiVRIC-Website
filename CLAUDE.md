@@ -1,10 +1,10 @@
-# CLAUDE.md
+﻿# CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
 
-AIVric is a static HTML/CSS/JavaScript website for an AI-focused business. The site uses a traditional multi-page architecture with 56+ HTML pages, Bootstrap framework, and various JavaScript libraries for UI components.
+AiVRIC is a static HTML/CSS/JavaScript website for an AI-focused business. The site uses a traditional multi-page architecture with 56+ HTML pages, Bootstrap framework, and various JavaScript libraries for UI components.
 
 ## Project Structure
 
@@ -35,7 +35,7 @@ vercel-docker.bat link
 
 **Build Docker image for Vercel CLI**:
 ```bash
-docker build -f Dockerfile.vercel -t aivric-vercel:latest .
+docker build -f Dockerfile.vercel -t AiVRIC-vercel:latest .
 ```
 
 ### Development
@@ -117,6 +117,6 @@ These scripts mount the project directory and `~/.vercel` config into a containe
 ## Notes for Development
 
 - Pages share common header/footer structure - changes to navigation/footer require updating multiple files
-- Rebranding completed (see commit ef8785e) - branding is now "AIVric"
+- Rebranding completed (see commit ef8785e) - branding is now "AiVRIC"
 - Site uses Inter and Jost fonts from Google Fonts
 - All pages follow a consistent template structure with preloader, search popup, and responsive menu
