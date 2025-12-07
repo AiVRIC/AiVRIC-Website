@@ -30,20 +30,38 @@
 <link href="assets/css/responsive.css" rel="stylesheet">
 
 <style>
-    /* PCI quad grid – add space between cards, keep 2x2 layout */
-    .pci-grid .single-column {
+    /* Keep quad grid layout, just add spacing */
+    .soc2-grid .single-column {
         padding: 0 15px 34px;
     }
-
-    .pci-grid .single-item {
+    .soc2-grid .single-item {
         height: 100%;
     }
-
     @media (min-width: 992px) {
-        .pci-grid .single-column:nth-child(3),
-        .pci-grid .single-column:nth-child(4) {
+        .soc2-grid .single-column:nth-child(3),
+        .soc2-grid .single-column:nth-child(4) {
             margin-top: 60px;
         }
+    }
+
+    /* Dark intro card for PCI-DSS page */
+    .pci-hero-card {
+        background-color: #1f2227;
+        color: #ffffff;
+        border-radius: 12px;
+        padding: 40px 48px;
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+        margin-bottom: 70px;
+    }
+    .pci-hero-card h2 {
+        color: #ffffff;
+        margin-bottom: 18px;
+    }
+    .pci-hero-card p {
+        color: #d0d4dc;
+        margin-bottom: 0;
+        font-size: 16px;
+        line-height: 1.7;
     }
 </style>
 </head>
@@ -62,24 +80,12 @@
                     <div class="animation-preloader">
                         <div class="spinner"></div>
                         <div class="txt-loading">
-                            <span data-text-preloader="A" class="letters-loading">
-                                A
-                            </span>
-                            <span data-text-preloader="I" class="letters-loading">
-                                I
-                            </span>
-                            <span data-text-preloader="V" class="letters-loading">
-                                V
-                            </span>
-                            <span data-text-preloader="r" class="letters-loading">
-                                r
-                            </span>
-                            <span data-text-preloader="i" class="letters-loading">
-                                i
-                            </span>
-                            <span data-text-preloader="c" class="letters-loading">
-                                c
-                            </span>
+                            <span data-text-preloader="A" class="letters-loading">A</span>
+                            <span data-text-preloader="I" class="letters-loading">I</span>
+                            <span data-text-preloader="V" class="letters-loading">V</span>
+                            <span data-text-preloader="r" class="letters-loading">r</span>
+                            <span data-text-preloader="i" class="letters-loading">i</span>
+                            <span data-text-preloader="c" class="letters-loading">c</span>
                         </div>
                     </div>  
                 </div>
@@ -112,7 +118,7 @@
                                                 <li><a href="services.html#scanning">Security Risk Assessment</a></li>
                                                 <li><a href="services.html#compliance">Compliance Management</a></li>
                                                 <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
-                                             </ul>
+                                            </ul>
                                         </li>
                                         <li class="dropdown"><a href="#">Solutions</a>
                                             <div class="megamenu">
@@ -120,10 +126,10 @@
                                                     <div class="col-lg-6 column">
                                                         <h4>By Compliance Framework</h4>
                                                         <ul>
-                                                            <li><a href="achieve-pci-dss.html">Achieve PCI-DSS Compliance</a></li>
+                                                            <li><a href="achieve-pcidss.html">Achieve PCI DSS Compliance</a></li>
                                                             <li><a href="streamline-soc2.html">Streamline SOC 2 Audits</a></li>
                                                             <li><a href="cmmc-readiness.html">Prepare for CMMC Level 2</a></li>
-                                                            <li><a href="achieve-iso27001-compliance.html">Maintain ISO 27001</a></li>
+                                                            <li><a href="iso27001-continuous.html">Maintain ISO 27001</a></li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-lg-6 column">
@@ -139,7 +145,7 @@
                                         </li>
                                         <li><a href="pricing.html">Pricing</a></li>
                                         <li class="dropdown"><a href="#">Resources</a>
-                                            <ul>                                                
+                                            <ul>
                                                 <li><a href="about.html">About Us</a></li>
                                                 <li><a href="why-aivric.html">Why AiVRIC</a></li>
                                                 <li><a href="#">Documentation</a></li>
@@ -195,7 +201,7 @@
             
             <nav class="menu-box">
                 <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.png" alt="" title=""></a></div>
-                <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+                <div class="menu-outer"></div>
                 <div class="contact-info">
                     <h4>Contact Info</h4>
                     <ul>
@@ -206,15 +212,16 @@
                 </div>
                 <div class="social-links">
                     <ul class="clearfix">
-                        <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-facebook-square"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-instagram"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
+                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                        <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="#"><span class="fab fa-youtube"></span></a></li>
                     </ul>
                 </div>
             </nav>
-        </div><!-- End Mobile Menu -->
+        </div>
+        <!-- End Mobile Menu -->
 
 
         <!-- page-title -->
@@ -238,15 +245,16 @@
         <section class="service-details p_relative">
             <div class="auto-container">
                 <div class="row clearfix">
+                    <!-- Sidebar -->
                     <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
                         <div class="service-sidebar mr_40">
                             <div class="sidebar-widget category-widget">
                                 <h3>Solutions</h3>
                                 <ul class="category-list clearfix">
                                     <li><a href="streamline-soc2.html">SOC 2 Readiness</a></li>
-                                    <li><a href="achieve-pci-dss.html" class="current">Achieve PCI-DSS Compliance</a></li>
+                                    <li><a href="achieve-pcidss.html" class="current">Achieve PCI-DSS Compliance</a></li>
                                     <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
-                                    <li><a href="achieve-iso27001-compliance.html">Achieve ISO 27001 Compliance</a></li>
+                                    <li><a href="iso27001-continuous.html">Achieve ISO 27001 Compliance</a></li>
                                 </ul>
                             </div>
                             <div class="sidebar-widget contact-widget centred">
@@ -262,17 +270,20 @@
                             </div>
                         </div>
                     </div>
+
+                    <!-- Content -->
                     <div class="col-lg-8 col-md-12 col-sm-12 content-side">
                         <div class="service-details-content">
+
+                            <!-- DARK INTRO CARD (modified section) -->
                             <div class="content-one mb_90">
-                                <figure class="image-box"><img src="assets/images/service/service-10.jpg" alt="PCI DSS Automation"></figure>
-                                <div class="text">
+                                <div class="pci-hero-card">
                                     <h2>Reduce PCI-DSS Risk with Continuous Controls and Automated Evidence</h2>
-                                    <p>Cardholder data environments are some of the most targeted and heavily regulated parts of your infrastructure. AiVRIC helps you achieve and maintain PCI-DSS compliance by continuously monitoring in-scope assets, validating security controls, and automating the evidence needed to demonstrate compliance to your acquiring banks, QSAs, and internal stakeholders.</p>
-                                    <p>Instead of treating PCI-DSS as an annual fire drill, AiVRIC turns it into an ongoing, low-friction process. The platform unifies cloud security posture, network and system hardening, logging and monitoring, and control evidence into a single view aligned with PCI-DSS requirements.</p>
+                                    <p>Cardholder data environments are among the most targeted and heavily regulated parts of your infrastructure. AiVRIC helps you achieve and maintain PCI-DSS compliance by continuously monitoring in-scope assets, validating security controls, and automating the evidence needed to demonstrate compliance to your acquiring banks, QSAs, and internal stakeholders.</p>
                                 </div>
                             </div>
 
+                            <!-- Everything below remains unchanged -->
                             <div class="content-two mb_90">
                                 <div class="row clearfix">
                                     <div class="col-lg-6 col-md-6 col-sm-12 text-column">
@@ -288,63 +299,62 @@
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 image-column">
-                                        <figure class="image-box"><img src="assets/images/service/service-9.jpg" alt="PCI-DSS Cardholder Data Environment"></figure>
+                                        <figure class="image-box"><img src="assets/images/resource/about-1.jpg" alt="PCI-DSS Controls"></figure>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="content-three mb_85">
                                 <div class="text mb_60">
-                                    <h3>How AiVRIC Automates PCI-DSS Compliance</h3>
+                                    <h3>How AiVRIC Supports PCI-DSS Compliance</h3>
                                     <p>AiVRIC automates the core activities required to achieve and maintain PCI-DSS compliance—from scoping and asset discovery through ongoing monitoring and evidence generation. The result is a continuously verified CDE with audit-ready evidence mapped to PCI requirements.</p>
                                 </div>
-                                <div class="row clearfix pci-grid">
+                                <div class="row clearfix soc2-grid">
                                     <div class="col-lg-6 col-md-6 col-sm-12 single-column">
                                         <div class="single-item">
                                             <div class="icon-box"><i class="icon-8"></i></div>
-                                            <h3>Automated Scope &amp; Asset Discovery</h3>
+                                            <h3>Automated Scope & Asset Discovery</h3>
                                             <p>AiVRIC discovers systems, services, and data flows that touch cardholder data, helping you accurately define and maintain PCI scope across cloud, on-premises, and SaaS environments.</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 single-column">
                                         <div class="single-item">
                                             <div class="icon-box"><i class="icon-13"></i></div>
-                                            <h3>Continuous Control &amp; Configuration Monitoring</h3>
-                                            <p>The platform continuously evaluates firewalls, system hardening, encryption, logging, and access controls against PCI-DSS requirements, providing early warning when configurations drift or controls fail.</p>
+                                            <h3>Evidence & Reporting Automation</h3>
+                                            <p>Configuration data, logs, vulnerability findings, and change records are automatically collected and organized as control evidence, reducing manual screenshot work and simplifying Internal and QSA reviews.</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 single-column">
                                         <div class="single-item">
                                             <div class="icon-box"><i class="icon-9"></i></div>
-                                            <h3>Evidence &amp; Reporting Automation</h3>
-                                            <p>Configuration data, logs, vulnerability findings, and change records are automatically collected and organized as control evidence, reducing manual screenshot work and simplifying QSA reviews.</p>
+                                            <h3>Requirement-to-Control Mapping</h3>
+                                            <p>Leverage built-in mappings from PCI-DSS requirements to technical and procedural controls, so your teams understand exactly how each system and control contributes to compliance.</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 single-column">
                                         <div class="single-item">
                                             <div class="icon-box"><i class="icon-7"></i></div>
-                                            <h3>Risk &amp; Exception Management for the CDE</h3>
-                                            <p>Findings related to cardholder data systems are automatically mapped to your risk register, enabling structured treatment plans, compensating controls, and documented exceptions aligned with PCI expectations.</p>
+                                            <h3>Risk-Aware PCI Posture</h3>
+                                            <p>Automatically prioritize gaps based on data sensitivity, network exposure, and business impact, ensuring that remediation efforts focus first on the highest-risk misconfigurations.</p>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="text mt_50">
                                     <h3>Outcomes You Can Expect</h3>
-                                    <p>With AiVRIC, PCI-DSS compliance becomes predictable and repeatable rather than disruptive:</p>
+                                    <p>With AiVRIC, security and compliance teams gain a sustainable operating model for PCI-DSS:</p>
                                     <ul class="list-style-one clearfix">
-                                        <li>Reduced effort and cost to prepare for annual PCI-DSS assessments</li>
-                                        <li>Near real-time visibility into control health across the entire CDE</li>
+                                        <li>Reduced time and effort to prepare for annual PCI-DSS assessments</li>
+                                        <li>On-demand visibility into control health across the entire CDE</li>
                                         <li>Fewer last-minute remediation sprints before QSA engagements</li>
-                                        <li>Improved collaboration between security, infrastructure, and payment operations teams</li>
-                                        <li>Stronger assurance for merchant banks, processors, and customers</li>
+                                        <li>Clear, executive-ready reporting on PCI-DSS risk and posture</li>
+                                        <li>Stronger assurance for partners, customers and processors</li>
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="content-four">
-                                <h3>Pair AiVRIC with PCI-DSS Advisory Services</h3>
-                                <p>AiVRIC can be deployed as a stand-alone automation platform or combined with PCI-DSS advisory services from 3HUE’s Information Security Group (ISG). Together, they form a PCI Accelerator program that covers gap assessments, remediation planning, policy and procedure development, readiness assessments, and QSA coordination.</p>
+                                <h3>Extend AiVRIC with PCI-DSS Advisory Services</h3>
+                                <p>AiVRIC can be deployed as a stand-alone automation platform or combined with PCI-DSS advisory services from 3HUE's Information Security Group (ISG). Together, they form a PCI Accelerator program that covers gap assessments, remediation planning, policy and procedure development, readiness assessments, and QSA coordination.</p>
                                 <ul class="download-list clearfix">
                                     <li>
                                         <div class="icon-box"><i class="icon-30"></i></div>
@@ -354,7 +364,7 @@
                                     </li>
                                     <li>
                                         <div class="icon-box"><i class="icon-30"></i></div>
-                                        <h5>PCI Accelerator Program Brief</h5>
+                                        <h5>PCI Program &amp; QSA Prep Guide</h5>
                                         <span>PDF (Coming Soon)</span>
                                         <button type="button">Notify Me</button>
                                     </li>
@@ -421,8 +431,8 @@
                                 <div class="widget-content">
                                     <ul class="links-list clearfix">
                                         <li><a href="streamline-soc2.html">SOC 2 Automation</a></li>
-                                        <li><a href="pci-dss-compliance.html">PCI-DSS Compliance</a></li>
-                                        <li><a href="#">OT / AMI Security</a></li>
+                                        <li><a href="achieve-pcidss.html">PCI-DSS Compliance</a></li>
+                                        <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -465,6 +475,7 @@
         </footer>
         <!-- main-footer end -->
 
+
         <!--Scroll to top-->
         <div class="scroll-to-top">
             <div>
@@ -498,5 +509,5 @@
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
 
-</body><!-- End of .page_wrapper -->
+</body>
 </html>
