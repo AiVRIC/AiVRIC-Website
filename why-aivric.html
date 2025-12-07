@@ -1,18 +1,18 @@
-﻿<!DOCTYPE html>
+﻿<!DOCTYPE html> 
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title>Security & Risk Assessment - AiVRIC</title>
+<title>Why AiVRIC - Autonomous Security & Compliance</title>
 
 <!-- Fav Icon -->
 <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 <!-- Stylesheets -->
 <link href="assets/css/font-awesome-all.css" rel="stylesheet">
@@ -29,6 +29,130 @@
 <link href="assets/css/elements-css/service-details.css" rel="stylesheet">
 <link href="assets/css/responsive.css" rel="stylesheet">
 
+<style>
+    .aivric-advantage-wrapper {
+        margin-top: 30px;
+    }
+
+    .aivric-advantage-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px;
+    }
+
+    .aivric-advantage-card {
+        position: relative;
+        background: #f7f7f7;
+        border-radius: 18px;
+        padding: 70px 40px 36px;
+        text-align: center;
+        box-shadow: 0 14px 40px rgba(15, 23, 42, 0.06);
+        flex: 1 1 100%;
+    }
+
+    @media (min-width: 992px) {
+        .aivric-advantage-card {
+            flex: 0 0 calc(50% - 16px); /* 2 cards per row */
+        }
+    }
+
+    .aivric-advantage-icon {
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: #00c4ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .aivric-advantage-icon i {
+        font-size: 32px;
+        color: #ffffff;
+    }
+
+    .aivric-advantage-card h4 {
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 12px;
+    }
+
+    .aivric-advantage-card p {
+        margin: 0;
+        line-height: 1.6;
+    }
+
+    .content-three .text.mb_60 {
+    margin-bottom: 40px;       /* space between paragraph and grid */
+    padding-bottom: 8px;       /* subtle breathing room */
+    }
+
+    .aivric-advantage-row {
+        margin-top: 10px;           /* small extra gap under intro text */
+    }
+
+    /* spacing between cards */
+    .aivric-advantage-row .single-column {
+        margin-bottom: 70px;
+    }
+
+    /* make all cards equal height without changing existing background/shadow */
+    .aivric-advantage-row .single-item {
+        height: 100%;
+        padding: 40px 40px 32px;   /* a bit more internal padding */
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    /* consistent icon spacing */
+    .aivric-advantage-row .single-item .icon-box {
+        margin-bottom: 22px;
+    }
+
+    /* Two-column layout for Backed by 3HUE / Designed for Modern sections */
+    .aivric-two-col-row {
+        margin-top: 30px;
+        align-items: flex-start;
+    }
+
+    .aivric-two-col-row h3 {
+        margin-bottom: 14px;
+    }
+
+    .aivric-two-col-row p {
+        line-height: 1.6;
+    }
+
+    .aivric-env-list li {
+        margin-bottom: 10px;
+    }
+
+    /* Give a bit of separation between list and closing sentence */
+    .aivric-env-footnote {
+        margin-top: 10px;
+    }
+
+    /* Extra breathing room between columns on desktop */
+    @media (min-width: 992px) {
+        .aivric-two-col-row > div:first-child {
+            padding-right: 40px;
+        }
+    }
+
+    /* On tablet/mobile: stack nicely with spacing */
+    @media (max-width: 991px) {
+        .aivric-two-col-row > div {
+            margin-bottom: 30px;
+        }
+    }
+
+</style>
+
 </head>
 
 
@@ -37,8 +161,6 @@
 
     <div class="boxed_wrapper">
 
-
-        
        <!-- preloader -->
         <div class="loader-wrap">
             <div class="preloader">
@@ -92,62 +214,62 @@
                             <nav class="main-menu navbar-expand-md navbar-light">
                                 <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                                     <ul class="navigation clearfix">
-                                <li><a href="index.html">Home</a></li>
-                                <li class="dropdown"><a href="services.html">Platform</a>
-                                    <ul>
-                                        <li><a href="services.html#scanning">Security & Risk Assessment</a></li>
-                                        <li><a href="services.html#compliance">Compliance Management</a></li>
-                                        <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
-                                     </ul>
-                                </li>
-                                <li class="dropdown"><a href="services.html">Products</a>
-                                    <ul>
-                                        <li class="dropdown"><a href="service-details-4.html">Vision</a>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li class="dropdown"><a href="services.html">Platform</a>
                                             <ul>
-                                                <li><a href="feature-element-1.html">Reporting</a></li>
-                                                <li><a href="feature-element-2.html">Dashboards</a></li>
-                                                <li><a href="feature-element-3.html">Unified Insights</a></li>
-                                                <li><a href="feature-element-4.html">Product Overview</a></li>
-                                                <li><a href="clients-element.html">Threat Intelligence</a></li>
-                                                <li><a href="service-details-4.html">Risk Management</a></li>
+                                                <li><a href="services.html#scanning">Security &amp; Risk Assessment</a></li>
+                                                <li><a href="services.html#compliance">Compliance Management</a></li>
+                                                <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown"><a href="service-details-6.html">Offense</a>
+                                        <li class="dropdown"><a href="services.html">Products</a>
                                             <ul>
-                                                <li><a href="service-details-6.html">Penetration Testing</a></li>
-                                                <li><a href="service-details-2.html">Attack Surface Scanning</a></li>
-                                                <li><a href="#">OSINT</a></li>
-                                                <li><a href="service-details-3.html">Vulnerability Assessment</a></li>
-                                                <li><a href="service-details-5.html">Red Teaming</a></li>
+                                                <li class="dropdown"><a href="service-details-4.html">Vision</a>
+                                                    <ul>
+                                                        <li><a href="feature-element-1.html">Reporting</a></li>
+                                                        <li><a href="feature-element-2.html">Dashboards</a></li>
+                                                        <li><a href="feature-element-3.html">Unified Insights</a></li>
+                                                        <li><a href="feature-element-4.html">Product Overview</a></li>
+                                                        <li><a href="clients-element.html">Threat Intelligence</a></li>
+                                                        <li><a href="service-details-4.html">Risk Management</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"><a href="service-details-6.html">Offense</a>
+                                                    <ul>
+                                                        <li><a href="service-details-6.html">Penetration Testing</a></li>
+                                                        <li><a href="service-details-2.html">Attack Surface Scanning</a></li>
+                                                        <li><a href="#">OSINT</a></li>
+                                                        <li><a href="service-details-3.html">Vulnerability Assessment</a></li>
+                                                        <li><a href="service-details-5.html">Red Teaming</a></li>
+                                                    </ul>
+                                                </li>
+                                                <li class="dropdown"><a href="service-details.html">Defense</a>
+                                                    <ul>
+                                                        <li><a href="#">Cloud Posture</a></li>
+                                                        <li><a href="service-details.html">Compliance Auditing</a></li>
+                                                        <li><a href="#">IAM</a></li>
+                                                        <li><a href="#">Drift Detection</a></li>
+                                                        <li><a href="security-monitoring.html">Security Monitoring</a></li>
+                                                        <li><a href="#">Incident Response</a></li>
+                                                        <li><a href="#">Endpoint Protection</a></li>
+                                                    </ul>
+                                                </li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown"><a href="service-details.html">Defense</a>
+                                        <li><a href="pricing.html">Pricing</a></li>
+                                        <li class="dropdown current"><a href="#">Resources</a>
                                             <ul>
-                                                <li><a href="#">Cloud Posture</a></li>
-                                                <li><a href="service-details.html">Compliance Auditing</a></li>
-                                                <li><a href="#">IAM</a></li>
-                                                <li><a href="#">Drift Detection</a></li>
-                                                <li><a href="security-monitoring.html">Security Monitoring</a></li>
-                                                <li><a href="#">Incident Response</a></li>
-                                                <li><a href="#">Endpoint Protection</a></li>
+                                                <li><a href="blog.html">Blog</a></li>
+                                                <li><a href="why-aivric.html">Why AiVRIC</a></li>
+                                                <li><a href="#">Documentation</a></li>
+                                                <li><a href="#">Support</a></li>
                                             </ul>
                                         </li>
                                     </ul>
-                                </li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li class="dropdown"><a href="#">Resources</a>
-                                    <ul>
-                                        <li><a href="blog.html">Blog</a></li>
-                                        <li><a href="#">Why AiVRIC</a></li>
-                                        <li><a href="#">Documentation</a></li>
-                                        <li><a href="#">Support</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
                                 </div>
                             </nav>
                         </div>
-                                                <ul class="menu-right-content">
+                        <ul class="menu-right-content">
                             <li class="search-box-outer search-toggler">
                                 <i class="icon-4"></i>
                             </li>
@@ -171,7 +293,7 @@
                                 <!--Keep This Empty / Menu will come through Javascript-->
                             </nav>
                         </div>
-                                                <ul class="menu-right-content">
+                        <ul class="menu-right-content">
                             <li class="search-box-outer search-toggler">
                                 <i class="icon-4"></i>
                             </li>
@@ -196,9 +318,9 @@
                 <div class="contact-info">
                     <h4>Contact Info</h4>
                     <ul>
-                        <li>Chicago 12, Melborne City, USA</li>
-                        <li><a href="tel:+8801682648101">+88 01682648101</a></li>
-                        <li><a href="mailto:info@example.com">info@example.com</a></li>
+                        <li>Plantation, FL 33324, USA</li>
+                        <li><a href="tel:+13336660000">+1 333 666 0000</a></li>
+                        <li><a href="mailto:info@AiVRIC.com">info@AiVRIC.com</a></li>
                     </ul>
                 </div>
                 <div class="social-links">
@@ -219,11 +341,10 @@
             <div class="bg-layer" style="background-image: url(assets/images/background/page-title.png);"></div>
             <div class="auto-container">
                 <div class="content-box">
-                    <h1>Security & Risk Assessment</h1>
+                    <h1>Why AiVRIC</h1>
                     <ul class="bread-crumb clearfix">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="services.html">Platform</a></li>
-						<li>Security & Risk Assessment</li>
+                        <li>Why AiVRIC</li>
                     </ul>
                 </div>
             </div>
@@ -231,104 +352,105 @@
         <!-- page-title end -->
 
 
-        <!-- service-details -->
+        <!-- service-details (full-width content) -->
         <section class="service-details p_relative">
             <div class="auto-container">
                 <div class="row clearfix">
-                    <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
-                        <div class="service-sidebar mr_40">
-                            <div class="sidebar-widget category-widget">
-                                <h3>Platform Solutions</h3>
-                                <ul class="category-list clearfix">
-                                    <li><a href="service-details-2.html" class="current">Security & Risk Assessment</a></li>
-                                    <li><a href="service-details.html">Compliance Management</a></li>
-                                    <li><a href="service-details-3.html">AI-Powered Remediation</a></li>
-                                </ul>
-                            </div>
-                            <div class="sidebar-widget contact-widget centred">
-                                <div class="widget-content">
-                                    <div class="bg-layer" style="background-image: url(assets/images/service/service-7.jpg);"></div>
-                                    <h3>Do You Need <br />Any <span>Help?</span></h3>
-                                    <div class="icon-box"><i class="icon-29"></i></div>
-                                    <div class="inner-box">
-                                        <p><a href="mailto:info@AiVRIC.com">info@AiVRIC.com</a></p>
-                                        <h3><a href="tel:3336660000">+1 333 666 0000</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                    <div class="col-lg-12 col-md-12 col-sm-12 content-side">
                         <div class="service-details-content">
+
+                            <!-- Hero / Overview -->
                             <div class="content-one mb_90">
-                                <figure class="image-box"><img src="assets/images/service/service-10.jpg" alt=""></figure>
-                                <div class="text">
-                                    <h2>Continuous and Comprehensive Risk Visibility</h2>
-                                    <p>AiVRIC's Security & Risk Assessment service provides a holistic and continuous evaluation of your organization's security posture. Our platform empowers you to proactively identify, analyze, and manage risks across your entire digital landscape. By offering a unified view of your assets and their associated vulnerabilities, we enable you to prioritize threats and make informed decisions to safeguard your business.</p>
-                                    <p>We go beyond traditional periodic assessments by integrating continuous monitoring and automated scanning. This ensures that you have real-time visibility into your security posture, allowing for the immediate detection of new and emerging threats. Our goal is to provide you with the comprehensive insights needed to maintain a robust and resilient security framework.</p>
+                                <h2>A Unified Platform for Autonomous Security, Compliance, and Risk Intelligence</h2>
+                                <figure class="image-box">
+                                    <img src="assets/images/service/service-8.jpg" alt="Why AiVRIC">
+                                </figure>
+                                <div class="text">                                    
+                                    <p>AiVRIC was built to solve a fundamental challenge: security and compliance operations have become too fragmented, too manual, and too slow for the realities of modern digital business. Cloud, SaaS, DevOps, OT, and regulatory requirements have converged into a single, complex risk surface that traditional tools cannot manage effectively.</p>
+                                    <p>AiVRIC unifies offense, defense, and compliance into a single autonomous platform—powered by AI, engineered for cloud-native environments, and validated through real-world CISO and vCISO engagements.</p>
                                 </div>
                             </div>
-                            <div class="content-two mb_90">
-                                <div class="row clearfix">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 text-column">
-                                        <div class="text-box">
-                                            <h3>Key Components</h3>
-                                            <p>Our Security & Risk Assessment is built on a foundation of continuous discovery, in-depth analysis, and actionable intelligence to provide a complete picture of your risk landscape.</p>
-                                            <ul class="list-style-one clearfix">
-                                                <li>Automated Attack Surface Scanning</li>
-                                                <li>Continuous Vulnerability Assessment</li>
-                                                <li>Threat-Based Risk Prioritization</li>
-                                                <li>Comprehensive Reporting & Analytics</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 image-column">
-                                        <figure class="image-box"><img src="assets/images/service/service-9.jpg" alt=""></figure>
-                                    </div>
-                                </div>
-                            </div>
+
+
+                            <!-- The AiVRIC Advantage -->
                             <div class="content-three mb_85">
-                                <div class="text mb_100">
-                                    <h3>Our Assessment Methodology</h3>
-                                    <p>AiVRIC employs a multi-faceted approach to risk assessment, ensuring that all potential security gaps are identified and evaluated in the context of your business.</p>
-                                </div>
-                                <div class="row clearfix">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
-                                        <div class="single-item">
-                                            <div class="icon-box"><i class="icon-8"></i></div>
-                                            <h3>Asset & Network Discovery</h3>
-                                            <p>We begin by mapping your entire digital footprint, including known and unknown assets, to ensure no part of your attack surface is left unmonitored.</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
-                                        <div class="single-item">
-                                            <div class="icon-box"><i class="icon-13"></i></div>
-                                            <h3>Contextual Risk Analysis</h3>
-                                            <p>Our platform analyzes vulnerabilities in the context of asset criticality and threat intelligence, providing a prioritized list of risks that matter most to your organization.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text mt_50">
-                                    <p>With AiVRIC's continuous risk assessment, you can confidently manage your security posture, respond to threats more effectively, and demonstrate compliance with greater ease.</p>
-                                </div>
-                            </div>
-                            <div class="content-four">
-                                <h3>Download Resources</h3>
-                                <ul class="download-list clearfix">
-                                    <li>
-                                        <div class="icon-box"><i class="icon-30"></i></div>
-                                        <h5>Security & Risk Assessment Datasheet</h5>
-                                        <span>Pdf(1.8mb)</span>
-                                        <button type="button">Download</button>
-                                    </li>
-                                    <li>
-                                        <div class="icon-box"><i class="icon-30"></i></div>
-                                        <h5>Guide to Continuous Monitoring</h5>
-                                        <span>Pdf(1.2mb)</span>
-                                        <button type="button">Download</button>
-                                    </li>
-                                </ul>
-                            </div>
+    <div class="text mb_60">
+        <h3>The AiVRIC Advantage</h3>
+        <p>AiVRIC is designed as a single, integrated intelligence layer sitting across your cloud, SaaS, identity, network, and business systems. The result is an environment where posture, risk, and compliance move in lockstep.</p><br>
+    </div>
+
+    <div class="row clearfix aivric-advantage-row">
+        <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+            <div class="single-item">
+                <div class="icon-box"><i class="icon-8"></i></div>
+                <h3>Unified Offense, Defense, and Compliance</h3>
+                <p>Most tools specialize in either offensive testing, defensive monitoring, or GRC documentation. AiVRIC connects all three, turning test results, posture data, and control definitions into a single, coherent risk picture.</p>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+            <div class="single-item">
+                <div class="icon-box"><i class="icon-13"></i></div>
+                <h3>AI-Powered Risk &amp; Compliance Intelligence</h3>
+                <p>Aivric Vision analyzes thousands of posture and control signals to generate executive summaries, risk scores, audit narratives, and remediation playbooks. This positions static compliance into living intelligence.</p>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+            <div class="single-item">
+                <div class="icon-box"><i class="icon-9"></i></div>
+                <h3>Continuous, Autonomous Evidence Collection</h3>
+                <p>AiVRIC continuously captures and organizes evidence for your controls—configurations, logs, checks, and posture snapshots—so audit preparation becomes a matter of orchestration, not manual effort.</p>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+            <div class="single-item">
+                <div class="icon-box"><i class="icon-7"></i></div>
+                <h3>Security as a Business Enabler</h3>
+                <p>The platform connects technical posture to business outcomes by quantifying risk, highlighting operational impacts, and producing clear, executive-ready insights for leadership and boards.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-four mb_85">
+    <div class="row clearfix aivric-two-col-row">
+
+        <!-- LEFT COLUMN: Backed by 3HUE Security Leadership -->
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <h3>Backed by 3HUE Security Leadership</h3>
+            <p>
+                AiVRIC is backed by 3HUE’s Information Security Group (ISG), providing access to strategic advisors,
+                vCISOs, and specialized engineers. This combination of platform and expertise enables organizations
+                to move beyond basic tooling and into a truly managed, data-driven security and compliance model.
+            </p>
+        </div>
+
+        <!-- RIGHT COLUMN: Designed for Modern, Complex Environments -->
+        <div class="col-lg-6 col-md-12 col-sm-12">
+            <h3>Designed for Modern, Complex Environments</h3>
+            <p>
+                AiVRIC is engineered for organizations that operate across multi-cloud, SaaS-heavy, and hybrid
+                environments, including:
+            </p>
+            <ul class="list-style-one aivric-env-list">
+                <li>High-growth SaaS and digital product companies.</li>
+                <li>Financial services and regulated industries.</li>
+                <li>Transportation, energy, and critical infrastructure.</li>
+                <li>Enterprises with DevOps, CI/CD, and API-driven architectures.</li>
+                <li>OT and AMI environments operating beyond the traditional data center.</li>
+            </ul><br>
+            <p class="aivric-env-footnote">
+                Our philosophy is simple: automate what is repeatable, illuminate what is unknown, and prioritize
+                what matters most to the business.
+            </p>
+        </div>
+
+    </div>
+</div>
+
+                            
+
                         </div>
                     </div>
                 </div>
@@ -352,7 +474,7 @@
                                     <h3>AiVRIC</h3>
                                 </div>
                                 <div class="text">
-                                    <p>Automated Security, Elevated Compliance.</p>
+                                    <p>Autonomous Security, Compliance, and Risk Intelligence.</p>
                                 </div>
                                 <div class="subscribe-box">
                                     <form action="contact.html" method="post">
@@ -371,7 +493,7 @@
                                 </div>
                                 <div class="widget-content">
                                     <ul class="links-list clearfix">
-                                        <li><a href="services.html#scanning">Security & Risk Assessment</a></li>
+                                        <li><a href="services.html#scanning">Security &amp; Risk Assessment</a></li>
                                         <li><a href="services.html#compliance">Compliance Management</a></li>
                                         <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
                                     </ul>
@@ -385,9 +507,9 @@
                                 </div>
                                 <div class="widget-content">
                                     <ul class="links-list clearfix">
+                                        <li><a href="solution-soc2-automation.html">SOC 2 Automation</a></li>
                                         <li><a href="#">Cloud Security</a></li>
-                                        <li><a href="#">Kubernetes Security</a></li>
-                                        <li><a href="#">Github Security</a></li>
+                                        <li><a href="#">OT / AMI Security</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -400,7 +522,7 @@
                                 <div class="widget-content">
                                     <ul class="info-list clearfix">
                                         <li><i class="fas fa-envelope"></i><a href="mailto:info@AiVRIC.com">info@AiVRIC.com</a></li>
-                                        <li><i class="fas fa-phone-alt"></i><a href="tel:3336660000">+1 333 666 0000</a></li>
+                                        <li><i class="fas fa-phone-alt"></i><a href="tel:+13336660000">+1 333 666 0000</a></li>
                                     </ul>
                                 </div>
                                 <ul class="social-links-two clearfix">
@@ -429,8 +551,6 @@
             </div>
         </footer>
         <!-- main-footer end -->
-
-
 
         <!--Scroll to top-->
         <div class="scroll-to-top">
