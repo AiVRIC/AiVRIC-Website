@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<title>Request a Demo - AiVRIC</title>
+
+<!-- Fav Icon -->
+<link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!-- Stylesheets -->
+<link href="assets/css/font-awesome-all.css" rel="stylesheet">
+<link href="assets/css/flaticon.css" rel="stylesheet">
+<link href="assets/css/owl.css" rel="stylesheet">
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="assets/css/animate.css" rel="stylesheet">
+<link href="assets/css/nice-select.css" rel="stylesheet">
+<link href="assets/css/jquery-ui.css" rel="stylesheet">
+<link href="assets/css/color.css" rel="stylesheet">
+<link href="assets/css/elpath.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+<link href="assets/css/elements-css/page-title.css" rel="stylesheet">
+<link href="assets/css/elements-css/contact.css" rel="stylesheet">
+<link href="assets/css/responsive.css" rel="stylesheet">
+
+<meta http-equiv="Content-type" content="text/html; charset=UTF-8">
+
+<style>
+/* Focused demo hero */
+.demo-hero {
+    position: relative;
+    padding: 160px 0 80px;
+    background: radial-gradient(circle at top left, #1b8cff 0%, #020617 55%, #020817 100%);
+    color: #fff;
+    text-align: left;
+}
+.demo-hero .overlay {
+    position: absolute;
+    inset: 0;
+    opacity: 0.18;
+    background-image: url(assets/images/background/page-title.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.demo-hero .auto-container {
+    position: relative;
+    z-index: 2;
+}
+.demo-hero h1 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+.demo-hero p.lead {
+    max-width: 560px;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* Salesforce form styling and scrollable selects */
+.salesforce-web-to-lead {
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 28px 60px rgba(15, 23, 42, 0.25);
+    padding: 30px 30px 26px;
+}
+.salesforce-web-to-lead label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+.salesforce-web-to-lead .form-control,
+.salesforce-web-to-lead select {
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    font-size: 14px;
+    padding: 10px 12px;
+}
+.salesforce-web-to-lead .form-control:focus,
+.salesforce-web-to-lead select:focus {
+    border-color: #1b8cff;
+    box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);
+    outline: none;
+}
+
+/* limit long native dropdowns so users can scroll */
+.salesforce-web-to-lead select {
+    max-height: 250px;
+    overflow-y: auto !important;
+    overflow-x: hidden;
+    -webkit-appearance: auto !important;
+    -moz-appearance: auto !important;
+    appearance: auto !important;
+}
+.salesforce-web-to-lead select::-webkit-scrollbar {
+    width: 8px;
+}
+.salesforce-web-to-lead select::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+.salesforce-web-to-lead select::-webkit-scrollbar-thumb {
+    background: #cbd5f5;
+    border-radius: 4px;
+}
+.salesforce-web-to-lead select::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+}
+
+.demo-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 18px;
+}
+.demo-badge {
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.65);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #e5e7eb;
+}
+
+/* Two-column layout below hero */
+.demo-main {
+    padding: 60px 0 120px;
+}
+.demo-main .value-list {
+    margin-top: 18px;
+}
+.demo-main .value-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.demo-main .value-list i {
+    color: #22c55e;
+    margin-top: 3px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="boxed_wrapper">
+
+    <!-- preloader -->
+    <div class="loader-wrap">
+        <div class="preloader">
+            <div class="preloader-close">x</div>
+            <div id="handle-preloader" class="handle-preloader">
+                <div class="animation-preloader">
+                    <div class="spinner"></div>
+                    <div class="txt-loading">
+                        <span data-text-preloader="A" class="letters-loading">A</span>
+                        <span data-text-preloader="I" class="letters-loading">I</span>
+                        <span data-text-preloader="V" class="letters-loading">V</span>
+                        <span data-text-preloader="r" class="letters-loading">r</span>
+                        <span data-text-preloader="i" class="letters-loading">i</span>
+                        <span data-text-preloader="c" class="letters-loading">c</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- main header -->
+    <header class="main-header header-style-two">
+        <div class="header-lower">
+            <div class="auto-container">
+                <div class="outer-box">
+                    <div class="logo-box">
+                        <figure class="logo">
+                            <a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC"></a>
+                        </figure>
+                    </div>
+                    <div class="menu-area clearfix">
+                        <!--Mobile Navigation Toggler-->
+                        <div class="mobile-nav-toggler">
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                        </div>
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                    <li class="dropdown">
+                                        <a href="services.html">Platform</a>
+                                        <ul>
+                                            <li><a href="services.html#scanning">Security &amp; Risk Assessment</a></li>
+                                            <li><a href="services.html#compliance">Compliance Management</a></li>
+                                            <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a href="#">Solutions</a>
+                                        <div class="megamenu">
+                                            <div class="row clearfix">
+                                                <div class="col-lg-6 column">
+                                                    <h4>By Compliance Framework</h4>
+                                                    <ul>
+                                                        <li><a href="achieve-pci-dss.html">Achieve PCI DSS Compliance</a></li>
+                                                        <li><a href="streamline-soc2.html">Streamline SOC 2 Audits</a></li>
+                                                        <li><a href="cmmc-readiness.html">Prepare for CMMC Level 2</a></li>
+                                                        <li><a href="achieve-iso27001-compliance.html">Maintain ISO 27001</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-6 column">
+                                                    <h4>By Use Case</h4>
+                                                    <ul>
+                                                        <li><a href="services.html#scanning">Cloud Security Posture</a></li>
+                                                        <li><a href="services.html#compliance">Compliance Management</a></li>
+                                                        <li><a href="services.html#remediation">Automated Remediation</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><a href="pricing.html">Pricing</a></li>
+                                    <li class="dropdown">
+                                        <a href="#">Resources</a>
+                                        <ul>
+                                            <li><a href="blog.html">Blog</a></li>
+                                            <li><a href="why-aivric.html">Why AiVRIC</a></li>
+                                            <li><a href="resources.html">Documentation</a></li>
+                                            <li><a href="faq.html">Support &amp; FAQ</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <ul class="menu-right-content">
+                        <li class="search-box-outer search-toggler">
+                            <i class="icon-4"></i>
+                        </li>
+                        <li class="btn-box">
+                            <!-- points to this landing page -->
+                            <a href="request-demo.html" class="theme-btn-one">Request A Demo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!--sticky Header-->
+        <div class="sticky-header">
+            <div class="auto-container">
+                <div class="outer-box">
+                    <div class="logo-box">
+                        <figure class="logo">
+                            <a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a>
+                        </figure>
+                    </div>
+                    <div class="menu-area clearfix">
+                        <nav class="main-menu clearfix"><!-- menu via JS --></nav>
+                    </div>
+                    <ul class="menu-right-content">
+                        <li class="search-box-outer search-toggler">
+                            <i class="icon-4"></i>
+                        </li>
+                        <li class="btn-box">
+                            <a href="request-demo.html" class="theme-btn-one">Request A Demo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- main-header end -->
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+        
+        <nav class="menu-box">
+            <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.png" alt=""></a></div>
+            <div class="menu-outer"></div>
+            <div class="contact-info">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>Wilmington, Delaware, USA</li>
+                    <li><a href="tel:+19543426637">+1 954 342 6637</a></li>
+                    <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                </ul>
+            </div>
+            <div class="social-links">
+                <ul class="clearfix">
+                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                    <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- End Mobile Menu -->
+
+    <!-- Demo hero -->
+    <section class="demo-hero">
+        <div class="overlay"></div>
+        <div class="auto-container">
+            <div class="row clearfix align-items-center">
+                <div class="col-lg-7 col-md-12">
+                    <h1>See AiVRIC in Action</h1>
+                    <p class="lead">
+                        Request a live walkthrough of AiVRIC to see how AI-powered assessments, remediation guidance,
+                        and compliance automation can simplify your cloud security operations.
+                    </p>
+                    <div class="demo-badges">
+                        <span class="demo-badge">Mid-Market &amp; Enterprise Ready</span>
+                        <span class="demo-badge">Cloud Security &amp; Compliance</span>
+                        <span class="demo-badge">Guided by Experts</span>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <img src="assets/images/resource/demo-hero-illustration.png" alt="AiVRIC Demo"
+                         style="max-width:100%; border-radius:22px; box-shadow:0 22px 48px rgba(15,23,42,0.5);">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main content: value props + Salesforce form -->
+    <section class="demo-main">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-5 col-md-12">
+                    <h3>What you’ll get from your demo</h3>
+                    <p>
+                        Every organization’s cloud footprint is different. In your session, our team will focus on
+                        the controls, frameworks, and deployments that matter most to you.
+                    </p>
+                    <ul class="value-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Live walkthrough of AiVRIC’s assessment engine, findings, and remediation workflow.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Discussion of your current cloud platforms, frameworks, and audit priorities.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Example reports, export options, and how AiVRIC fits into your existing toolchain.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Time for Q&amp;A with our security and compliance experts.</span>
+                        </li>
+                    </ul>
+                    <p class="mt_20">
+                        Complete the form and we’ll follow up quickly to confirm a time that works for your team.
+                    </p>
+                </div>
+
+                <div class="col-lg-7 col-md-12 mt_30">
+                    <div class="form-inner">
+                        <!-- Salesforce Web-to-Lead form -->
+                        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&amp;orgId=00Dal00001MW405"
+                              method="POST"
+                              class="default-form salesforce-web-to-lead">
+
+                            <input type="hidden" name="oid" value="00Dal00001MW405">
+                            <input type="hidden" name="retURL" value="https://aivric.com/form-post-signup-thank-you.html">
+                            <!-- Optional: enable for testing
+                            <input type="hidden" name="debug" value="1">
+                            <input type="hidden" name="debugEmail" value="aramirez@aivric.com">
+                            -->
+
+                            <div class="row clearfix">
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label for="company">Company</label>
+                                    <input id="company" maxlength="40" name="company" type="text"
+                                           class="form-control" placeholder="Company" required>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label for="first_name">First Name</label>
+                                    <input id="first_name" maxlength="40" name="first_name" type="text"
+                                           class="form-control" placeholder="First Name" required>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label for="last_name">Last Name</label>
+                                    <input id="last_name" maxlength="80" name="last_name" type="text"
+                                           class="form-control" placeholder="Last Name" required>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label for="email">Email</label>
+                                    <input id="email" maxlength="80" name="email" type="email"
+                                           class="form-control" placeholder="Work Email" required>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label for="phone">Phone</label>
+                                    <input id="phone" maxlength="40" name="phone" type="text"
+                                           class="form-control" placeholder="Phone (optional)">
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label for="city">City</label>
+                                    <input id="city" maxlength="40" name="city" type="text"
+                                           class="form-control" placeholder="City">
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label for="state_code">State/Province</label>
+                                    <select id="state_code" name="state_code" class="form-control">
+                                        <option value="">--None--</option>
+                                        <!-- full list kept as in Salesforce (truncated here if you want to shorten) -->
+                                        <option value="AL">Alabama</option>
+                                        <option value="AK">Alaska</option>
+                                        <option value="AB">Alberta</option>
+                                        <option value="AZ">Arizona</option>
+                                        <option value="AR">Arkansas</option>
+                                        <option value="CA">California</option>
+                                        <option value="CO">Colorado</option>
+                                        <option value="CT">Connecticut</option>
+                                        <option value="DE">Delaware</option>
+                                        <option value="FL">Florida</option>
+                                        <option value="GA">Georgia</option>
+                                        <option value="HI">Hawaii</option>
+                                        <option value="ID">Idaho</option>
+                                        <option value="IL">Illinois</option>
+                                        <option value="IN">Indiana</option>
+                                        <option value="IA">Iowa</option>
+                                        <option value="KS">Kansas</option>
+                                        <option value="KY">Kentucky</option>
+                                        <option value="LA">Louisiana</option>
+                                        <option value="ME">Maine</option>
+                                        <option value="MD">Maryland</option>
+                                        <option value="MA">Massachusetts</option>
+                                        <option value="MI">Michigan</option>
+                                        <option value="MN">Minnesota</option>
+                                        <option value="MS">Mississippi</option>
+                                        <option value="MO">Missouri</option>
+                                        <option value="MT">Montana</option>
+                                        <option value="NE">Nebraska</option>
+                                        <option value="NV">Nevada</option>
+                                        <option value="NH">New Hampshire</option>
+                                        <option value="NJ">New Jersey</option>
+                                        <option value="NM">New Mexico</option>
+                                        <option value="NY">New York</option>
+                                        <option value="NC">North Carolina</option>
+                                        <option value="ND">North Dakota</option>
+                                        <option value="OH">Ohio</option>
+                                        <option value="OK">Oklahoma</option>
+                                        <option value="OR">Oregon</option>
+                                        <option value="PA">Pennsylvania</option>
+                                        <option value="RI">Rhode Island</option>
+                                        <option value="SC">South Carolina</option>
+                                        <option value="SD">South Dakota</option>
+                                        <option value="TN">Tennessee</option>
+                                        <option value="TX">Texas</option>
+                                        <option value="UT">Utah</option>
+                                        <option value="VT">Vermont</option>
+                                        <option value="VA">Virginia</option>
+                                        <option value="WA">Washington</option>
+                                        <option value="WV">West Virginia</option>
+                                        <option value="WI">Wisconsin</option>
+                                        <option value="WY">Wyoming</option>
+                                        <!-- plus all other provinces/states as in your original list -->
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                                    <label for="country_code">Country</label>
+                                    <select id="country_code" name="country_code" class="form-control">
+                                        <option value="">--None--</option>
+                                        <option value="US">United States</option>
+                                        <option value="CA">Canada</option>
+                                        <option value="GB">United Kingdom</option>
+                                        <option value="IE">Ireland</option>
+                                        <option value="DE">Germany</option>
+                                        <option value="FR">France</option>
+                                        <option value="AU">Australia</option>
+                                        <option value="NZ">New Zealand</option>
+                                        <!-- keep or expand with full Salesforce list as desired -->
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <label for="description">Anything we should know before the demo? (optional)</label>
+                                    <textarea id="description" name="description" class="form-control" rows="3"
+                                              placeholder="Share your cloud platforms, key frameworks, or any specific objectives for the session."></textarea>
+                                </div>
+
+                                <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                                    <div class="message-btn">
+                                        <button type="submit" name="submit" class="theme-btn-one w-100">
+                                            Request My Demo
+                                        </button>
+                                    </div>
+                                    <p style="font-size:12px; color:#6b7280; margin-top:8px;">
+                                        By submitting this form you agree to be contacted about AiVRIC products and services.
+                                        You can opt out at any time.
+                                    </p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="main-footer">
+        <div class="widget-section">
+            <div class="pattern-layer">
+                <div class="pattern-1" style="background-image: url(assets/images/shape/shape-20.png);"></div>
+                <div class="pattern-2" style="background-image: url(assets/images/shape/shape-21.png);"></div>
+            </div>
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                        <div class="logo-widget footer-widget">
+                            <figure class="footer-logo">
+                                <a href="index.html"><img src="assets/images/footer-logo.png" alt=""></a>
+                            </figure>
+                            <div class="text">
+                                <p>AiVRIC helps security and compliance leaders continuously validate, prioritize, and remediate risk across complex cloud environments.</p>
+                                <p>Built by practitioners, for practitioners.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                        <div class="links-widget footer-widget ml_50">
+                            <div class="widget-title">
+                                <h3>Quick Links</h3>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="links-list clearfix">
+                                    <li><a href="about.html">About Us</a></li>
+                                    <li><a href="services.html">Platform</a></li>
+                                    <li><a href="pricing.html">Pricing</a></li>
+                                    <li><a href="contact.html">Contact Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                        <div class="links-widget footer-widget ml_30">
+                            <div class="widget-title">
+                                <h3>Legal</h3>
+                            </div>
+                            <div class="widget-content">
+                                <ul class="links-list clearfix">
+                                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                                    <li><a href="terms-of-use.html">Terms &amp; Conditions</a></li>
+                                    <li><a href="resources.html">Resources</a></li>
+                                    <li><a href="faq.html">FAQ</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                        <div class="contact-widget footer-widget">
+                            <div class="widget-title">
+                                <h3>Contact</h3>
+                            </div>
+                            <div class="widget-content">
+                                <p>Our Location</p>
+                                <ul class="info-list clearfix">
+                                    <li><i class="icon-23"></i>Wilmington, Delaware 19802</li>
+                                    <li><i class="icon-3"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                                    <li><i class="icon-2"></i><a href="tel:9543426637">+1 (954) 342-6637</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom centred">
+            <div class="auto-container">
+                <div class="copyright">
+                    <p>&copy; 2025 <a href="index.html">AiVRIC</a>. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
+
+    <!--Scroll to top-->
+    <div class="scroll-to-top">
+        <div>
+            <div class="scroll-top-inner">
+                <div class="scroll-bar">
+                    <div class="bar-inner"></div>
+                </div>
+                <div class="scroll-bar-text">Go To Top</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.js"></script>
+<script src="assets/js/wow.js"></script>
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/jquery.fancybox.js"></script>
+<script src="assets/js/appear.js"></script>
+<script src="assets/js/scrollbar.js"></script>
+<script src="assets/js/isotope.js"></script>
+<script src="assets/js/jquery.nice-select.min.js"></script>
+<script src="assets/js/parallax-scroll.js"></script>
+<script src="assets/js/jquery-ui.js"></script>
+<script src="assets/js/jquery.bootstrap-touchspin.js"></script>
+<script src="assets/js/script.js"></script>
+
+</body>
+</html>
