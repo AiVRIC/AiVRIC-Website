@@ -405,12 +405,19 @@
                 <div class="col-lg-7 col-md-12 mt_30">
                     <div class="form-inner">
                         <!-- Salesforce Web-to-Lead form -->
-                        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&amp;orgId=00Dal00001MW405"
-                              method="POST"
-                              class="default-form salesforce-web-to-lead">
+                        <form id="sf-webtolead"
+                            action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
+                            method="POST"
+                            class="default-form salesforce-web-to-lead">
 
-                            <input type="hidden" name="oid" value="00Dal00001MW405">
-                            <input type="hidden" name="retURL" value="https://aivric.com/form-post-signup-thank-you.html">
+                        <!-- Required Salesforce fields -->
+                        <input type="hidden" name="oid" value="00Dal00001MW405">
+                        <input type="hidden" name="retURL" value="https://aivric.com/form-post-signup-thank-you.html">
+
+    <!-- TEMP: debug so we can see what Salesforce is doing -->
+    <input type="hidden" name="debug" value="1">
+    <input type="hidden" name="debugEmail" value="aramirez@aivric.com">
+
 
                             <div class="row clearfix">
                                 <div class="col-lg-6 col-md-6 col-sm-12 form-group">
