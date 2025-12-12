@@ -1,653 +1,1319 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title>Pricing Options - AiVRIC</title>
+  <title>AiVRIC | Pricing</title>
 
-<!-- Fav Icon -->
-<link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+  <!-- Fav Icon -->
+  <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-<!-- Stylesheets -->
-<link href="assets/css/font-awesome-all.css" rel="stylesheet">
-<link href="assets/css/flaticon.css" rel="stylesheet">
-<link href="assets/css/owl.css" rel="stylesheet">
-<link href="assets/css/bootstrap.css" rel="stylesheet">
-<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
-<link href="assets/css/animate.css" rel="stylesheet">
-<link href="assets/css/nice-select.css" rel="stylesheet">
-<link href="assets/css/color.css" rel="stylesheet">
-<link href="assets/css/elpath.css" rel="stylesheet">
-<link href="assets/css/style.css" rel="stylesheet">
-<link href="assets/css/elements-css/page-title.css" rel="stylesheet">
-<link href="assets/css/responsive.css" rel="stylesheet">
+  <!-- AiVRIC Template CSS (match your site) -->
+  <link href="assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="assets/css/flaticon.css" rel="stylesheet">
+  <link href="assets/css/owl.css" rel="stylesheet">
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+  <link href="assets/css/animate.css" rel="stylesheet">
+  <link href="assets/css/nice-select.css" rel="stylesheet">
+  <link href="assets/css/color.css" rel="stylesheet">
+  <link href="assets/css/elpath.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/responsive.css" rel="stylesheet">
 
-<style>
-    /* =========================
-       Pricing Page Overrides
-       Clean spacing + 3 cards
-       ========================= */
+  <!-- Page-specific styling (keeps AiVRIC look, adds modern pricing layout) -->
+  <style>
+    :root{
+      --aivric-accent: #00d1ff;     /* aligns to your site CTA/cyan */
+      --aivric-accent2: #2ee59d;    /* success/green */
+      --aivric-ink: #0b1220;
+      --aivric-panel: rgba(255,255,255,0.06);
+      --aivric-panel2: rgba(255,255,255,0.09);
+      --aivric-line: rgba(255,255,255,0.12);
+      --aivric-text: rgba(255,255,255,0.92);
+      --aivric-muted: rgba(255,255,255,0.72);
+      --aivric-muted2: rgba(255,255,255,0.58);
+      --aivric-shadow: 0 14px 40px rgba(0,0,0,0.28);
+      --aivric-radius: 18px;
+    }
 
+    /* Use your theme, but ensure this page background matches your darker sections */
+    body.mode-saas,
+    body.mode-win{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 900px at 70% -20%, rgba(0,209,255,0.22), transparent 55%),
+        radial-gradient(900px 700px at 10% 10%, rgba(46,229,157,0.14), transparent 60%),
+        linear-gradient(180deg, #070b14 0%, #060a12 35%, #050814 100%);
+      color: var(--aivric-text);
+    }
+
+    /* Ensure header stays readable on dark bg */
+    .main-header .header-lower,
+    .sticky-header{
+      background: rgb(255, 255, 255);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* Page container aligns with your template */
+    .pricing-wrap{
+      padding: 120px 0 90px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (max-width: 992px){
+      .pricing-wrap{ padding: 100px 0 70px 0; }
+    }
+
+    .pricing-hero{
+      padding: 10px 0 18px 0;
+    }
+
+    .hero-grid{
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 26px;
+      align-items: start;
+    }
+    @media (max-width: 992px){
+      .hero-grid{ grid-template-columns: 1fr; }
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(0,209,255,0.12);
+      border: 1px solid rgba(0,209,255,0.28);
+      color: var(--aivric-text);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .badge i{ color: var(--aivric-accent); }
+
+    .hero-title{
+      font-family: Jost, Inter, sans-serif;
+      font-size: 46px;
+      line-height: 1.06;
+      margin: 14px 0 12px 0;
+      letter-spacing: -0.8px;
+      color: var(--aivric-text);
+    }
+    @media (max-width: 768px){
+      .hero-title{ font-size: 36px; }
+    }
+
+    .hero-sub{
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--aivric-muted);
+      margin: 0 0 18px 0;
+      max-width: 70ch;
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 14px;
+      margin: 18px 0 0 0;
+      padding: 0;
+      list-style:none;
+    }
+    @media (max-width: 620px){
+      .hero-points{ grid-template-columns: 1fr; }
+    }
+    .hero-points li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .hero-points i{ margin-top:2px; color: var(--aivric-accent2); }
+    .hero-points span{ color: var(--aivric-muted); font-size: 14px; line-height: 1.45; }
+
+    /* Toggle panel */
+    .pricing-toggle{
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--aivric-radius);
+      box-shadow: var(--aivric-shadow);
+      padding: 18px;
+      position: sticky;
+      top: 110px;
+    }
+    @media (max-width: 992px){
+      .pricing-toggle{ position: relative; top: auto; }
+    }
+    .toggle-title{
+      font-size: 13px;
+      letter-spacing: 0.25px;
+      color: var(--aivric-muted);
+      margin: 0 0 10px 0;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .toggle-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+    }
+    .toggle-label{
+      display:flex;
+      flex-direction:column;
+      gap: 3px;
+      padding-right: 8px;
+    }
+    .toggle-label strong{
+      font-size: 14px;
+      color: var(--aivric-text);
+      font-weight: 900;
+      letter-spacing: 0.2px;
+    }
+    .toggle-label small{
+      color: var(--aivric-muted2);
+      font-size: 12.5px;
+      line-height: 1.4;
+    }
+
+    .switch{ position: relative; width: 56px; height: 32px; flex: 0 0 auto; }
+    .switch input{ display:none; }
+    .slider{
+      position:absolute; cursor:pointer;
+      inset:0;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.18);
+      transition: 0.25s;
+      border-radius: 999px;
+    }
+    .slider:before{
+      position:absolute; content:"";
+      height: 24px; width: 24px;
+      left: 4px; top: 3px;
+      background: rgba(255,255,255,0.92);
+      transition: 0.25s;
+      border-radius: 999px;
+    }
+    input:checked + .slider{
+      background: rgba(0,209,255,0.45);
+      border-color: rgba(0,209,255,0.55);
+    }
+    input:checked + .slider:before{ transform: translateX(24px); }
+
+    .toggle-foot{
+      margin-top: 12px;
+      color: var(--aivric-muted2);
+      font-size: 12.5px;
+      line-height: 1.55;
+    }
+    .legal-note{
+      margin-top: 14px;
+      color: rgba(255,255,255,0.45);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* Section headings */
     .pricing-section{
-        padding: 90px 0 110px;
+      padding: 26px 0 0 0;
+    }
+    .section-title{
+      font-family: Jost, Inter, sans-serif;
+      font-size: 30px;
+      margin: 18px 0 10px 0;
+      letter-spacing: -0.3px;
+      color: var(--aivric-text);
+    }
+    .section-sub{
+      margin: 0 0 22px 0;
+      color: var(--aivric-muted);
+      line-height: 1.75;
+      font-size: 15px;
+      max-width: 88ch;
     }
 
-    .pricing-top{
-        max-width: 920px;
-        margin: 0 auto 38px;
-        text-align: center;
-    }
-    .pricing-top h2{
-        margin-bottom: 10px;
-    }
-    .pricing-top p{
-        margin: 0 auto;
-        max-width: 760px;
-        font-size: 16px;
-        line-height: 1.75;
-        color: rgba(15, 23, 42, 0.75);
-    }
-
-    /* card grid */
+    /* Pricing cards */
     .pricing-grid{
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 26px;
-        align-items: stretch;
-        margin-top: 26px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 10px;
     }
-    @media (max-width: 991px){
-        .pricing-grid{
-            grid-template-columns: 1fr;
-            gap: 18px;
-        }
-        .pricing-section{
-            padding: 70px 0 95px;
-        }
+    @media (max-width: 992px){
+      .pricing-grid{ grid-template-columns: 1fr; }
     }
 
-    /* card shell */
-    .price-card{
-        position: relative;
-        overflow: hidden;
-        border-radius: 18px;
-        background: #0b1220;
-        box-shadow: 0 28px 60px rgba(15, 23, 42, 0.22);
-        border: 1px solid rgba(148, 163, 184, 0.18);
-        padding: 34px 34px 30px;  /* ample padding */
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        min-height: 520px;
+    .p-card{
+      border-radius: var(--aivric-radius);
+      background: var(--aivric-panel);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--aivric-shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .p-card.highlight{
+      border-color: rgba(46,229,157,0.35);
+    }
+    .p-card.enterprise{
+      border-color: rgba(255,206,58,0.28);
     }
 
-    /* subtle hex background motif like your screenshot */
-    .price-card:before{
-        content: "";
-        position: absolute;
-        inset: -40px;
-        background-image: radial-gradient(rgba(59, 130, 246, 0.08) 1px, transparent 1px);
-        background-size: 22px 22px;
-        opacity: 0.55;
-        pointer-events: none;
-        transform: rotate(8deg);
+    .p-head{
+      padding: 18px 18px 14px 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    }
+    .plan-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .plan-name{
+      font-family: Jost, Inter, sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      margin: 0;
+      color: var(--aivric-text);
+    }
+    .pill{
+      font-size: 12px;
+      font-weight: 900;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: var(--aivric-text);
+      white-space: nowrap;
+    }
+    .pill.recommended{
+      background: rgba(46,229,157,0.14);
+      border-color: rgba(46,229,157,0.35);
+    }
+    .pill.enterprise{
+      background: rgba(255,206,58,0.12);
+      border-color: rgba(255,206,58,0.28);
+    }
+    .plan-desc{
+      margin: 0;
+      color: var(--aivric-muted);
+      font-size: 13.5px;
+      line-height: 1.55;
     }
 
-    .price-card > *{
-        position: relative;
-        z-index: 2;
+    .p-price{
+      padding: 14px 18px 10px 18px;
     }
-
-    /* header */
-    .price-badge{
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 6px 10px;
-        border-radius: 999px;
-        background: rgba(59, 130, 246, 0.14);
-        border: 1px solid rgba(59, 130, 246, 0.30);
-        color: #93c5fd;
-        font-size: 11px;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        margin-bottom: 14px;
+    .price-row{
+      display:flex;
+      align-items:baseline;
+      gap: 10px;
+      flex-wrap: wrap;
     }
-
-    .price-title{
-        color: #e5e7eb;
-        font-weight: 700;
-        font-size: 18px;
-        margin-bottom: 6px;
-    }
-
-    .price-subtitle{
-        color: rgba(226, 232, 240, 0.82);
-        font-size: 13px;
-        line-height: 1.6;
-        margin-bottom: 16px;
-        max-width: 95%;
-    }
-
     .price-amount{
-        display: flex;
-        align-items: baseline;
-        gap: 8px;
-        margin: 10px 0 6px;
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      color: var(--aivric-text);
     }
-    .price-amount .value{
-        color: #ffffff;
-        font-size: 40px;
-        font-weight: 800;
-        letter-spacing: -0.02em;
+    .price-term{
+      color: var(--aivric-muted2);
+      font-size: 13px;
+      font-weight: 700;
     }
-    .price-amount .period{
-        color: rgba(226, 232, 240, 0.75);
-        font-size: 13px;
-        font-weight: 600;
-    }
-
     .price-note{
-        color: rgba(34, 197, 94, 0.95);
-        font-size: 12px;
-        margin-bottom: 18px;
+      margin-top: 8px;
+      color: var(--aivric-muted2);
+      font-size: 12.5px;
+      line-height: 1.55;
     }
 
-    /* features */
-    .price-features{
-        margin: 18px 0 18px;
-        padding: 18px 18px;
-        border-radius: 14px;
-        border: 1px solid rgba(148, 163, 184, 0.18);
-        background: rgba(2, 6, 23, 0.38);
+    .p-features{
+      padding: 10px 18px 18px 18px;
     }
-    .price-features li{
-        list-style: none;
-        display: grid;
-        grid-template-columns: 18px 1fr;
-        gap: 10px;
-        align-items: start;
-        padding: 9px 0;
-        border-bottom: 1px solid rgba(148, 163, 184, 0.14);
-        color: rgba(226, 232, 240, 0.92);
-        font-size: 14px;
-        line-height: 1.55;
+    .p-features ul{
+      list-style:none;
+      padding: 0;
+      margin: 0;
+      display:grid;
+      gap: 10px;
     }
-    .price-features li:last-child{
-        border-bottom: none;
-        padding-bottom: 2px;
+    .p-features li{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      padding: 10px 12px;
+      border-radius: 12px;
     }
-    .price-features i{
-        color: #22c55e;
-        margin-top: 2px;
-        font-size: 14px;
+    .p-features i{ margin-top:2px; color: var(--aivric-accent2); }
+    .p-features span{ color: var(--aivric-muted); font-size: 13.5px; line-height: 1.45; }
+
+    .p-actions{
+      padding: 0 18px 18px 18px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons aligned with template feel (but independent) */
+    .a-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: var(--aivric-text);
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.2px;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    .a-btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.09);
+    }
+    .a-btn.primary{
+      background: linear-gradient(90deg, rgba(0,209,255,0.95), rgba(46,229,157,0.75));
+      border-color: rgba(0,209,255,0.55);
+      color: #031018;
+    }
+    .a-btn.primary:hover{ filter: brightness(1.02); }
+    .a-btn.ghost{ background: transparent; border-color: rgba(255,255,255,0.16); }
+
+    /* Modules */
+    .modules-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    @media (max-width: 1200px){
+      .modules-grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 620px){
+      .modules-grid{ grid-template-columns: 1fr; }
+    }
+    .module{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      padding: 16px;
+      box-shadow: var(--aivric-shadow);
+    }
+    .module-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap: 10px;
+    }
+    .module h3{
+      margin: 0;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      color: var(--aivric-text);
+    }
+    .module .tag{
+      font-size: 12px;
+      font-weight: 900;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,209,255,0.14);
+      border: 1px solid rgba(0,209,255,0.30);
+      white-space: nowrap;
+      color: var(--aivric-text);
+    }
+    .module p{
+      margin: 10px 0 0 0;
+      color: var(--aivric-muted);
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+
+    /* Comparison table */
+    .compare{
+      margin-top: 18px;
+      border-radius: var(--aivric-radius);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      box-shadow: var(--aivric-shadow);
+      overflow: hidden;
+    }
+    .compare-head{
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .compare-head strong{
+      font-size: 14px;
+      letter-spacing: 0.2px;
+      color: var(--aivric-text);
+    }
+    .compare-head span{
+      color: var(--aivric-muted2);
+      font-size: 12px;
+    }
+    .compare-table{
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+    .compare-table th,
+    .compare-table td{
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      vertical-align: top;
+      color: var(--aivric-muted);
+    }
+    .compare-table th{
+      color: var(--aivric-text);
+      font-weight: 900;
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+    .check{ color: var(--aivric-accent2); font-weight: 900; }
+    .dash{ color: rgba(255,255,255,0.35); }
+
+    /* FAQ */
+    .faq{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    @media (max-width: 992px){
+      .faq{ grid-template-columns: 1fr; }
+    }
+    details{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      padding: 14px 14px;
+      box-shadow: var(--aivric-shadow);
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      color: var(--aivric-text);
+      list-style: none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{
+      margin: 10px 0 0 0;
+      color: var(--aivric-muted);
+      line-height: 1.7;
+      font-size: 13.5px;
     }
 
     /* CTA */
-    .price-cta{
-        display: flex;
-        gap: 12px;
-        align-items: center;
-        margin-top: 12px;
+    .cta{
+      margin-top: 18px;
+      border-radius: var(--aivric-radius);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: linear-gradient(90deg, rgba(0,209,255,0.14), rgba(46,229,157,0.10));
+      box-shadow: var(--aivric-shadow);
+      padding: 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap: wrap;
     }
-    .price-cta .theme-btn-one{
-        width: 100%;
-        text-align: center;
-        padding: 14px 18px;
-        border-radius: 999px;
+    .cta strong{
+      font-family: Jost, Inter, sans-serif;
+      font-size: 20px;
+      letter-spacing: -0.2px;
+      color: var(--aivric-text);
     }
-    .price-cta .alt-link{
-        width: 100%;
-        text-align: center;
-        padding: 14px 18px;
-        border-radius: 999px;
-        border: 1px solid rgba(148, 163, 184, 0.30);
-        color: rgba(226, 232, 240, 0.95);
-        font-weight: 700;
-        font-size: 14px;
-        display: inline-block;
-    }
-    .price-cta .alt-link:hover{
-        color: #ffffff;
-        border-color: rgba(59, 130, 246, 0.55);
-    }
-
-    /* highlight middle plan */
-    .price-card.featured{
-        border: 1px solid rgba(59, 130, 246, 0.55);
-        box-shadow: 0 34px 78px rgba(37, 99, 235, 0.18);
-        transform: translateY(-6px);
-    }
-    @media (max-width: 991px){
-        .price-card.featured{ transform: none; }
+    .cta span{
+      display:block;
+      color: var(--aivric-muted);
+      margin-top: 6px;
+      font-size: 13.5px;
+      line-height: 1.65;
+      max-width: 74ch;
     }
 
-    /* small footnote block */
-    .pricing-foot{
-        margin-top: 34px;
-        text-align: center;
-        color: rgba(15, 23, 42, 0.70);
-        font-size: 13px;
-        line-height: 1.7;
-        padding: 0 18px;
-    }
-    .pricing-foot a{
-        font-weight: 700;
-    }
-</style>
+    /* Hide/show prices by deployment model */
+    .price-saas, .price-win{ display:none; }
+    .mode-saas .price-saas{ display:inline; }
+    .mode-win .price-win{ display:inline; }
 
+    /* Notes */
+    .note-saas, .note-win{ display:none; }
+    .mode-saas .note-saas{ display:block; }
+    .mode-win .note-win{ display:block; }
+
+    /* Smooth anchor offset for sticky header */
+    .anchor{ scroll-margin-top: 120px; }
+  </style>
 </head>
 
-<body>
-<div class="boxed_wrapper">
+<body class="mode-saas">
 
-    <!-- preloader -->
-    <div class="loader-wrap">
-        <div class="preloader">
-            <div class="preloader-close">x</div>
-            <div id="handle-preloader" class="handle-preloader">
-                <div class="animation-preloader">
-                    <div class="spinner"></div>
-                    <div class="txt-loading">
-                        <span data-text-preloader="A" class="letters-loading">A</span>
-                        <span data-text-preloader="I" class="letters-loading">I</span>
-                        <span data-text-preloader="V" class="letters-loading">V</span>
-                        <span data-text-preloader="r" class="letters-loading">r</span>
-                        <span data-text-preloader="i" class="letters-loading">i</span>
-                        <span data-text-preloader="c" class="letters-loading">c</span>
-                    </div>
-                </div>
-            </div>
+  <div class="boxed_wrapper">
+
+    <!--Search Popup-->
+    <div id="search-popup" class="search-popup">
+      <div class="popup-inner">
+        <div class="upper-box clearfix">
+          <figure class="logo-box pull-left"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
+          <div class="close-search pull-right"><span class="far fa-times"></span></div>
         </div>
+        <div class="overlay-layer"></div>
+        <div class="auto-container">
+          <div class="search-form">
+            <form method="post" action="index.html">
+              <div class="form-group">
+                <fieldset>
+                  <input type="search" class="form-control" name="search-input" value="" placeholder="Type your keyword and hit" required>
+                  <button type="submit"><i class="far fa-search"></i></button>
+                </fieldset>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- preloader end -->
 
     <!-- main header -->
     <header class="main-header">
-        <div class="header-lower">
-            <div class="auto-container">
-                <div class="outer-box">
-                    <div class="logo-box">
-                        <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
-                    </div>
-                    <div class="menu-area clearfix">
-                        <div class="mobile-nav-toggler">
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
-                        </div>
-                        <nav class="main-menu navbar-expand-md navbar-light">
-                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                                <ul class="navigation clearfix">
-                                    <li class="dropdown"><a href="services.html">Platform</a>
-                                        <ul>
-                                            <li><a href="services.html#scanning">Security Risk Assessment</a></li>
-                                            <li><a href="services.html#compliance">Compliance Management</a></li>
-                                            <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown"><a href="#">Solutions</a>
-                                        <div class="megamenu">
-                                            <div class="row clearfix">
-                                                <div class="col-lg-6 column">
-                                                    <h4>By Compliance Framework</h4>
-                                                    <ul>
-                                                        <li><a href="achieve-pcidss.html">Achieve PCI DSS Compliance</a></li>
-                                                        <li><a href="streamline-soc2.html">Streamline SOC 2 Audits</a></li>
-                                                        <li><a href="cmmc-readiness.html">Prepare for CMMC Level 2</a></li>
-                                                        <li><a href="achieve-iso27001-compliance.html">Maintain ISO 27001</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-lg-6 column">
-                                                    <h4>By Use Case</h4>
-                                                    <ul>
-                                                        <li><a href="multicloud-security.html">Multi-cloud Security Posture</a></li>
-                                                        <li><a href="kubernetes-security.html">Secure Kubernetes Deployments</a></li>
-                                                        <li><a href="github-security.html">Secure GitHub Repos</a></li>
-                                                        <li><a href="aivric-vision-risk-advisor.html">AiVRIC Vision as Risk Advisor</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li><a href="pricing.html" class="current">Pricing</a></li>
-                                    <li class="dropdown"><a href="resources.html">Resources</a>
-                                        <ul>
-                                            <li><a href="about.html">About Us</a></li>
-                                            <li><a href="why-aivric.html">Why AiVRIC</a></li>
-                                            <li><a href="resources.html">Resources</a></li>
-                                            <li><a href="blog-portal.html">Blogs</a></li>
-                                            <li><a href="faq.html">FAQ</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                    <ul class="menu-right-content">
-                        <li class="search-box-outer search-toggler">
-                            <i class="icon-4"></i>
-                        </li>
-                        <li class="btn-box">
-                            <a href="request-demo.html" class="theme-btn-one">Request a Demo</a>
-                        </li>
-                    </ul>
-                </div>
+      <div class="header-lower">
+        <div class="auto-container">
+          <div class="outer-box">
+            <div class="logo-box">
+              <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
             </div>
-        </div>
 
-        <!-- sticky header -->
-        <div class="sticky-header">
-            <div class="auto-container">
-                <div class="outer-box">
-                    <div class="logo-box">
-                        <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
-                    </div>
-                    <div class="menu-area clearfix">
-                        <nav class="main-menu clearfix"></nav>
-                    </div>
-                    <ul class="menu-right-content">
-                        <li class="search-box-outer search-toggler">
-                            <i class="icon-4"></i>
-                        </li>
-                        <li class="btn-box">
-                            <a href="request-demo.html" class="theme-btn-one">Request a Demo</a>
-                        </li>
-                    </ul>
+            <div class="menu-area clearfix">
+              <div class="mobile-nav-toggler">
+                <i class="icon-bar"></i>
+                <i class="icon-bar"></i>
+                <i class="icon-bar"></i>
+              </div>
+
+              <nav class="main-menu navbar-expand-md navbar-light">
+                <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                  <ul class="navigation clearfix">
+                    <li class="dropdown"><a href="services.html">Platform</a>
+                      <ul>
+                        <li><a href="services.html#scanning">Security Risk Assessment</a></li>
+                        <li><a href="services.html#compliance">Compliance Management</a></li>
+                        <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown"><a href="#">Solutions</a>
+                      <div class="megamenu">
+                        <div class="row clearfix">
+                          <div class="col-lg-6 column">
+                            <h4>By Compliance Framework</h4>
+                            <ul>
+                              <li><a href="achieve-pci-dss.html">Achieve PCI DSS Compliance</a></li>
+                              <li><a href="streamline-soc2.html">Streamline SOC 2 Audits</a></li>
+                              <li><a href="cmmc-readiness.html">Prepare for CMMC Level 2</a></li>
+                              <li><a href="achieve-iso27001-compliance.html">Maintain ISO 27001</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-6 column">
+                            <h4>By Use Case</h4>
+                            <ul>
+                              <li><a href="aivric-vision.html">AiVRIC Vision as your Risk Advisor</a></li>
+                              <li><a href="use-case-vuln-mgmt.html">Multi-cloud Security Posture Management</a></li>
+                              <li><a href="use-case-kubernetes.html">Secure Kubernetes deployments</a></li>
+                              <li><a href="use-case-github-security.html">Secure Github Repos</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li class="dropdown"><a href="resources.html">Resources</a>
+                      <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="why-aivric.html">Why AiVRIC</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="blog-portal.html">Blogs</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
+              </nav>
             </div>
+
+            <ul class="menu-right-content">
+              <li class="search-box-outer search-toggler">
+                <i class="icon-4"></i>
+              </li>
+              <li class="btn-box">
+                <a href="request-demo.html" class="theme-btn-one">Request a Demo</a>
+              </li>
+            </ul>
+
+          </div>
         </div>
+      </div>
+
+      <div class="sticky-header">
+        <div class="auto-container">
+          <div class="outer-box">
+            <div class="logo-box">
+              <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC Logo"></a></figure>
+            </div>
+            <div class="menu-area clearfix">
+              <nav class="main-menu clearfix">
+                <!-- Menu will be injected via JS -->
+              </nav>
+            </div>
+            <ul class="menu-right-content">
+              <li class="search-box-outer search-toggler">
+                <i class="icon-4"></i>
+              </li>
+              <li class="btn-box">
+                <a href="request-demo.html" class="theme-btn-two">Request a Demo</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </header>
     <!-- main-header end -->
 
-    <!-- Mobile Menu  -->
+    <!-- Mobile Menu -->
     <div class="mobile-menu">
-        <div class="menu-backdrop"></div>
-        <div class="close-btn"><i class="fas fa-times"></i></div>
-        <nav class="menu-box">
-            <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.png" alt="" title=""></a></div>
-            <div class="menu-outer"></div>
-            <div class="contact-info">
-                <h4>Contact Info</h4>
-                <ul>
-                    <li>Wilmington, Delaware 19802</li>
-                    <li><a href="tel:+19543426637">+1 954 342 6637</a></li>
-                    <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
-                </ul>
-            </div>
-            <div class="social-links">
-                <ul class="clearfix">
-                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
-                    <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
-                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
-                    <li><a href="#"><span class="fab fa-youtube"></span></a></li>
-                </ul>
-            </div>
-        </nav>
+      <div class="menu-backdrop"></div>
+      <div class="close-btn"><i class="fas fa-times"></i></div>
+
+      <nav class="menu-box">
+        <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.png" alt="" title=""></a></div>
+        <div class="menu-outer"></div>
+        <div class="contact-info">
+          <h4>Contact Info</h4>
+          <ul>
+            <li>Wilmington, Delaware USA</li>
+            <li><a href="tel:+19543426637">+1 9543426637</a></li>
+            <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+          </ul>
+        </div>
+        <div class="social-links">
+          <ul class="clearfix">
+            <li><a href="https://x.com/aivric"><span class="fab fa-twitter"></span></a></li>
+            <li><a href="https://www.facebook.com/61581937785235/"><span class="fab fa-facebook-square"></span></a></li>
+            <li><a href="https://www.linkedin.com/company/aivric"><span class="fab fa-linkedin-in"></span></a></li>
+            <li><a href="https://www.instagram.com/aivrictechnologies/"><span class="fab fa-instagram"></span></a></li>
+          </ul>
+        </div>
+      </nav>
     </div>
     <!-- End Mobile Menu -->
 
-    <!-- page-title -->
-    <section class="page-title centred">
-        <div class="bg-layer" style="background-image: url(assets/images/background/page-title.png);"></div>
-        <div class="auto-container">
-            <div class="content-box">
-                <h1>Pricing Options</h1>
-                <ul class="bread-crumb clearfix">
-                    <li><a href="index.html">Home</a></li>
-                    <li>Our Pricing</li>
+    <!-- Pricing Page Content -->
+    <section class="pricing-wrap">
+      <div class="auto-container">
+
+        <!-- HERO -->
+        <div class="pricing-hero">
+          <div class="hero-grid">
+            <div>
+              <div class="badge">
+                <i class="fas fa-shield-alt"></i>
+                AiVRIC Pricing • Land fast. Expand confidently.
+              </div>
+
+              <h1 class="hero-title">Pricing built for SOC 2 readiness, multi-cloud visibility, and enterprise scale.</h1>
+
+              <p class="hero-sub">
+                Choose a deployment model that fits your operating constraints—then scale by workload footprint and
+                instance separation. Transparent tiers, strong expansion economics, and outcome-driven add-ons.
+              </p>
+
+              <ul class="hero-points">
+                <li><i class="fas fa-check-circle"></i><span><strong style="color:var(--aivric-text);">Outcome-first:</strong> compliance reporting + security posture in one platform.</span></li>
+                <li><i class="fas fa-check-circle"></i><span><strong style="color:var(--aivric-text);">Predictable scaling:</strong> priced by Workload Units (WU) and Instances.</span></li>
+                <li><i class="fas fa-check-circle"></i><span><strong style="color:var(--aivric-text);">Customer data control:</strong> customer-hosted SaaS or local Windows executable.</span></li>
+                <li><i class="fas fa-check-circle"></i><span><strong style="color:var(--aivric-text);">Expansion-ready:</strong> modules for evidence workflows, automation, and managed AI.</span></li>
+              </ul>
+            </div>
+
+            <div class="pricing-toggle">
+              <p class="toggle-title">Select a deployment model</p>
+
+              <div class="toggle-row" style="margin-bottom: 12px;">
+                <div class="toggle-label">
+                  <strong id="modeLabel">Customer-hosted SaaS</strong>
+                  <small id="modeSub">Runs in your cloud (Kubernetes). You own the data. Annual subscription.</small>
+                </div>
+
+                <label class="switch" aria-label="Toggle deployment model">
+                  <input type="checkbox" id="deployToggle">
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="toggle-foot">
+                <div class="note-saas">
+                  <strong style="color:var(--aivric-text);">Customer-hosted SaaS:</strong>
+                  optimized for continuous scanning, multi-cloud integrations, and scalable operations.
+                  Add instances for segregation (business units, environments, subsidiaries).
+                </div>
+                <div class="note-win">
+                  <strong style="color:var(--aivric-text);">Windows executable:</strong>
+                  optimized for local data storage and rapid assessments. Ideal for annual licensing and portability.
+                </div>
+              </div>
+
+              <div class="legal-note">
+                Definitions: <strong>WU (Workload Unit)</strong> represents a billable compute-like workload (e.g., VM, container workload, serverless app).
+                <strong>Instance</strong> represents a separated deployment boundary for segregation and scale.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLANS -->
+        <div class="pricing-section">
+          <h2 class="section-title">Plans</h2>
+          <p class="section-sub">
+            These are sample list prices designed to be competitive while enabling strong margins and clear expansion paths.
+            Multi-year and volume discounts are available for qualified engagements.
+          </p>
+
+          <div class="pricing-grid">
+
+            <!-- STARTUP -->
+            <div class="p-card">
+              <div class="p-head">
+                <div class="plan-top">
+                  <h3 class="plan-name">Startup</h3>
+                  <div class="pill">SOC 2 readiness</div>
+                </div>
+                <p class="plan-desc">Land quickly with compliance posture and reporting without operational overhead.</p>
+              </div>
+
+              <div class="p-price">
+                <div class="price-row">
+                  <div class="price-amount">
+                    <span class="price-saas">$9,600</span>
+                    <span class="price-win">$8,400</span>
+                  </div>
+                  <div class="price-term">/ year</div>
+                </div>
+                <div class="price-note">
+                  Includes up to <strong>50 WU</strong>, <strong>1 cloud account/subscription</strong>, <strong>1 environment</strong>, SOC 2 reporting pack.
+                </div>
+              </div>
+
+              <div class="p-features">
+                <ul>
+                  <li><i class="fas fa-check-circle"></i><span>Security posture scanning with scheduled runs</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>SOC 2-aligned outputs for readiness and audit prep</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>Exportable findings and executive-ready summaries</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>BYO-AI key support for AI-assisted insights</span></li>
                 </ul>
+              </div>
+
+              <div class="p-actions">
+                <a class="a-btn primary" href="contact.html"><i class="fas fa-rocket"></i>Start with Startup</a>
+                <a class="a-btn ghost" href="#faq"><i class="fas fa-question-circle"></i>Pricing FAQs</a>
+              </div>
+
+              <div class="p-features" style="padding-top:0;">
+                <div class="price-note" style="margin:0;">
+                  <strong>Overage:</strong> +$180/month per additional 10 WU (or upgrade to Mid-Market).
+                </div>
+              </div>
             </div>
+
+            <!-- MID-MARKET -->
+            <div class="p-card highlight">
+              <div class="p-head">
+                <div class="plan-top">
+                  <h3 class="plan-name">Mid-Market</h3>
+                  <div class="pill recommended">Most popular</div>
+                </div>
+                <p class="plan-desc">Multi-cloud visibility and governance for scaling security and compliance operations.</p>
+              </div>
+
+              <div class="p-price">
+                <div class="price-row">
+                  <div class="price-amount">
+                    <span class="price-saas">$36,000</span>
+                    <span class="price-win">$31,200</span>
+                  </div>
+                  <div class="price-term">/ year</div>
+                </div>
+                <div class="price-note">
+                  Includes up to <strong>300 WU</strong>, up to <strong>5 cloud accounts/subscriptions</strong>, multi-cloud connectors, team RBAC.
+                </div>
+              </div>
+
+              <div class="p-features">
+                <ul>
+                  <li><i class="fas fa-check-circle"></i><span>Multi-cloud connectors with scheduled scanning cadence</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>Team workspaces & role-based access control</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>Compliance packs (SOC 2 + expandable overlays)</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>Operational dashboards and trend reporting</span></li>
+                </ul>
+              </div>
+
+              <div class="p-actions">
+                <a class="a-btn primary" href="request-demo.html"><i class="fas fa-calendar-check"></i>Book a Demo</a>
+                <a class="a-btn" href="#modules"><i class="fas fa-puzzle-piece"></i>Add Modules</a>
+              </div>
+
+              <div class="p-features" style="padding-top:0;">
+                <div class="price-note" style="margin:0;">
+                  <strong>Overage bands:</strong> 301–600 WU +$24,000/year • 601–1,000 WU +$36,000/year
+                </div>
+              </div>
+            </div>
+
+            <!-- ENTERPRISE -->
+            <div class="p-card enterprise">
+              <div class="p-head">
+                <div class="plan-top">
+                  <h3 class="plan-name">Enterprise</h3>
+                  <div class="pill enterprise">Multi-instance</div>
+                </div>
+                <p class="plan-desc">Separation, scale, automation, and assurance for regulated and complex organizations.</p>
+              </div>
+
+              <div class="p-price">
+                <div class="price-row">
+                  <div class="price-amount">
+                    <span class="price-saas">$180,000</span>
+                    <span class="price-win">$156,000</span>
+                  </div>
+                  <div class="price-term">/ year</div>
+                </div>
+                <div class="price-note">
+                  Includes up to <strong>1,000 WU</strong>, up to <strong>15 cloud accounts/subscriptions</strong>, SSO/SCIM, API access, premium support.
+                </div>
+              </div>
+
+              <div class="p-features">
+                <ul>
+                  <li><i class="fas fa-check-circle"></i><span>Multi-instance support for segregation (BU/env/subsidiary)</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>SSO/SAML + SCIM provisioning and enterprise RBAC</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>API access and automation-ready reporting pipelines</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>Premium support + SLA options for critical operations</span></li>
+                </ul>
+              </div>
+
+              <div class="p-actions">
+                <a class="a-btn primary" href="contact.html"><i class="fas fa-handshake"></i>Talk to Sales</a>
+                <a class="a-btn" href="#compare"><i class="fas fa-columns"></i>Compare Plans</a>
+              </div>
+
+              <div class="p-features" style="padding-top:0;">
+                <div class="price-note" style="margin:0;">
+                  <strong>Instances:</strong> Base includes 1 instance • Each additional instance +$25,000/year<br>
+                  <strong>Overage bands:</strong> 1,001–2,500 WU +$90,000/year • 2,501–5,000 WU +$150,000/year • &gt;5,000 custom
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
-    </section>
-    <!-- page-title end -->
 
-    <!-- Pricing Section -->
-    <section class="pricing-section">
-        <div class="auto-container">
+        <!-- MODULES -->
+        <div id="modules" class="anchor"></div>
+        <div class="pricing-section">
+          <h2 class="section-title">High-margin modules</h2>
+          <p class="section-sub">
+            Add modules to accelerate audit readiness, automate security operations, and increase repeatability at scale.
+            These modules are designed to differentiate AiVRIC from baseline scanning-only approaches.
+          </p>
 
-            <div class="pricing-top">
-                <h2>Choose the engagement model that fits your team</h2>
-                <p>
-                    AiVRIC supports product-led adoption and partner-accelerated outcomes.
-                    Start with the platform, then add advisory or managed services as your needs evolve.
-                </p>
+          <div class="modules-grid">
+            <div class="module">
+              <div class="module-top">
+                <h3>Compliance Ops Pack</h3>
+                <div class="tag">+$12k–$30k/yr</div>
+              </div>
+              <p>
+                Evidence workflows, audit trails, exception handling, compensating controls, and packaged outputs designed
+                to reduce audit effort and strengthen defensibility.
+              </p>
             </div>
 
-            <div class="pricing-grid">
-
-                <!-- PLAN 1 -->
-                <div class="price-card">
-                    <div>
-                        <div class="price-badge"><span>Platform</span></div>
-                        <div class="price-title">AiVRIC Defense</div>
-                        <div class="price-subtitle">
-                            Continuous cloud posture assessments, findings, exports, and control mapping—ideal for security teams who prefer self-directed operations.
-                        </div>
-
-                        <div class="price-amount">
-                            <div class="value">$TBD</div>
-                            <div class="period">/ mo</div>
-                        </div>
-                        <div class="price-note">Best for: Product-led adoption</div>
-
-                        <ul class="price-features">
-                            <li><i class="fas fa-check-circle"></i><span>Security misconfiguration discovery and prioritization</span></li>
-                            <li><i class="fas fa-check-circle"></i><span>Compliance mappings (PCI DSS, SOC 2, ISO 27001, etc.)</span></li>
-                            <li><i class="fas fa-check-circle"></i><span>Evidence-ready exports and reporting</span></li>
-                            <li><i class="fas fa-check-circle"></i><span>Recommended remediation guidance</span></li>
-                            <li><i class="fas fa-check-circle"></i><span>Team collaboration and issue tracking workflow</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="price-cta">
-                        <a href="request-demo.html" class="theme-btn-one">Start Free Trial</a>
-                    </div>
-                </div>
-
-                <!-- PLAN 2 (FEATURED) -->
-                <div class="price-card featured">
-                    <div>
-                        <div class="price-badge"><span>Popular</span></div>
-                        <div class="price-title">Defense Pro + vCISO</div>
-                        <div class="price-subtitle">
-                            Platform + governance oversight to accelerate remediation and executive alignment—delivered through AiVRIC’s certified services partner network.
-                        </div>
-
-                        <div class="price-amount">
-                            <div class="value">$TBD</div>
-                            <div class="period">/ mo</div>
-                        </div>
-                        <div class="price-note">Save vs. purchasing separately</div>
-
-                        <ul class="price-features">
-                            <li><i class="fas fa-check-circle"></i><span>All AiVRIC Defense features</span></li>
-                            <li><i class="fas fa-check-circle"></i><span>Virtual CISO support</span></li>
-                            <li><i class="fas fa-check-circle"></i><span>Weekly analyst review &amp; ticketing sync</span></li>
-                            <li><i class="fas fa-check-circle"></i><span>Control gap tracking (PCI DSS, SOC 2, ISO 27001)</span></li>
-                            <li><i class="fas fa-check-circle"></i><span>Monthly risk briefings &amp; executive reporting</span></li>
-                            <li><i class="fas fa-check-circle"></i><span>Audit prep guidance and evidence organization</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="price-cta">
-                        <a href="request-demo.html" class="theme-btn-one">Start Free Trial</a>
-                    </div>
-                </div>
-
-                <!-- PLAN 3 -->
-                <div class="price-card">
-                    <div>
-                        <div class="price-badge"><span>Premium</span></div>
-                        <div class="price-title">AiVRIC + Managed GRC Services</div>
-                        <div class="price-subtitle">
-                            Full platform access + concierge security and compliance operations—best for regulated environments and lean teams needing end-to-end support.
-                        </div>
-
-                        <div class="price-amount">
-                            <div class="value">$TBD</div>
-                            <div class="period">/ mo</div>
-                        </div>
-                        <div class="price-note">Best for: Full-service outcomes</div>
-
-                        <ul class="price-features">
-                            <li><i class="fas fa-check-circle"></i><span>All AiVRIC Defense features</span></li>
-                            <li><i class="fas fa-check-circle"></i><span>AiVRIC Vision insights &amp; predictive risk analytics</span></li>
-                            <li><i class="fas fa-check-circle"></i><span>Managed GRC + advisory services</span></li>
-                            <li><i class="fas fa-check-circle"></i><span>Continuous evidence collection + audit-ready reports</span></li>
-                            <li><i class="fas fa-check-circle"></i><span>Compliance automation (PCI DSS, SOC 2, ISO, CMMC-L2)</span></li>
-                            <li><i class="fas fa-check-circle"></i><span>Quarterly strategy reviews + priority support</span></li>
-                        </ul>
-                    </div>
-
-                    <div class="price-cta">
-                        <a href="request-demo.html" class="theme-btn-one">Start Free Trial</a>
-                    </div>
-                </div>
-
+            <div class="module">
+              <div class="module-top">
+                <h3>Automation & Integrations</h3>
+                <div class="tag">+$9.6k/yr</div>
+              </div>
+              <p>
+                Extended integrations (CI/CD, ticketing, exports), API enhancements, and automation patterns for continuous
+                governance and operationalization.
+              </p>
             </div>
 
-            <div class="pricing-foot">
-                Need enterprise pricing, annual licensing, or deployment options (Windows executable vs. SaaS)?&nbsp;
-                <a href="request-demo.html">Request a demo</a> and we’ll tailor a plan to your environment.
+            <div class="module">
+              <div class="module-top">
+                <h3>Managed AI Pack</h3>
+                <div class="tag">+$6k/yr</div>
+              </div>
+              <p>
+                AiVRIC-managed AI usage with a capped allowance for AI-assisted triage, summarization, and executive-ready
+                reporting (BYO-AI also supported).
+              </p>
             </div>
 
+            <div class="module">
+              <div class="module-top">
+                <h3>Deployment & Hardening</h3>
+                <div class="tag">$7.5k–$25k</div>
+              </div>
+              <p>
+                One-time onboarding and hardening package for customer-hosted SaaS deployments. Reference architectures,
+                secure baselines, and operational readiness guidance.
+              </p>
+            </div>
+          </div>
         </div>
-    </section>
-    <!-- Pricing Section end -->
 
-    <!-- main-footer -->
+        <!-- COMPARE -->
+        <div id="compare" class="anchor"></div>
+        <div class="pricing-section">
+          <h2 class="section-title">Compare plans</h2>
+          <p class="section-sub">
+            A concise view of what is included by default. For regulated environments, ask about add-on attestations,
+            separation requirements, and optional SLA support.
+          </p>
+
+          <div class="compare">
+            <div class="compare-head">
+              <strong>Plan capabilities</strong>
+              <span>Deployment model toggle updates pricing only</span>
+            </div>
+
+            <table class="compare-table" aria-label="AiVRIC pricing comparison table">
+              <thead>
+                <tr>
+                  <th style="width:40%;">Capability</th>
+                  <th>Startup</th>
+                  <th>Mid-Market</th>
+                  <th>Enterprise</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Included Workload Units (WU)</td>
+                  <td>50</td>
+                  <td>300</td>
+                  <td>1,000</td>
+                </tr>
+                <tr>
+                  <td>Cloud accounts/subscriptions included</td>
+                  <td>1</td>
+                  <td>Up to 5</td>
+                  <td>Up to 15</td>
+                </tr>
+                <tr>
+                  <td>Multi-cloud connectors</td>
+                  <td class="dash">—</td>
+                  <td class="check">Yes</td>
+                  <td class="check">Yes</td>
+                </tr>
+                <tr>
+                  <td>Team RBAC / Workspaces</td>
+                  <td>Basic</td>
+                  <td class="check">Yes</td>
+                  <td class="check">Yes</td>
+                </tr>
+                <tr>
+                  <td>SOC 2 reporting pack</td>
+                  <td class="check">Yes</td>
+                  <td class="check">Yes</td>
+                  <td class="check">Yes</td>
+                </tr>
+                <tr>
+                  <td>SSO/SAML + SCIM</td>
+                  <td class="dash">—</td>
+                  <td>Add-on</td>
+                  <td class="check">Included</td>
+                </tr>
+                <tr>
+                  <td>API access</td>
+                  <td class="dash">—</td>
+                  <td>Add-on</td>
+                  <td class="check">Included</td>
+                </tr>
+                <tr>
+                  <td>Multi-instance separation</td>
+                  <td class="dash">—</td>
+                  <td>Limited</td>
+                  <td class="check">Included</td>
+                </tr>
+                <tr>
+                  <td>Premium support / SLA options</td>
+                  <td class="dash">—</td>
+                  <td>Add-on</td>
+                  <td class="check">Included</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div id="faq" class="anchor"></div>
+        <div class="pricing-section">
+          <h2 class="section-title">Pricing FAQs</h2>
+          <p class="section-sub">
+            Straight answers to common questions you will receive during procurement and security review.
+            Adjust definitions to match your precise billing model and provider coverage.
+          </p>
+
+          <div class="faq">
+            <details>
+              <summary>What counts as a Workload Unit (WU)?</summary>
+              <p>
+                A WU is a billable compute-like workload such as a VM, container workload, or serverless application.
+                You can optionally extend WU counting to include certain managed services based on your roadmap and customer demand.
+              </p>
+            </details>
+
+            <details>
+              <summary>What is an “Instance” and when do I need more than one?</summary>
+              <p>
+                An Instance is a separated deployment boundary used to segregate data, access, and operational controls across business units,
+                environments (dev/test/prod), subsidiaries, or regulatory partitions. Enterprise customers commonly adopt multi-instance for assurance.
+              </p>
+            </details>
+
+            <details>
+              <summary>How does AiVRIC compete with open source options?</summary>
+              <p>
+                Baseline scanning is only one component of operational maturity. AiVRIC differentiates through repeatable workflows, evidence and audit outputs,
+                governance, automation, and multi-instance operations—capabilities that reduce time-to-assurance and total effort.
+              </p>
+            </details>
+
+            <details>
+              <summary>Is BYO-AI supported?</summary>
+              <p>
+                Yes. You can bring your own AI API key for AI-assisted triage and reporting. If preferred, Managed AI can be purchased as an add-on with defined usage limits.
+              </p>
+            </details>
+
+            <details>
+              <summary>Do you offer multi-year discounts?</summary>
+              <p>
+                Yes. Multi-year terms and volume tiers are available for qualified customers. A common pattern is 10–15% off for 2-year and 15–25% off for 3-year agreements,
+                with guardrails to protect long-term margin.
+              </p>
+            </details>
+
+            <details>
+              <summary>Can we start with Windows and later move to customer-hosted SaaS?</summary>
+              <p>
+                Yes. Many customers begin with Windows for rapid posture assessment, then transition to customer-hosted SaaS for continuous operations.
+                Your team can structure a migration plan and map pricing to preserve value and continuity.
+              </p>
+            </details>
+          </div>
+
+          <div class="cta">
+            <div>
+              <strong>Ready to see AiVRIC against your environment?</strong>
+              <span>
+                Book a guided demo using your preferred deployment model. We will align the plan to your workload footprint,
+                compliance targets (SOC 2, ISO 27001, NIST), and operational requirements.
+              </span>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="a-btn primary" href="request-demo.html"><i class="fas fa-calendar-check"></i>Book a Demo</a>
+              <a class="a-btn" href="contact.html"><i class="fas fa-envelope"></i>Request a Quote</a>
+            </div>
+          </div>
+
+          <div class="legal-note">
+            <strong>Important:</strong> Prices shown are sample list pricing for illustration. Final pricing may vary based on footprint, compliance requirements,
+            connector scope, and support/SLA needs. Taxes not included. Terms subject to your MSA and order form.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- main-footer (matches your site structure) -->
     <footer class="main-footer">
-        <div class="widget-section">
-            <div class="pattern-layer">
-                <div class="pattern-1" style="background-image: url(assets/images/shape/shape-20.png);"></div>
-                <div class="pattern-2" style="background-image: url(assets/images/shape/shape-21.png);"></div>
-            </div>
-            <div class="auto-container">
-                <div class="row clearfix">
-                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                        <div class="footer-widget logo-widget">
-                            <div class="widget-title">
-                                <h3>AiVRIC</h3>
-                            </div>
-                            <div class="text">
-                                <p>Autonomous Security, Compliance, and Risk Intelligence.</p>
-                            </div>
-                            <div class="subscribe-box">
-                                <form action="contact.html" method="post">
-                                    <div class="form-group">
-                                        <input type="email" name="email" placeholder="Your email" required="">
-                                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                        <div class="footer-widget links-widget">
-                            <div class="widget-title">
-                                <h3>Platform</h3>
-                            </div>
-                            <div class="widget-content">
-                                <ul class="links-list clearfix">
-                                    <li><a href="services.html#scanning">Security &amp; Risk Assessment</a></li>
-                                    <li><a href="services.html#compliance">Compliance Management</a></li>
-                                    <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                        <div class="footer-widget links-widget">
-                            <div class="widget-title">
-                                <h3>Solutions</h3>
-                            </div>
-                            <div class="widget-content">
-                                <ul class="links-list clearfix">
-                                    <li><a href="streamline-soc2.html">SOC 2 Automation</a></li>
-                                    <li><a href="achieve-pcidss.html">PCI-DSS Compliance</a></li>
-                                    <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
-                                    <li><a href="kubernetes-security.html">Kubernetes Security</a></li>
-                                    <li><a href="github-security.html">GitHub Security</a></li>
-                                    <li><a href="multicloud-security.html">Multi-cloud Posture</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                        <div class="footer-widget contact-widget">
-                            <div class="widget-title">
-                                <h3>Contact</h3>
-                            </div>
-                            <div class="widget-content">
-                                <ul class="info-list clearfix">
-                                    <li><i class="fas fa-envelope"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
-                                    <li><i class="fas fa-phone-alt"></i><a href="tel:+19543426637">+1 954 342 6637</a></li>
-                                </ul>
-                            </div>
-                            <ul class="social-links-two clearfix">
-                                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="widget-section">
+        <div class="pattern-layer">
+          <div class="pattern-1" style="background-image: url(assets/images/shape/shape-20.png);"></div>
+          <div class="pattern-2" style="background-image: url(assets/images/shape/shape-21.png);"></div>
         </div>
-        <div class="footer-bottom">
-            <div class="auto-container">
-                <div class="bottom-inner">
-                    <div class="copyright">
-                        <p>&copy; 2025 <a href="index.html">AiVRIC</a>. All Rights Reserved.</p>
+        <div class="auto-container">
+          <div class="row clearfix">
+            <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+              <div class="footer-widget logo-widget">
+                <div class="widget-title"><h3>AiVRIC</h3></div>
+                <div class="text"><p>Autonomous Security, Compliance, and Risk Intelligence.</p></div>
+                <div class="subscribe-box">
+                  <form action="contact.html" method="post">
+                    <div class="form-group">
+                      <input type="email" name="email" placeholder="Your email" required="">
+                      <button type="submit"><i class="fas fa-paper-plane"></i></button>
                     </div>
-                    <ul class="footer-nav">
-                        <li><a href="terms-of-use.html">Terms of Service</a></li>
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                    </ul>
+                  </form>
                 </div>
+              </div>
             </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+              <div class="footer-widget links-widget">
+                <div class="widget-title"><h3>Platform</h3></div>
+                <div class="widget-content">
+                  <ul class="links-list clearfix">
+                    <li><a href="services.html#scanning">Security &amp; Risk Assessment</a></li>
+                    <li><a href="services.html#compliance">Compliance Management</a></li>
+                    <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+              <div class="footer-widget links-widget">
+                <div class="widget-title"><h3>Solutions</h3></div>
+                <div class="widget-content">
+                  <ul class="links-list clearfix">
+                    <li><a href="streamline-soc2.html">SOC 2 Automation</a></li>
+                    <li><a href="achieve-pci-dss.html">PCI-DSS Compliance</a></li>
+                    <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
+                    <li><a href="achieve-iso27001-compliance.html">ISO27001 Compliance</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+              <div class="footer-widget contact-widget">
+                <div class="widget-title"><h3>Contact</h3></div>
+                <div class="widget-content">
+                  <ul class="info-list clearfix">
+                    <li><i class="fas fa-envelope"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                    <li><i class="fas fa-phone-alt"></i><a href="tel:+19543426637">+1 954 342 6637</a></li>
+                  </ul>
+                </div>
+                <ul class="social-links-two clearfix">
+                  <li><a href="https://x.com/aivric"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="https://www.facebook.com/61581937785235/"><i class="fab fa-facebook-f"></i></a></li>
+                  <li><a href="https://www.linkedin.com/company/aivric"><i class="fab fa-linkedin-in"></i></a></li>
+                  <li><a href="https://www.instagram.com/aivrictechnologies/"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
         </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="auto-container">
+          <div class="bottom-inner">
+            <div class="copyright">
+              <p>&copy; 2025 <a href="index.html">AiVRIC</a>. All Rights Reserved.</p>
+            </div>
+            <ul class="footer-nav">
+              <li><a href="terms-of-use.html">Terms of Service</a></li>
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </footer>
     <!-- main-footer end -->
 
     <!--Scroll to top-->
     <div class="scroll-to-top">
-        <div>
-            <div class="scroll-top-inner">
-                <div class="scroll-bar">
-                    <div class="bar-inner"></div>
-                </div>
-                <div class="scroll-bar-text">Go To Top</div>
-            </div>
+      <div>
+        <div class="scroll-top-inner">
+          <div class="scroll-bar"><div class="bar-inner"></div></div>
+          <div class="scroll-bar-text">Go To Top</div>
         </div>
+      </div>
     </div>
 
-</div>
+  </div>
 
-<!-- Scripts -->
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/owl.js"></script>
-<script src="assets/js/wow.js"></script>
-<script src="assets/js/validation.js"></script>
-<script src="assets/js/jquery.fancybox.js"></script>
-<script src="assets/js/appear.js"></script>
-<script src="assets/js/scrollbar.js"></script>
-<script src="assets/js/isotope.js"></script>
-<script src="assets/js/jquery.nice-select.min.js"></script>
-<script src="assets/js/parallax-scroll.js"></script>
-<script src="assets/js/script.js"></script>
+  <!-- JS (template) -->
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/owl.js"></script>
+  <script src="assets/js/wow.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/jquery.fancybox.js"></script>
+  <script src="assets/js/appear.js"></script>
+  <script src="assets/js/scrollbar.js"></script>
+  <script src="assets/js/isotope.js"></script>
+  <script src="assets/js/jquery.nice-select.min.js"></script>
+  <script src="assets/js/parallax-scroll.js"></script>
+  <script src="assets/js/script.js"></script>
+
+  <!-- Pricing mode toggle -->
+  <script>
+    (function(){
+      const body = document.body;
+      const toggle = document.getElementById('deployToggle');
+      const modeLabel = document.getElementById('modeLabel');
+      const modeSub = document.getElementById('modeSub');
+
+      // Default: SaaS mode
+      function setMode(isWindows){
+        if(isWindows){
+          body.classList.remove('mode-saas');
+          body.classList.add('mode-win');
+          modeLabel.textContent = "Windows executable";
+          modeSub.textContent = "Annual license. Local data storage. Run anywhere.";
+        }else{
+          body.classList.remove('mode-win');
+          body.classList.add('mode-saas');
+          modeLabel.textContent = "Customer-hosted SaaS";
+          modeSub.textContent = "Runs in your cloud (Kubernetes). You own the data. Annual subscription.";
+        }
+      }
+
+      if(toggle){
+        toggle.addEventListener('change', function(){
+          setMode(toggle.checked);
+        });
+      }
+      setMode(false);
+    })();
+  </script>
 
 </body>
 </html>
