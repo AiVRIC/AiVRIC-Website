@@ -15,6 +15,7 @@
       --panel-border: rgba(255,255,255,0.12);
       --text: rgba(255,255,255,0.92);
       --muted: rgba(255,255,255,0.65);
+      --danger: #ff5c7c;
       --accent: #00d4ff;
       --radius: 16px;
     }
@@ -36,7 +37,7 @@
 
     .gate-container {
       width: 100%;
-      max-width: 520px;
+      max-width: 560px;
       background: var(--panel);
       border: 1px solid var(--panel-border);
       border-radius: var(--radius);
@@ -53,7 +54,7 @@
     .subtitle {
       font-size: 14px;
       color: var(--muted);
-      margin-bottom: 28px;
+      margin-bottom: 22px;
       line-height: 1.5;
     }
 
@@ -66,6 +67,16 @@
       letter-spacing: 0.3px;
     }
 
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    @media (max-width: 560px){
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
     input,
     select {
       width: 100%;
@@ -76,7 +87,7 @@
       color: var(--text);
       font-size: 14px;
       outline: none;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     /* FIX: Dropdown readability */
@@ -92,6 +103,15 @@
     input:focus,
     select:focus {
       border-color: var(--accent);
+    }
+
+    .error {
+      display: none;
+      margin-top: -8px;
+      margin-bottom: 14px;
+      color: var(--danger);
+      font-size: 12px;
+      line-height: 1.4;
     }
 
     .btn {
@@ -113,7 +133,7 @@
     }
 
     .footer-note {
-      margin-top: 18px;
+      margin-top: 16px;
       font-size: 12px;
       color: var(--muted);
       text-align: center;
@@ -124,11 +144,53 @@
 
 <body>
 
-  <form class="gate-container" id="demoGateForm">
+  <form class="gate-container" id="demoGateForm" novalidate>
     <div class="logo">AiVRIC Demo Access</div>
     <div class="subtitle">
       Tell us a bit about your use case to continue into the live AiVRIC demo environment.
     </div>
+
+    <!-- Name -->
+    <div class="grid-2">
+      <div>
+        <label for="firstName">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          placeholder="First name"
+          autocomplete="given-name"
+          required
+          minlength="2"
+        />
+      </div>
+      <div>
+        <label for="lastName">Last Name</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          placeholder="Last name"
+          autocomplete="family-name"
+          required
+          minlength="2"
+        />
+      </div>
+    </div>
+
+    <!-- Phone -->
+    <label for="phone">Phone Number</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      placeholder="+1 954 342 6637"
+      autocomplete="tel"
+      required
+      inputmode="tel"
+      pattern="^[0-9+()\-.\s]{7,}$"
+    />
+    <div class="error" id="phoneError">Please enter a valid phone number.</div>
 
     <!-- Business Email -->
     <label for="email">Business Email</label>
@@ -137,8 +199,12 @@
       id="email"
       name="email"
       placeholder="you@company.com"
+      autocomplete="work email"
       required
     />
+    <div class="error" id="emailError">
+      Please use a business email address (personal email domains are not permitted).
+    </div>
 
     <!-- Primary Use Case -->
     <label for="usecase">Primary Security Use Case</label>
@@ -172,18 +238,105 @@
   </form>
 
   <script>
-    document.getElementById('demoGateForm').addEventListener('submit', function (e) {
-      e.preventDefault();
+    (function () {
+      const form = document.getElementById('demoGateForm');
+      const emailEl = document.getElementById('email');
+      const emailError = document.getElementById('emailError');
+      const phoneEl = document.getElementById('phone');
+      const phoneError = document.getElementById('phoneError');
 
-      // Optional: capture values for analytics / API later
-      const formData = new FormData(this);
+      // Blocklist of consumer/personal email domains
+      // (Add/remove as you see fit.)
+      const blockedDomains = new Set([
+        "gmail.com","googlemail.com",
+        "yahoo.com","yahoo.co.uk","yahoo.ca","yahoo.com.au",
+        "hotmail.com","outlook.com","live.com","msn.com",
+        "aol.com",
+        "icloud.com","me.com","mac.com",
+        "proton.me","protonmail.com",
+        "gmx.com","gmx.net",
+        "mail.com",
+        "zoho.com",        // optional: remove if you want to allow business Zoho users
+        "fastmail.com",
+        "yandex.com","yandex.ru",
+        "qq.com","163.com","126.com",
+        "comcast.net","verizon.net","att.net","sbcglobal.net","cox.net","charter.net"
+      ]);
 
-      // TODO (optional later):
-      // fetch('/api/demo-intake', { method: 'POST', body: formData });
+      function getDomain(email) {
+        const at = email.lastIndexOf('@');
+        if (at === -1) return "";
+        return email.slice(at + 1).trim().toLowerCase();
+      }
 
-      // Redirect to demo login
-      window.location.href = "https://dev-defense.aivric.com";
-    });
+      function isBusinessEmail(email) {
+        const domain = getDomain(email);
+        if (!domain) return false;
+        // Reject blocked personal domains
+        if (blockedDomains.has(domain)) return false;
+
+        // Basic sanity: must include a dot and not end with dot
+        if (!domain.includes('.') || domain.endsWith('.')) return false;
+
+        return true;
+      }
+
+      function show(el) { el.style.display = 'block'; }
+      function hide(el) { el.style.display = 'none'; }
+
+      function validateEmailField() {
+        const email = emailEl.value.trim();
+        // Let browser handle empty/format issues; we add the "business domain" constraint
+        if (!emailEl.checkValidity()) {
+          hide(emailError);
+          return false;
+        }
+        if (!isBusinessEmail(email)) {
+          show(emailError);
+          return false;
+        }
+        hide(emailError);
+        return true;
+      }
+
+      function validatePhoneField() {
+        const ok = phoneEl.checkValidity();
+        if (!ok) show(phoneError);
+        else hide(phoneError);
+        return ok;
+      }
+
+      emailEl.addEventListener('blur', validateEmailField);
+      emailEl.addEventListener('input', () => { if (emailError.style.display === 'block') validateEmailField(); });
+
+      phoneEl.addEventListener('blur', validatePhoneField);
+      phoneEl.addEventListener('input', () => { if (phoneError.style.display === 'block') validatePhoneField(); });
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Trigger native validation UI for required fields
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          // Still show our custom errors if relevant
+          validateEmailField();
+          validatePhoneField();
+          return;
+        }
+
+        const emailOk = validateEmailField();
+        const phoneOk = validatePhoneField();
+
+        if (!emailOk || !phoneOk) return;
+
+        // Optional: capture values for analytics / API later
+        // const data = Object.fromEntries(new FormData(form).entries());
+        // fetch('/api/demo-intake', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) });
+
+        // Redirect to demo login page
+        window.location.href = "https://dev-defense.aivric.com";
+      });
+    })();
   </script>
 
 </body>
