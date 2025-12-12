@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title>CMMC Readiness - AiVRIC</title>
+<title>Pricing | AiVRIC</title>
 
 <!-- Fav Icon -->
 <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
@@ -26,26 +26,12 @@
 <link href="assets/css/elpath.css" rel="stylesheet">
 <link href="assets/css/style.css" rel="stylesheet">
 <link href="assets/css/elements-css/page-title.css" rel="stylesheet">
-<link href="assets/css/elements-css/service-details.css" rel="stylesheet">
+<link href="assets/css/elements-css/pricing.css" rel="stylesheet">
 <link href="assets/css/responsive.css" rel="stylesheet">
 
-<style>
-    /* CMMC quad grid – add space between cards, keep 2x2 layout */
-    .cmmc-grid .single-column {
-        padding: 0 15px 34px;
-    }
+<!-- Stripe.js -->
+<script src="https://js.stripe.com/v3/"></script>
 
-    .cmmc-grid .single-item {
-        height: 100%;
-    }
-
-    @media (min-width: 992px) {
-        .cmmc-grid .single-column:nth-child(3),
-        .cmmc-grid .single-column:nth-child(4) {
-            margin-top: 60px;
-        }
-    }
-</style>
 </head>
 
 
@@ -54,6 +40,8 @@
 
     <div class="boxed_wrapper">
 
+
+        
        <!-- preloader -->
         <div class="loader-wrap">
             <div class="preloader">
@@ -89,7 +77,29 @@
 
 
         <!-- main header -->
-        <header class="main-header">
+        <header class="main-header header-style-two">
+            <!-- header-top -->
+            <div class="header-top">
+                <div class="auto-container">
+                    <div class="top-inner">
+                        <div class="top-left">
+                            <ul class="info clearfix">
+                                <li><i class="icon-1"></i>Mon-Fri 8:00 am-6:00 pm</li>
+                                <li><i class="icon-2"></i><a href="tel:19543426637">+1-954-342-6637</a></li>
+                                <li><i class="icon-3"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                            </ul>
+                        </div>
+                        <div class="top-right">
+                            <div class="login"><a href="https://dev-defense.aivric.com">Online Demo</a></div>
+                            <ul class="social-links clearfix">
+                                <li><a href="index.html"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="index.html"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="index.html"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- header-lower -->
             <div class="header-lower">
                 <div class="auto-container">
@@ -109,7 +119,7 @@
                                     <ul class="navigation clearfix">
                                         <li class="dropdown"><a href="services.html">Platform</a>
                                             <ul>
-                                                <li><a href="services.html#scanning">Security Risk Assessment</a></li>
+                                                <li><a href="services.html#scanning">Security & Risk Assessment</a></li>
                                                 <li><a href="services.html#compliance">Compliance Management</a></li>
                                                 <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
                                              </ul>
@@ -120,7 +130,7 @@
                                                     <div class="col-lg-6 column">
                                                         <h4>By Compliance Framework</h4>
                                                         <ul>
-                                                            <li><a href="achieve-pci-dss.html">Achieve PCI-DSS Compliance</a></li>
+                                                            <li><a href="achieve-pci-dss.html">Achieve PCI DSS Compliance</a></li>
                                                             <li><a href="streamline-soc2.html">Streamline SOC 2 Audits</a></li>
                                                             <li><a href="cmmc-readiness.html">Prepare for CMMC Level 2</a></li>
                                                             <li><a href="achieve-iso27001-compliance.html">Maintain ISO 27001</a></li>
@@ -130,9 +140,9 @@
                                                         <h4>By Use Case</h4>
                                                         <ul>
                                                             <li><a href="aivric-vision.html">AiVRIC Vision as your Risk Advisor</a></li>
-                                                        <li><a href="use-case-vuln-mgmt.html">Multi-cloud Security Posture Management</a></li>
-                                                        <li><a href="use-case-kubernetes.html">Secure Kubernetes deployments</a></li>                                                                        
-                                                        <li><a href="use-case-github-security.html">Secure Github Repos</a></li> 
+                                                            <li><a href="use-case-vuln-mgmt.html">Multi-cloud Security Posture Management</a></li>
+                                                            <li><a href="use-case-kubernetes.html">Secure Kubernetes deployments</a></li>                                                                        
+                                                            <li><a href="use-case-github-security.html">Secure Github Repos</a></li> 
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -202,7 +212,7 @@
                     <h4>Contact Info</h4>
                     <ul>
                         <li>Wilmington, Delaware 19802</li>
-                        <li><a href="tel:+19543426637">+1 954 342 6637</a></li>
+                        <li><a href="tel:+19543426637">+1 9543426637</a></li>
                         <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
                     </ul>
                 </div>
@@ -224,11 +234,10 @@
             <div class="bg-layer" style="background-image: url(assets/images/background/page-title.png);"></div>
             <div class="auto-container">
                 <div class="content-box">
-                    <h1>CMMC Readiness</h1>
+                    <h1>Pricing Options</h1>
                     <ul class="bread-crumb clearfix">
                         <li><a href="index.html">Home</a></li>
-                        <li><a href="#">Solutions</a></li>
-                        <li>CMMC Readiness</li>
+                        <li>Our Pricing</li>
                     </ul>
                 </div>
             </div>
@@ -236,153 +245,187 @@
         <!-- page-title end -->
 
 
-        <!-- service-details -->
-        <section class="service-details p_relative">
+        <!-- pricing-section -->
+        <section class="pricing-section sec-pad">
             <div class="auto-container">
+                <div class="sec-title centred mb_50">
+                    <span class="sub-title">Subscription Plans</span>
+                    <h2>Choose the Right AiVRIC Defense Plan <br />for Your Organization</h2>
+                    <p class="mt_20">All plans include 14-day free trial. No credit card required.</p>
+                </div>
+                <!-- Single Products View (No Tabs) -->
                 <div class="row clearfix">
-                    <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
-                        <div class="service-sidebar mr_40">
-                            <div class="sidebar-widget category-widget">
-                                <h3>Solutions</h3>
-                                <ul class="category-list clearfix">
-                                    <li><a href="streamline-soc2.html">SOC 2 Readiness</a></li>
-                                    <li><a href="achieve-pci-dss.html">Achieve PCI-DSS Compliance</a></li>
-                                    <li><a href="cmmc-readiness.html" class="current">CMMC Readiness</a></li>
-                                    <li><a href="achieve-iso27001-compliance.html">Achieve ISO 27001 Compliance</a></li>
-                                </ul>
-                            </div>
-                            <div class="sidebar-widget contact-widget centred">
-                                <div class="widget-content">
-                                    <div class="bg-layer" style="background-image: url(assets/images/service/risk-care.png);"></div>
-                                    <h3>Need Help with <br />CMMC <span>Level 2?</span></h3>
-                                    <div class="icon-box"><i class="icon-29"></i></div>
-                                    <div class="inner-box">
-                                        <p><a href="mailto:info@aivric.com">info@aivric.com</a></p>
-                                        <h3><a href="tel:+19543426637">+1 954 342 6637</a></h3>
-                                    </div>
+                    <!-- Defense Starter -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                        <div class="pricing-block-one">
+                            <div class="pricing-table">
+                                <div class="shape-1" style="background-image: url(assets/images/shape/shape-38.png);"></div>
+                                <div class="table-header mb_35">
+                                    <span class="title">AiVRIC Defense – Starter Edition</span>
+                                    <h2>$TBD/<span>mo</span></h2>
+                                    <p class="text-muted">Essentials for cloud-security visibility</p>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-8 col-md-12 col-sm-12 content-side">
-                        <div class="service-details-content">
-
-                            <!-- Hero content -->
-                            <div class="content-one mb_90">
-                                <figure class="image-box"><img src="assets/images/service/service-1.png" alt="CMMC Automation"></figure>
-                                <div class="text">
-                                    <h2>Operationalize CMMC Level 2 Readiness with Continuous Verification</h2>
-                                    <p>Defense Industrial Base (DIB) contractors must demonstrate that they can reliably protect Controlled Unclassified Information (CUI). AiVRIC helps you build and maintain CMMC Level 2 readiness by continuously monitoring technical controls, mapping posture to NIST SP 800-171 requirements, and automating the evidence required for assessments.</p>
-                                    <p>Instead of relying on static spreadsheets and one-time gap assessments, AiVRIC provides a living view of your CMMC posture: what is implemented, what is partially implemented, and where risk remains. This allows leadership to make confident decisions about contracts, timelines, and remediation priorities.</p>
-                                </div>
-                            </div>
-
-                            <!-- Challenge section -->
-                            <div class="content-two mb_90">
-                                <div class="row clearfix">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 text-column">
-                                        <div class="text-box">
-                                            <h3>The CMMC Readiness Challenge</h3>
-                                            <p>CMMC 2.0 Level 2 is built on 110 NIST SP 800-171 practices and requires traceable proof that each requirement is implemented and maintained. For most organizations, the hard part is keeping everything current and defensible.</p>
-                                            <ul class="list-style-one clearfix">
-                                                <li>Complex environments spanning cloud, on-prem, and OT/edge systems</li>
-                                                <li>Dozens of tools producing uncorrelated security signals</li>
-                                                <li>Manual SSP, POA&amp;M, and evidence updates that quickly fall out of date</li>
-                                                <li>Limited visibility for executives, program managers, and assessment teams</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 image-column">
-                                        <figure class="image-box"><img src="assets/images/resource/about-1.jpg" alt="CMMC Readiness Dashboard"></figure>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- How AiVRIC helps -->
-                            <div class="content-three mb_85">
-                                <div class="text mb_60">
-                                    <h3>How AiVRIC Accelerates CMMC Readiness</h3>
-                                    <p>AiVRIC connects posture data from your infrastructure, identity, endpoint, and logging platforms to the CMMC framework. It continuously evaluates technical controls, aligns them to NIST SP 800-171 requirements, and auto-generates evidence and narratives that can feed your SSP and POA&amp;M.</p>
-                                </div>
-
-                                <div class="row clearfix cmmc-grid">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
-                                        <div class="single-item">
-                                            <div class="icon-box"><i class="icon-8"></i></div>
-                                            <h3>Automated Mapping to NIST SP 800-171</h3>
-                                            <p>AiVRIC normalizes posture data from cloud, identity, endpoint, and network tools and maps it directly to NIST SP 800-171 practices, giving you a clear line of sight from each control to its supporting evidence.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
-                                        <div class="single-item">
-                                            <div class="icon-box"><i class="icon-13"></i></div>
-                                            <h3>Continuous Technical Control Monitoring</h3>
-                                            <p>The platform continuously checks configurations, access controls, system hardening, logging, and vulnerability status for in-scope assets—surfacing misconfigurations and control failures before they appear in an assessment report.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
-                                        <div class="single-item">
-                                            <div class="icon-box"><i class="icon-9"></i></div>
-                                            <h3>Dynamic SSP &amp; POA&amp;M Support</h3>
-                                            <p>Findings and implementation details captured in AiVRIC can be used to drive SSP content and POA&amp;M items, keeping your documentation in sync with the actual state of controls and remediation activities.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
-                                        <div class="single-item">
-                                            <div class="icon-box"><i class="icon-7"></i></div>
-                                            <h3>Readiness Reporting for Leadership &amp; Assessors</h3>
-                                            <p>Executive views summarize readiness by domain, control family, and risk level, while assessor-oriented views present evidence, test results, and narratives in a structure aligned to CMMC Level 2 expectations.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="text mt_50">
-                                    <h3>Outcomes You Can Expect</h3>
-                                    <p>With AiVRIC, CMMC readiness becomes transparent, measurable, and repeatable:</p>
-                                    <ul class="list-style-one clearfix">
-                                        <li>Faster CMMC gap analysis and remediation planning</li>
-                                        <li>Near real-time visibility into NIST SP 800-171 implementation status</li>
-                                        <li>Reduced manual effort to maintain SSPs, POA&amp;Ms, and evidence libraries</li>
-                                        <li>Improved collaboration between security, IT, contracts, and program offices</li>
-                                        <li>Stronger assurance for primes and DoD customers that CUI is protected</li>
+                                <div class="table-content">
+                                    <ul class="feature-list list-style-one clearfix">
+                                        <li>Single-cloud security scanning (1 environment)</li>
+                                        <li>Baseline CIS & hardening checks</li>
+                                        <li>Weekly scheduled vulnerability scans</li>
+                                        <li>Core compliance mapping (PCI DSS & SOC 2 highlights)</li>
+                                        <li>Alerting via email notifications</li>
+                                        <li>Standard dashboards & summary reports</li>
+                                        <li>API access for basic integrations</li>
+                                        <li>Business-hours support</li>
                                     </ul>
                                 </div>
-                            </div>
-
-                            <!-- Services extension -->
-                            <div class="content-four">
-                                <h3>Combine AiVRIC with CMMC Advisory Services</h3>
-                                <p>AiVRIC can operate as a standalone readiness and evidence platform or be paired with CMMC advisory services from AiVRIC’s certified service partners. Together they deliver a full CMMC Readiness Program, including scoping, gap assessment, remediation planning, documentation, and preparation for third-party assessments.</p>
-                                <ul class="download-list clearfix">
-                                    <li>
-                                        <div class="icon-box"><i class="icon-30"></i></div>
-                                        <h5>CMMC Readiness Overview</h5>
-                                        <span>PDF (Coming Soon)</span>
-                                        <button type="button">Notify Me</button>
-                                    </li>
-                                    <li>
-                                        <div class="icon-box"><i class="icon-30"></i></div>
-                                        <h5>CMMC Readiness Program Brief</h5>
-                                        <span>PDF (Coming Soon)</span>
-                                        <button type="button">Notify Me</button>
-                                    </li>
-                                </ul>
-                                <div class="mt_40">
-                                    <a href="contact.html" class="theme-btn-one">Request a CMMC Readiness Demo</a>
+                                <div class="table-footer">
+                                    <button type="button" class="theme-btn-one" data-stripe-subscribe data-product="defense_starter" data-price-id="price_defense_starter_monthly">Start Free Trial</button>
                                 </div>
                             </div>
-
                         </div>
                     </div>
 
+                    <!-- Defense Professional -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                        <div class="pricing-block-one">
+                            <div class="pricing-table">
+                                <div class="shape-1" style="background-image: url(assets/images/shape/shape-38.png);"></div>
+                                <div class="table-header mb_35">
+                                    <span class="title">AiVRIC Defense – Professional</span>
+                                    <h2>$TBD/<span>mo</span></h2>
+                                    <p class="text-muted">Advanced multi-cloud protection</p>
+                                </div>
+                                <div class="table-content">
+                                    <ul class="feature-list list-style-one clearfix">
+                                        <li>Multi-cloud security scanning (AWS, Azure, GCP)</li>
+                                        <li>Continuous vulnerability discovery & risk scoring</li>
+                                        <li>Full compliance frameworks (PCI DSS, SOC 2, ISO 27001)</li>
+                                        <li>Real-time alerting with suppression & tuning</li>
+                                        <li>Policy-drift detection across key cloud services</li>
+                                        <li>Integrations with ticketing & chat (Jira, Slack, etc.)</li>
+                                        <li>Exportable remediation & audit-ready reports</li>
+                                        <li>Priority email & chat support</li>
+                                    </ul>
+                                </div>
+                                <div class="table-footer">
+                                    <button type="button" class="theme-btn-one" data-stripe-subscribe data-product="defense_professional" data-price-id="price_defense_professional_monthly">Start Free Trial</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Defense Enterprise -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                        <div class="pricing-block-one">
+                            <div class="pricing-table">
+                                <div class="shape-1" style="background-image: url(assets/images/shape/shape-38.png);"></div>
+                                <div class="table-header mb_35">
+                                    <span class="title">AiVRIC Defense – Enterprise</span>
+                                    <h2>$TBD/<span>mo</span></h2>
+                                    <p class="text-muted">Enterprise-scale security & compliance</p>
+                                </div>
+                                <div class="table-content">
+                                    <ul class="feature-list list-style-one clearfix">
+                                        <li>All Professional features</li>
+                                        <li>Unlimited cloud accounts & environments</li>
+                                        <li>Advanced risk heatmaps & executive reporting</li>
+                                        <li>Custom compliance frameworks & industry overlays</li>
+                                        <li>SSO, RBAC, and advanced access controls</li>
+                                        <li>Custom integrations & data export pipelines</li>
+                                        <li>Quarterly strategy & posture review sessions</li>
+                                        <li>24/7 premium support SLA</li>
+                                    </ul>
+                                </div>
+                                <div class="table-footer">
+                                    <button type="button" class="theme-btn-one" data-stripe-subscribe data-product="defense_enterprise" data-price-id="price_defense_enterprise_monthly">Start Free Trial</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bundle Plans Row -->
+<div class="row clearfix mt_50 justify-content-center">
+
+    <!-- Defense Pro + Managed GRC Bundle -->
+    <div class="col-lg-5 col-md-6 col-sm-12 pricing-block">
+        <div class="pricing-block-one active-block">
+            <div class="pricing-table">
+                <div class="shape-1" style="background-image: url(assets/images/shape/shape-39.png);"></div>
+                <div class="table-header mb_35">
+                    <span class="badge bg-success mb-2">POPULAR</span>
+                    <span class="title">Defense Pro + vCISO</span>
+                    <h2>$TBD/<span>mo</span></h2>
+                    <p class="text-muted">Unified Security + Governance Oversight</p>
+                    <small class="text-success">Save $250/month vs purchasing separately</small>
+                </div>
+
+                <div class="table-content">
+                    <ul class="feature-list list-style-one clearfix">
+                        <li><strong>All AiVRIC Defense Pro Features</strong></li>
+                        <li><strong>3HUE Virtual CISO Support</strong></li>
+                        <li>Daily Security Posture Monitoring</li>
+                        <li>Control Gap Tracking (PCI DSS, SOC 2, ISO 27001)</li>
+                        <li>Weekly Analyst Review & Ticketing Sync</li>
+                        <li>Integrated Evidence Gathering & Audit Preparation</li>
+                        <li>Monthly Security Risk Briefings</li>
+                        <li>Dedicated Client Success Specilist</li>
+                    </ul>
+                </div>
+
+                <div class="table-footer">
+                    <button type="button" class="theme-btn-one" 
+                        data-stripe-subscribe 
+                        data-product="bundle_defensepro_grc" 
+                        data-price-id="price_defensepro_grc_monthly">
+                        Start Free Trial
+                    </button>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- AiVRIC+ Services Premium Platform -->
+    <div class="col-lg-5 col-md-6 col-sm-12 pricing-block">
+        <div class="pricing-block-one active-block">
+            <div class="pricing-table">
+                <div class="shape-1" style="background-image: url(assets/images/shape/shape-39.png);"></div>
+                <div class="table-header mb_35">
+                    <span class="badge bg-primary mb-2">PREMIUM</span>
+                    <span class="title">AiVRIC+ Managed GRC Services Platform</span>
+                    <h2>$TBD/<span>mo</span></h2>
+                    <p class="text-muted">Full Platform Access + Concierge Security Services</p>
+                    <small class="text-success">Save $400/month with bundled services</small>
+                </div>
+
+                <div class="table-content">
+                    <ul class="feature-list list-style-one clearfix">
+                        <li><strong>All AiVRIC Defense Features</strong></li>
+                        <li><strong>All AiVRIC Vision Features</strong></li>
+                        <li><strong>3HUE Managed GRC + Advisory Services</strong></li>
+                        <li>Full Compliance Automation (PCI DSS, SOC 2, ISO, CMMC-L2)</li>
+                        <li>Advanced AI Insights & Predictive Risk Analytics</li>
+                        <li>Continuous Evidence Collection + Audit-Ready Reports</li>
+                        <li>VIP Support, Training & Quarterly Strategy Reviews</li>
+                        <li>Dedicated Virtual CISO / Senior Security Consultant</li>
+                    </ul>
+                </div>
+
+                <div class="table-footer">
+                    <button type="button" class="theme-btn-one" 
+                        data-stripe-subscribe 
+                        data-product="bundle_aivric_plus" 
+                        data-price-id="price_aivric_plus_monthly">
+                        Start Free Trial
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
         </section>
-        <!-- service-details end -->
+        <!-- pricing-section end -->
 
 
         <!-- main-footer -->
@@ -512,6 +555,9 @@
 
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
+
+    <!-- Stripe Checkout Integration -->
+    <script src="assets/js/stripe-checkout.js"></script>
 
 </body><!-- End of .page_wrapper -->
 </html>
