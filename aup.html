@@ -38,15 +38,17 @@
     }
 
     body{
-      margin:0;
-      min-height:100vh;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--aivric-text);
-      background:
-        radial-gradient(1200px 900px at 70% -10%, rgba(31,208,255,0.22), transparent 55%),
-        radial-gradient(900px 700px at 10% 10%, rgba(46,229,157,0.14), transparent 60%),
-        linear-gradient(180deg, #070b14 0%, #060a12 35%, #050814 100%);
-    }
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(circle at top left, #1b8cff 0%, #020617 55%, #020817 100%);
+  color: var(--text);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 28px 16px;
+}
+
 
     a{ color: inherit; text-decoration: none; }
     a:hover{ text-decoration: underline; }
@@ -78,6 +80,7 @@
       align-items:center;
       justify-content:space-between;
       gap: 14px;
+      color: rgba(255,255,255,0.86);
       background: rgba(0,0,0,0.12);
     }
 
@@ -235,6 +238,7 @@
       color: var(--aivric-accent2);
     }
     .callout strong{
+      color: rgba(255,255,255,0.86);
       display:block;
       font-size: 13px;
       letter-spacing: 0.2px;
@@ -355,6 +359,40 @@
       .scrollbox{ height:auto; overflow:visible; border-color:#ddd; }
       .aup-content, .aup-side{ border:none; }
     }
+
+/* === AiVRIC Demo Environment Background === */
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* dev-defense style background */
+  background:
+    radial-gradient(1200px 800px at 20% -10%, rgba(27,140,255,0.35), transparent 55%),
+    radial-gradient(900px 700px at 90% 10%, rgba(46,229,157,0.20), transparent 60%),
+    linear-gradient(180deg, #020617 0%, #030712 45%, #020617 100%);
+
+  color: var(--text);
+  padding: 28px 16px;
+}
+
+/* Optional subtle texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 4px 4px;
+  opacity: 0.15;
+}
+
+
+
   </style>
 </head>
 
@@ -503,9 +541,9 @@
 
             <div class="actions">
               <!-- Update href to your demo login destination -->
-              <a class="btn primary" id="continueBtn" href="https://dev-defense.aivric.com" aria-disabled="true">
-                <i class="fas fa-arrow-right"></i> Continue to Demo
-              </a>
+              <button class="btn primary" id="continueToDemo" type="button" disabled>
+  Continue to Demo
+</button>
 
               <!-- Optional: link back to your demo-request page -->
               <a class="btn ghost" href="request-demo.html">
@@ -594,5 +632,87 @@
       });
     })();
   </script>
+
+<script>
+(function(){
+  const GATE_KEY = "aivric_demo_gate";
+
+  // Update these IDs to match your actual checkbox IDs in aup.html
+  const chkPolicy = document.getElementById("ackPolicy");   // "I have read and agree..."
+  const chkAuth   = document.getElementById("ackAuth");     // "I will only test authorized..."
+  const btnContinue = document.getElementById("continueToDemo");
+
+  // Fallback if your checkbox IDs differ (optional)
+  const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+  const policyBox = chkPolicy || checkboxes[0];
+  const authBox   = chkAuth   || checkboxes[1];
+
+  function qs(name){
+    return new URLSearchParams(window.location.search).get(name);
+  }
+
+  function getGate(){
+    try{
+      return JSON.parse(sessionStorage.getItem(GATE_KEY) || "null");
+    }catch(e){
+      return null;
+    }
+  }
+
+  function invalidateGate(){
+    sessionStorage.removeItem(GATE_KEY);
+  }
+
+  function gateIsValid(){
+    const gateParam = qs("gate");
+    const gate = getGate();
+    if(!gateParam || !gate) return false;
+    if(!gate.ok) return false;
+    if(gate.token !== gateParam) return false;
+    if(!gate.exp || Date.now() > gate.exp) return false;
+    if(!gate.demoUrl) return false;
+    return true;
+  }
+
+  function updateButtonState(){
+    const gateOk = gateIsValid();
+    const aupOk = Boolean(policyBox?.checked) && Boolean(authBox?.checked);
+    btnContinue.disabled = !(gateOk && aupOk);
+  }
+
+  // Enforce gate on load: direct access to aup.html should be blocked
+  if(!gateIsValid()){
+    invalidateGate();
+    // Send them back to the gate page (optionally include a reason)
+    window.location.replace("demo-access.html?error=complete_demo_request_first");
+    return;
+  }
+
+  // If gate is valid, allow interactions
+  updateButtonState();
+  document.addEventListener("change", updateButtonState);
+
+  btnContinue.addEventListener("click", function(){
+    if(btnContinue.disabled) return;
+
+    const gate = getGate();
+    if(!gate || !gate.demoUrl) return;
+
+    // Optional: clear the gate after use to prevent replays
+    invalidateGate();
+
+    // Continue to demo login page
+    window.location.href = gate.demoUrl;
+  });
+
+})();
+
+
+
+
+
+</script>
+
+
 </body>
 </html>

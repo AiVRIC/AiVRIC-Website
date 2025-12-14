@@ -1,353 +1,445 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>AiVRIC Demo Access</title>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>AiVRIC Demo Access</title>
+
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #0b1220;
-      --panel: rgba(255,255,255,0.08);
-      --panel-border: rgba(255,255,255,0.12);
-      --text: rgba(255,255,255,0.92);
-      --muted: rgba(255,255,255,0.65);
+    :root{
+      --bg0:#020617;
+      --bg1:#030712;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.08);
+      --stroke: rgba(255,255,255,.14);
+      --stroke2: rgba(255,255,255,.18);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.70);
+      --muted2: rgba(255,255,255,.56);
       --danger: #ff5c7c;
-      --accent: #00d4ff;
-      --radius: 16px;
+      --accent: #1b8cff;
+      --accent2: #2ee59d;
+      --radius: 22px;
     }
 
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: radial-gradient(1200px 600px at 80% -10%, rgba(0,212,255,0.18), transparent 60%),
-                  linear-gradient(180deg, #050814, #070b18);
-      font-family: Inter, system-ui, sans-serif;
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
+      padding: 28px 18px;
+
+      /* dev-defense style background */
+      background:
+        radial-gradient(1200px 800px at 18% -10%, rgba(27,140,255,0.38), transparent 58%),
+        radial-gradient(900px 700px at 92% 8%, rgba(46,229,157,0.22), transparent 60%),
+        radial-gradient(900px 700px at 70% 120%, rgba(27,140,255,0.14), transparent 55%),
+        linear-gradient(180deg, var(--bg0) 0%, var(--bg1) 45%, var(--bg0) 100%);
     }
 
-    .gate-container {
-      width: 100%;
-      max-width: 560px;
-      background: var(--panel);
-      border: 1px solid var(--panel-border);
+    /* dotted gradient texture */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.16;
+      background-image:
+        radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        radial-gradient(rgba(27,140,255,0.10) 1px, transparent 1px),
+        radial-gradient(rgba(46,229,157,0.08) 1px, transparent 1px);
+      background-size: 4px 4px, 7px 7px, 10px 10px;
+      background-position: 0 0, 18px 10px, 40px 30px;
+      mix-blend-mode: screen;
+    }
+
+    /* Layout */
+    .shell{
+      width: min(1200px, 100%);
+      display:grid;
+      grid-template-columns: 420px 1fr;
+      gap: 42px;
+      align-items:center;
+      position:relative;
+      z-index:1;
+    }
+
+    @media (max-width: 980px){
+      .shell{ grid-template-columns: 1fr; gap: 22px; }
+      .brand{ text-align:center; }
+      .brand .brand-row{ justify-content:center; }
+    }
+
+    /* Left brand panel */
+    .brand{
+      padding: 6px 4px;
+    }
+    .brand-row{
+      display:flex;
+      align-items:center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .logo-mark{
+      width: 56px;
+      height: 56px;
+      flex: 0 0 auto;
+      filter: drop-shadow(0 10px 22px rgba(0,0,0,.35));
+    }
+    .brand-word{
+      font-size: 56px;
+      font-weight: 900;
+      letter-spacing: .5px;
+      line-height: 1;
+      margin:0;
+    }
+    .brand-word .ai{ color: #1b8cff; }
+    .brand-word .vric{ color: rgba(255,255,255,.18); }
+    .brand-title{
+      font-size: 40px;
+      font-weight: 900;
+      margin: 12px 0 10px;
+      letter-spacing: .2px;
+    }
+    .brand-sub{
+      margin:0;
+      color: rgba(255,255,255,.88);
+      font-size: 15px;
+      line-height: 1.55;
+      max-width: 420px;
+    }
+
+    /* Right form card */
+    .card{
+      width: min(760px, 100%);
+      margin-left:auto;
       border-radius: var(--radius);
-      padding: 32px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.045));
+      box-shadow:
+        0 34px 80px rgba(0,0,0,.55),
+        inset 0 1px 0 rgba(255,255,255,.06);
+      overflow:hidden;
+      position:relative;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-120px;
+      background:
+        radial-gradient(600px 360px at 10% 0%, rgba(27,140,255,.18), transparent 55%),
+        radial-gradient(520px 340px at 100% 10%, rgba(46,229,157,.14), transparent 58%);
+      pointer-events:none;
+      z-index:0;
     }
 
-    .logo {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 6px;
+    .card-inner{
+      position:relative;
+      z-index:1;
+      padding: 28px 28px 22px; /* <-- fixes padding to edges */
     }
 
-    .subtitle {
-      font-size: 14px;
+    .card h1{
+      margin: 0 0 6px;
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: .2px;
+    }
+    .subtitle{
+      margin: 0 0 18px;
       color: var(--muted);
-      margin-bottom: 22px;
+      font-size: 13px;
       line-height: 1.5;
     }
 
-    label {
-      display: block;
-      font-size: 12px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: var(--muted);
-      letter-spacing: 0.3px;
+    /* Form */
+    form{ margin:0; }
+    label{
+      display:block;
+      margin: 12px 0 6px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: rgba(255,255,255,.80);
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    @media (max-width: 560px){
-      .grid-2 { grid-template-columns: 1fr; }
-    }
-
-    input,
-    select {
-      width: 100%;
-      padding: 14px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--panel-border);
-      background: rgba(0,0,0,0.35);
+    input, select{
+      width:100%;
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
       color: var(--text);
+      padding: 10px 14px; /* <-- consistent inner padding */
       font-size: 14px;
       outline: none;
-      margin-bottom: 16px;
+      transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+    }
+    input::placeholder{ color: rgba(255,255,255,.45); }
+
+    input:focus{
+      border-color: rgba(27,140,255,.55);
+      box-shadow: 0 0 0 3px rgba(27,140,255,.16);
+      background: rgba(255,255,255,.07);
     }
 
-    /* FIX: Dropdown readability */
-    select option {
-      color: #111;
+    /* Ensure dropdown text is visible (white background like your screenshot) */
+    select{
       background: #ffffff;
+      color: #0b1220;
+      border-color: rgba(15,23,42,.18);
+      padding-right: 42px;
+      appearance: auto;
+    }
+    select:focus{
+      border-color: rgba(27,140,255,.65);
+      box-shadow: 0 0 0 3px rgba(27,140,255,.16);
     }
 
-    input::placeholder {
-      color: rgba(255,255,255,0.45);
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 640px){
+      .grid-2{ grid-template-columns: 1fr; }
     }
 
-    input:focus,
-    select:focus {
-      border-color: var(--accent);
-    }
-
-    .error {
-      display: none;
-      margin-top: -8px;
-      margin-bottom: 14px;
+    .error{
+      display:none;
+      margin-top: 6px;
       color: var(--danger);
       font-size: 12px;
-      line-height: 1.4;
+      line-height: 1.35;
     }
 
-    .btn {
-      width: 100%;
-      padding: 14px;
-      border-radius: 14px;
-      border: none;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 700;
-      background: linear-gradient(90deg, #00d4ff, #4ae3c1);
-      color: #041018;
-      transition: transform 0.15s ease, filter 0.15s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.05);
-    }
-
-    .footer-note {
+    .checkrow{
+      display:flex;
+      align-items:flex-start;
+      gap: 10px;
       margin-top: 16px;
-      font-size: 12px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+    }
+    .checkrow input[type="checkbox"]{
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--accent);
+      flex: 0 0 auto;
+    }
+    .checkrow label{
+      margin:0;
+      font-size: 12.5px;
+      font-weight: 600;
       color: var(--muted);
-      text-align: center;
-      line-height: 1.5;
+      line-height: 1.45;
+    }
+    .checkrow a{ color: #cfe8ff; text-decoration: underline; }
+
+    .actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
     }
 
-.demo-gate-overlay{
-  position: fixed;
-  inset: 0;
-  background: rgba(5,8,20,0.85);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
+    .btn{
+      height: 44px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.18);
+      padding: 0 16px;
+      font-weight: 900;
+      letter-spacing: .2px;
+      cursor:pointer;
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      user-select:none;
+    }
+    .btn.primary{
+      background: linear-gradient(90deg, rgba(27,140,255,.95), rgba(46,229,157,.65));
+      border-color: rgba(27,140,255,.55);
+      color: #07101f;
+    }
+    .btn[disabled]{
+      opacity:.55;
+      cursor:not-allowed;
+      filter: grayscale(20%);
+    }
 
-.demo-gate-modal{
-  background: #0b1220;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 16px;
-  max-width: 480px;
-  width: 100%;
-  padding: 24px;
-  color: #fff;
-  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
-}
+    .tiny{
+      margin-top: 10px;
+      font-size: 12px;
+      color: rgba(255,255,255,.55);
+      line-height: 1.55;
+    }
 
-.demo-gate-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.demo-gate-header h2{
-  font-size: 22px;
-  margin: 0;
-}
-
-.demo-gate-close{
-  background: transparent;
-  border: none;
-  font-size: 26px;
-  color: #fff;
-  cursor: pointer;
-}
-
-.demo-gate-subtext{
-  margin: 10px 0 20px;
-  color: rgba(255,255,255,0.75);
-  font-size: 14px;
-}
-
-.form-group{
-  margin-bottom: 16px;
-}
-
-.form-group label{
-  display: block;
-  font-size: 13px;
-  margin-bottom: 6px;
-}
-
-.form-group input{
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid rgba(255,255,255,0.2);
-  background: rgba(255,255,255,0.05);
-  color: #fff;
-}
-
-.form-group input:focus{
-  outline: none;
-  border-color: #1fd0ff;
-}
-
-.form-check{
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  margin-bottom: 20px;
-  font-size: 13px;
-}
-
-.form-check a{
-  color: #1fd0ff;
-}
-
-.form-actions{
-  text-align: right;
-}
-
-.error-text{
-  color: #ff5c7c;
-  font-size: 12px;
-}
-
-.demo-gate-footnote{
-  margin-top: 14px;
-  font-size: 12px;
-  color: rgba(255,255,255,0.5);
-}
-
+    /* honeypot hidden */
+    .hp{ position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden; }
   </style>
 </head>
 
-
 <body>
+  <div class="shell">
+    <!-- Left brand column -->
+    <div class="brand" aria-hidden="false">
+      <div class="brand-row">
+        <!-- Inline logo mark (replace with your real SVG if desired) -->
+        <img class="brand-logo" src="assets/images/logo/Aivric-logo-footer-1.png" alt="AiVRIC" />
 
-  <form class="gate-container" id="demoGateForm" novalidate>
-    <div class="logo">AiVRIC Demo Access</div>
-    <div class="subtitle">
-      Tell us a bit about your use case to continue into the live AiVRIC demo environment.
-    </div>
-
-    <!-- Name -->
-    <div class="grid-2">
-      <div>
-        <label for="firstName">First Name</label>
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          placeholder="First name"
-          autocomplete="given-name"
-          required
-          minlength="2"
-        />
+        
       </div>
-      <div>
-        <label for="lastName">Last Name</label>
-        <input
-          type="text"
-          id="lastName"
-          name="lastName"
-          placeholder="Last name"
-          autocomplete="family-name"
-          required
-          minlength="2"
-        />
+
+      <div class="brand-title">Online Demo Access</div>
+      <p class="brand-sub">
+        Please provide your business details to continue.<br />
+        All fields are required.<br />
+        Personal email domains are not permitted.
+      </p>
+    </div>
+
+    <!-- Right form card -->
+    <section class="card" aria-label="Demo access form">
+      <div class="card-inner">
+        <h1>AiVRIC Demo Access</h1>
+        <p class="subtitle">
+          Please provide your business details to continue. All fields are required. Personal email domains are not permitted.
+        </p>
+
+        <!-- Hidden iframe so we can POST to Salesforce and remain on this page -->
+        <iframe name="sfHiddenFrame" id="sfHiddenFrame" style="display:none;"></iframe>
+
+        <!-- Salesforce Web-to-Lead (single authoritative form) -->
+        <form id="sf-demoaccess"
+              action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
+              method="POST"
+              target="sfHiddenFrame"
+              novalidate>
+
+          <!-- Required Salesforce -->
+          <input type="hidden" name="oid" value="00Dal00001MW405" />
+          <input type="hidden" name="retURL" value="https://aivric.com/aup.html" />
+          <input type="hidden" name="lead_source" value="Website Online Demo Access" />
+
+          <!-- Optional storage: put non-standard fields into Description -->
+          <input type="hidden" id="sf_description" name="description" value="" />
+
+          <!-- Honeypot -->
+          <div class="hp" aria-hidden="true">
+            <label for="hp_field">Leave this field empty</label>
+            <input id="hp_field" name="hp_field" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="grid-2">
+            <div>
+              <label for="first_name">First Name</label>
+              <input id="first_name" name="first_name" type="text" placeholder="First name" required minlength="2" autocomplete="given-name" />
+            </div>
+            <div>
+              <label for="last_name">Last Name</label>
+              <input id="last_name" name="last_name" type="text" placeholder="Last name" required minlength="2" autocomplete="family-name" />
+            </div>
+          </div>
+
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="tel" placeholder="+1 954 342 6637" required inputmode="tel"
+                 pattern="^[0-9+()\-\.\s]{7,}$" autocomplete="tel" />
+          <div class="error" id="phoneError">Please enter a valid phone number.</div>
+
+          <label for="email">Business Email</label>
+          <input id="email" name="email" type="email" placeholder="you@company.com" required autocomplete="email" />
+          <div class="error" id="emailError">Please use a business email address (personal email domains are not permitted).</div>
+
+          <label for="company">Company</label>
+          <input id="company" name="company" type="text" placeholder="Company name" required maxlength="40" autocomplete="organization" />
+
+          <div class="grid-2">
+            <div>
+              <label for="usecase">Primary Security Use Case</label>
+              <!-- NOTE: intentionally no name=... so it is placed into Description by JS (do not change flow) -->
+              <select id="usecase" required>
+                <option value="" disabled selected>Select a use case</option>
+                <option value="GitHub / SDLC Security">GitHub / SDLC Security</option>
+                <option value="Cloud Security Posture (CSPM)">Cloud Security Posture (CSPM)</option>
+                <option value="Kubernetes Security">Kubernetes Security</option>
+                <option value="SOC 2 / Compliance Readiness">SOC 2 / Compliance Readiness</option>
+                <option value="Multi-Cloud Security Posture">Multi-Cloud Security Posture</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="size">Organization Size</label>
+              <!-- NOTE: intentionally no name=... so it is placed into Description by JS (do not change flow) -->
+              <select id="size" required>
+                <option value="" disabled selected>Select organization size</option>
+                <option value="Startup (1–50)">Startup (1–50)</option>
+                <option value="SMB (51–250)">SMB (51–250)</option>
+                <option value="Mid-Market (251–2000)">Mid-Market (251–2000)</option>
+                <option value="Enterprise (2001+)">Enterprise (2001+)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="checkrow">
+            <input id="ack" type="checkbox" required />
+            <label for="ack">
+              I agree to read and acknowledge the AiVRIC Demo Acceptable Use Policy (next page).
+            </label>
+          </div>
+
+          <div class="actions">
+            <button class="btn primary" id="continueBtn" type="submit" disabled>
+              Continue to Demo
+            </button>
+            <button class="btn" type="button" onclick="history.back()">Back</button>
+          </div>
+
+          <div class="tiny">
+            Demo activity may be monitored. Unauthorized testing or misuse may result in access termination.
+          </div>
+        </form>
       </div>
-    </div>
+    </section>
+  </div>
 
-    <!-- Phone -->
-    <label for="phone">Phone Number</label>
-    <input
-      type="tel"
-      id="phone"
-      name="phone"
-      placeholder="+1 954 342 6637"
-      autocomplete="tel"
-      required
-      inputmode="tel"
-      pattern="^[0-9+()\-.\s]{7,}$"
-    />
-    <div class="error" id="phoneError">Please enter a valid phone number.</div>
-
-    <!-- Business Email -->
-    <label for="email">Business Email</label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      placeholder="you@company.com"
-      autocomplete="work email"
-      required
-    />
-    <div class="error" id="emailError">
-      Please use a business email address (personal email domains are not permitted).
-    </div>
-
-    <!-- Primary Use Case -->
-    <label for="usecase">Primary Security Use Case</label>
-    <select id="usecase" name="usecase" required>
-      <option value="" disabled selected>Select a use case</option>
-      <option value="github">GitHub / SDLC Security</option>
-      <option value="cloud">Cloud Security Posture (CSPM)</option>
-      <option value="kubernetes">Kubernetes Security</option>
-      <option value="compliance">SOC 2 / Compliance Readiness</option>
-      <option value="multi-cloud">Multi-Cloud Security Posture</option>
-    </select>
-
-    <!-- Company Size -->
-    <label for="size">Organization Size</label>
-    <select id="size" name="size" required>
-      <option value="" disabled selected>Select organization size</option>
-      <option value="startup">Startup (1–50)</option>
-      <option value="smb">SMB (51–250)</option>
-      <option value="mid">Mid-Market (251–1,000)</option>
-      <option value="enterprise">Enterprise (1,000+)</option>
-    </select>
-
-    <!-- Submit -->
-<!-- Trigger Button (replace your existing Demo button if needed) -->
-<button class="theme-btn-one" id="openDemoGate">
-  Request Demo Access
-</button>
-
-
-    <div class="footer-note">
-      This demo environment is pre-configured for exploration only.
-    </div>
-  </form>
-
+  <!-- IMPORTANT: Keep the Web-to-Lead submission + AUP gate logic unchanged -->
   <script>
-    (function () {
-      const form = document.getElementById('demoGateForm');
-      const emailEl = document.getElementById('email');
-      const emailError = document.getElementById('emailError');
-      const phoneEl = document.getElementById('phone');
-      const phoneError = document.getElementById('phoneError');
+    (function(){
+      const form = document.getElementById('sf-demoaccess');
+      const iframe = document.getElementById('sfHiddenFrame');
 
-      // Blocklist of consumer/personal email domains
-      // (Add/remove as you see fit.)
+      const first = document.getElementById('first_name');
+      const last  = document.getElementById('last_name');
+      const phone = document.getElementById('phone');
+      const email = document.getElementById('email');
+      const company = document.getElementById('company');
+
+      const usecase = document.getElementById('usecase');
+      const size = document.getElementById('size');
+      const ack = document.getElementById('ack');
+
+      const emailError = document.getElementById('emailError');
+      const phoneError = document.getElementById('phoneError');
+      const btn = document.getElementById('continueBtn');
+
+      // Expand as needed
       const blockedDomains = new Set([
         "gmail.com","googlemail.com",
         "yahoo.com","yahoo.co.uk","yahoo.ca","yahoo.com.au",
@@ -355,205 +447,111 @@
         "aol.com",
         "icloud.com","me.com","mac.com",
         "proton.me","protonmail.com",
-        "gmx.com","gmx.net",
-        "mail.com",
-        "zoho.com",        // optional: remove if you want to allow business Zoho users
-        "fastmail.com",
-        "yandex.com","yandex.ru",
-        "qq.com","163.com","126.com",
-        "comcast.net","verizon.net","att.net","sbcglobal.net","cox.net","charter.net"
+        "gmx.com","mail.com",
+        "ymail.com"
       ]);
 
-      function getDomain(email) {
-        const at = email.lastIndexOf('@');
-        if (at === -1) return "";
-        return email.slice(at + 1).trim().toLowerCase();
+      function isBusinessEmail(v){
+        const parts = String(v || "").trim().toLowerCase().split("@");
+        if(parts.length !== 2) return false;
+        const domain = parts[1];
+        if(!domain || domain.indexOf(".") === -1) return false;
+        return !blockedDomains.has(domain);
       }
 
-      function isBusinessEmail(email) {
-        const domain = getDomain(email);
-        if (!domain) return false;
-        // Reject blocked personal domains
-        if (blockedDomains.has(domain)) return false;
+      function show(el){ el.style.display = "block"; }
+      function hide(el){ el.style.display = "none"; }
 
-        // Basic sanity: must include a dot and not end with dot
-        if (!domain.includes('.') || domain.endsWith('.')) return false;
-
-        return true;
-      }
-
-      function show(el) { el.style.display = 'block'; }
-      function hide(el) { el.style.display = 'none'; }
-
-      function validateEmailField() {
-        const email = emailEl.value.trim();
-        // Let browser handle empty/format issues; we add the "business domain" constraint
-        if (!emailEl.checkValidity()) {
-          hide(emailError);
-          return false;
-        }
-        if (!isBusinessEmail(email)) {
-          show(emailError);
-          return false;
-        }
-        hide(emailError);
-        return true;
-      }
-
-      function validatePhoneField() {
-        const ok = phoneEl.checkValidity();
-        if (!ok) show(phoneError);
-        else hide(phoneError);
+      function validatePhone(){
+        const ok = phone.checkValidity();
+        ok ? hide(phoneError) : show(phoneError);
         return ok;
       }
 
-      emailEl.addEventListener('blur', validateEmailField);
-      emailEl.addEventListener('input', () => { if (emailError.style.display === 'block') validateEmailField(); });
+      function validateEmail(){
+        if(!email.checkValidity()){
+          hide(emailError);
+          return false;
+        }
+        const ok = isBusinessEmail(email.value);
+        ok ? hide(emailError) : show(emailError);
+        return ok;
+      }
 
-      phoneEl.addEventListener('blur', validatePhoneField);
-      phoneEl.addEventListener('input', () => { if (phoneError.style.display === 'block') validatePhoneField(); });
+      function validateAll(){
+        const baseOk =
+          first.value.trim().length >= 2 &&
+          last.value.trim().length  >= 2 &&
+          company.value.trim().length >= 2 &&
+          usecase.value &&
+          size.value &&
+          ack.checked &&
+          form.checkValidity();
 
-      form.addEventListener('submit', function (e) {
+        const ok = baseOk && validateEmail() && validatePhone();
+        btn.disabled = !ok;
+        return ok;
+      }
+
+      form.addEventListener("input", validateAll);
+      email.addEventListener("blur", validateEmail);
+      phone.addEventListener("blur", validatePhone);
+
+      let submitted = false;
+
+      const GATE_KEY = "aivric_demo_gate";
+      const GATE_TTL_MS = 10 * 60 * 1000; // 10 minutes
+      const DEMO_URL = "https://dev-defense.aivric.com"; // <-- your demo login URL
+
+      function makeToken(){
+        // simple token; not cryptographically secure, but good enough for a front-end gate
+        return (crypto?.randomUUID?.() || (Date.now() + "-" + Math.random().toString(16).slice(2)));
+      }
+
+      iframe.addEventListener("load", function(){
+        if(submitted){
+          const token = makeToken();
+          sessionStorage.setItem(GATE_KEY, JSON.stringify({
+            ok: true,
+            token,
+            ts: Date.now(),
+            exp: Date.now() + GATE_TTL_MS,
+            email: (email.value || "").trim().toLowerCase(),
+            demoUrl: DEMO_URL
+          }));
+
+          // redirect to AUP with token (AUP will validate against sessionStorage)
+          window.location.href = "aup.html?gate=" + encodeURIComponent(token);
+        }
+      });
+
+      form.addEventListener("submit", function(e){
         e.preventDefault();
 
-        // Trigger native validation UI for required fields
-        if (!form.checkValidity()) {
+        // honeypot trip
+        const hp = form.querySelector('[name="hp_field"]');
+        if(hp && hp.value) return;
+
+        if(!validateAll()){
           form.reportValidity();
-          // Still show our custom errors if relevant
-          validateEmailField();
-          validatePhoneField();
           return;
         }
 
-        const emailOk = validateEmailField();
-        const phoneOk = validatePhoneField();
+        // Put non-standard fields into Salesforce Description (safe default)
+        const desc = [
+          "Online Demo Access Request",
+          "Use Case: " + usecase.value,
+          "Org Size: " + size.value
+        ].join(" | ");
+        document.getElementById("sf_description").value = desc;
 
-        if (!emailOk || !phoneOk) return;
-
-        // Optional: capture values for analytics / API later
-        // const data = Object.fromEntries(new FormData(form).entries());
-        // fetch('/api/demo-intake', { method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) });
-
-        // Redirect to demo login page
-        window.location.href = "https://dev-defense.aivric.com";
+        submitted = true;
+        form.submit(); // posts to Salesforce Web-to-Lead
       });
+
+      // Initialize
+      validateAll();
     })();
   </script>
-
-<!-- Demo Acknowledgement Modal -->
-<div id="demoGateOverlay" class="demo-gate-overlay" aria-hidden="true">
-  <div class="demo-gate-modal" role="dialog" aria-modal="true">
-
-    <div class="demo-gate-header">
-      <h2>Demo Access Acknowledgement</h2>
-      <button class="demo-gate-close" id="closeDemoGate">&times;</button>
-    </div>
-
-    <p class="demo-gate-subtext">
-      Before accessing the AiVRIC demo environment, please confirm your identity
-      and acknowledge acceptable use requirements.
-    </p>
-
-    <form id="demoGateForm" novalidate>
-      <div class="form-group">
-        <label for="fullName">Full Name</label>
-        <input type="text" id="fullName" name="fullName" required />
-      </div>
-
-      <div class="form-group">
-        <label for="businessEmail">Business Email</label>
-        <input type="email" id="businessEmail" name="businessEmail" required />
-        <small class="error-text" id="emailError"></small>
-      </div>
-
-      <div class="form-check">
-        <input type="checkbox" id="acknowledgeAUP" required />
-        <label for="acknowledgeAUP">
-          I have read and agree to the
-          <a href="aup.html" target="_blank">
-            AiVRIC Demo Acceptable Use Policy
-          </a>
-        </label>
-      </div>
-
-      <div class="form-actions">
-        <button type="submit" class="theme-btn-one" id="continueDemoBtn" disabled>
-          Continue to Demo
-        </button>
-      </div>
-    </form>
-
-    <p class="demo-gate-footnote">
-      Demo activity is monitored. Unauthorized testing or misuse may result in
-      access termination.
-    </p>
-
-  </div>
-</div>
-
-<script>
-(function(){
-  const overlay = document.getElementById('demoGateOverlay');
-  const openBtn = document.getElementById('openDemoGate');
-  const closeBtn = document.getElementById('closeDemoGate');
-  const form = document.getElementById('demoGateForm');
-  const continueBtn = document.getElementById('continueDemoBtn');
-  const emailInput = document.getElementById('businessEmail');
-  const emailError = document.getElementById('emailError');
-  const ack = document.getElementById('acknowledgeAUP');
-
-  const blockedDomains = [
-    'gmail.com','yahoo.com','hotmail.com','outlook.com',
-    'msn.com','aol.com','icloud.com','proton.me','protonmail.com'
-  ];
-
-  function isBusinessEmail(email){
-    const domain = email.split('@')[1]?.toLowerCase();
-    return domain && !blockedDomains.includes(domain);
-  }
-
-  function validateForm(){
-    const valid =
-      document.getElementById('fullName').value.trim() !== '' &&
-      isBusinessEmail(emailInput.value) &&
-      ack.checked;
-
-    continueBtn.disabled = !valid;
-  }
-
-  emailInput.addEventListener('input', () => {
-    if(emailInput.value && !isBusinessEmail(emailInput.value)){
-      emailError.textContent = 'Please use a business email address.';
-    } else {
-      emailError.textContent = '';
-    }
-    validateForm();
-  });
-
-  form.addEventListener('input', validateForm);
-
-  openBtn.addEventListener('click', () => {
-    overlay.style.display = 'flex';
-    overlay.setAttribute('aria-hidden','false');
-  });
-
-  closeBtn.addEventListener('click', () => {
-    overlay.style.display = 'none';
-    overlay.setAttribute('aria-hidden','true');
-  });
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    // OPTIONAL: send data to backend / Salesforce here
-
-    // Redirect to demo login or demo gate
-    window.location.href = 'aup.html'; // <-- update if needed
-  });
-})();
-</script>
-
-
-
 </body>
 </html>
