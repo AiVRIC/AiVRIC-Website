@@ -139,8 +139,107 @@
       text-align: center;
       line-height: 1.5;
     }
+
+.demo-gate-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(5,8,20,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.demo-gate-modal{
+  background: #0b1220;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  max-width: 480px;
+  width: 100%;
+  padding: 24px;
+  color: #fff;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+}
+
+.demo-gate-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.demo-gate-header h2{
+  font-size: 22px;
+  margin: 0;
+}
+
+.demo-gate-close{
+  background: transparent;
+  border: none;
+  font-size: 26px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.demo-gate-subtext{
+  margin: 10px 0 20px;
+  color: rgba(255,255,255,0.75);
+  font-size: 14px;
+}
+
+.form-group{
+  margin-bottom: 16px;
+}
+
+.form-group label{
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.form-group input{
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+}
+
+.form-group input:focus{
+  outline: none;
+  border-color: #1fd0ff;
+}
+
+.form-check{
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.form-check a{
+  color: #1fd0ff;
+}
+
+.form-actions{
+  text-align: right;
+}
+
+.error-text{
+  color: #ff5c7c;
+  font-size: 12px;
+}
+
+.demo-gate-footnote{
+  margin-top: 14px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
+
   </style>
 </head>
+
 
 <body>
 
@@ -228,9 +327,11 @@
     </select>
 
     <!-- Submit -->
-    <button type="submit" class="btn">
-      Continue to Demo
-    </button>
+<!-- Trigger Button (replace your existing Demo button if needed) -->
+<button class="theme-btn-one" id="openDemoGate">
+  Request Demo Access
+</button>
+
 
     <div class="footer-note">
       This demo environment is pre-configured for exploration only.
@@ -338,6 +439,121 @@
       });
     })();
   </script>
+
+<!-- Demo Acknowledgement Modal -->
+<div id="demoGateOverlay" class="demo-gate-overlay" aria-hidden="true">
+  <div class="demo-gate-modal" role="dialog" aria-modal="true">
+
+    <div class="demo-gate-header">
+      <h2>Demo Access Acknowledgement</h2>
+      <button class="demo-gate-close" id="closeDemoGate">&times;</button>
+    </div>
+
+    <p class="demo-gate-subtext">
+      Before accessing the AiVRIC demo environment, please confirm your identity
+      and acknowledge acceptable use requirements.
+    </p>
+
+    <form id="demoGateForm" novalidate>
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" name="fullName" required />
+      </div>
+
+      <div class="form-group">
+        <label for="businessEmail">Business Email</label>
+        <input type="email" id="businessEmail" name="businessEmail" required />
+        <small class="error-text" id="emailError"></small>
+      </div>
+
+      <div class="form-check">
+        <input type="checkbox" id="acknowledgeAUP" required />
+        <label for="acknowledgeAUP">
+          I have read and agree to the
+          <a href="aup.html" target="_blank">
+            AiVRIC Demo Acceptable Use Policy
+          </a>
+        </label>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="theme-btn-one" id="continueDemoBtn" disabled>
+          Continue to Demo
+        </button>
+      </div>
+    </form>
+
+    <p class="demo-gate-footnote">
+      Demo activity is monitored. Unauthorized testing or misuse may result in
+      access termination.
+    </p>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  const overlay = document.getElementById('demoGateOverlay');
+  const openBtn = document.getElementById('openDemoGate');
+  const closeBtn = document.getElementById('closeDemoGate');
+  const form = document.getElementById('demoGateForm');
+  const continueBtn = document.getElementById('continueDemoBtn');
+  const emailInput = document.getElementById('businessEmail');
+  const emailError = document.getElementById('emailError');
+  const ack = document.getElementById('acknowledgeAUP');
+
+  const blockedDomains = [
+    'gmail.com','yahoo.com','hotmail.com','outlook.com',
+    'msn.com','aol.com','icloud.com','proton.me','protonmail.com'
+  ];
+
+  function isBusinessEmail(email){
+    const domain = email.split('@')[1]?.toLowerCase();
+    return domain && !blockedDomains.includes(domain);
+  }
+
+  function validateForm(){
+    const valid =
+      document.getElementById('fullName').value.trim() !== '' &&
+      isBusinessEmail(emailInput.value) &&
+      ack.checked;
+
+    continueBtn.disabled = !valid;
+  }
+
+  emailInput.addEventListener('input', () => {
+    if(emailInput.value && !isBusinessEmail(emailInput.value)){
+      emailError.textContent = 'Please use a business email address.';
+    } else {
+      emailError.textContent = '';
+    }
+    validateForm();
+  });
+
+  form.addEventListener('input', validateForm);
+
+  openBtn.addEventListener('click', () => {
+    overlay.style.display = 'flex';
+    overlay.setAttribute('aria-hidden','false');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    overlay.style.display = 'none';
+    overlay.setAttribute('aria-hidden','true');
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // OPTIONAL: send data to backend / Salesforce here
+
+    // Redirect to demo login or demo gate
+    window.location.href = 'aup.html'; // <-- update if needed
+  });
+})();
+</script>
+
+
 
 </body>
 </html>
