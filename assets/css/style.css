@@ -1862,7 +1862,7 @@ div#mCSB_1_container{
 }
 
 .shine.shine-1{
-  background-image: url(../images/shape/shape-1.png);
+  background-image: url(../images/shape/shape-1.avif);
   left: -350px;
   bottom: -350px;
   -webkit-animation-delay: 1s;
@@ -1870,7 +1870,7 @@ div#mCSB_1_container{
 } 
 
 .shine.shine-2{
-  background-image: url(../images/shape/shape-1.png);
+  background-image: url(../images/shape/shape-1.avif);
   top: -400px;
   left: 400px;
   -webkit-animation-delay: 3s;
