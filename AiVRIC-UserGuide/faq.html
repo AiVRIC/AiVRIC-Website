@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>AiVRIC User Guide | FAQ & Support</title>
+  <link rel="canonical" href="https://user-guide.aivric.com/faq.html">
+  <meta name="description" content="Frequently asked questions about AiVRIC: setup, security, operations, and support contacts.">
+  <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../assets/css/color.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/responsive.css" rel="stylesheet">
+  <link href="userguide.css" rel="stylesheet">
+</head>
+<body data-page="faq">
+  <header class="guide-header">
+    <div class="bar">
+      <a class="brand" href="index.html"><span class="dot"></span>AiVRIC User Guide</a>
+      <div class="top-links">
+        <a href="../index.html">AiVRIC.com</a>
+        <a href="../trust.html">Trust Center</a>
+        <a href="../request-demo.html">Request demo</a>
+        <a href="../support.html">Support</a>
+      </div>
+      <div class="guide-search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input type="search" placeholder="Search the User Guide (coming soon)" aria-label="Search the AiVRIC User Guide">
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+    </div>
+  </header>
+
+  <div class="guide-shell">
+    <aside class="guide-sidebar" id="sidebar">
+      <div class="nav-section">
+        <p class="nav-label">Essentials</p>
+        <a class="nav-link" data-page-target="home" href="index.html">Overview <small>Start here</small></a>
+        <a class="nav-link" data-page-target="getting-started" href="getting-started.html">Getting started <small>Setup</small></a>
+        <a class="nav-link" data-page-target="platform" href="platform-overview.html">Platform overview <small>How AiVRIC works</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Assurance</p>
+        <a class="nav-link" data-page-target="security" href="security-trust.html">Security & Trust <small>Controls</small></a>
+        <a class="nav-link" data-page-target="governance" href="ai-governance.html">AI Governance <small>Policies</small></a>
+        <a class="nav-link" data-page-target="faq" href="faq.html">FAQ & Support <small>Answers</small></a>
+      </div>
+    </aside>
+
+    <main class="guide-content">
+      <span class="badge" id="general">FAQ</span>
+      <h1>FAQ & support</h1>
+      <p>Answers to the most common questions. Still need help? Reach out and we'll respond quickly.</p>
+
+      <h2>General</h2>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>Where is data processed?</h3>
+          <p>Data stays in your cloud unless you enable optional evidence capture. Control plane metadata is segmented per tenant.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Does AiVRIC support multi-tenant orgs?</h3>
+          <p>Yes. Use workspaces to isolate environments, teams, or geographies. RBAC scopes access accordingly.</p>
+        </div>
+      </div>
+
+      <h2 id="security">Security</h2>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>Can we self-host?</h3>
+          <p>Talk with us for private cloud deployments. Most customers use the managed service with private connectivity.</p>
+        </div>
+        <div class="guide-card">
+          <h3>How are secrets protected?</h3>
+          <p>Stored via Vault with envelope encryption; no plaintext retrieval after creation; enforced rotation.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Do you provide compliance reports?</h3>
+          <p>Yes. SOC 2, penetration testing summaries, and security architecture docs are in the Trust Center.</p>
+        </div>
+      </div>
+
+      <h2 id="operations">Operations</h2>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>How do updates roll out?</h3>
+          <p>Changes are staged and validated; customer-facing updates are announced in release notes and status communications.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Can we automate remediation?</h3>
+          <p>Yes. Use runbooks attached to controls; actions can auto-open tickets, run playbooks, or call webhooks.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Is there API access?</h3>
+          <p>Export findings, configure guardrails, and manage workspaces via API. Tokens are scoped and expire.</p>
+        </div>
+      </div>
+
+      <h2 id="support">Support</h2>
+      <div class="callout primary">
+        <strong>Contact us:</strong> Email <a href="mailto:support@aivric.com">support@aivric.com</a>, ping your account team, or schedule a working session from <a href="../support.html">Support</a>.
+      </div>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>Response times</h3>
+          <p>Severity-based SLAs defined in your agreement; security reports prioritized immediately.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Status page</h3>
+          <p>Track uptime and maintenance windows via the status dashboard (ask your CSM for link).</p>
+        </div>
+        <div class="guide-card">
+          <h3>Feedback loop</h3>
+          <p>Have suggestions? We review guide updates weekly; open a ticket with context and desired outcomes.</p>
+        </div>
+      </div>
+    </main>
+
+    <aside class="guide-toc">
+      <p class="toc-title">On this page</p>
+      <div class="toc-links">
+        <a href="#general">General</a>
+        <a href="#security">Security</a>
+        <a href="#operations">Operations</a>
+        <a href="#support">Support</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="guide-footer">
+    <span>user-guide.aivric.com</span>
+    <span class="tag">Answers fast</span>
+  </footer>
+
+  <script>
+    (function(){
+      var page = document.body.dataset.page;
+      document.querySelectorAll('[data-page-target]').forEach(function(link){
+        if(link.dataset.pageTarget === page){ link.classList.add('active'); }
+      });
+      var toggle = document.querySelector('.nav-toggle');
+      var sidebar = document.getElementById('sidebar');
+      if(toggle && sidebar){ toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); }); }
+    })();
+  </script>
+</body>
+</html>

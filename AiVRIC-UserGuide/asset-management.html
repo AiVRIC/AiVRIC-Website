@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>AiVRIC User Guide | Asset Management</title>
+
+  <link rel="canonical" href="https://user-guide.aivric.com/asset-management.html">
+  <meta name="description" content="AiVRIC Asset Management Standard (AST): lifecycle management of hardware, software, cloud resources, and data assets, including ownership, inventory, diagrams, media handling, and secure disposal.">
+
+  <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../assets/css/color.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/responsive.css" rel="stylesheet">
+  <link href="userguide.css" rel="stylesheet">
+</head>
+
+<body data-page="asset-management">
+  <header class="guide-header">
+    <div class="bar">
+      <a class="brand" href="index.html"><span class="dot"></span>AiVRIC User Guide</a>
+      <div class="top-links">
+        <a href="../index.html">AiVRIC.com</a>
+        <a href="../trust.html">Trust Center</a>
+        <a href="../request-demo.html">Request demo</a>
+        <a href="../support.html">Support</a>
+      </div>
+      <div class="guide-search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input type="search" placeholder="Search the User Guide (coming soon)" aria-label="Search the AiVRIC User Guide">
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+    </div>
+  </header>
+
+  <main class="policy-main">
+    <div class="policy-hero">
+      <span class="badge">Security standard</span>
+      <h1>Asset Management (AST)</h1>
+      <p>
+        Establishes how AiVRIC identifies, inventories, governs, protects, and retires technology assets across the
+        full lifecycle—from procurement through disposal—to ensure only authorized components are used and that assets
+        storing, processing, or transmitting AiVRIC data are appropriately protected.
+      </p>
+
+      <div class="policy-meta">
+        <span class="tag">Applies to AiVRIC workforce, contractors, vendors, and subprocessors</span>
+        <a class="tag" href="../trust.html">Trust Center</a>
+        <a class="tag" href="../aup.html">Acceptable use</a>
+      </div>
+
+      <!--
+        Content aligned to ISG Asset Management (AST) security standard (GIS-ISP-AST-1.3, revised June 23, 2025),
+        with entity references adapted from Transit to AiVRIC.
+      -->
+    </div>
+
+    <section class="policy-section" aria-label="Table of contents">
+      <div class="policy-card">
+        <h2>On this page</h2>
+        <ul class="policy-list">
+          <li><a href="#purpose">Purpose</a></li>
+          <li><a href="#scope">Scope</a></li>
+          <li><a href="#policy">Policy statement</a></li>
+          <li><a href="#controls">Key controls</a></li>
+          <li><a href="#procedures">Operating procedures</a></li>
+          <li><a href="#data-classification">Data classification & handling (summary)</a></li>
+          <li><a href="#compliance">Compliance, exceptions, and enforcement</a></li>
+          <li><a href="#frameworks">Framework alignment</a></li>
+          <li><a href="#evidence">Evidence & ownership</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="policy-section" id="purpose">
+      <div class="policy-card">
+        <h2>Purpose</h2>
+        <p>
+          To ensure technology assets are appropriately managed throughout the asset lifecycle, from procurement through disposal,
+          and to ensure only authorized devices and components are allowed to access AiVRIC networks. This standard also ensures
+          technology assets that store, process, or transmit AiVRIC data are adequately protected.
+        </p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="scope">
+      <div class="policy-card">
+        <h2>Scope</h2>
+        <p>
+          This standard applies to AiVRIC, its affiliates (as applicable), and all assets owned, leased, controlled, or used by AiVRIC,
+          including data, systems, activities, and supporting facilities wherever AiVRIC data is stored, processed, or transmitted.
+        </p>
+        <p>
+          It also applies to employees, contractors, subcontractors, and third parties contracted by AiVRIC to handle, process,
+          transmit, store, or dispose of AiVRIC data.
+        </p>
+        <p class="small">
+          Note: This standard does not supersede applicable law or higher-level organizational directives. AiVRIC may update these
+          requirements when needed to sustain compliance and risk posture.
+        </p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="policy">
+      <div class="policy-card">
+        <h2>Policy statement</h2>
+        <p>
+          AiVRIC protects its assets and data by implementing an IT Asset Management (ITAM) capability to identify, assess, monitor,
+          control, and manage assets across the enterprise.
+        </p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="controls">
+      <div class="policy-card">
+        <h2>Key controls (AST)</h2>
+        <ul class="policy-list policy-list--separated">
+          <li><strong>AST-01 Asset Governance:</strong> Establish and maintain ITAM, including (1) a list of devices and (where feasible) personnel with access, (2) a method to determine owner/contact/purpose, and (3) a list of company-approved products.</li>
+          <li><strong>AST-01.1 Asset–Service Dependencies:</strong> Map data processing activities; identify systems/apps/processes (including third parties) supporting critical functions; document dependencies; assess control appropriateness; report deficiencies as technology risks.</li>
+          <li><strong>AST-01.2 Stakeholder Involvement:</strong> Identify stakeholders for critical systems/services based on inventories and actively involve them in secure management.</li>
+
+          <li><strong>AST-02 Asset Inventories:</strong> Maintain hardware/software inventories (internally- and externally-hosted); track owner/contact/purpose; list approved products; keep inventories current; and where feasible list personnel with access.</li>
+          <li><strong>AST-02.1 Install/Removal Updates:</strong> Update inventory as part of component installations, removals, and upgrades where feasible.</li>
+          <li><strong>AST-02.2 Unauthorized Component Detection:</strong> Where applicable, use automated mechanisms to detect unauthorized hardware/software/firmware; take action when detected; and ensure acquisitions update inventory as approved devices connect.</li>
+          <li><strong>AST-02.3 Data Action Mapping:</strong> Develop and document a system map of data actions that process Personal Data (PD).</li>
+          <li><strong>AST-02.4 CMDB:</strong> Implement a CMDB (or equivalent) to monitor/record/reconcile asset attributes (configuration, ownership, lifecycle, dependencies), identify unauthorized changes, correlate with incident/change records, integrate discovery tools, and serve as the authoritative source of truth.</li>
+          <li><strong>AST-02.5 Approved Technologies:</strong> Maintain a current list of approved hardware/software to ensure deployed technologies are authorized and compliant.</li>
+
+          <li><strong>AST-03 Ownership & Accountability:</strong> Assign responsibility in writing; ensure accountable parties can exercise proper custody; maintain records for remote assets; prohibit personal use unless authorized; prohibit disposition without authorization; document make/model/serial.</li>
+          <li><strong>AST-03.1 Accountability in CMDB:</strong> Configure CMDB to include the name/position/role of data/process owners and asset custodians responsible for administering AiVRIC assets.</li>
+
+          <li><strong>AST-04 Network & Data Flow Diagrams:</strong> Verify current network diagrams exist; maintain architecture diagrams highlighting high-risk environments and compliance-impacting data flows; document all sensitive data flows.</li>
+          <li><strong>AST-04.2 Control Boundary Representation:</strong> Identify/control boundary components (internal/external); create and maintain graphical representations; update as environments/processes/third parties change.</li>
+
+          <li><strong>AST-05 Media Control:</strong> Classify media and control distribution; use secure/trackable delivery for sensitive media; require prior management approval before media is moved from secured areas (including distribution to individuals).</li>
+          <li><strong>AST-05.1 External Media Transfer Approval:</strong> Submit requests for review/approval; justify business need and classification/destination; apply encryption/protective measures; log approvals and responsible individuals in a centralized register; review annually.</li>
+
+          <li><strong>AST-06 Unattended End-User Equipment:</strong> Protect unattended equipment. When traveling with AiVRIC-issued devices, lock in trunk or maintain physical control (do not leave in vehicle).</li>
+
+          <li><strong>AST-09 Secure Disposal / Reuse:</strong> Sanitize media when no longer needed; destroy media that cannot be sanitized (shred/incinerate/pulp hardcopy; render electronic media unrecoverable). Use secure containers for sensitive material awaiting destruction.</li>
+
+          <li><strong>AST-10 Return of Assets:</strong> Direct manager inventories and accounts for AiVRIC-issued assets prior to departure. Upon termination/relationship expiration, AiVRIC-owned assets must be returned within <strong>24 hours</strong>.</li>
+
+          <li><strong>AST-11 Removal of Assets:</strong> Obtain authorization before relocating/transferring hardware/software/data offsite. Capture make/model/serial, owner, removal reason, removing representative/company, and estimated return date (if applicable).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="policy-section" id="procedures">
+      <div class="policy-card">
+        <h2>Operating procedures</h2>
+        <ul class="policy-list policy-list--separated">
+          <li><strong>ITAM governance:</strong> Maintain an approved products list; ensure asset onboarding includes owner/custodian assignment and purpose.</li>
+          <li><strong>Inventory discipline:</strong> Update inventories during installs/removals/upgrades; reconcile discrepancies through ticketed remediation.</li>
+          <li><strong>CMDB as source of truth:</strong> Record configuration, ownership, lifecycle state, and dependencies; integrate discovery tools where feasible; correlate with incident/change records.</li>
+          <li><strong>Critical service mapping:</strong> Maintain an asset-to-service dependency map for critical business functions; register deficiencies as technology risks.</li>
+          <li><strong>Diagrams & flows:</strong> Keep network diagrams and data flow diagrams current; explicitly document sensitive data flows and high-risk segments/control boundaries.</li>
+          <li><strong>External media transfers:</strong> Require management approval; document business justification, classification, and destination; encrypt media as appropriate; log approvals in a centralized register.</li>
+          <li><strong>Secure disposal:</strong> Sanitize or destroy media per approved methods; retain evidence (certificate of destruction, ticket, vendor record) as applicable.</li>
+          <li><strong>Workforce separation:</strong> Manager-led asset return checklist; inventory and account for assigned assets; complete return within 24 hours where applicable.</li>
+          <li><strong>Offsite removal:</strong> Require authorization and capture required details (make/model/serial, owner, reason, remover, return date).</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="policy-section" id="data-classification">
+      <div class="policy-card">
+        <h2>Data classification & handling (summary)</h2>
+        <p>
+          AiVRIC classifies information to ensure assets and media are protected proportionate to sensitivity. Distribution is limited
+          based on business need, and protective controls increase with classification.
+        </p>
+
+        <div class="policy-card" style="padding: 0; border: 0; box-shadow: none;">
+          <div class="table-responsive">
+            <table class="table table-bordered" aria-label="Data classification summary">
+              <thead>
+                <tr>
+                  <th>Classification</th>
+                  <th>Qualification</th>
+                  <th>Distribution</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Restricted</strong></td>
+                  <td>Critical business value; highly sensitive proprietary information; protection dictated externally (legal/contractual).</td>
+                  <td>Only authorized workforce/contractors/partners with a specific business need.</td>
+                </tr>
+                <tr>
+                  <td><strong>Confidential</strong></td>
+                  <td>Sensitive; protection dictated internally by policy and/or contractual requirements.</td>
+                  <td>Only authorized workforce/contractors/partners with a specific business need.</td>
+                </tr>
+                <tr>
+                  <td><strong>Internal Use</strong></td>
+                  <td>Non-sensitive internal information or third-party information not qualifying for more restrictive labels.</td>
+                  <td>Authorized workforce/partners with a business need; not for public release.</td>
+                </tr>
+                <tr>
+                  <td><strong>Public</strong></td>
+                  <td>Explicitly approved for public release.</td>
+                  <td>Freely shareable internally and externally.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h3 class="mt-4">Handling expectations (high-level)</h3>
+        <ul class="policy-list">
+          <li><strong>Encryption:</strong> Use strong encryption for sensitive data in transit and at rest (mandatory for higher sensitivity). Avoid FTP for sensitive classifications.</li>
+          <li><strong>Remote access:</strong> For highly sensitive data, remote access must be business-justified and protected by MFA.</li>
+          <li><strong>Printing/scanning:</strong> Verify destinations; avoid unattended printouts; encrypt scanned images when handling sensitive data; use confidential printing where required.</li>
+          <li><strong>Email:</strong> Use strong encryption as required; prohibit forwarding for higher sensitivity.</li>
+        </ul>
+        <p class="small">
+          For full handling controls by classification (NDA, transmission, data-at-rest, mobile, email, physical mail), refer to the authoritative standard.
+        </p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="compliance">
+      <div class="policy-card">
+        <h2>Compliance, exceptions, and enforcement</h2>
+
+        <h3>Compliance measurement</h3>
+        <p>
+          AiVRIC verifies compliance through technical scans and assessment mechanisms, internal or external audits, and security dashboards/reports.
+        </p>
+
+        <h3>Exceptions</h3>
+        <p>
+          Exceptions must be formally requested and reviewed by the designated AiVRIC security authority. Requests should define scope,
+          business justification, risk impact, mitigating controls, owner actions, and a timeframe to achieve minimum compliance.
+        </p>
+
+        <h3>Non-compliance</h3>
+        <p>
+          Violations may result in disciplinary action up to and including termination of employment/contract, termination of third-party agreements,
+          denial of access to IT resources, and other remedies as permitted by law and contract.
+        </p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="frameworks">
+      <div class="policy-card">
+        <h2>Framework alignment</h2>
+        <p>
+          This standard is designed to support common assurance and compliance expectations. The source standard aligns Asset Management (AST)
+          to a control framework and references SOC 2, ISO/IEC 27001:2022, and HIPAA as applicable.
+        </p>
+        <ul class="policy-list">
+          <li><strong>SOC 2:</strong> Asset and configuration accountability, access governance, and operational monitoring expectations.</li>
+          <li><strong>ISO/IEC 27001:2022:</strong> Organizational context and scope considerations for asset-related controls.</li>
+          <li><strong>HIPAA (where applicable):</strong> Device and media controls for regulated information handling.</li>
+        </ul>
+        <p class="small">
+          Exact cross-references are maintained in the authoritative internal mapping for AiVRIC’s control framework.
+        </p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="evidence">
+      <div class="policy-card">
+        <h2>Evidence & ownership</h2>
+        <p><strong>Control owners:</strong> Security & Compliance, IT Operations, and Product/Engineering (as applicable).</p>
+        <p>
+          <strong>Evidence examples:</strong> CMDB/inventory exports, approved product list, discovery scan results, risk/ticket records, network/data flow diagrams,
+          media transfer approvals register, destruction certificates/vendor records, separation checklists, and offsite removal authorizations.
+        </p>
+        <p><strong>Review cadence:</strong> At least annually, and after material changes to systems, third parties, or regulatory/contractual obligations.</p>
+        <p><strong>Contact:</strong> <a href="mailto:security@aivric.com">security@aivric.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="guide-footer">
+    <span>user-guide.aivric.com</span>
+    <span class="tag">Security policies</span>
+  </footer>
+
+  <script>
+    (function(){
+      var toggle = document.querySelector('.nav-toggle');
+      var sidebar = document.getElementById('sidebar');
+      if(toggle && sidebar){
+        toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); });
+      }
+    })();
+  </script>
+</body>
+</html>

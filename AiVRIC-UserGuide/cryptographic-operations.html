@@ -1,0 +1,240 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>AiVRIC User Guide | Cryptographic Operations</title>
+
+  <link rel="canonical" href="https://user-guide.aivric.com/cryptographic-operations.html">
+  <meta name="description" content="Governs encryption, key management, and cryptographic services across AiVRIC to protect sensitive data at rest and in transit.">
+
+  <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Site CSS -->
+  <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../assets/css/color.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/responsive.css" rel="stylesheet">
+
+  <!-- User Guide CSS -->
+  <link href="userguide.css" rel="stylesheet">
+</head>
+
+<body data-page="cryptographic-operations">
+  <header class="guide-header">
+    <div class="bar">
+      <a class="brand" href="index.html"><span class="dot"></span>AiVRIC User Guide</a>
+
+      <div class="top-links">
+        <a href="../index.html">AiVRIC.com</a>
+        <a href="../trust.html">Trust Center</a>
+        <a href="../request-demo.html">Request demo</a>
+        <a href="../support.html">Support</a>
+      </div>
+
+      <div class="guide-search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input type="search" placeholder="Search the User Guide (coming soon)" aria-label="Search the AiVRIC User Guide">
+      </div>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+    </div>
+  </header>
+
+  <main class="policy-main">
+    <div class="policy-hero">
+      <span class="badge">Security policy</span>
+      <h1>Cryptographic Operations</h1>
+      <p>Governs encryption, key management, and cryptographic services across AiVRIC to protect sensitive data at rest and in transit.</p>
+
+      <div class="policy-meta">
+        <span class="tag">Applies to AiVRIC workforce, partners, and subprocessors</span>
+        <a class="tag" href="../trust.html">Trust Center</a>
+        <a class="tag" href="../aup.html">Acceptable use</a>
+      </div>
+    </div>
+
+    <!-- TOC -->
+    <section class="policy-section" aria-label="Table of contents">
+      <div class="policy-card">
+        <h2>On this page</h2>
+        <ul class="policy-list">
+          <li><a href="#purpose">Purpose & scope</a></li>
+          <li><a href="#controls">Key controls</a></li>
+          <li><a href="#procedures">Operating procedures</a></li>
+          <li><a href="#evidence">Evidence & ownership</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PURPOSE -->
+    <section class="policy-section" id="purpose">
+      <div class="policy-card">
+        <h2>Purpose & scope</h2>
+
+        <p>
+          The purpose of AiVRIC Cryptographic Operations is to ensure the confidentiality of AiVRIC data by implementing appropriate
+          cryptographic technologies to protect systems and data. This applies to data whether it is <strong>at rest</strong> or <strong>in transit</strong>.
+        </p>
+
+        <p>
+          This policy applies to AiVRIC, its services and environments, and to all employees, contractors, subcontractors, and third parties
+          who store, process, transmit, or dispose of AiVRIC data.
+        </p>
+
+        <p>
+          Appropriate cryptographic safeguards must be used to protect sensitive business data against loss, unauthorized access, or disclosure.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTROLS -->
+    <section class="policy-section" id="controls">
+      <div class="policy-card">
+        <h2>Key controls</h2>
+
+        <ul class="policy-list policy-list--separated">
+          <li>
+            <strong>Use of cryptographic controls (CRY-01):</strong> AiVRIC maintains enterprise-wide cryptographic protections documentation and
+            processes, uses trusted public standards/technologies, and regularly reviews and updates cryptographic standards, controls, and procedures.
+          </li>
+
+          <li>
+            <strong>Transmission confidentiality (CRY-03):</strong> AiVRIC implements robust cryptographic systems to ensure sensitive information is
+            encrypted with strong encryption before being transmitted over networks.
+          </li>
+
+          <li>
+            <strong>Transmission integrity (CRY-04):</strong> AiVRIC employs cryptographic mechanisms to ensure integrity of data during transmission.
+          </li>
+
+          <li>
+            <strong>Encrypting data at rest (CRY-05):</strong> AiVRIC protects sensitive data at rest (including personal and regulated data) by implementing
+            robust cryptographic mechanisms to protect confidentiality and integrity, ensuring encryption uses industry-recognized standards, and regularly
+            reviewing and updating encryption methods.
+          </li>
+
+          <li>
+            <strong>Storage media protections (CRY-05.1):</strong> AiVRIC safeguards sensitive/regulated data on storage media using cryptographic mechanisms
+            that protect confidentiality and integrity.
+          </li>
+
+          <li>
+            <strong>Public Key Infrastructure (CRY-08):</strong> AiVRIC implements and maintains an internal PKI that aligns to a certificate policy, or uses an approved
+            reputable PKI provider; certificate lifecycle is monitored and managed (issuance, renewal, revocation).
+          </li>
+
+          <li>
+            <strong>Cryptographic key management (CRY-09):</strong> AiVRIC manages key lifecycle (generation, distribution, storage, rotation, destruction), stores keys securely
+            using HSMs or approved secure storage mechanisms, requires signed and acknowledged key holder agreements for relevant personnel, and audits key management controls.
+          </li>
+
+          <li>
+            <strong>FIPS-aligned key generation (CRY-09.1 / CRY-09.2):</strong> Symmetric and asymmetric keys are produced using NIST FIPS-compliant key management
+            technologies and processes.
+          </li>
+
+          <li>
+            <strong>Key loss/change resiliency (CRY-09.3):</strong> Measures are maintained to ensure continued availability of information even if cryptographic keys are lost or changed.
+          </li>
+
+          <li>
+            <strong>Key control & distribution (CRY-09.4):</strong> Cryptographic keys are distributed securely using industry-recognized key management technologies and processes.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROCEDURES -->
+    <section class="policy-section" id="procedures">
+      <div class="policy-card">
+        <h2>Operating procedures</h2>
+
+        <ul class="policy-list policy-list--separated">
+          <li>
+            <strong>Governance & ownership:</strong> AiVRIC Security leadership governs enterprise-wide cryptographic protections documentation and standards,
+            ensuring alignment with public standards and trusted technologies and performing regular reviews/updates.
+          </li>
+
+          <li>
+            <strong>Encrypt before transmit:</strong> Sensitive information must be encrypted with strong encryption prior to network transmission and protected
+            with mechanisms that assure both confidentiality and integrity in transit.
+          </li>
+
+          <li>
+            <strong>Encrypt at rest by default for sensitive data:</strong> Sensitive and regulated data stored on system components and storage media must be encrypted
+            using industry-recognized encryption standards; encryption methods are periodically reviewed and updated to remain aligned with best practices.
+          </li>
+
+          <li>
+            <strong>PKI operations:</strong> Use certificate policies for issuance and management; lifecycle management includes renewal and revocation to preserve integrity and trust.
+          </li>
+
+          <li>
+            <strong>Key lifecycle management:</strong> Manage keys end-to-end (generation, distribution, storage, rotation, destruction); store keys in HSMs or approved secure storage;
+            require key-holder agreements where applicable; conduct periodic audits/reviews of key management controls.
+          </li>
+
+          <li>
+            <strong>Availability safeguards:</strong> Ensure mechanisms exist to maintain availability of information if keys are lost or changed (e.g., escrow/recovery procedures aligned
+            to approved standards).
+          </li>
+
+          <li>
+            <strong>Secure distribution:</strong> Distribute cryptographic keys only through industry-recognized secure key management technologies and processes.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- EVIDENCE -->
+    <section class="policy-section" id="evidence">
+      <div class="policy-card">
+        <h2>Evidence & ownership</h2>
+
+        <ul class="policy-list policy-list--separated">
+          <li>
+            <strong>Owner:</strong> Security &amp; Compliance (with operational execution by IT / Engineering as applicable).<br>
+            <strong>Review cadence:</strong> At least annually, and after material changes.
+          </li>
+          <li>
+            <strong>Compliance measurement:</strong> AiVRIC verifies compliance through methods including technical scans and other assessment mechanisms,
+            internal or external audits, and security dashboards and reports.
+          </li>
+          <li>
+            <strong>Exceptions:</strong> Requests for exceptions must be submitted to the AiVRIC CISO (or designated security authority) and should include:
+            scope, justification, potential impact/risk, risk mitigations, actions the requestor will take, and a timeframe to meet minimum compliance.
+          </li>
+          <li>
+            <strong>Non-compliance:</strong> Violations may result in disciplinary action up to and including termination (employees/contractors) and termination
+            of contractual agreements and/or denial of access (third parties), as well as civil/criminal penalties where applicable.
+          </li>
+          <li>
+            <strong>Contact:</strong> <a href="mailto:security@aivric.com">security@aivric.com</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="guide-footer">
+    <span>user-guide.aivric.com</span>
+    <span class="tag">Security policies</span>
+  </footer>
+
+  <script>
+    (function(){
+      var toggle = document.querySelector('.nav-toggle');
+      var sidebar = document.getElementById('sidebar');
+      if(toggle && sidebar){
+        toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); });
+      }
+    })();
+  </script>
+</body>
+</html>

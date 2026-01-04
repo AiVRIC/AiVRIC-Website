@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>AiVRIC User Guide | Platform Overview</title>
+  <link rel="canonical" href="https://user-guide.aivric.com/platform-overview.html">
+  <meta name="description" content="Understand the AiVRIC platform architecture, connectors, guardrails, and operational model.">
+  <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../assets/css/color.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/responsive.css" rel="stylesheet">
+  <link href="userguide.css" rel="stylesheet">
+</head>
+<body data-page="platform">
+  <header class="guide-header">
+    <div class="bar">
+      <a class="brand" href="index.html"><span class="dot"></span>AiVRIC User Guide</a>
+      <div class="top-links">
+        <a href="../index.html">AiVRIC.com</a>
+        <a href="../trust.html">Trust Center</a>
+        <a href="../request-demo.html">Request demo</a>
+        <a href="../support.html">Support</a>
+      </div>
+      <div class="guide-search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input type="search" placeholder="Search the User Guide (coming soon)" aria-label="Search the AiVRIC User Guide">
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+    </div>
+  </header>
+
+  <div class="guide-shell">
+    <aside class="guide-sidebar" id="sidebar">
+      <div class="nav-section">
+        <p class="nav-label">Essentials</p>
+        <a class="nav-link" data-page-target="home" href="index.html">Overview <small>Start here</small></a>
+        <a class="nav-link" data-page-target="getting-started" href="getting-started.html">Getting started <small>Setup</small></a>
+        <a class="nav-link" data-page-target="platform" href="platform-overview.html">Platform overview <small>How AiVRIC works</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Assurance</p>
+        <a class="nav-link" data-page-target="security" href="security-trust.html">Security & Trust <small>Controls</small></a>
+        <a class="nav-link" data-page-target="governance" href="ai-governance.html">AI Governance <small>Policies</small></a>
+        <a class="nav-link" data-page-target="faq" href="faq.html">FAQ & Support <small>Answers</small></a>
+      </div>
+    </aside>
+
+    <main class="guide-content">
+      <span class="badge" id="architecture">Architecture at a glance</span>
+      <h1>Platform overview</h1>
+      <p>See how AiVRIC orchestrates connectors, guardrails, and evidence to keep your AI estate safe. Modeled after the clarity of GitLab's handbook, adapted to AiVRIC's security-first UX.</p>
+
+      <h2>Control plane</h2>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>Data intake</h3>
+          <p>Agentless cloud scans, Kubernetes admission hooks, Git provider APIs, and ticketing webhooks feed the control plane.</p>
+          <p class="tag">Streaming + scheduled</p>
+        </div>
+        <div class="guide-card">
+          <h3>Policy engine</h3>
+          <p>Rules evaluate configuration, runtime events, and AI interactions. Supports dry-run, monitor, and enforce modes.</p>
+          <p class="tag">Guardrails + compliance</p>
+        </div>
+        <div class="guide-card">
+          <h3>Evidence & reporting</h3>
+          <p>Every decision is logged with context for auditors and owners. Exportable bundles align to SOC 2, ISO 27001, and AI policies.</p>
+          <p class="tag">Auditable by default</p>
+        </div>
+      </div>
+
+      <h2 id="connectors">Connectors</h2>
+      <table class="table">
+        <thead>
+          <tr><th>Type</th><th>Coverage</th><th>Deployment</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cloud (AWS/Azure/GCP)</td><td>Config posture, identity hygiene, data protection, network boundaries.</td><td>Read-only IAM role with scoped policies; optional remediation role.</td></tr>
+          <tr><td>Kubernetes</td><td>Workload policies, runtime controls, admission safeguards, secret scanning.</td><td>Helm chart; can enforce via admission controller or monitor-only.</td></tr>
+          <tr><td>Git providers</td><td>Repo settings, branch protection, token hygiene, secret detection.</td><td>OAuth app with least-privilege scopes.</td></tr>
+          <tr><td>Ticketing/Chat</td><td>Alert routing, assignment, status sync, runbook links.</td><td>Webhook or app install with channel scoping.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="guardrails">Guardrails & automation</h2>
+      <div class="list-grid">
+        <ul>
+          <li><strong>Policy packs:</strong> Pre-built controls for SOC 2, ISO 27001, HIPAA, and AI responsible use.</li>
+          <li><strong>Modes:</strong> Start in <em>monitor</em>, graduate to <em>enforce</em> after review. Every change is traceable.</li>
+          <li><strong>Actions:</strong> Auto-remediate with playbooks; open tickets with owners and due dates.</li>
+        </ul>
+        <ul>
+          <li><strong>Signals:</strong> Combine config, behavioral, and AI-specific signals (prompt misuse, data egress) for context.</li>
+          <li><strong>Evidence:</strong> Each control logs input, decision, and action for audit trails.</li>
+          <li><strong>APIs:</strong> Export findings to SIEM/SOAR; manage guardrails as code.</li>
+        </ul>
+      </div>
+
+      <h2 id="observability">Observability</h2>
+      <div class="callout primary">
+        <strong>Dashboards tuned for operators.</strong> Compare environments, track MTTR, and see policy adoption without leaving AiVRIC. Export CSV/JSON for deeper analysis.</div>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>Activity log</h3>
+          <p>Immutable log of access, configuration changes, and enforcement decisions.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Findings</h3>
+          <p>Filter by severity, workspace, control type, or AI model. Link directly to tickets.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Reports</h3>
+          <p>Generate weekly summaries for stakeholders; schedule delivery to email or chat.</p>
+        </div>
+      </div>
+    </main>
+
+    <aside class="guide-toc">
+      <p class="toc-title">On this page</p>
+      <div class="toc-links">
+        <a href="#architecture">Architecture</a>
+        <a href="#connectors">Connectors</a>
+        <a href="#guardrails">Guardrails</a>
+        <a href="#observability">Observability</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="guide-footer">
+    <span>user-guide.aivric.com</span>
+    <span class="tag">Platform clarity</span>
+  </footer>
+
+  <script>
+    (function(){
+      var page = document.body.dataset.page;
+      document.querySelectorAll('[data-page-target]').forEach(function(link){
+        if(link.dataset.pageTarget === page){ link.classList.add('active'); }
+      });
+      var toggle = document.querySelector('.nav-toggle');
+      var sidebar = document.getElementById('sidebar');
+      if(toggle && sidebar){ toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); }); }
+    })();
+  </script>
+</body>
+</html>

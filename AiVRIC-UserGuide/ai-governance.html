@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>AiVRIC User Guide | AI Governance</title>
+  <link rel="canonical" href="https://user-guide.aivric.com/ai-governance.html">
+  <meta name="description" content="Govern AI responsibly with AiVRIC: policies, lifecycle controls, approvals, and monitoring guidance.">
+  <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../assets/css/color.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/responsive.css" rel="stylesheet">
+  <link href="userguide.css" rel="stylesheet">
+</head>
+<body data-page="governance">
+  <header class="guide-header">
+    <div class="bar">
+      <a class="brand" href="index.html"><span class="dot"></span>AiVRIC User Guide</a>
+      <div class="top-links">
+        <a href="../index.html">AiVRIC.com</a>
+        <a href="../trust.html">Trust Center</a>
+        <a href="../request-demo.html">Request demo</a>
+        <a href="../support.html">Support</a>
+      </div>
+      <div class="guide-search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input type="search" placeholder="Search the User Guide (coming soon)" aria-label="Search the AiVRIC User Guide">
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+    </div>
+  </header>
+
+  <div class="guide-shell">
+    <aside class="guide-sidebar" id="sidebar">
+      <div class="nav-section">
+        <p class="nav-label">Essentials</p>
+        <a class="nav-link" data-page-target="home" href="index.html">Overview <small>Start here</small></a>
+        <a class="nav-link" data-page-target="getting-started" href="getting-started.html">Getting started <small>Setup</small></a>
+        <a class="nav-link" data-page-target="platform" href="platform-overview.html">Platform overview <small>How AiVRIC works</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Assurance</p>
+        <a class="nav-link" data-page-target="security" href="security-trust.html">Security & Trust <small>Controls</small></a>
+        <a class="nav-link" data-page-target="governance" href="ai-governance.html">AI Governance <small>Policies</small></a>
+        <a class="nav-link" data-page-target="faq" href="faq.html">FAQ & Support <small>Answers</small></a>
+      </div>
+    </aside>
+
+    <main class="guide-content">
+      <span class="badge" id="principles">Governance playbooks</span>
+      <h1>AI governance</h1>
+      <p>Operationalize responsible AI with policies, approvals, and monitoring built into AiVRIC. Inspired by the transparency of the GitLab handbook and tailored to AI risk.</p>
+
+      <h2>Principles</h2>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>Accountability</h3>
+          <p>Each model and integration has an owner, approver, and clear escalation path.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Explainability</h3>
+          <p>Logs, prompts, and decisions are preserved to reconstruct how outcomes were produced.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Safety</h3>
+          <p>Guardrails prevent data leakage, prompt abuse, and unsafe responses.</p>
+        </div>
+      </div>
+
+      <h2 id="lifecycle">Lifecycle controls</h2>
+      <div class="list-grid">
+        <ul>
+          <li><strong>Intake:</strong> New AI use cases require business justification, data classification, and risk assessment.</li>
+          <li><strong>Evaluation:</strong> Run red-team tests for prompt injection, PII leakage, and bias before approval.</li>
+          <li><strong>Deployment:</strong> Enable guardrails, logging, and roll-back plans; pin model versions.</li>
+        </ul>
+        <ul>
+          <li><strong>Monitoring:</strong> Track drift, safety violations, and performance against expected outcomes.</li>
+          <li><strong>Review:</strong> Quarterly reviews of high-impact use cases with sign-offs.</li>
+          <li><strong>Retirement:</strong> Archive artifacts, revoke access, and clean up data stores.</li>
+        </ul>
+      </div>
+
+      <h2 id="reviews">Approvals & reviews</h2>
+      <div class="callout primary">
+        <strong>Two-person rule for production AI.</strong> Require approvers outside the implementing team for sensitive models or data.</div>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>Change proposals</h3>
+          <p>Use tickets with templates: scope, risks, rollback, testing, owners.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Evidence</h3>
+          <p>Attach test results, data lineage, and policy mappings to each change request.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Audit trail</h3>
+          <p>AiVRIC logs who approved, when, and what changed for every guardrail and integration.</p>
+        </div>
+      </div>
+
+      <h2 id="controls">Guardrail library</h2>
+      <table class="table">
+        <thead>
+          <tr><th>Category</th><th>Examples</th><th>Outcome</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Safety</td><td>Prompt injection detection, jailbreak blocking, toxicity filters.</td><td>Reduces unsafe responses and abuse.</td></tr>
+          <tr><td>Privacy</td><td>PII redaction, data residency enforcement, data minimization checks.</td><td>Prevents sensitive data leakage.</td></tr>
+          <tr><td>Integrity</td><td>Model version pinning, approval gates, drift detection.</td><td>Ensures predictable, traceable outputs.</td></tr>
+          <tr><td>Compliance</td><td>Policy packs mapped to SOC 2, ISO 27001, and AI RMF controls.</td><td>Shows adherence to internal and external standards.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout warn">
+        <strong>Tip:</strong> Start with monitor mode for new guardrails, then enforce after review with the owning team. Capture deviations as exceptions with end dates.
+      </div>
+    </main>
+
+    <aside class="guide-toc">
+      <p class="toc-title">On this page</p>
+      <div class="toc-links">
+        <a href="#principles">Principles</a>
+        <a href="#lifecycle">Lifecycle</a>
+        <a href="#reviews">Approvals</a>
+        <a href="#controls">Guardrails</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="guide-footer">
+    <span>user-guide.aivric.com</span>
+    <span class="tag">Responsible AI</span>
+  </footer>
+
+  <script>
+    (function(){
+      var page = document.body.dataset.page;
+      document.querySelectorAll('[data-page-target]').forEach(function(link){
+        if(link.dataset.pageTarget === page){ link.classList.add('active'); }
+      });
+      var toggle = document.querySelector('.nav-toggle');
+      var sidebar = document.getElementById('sidebar');
+      if(toggle && sidebar){ toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); }); }
+    })();
+  </script>
+</body>
+</html>

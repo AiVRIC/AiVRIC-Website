@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>AiVRIC User Guide | Getting Started</title>
+  <link rel="canonical" href="https://user-guide.aivric.com/getting-started.html">
+  <meta name="description" content="Onboard to AiVRIC with setup steps, workspace design, connectors, and team collaboration guidance.">
+  <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../assets/css/color.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/responsive.css" rel="stylesheet">
+  <link href="userguide.css" rel="stylesheet">
+</head>
+<body data-page="getting-started">
+  <header class="guide-header">
+    <div class="bar">
+      <a class="brand" href="index.html"><span class="dot"></span>AiVRIC User Guide</a>
+      <div class="top-links">
+        <a href="../index.html">AiVRIC.com</a>
+        <a href="../trust.html">Trust Center</a>
+        <a href="../request-demo.html">Request demo</a>
+        <a href="../support.html">Support</a>
+      </div>
+      <div class="guide-search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input type="search" placeholder="Search the User Guide (coming soon)" aria-label="Search the AiVRIC User Guide">
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+    </div>
+  </header>
+
+  <div class="guide-shell">
+    <aside class="guide-sidebar" id="sidebar">
+      <div class="nav-section">
+        <p class="nav-label">Essentials</p>
+        <a class="nav-link" data-page-target="home" href="index.html">Overview <small>Start here</small></a>
+        <a class="nav-link" data-page-target="getting-started" href="getting-started.html">Getting started <small>Setup</small></a>
+        <a class="nav-link" data-page-target="platform" href="platform-overview.html">Platform overview <small>How AiVRIC works</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Assurance</p>
+        <a class="nav-link" data-page-target="security" href="security-trust.html">Security & Trust <small>Controls</small></a>
+        <a class="nav-link" data-page-target="governance" href="ai-governance.html">AI Governance <small>Policies</small></a>
+        <a class="nav-link" data-page-target="faq" href="faq.html">FAQ & Support <small>Answers</small></a>
+      </div>
+    </aside>
+
+    <main class="guide-content">
+      <span class="badge" id="checklist">Onboarding checklist</span>
+      <h1>Getting started</h1>
+      <p>Launch AiVRIC quickly with a secure baseline. Follow the step-by-step flow and mirror how GitLab documents clear ownership and actions.</p>
+
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>1) Plan workspaces</h3>
+          <p>Map environments to workspaces (e.g., prod, staging, R&D). Align each with data sensitivity and owners.</p>
+          <ul>
+            <li>Define owners in IAM groups.</li>
+            <li>Enable SSO and SCIM before inviting users.</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <h3>2) Secure access</h3>
+          <p>Use SSO + MFA; grant least-privilege roles in cloud accounts. Configure break-glass with short-lived tokens.</p>
+          <ul>
+            <li>Map roles to AiVRIC groups.</li>
+            <li>Audit login attempts weekly.</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <h3>3) Connect systems</h3>
+          <p>Connect cloud accounts, Kubernetes, GitHub, and ticketing to start control monitoring.</p>
+          <ul>
+            <li>Use deployment templates per connector.</li>
+            <li>Verify data collection scope.</li>
+          </ul>
+        </div>
+        <div class="guide-card">
+          <h3>4) Apply guardrails</h3>
+          <p>Enable policy packs for compliance (SOC 2, ISO 27001) and AI safeguards (PII, secrets, jailbreaks).</p>
+          <ul>
+            <li>Run dry-runs first; review impact.</li>
+            <li>Promote to enforce mode after sign-off.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2 id="connect">Connect your environment</h2>
+      <table class="table">
+        <thead>
+          <tr><th>Integration</th><th>Purpose</th><th>Quick action</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cloud accounts</td><td>Continuously monitor misconfigurations and drift.</td><td>Deploy read-only role; test with sample scan.</td></tr>
+          <tr><td>Kubernetes</td><td>Secure cluster workloads and service account access.</td><td>Apply the helm chart; enable admission controls.</td></tr>
+          <tr><td>Git providers</td><td>Protect repos, secrets, and pipeline tokens.</td><td>Connect GitHub; enforce branch protection policies.</td></tr>
+          <tr><td>Ticketing</td><td>Send findings to owners and track remediation.</td><td>Map labels to severity; sync status back to AiVRIC.</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout primary" id="collaborate">
+        <strong>Invite your team early.</strong> Assign domain owners (cloud, AI, compliance). Mirror GitLab's handbook clarity: list who owns what and how to escalate.
+      </div>
+
+      <h2>Collaborate and ship</h2>
+      <div class="list-grid">
+        <ul>
+          <li><strong>Approvals:</strong> Require dual approval for high-impact guardrails; log who approved.</li>
+          <li><strong>Change windows:</strong> Align policy changes with your release calendar.</li>
+          <li><strong>Notifications:</strong> Route critical findings to Slack/Teams with runbooks attached.</li>
+        </ul>
+        <ul>
+          <li><strong>Observability:</strong> Forward audit logs to your SIEM; tag events by workspace.</li>
+          <li><strong>Testing:</strong> Use staging workspaces to validate connectors before production.</li>
+          <li><strong>Ownership:</strong> Keep owners visible in tickets and in the left rail for fast navigation.</li>
+        </ul>
+      </div>
+
+      <h2 id="resources">Resources</h2>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>Deployment templates</h3>
+          <p>Use IaC snippets (Terraform/Helm) to stand up connectors quickly.</p>
+          <a href="platform-overview.html#connectors">View connector details</a>
+        </div>
+        <div class="guide-card">
+          <h3>Trust Center</h3>
+          <p>Access SOC 2, penetration testing summaries, and data handling details.</p>
+          <a href="../trust.html">Open Trust Center</a>
+        </div>
+        <div class="guide-card">
+          <h3>Support</h3>
+          <p>Need a hand? We're available for live working sessions.</p>
+          <a href="../support.html">Contact support</a>
+        </div>
+      </div>
+    </main>
+
+    <aside class="guide-toc">
+      <p class="toc-title">On this page</p>
+      <div class="toc-links">
+        <a href="#checklist">Checklist</a>
+        <a href="#connect">Connect</a>
+        <a href="#collaborate">Collaborate</a>
+        <a href="#resources">Resources</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="guide-footer">
+    <span>user-guide.aivric.com</span>
+    <span class="tag">Onboarding without guesswork</span>
+  </footer>
+
+  <script>
+    (function(){
+      var page = document.body.dataset.page;
+      document.querySelectorAll('[data-page-target]').forEach(function(link){
+        if(link.dataset.pageTarget === page){ link.classList.add('active'); }
+      });
+      var toggle = document.querySelector('.nav-toggle');
+      var sidebar = document.getElementById('sidebar');
+      if(toggle && sidebar){ toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); }); }
+    })();
+  </script>
+</body>
+</html>
