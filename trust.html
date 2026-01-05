@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -403,7 +403,7 @@
     .card li i{ margin-top:2px; color: var(--aivric-accent2); }
     .card li span{ color: var(--aivric-muted); font-size: 13.5px; line-height: 1.45; }
 
-    /* Disclosure blocks (like “reports / policies / FAQs”) */
+    /* Disclosure blocks (like ï¿½reports / policies / FAQsï¿½) */
     .disclosures{
       display:grid;
       grid-template-columns: 1fr 1fr;
@@ -1032,7 +1032,7 @@
 
         <div class="crumbs">
           <a href="index.html">Home</a> <i class="fas fa-angle-right"></i>
-          <a href="resources.html">Resources</a> <i class="fas fa-angle-right"></i>
+          
           <span>Trust Center</span>
         </div>
 
@@ -1075,7 +1075,7 @@
                 <div class="status-dot" aria-hidden="true"></div>
                 <div>
                   <strong>All systems operational</strong>
-                  <small>Last updated: <span id="statusUpdated">Today</span> ? See the availability section for historical SLAs.</small>
+                  <small>Last updated: <span id="statusUpdated">Today</span> <br> See the availability section for historical SLAs.</small>
                   <div id="statusIssues" class="status-issues" hidden>
                     <strong>Impacted resources:</strong>
                     <ul></ul>
@@ -1288,9 +1288,7 @@
               <p>
                 <button type="button" class="a-btn primary" style="margin-top:10px;" data-report-modal-open><i class="fas fa-lock"></i>Request Reports</button>
               </p>
-              <div class="meta">
-                Suggested workflow: NDA verification ? secure download link ? time-bound access ? audit trail.
-              </div>
+              
             </details>
 
             <details>
@@ -1303,8 +1301,8 @@
                 Include: Reference architecture diagrams, network flows, secrets handling, RBAC model, logging integrations, backup/restore.
               </div>
               <div class="show-more-row">
-                <button type="button" class="a-btn primary" data-policy-flyout-open data-policy-target="governance-block"><i class="fas fa-arrow-right"></i>Show more</button>
-                <small>View deployment, architecture, and operations pack.</small>
+                <button type="button" class="a-btn primary" data-report-modal-open><i class="fas fa-lock"></i>Request Artifacts</button>
+                <small>Request deployment, architecture, and operations artifacts.</small>
               </div>
             </details>
 
@@ -1317,8 +1315,8 @@
                 For customer-hosted deployments, clarify responsibilities: you control infrastructure and data; AiVRIC provides software and support boundaries.
               </div>
               <div class="show-more-row">
-                <button type="button" class="a-btn primary" data-policy-flyout-open data-policy-target="privacy-block"><i class="fas fa-arrow-right"></i>Show more</button>
-                <small>Open DPA, privacy, and subprocessor materials.</small>
+                <button type="button" class="a-btn primary" data-report-modal-open><i class="fas fa-lock"></i>Request Artifacts</button>
+                <small>Request DPA, privacy, and subprocessor materials.</small>
               </div>
             </details>
           </div>
@@ -1340,26 +1338,20 @@
                 <details class="policy-accordion" id="data-security-block" open>
                   <summary>Data Security <span class="tag green"><i class="fas fa-check"></i>Available</span></summary>
                   <div class="policy-links">
-                    <a class="policy-chip" href="#"><i class="fas fa-database"></i>Data Backups Overview</a>
-                    <a class="policy-chip" href="#"><i class="fas fa-archive"></i>Data Retention Policy</a>
-                    <a class="policy-chip" href="#"><i class="fas fa-random"></i>Encryption in-transit</a>
-                    <a class="policy-chip" href="#"><i class="fas fa-lock"></i>Encryption at-rest</a>
-                    <a class="policy-chip" href="#"><i class="fas fa-user-shield"></i>Access Control</a>
-                    <a class="policy-chip" href="#"><i class="fas fa-bell"></i>Incident Response Playbook</a>
-                    <a class="policy-chip" href="#"><i class="fas fa-eye"></i>Logging & Monitoring</a>
+                    <a class="policy-chip" href="platform-security-overview.html#backups"><i class="fas fa-database"></i>Data Backups Overview</a>
+                    <a class="policy-chip" href="platform-security-overview.html#retention"><i class="fas fa-archive"></i>Data Retention Policy</a>
+                    <a class="policy-chip" href="platform-security-overview.html#transit"><i class="fas fa-random"></i>Encryption in-transit</a>
+                    <a class="policy-chip" href="platform-security-overview.html#rest"><i class="fas fa-lock"></i>Encryption at-rest</a>
+                    <a class="policy-chip" href="platform-security-overview.html#access"><i class="fas fa-user-shield"></i>Access Control</a>
+                    <a class="policy-chip" href="platform-security-overview.htmlir"><i class="fas fa-bell"></i>Incident Response Playbook</a>
+                    <a class="policy-chip" href="platform-security-overview.html#logging"><i class="fas fa-eye"></i>Logging & Monitoring</a>
+                  </div>
+                  <div class="show-more-row" style="margin-top:10px;">
+                    <a class="a-btn" href="platform-security-overview.html"><i class="fas fa-arrow-right"></i>Open Data Security Library</a>
                   </div>
                 </details>
 
-                <details class="policy-accordion" id="privacy-block" open>
-                  <summary>Privacy & Compliance <span class="tag cyan"><i class="fas fa-check"></i>Public</span></summary>
-                  <div class="policy-links">
-                    <a class="policy-chip" href="privacy-policy.html"><i class="fas fa-file-alt"></i>Privacy Policy</a>
-                    <a class="policy-chip" href="terms-of-use.html"><i class="fas fa-file-contract"></i>Terms of Service</a>
-                    <a class="policy-chip" href="#"><i class="fas fa-user-lock"></i>Data Processing Addendum</a>
-                    <a class="policy-chip" href="#"><i class="fas fa-list"></i>Subprocessor List</a>
-                    <a class="policy-chip" href="#"><i class="fas fa-check-circle"></i>SOC 2 Overview (NDA)</a>
-                  </div>
-                </details>
+                
 
                 <details class="policy-accordion" id="governance-block">
                   <summary>Governance & Operations <span class="tag cyan"><i class="fas fa-bolt"></i>On request</span></summary>
@@ -1370,11 +1362,13 @@
                     <a class="policy-chip" href="#"><i class="fas fa-clipboard-check"></i>Vulnerability Management</a>
                     <a class="policy-chip" href="#"><i class="fas fa-headset"></i>Support & Response SLAs</a>
                   </div>
+                  <div class="show-more-row">
+                    <button type="button" class="a-btn primary" data-report-modal-open><i class="fas fa-lock"></i>Request Artifacts</button>
+                    <small>Request governance, architecture, and operations artifacts.</small>
+                  </div>
                 </details>
 
-                <div class="flyout-footnote">
-                  Replace the placeholder links with your actual PDFs/portals. NDA items can point to your gated download or Trust Intake flow.
-                </div>
+                
               </div>
             </div>
           </div>
@@ -1452,7 +1446,7 @@
             <div class="card">
               <h3><i class="fas fa-map-marked-alt"></i>Data Location</h3>
               <p>
-                Customer-hosted SaaS runs in the customer’s cloud environment. The Windows executable supports local data storage.
+                Customer-hosted SaaS runs in the customerï¿½s cloud environment. The Windows executable supports local data storage.
                 For any AiVRIC-managed services, data location and residency are disclosed contractually.
               </p>
             </div>
@@ -1485,7 +1479,7 @@
           <h2 class="section-title">Availability & Reliability</h2>
           <p class="section-sub">
             We engineer for reliable operations and predictable recovery. For customer-hosted deployments, reliability depends on
-            your infrastructure choices—our hardening guidance is designed to raise the floor.
+            your infrastructure choicesï¿½our hardening guidance is designed to raise the floor.
           </p>
 
           <div class="table-wrap" role="region" aria-label="Availability and reliability table">
@@ -1964,8 +1958,8 @@
 
       const stamp = () => {
         const now = new Date();
-        const opts = { year: 'numeric', month: 'short', day: '2-digit' };
-        if (updatedEl) updatedEl.textContent = now.toLocaleDateString(undefined, opts);
+        const opts = { year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' };
+        if (updatedEl) updatedEl.textContent = now.toLocaleString(undefined, opts);
       };
 
       const ping = async (resource) => {

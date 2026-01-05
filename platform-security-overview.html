@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>AiVRIC | Platform Security Overview</title>
+  <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/color.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/responsive.css" rel="stylesheet">
+  <style>
+  body{
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background:
+      radial-gradient(1200px 900px at 70% -20%, rgba(0,209,255,0.18), transparent 55%),
+      radial-gradient(900px 700px at 10% 10%, rgba(46, 113, 229, 0.12), transparent 60%),
+      linear-gradient(180deg, #070b14 0%, #060a12 35%, #050814 100%);
+    color: rgba(255,255,255,0.9);
+  }
+  .boxed_wrapper{ background: transparent; }
+  .policy-shell{
+    max-width: 1100px;
+    margin: 0 auto 60px auto;
+    padding: 0 20px;
+  }
+  .hero{
+    text-align: center;
+    padding: 28px 0 8px 0;
+  }
+  .hero h1{
+    margin: 6px 0 4px 0;
+    font-size: 32px;
+    letter-spacing: -0.3px;
+    color: #dfe9ff;
+  }
+  .crumbs{
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    align-items:center;
+    color: rgba(255,255,255,0.65);
+    font-size: 13px;
+  }
+  .crumbs a{ color: rgba(255,255,255,0.78); text-decoration:none; }
+  .crumbs a:hover{ color:#ffffff; }
+  .nav-links{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    margin: 14px 0 8px 0;
+  }
+  .nav-pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 12px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.06);
+    color:#dfe9ff;
+    text-decoration:none;
+    font-weight:700;
+    font-size:13px;
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+  }
+  .nav-pill:hover{
+    border-color: rgba(0,209,255,0.35);
+    color:#ffffff;
+  }
+  .card{
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,0.08);
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 18px 44px rgba(0,0,0,0.32);
+    padding: 20px 22px;
+    margin-top: 14px;
+  }
+  .card .btn-row{
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .card .btn-row a{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(0,209,255,0.18);
+    color: #ffffff;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.22);
+    transition: 0.15s;
+  }
+  .card .btn-row a:hover{
+    background: #00d1ff;
+    color: #051020;
+    border-color: rgba(0,209,255,0.35);
+  }
+  .card h2{
+    margin: 0 0 8px 0;
+    font-size: 22px;
+    color: #f3f7ff;
+  }
+  .card p{
+    margin: 0 0 10px 0;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.65;
+  }
+  .card ul{
+    margin: 4px 0 6px 18px;
+    color: rgba(255,255,255,0.82);
+  }
+  .card ul li{ margin: 4px 0; }
+  a.inline{ color: #8ad8ff; }
+  a.inline:hover{ color: #ffffff; }
+  .anchor-section{
+    scroll-margin-top: 140px;
+  }
+  /* Nav styling to match trust page */
+  .main-header .header-lower,
+  .sticky-header{
+    background: #ffffff;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+  }
+  .main-header .navigation > li > a{
+    color: #1c1c1c !important;
+    padding: 26px 0;
+    font-weight: 600;
+  }
+  .main-header .navigation > li:hover > a,
+  .main-header .navigation > li.current > a{
+    color: #00bffc !important;
+  }
+  .main-header .menu-right-content .btn-box a{
+    background: #00d1ff;
+    border: 1px solid #00bde5;
+    color: #0a1526 !important;
+    box-shadow: 0 12px 26px rgba(0,209,255,0.25);
+    padding: 12px 22px;
+    border-radius: 30px;
+  }
+  .main-header .menu-right-content .btn-box a:hover{
+    background: #0a1526;
+    color: #ffffff !important;
+    border-color: rgba(0,0,0,0.15);
+  }
+</style>
+</head>
+<body class="mode-saas">
+  <div class="boxed_wrapper">
+    <header class="main-header header-style-two">      
+      <!-- Header Lower (Navigation) -->
+      <div class="header-lower">
+        <div class="auto-container">
+          <div class="outer-box">
+
+            <div class="logo-box">
+              <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC"></a></figure>
+            </div>
+
+            <div class="menu-area clearfix">
+              <div class="mobile-nav-toggler">
+                <i class="icon-bar"></i>
+                <i class="icon-bar"></i>
+                <i class="icon-bar"></i>
+              </div>
+
+              <nav class="main-menu navbar-expand-md navbar-light">
+                <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                  <ul class="navigation clearfix">                    
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown"><a href="#">Platform</a>
+                      <ul>
+                        <li><a href="services.html#scanning">Cloud Security Scanning</a></li>
+                        <li><a href="services.html#compliance">Compliance Automation</a></li>
+                        <li><a href="services.html#remediation">AI-Driven Remediation</a></li>
+                      </ul>
+                    </li>
+
+                    <li class="dropdown"><a href="#">Solutions</a>
+                      <div class="megamenu">
+                        <div class="row clearfix">
+                          <div class="col-lg-6 column">
+                            <h4>By Compliance Framework</h4>
+                            <ul>
+                              <li><a href="achieve-pci-dss.html">Achieve PCI DSS Compliance</a></li>
+                              <li><a href="streamline-soc2.html">Streamline SOC 2 Audits</a></li>
+                              <li><a href="cmmc-readiness.html">Prepare for CMMC Level 2</a></li>
+                              <li><a href="achieve-iso27001-compliance.html">Maintain ISO 27001</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-6 column">
+                            <h4>By Use Case</h4>
+                            <ul>
+                              <li><a href="aivric-vision.html">AiVRIC Vision as your Risk Advisor</a></li>
+                              <li><a href="use-case-vuln-mgmt.html">Multi-cloud Security Posture Management</a></li>
+                              <li><a href="use-case-kubernetes.html">Secure Kubernetes deployments</a></li>
+                              <li><a href="use-case-github-security.html">Secure Github Repos</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li><a href="pricing.html">Pricing</a></li>
+                    
+
+                    <li class="dropdown"><a href="#">Resources</a>
+                      <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="why-aivric.html">Why AiVRIC</a></li>
+                        <li><a href="trust.html">Trust Center</a></li>
+                        <li><a href="AiVRIC-UserGuide/index.html">Platform Guide</a></li>
+                        <li><a href="blog-portal.html">Blogs</a></li>
+                        <li><a href="faq.html">FAQ</a></li>      
+
+                      </ul>
+                      
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+
+            <ul class="menu-right-content">
+              <li class="btn-box"><a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-one">Request a Demo</a></li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Sticky Header -->
+      <div class="sticky-header">
+        <div class="auto-container">
+          <div class="outer-box">
+            <div class="logo-box">
+              <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
+            </div>
+            <div class="menu-area clearfix">
+              <nav class="main-menu clearfix"></nav>
+            </div>
+            <ul class="menu-right-content">
+              <li class="btn-box"><a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-one">Request a Demo</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </header>
+
+    <section class="policy-shell">
+      <div class="hero">
+        <h1>Platform Security Overview</h1>
+        <div class="crumbs">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Security Documents</span>
+        </div>
+        <div class="nav-links">
+          <a class="nav-pill" href="#backups"><i class="fas fa-database"></i>Backups Overview</a>
+          <a class="nav-pill" href="#retention"><i class="fas fa-archive"></i>Data Retention</a>
+          <a class="nav-pill" href="#transit"><i class="fas fa-random"></i>Encryption in-transit</a>
+          <a class="nav-pill" href="#rest"><i class="fas fa-lock"></i>Encryption at-rest</a>
+          <a class="nav-pill" href="#access"><i class="fas fa-user-shield"></i>Access Control</a>
+          <a class="nav-pill" href="#logging"><i class="fas fa-eye"></i>Logging & Monitoring</a>
+          <a class="nav-pill" href="#ir"><i class="fas fa-bell"></i>Incident Response</a>
+          <a class="nav-pill" href="#sea"><i class="fas fa-code"></i>Secure Engineering</a>
+          <a class="nav-pill" href="#vpm"><i class="fas fa-tools"></i>Vuln & Patch Mgmt</a>
+          <a class="nav-pill" href="#thr"><i class="fas fa-bolt"></i>Threat Management</a>
+          <a class="nav-pill" href="data-security.html"><i class="fas fa-th-large"></i>All Policies</a>
+        </div>
+      </div>
+
+      <div id="backups" class="card anchor-section">
+        <h2>Backups and restore coverage</h2>
+        <p>
+          AiVRIC takes encrypted daily snapshots of production services, aligned with the controls described in the Trust Center. Backup jobs are monitored and restores are periodically tested to validate recovery points and recovery time objectives.
+        </p>
+        <ul>
+          <li>Encrypted backups with key management aligned to <a class="inline" href="cryptographic-operations.html">Cryptographic Operations</a>.</li>
+          <li>Daily snapshots with integrity checks; retention follows the <a class="inline" href="data-retention-policy.html">Data Retention Policy</a>.</li>
+          <li>Restore testing cadence: regular drills with ticketed evidence logged for audit.</li>
+        </ul>
+        <p>
+          For more detail on how backups intersect with access control, logging, and incident response, see the relevant policy summaries in this catalog.
+        </p>
+        <div class="btn-row">
+          <a href="AiVRIC-UserGuide/continuous-monitoring.html"><i class="fas fa-file-alt"></i>Security Standard</a>
+        </div>
+      </div>
+
+      <div id="retention" class="card anchor-section">
+        <h2>Data Retention Policy</h2>
+        <p>Retention aligns to business need, compliance, and customer configuration. Backups and logs are purged on schedule after rotation.</p>
+        <ul>
+          <li>Customer data retention configurable per workspace; defaults align to SOC 2 evidence windows.</li>
+          <li>Backups inherit encryption and are deleted after retention; logs preserved for investigations then purged.</li>
+          <li>Deletion and subject rights handled per <a class="inline" href="data-retention-policy.html">Data Retention Policy</a> and <a class="inline" href="privacy-policy.html">Privacy Policy</a>.</li>
+        </ul>
+        <div class="btn-row">
+          <a href="AiVRIC-UserGuide/data-classification-handling.html"><i class="fas fa-file-alt"></i>Security Standard</a>
+        </div>
+      </div>
+
+      <div id="transit" class="card anchor-section">
+        <h2>Encryption in-transit</h2>
+        <p>Strong transport encryption for service-to-service and customer connections.</p>
+        <ul>
+          <li>TLS 1.2+ with modern cipher suites.</li>
+          <li>Mutual TLS available for sensitive control-plane flows.</li>
+          <li>Transport security headers applied where applicable.</li>
+          <li>Certificate lifecycle managed per <a class="inline" href="cryptographic-operations.html">Cryptographic Operations</a>.</li>
+        </ul>
+        <div class="btn-row">
+          <a href="AiVRIC-UserGuide/cryptographic-operations.html"><i class="fas fa-file-alt"></i>Security Standard</a>
+        </div>
+      </div>
+
+      <div id="rest" class="card anchor-section">
+        <h2>Encryption at-rest</h2>
+        <p>Data and backups are encrypted at rest with managed keys and role-based key custody.</p>
+        <ul>
+          <li>AES-256 or better for managed storage.</li>
+          <li>Logical segregation of customer data.</li>
+          <li>Key management via KMS/HSM with dual control.</li>
+          <li>Customer-managed keys supported where required.</li>
+        </ul>
+        <div class="btn-row">
+          <a href="AiVRIC-UserGuide/cryptographic-operations.html"><i class="fas fa-file-alt"></i>Security Standard</a>
+        </div>
+      </div>
+
+      <div id="access" class="card anchor-section">
+        <h2>Access Control</h2>
+        <p>Least-privilege model for workforce, platform, and connectors.</p>
+        <ul>
+          <li>SSO/MFA enforced.</li>
+          <li>RBAC and separation of duties for privileged actions.</li>
+          <li>Quarterly access reviews.</li>
+          <li>Scoped API/connector credentials and secrets rotation.</li>
+        </ul>
+        <div class="btn-row">
+          <a href="AiVRIC-UserGuide/identification-authorization-control.html"><i class="fas fa-file-alt"></i>Security Standard</a>
+        </div>
+      </div>
+
+      <div id="logging" class="card anchor-section">
+        <h2>Logging & Monitoring</h2>
+        <p>Centralized logging and alerting for security-relevant events with export support.</p>
+        <ul>
+          <li>Auth, admin, config, and connector events logged.</li>
+          <li>Alerts on privileged actions.</li>
+          <li>Retention aligned to investigations; customers can export to SIEM.</li>
+        </ul>
+        <div class="btn-row">
+          <a href="AiVRIC-UserGuide/continuous-monitoring.html"><i class="fas fa-file-alt"></i>Security Standard</a>
+        </div>
+      </div>
+
+      <div id="ir" class="card anchor-section">
+        <h2>Incident Response Playbook</h2>
+        <p>Defined severities, on-call rotations, and customer notification triggers.</p>
+        <ul>
+          <li>Containment/eradication runbooks with evidence preservation from logging systems.</li>
+          <li>Post-incident reviews with ticketed remediation and tracked actions.</li>
+        </ul>
+        <div class="btn-row">
+          <a href="AiVRIC-UserGuide/incident-response-operations.html"><i class="fas fa-file-alt"></i>Security Standard</a>
+        </div>
+      </div>
+
+      <div id="sea" class="card anchor-section">
+        <h2>Secure Engineering & Architecture</h2>
+        <p>Guidance for secure SDLC, reviews, and approved patterns.</p>
+        <ul>
+          <li>Security design reviews for new features and integrations; patterns documented and approved.</li>
+          <li>Code scanning, dependency management, and change control practices to reduce risk.</li>
+        </ul>
+        <div class="btn-row">
+          <a href="AiVRIC-UserGuide/secure-engineering-architecture.html"><i class="fas fa-file-alt"></i>Security Standard</a>
+        </div>
+      </div>
+
+      <div id="vpm" class="card anchor-section">
+        <h2>Vulnerability & Patch Management</h2>
+        <p>Scan, prioritize, and remediate vulnerabilities with defined SLAs.</p>
+        <ul>
+          <li>Regular scanning and prioritization by severity/business impact.</li>
+          <li>Patch and remediation SLAs tracked with evidence; exceptions require approval.</li>
+        </ul>
+        <div class="btn-row">
+          <a href="AiVRIC-UserGuide/vulnerability-patch-management.html"><i class="fas fa-file-alt"></i>Security Standard</a>
+        </div>
+      </div>
+
+      <div id="thr" class="card anchor-section">
+        <h2>Threat Management</h2>
+        <p>Threat intel, modeling, and readiness exercises.</p>
+        <ul>
+          <li>Threat modeling for high-risk services and connectors; findings drive control updates.</li>
+          <li>Readiness exercises and playbooks to validate detection and response capabilities.</li>
+        </ul>
+        <div class="btn-row">
+          <a href="AiVRIC-UserGuide/threat-management.html"><i class="fas fa-file-alt"></i>Security Standard</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="main-footer">
+      <div class="footer-bottom centred">
+        <div class="auto-container">
+          <div class="copyright">
+            <p>&copy; 2025 <a href="index.html">AiVRIC</a>. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="mobile-menu">
+    <div class="menu-backdrop"></div>
+    <div class="close-btn"><i class="fas fa-times"></i></div>
+    <nav class="menu-box">
+      <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.avif" alt=""></a></div>
+      <div class="menu-outer"></div>
+    </nav>
+  </div>
+
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/script.js"></script>
+  <script>
+    // Smooth scroll for nav pills
+    document.querySelectorAll('.nav-pill[href^=\"#\"]').forEach(function(link){
+      link.addEventListener('click', function(e){
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+  </script>
+</body>
+</html>
