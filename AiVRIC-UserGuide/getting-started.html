@@ -15,11 +15,21 @@
   <link href="../assets/css/style.css" rel="stylesheet">
   <link href="../assets/css/responsive.css" rel="stylesheet">
   <link href="userguide.css" rel="stylesheet">
+  <style>
+    .guide-content h1,
+    .guide-content h2,
+    .guide-content h3 {
+      color: #f4f8ff;
+    }
+  </style>
 </head>
 <body data-page="getting-started">
   <header class="guide-header">
     <div class="bar">
-      <a class="brand" href="index.html"><span class="dot"></span>AiVRIC User Guide</a>
+      <a class="brand" href="index.html">
+        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo">
+        <span>Platform Guide</span>
+      </a>
       <div class="top-links">
         <a href="../index.html">AiVRIC.com</a>
         <a href="../trust.html">Trust Center</a>
@@ -28,7 +38,8 @@
       </div>
       <div class="guide-search">
         <i class="fa fa-search" aria-hidden="true"></i>
-        <input type="search" placeholder="Search the User Guide (coming soon)" aria-label="Search the AiVRIC User Guide">
+        <input id="guide-search-input" type="search" placeholder="Search the Platform Guide" aria-label="Search the AiVRIC Platform Guide">
+        <div class="search-results" id="guide-search-results"></div>
       </div>
       <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
     </div>
@@ -166,6 +177,79 @@
       var toggle = document.querySelector('.nav-toggle');
       var sidebar = document.getElementById('sidebar');
       if(toggle && sidebar){ toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); }); }
+
+      var searchInput = document.getElementById('guide-search-input');
+      var resultsBox = document.getElementById('guide-search-results');
+      var pageIndex = [
+        { title: 'Platform Guide Home', url: 'index.html' },
+        { title: 'Getting started', url: 'getting-started.html' },
+        { title: 'Platform overview', url: 'platform-overview.html' },
+        { title: 'Security & Trust', url: 'security-trust.html' },
+        { title: 'AI Governance', url: 'ai-governance.html' },
+        { title: 'FAQ & Support', url: 'faq.html' }
+      ];
+      var pageCache = {};
+
+      function sanitize(text){
+        return text.replace(/[<>]/g, function(ch){ return ch === '<' ? '&lt;' : '&gt;'; });
+      }
+
+      function getPageText(page){
+        if(pageCache[page.url]) return Promise.resolve(pageCache[page.url]);
+        return fetch(page.url).then(function(r){ return r.text(); }).then(function(html){
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+          var main = doc.querySelector('.guide-content') || doc.body;
+          var text = (main.innerText || '').replace(/\s+/g, ' ').trim();
+          pageCache[page.url] = text;
+          return text;
+        }).catch(function(){ return ''; });
+      }
+
+      async function performSearch(raw){
+        var query = raw.trim().toLowerCase();
+        if(!resultsBox) return;
+        if(query.length < 2){
+          resultsBox.innerHTML = '';
+          resultsBox.classList.remove('open');
+          return;
+        }
+
+        var matches = [];
+        for (var i = 0; i < pageIndex.length; i++){
+          var pageItem = pageIndex[i];
+          var text = await getPageText(pageItem);
+          var hay = text.toLowerCase();
+          var idx = hay.indexOf(query);
+          if(idx === -1) continue;
+          var start = Math.max(0, idx - 70);
+          var end = Math.min(text.length, idx + 140);
+          var snippet = sanitize(text.slice(start, end));
+          matches.push({ title: pageItem.title, url: pageItem.url, snippet: snippet });
+        }
+
+        if(!matches.length){
+          resultsBox.innerHTML = '<div class="no-results">No matches yet. Try another term.</div>';
+          resultsBox.classList.add('open');
+          return;
+        }
+
+        resultsBox.innerHTML = matches.slice(0, 8).map(function(m){
+          return '<a class="result" href="'+m.url+'"><strong>'+m.title+'</strong><span>'+m.snippet+'...</span></a>';
+        }).join('');
+        resultsBox.classList.add('open');
+      }
+
+      if(searchInput && resultsBox){
+        searchInput.addEventListener('input', function(e){ performSearch(e.target.value); });
+        searchInput.addEventListener('focus', function(){ if(resultsBox.innerHTML){ resultsBox.classList.add('open'); }});
+      }
+
+      document.addEventListener('click', function(e){
+        if(!resultsBox) return;
+        if(!resultsBox.contains(e.target) && !searchInput.contains(e.target)){
+          resultsBox.classList.remove('open');
+        }
+      });
     })();
   </script>
 </body>
