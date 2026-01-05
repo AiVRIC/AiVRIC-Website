@@ -38,6 +38,29 @@
 <link href="assets/css/elements-css/expertise.css" rel="stylesheet">
 <link href="assets/css/elements-css/news.css" rel="stylesheet">
 <link href="assets/css/responsive.css" rel="stylesheet">
+<style>
+  .search-results-list {
+    margin-top: 12px;
+    padding: 10px;
+    background: #0f172a;
+    color: #e9f2ff;
+    border-radius: 10px;
+    border: 1px solid #1f2c45;
+    max-height: 320px;
+    overflow-y: auto;
+    box-shadow: 0 16px 32px rgba(0,0,0,0.25);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  .search-results-list .result {
+    padding: 6px 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    cursor: pointer;
+  }
+  .search-results-list .result:last-child { border-bottom: none; }
+  .search-results-list .result:hover { background: rgba(255,255,255,0.06); }
+  .search-results-list .result strong { display: block; margin-bottom: 2px; }
+</style>
 
 <!-- Calendly badge widget begin -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
@@ -102,11 +125,12 @@
                         <form method="post" action="index.html">
                             <div class="form-group">
                                 <fieldset>
-                                    <input type="search" class="form-control" name="search-input" value="" placeholder="Type your keyword and hit" required >
+                                    <input id="site-search-input" type="search" class="form-control" name="search-input" value="" placeholder="Type your keyword and hit" required >
                                     <button type="submit"><i class="far fa-search"></i></button>
                                 </fieldset>
                             </div>
                         </form>
+                        <div class="search-results-list" id="site-search-results" aria-live="polite"></div>
                     </div>
                 </div>
             </div>
@@ -1053,6 +1077,83 @@
 
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
+    <script>
+      (function(){
+        var form = document.querySelector('#search-popup form');
+        var input = document.getElementById('site-search-input');
+        var resultsBox = document.getElementById('site-search-results');
+        if(!form || !input || !resultsBox) return;
+
+        function sanitize(text){
+          return text.replace(/[<>]/g, function(ch){ return ch === '<' ? '&lt;' : '&gt;'; });
+        }
+
+        function runSearch(q){
+          resultsBox.innerHTML = '';
+          if(!q.trim()){
+            resultsBox.textContent = 'Type to search';
+            return;
+          }
+          var sourceEl = document.querySelector('.boxed_wrapper') || document.body;
+          var walker = document.createTreeWalker(sourceEl, NodeFilter.SHOW_TEXT, null);
+          var qLower = q.toLowerCase();
+          var found = [];
+
+          function findTargetElement(node){
+            var el = node.parentElement;
+            while(el && !el.offsetParent){ el = el.parentElement; }
+            return el || node.parentElement;
+          }
+
+          while(walker.nextNode() && found.length < 5){
+            var node = walker.currentNode;
+            var text = node.nodeValue || '';
+            var hay = text.toLowerCase();
+            var idx = hay.indexOf(qLower);
+            if(idx !== -1){
+              var snippetStart = Math.max(0, idx - 70);
+              var snippetEnd = Math.min(text.length, idx + 140);
+              var snippet = sanitize(text.slice(snippetStart, snippetEnd)) + '...';
+              found.push({ node: node, snippet: snippet, target: findTargetElement(node) });
+            }
+          }
+
+          if(!found.length){
+            resultsBox.textContent = 'No matches found on this page.';
+            return;
+          }
+
+          resultsBox.innerHTML = found.map(function(item, i){
+            return '<div class="result" data-idx="'+i+'"><strong>Match '+(i+1)+'</strong><span>'+item.snippet+'</span></div>';
+          }).join('');
+
+          resultsBox.querySelectorAll('.result').forEach(function(resEl){
+            resEl.addEventListener('click', function(){
+              var idx = parseInt(resEl.dataset.idx, 10);
+              var target = found[idx] && found[idx].target ? found[idx].target : null;
+              if(target && typeof target.scrollIntoView === 'function'){
+                target.scrollIntoView({behavior:'smooth', block:'center'});
+              }
+              var popup = document.getElementById('search-popup');
+              if(popup){ popup.classList.remove('popup-visible'); }
+            });
+          });
+        }
+
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          runSearch(input.value || '');
+        });
+
+        input.addEventListener('input', function(e){
+          if((e.target.value || '').length >= 2){
+            runSearch(e.target.value);
+          } else {
+            resultsBox.innerHTML = '';
+          }
+        });
+      })();
+    </script>
 
 </body><!-- End of .page_wrapper -->
 </html>
