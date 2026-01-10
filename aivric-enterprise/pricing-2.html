@@ -1,0 +1,642 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<title>Pricing | AiVRIC</title>
+
+<!-- Fav Icon -->
+<link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!-- Stylesheets -->
+<link href="assets/css/font-awesome-all.css" rel="stylesheet">
+<link href="assets/css/flaticon.css" rel="stylesheet">
+<link href="assets/css/owl.css" rel="stylesheet">
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="assets/css/animate.css" rel="stylesheet">
+<link href="assets/css/nice-select.css" rel="stylesheet">
+<link href="assets/css/color.css" rel="stylesheet">
+<link href="assets/css/elpath.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+<link href="assets/css/elements-css/page-title.css" rel="stylesheet">
+<link href="assets/css/elements-css/pricing.css" rel="stylesheet">
+<link href="assets/css/responsive.css" rel="stylesheet">
+
+<!-- Stripe.js -->
+<script src="https://js.stripe.com/v3/"></script>
+
+  <link href="assets/css/custom.css" rel="stylesheet">
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+    <div class="boxed_wrapper">
+
+
+        
+       <!-- preloader -->
+        <div class="loader-wrap">
+            <div class="preloader">
+                <div class="preloader-close">x</div>
+                <div id="handle-preloader" class="handle-preloader">
+                    <div class="animation-preloader">
+                        <div class="spinner"></div>
+                        <div class="txt-loading">
+                            <span data-text-preloader="A" class="letters-loading">
+                                A
+                            </span>
+                            <span data-text-preloader="I" class="letters-loading">
+                                I
+                            </span>
+                            <span data-text-preloader="V" class="letters-loading">
+                                V
+                            </span>
+                            <span data-text-preloader="r" class="letters-loading">
+                                r
+                            </span>
+                            <span data-text-preloader="i" class="letters-loading">
+                                i
+                            </span>
+                            <span data-text-preloader="c" class="letters-loading">
+                                c
+                            </span>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <!-- preloader end -->
+
+
+        <!-- main header -->
+        <header class="main-header header-style-two">
+            <!-- header-top -->
+            <div class="header-top">
+                <div class="auto-container">
+                    <div class="top-inner">
+                        <div class="top-left">
+                            <ul class="info clearfix">
+                                <li><i class="icon-1"></i>Mon-Fri 8:00 am-6:00 pm</li>
+                                <li><i class="icon-2"></i><a href="tel:19543426637">+1-954-342-6637</a></li>
+                                <li><i class="icon-3"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                            </ul>
+                        </div>
+                        <div class="top-right">
+                            <div class="login"><a href="https://dev-defense.aivric.com">Online Demo</a></div>
+                            <ul class="social-links clearfix">
+                                <li><a href="index.html"><i class="fab fa-facebook-f"></i></a></li>
+                                <li><a href="index.html"><i class="fab fa-twitter"></i></a></li>
+                                <li><a href="index.html"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- header-lower -->
+            <div class="header-lower">
+                <div class="auto-container">
+                    <div class="outer-box">
+                        <div class="logo-box">
+                            <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
+                        </div>
+                        <div class="menu-area clearfix">
+                            <!--Mobile Navigation Toggler-->
+                            <div class="mobile-nav-toggler">
+                                <i class="icon-bar"></i>
+                                <i class="icon-bar"></i>
+                                <i class="icon-bar"></i>
+                            </div>
+                            <nav class="main-menu navbar-expand-md navbar-light">
+    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+        <ul class="navigation clearfix">
+            <li class="dropdown platform-menu"><a href="services.html">Platform</a>
+                <div class="platform-megamenu">
+                    <div class="platform-grid">
+                        <a class="platform-card" href="genai-chat.html"><h4>GenAI Chat</h4><p>Fabric intelligence chat across every AiVRIC solution.</p><span>view more</span></a>
+                        <a class="platform-card" href="shared-data-layer.html"><h4>Shared Data Layer</h4><p>The Fabric data layer unifies telemetry and evidence.</p><span>view more</span></a>
+                        <a class="platform-card" href="agentic-design.html"><h4>Agentic Design</h4><p>Fabric agents coordinate actions across suites.</p><span>view more</span></a>
+                        <a class="platform-card" href="efficient-compute.html"><h4>Efficient Compute</h4><p>Fabric compute optimizes AI workloads end-to-end.</p><span>view more</span></a>
+                        <a class="platform-card" href="data-localization.html"><h4>Data Localization</h4><p>Fabric residency controls govern every dataset.</p><span>view more</span></a>
+                        <a class="platform-card" href="ai-model-inspection.html"><h4>AI Model Inspection</h4><p>Fabric inspection monitors AI models and risk.</p><span>view more</span></a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown"><a href="#">Solutions</a>
+                <div class="megamenu">
+                    <div class="mega-tabs" role="tablist">
+                        <button class="mega-tab is-active" type="button" data-mega-tab="solution" role="tab" aria-selected="true">By Solution</button>
+                        <button class="mega-tab" type="button" data-mega-tab="usecase" role="tab" aria-selected="false">By Use Case</button>
+                    </div>
+                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="solution" data-mega-active="defense" role="tabpanel">
+                        <div class="mega-rail mega-rail-stack">
+                            <button class="mega-stack-card is-active" type="button" data-mega-target="defense">
+                                <h4>Defense</h4>
+                                <p>A suite of solutions used to defend your organization from cyber threats.</p>
+                                <span class="mega-link">View all products -></span>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="offense">
+                                <h4>Offense</h4>
+                                <p>A suite that continuously simulates attacks across your digital ecosystem.</p>
+                                <span class="mega-link">View all products -></span>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="vision">
+                                <h4>Vision</h4>
+                                <p>Holistic context across the AiVRIC ecosystem and your environments.</p>
+                                <span class="mega-link">View all products -></span>
+                            </button>
+                        </div>
+                        <div class="mega-grid">
+                            <a class="mega-card" data-mega-category="defense" href="services.html#defense"><strong>CSPM</strong><span>Scan all your cloud platform configs.</span></a>
+                            <a class="mega-card" data-mega-category="defense" href="services.html#ai-signals"><strong>AI Inspector</strong><span>Holistic evaluations of enterprise AI platforms.</span></a>
+                            <a class="mega-card" data-mega-category="defense" href="services.html#defense"><strong>AIR</strong><span>Agentic role-based remediation agents.</span></a>
+                            <a class="mega-card" data-mega-category="offense" href="services.html#offense"><strong>RogueAgent</strong><span>Analyze cloud posture using a risk lens.</span></a>
+                            <a class="mega-card" data-mega-category="vision" href="services.html#vision"><strong>Professional</strong><span>OpenAI-driven AI risk analysis and reporting.</span></a>
+                            <a class="mega-card" data-mega-category="vision" href="services.html#vision"><strong>Enterprise</strong><span>Support for BYO-AI models and iPaaS.</span></a>
+                        </div>
+                    </div>
+                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="usecase" data-mega-active="compliance" role="tabpanel" hidden>
+                        <div class="mega-rail mega-rail-stack">
+                            <button class="mega-stack-card is-active" type="button" data-mega-target="compliance">
+                                <h4>Compliance</h4>
+                                <p>Framework-ready controls and audit automation.</p>
+                                <span class="mega-link">View all frameworks -></span>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="riskops">
+                                <h4>Risk Ops</h4>
+                                <p>Continuous risk operations and response alignment.</p>
+                                <span class="mega-link">View all programs -></span>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="productops">
+                                <h4>Product Ops</h4>
+                                <p>Security and compliance built into delivery workflows.</p>
+                                <span class="mega-link">View all playbooks -></span>
+                            </button>
+                        </div>
+                        <div class="mega-grid">
+                            <a class="mega-card" data-mega-category="compliance" href="streamline-soc2.html"><strong>SOC 2 Type II</strong><span>Measure compliance against the SOC 2 Trust Service Principles.</span></a>
+                            <a class="mega-card" data-mega-category="compliance" href="achieve-pci-dss.html"><strong>PCI-DSS</strong><span>Continuous validation for PCI requirements and evidence.</span></a>
+                            <a class="mega-card" data-mega-category="compliance" href="cmmc-readiness.html"><strong>CMMC</strong><span>Readiness workflows for CMMC Level 2 assessments.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="use-case-vuln-mgmt.html"><strong>Issues and POA&Ms</strong><span>Track issues, milestones, and remediation plans.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="use-case-kubernetes.html"><strong>Security Exceptions</strong><span>Document approved exceptions with guardrails.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="use-case-vuln-mgmt.html"><strong>Threat Analysis</strong><span>Surface high-impact risks across environments.</span></a>
+                            <a class="mega-card" data-mega-category="productops" href="use-case-github-security.html"><strong>DevSecOps</strong><span>Secure Github repos and delivery workflows.</span></a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li class="dropdown"><a href="resources.html">Resources</a>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="why-aivric.html">Why AiVRIC</a></li>
+                    <li><a href="trust.html">Trust Center</a></li>
+                    <li><a href="AiVRIC-UserGuide/index.html">Platform Guide</a></li>
+                    <li><a href="blog-portal.html">Blogs</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+                        </div>
+                        <ul class="menu-right-content">
+                            <li class="search-box-outer search-toggler">
+                                <i class="icon-4"></i>
+                            </li>
+                            <li class="theme-toggle-item"><button class="theme-toggle" type="button" data-theme-toggle>Dark mode</button></li>
+                            <li class="btn-box">
+                                <a href="request-demo.html" class="theme-btn-one">Request a Demo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--sticky Header-->
+            <div class="sticky-header">
+                <div class="auto-container">
+                    <div class="outer-box">
+                        <div class="logo-box">
+                            <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
+                        </div>
+                        <div class="menu-area clearfix">
+                            <nav class="main-menu clearfix">
+                                <!--Keep This Empty / Menu will come through Javascript-->
+                            </nav>
+                        </div>
+                        <ul class="menu-right-content">
+                            <li class="search-box-outer search-toggler">
+                                <i class="icon-4"></i>
+                            </li>
+                            <li class="theme-toggle-item"><button class="theme-toggle" type="button" data-theme-toggle>Dark mode</button></li>
+                            <li class="btn-box">
+                                <a href="request-demo.html" class="theme-btn-one">Request a Demo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><i class="fas fa-times"></i></div>
+            
+            <nav class="menu-box">
+                <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.avif" alt="" title=""></a></div>
+                <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+                <div class="contact-info">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>Wilmington, Delaware 19802</li>
+                        <li><a href="tel:+19543426637">+1 9543426637</a></li>
+                        <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <ul class="clearfix">
+                        <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="index.html"><span class="fab fa-facebook-square"></span></a></li>
+                        <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
+                        <li><a href="index.html"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div><!-- End Mobile Menu -->
+
+
+        <!-- page-title -->
+        <section class="page-title centred">
+            <div class="bg-layer" style="background-image: url(assets/images/background/page-title.avif);"></div>
+            <div class="auto-container">
+                <div class="content-box">
+                    <h1>Pricing Options</h1>
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="index.html">Home</a></li>
+                        <li>Our Pricing</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- page-title end -->
+
+
+        <!-- pricing-section -->
+        <section class="pricing-section sec-pad">
+            <div class="auto-container">
+                <div class="sec-title centred mb_50">
+                    <span class="sub-title">Subscription Plans</span>
+                    <h2>Choose the Right AiVRIC Defense Plan <br />for Your Organization</h2>
+                    <p class="mt_20">All plans include 14-day free trial. No credit card required.</p>
+                </div>
+                <!-- Single Products View (No Tabs) -->
+                <div class="row clearfix">
+                    <!-- Defense Starter -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                        <div class="pricing-block-one">
+                            <div class="pricing-table">
+                                <div class="shape-1" style="background-image: url(assets/images/shape/shape-38.avif);"></div>
+                                <div class="table-header mb_35">
+                                    <span class="title">AiVRIC Defense – Starter Edition</span>
+                                    <h2>$TBD/<span>mo</span></h2>
+                                    <p class="text-muted">Essentials for cloud-security visibility</p>
+                                </div>
+                                <div class="table-content">
+                                    <ul class="feature-list list-style-one clearfix">
+                                        <li>Single-cloud security scanning (1 environment)</li>
+                                        <li>Baseline CIS & hardening checks</li>
+                                        <li>Weekly scheduled vulnerability scans</li>
+                                        <li>Core compliance mapping (PCI DSS & SOC 2 highlights)</li>
+                                        <li>Alerting via email notifications</li>
+                                        <li>Standard dashboards & summary reports</li>
+                                        <li>API access for basic integrations</li>
+                                        <li>Business-hours support</li>
+                                    </ul>
+                                </div>
+                                <div class="table-footer">
+                                    <button type="button" class="theme-btn-one" data-stripe-subscribe data-product="defense_starter" data-price-id="price_defense_starter_monthly">Start Free Trial</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Defense Professional -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                        <div class="pricing-block-one">
+                            <div class="pricing-table">
+                                <div class="shape-1" style="background-image: url(assets/images/shape/shape-38.avif);"></div>
+                                <div class="table-header mb_35">
+                                    <span class="title">AiVRIC Defense – Professional</span>
+                                    <h2>$TBD/<span>mo</span></h2>
+                                    <p class="text-muted">Advanced multi-cloud protection</p>
+                                </div>
+                                <div class="table-content">
+                                    <ul class="feature-list list-style-one clearfix">
+                                        <li>Multi-cloud security scanning (AWS, Azure, GCP)</li>
+                                        <li>Continuous vulnerability discovery & risk scoring</li>
+                                        <li>Full compliance frameworks (PCI DSS, SOC 2, ISO 27001)</li>
+                                        <li>Real-time alerting with suppression & tuning</li>
+                                        <li>Policy-drift detection across key cloud services</li>
+                                        <li>Integrations with ticketing & chat (Jira, Slack, etc.)</li>
+                                        <li>Exportable remediation & audit-ready reports</li>
+                                        <li>Priority email & chat support</li>
+                                    </ul>
+                                </div>
+                                <div class="table-footer">
+                                    <button type="button" class="theme-btn-one" data-stripe-subscribe data-product="defense_professional" data-price-id="price_defense_professional_monthly">Start Free Trial</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Defense Enterprise -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                        <div class="pricing-block-one">
+                            <div class="pricing-table">
+                                <div class="shape-1" style="background-image: url(assets/images/shape/shape-38.avif);"></div>
+                                <div class="table-header mb_35">
+                                    <span class="title">AiVRIC Defense – Enterprise</span>
+                                    <h2>$TBD/<span>mo</span></h2>
+                                    <p class="text-muted">Enterprise-scale security & compliance</p>
+                                </div>
+                                <div class="table-content">
+                                    <ul class="feature-list list-style-one clearfix">
+                                        <li>All Professional features</li>
+                                        <li>Unlimited cloud accounts & environments</li>
+                                        <li>Advanced risk heatmaps & executive reporting</li>
+                                        <li>Custom compliance frameworks & industry overlays</li>
+                                        <li>SSO, RBAC, and advanced access controls</li>
+                                        <li>Custom integrations & data export pipelines</li>
+                                        <li>Quarterly strategy & posture review sessions</li>
+                                        <li>24/7 premium support SLA</li>
+                                    </ul>
+                                </div>
+                                <div class="table-footer">
+                                    <button type="button" class="theme-btn-one" data-stripe-subscribe data-product="defense_enterprise" data-price-id="price_defense_enterprise_monthly">Start Free Trial</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bundle Plans Row -->
+<div class="row clearfix mt_50 justify-content-center">
+
+    <!-- Defense Pro + Managed GRC Bundle -->
+    <div class="col-lg-5 col-md-6 col-sm-12 pricing-block">
+        <div class="pricing-block-one active-block">
+            <div class="pricing-table">
+                <div class="shape-1" style="background-image: url(assets/images/shape/shape-39.avif);"></div>
+                <div class="table-header mb_35">
+                    <span class="badge bg-success mb-2">POPULAR</span>
+                    <span class="title">Defense Pro + vCISO</span>
+                    <h2>$TBD/<span>mo</span></h2>
+                    <p class="text-muted">Unified Security + Governance Oversight</p>
+                    <small class="text-success">Save $250/month vs purchasing separately</small>
+                </div>
+
+                <div class="table-content">
+                    <ul class="feature-list list-style-one clearfix">
+                        <li><strong>All AiVRIC Defense Pro Features</strong></li>
+                        <li><strong>3HUE Virtual CISO Support</strong></li>
+                        <li>Daily Security Posture Monitoring</li>
+                        <li>Control Gap Tracking (PCI DSS, SOC 2, ISO 27001)</li>
+                        <li>Weekly Analyst Review & Ticketing Sync</li>
+                        <li>Integrated Evidence Gathering & Audit Preparation</li>
+                        <li>Monthly Security Risk Briefings</li>
+                        <li>Dedicated Client Success Specilist</li>
+                    </ul>
+                </div>
+
+                <div class="table-footer">
+                    <button type="button" class="theme-btn-one" 
+                        data-stripe-subscribe 
+                        data-product="bundle_defensepro_grc" 
+                        data-price-id="price_defensepro_grc_monthly">
+                        Start Free Trial
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AiVRIC+ Services Premium Platform -->
+    <div class="col-lg-5 col-md-6 col-sm-12 pricing-block">
+        <div class="pricing-block-one active-block">
+            <div class="pricing-table">
+                <div class="shape-1" style="background-image: url(assets/images/shape/shape-39.avif);"></div>
+                <div class="table-header mb_35">
+                    <span class="badge bg-primary mb-2">PREMIUM</span>
+                    <span class="title">AiVRIC+ Managed GRC Services Platform</span>
+                    <h2>$TBD/<span>mo</span></h2>
+                    <p class="text-muted">Full Platform Access + Concierge Security Services</p>
+                    <small class="text-success">Save $400/month with bundled services</small>
+                </div>
+
+                <div class="table-content">
+                    <ul class="feature-list list-style-one clearfix">
+                        <li><strong>All AiVRIC Defense Features</strong></li>
+                        <li><strong>All AiVRIC Vision Features</strong></li>
+                        <li><strong>3HUE Managed GRC + Advisory Services</strong></li>
+                        <li>Full Compliance Automation (PCI DSS, SOC 2, ISO, CMMC-L2)</li>
+                        <li>Advanced AI Insights & Predictive Risk Analytics</li>
+                        <li>Continuous Evidence Collection + Audit-Ready Reports</li>
+                        <li>VIP Support, Training & Quarterly Strategy Reviews</li>
+                        <li>Dedicated Virtual CISO / Senior Security Consultant</li>
+                    </ul>
+                </div>
+
+                <div class="table-footer">
+                    <button type="button" class="theme-btn-one" 
+                        data-stripe-subscribe 
+                        data-product="bundle_aivric_plus" 
+                        data-price-id="price_aivric_plus_monthly">
+                        Start Free Trial
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+        </section>
+        <!-- pricing-section end -->
+
+
+        <!-- main-footer -->
+        <footer class="main-footer">
+            <div class="widget-section">
+                <div class="pattern-layer">
+                    <div class="pattern-1" style="background-image: url(assets/images/shape/shape-20.avif);"></div>
+                    <div class="pattern-2" style="background-image: url(assets/images/shape/shape-21.avif);"></div>
+                </div>
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget logo-widget">
+                                <div class="widget-title">
+                                    <h3>AiVRIC</h3>
+                                </div>
+                                <div class="text">
+                                    <p>Autonomous Security, Compliance, and Risk Intelligence.</p>
+                                </div>
+                                <div class="subscribe-box">
+                                    <form action="contact.html" method="post">
+                                        <div class="form-group">
+                                            <input type="email" name="email" placeholder="Your email" required="">
+                                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget links-widget">
+                                <div class="widget-title">
+                                    <h3>Platform</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="links-list clearfix">
+                                        <li><a href="services.html#scanning">Security &amp; Risk Assessment</a></li>
+                                        <li><a href="services.html#compliance">Compliance Management</a></li>
+                                        <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget links-widget">
+                                <div class="widget-title">
+                                    <h3>Solutions</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="links-list clearfix">
+                                        <li><a href="streamline-soc2.html">SOC 2 Automation</a></li>
+                                        <li><a href="achieve-pci-dss.html">PCI-DSS Compliance</a></li>
+                                        <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
+                                        <li><a href="achieve-iso27001-compliance.html">ISO27001 Compliance</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget contact-widget">
+                                <div class="widget-title">
+                                    <h3>Contact</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="info-list clearfix">
+                                        <li><i class="fas fa-envelope"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                                        <li><i class="fas fa-phone-alt"></i><a href="tel:+19543426637">+1 954 342 6637</a></li>
+                                    </ul>
+                                </div>
+                                <ul class="social-links-two clearfix">
+                                    <li><a href="https://x.com/aivric"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="https://www.facebook.com/61581937785235/"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/aivric"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="https://www.instagram.com/aivrictechnologies/"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="auto-container">
+                    <div class="bottom-inner">
+                        <div class="copyright">
+                            <p>&copy; 2025 <a href="index.html">AiVRIC</a>. All Rights Reserved.</p>
+                        </div>
+                        <ul class="footer-nav">
+                            <li><a href="terms-of-use.html">Terms of Service</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- main-footer end -->
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+        
+    </div>
+
+
+    <!-- jequery plugins -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/validation.js"></script>
+    <script src="assets/js/jquery.fancybox.js"></script>
+    <script src="assets/js/appear.js"></script>
+    <script src="assets/js/scrollbar.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/parallax-scroll.js"></script>
+
+    <!-- main-js -->
+    <script src="assets/js/script.js"></script>
+
+    <!-- Stripe Checkout Integration -->
+    <script src="assets/js/stripe-checkout.js"></script>
+
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/mega-hover.js"></script>
+    <script src="assets/js/mega-tabs.js"></script>
+</body><!-- End of .page_wrapper -->
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+  <title>Framework Support Policy | AiVRIC</title>
+
+  <!-- Fav Icon -->
+  <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Site CSS (align to your template) -->
+  <link href="assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="assets/css/flaticon.css" rel="stylesheet">
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/color.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/responsive.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --ink:#0b1220;
+      --text:#243043;
+      --muted:#5b6b83;
+      --line:#e7edf6;
+      --panel:#ffffff;
+      --soft:#f6f9ff;
+      --soft2:#fbfcff;
+      --shadow: 0 16px 50px rgba(12, 23, 45, 0.10);
+      --shadow2: 0 10px 26px rgba(12, 23, 45, 0.08);
+      --radius: 18px;
+      --radius2: 14px;
+      --accent: #10b2e8;
+      --accent2:#19d4a3;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+    }
+
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: #ffffff;
+      color: var(--text);
+    }
+
+    .boxed_wrapper,
+    .bg-color-1,
+    .bg-color-2{
+      background:#ffffff !important;
+    }
+
+    .policy-hero{
+      position: relative;
+      padding: 72px 0 28px 0;
+      background: linear-gradient(180deg, var(--soft2) 0%, #ffffff 65%);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .policy-hero:before{
+      content:"";
+      position:absolute;
+      inset:-210px -210px auto auto;
+      width: 620px;
+      height: 620px;
+      background: radial-gradient(circle at 30% 30%, rgba(16,178,232,0.18), rgba(25,212,163,0.10), transparent 62%);
+      border-radius: 999px;
+      pointer-events:none;
+    }
+    .policy-hero:after{
+      content:"";
+      position:absolute;
+      inset:auto auto -240px -240px;
+      width: 640px;
+      height: 640px;
+      background: radial-gradient(circle at 50% 50%, rgba(16,178,232,0.10), transparent 62%);
+      border-radius: 999px;
+      pointer-events:none;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(16,178,232,0.25);
+      background: rgba(16,178,232,0.07);
+      color: var(--ink);
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: .2px;
+    }
+    .badge i{ color: var(--accent); }
+
+    .policy-title{
+      font-family: Jost, Inter, sans-serif;
+      color: var(--ink);
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      font-size: 42px;
+      line-height: 1.08;
+      margin: 14px 0 10px 0;
+    }
+    @media (max-width: 768px){
+      .policy-title{ font-size: 32px; }
+    }
+    .policy-sub{
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 16px;
+      margin: 0 0 16px 0;
+      max-width: 90ch;
+    }
+
+    .quick-meta{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    .meta-pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 12.5px;
+      box-shadow: var(--shadow2);
+    }
+    .meta-pill i{ color: var(--accent); }
+
+    .section{
+      padding: 44px 0;
+    }
+    .section-title{
+      font-family: Jost, Inter, sans-serif;
+      color: var(--ink);
+      font-weight: 900;
+      letter-spacing: -0.3px;
+      font-size: 28px;
+      margin: 0 0 10px 0;
+    }
+    .section-sub{
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 15px;
+      max-width: 95ch;
+      margin: 0 0 18px 0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media (max-width: 992px){
+      .grid{ grid-template-columns: 1fr; }
+    }
+
+    .card{
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      padding: 18px;
+      height: 100%;
+    }
+    .card h3{
+      margin: 0 0 10px 0;
+      color: var(--ink);
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      display:flex;
+      align-items:center;
+      gap: 10px;
+    }
+    .card h3 i{ color: var(--accent2); }
+    .card p{
+      margin: 0 0 12px 0;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.7;
+    }
+    .card ul{
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.7;
+    }
+    .card li{ margin: 6px 0; }
+
+    .callout{
+      margin-top: 16px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(16,178,232,0.22);
+      background: linear-gradient(90deg, rgba(16,178,232,0.10), rgba(25,212,163,0.09));
+      box-shadow: var(--shadow2);
+      padding: 16px;
+    }
+    .callout strong{
+      color: var(--ink);
+      font-weight: 900;
+      display:block;
+      margin-bottom: 6px;
+    }
+    .callout span{
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.7;
+      display:block;
+      max-width: 100ch;
+    }
+
+    .table-wrap{
+      background:#fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow2);
+      overflow:hidden;
+      margin-top: 14px;
+    }
+    .table-head{
+      padding: 14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--soft), #ffffff);
+    }
+    .table-head strong{
+      color: var(--ink);
+      font-weight: 900;
+      letter-spacing: .2px;
+      font-size: 14px;
+    }
+    table{
+      width:100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+    th, td{
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(231,237,246,0.75);
+      vertical-align: top;
+    }
+    th{
+      color: var(--ink);
+      font-weight: 900;
+      background: rgba(246,249,255,0.65);
+    }
+    td{ color: var(--muted); }
+    .status{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .status.current{
+      border-color: rgba(25,212,163,0.30);
+      background: rgba(25,212,163,0.10);
+    }
+    .status.deprecated{
+      border-color: rgba(239,68,68,0.25);
+      background: rgba(239,68,68,0.08);
+    }
+    .status.grace{
+      border-color: rgba(245,158,11,0.35);
+      background: rgba(245,158,11,0.10);
+    }
+
+    details{
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: #fff;
+      padding: 14px;
+      box-shadow: var(--shadow2);
+      margin-top: 12px;
+    }
+    summary{
+      cursor: pointer;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      color: var(--ink);
+      list-style: none;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{
+      margin: 10px 0 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 13.5px;
+    }
+
+    .cta{
+      margin-top: 18px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(16,178,232,0.20);
+      background: linear-gradient(90deg, rgba(16,178,232,0.10), rgba(25,212,163,0.09));
+      box-shadow: var(--shadow2);
+      padding: 18px;
+      display:flex;
+      align-items:center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .cta strong{
+      font-family: Jost, Inter, sans-serif;
+      color: var(--ink);
+      font-weight: 900;
+      font-size: 20px;
+      letter-spacing: -0.2px;
+    }
+    .cta span{
+      display:block;
+      color: var(--muted);
+      margin-top: 6px;
+      max-width: 92ch;
+      line-height: 1.7;
+      font-size: 13.5px;
+    }
+    .btn-clean{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #ffffff;
+      color: var(--ink);
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: .2px;
+      box-shadow: var(--shadow2);
+      transition: .2s;
+    }
+    .btn-clean:hover{ transform: translateY(-1px); }
+    .btn-clean.primary{
+      border-color: rgba(16,178,232,0.35);
+      background: linear-gradient(90deg, rgba(16,178,232,0.18), rgba(25,212,163,0.14));
+    }
+
+    .fineprint{
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.7;
+      margin-top: 14px;
+    }
+    .fineprint a{ color: var(--ink); font-weight: 900; text-decoration: none; border-bottom: 1px dashed rgba(16,178,232,0.45); }
+  </style>
+  <link href="assets/css/custom.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="boxed_wrapper">
+
+  <!-- Header (keep consistent with your site) -->
+  <header class="main-header">
+    <div class="header-lower">
+      <div class="auto-container">
+        <div class="outer-box">
+          <div class="logo-box">
+            <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC"></a></figure>
+          </div>
+
+          <div class="menu-area clearfix">
+            <div class="mobile-nav-toggler">
+              <i class="icon-bar"></i><i class="icon-bar"></i><i class="icon-bar"></i>
+            </div>
+            <nav class="main-menu navbar-expand-md navbar-light">
+    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+        <ul class="navigation clearfix">
+            <li class="dropdown platform-menu"><a href="services.html">Platform</a>
+                <div class="platform-megamenu">
+                    <div class="platform-grid">
+                        <a class="platform-card" href="genai-chat.html"><h4>GenAI Chat</h4><p>Fabric intelligence chat across every AiVRIC solution.</p><span>view more</span></a>
+                        <a class="platform-card" href="shared-data-layer.html"><h4>Shared Data Layer</h4><p>The Fabric data layer unifies telemetry and evidence.</p><span>view more</span></a>
+                        <a class="platform-card" href="agentic-design.html"><h4>Agentic Design</h4><p>Fabric agents coordinate actions across suites.</p><span>view more</span></a>
+                        <a class="platform-card" href="efficient-compute.html"><h4>Efficient Compute</h4><p>Fabric compute optimizes AI workloads end-to-end.</p><span>view more</span></a>
+                        <a class="platform-card" href="data-localization.html"><h4>Data Localization</h4><p>Fabric residency controls govern every dataset.</p><span>view more</span></a>
+                        <a class="platform-card" href="ai-model-inspection.html"><h4>AI Model Inspection</h4><p>Fabric inspection monitors AI models and risk.</p><span>view more</span></a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown"><a href="#">Solutions</a>
+                <div class="megamenu">
+                    <div class="mega-tabs" role="tablist">
+                        <button class="mega-tab is-active" type="button" data-mega-tab="solution" role="tab" aria-selected="true">By Solution</button>
+                        <button class="mega-tab" type="button" data-mega-tab="usecase" role="tab" aria-selected="false">By Use Case</button>
+                    </div>
+                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="solution" data-mega-active="defense" role="tabpanel">
+                        <div class="mega-rail mega-rail-stack">
+                            <button class="mega-stack-card is-active" type="button" data-mega-target="defense">
+                                <h4>Defense</h4>
+                                <p>A suite of solutions used to defend your organization from cyber threats.</p>
+                                <span class="mega-link">View all products -></span>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="offense">
+                                <h4>Offense</h4>
+                                <p>A suite that continuously simulates attacks across your digital ecosystem.</p>
+                                <span class="mega-link">View all products -></span>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="vision">
+                                <h4>Vision</h4>
+                                <p>Holistic context across the AiVRIC ecosystem and your environments.</p>
+                                <span class="mega-link">View all products -></span>
+                            </button>
+                        </div>
+                        <div class="mega-grid">
+                            <a class="mega-card" data-mega-category="defense" href="services.html#defense"><strong>CSPM</strong><span>Scan all your cloud platform configs.</span></a>
+                            <a class="mega-card" data-mega-category="defense" href="services.html#ai-signals"><strong>AI Inspector</strong><span>Holistic evaluations of enterprise AI platforms.</span></a>
+                            <a class="mega-card" data-mega-category="defense" href="services.html#defense"><strong>AIR</strong><span>Agentic role-based remediation agents.</span></a>
+                            <a class="mega-card" data-mega-category="offense" href="services.html#offense"><strong>RogueAgent</strong><span>Analyze cloud posture using a risk lens.</span></a>
+                            <a class="mega-card" data-mega-category="vision" href="services.html#vision"><strong>Professional</strong><span>OpenAI-driven AI risk analysis and reporting.</span></a>
+                            <a class="mega-card" data-mega-category="vision" href="services.html#vision"><strong>Enterprise</strong><span>Support for BYO-AI models and iPaaS.</span></a>
+                        </div>
+                    </div>
+                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="usecase" data-mega-active="compliance" role="tabpanel" hidden>
+                        <div class="mega-rail mega-rail-stack">
+                            <button class="mega-stack-card is-active" type="button" data-mega-target="compliance">
+                                <h4>Compliance</h4>
+                                <p>Framework-ready controls and audit automation.</p>
+                                <span class="mega-link">View all frameworks -></span>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="riskops">
+                                <h4>Risk Ops</h4>
+                                <p>Continuous risk operations and response alignment.</p>
+                                <span class="mega-link">View all programs -></span>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="productops">
+                                <h4>Product Ops</h4>
+                                <p>Security and compliance built into delivery workflows.</p>
+                                <span class="mega-link">View all playbooks -></span>
+                            </button>
+                        </div>
+                        <div class="mega-grid">
+                            <a class="mega-card" data-mega-category="compliance" href="streamline-soc2.html"><strong>SOC 2 Type II</strong><span>Measure compliance against the SOC 2 Trust Service Principles.</span></a>
+                            <a class="mega-card" data-mega-category="compliance" href="achieve-pci-dss.html"><strong>PCI-DSS</strong><span>Continuous validation for PCI requirements and evidence.</span></a>
+                            <a class="mega-card" data-mega-category="compliance" href="cmmc-readiness.html"><strong>CMMC</strong><span>Readiness workflows for CMMC Level 2 assessments.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="use-case-vuln-mgmt.html"><strong>Issues and POA&Ms</strong><span>Track issues, milestones, and remediation plans.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="use-case-kubernetes.html"><strong>Security Exceptions</strong><span>Document approved exceptions with guardrails.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="use-case-vuln-mgmt.html"><strong>Threat Analysis</strong><span>Surface high-impact risks across environments.</span></a>
+                            <a class="mega-card" data-mega-category="productops" href="use-case-github-security.html"><strong>DevSecOps</strong><span>Secure Github repos and delivery workflows.</span></a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li class="dropdown"><a href="resources.html">Resources</a>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="why-aivric.html">Why AiVRIC</a></li>
+                    <li><a href="trust.html">Trust Center</a></li>
+                    <li><a href="AiVRIC-UserGuide/index.html">Platform Guide</a></li>
+                    <li><a href="blog-portal.html">Blogs</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+          </div>
+
+          <ul class="menu-right-content">
+            <li class="btn-box"><a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-one">Request a Demo</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="sticky-header">
+      <div class="auto-container">
+        <div class="outer-box">
+          <div class="logo-box">
+            <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC"></a></figure>
+          </div>
+          <div class="menu-area clearfix">
+            <nav class="main-menu clearfix"></nav>
+          </div>
+          <ul class="menu-right-content">
+            <li class="btn-box"><a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-two">Request a Demo</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="policy-hero">
+    <div class="auto-container">
+      <span class="badge"><i class="fas fa-shield-alt"></i>Framework Support Policy</span>
+      <h1 class="policy-title">AiVRIC Framework Support Policy</h1>
+      <p class="policy-sub">
+        This policy defines how AiVRIC classifies framework and benchmark versions as <strong>Current</strong>,
+        how long older versions remain supported, and how AiVRIC communicates changes in checks and mappings
+        between releases. The objective is to keep customers audit-ready while maintaining predictable, transparent updates. Solution Suites: DEFENSE, OFFENSE, POSTURE, and VISION. POSTURE is a lightweight modern GRC system with remediation agents. AiVRIC uses A2A models (agents talking to and reporting to agents) for agentic processing across workload types in and across each suite.</p>
+
+      <div class="quick-meta">
+        <span class="meta-pill"><i class="fas fa-calendar-alt"></i>Effective: <strong>&nbsp;2025-12-13</strong></span>
+        <span class="meta-pill"><i class="fas fa-clipboard-check"></i>Applies to: <strong>&nbsp;Frameworks, benchmarks, mappings</strong></span>
+        <span class="meta-pill"><i class="fas fa-sync"></i>Reviewed: <strong>&nbsp;Quarterly</strong></span>
+      </div>
+
+      <div class="callout">
+        <strong>Summary</strong>
+        <span>
+          AiVRIC supports the most recent stable “generally available” versions of major frameworks and benchmarks.
+          When a new version is released, AiVRIC follows a defined intake process, provides a transition window, and
+          publishes a change log describing check and mapping changes.
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- POLICY BODY -->
+  <section class="section">
+    <div class="auto-container">
+
+      <h2 class="section-title">1) How AiVRIC determines “Current”</h2>
+      <p class="section-sub">
+        AiVRIC designates a framework or benchmark as <strong>Current</strong> when it meets the criteria below. This reduces ambiguity
+        during audits and helps customers plan upgrades with confidence.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3><i class="fas fa-check-circle"></i>Current designation criteria</h3>
+          <ul>
+            <li><strong>Official release:</strong> the version is published by the issuing organization as an official release (not a draft).</li>
+            <li><strong>Stable reference material:</strong> the release includes stable documentation or authoritative reference artifacts.</li>
+            <li><strong>Industry adoption:</strong> the version is broadly recognized by auditors and compliance practitioners, or has a formal transition schedule.</li>
+            <li><strong>Implementable mappings:</strong> AiVRIC can map checks to controls with definable intent and measurable evidence outputs.</li>
+            <li><strong>Operational viability:</strong> the version can be implemented in production without requiring speculative interpretation.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-sitemap"></i>Intake and validation process</h3>
+          <p>When a new framework version is released, AiVRIC uses a structured intake workflow to minimize disruption:</p>
+          <ul>
+            <li><strong>Gap review:</strong> identify additions, removals, and materially changed controls.</li>
+            <li><strong>Mapping impact analysis:</strong> determine where check logic or control mappings must change.</li>
+            <li><strong>Regression validation:</strong> validate that existing outputs remain accurate and explainable.</li>
+            <li><strong>Release classification:</strong> label changes as <em>Minor</em> (non-breaking), <em>Major</em> (breaking), or <em>Urgent</em> (security-critical).</li>
+            <li><strong>Publication:</strong> publish the new support status, timelines, and change log.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:16px;">
+        <strong>Practical interpretation</strong>
+        <span>
+          “Current” does not require every customer to upgrade immediately. AiVRIC provides a predictable transition window
+          so customers can align with audit cycles, procurement, and internal change control requirements.
+        </span>
+      </div>
+
+      <div style="height:34px;"></div>
+
+      <h2 class="section-title">2) Deprecation window for older versions</h2>
+      <p class="section-sub">
+        AiVRIC supports older versions for a defined period to accommodate audit cycles and enterprise change management.
+        Deprecation is handled transparently with a grace period and clear end-of-support dates.
+      </p>
+
+      <div class="table-wrap">
+        <div class="table-head">
+          <strong>Support lifecycle for framework versions</strong>
+          <span style="color: var(--muted); font-size: 12.5px;">Standard policy (may be extended by contract)</span>
+        </div>
+
+        <table aria-label="Framework version support lifecycle table">
+          <thead>
+            <tr>
+              <th style="width:22%;">Lifecycle state</th>
+              <th style="width:18%;">AiVRIC label</th>
+              <th style="width:26%;">Typical duration</th>
+              <th>What customers can expect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Primary support</strong></td>
+              <td><span class="status current"><i class="fas fa-check-circle"></i>Current</span></td>
+              <td>Until a newer version is adopted as Current</td>
+              <td>Full coverage, ongoing improvements, and continued check/mapping enhancements.</td>
+            </tr>
+            <tr>
+              <td><strong>Transition support</strong></td>
+              <td><span class="status grace"><i class="fas fa-clock"></i>Grace</span></td>
+              <td><strong>9 months</strong> from the date a newer version becomes Current</td>
+              <td>Older version remains available. AiVRIC prioritizes fixes for correctness issues, and may limit new feature investment.</td>
+            </tr>
+            <tr>
+              <td><strong>End of support</strong></td>
+              <td><span class="status deprecated"><i class="fas fa-times-circle"></i>Deprecated</span></td>
+              <td>After Grace expires (unless extended)</td>
+              <td>The version is removed from standard support. Customers should migrate to Current or request an extended support arrangement.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <strong>Default deprecation window</strong>
+        <span>
+          AiVRIC’s default deprecation window is <strong>9 months</strong> after a newer version becomes Current.
+          For highly regulated customers with longer audit cycles, AiVRIC can offer <strong>Extended Framework Support</strong>
+          as a contractual option (e.g., 12–18 months) with defined scope and pricing.
+        </span>
+      </div>
+
+      <details>
+        <summary>What qualifies as a “breaking” framework update? <span style="color:var(--muted);font-weight:800;font-size:12px;">(expand)</span></summary>
+        <p>
+          A breaking update is one that materially changes control intent, control identifiers, assessment objectives,
+          or evidence expectations such that prior mappings could be misleading without revision. When AiVRIC detects a breaking change,
+          it is communicated as a <strong>Major</strong> mapping change with an explicit migration note.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can a framework be deprecated earlier than 9 months? <span style="color:var(--muted);font-weight:800;font-size:12px;">(expand)</span></summary>
+        <p>
+          Yes, but only in exceptional cases—such as when an issuing authority sets a hard retirement date, or when a version contains
+          critical inaccuracies that create compliance or security risk. In those cases, AiVRIC will publish an accelerated timeline
+          with at least one release cycle of notice whenever feasible.
+        </p>
+      </details>
+
+      <div style="height:34px;"></div>
+
+      <h2 class="section-title">3) How AiVRIC communicates changes (checks & mappings)</h2>
+      <p class="section-sub">
+        AiVRIC publishes clear, audit-friendly release communications so customers can understand what changed, why it changed,
+        and what actions (if any) are required. Communication is structured for both engineering and compliance stakeholders.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3><i class="fas fa-bullhorn"></i>Release-to-release communications</h3>
+          <ul>
+            <li><strong>Release notes:</strong> high-level summary of new frameworks, integrations, and significant updates.</li>
+            <li><strong>Check change log:</strong> added/removed checks, logic updates, severity changes, and evidence output changes.</li>
+            <li><strong>Mapping change log:</strong> control mapping additions/removals and rationale for mapping changes.</li>
+            <li><strong>Migration notes:</strong> required customer actions when major/breaking changes occur.</li>
+            <li><strong>Support status bulletin:</strong> “Current/Grace/Deprecated” updates with dates.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-code-branch"></i>Change classification</h3>
+          <p>AiVRIC classifies changes to help customers prioritize impact:</p>
+          <ul>
+            <li><strong>Minor:</strong> non-breaking improvements (new checks, clarifications, reporting enhancements).</li>
+            <li><strong>Major:</strong> breaking or materially impactful updates (mapping shifts, renamed controls, changed evidence logic).</li>
+            <li><strong>Urgent:</strong> correctness or security-critical changes requiring rapid customer awareness.</li>
+            <li><strong>Deprecated:</strong> removals scheduled or completed (with dates and alternatives).</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <div class="table-head">
+          <strong>Communication channels</strong>
+          <span style="color: var(--muted); font-size: 12.5px;">Choose per customer preference</span>
+        </div>
+
+        <table aria-label="AiVRIC communication channels table">
+          <thead>
+            <tr>
+              <th style="width:28%;">Channel</th>
+              <th style="width:22%;">Audience</th>
+              <th>What is communicated</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>In-product notifications</strong></td>
+              <td>All users</td>
+              <td>Release highlights, deprecation notices, and major mapping changes with links to details.</td>
+            </tr>
+            <tr>
+              <td><strong>Customer email bulletin</strong></td>
+              <td>Admins, compliance leads</td>
+              <td>Support status changes, upgrade timelines, and audit-impact summaries.</td>
+            </tr>
+            <tr>
+              <td><strong>Release notes page</strong></td>
+              <td>Everyone</td>
+              <td>Detailed release notes and version history with dates and change classification.</td>
+            </tr>
+            <tr>
+              <td><strong>Customer success briefing</strong></td>
+              <td>Enterprise / regulated</td>
+              <td>Optional walkthrough of mapping impacts, migration planning, and recommended next steps.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cta">
+        <div>
+          <strong>Need a framework version held for an audit?</strong>
+          <span>
+            If your audit schedule requires extended support for a specific version, AiVRIC can provide a documented support exception
+            with defined scope, timeline, and commercial terms.
+          </span>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn-clean primary" href="contact.html"><i class="fas fa-envelope"></i>Contact Sales</a>
+          <a class="btn-clean" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo"><i class="fas fa-calendar-check"></i>Request a Demo</a>
+        </div>
+      </div>
+
+      <div class="fineprint">
+        <strong>Disclaimer:</strong> This policy describes AiVRIC’s standard approach to framework and benchmark support. Customer agreements may include
+        customized timelines or support commitments. For questions, contact <a href="mailto:support@aivric.com">support@aivric.com</a>.
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer" style="margin-top: 0;">
+    <div class="footer-bottom">
+      <div class="auto-container">
+        <div class="bottom-inner">
+          <div class="copyright">
+            <p>&copy; 2025 <a href="index.html">AiVRIC</a>. All Rights Reserved.</p>
+          </div>
+          <ul class="footer-nav">
+            <li><a href="terms-of-use.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- JS (template) -->
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/jquery.nice-select.min.js"></script>
+<script src="assets/js/script.js"></script>
+
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/mega-hover.js"></script>
+    <script src="assets/js/mega-tabs.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -117,8 +117,12 @@ header.site-header {
   justify-content: center;
 }
 
-.nav-link { color: var(--muted); font-weight: 600; }
-.nav-link:hover { color: var(--ink); }
+.nav-link {
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: 0.1px;
+}
+.nav-link:hover { color: var(--accent); }
 
 .nav-group { position: relative; }
 
@@ -132,22 +136,29 @@ header.site-header {
   cursor: pointer;
 }
 
+.nav-trigger::after {
+  content: "▾";
+  font-size: 11px;
+  margin-left: 6px;
+  color: var(--muted);
+}
+
 .nav-panel {
   position: absolute;
-  top: calc(100% + 12px);
-  left: -12px;
-  min-width: 220px;
+  top: calc(100% + 10px);
+  left: -10px;
+  min-width: 230px;
   background: var(--panel);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 12px;
+  border-radius: 18px;
+  padding: 14px 12px;
   box-shadow: var(--shadow);
   display: none;
 }
 
 .nav-panel a {
   display: block;
-  padding: 6px 8px;
+  padding: 6px 10px;
   border-radius: 10px;
   color: var(--muted);
   font-weight: 600;

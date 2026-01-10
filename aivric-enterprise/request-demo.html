@@ -1,112 +1,645 @@
-﻿<!DOCTYPE html>
-<html lang="en" data-theme="light">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Request a Demo | AiVRIC</title>
-  <meta name="description" content="Book a demo or start a guided trial of AiVRIC's security and compliance platform.">
-  <link rel="canonical" href="https://aivric.com/request-demo">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/site.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>Request a Demo - AiVRIC</title>
+
+    <!-- Fav Icon -->
+    <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link href="assets/css/font-awesome-all.css" rel="stylesheet">
+    <link href="assets/css/flaticon.css" rel="stylesheet">
+    <link href="assets/css/owl.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link href="assets/css/nice-select.css" rel="stylesheet">
+    <link href="assets/css/jquery-ui.css" rel="stylesheet">
+    <link href="assets/css/color.css" rel="stylesheet">
+    <link href="assets/css/elpath.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/elements-css/page-title.css" rel="stylesheet">
+    <link href="assets/css/elements-css/contact.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+
+    <style>
+        /* Demo hero */
+        .demo-hero {
+            position: relative;
+            padding: 160px 0 80px;
+            background: radial-gradient(circle at top left, #1b8cff 0%, #020617 55%, #020817 100%);
+            color: #fff;
+            text-align: left;
+        }
+        .demo-hero .overlay {
+            position: absolute;
+            inset: 0;
+            opacity: 0.18;
+            background-image: url(assets/images/banner/banner-2.avif);
+            background-size: cover;
+            background-position: center;
+        }
+        .demo-hero .auto-container {
+            position: relative;
+            z-index: 2;
+        }
+        .demo-hero h1 {
+            font-size: 42px;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+        .demo-hero p.lead {
+            max-width: 560px;
+            font-size: 16px;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        /* Right-hand hero visual that fully covers its card */
+        .demo-hero-visual {
+            width: 100%;
+            height: 260px;
+            border-radius: 22px;
+            background-image: url(assets/images/background/page-title.avif);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 22px 48px rgba(15,23,42,0.5);
+        }
+        @media (min-width: 1200px) {
+            .demo-hero-visual {
+                height: 320px;
+            }
+        }
+
+        /* Main section */
+        .demo-main {
+            padding: 60px 0 120px;
+        }
+        .demo-main .value-list {
+            margin-top: 18px;
+        }
+        .demo-main .value-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .demo-main .value-list i {
+            color: #22c55e;
+            margin-top: 3px;
+        }
+
+        /* Salesforce form card */
+        .salesforce-web-to-lead {
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 28px 60px rgba(15, 23, 42, 0.25);
+            padding: 30px 30px 26px;
+        }
+        .salesforce-web-to-lead label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+        .salesforce-web-to-lead .form-control,
+        .salesforce-web-to-lead select {
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            font-size: 14px;
+            padding: 10px 12px;
+        }
+        .salesforce-web-to-lead .form-control:focus,
+        .salesforce-web-to-lead select:focus {
+            border-color: #1b8cff;
+            box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);
+            outline: none;
+        }
+
+        /* Nice Select dropdown list scrollbars */
+        .nice-select {
+            width: 100%;
+        }
+        .nice-select .list {
+            max-height: 260px;
+            overflow-y: auto !important;
+            overflow-x: hidden;
+        }
+        .nice-select .list::-webkit-scrollbar {
+            width: 8px;
+        }
+        .nice-select .list::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .nice-select .list::-webkit-scrollbar-thumb {
+            background: #cbd5f5;
+            border-radius: 4px;
+        }
+        .nice-select .list::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+
+        /* Fallback: native select scrollbars if Nice Select isn't applied */
+        .salesforce-web-to-lead select {
+            max-height: 260px;
+            overflow-y: auto;
+            -webkit-appearance: auto !important;
+            -moz-appearance: auto !important;
+            appearance: auto !important;
+        }
+        .salesforce-web-to-lead select::-webkit-scrollbar {
+            width: 8px;
+        }
+        .salesforce-web-to-lead select::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .salesforce-web-to-lead select::-webkit-scrollbar-thumb {
+            background: #cbd5f5;
+            border-radius: 4px;
+        }
+        .salesforce-web-to-lead select::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+
+        .demo-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+        }
+        .demo-badge {
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.65);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #e5e7eb;
+        }
+
+        /* Honeypot field (hidden from users, visible to bots) */
+        .hp-aivric {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+    </style>
+
+  <link href="assets/css/custom.css" rel="stylesheet">
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container navbar">
-      <a class="brand" href="index.html">
-        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo">
-        <span>AiVRIC</span>
-      </a>
-      <nav class="nav-links" aria-label="Main">
-        <a href="product.html">Product</a>
-        <a href="solutions.html">Solutions</a>
-        <a href="pricing.html">Pricing</a>
-        <a href="trust-center.html">Trust Center</a>
-        <a href="customers.html">Customers</a>
-        <a href="resources.html">Resources</a>
-        <a href="company.html">Company</a>
-      </nav>
-      <div class="nav-actions">
-        <button class="theme-toggle" type="button" data-theme-toggle>Dark mode</button>
-        <button class="btn btn-ghost mobile-toggle" type="button" data-menu-toggle>Menu</button>
-      </div>
-    </div>
-  </header>
 
-  <main>
-    <section class="container hero">
-      <div>
-        <span class="badge">Request a demo</span>
-        <h1>See AiVRIC configured for your cloud environment.</h1>
-        <p>We tailor the demo to your compliance scope, cloud stack, and AI governance needs.</p>
-      </div>
-      <div class="hero-card">
-        <h3>What you will cover</h3>
-        <ul>
-          <li>Current posture and control gaps</li>
-          <li>Evidence automation workflow</li>
-          <li>Governance and approvals</li>
-          <li>Deployment and integration plan</li>
+<div class="boxed_wrapper">
+
+    <!-- preloader -->
+    <div class="loader-wrap">
+        <div class="preloader">
+            <div class="preloader-close">x</div>
+            <div id="handle-preloader" class="handle-preloader">
+                <div class="animation-preloader">
+                    <div class="spinner"></div>
+                    <div class="txt-loading">
+                        <span data-text-preloader="A" class="letters-loading">A</span>
+                        <span data-text-preloader="I" class="letters-loading">I</span>
+                        <span data-text-preloader="V" class="letters-loading">V</span>
+                        <span data-text-preloader="r" class="letters-loading">r</span>
+                        <span data-text-preloader="i" class="letters-loading">i</span>
+                        <span data-text-preloader="c" class="letters-loading">c</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- main header -->
+    <header class="main-header header-style-two">
+        <div class="header-lower">
+            <div class="auto-container">
+                <div class="outer-box">
+                    <div class="logo-box">
+                        <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC"></a></figure>
+                    </div>
+                    <div class="menu-area clearfix">
+                        <!--Mobile Navigation Toggler-->
+                        <div class="mobile-nav-toggler">
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                        </div>
+                        <nav class="main-menu navbar-expand-md navbar-light">
+    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+        <ul class="navigation clearfix">
+            <li class="dropdown platform-menu"><a href="services.html">Platform</a>
+                <div class="platform-megamenu">
+                    <div class="platform-grid">
+                        <a class="platform-card" href="genai-chat.html"><h4>GenAI Chat</h4><p>Fabric intelligence chat across every AiVRIC solution.</p><span>view more</span></a>
+                        <a class="platform-card" href="shared-data-layer.html"><h4>Shared Data Layer</h4><p>The Fabric data layer unifies telemetry and evidence.</p><span>view more</span></a>
+                        <a class="platform-card" href="agentic-design.html"><h4>Agentic Design</h4><p>Fabric agents coordinate actions across suites.</p><span>view more</span></a>
+                        <a class="platform-card" href="efficient-compute.html"><h4>Efficient Compute</h4><p>Fabric compute optimizes AI workloads end-to-end.</p><span>view more</span></a>
+                        <a class="platform-card" href="data-localization.html"><h4>Data Localization</h4><p>Fabric residency controls govern every dataset.</p><span>view more</span></a>
+                        <a class="platform-card" href="ai-model-inspection.html"><h4>AI Model Inspection</h4><p>Fabric inspection monitors AI models and risk.</p><span>view more</span></a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown"><a href="#">Solutions</a>
+                <div class="megamenu">
+                    <div class="mega-tabs" role="tablist">
+                        <button class="mega-tab is-active" type="button" data-mega-tab="solution" role="tab" aria-selected="true">By Solution</button>
+                        <button class="mega-tab" type="button" data-mega-tab="usecase" role="tab" aria-selected="false">By Use Case</button>
+                    </div>
+                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="solution" data-mega-active="defense" role="tabpanel">
+                        <div class="mega-rail mega-rail-stack">
+                            <button class="mega-stack-card is-active" type="button" data-mega-target="defense">
+                                <h4>Defense</h4>
+                                <p>A suite of solutions used to defend your organization from cyber threats.</p>
+                                <span class="mega-link">View all products -></span>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="offense">
+                                <h4>Offense</h4>
+                                <p>A suite that continuously simulates attacks across your digital ecosystem.</p>
+                                <span class="mega-link">View all products -></span>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="vision">
+                                <h4>Vision</h4>
+                                <p>Holistic context across the AiVRIC ecosystem and your environments.</p>
+                                <span class="mega-link">View all products -></span>
+                            </button>
+                        </div>
+                        <div class="mega-grid">
+                            <a class="mega-card" data-mega-category="defense" href="services.html#defense"><strong>CSPM</strong><span>Scan all your cloud platform configs.</span></a>
+                            <a class="mega-card" data-mega-category="defense" href="services.html#ai-signals"><strong>AI Inspector</strong><span>Holistic evaluations of enterprise AI platforms.</span></a>
+                            <a class="mega-card" data-mega-category="defense" href="services.html#defense"><strong>AIR</strong><span>Agentic role-based remediation agents.</span></a>
+                            <a class="mega-card" data-mega-category="offense" href="services.html#offense"><strong>RogueAgent</strong><span>Analyze cloud posture using a risk lens.</span></a>
+                            <a class="mega-card" data-mega-category="vision" href="services.html#vision"><strong>Professional</strong><span>OpenAI-driven AI risk analysis and reporting.</span></a>
+                            <a class="mega-card" data-mega-category="vision" href="services.html#vision"><strong>Enterprise</strong><span>Support for BYO-AI models and iPaaS.</span></a>
+                        </div>
+                    </div>
+                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="usecase" data-mega-active="compliance" role="tabpanel" hidden>
+                        <div class="mega-rail mega-rail-stack">
+                            <button class="mega-stack-card is-active" type="button" data-mega-target="compliance">
+                                <h4>Compliance</h4>
+                                <p>Framework-ready controls and audit automation.</p>
+                                <span class="mega-link">View all frameworks -></span>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="riskops">
+                                <h4>Risk Ops</h4>
+                                <p>Continuous risk operations and response alignment.</p>
+                                <span class="mega-link">View all programs -></span>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="productops">
+                                <h4>Product Ops</h4>
+                                <p>Security and compliance built into delivery workflows.</p>
+                                <span class="mega-link">View all playbooks -></span>
+                            </button>
+                        </div>
+                        <div class="mega-grid">
+                            <a class="mega-card" data-mega-category="compliance" href="streamline-soc2.html"><strong>SOC 2 Type II</strong><span>Measure compliance against the SOC 2 Trust Service Principles.</span></a>
+                            <a class="mega-card" data-mega-category="compliance" href="achieve-pci-dss.html"><strong>PCI-DSS</strong><span>Continuous validation for PCI requirements and evidence.</span></a>
+                            <a class="mega-card" data-mega-category="compliance" href="cmmc-readiness.html"><strong>CMMC</strong><span>Readiness workflows for CMMC Level 2 assessments.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="use-case-vuln-mgmt.html"><strong>Issues and POA&Ms</strong><span>Track issues, milestones, and remediation plans.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="use-case-kubernetes.html"><strong>Security Exceptions</strong><span>Document approved exceptions with guardrails.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="use-case-vuln-mgmt.html"><strong>Threat Analysis</strong><span>Surface high-impact risks across environments.</span></a>
+                            <a class="mega-card" data-mega-category="productops" href="use-case-github-security.html"><strong>DevSecOps</strong><span>Secure Github repos and delivery workflows.</span></a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li class="dropdown"><a href="resources.html">Resources</a>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="why-aivric.html">Why AiVRIC</a></li>
+                    <li><a href="trust.html">Trust Center</a></li>
+                    <li><a href="AiVRIC-UserGuide/index.html">Platform Guide</a></li>
+                    <li><a href="blog-portal.html">Blogs</a></li>
+                </ul>
+            </li>
         </ul>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container split">
-        <div class="card">
-          <h3>Book a demo</h3>
-          <form class="form" aria-label="Request demo form">
-            <input type="text" name="name" placeholder="Full name" aria-label="Full name">
-            <input type="email" name="email" placeholder="Work email" aria-label="Work email">
-            <input type="text" name="company" placeholder="Company" aria-label="Company">
-            <input type="text" name="role" placeholder="Role" aria-label="Role">
-            <select name="timeline" aria-label="Evaluation timeline">
-              <option value="">Evaluation timeline</option>
-              <option>Within 30 days</option>
-              <option>30-90 days</option>
-              <option>90+ days</option>
-            </select>
-            <button class="btn btn-primary" type="submit" data-analytics="demo-submit">Submit request</button>
-          </form>
-        </div>
-        <div class="card">
-          <h3>Calendar scheduling</h3>
-          <p>Prefer to schedule directly? Use our calendar link to pick a time.</p>
-          <a class="btn btn-ghost" href="#" data-analytics="calendar-link">Open calendar</a>
-          <p class="status">Calendar integration can be connected here (e.g., Calendly or Chili Piper).</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <h4>AiVRIC</h4>
-        <p>Security, compliance, and AI risk governance for enterprise cloud teams.</p>
-      </div>
-      <div>
-        <h4>Product</h4>
-        <a href="product.html">Platform</a>
-        <a href="solutions.html">Solutions</a>
-        <a href="pricing.html">Pricing</a>
-      </div>
-      <div>
-        <h4>Trust</h4>
-        <a href="trust-center.html">Trust Center</a>
-        <a href="resources.html">Resources</a>
-        <a href="company.html">Company</a>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <a href="../privacy-policy.html">Privacy</a>
-        <a href="../terms-of-use.html">Terms</a>
-        <a href="../aup.html">Acceptable Use</a>
-      </div>
     </div>
-  </footer>
+</nav>
+                    </div>
+                    <ul class="menu-right-content">
+                        <li class="search-box-outer search-toggler">
+                            <i class="icon-4"></i>
+                        </li>
+                            <li class="theme-toggle-item"><button class="theme-toggle" type="button" data-theme-toggle>Dark mode</button></li>
+                        <li class="btn-box">
+                            <a href="request-demo.html" class="theme-btn-one">Request a Demo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-  <script src="assets/js/site.js"></script>
+        <div class="sticky-header">
+            <div class="auto-container">
+                <div class="outer-box">
+                    <div class="logo-box">
+                        <figure class="logo">
+                            <a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC"></a>
+                        </figure>
+                    </div>
+                    <div class="menu-area clearfix">
+                        <nav class="main-menu clearfix"></nav>
+                    </div>
+                    <ul class="menu-right-content">
+                        <li class="search-box-outer search-toggler">
+                            <i class="icon-4"></i>
+                        </li>
+                            <li class="theme-toggle-item"><button class="theme-toggle" type="button" data-theme-toggle>Dark mode</button></li>
+                        <li class="btn-box">
+                            <a href="request-demo.html" class="theme-btn-one">Request A Demo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+        <nav class="menu-box">
+            <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.avif" alt="AiVRIC"></a></div>
+            <div class="menu-outer"></div>
+            <div class="contact-info">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>Wilmington, Delaware, USA</li>
+                    <li><a href="tel:+19543426637">+1 954 342 6637</a></li>
+                    <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                </ul>
+            </div>
+            <div class="social-links">
+                <ul class="clearfix">
+                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                    <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- End Mobile Menu -->
+
+    <!-- Demo hero -->
+    <section class="demo-hero">
+        <div class="overlay"></div>
+        <div class="auto-container">
+            <div class="row clearfix align-items-center">
+                <div class="col-lg-7 col-md-12">
+                    <h1>See AiVRIC in Action</h1>
+                    <p class="lead">
+                        Request a live walkthrough of AiVRIC to see how AI-powered assessments, remediation guidance,
+                        and compliance automation can simplify your cloud security operations.
+                    </p>
+                    <div class="demo-badges">
+                        <span class="demo-badge">Mid-Market &amp; Enterprise Ready</span>
+                        <span class="demo-badge">Cloud Security &amp; Compliance</span>
+                        <span class="demo-badge">Guided by Experts</span>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="demo-hero-visual"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main content -->
+    <section class="demo-main">
+        <div class="auto-container">
+            <div class="row clearfix">
+                
+                    <h3>What you’ll get from your demo</h3>
+                    <p>
+                        Every organization’s cloud footprint is different. In your session, our team will focus on
+                        the controls, frameworks, and deployments that matter most to you.
+                    </p>
+                    <ul class="value-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Live walkthrough of AiVRIC’s assessment engine, findings, and remediation workflow.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Discussion of your current cloud platforms, frameworks, and audit priorities.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Example reports, export options, and how AiVRIC fits into your existing toolchain.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Time for Q&amp;A with our security and compliance experts.</span>
+                        </li>
+                    </ul>
+                    <p class="mt_20">
+                        Complete the form and we’ll follow up quickly to confirm a time that works for your team.
+                    </p>
+               
+
+                <!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/aivric-sales/aivric-walkthrough-demo?primary_color=00b8ff" style="min-width:320px;height:700px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly inline widget end -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- main-footer -->
+        <footer class="main-footer">
+            <div class="widget-section">
+                <div class="pattern-layer">
+                    <div class="pattern-1" style="background-image: url(assets/images/shape/shape-20.avif);"></div>
+                    <div class="pattern-2" style="background-image: url(assets/images/shape/shape-21.avif);"></div>
+                </div>
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget logo-widget">
+                                <div class="widget-title">
+                                    <h3>AiVRIC</h3>
+                                </div>
+                                <div class="text">
+                                    <p>Autonomous Security, Compliance, and Risk Intelligence.</p>
+                                </div>
+                                <div class="subscribe-box">
+                                    <form action="contact.html" method="post">
+                                        <div class="form-group">
+                                            <input type="email" name="email" placeholder="Your email" required="">
+                                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget links-widget">
+                                <div class="widget-title">
+                                    <h3>Platform</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="links-list clearfix">
+                                        <li><a href="services.html#scanning">Security &amp; Risk Assessment</a></li>
+                                        <li><a href="services.html#compliance">Compliance Management</a></li>
+                                        <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget links-widget">
+                                <div class="widget-title">
+                                    <h3>Solutions</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="links-list clearfix">
+                                        <li><a href="streamline-soc2.html">SOC 2 Automation</a></li>
+                                        <li><a href="achieve-pci-dss.html">PCI-DSS Compliance</a></li>
+                                        <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
+                                        <li><a href="achieve-iso27001-compliance.html">ISO27001 Compliance</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget contact-widget">
+                                <div class="widget-title">
+                                    <h3>Contact</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="info-list clearfix">
+                                        <li><i class="fas fa-envelope"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                                        <li><i class="fas fa-phone-alt"></i><a href="tel:+19543426637">+1 954 342 6637</a></li>
+                                    </ul>
+                                </div>
+                                <ul class="social-links-two clearfix">
+                                    <li><a href="https://x.com/aivric"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="https://www.facebook.com/61581937785235/"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/aivric"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="https://www.instagram.com/aivrictechnologies/"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="auto-container">
+                    <div class="bottom-inner">
+                        <div class="copyright">
+                            <p>&copy; 2025 <a href="index.html">AiVRIC</a>. All Rights Reserved.</p>
+                        </div>
+                        <ul class="footer-nav">
+                            <li><a href="terms-of-use.html">Terms of Service</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- main-footer end -->
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+        
+    </div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.js"></script>
+<script src="assets/js/wow.js"></script>
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/jquery.fancybox.js"></script>
+<script src="assets/js/appear.js"></script>
+<script src="assets/js/scrollbar.js"></script>
+<script src="assets/js/isotope.js"></script>
+<script src="assets/js/jquery.nice-select.min.js"></script>
+<script src="assets/js/parallax-scroll.js"></script>
+<script src="assets/js/jquery-ui.js"></script>
+<script src="assets/js/jquery.bootstrap-touchspin.js"></script>
+<script src="assets/js/script.js"></script>
+
+<script>
+    // Apply Nice Select to the Salesforce dropdowns if the plugin is loaded
+    jQuery(function ($) {
+        if ($.fn.niceSelect) {
+            $('#state_code, #country_code').niceSelect();
+        }
+
+        // Honeypot check – block submission if bot filled hidden field
+        $('#sf-webtolead').on('submit', function (e) {
+            var hp = $('#hp_aivric').val();
+            if (hp && hp.trim() !== '') {
+                e.preventDefault();
+                return false;
+            }
+        });
+    });
+</script>
+
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/mega-hover.js"></script>
+    <script src="assets/js/mega-tabs.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
