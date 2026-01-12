@@ -128,7 +128,9 @@ header.main-header .main-menu .navigation > li.dropdown:hover .blogs-megamenu {
 }
 
 .blogs-list .blog-link {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 12px;
     padding: 12px 14px;
     border-radius: 12px;
     border: 0;
@@ -139,9 +141,37 @@ header.main-header .main-menu .navigation > li.dropdown:hover .blogs-megamenu {
     transition: all 0.2s ease;
 }
 
-.blogs-list .blog-link span {
+.blogs-list .blog-link .blog-link-media {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex: 0 0 46px;
+    background: #0f172a;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.blogs-list .blog-link .blog-link-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
-    margin-top: 4px;
+}
+
+.blogs-list .blog-link .blog-link-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.blogs-list .blog-link .blog-link-title {
+    display: block;
+    font-weight: 700;
+    color: inherit;
+}
+
+.blogs-list .blog-link .blog-link-sub {
+    display: block;
     font-weight: 500;
     font-size: 12.5px;
     color: #d1d5db;
@@ -1584,4 +1614,488 @@ body.modal-open {
 }
 .footer-widget .links-list li:last-child {
     margin-bottom: 0;
+}
+
+
+/* --- Dark mode: home hero headings contrast --- */
+[data-theme="dark"] .feature-section .sec-title .sub-title {
+    color: #38bdf8;
+}
+[data-theme="dark"] .feature-section .sec-title h2 {
+    color: #f8fafc;
+    text-shadow: 0 2px 16px rgba(8, 15, 30, 0.35);
+}
+[data-theme="dark"] .feature-section .sec-title p,
+[data-theme="dark"] .feature-section .sec-title .section-desc {
+    color: #cbd5f5;
+}
+
+/* --- Dark mode: home nav + about headings contrast --- */
+[data-theme="dark"] header.main-header .main-menu .navigation > li > a {
+    color: #eaf1ff !important;
+}
+[data-theme="dark"] header.main-header .main-menu .navigation > li > a:hover,
+[data-theme="dark"] header.main-header .main-menu .navigation > li.current > a {
+    color: #38bdf8 !important;
+}
+[data-theme="dark"] .about-section .sec-title h2,
+[data-theme="dark"] .about-section .sec-title h3,
+[data-theme="dark"] .about-section h2,
+[data-theme="dark"] .about-section h3 {
+    color: #f8fafc;
+    text-shadow: 0 2px 16px rgba(8, 15, 30, 0.35);
+}
+[data-theme="dark"] .about-section .sec-title .sub-title,
+[data-theme="dark"] .about-section .sub-title {
+    color: #38bdf8;
+}
+[data-theme="dark"] .about-section .list-inner h4,
+[data-theme="dark"] .about-section .list-inner h5 {
+    color: #e2e8f0;
+}
+
+/* --- Dark mode: platform capabilities headings --- */
+[data-theme="dark"] .service-section .sec-title .sub-title {
+    color: #38bdf8;
+}
+[data-theme="dark"] .service-section .sec-title h2 {
+    color: #f8fafc;
+    text-shadow: 0 2px 16px rgba(8, 15, 30, 0.35);
+}
+
+/* --- Dark mode: platform methodology heading --- */
+[data-theme="dark"] .working-process .sec-title .sub-title,
+[data-theme="dark"] .working-process-section .sec-title .sub-title {
+    color: #38bdf8;
+}
+[data-theme="dark"] .working-process .sec-title h2,
+[data-theme="dark"] .working-process-section .sec-title h2 {
+    color: #f8fafc;
+    text-shadow: 0 2px 16px rgba(8, 15, 30, 0.35);
+}
+
+/* --- Dark mode: suites, insights, contact headings --- */
+[data-theme="dark"] .projects-section .sec-title .sub-title,
+[data-theme="dark"] .news-section .sec-title .sub-title,
+[data-theme="dark"] .contact-section .sec-title .sub-title {
+    color: #38bdf8;
+}
+[data-theme="dark"] .projects-section .sec-title h2,
+[data-theme="dark"] .news-section .sec-title h2,
+[data-theme="dark"] .contact-section .sec-title h2 {
+    color: #f8fafc;
+    text-shadow: 0 2px 16px rgba(8, 15, 30, 0.35);
+}
+[data-theme="dark"] .news-section .sec-title .section-desc {
+    color: #cbd5f5;
+}
+
+/* --- Dark mode: main nav legibility on light header --- */
+html[data-theme="dark"] header.main-header .header-lower {
+    background: #0b0f1a !important;
+    border-bottom: 1px solid #1f2937 !important;
+}
+html[data-theme="dark"] header.main-header .main-menu .navigation > li > a {
+    color: #eaf1ff !important;
+}
+html[data-theme="dark"] header.main-header .main-menu .navigation > li.dropdown > a:after {
+    color: #94a3b8 !important;
+}
+
+/* --- Dark mode: header CTA legibility --- */
+html[data-theme="dark"] header.main-header .menu-right-content .theme-btn-one,
+html[data-theme="dark"] header.main-header .menu-right-content .theme-btn-two {
+    background: #0ea5e9;
+    color: #0b0f1a;
+    border-color: rgba(148, 163, 184, 0.6);
+    box-shadow: 0 12px 24px rgba(8, 15, 30, 0.4);
+}
+html[data-theme="dark"] header.main-header .menu-right-content .theme-btn-one:hover,
+html[data-theme="dark"] header.main-header .menu-right-content .theme-btn-two:hover {
+    background: #38bdf8;
+    color: #0b0f1a;
+}
+
+/* --- Dark mode: contact form button --- */
+html[data-theme="dark"] .contact-section .theme-btn-two {
+    background: #0ea5e9;
+    color: #0b0f1a;
+    border-color: rgba(148, 163, 184, 0.6);
+    box-shadow: 0 12px 24px rgba(8, 15, 30, 0.4);
+}
+html[data-theme="dark"] .contact-section .theme-btn-two:hover {
+    background: #38bdf8;
+    color: #0b0f1a;
+}
+
+/* --- Dark mode: suites CTA button in projects section --- */
+html[data-theme="dark"] .projects-section .more-btn .theme-btn-two {
+    background: #0ea5e9;
+    color: #0b0f1a;
+    border-color: rgba(148, 163, 184, 0.6);
+    box-shadow: 0 12px 24px rgba(8, 15, 30, 0.4);
+}
+html[data-theme="dark"] .projects-section .more-btn .theme-btn-two:hover {
+    background: #38bdf8;
+    color: #0b0f1a;
+}
+
+/* --- Dark mode: mega menu card titles --- */
+html[data-theme="dark"] header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card strong {
+    color: #f8fafc;
+}
+html[data-theme="dark"] header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card span {
+    color: #cbd5f5;
+}
+
+/* --- Dark mode: suite status badges --- */
+html[data-theme="dark"] .feature-section .aivric-badge {
+    color: #e2e8f0;
+    background: rgba(15, 23, 42, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    box-shadow: 0 10px 22px rgba(8, 15, 30, 0.35);
+}
+html[data-theme="dark"] .feature-section .aivric-badge.now {
+    color: #22d3ee;
+    border-color: rgba(34, 211, 238, 0.5);
+}
+html[data-theme="dark"] .feature-section .aivric-badge.roadmap {
+    color: #cbd5f5;
+}
+
+/* --- Dark mode: suite status text on light cards --- */
+html[data-theme="dark"] .feature-section .aivric-badge {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    color: #0f172a;
+}
+html[data-theme="dark"] .feature-section .aivric-badge.now {
+    color: #0284c7;
+}
+html[data-theme="dark"] .feature-section .aivric-badge.roadmap {
+    color: #1f2937;
+}
+
+/* --- Dark mode: logo contrast --- */
+html[data-theme="dark"] header.main-header .logo img {
+    filter: brightness(1.15) contrast(1.05);
+}
+
+/* --- Dark mode: logo stronger lift --- */
+html[data-theme="dark"] header.main-header .logo img {
+    filter: brightness(1.35) contrast(1.15) saturate(1.1) drop-shadow(0 2px 6px rgba(8, 15, 30, 0.6));
+}
+
+/* --- Global dark-mode typography + contrast pass --- */
+html[data-theme="dark"] body {
+    color: #e5e7eb;
+}
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6 {
+    color: #f8fafc;
+}
+html[data-theme="dark"] p,
+html[data-theme="dark"] li,
+html[data-theme="dark"] span,
+html[data-theme="dark"] .section-desc,
+html[data-theme="dark"] .text,
+html[data-theme="dark"] .content-box p,
+html[data-theme="dark"] .inner-box p {
+    color: #cbd5f5;
+}
+html[data-theme="dark"] a {
+    color: #7dd3fc;
+}
+html[data-theme="dark"] a:hover {
+    color: #38bdf8;
+}
+html[data-theme="dark"] .sec-title .sub-title {
+    color: #38bdf8;
+}
+html[data-theme="dark"] .card,
+html[data-theme="dark"] .inner-box,
+html[data-theme="dark"] .feature-block-one .inner-box,
+html[data-theme="dark"] .service-block-one .inner-box,
+html[data-theme="dark"] .news-block-one .inner-box,
+html[data-theme="dark"] .solution-card,
+html[data-theme="dark"] .working-process-block-one .inner-box,
+html[data-theme="dark"] .content_block_two .content-box,
+html[data-theme="dark"] .content_block_three .content-box {
+    color: #e5e7eb;
+}
+html[data-theme="dark"] .form-control,
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea,
+html[data-theme="dark"] select {
+    color: #e5e7eb;
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(148, 163, 184, 0.35);
+}
+html[data-theme="dark"] input::placeholder,
+html[data-theme="dark"] textarea::placeholder {
+    color: #9aa4bf;
+}
+html[data-theme="dark"] .list-item,
+html[data-theme="dark"] .list-inner,
+html[data-theme="dark"] .category-list li,
+html[data-theme="dark"] .check-list li {
+    color: #cbd5f5;
+}
+html[data-theme="dark"] .badge,
+html[data-theme="dark"] .tag,
+html[data-theme="dark"] .pill {
+    color: #e2e8f0;
+}
+
+/* --- Dark mode: text on light cards --- */
+html[data-theme="dark"] .single-item,
+html[data-theme="dark"] .solution-card,
+html[data-theme="dark"] .news-block-one .inner-box,
+html[data-theme="dark"] .feature-block-one .inner-box,
+html[data-theme="dark"] .service-block-one .inner-box .static-content,
+html[data-theme="dark"] .feature-block-three .inner-box,
+html[data-theme="dark"] .working-process-block-one .inner-box {
+    color: #0f172a;
+}
+html[data-theme="dark"] .single-item h3,
+html[data-theme="dark"] .single-item h4,
+html[data-theme="dark"] .single-item h5,
+html[data-theme="dark"] .solution-card h3,
+html[data-theme="dark"] .solution-card h4,
+html[data-theme="dark"] .news-block-one .inner-box h3,
+html[data-theme="dark"] .feature-block-one .inner-box h3,
+html[data-theme="dark"] .service-block-one .inner-box .static-content h3,
+html[data-theme="dark"] .feature-block-three .inner-box h3,
+html[data-theme="dark"] .working-process-block-one .inner-box h4 {
+    color: #0f172a;
+}
+html[data-theme="dark"] .single-item p,
+html[data-theme="dark"] .solution-card p,
+html[data-theme="dark"] .news-block-one .inner-box p,
+html[data-theme="dark"] .feature-block-one .inner-box p,
+html[data-theme="dark"] .service-block-one .inner-box .static-content p,
+html[data-theme="dark"] .feature-block-three .inner-box p,
+html[data-theme="dark"] .working-process-block-one .inner-box p {
+    color: #475569;
+}
+
+/* --- Dark mode: capability/outcome cards on light panels --- */
+html[data-theme="dark"] .capability-card,
+html[data-theme="dark"] .outcome-card,
+html[data-theme="dark"] .capability-grid .capability-item,
+html[data-theme="dark"] .outcome-grid .outcome-item,
+html[data-theme="dark"] .key-capabilities .capability-item,
+html[data-theme="dark"] .outcomes .outcome-item,
+html[data-theme="dark"] .capability-item,
+html[data-theme="dark"] .outcome-item {
+    color: #0f172a;
+}
+html[data-theme="dark"] .capability-card h4,
+html[data-theme="dark"] .outcome-card h4,
+html[data-theme="dark"] .capability-card h5,
+html[data-theme="dark"] .outcome-card h5,
+html[data-theme="dark"] .capability-item h4,
+html[data-theme="dark"] .outcome-item h4,
+html[data-theme="dark"] .capability-item h5,
+html[data-theme="dark"] .outcome-item h5 {
+    color: #0f172a;
+}
+html[data-theme="dark"] .capability-card p,
+html[data-theme="dark"] .outcome-card p,
+html[data-theme="dark"] .capability-item p,
+html[data-theme="dark"] .outcome-item p {
+    color: #475569;
+}
+
+/* --- Dark mode: portal cards on light surfaces --- */
+html[data-theme="dark"] .portal-detail .portal-detail-box,
+html[data-theme="dark"] .portal-detail .portal-cap,
+html[data-theme="dark"] .portal-detail .portal-outcomes-grid .portal-cap,
+html[data-theme="dark"] .portal-detail .portal-compliance details,
+html[data-theme="dark"] .portal-detail .portal-usecases {
+    color: #0f172a;
+}
+html[data-theme="dark"] .portal-detail .portal-detail-box h4,
+html[data-theme="dark"] .portal-detail .portal-cap h5,
+html[data-theme="dark"] .portal-detail .portal-compliance summary,
+html[data-theme="dark"] .portal-detail .portal-usecases h4 {
+    color: #0f172a;
+}
+html[data-theme="dark"] .portal-detail .portal-detail-box li,
+html[data-theme="dark"] .portal-detail .portal-detail-box p,
+html[data-theme="dark"] .portal-detail .portal-cap p,
+html[data-theme="dark"] .portal-detail .portal-compliance .portal-req,
+html[data-theme="dark"] .portal-detail .portal-compliance ul li {
+    color: #475569;
+}
+html[data-theme="dark"] .portal-detail .portal-usecase-list a {
+    color: #1f2937;
+}
+
+/* --- Dark mode: portal section headings on light panels --- */
+html[data-theme="dark"] .portal-detail .sec-title h3,
+html[data-theme="dark"] .portal-detail .sec-title h4,
+html[data-theme="dark"] .portal-detail .content-four h3,
+html[data-theme="dark"] .portal-detail .portal-compliance-intro {
+    color: #0f172a;
+}
+html[data-theme="dark"] .portal-detail .sec-title .sub-title,
+html[data-theme="dark"] .portal-detail .content-four .sub-title {
+    color: #0ea5e9;
+}
+
+/* --- Dark mode: logo swap uses native colors --- */
+html[data-theme="dark"] header.main-header .logo img,
+html[data-theme="dark"] .sticky-header .logo img,
+html[data-theme="dark"] .nav-logo img {
+    filter: none;
+}
+
+/* --- Dark mode: checklist/feature copy on dark panels --- */
+html[data-theme="dark"] .about-section .content_block_two .inner-box,
+html[data-theme="dark"] .about-section .content_block_two .inner-box h4,
+html[data-theme="dark"] .about-section .content_block_two .inner-box h5,
+html[data-theme="dark"] .about-section .content_block_two .inner-box p,
+html[data-theme="dark"] .chooseus-section .inner-box,
+html[data-theme="dark"] .chooseus-section .inner-box h3,
+html[data-theme="dark"] .chooseus-section .inner-box h4,
+html[data-theme="dark"] .chooseus-section .inner-box p,
+html[data-theme="dark"] .content_block_two .inner-box,
+html[data-theme="dark"] .content_block_two .inner-box p,
+html[data-theme="dark"] .content_block_two .inner-box h3,
+html[data-theme="dark"] .content_block_two .inner-box h4 {
+    color: #e5e7eb;
+}
+html[data-theme="dark"] .about-section .content_block_two .inner-box p,
+html[data-theme="dark"] .chooseus-section .inner-box p,
+html[data-theme="dark"] .content_block_two .inner-box p {
+    color: #cbd5f5;
+}
+
+/* --- Dark mode: about icon list text --- */
+html[data-theme="dark"] .about-section .inner-box .single-item h4,
+html[data-theme="dark"] .about-section .inner-box .single-item h3,
+html[data-theme="dark"] .about-section .inner-box .single-item p,
+html[data-theme="dark"] .about-section .inner-box .single-item,
+html[data-theme="dark"] .about-section .list-inner li,
+html[data-theme="dark"] .about-section .list-inner p {
+    color: #e5e7eb;
+}
+html[data-theme="dark"] .about-section .inner-box .single-item p,
+html[data-theme="dark"] .about-section .list-inner p {
+    color: #cbd5f5;
+}
+
+/* --- Dark mode: feature-style-three headings on light background --- */
+html[data-theme="dark"] .feature-style-three .sec-title h2,
+html[data-theme="dark"] .feature-style-three .sec-title h3 {
+    color: #0f172a;
+}
+html[data-theme="dark"] .feature-style-three .sec-title .sub-title {
+    color: #0ea5e9;
+}
+
+/* --- Dark mode: blog + light card text fixes --- */
+html[data-theme="dark"] .blog-details-content .lower-content h2,
+html[data-theme="dark"] .blog-details-content .lower-content h3,
+html[data-theme="dark"] .blog-details-content .lower-content h4,
+html[data-theme="dark"] .blog-details-content .lower-content h5,
+html[data-theme="dark"] .blog-details-content .lower-content p,
+html[data-theme="dark"] .blog-details-content .lower-content li,
+html[data-theme="dark"] .blog-details-content .lower-content a,
+html[data-theme="dark"] .blog-details-content .lower-content span {
+    color: #0f172a;
+}
+html[data-theme="dark"] .blog-details-content .lower-content p,
+html[data-theme="dark"] .blog-details-content .lower-content li {
+    color: #475569;
+}
+html[data-theme="dark"] .blog-sidebar .sidebar-widget,
+html[data-theme="dark"] .blog-sidebar .widget-title h3,
+html[data-theme="dark"] .blog-sidebar .category-list li a,
+html[data-theme="dark"] .blog-sidebar .post h5 a,
+html[data-theme="dark"] .blog-sidebar .post-date {
+    color: #0f172a;
+}
+html[data-theme="dark"] .blog-sidebar .search-widget input {
+    color: #0f172a;
+    background: #ffffff;
+    border-color: #e5e7eb;
+}
+html[data-theme="dark"] .blog-sidebar .search-widget input::placeholder {
+    color: #94a3b8;
+}
+html[data-theme="dark"] .author-box,
+html[data-theme="dark"] .author-box h3,
+html[data-theme="dark"] .author-box p,
+html[data-theme="dark"] .comment-form-area h3,
+html[data-theme="dark"] .comment-form-area label,
+html[data-theme="dark"] .comment-form-area input,
+html[data-theme="dark"] .comment-form-area textarea {
+    color: #0f172a;
+}
+html[data-theme="dark"] .comment-form-area input,
+html[data-theme="dark"] .comment-form-area textarea {
+    background: #ffffff;
+    border-color: #e5e7eb;
+}
+html[data-theme="dark"] .comment-form-area input::placeholder,
+html[data-theme="dark"] .comment-form-area textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* --- Dark mode: blog detail text on light cards (force) --- */
+html[data-theme="dark"] .blog-details-content .news-block-one .inner-box,
+html[data-theme="dark"] .blog-details-content .news-block-one .inner-box .lower-content,
+html[data-theme="dark"] .blog-details-content .news-block-one .inner-box .lower-content h2,
+html[data-theme="dark"] .blog-details-content .news-block-one .inner-box .lower-content h3,
+html[data-theme="dark"] .blog-details-content .news-block-one .inner-box .lower-content h4,
+html[data-theme="dark"] .blog-details-content .news-block-one .inner-box .lower-content h5,
+html[data-theme="dark"] .blog-details-content .news-block-one .inner-box .lower-content p,
+html[data-theme="dark"] .blog-details-content .news-block-one .inner-box .lower-content li,
+html[data-theme="dark"] .blog-details-content .news-block-one .inner-box .lower-content a,
+html[data-theme="dark"] .blog-details-content .category-list li,
+html[data-theme="dark"] .blog-details-content .category-list strong {
+    color: #0f172a !important;
+}
+html[data-theme="dark"] .blog-details-content .news-block-one .inner-box .lower-content p,
+html[data-theme="dark"] .blog-details-content .news-block-one .inner-box .lower-content li {
+    color: #475569 !important;
+}
+html[data-theme="dark"] .blog-sidebar .sidebar-widget,
+html[data-theme="dark"] .blog-sidebar .widget-title h3,
+html[data-theme="dark"] .blog-sidebar .category-list li a,
+html[data-theme="dark"] .blog-sidebar .post h5 a,
+html[data-theme="dark"] .blog-sidebar .post-date {
+    color: #0f172a !important;
+}
+html[data-theme="dark"] .blog-sidebar .search-widget input,
+html[data-theme="dark"] .blog-sidebar .search-widget input::placeholder {
+    color: #0f172a !important;
+}
+html[data-theme="dark"] .blog-sidebar .search-widget input::placeholder {
+    color: #94a3b8 !important;
+}
+html[data-theme="dark"] .author-box,
+html[data-theme="dark"] .author-box h3,
+html[data-theme="dark"] .author-box .designation,
+html[data-theme="dark"] .author-box p {
+    color: #0f172a !important;
+}
+html[data-theme="dark"] .comment-form-area h3,
+html[data-theme="dark"] .comment-form-area label,
+html[data-theme="dark"] .comment-form-area input,
+html[data-theme="dark"] .comment-form-area textarea,
+html[data-theme="dark"] .comment-form-area input::placeholder,
+html[data-theme="dark"] .comment-form-area textarea::placeholder {
+    color: #0f172a !important;
+}
+html[data-theme="dark"] .comment-form-area input::placeholder,
+html[data-theme="dark"] .comment-form-area textarea::placeholder {
+    color: #94a3b8 !important;
 }
