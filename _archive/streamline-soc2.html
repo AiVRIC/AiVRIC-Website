@@ -1,0 +1,501 @@
+﻿<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<title>SOC 2 Automation - AiVRIC</title>
+
+<!-- Fav Icon -->
+<link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!-- Stylesheets -->
+<link href="assets/css/font-awesome-all.css" rel="stylesheet">
+<link href="assets/css/flaticon.css" rel="stylesheet">
+<link href="assets/css/owl.css" rel="stylesheet">
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="assets/css/animate.css" rel="stylesheet">
+<link href="assets/css/nice-select.css" rel="stylesheet">
+<link href="assets/css/color.css" rel="stylesheet">
+<link href="assets/css/elpath.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+<link href="assets/css/elements-css/page-title.css" rel="stylesheet">
+<link href="assets/css/elements-css/service-details.css" rel="stylesheet">
+<link href="assets/css/responsive.css" rel="stylesheet">
+
+<style>
+    /* SOC 2 quad grid � add space between cards, keep 2x2 layout */
+    .soc2-grid .single-column {
+        padding: 0 15px 34px;      /* horizontal + bottom padding between boxes */
+    }
+
+    .soc2-grid .single-item {
+        height: 100%;              /* keeps all cards same height */
+    }
+
+    /* optional: a touch more gap between the two rows only */
+    @media (min-width: 992px) {
+        .soc2-grid .single-column:nth-child(3),
+        .soc2-grid .single-column:nth-child(4) {
+            margin-top: 60px;
+        }
+    }
+</style>
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+    <div class="boxed_wrapper">
+
+       <!-- preloader -->
+        <div class="loader-wrap">
+            <div class="preloader">
+                <div class="preloader-close">x</div>
+                <div id="handle-preloader" class="handle-preloader">
+                    <div class="animation-preloader">
+                        <div class="spinner"></div>
+                        <div class="txt-loading">
+                            <span data-text-preloader="A" class="letters-loading">
+                                A
+                            </span>
+                            <span data-text-preloader="I" class="letters-loading">
+                                I
+                            </span>
+                            <span data-text-preloader="V" class="letters-loading">
+                                V
+                            </span>
+                            <span data-text-preloader="r" class="letters-loading">
+                                r
+                            </span>
+                            <span data-text-preloader="i" class="letters-loading">
+                                i
+                            </span>
+                            <span data-text-preloader="c" class="letters-loading">
+                                c
+                            </span>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <!-- preloader end -->
+
+
+        <!-- main header -->
+        <header class="main-header header-style-two">      
+      <!-- Header Lower (Navigation) -->
+      <div class="header-lower">
+        <div class="auto-container">
+          <div class="outer-box">
+
+            <div class="logo-box">
+              <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC"></a></figure>
+            </div>
+
+            <div class="menu-area clearfix">
+              <div class="mobile-nav-toggler">
+                <i class="icon-bar"></i>
+                <i class="icon-bar"></i>
+                <i class="icon-bar"></i>
+              </div>
+
+              <nav class="main-menu navbar-expand-md navbar-light">
+                <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                  <ul class="navigation clearfix">                    
+
+                    <li class="dropdown"><a href="#">Platform</a>
+                      <ul>
+                        <li><a href="services.html#scanning">Cloud Security Scanning</a></li>
+                        <li><a href="services.html#compliance">Compliance Automation</a></li>
+                        <li><a href="services.html#remediation">AI-Driven Remediation</a></li>
+                      </ul>
+                    </li>
+
+                    <li class="dropdown"><a href="#">Solutions</a>
+                      <div class="megamenu">
+                        <div class="row clearfix">
+                          <div class="col-lg-6 column">
+                            <h4>By Compliance Framework</h4>
+                            <ul>
+                              <li><a href="achieve-pci-dss.html">Achieve PCI DSS Compliance</a></li>
+                              <li><a href="streamline-soc2.html">Streamline SOC 2 Audits</a></li>
+                              <li><a href="cmmc-readiness.html">Prepare for CMMC Level 2</a></li>
+                              <li><a href="achieve-iso27001-compliance.html">Maintain ISO 27001</a></li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-6 column">
+                            <h4>By Use Case</h4>
+                            <ul>
+                              <li><a href="aivric-vision.html">AiVRIC Vision as your Risk Advisor</a></li>
+                              <li><a href="use-case-vuln-mgmt.html">Multi-cloud Security Posture Management</a></li>
+                              <li><a href="use-case-kubernetes.html">Secure Kubernetes deployments</a></li>
+                              <li><a href="use-case-github-security.html">Secure Github Repos</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li><a href="pricing.html">Pricing</a></li>
+                    
+
+                    <li class="dropdown"><a href="#">Resources</a>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="why-aivric.html">Why AiVRIC</a></li>
+        <li><a href="trust.html">Trust Center</a></li>
+        <li><a href="AiVRIC-UserGuide/index.html">Platform Guide</a></li>
+        <li><a href="blog-portal.html">Blogs</a></li>
+        
+      </ul>
+    </li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+
+            <ul class="menu-right-content">
+              <li class="btn-box"><a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-one">Request a Demo</a></li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Sticky Header -->
+      <div class="sticky-header">
+        <div class="auto-container">
+          <div class="outer-box">
+            <div class="logo-box">
+              <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
+            </div>
+            <div class="menu-area clearfix">
+              <nav class="main-menu clearfix"></nav>
+            </div>
+            <ul class="menu-right-content">
+              <li class="btn-box"><a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-one">Request a Demo</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </header>
+
+        <!-- Mobile Menu  -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><i class="fas fa-times"></i></div>
+            
+            <nav class="menu-box">
+                <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.avif" alt="" title=""></a></div>
+                <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+                <div class="contact-info">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>Wilmington, Delaware 19802</li>
+                        <li><a href="tel:+19543426637">+1 954 342 6637</a></li>
+                        <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <ul class="clearfix">
+                        <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="index.html"><span class="fab fa-facebook-square"></span></a></li>
+                        <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
+                        <li><a href="index.html"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div><!-- End Mobile Menu -->
+
+
+        <!-- page-title -->
+        <section class="page-title centred">
+            <div class="bg-layer" style="background-image: url(assets/images/background/page-title.avif);"></div>
+            <div class="auto-container">
+                <div class="content-box">
+                    <h1>SOC 2 Automation</h1>
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Solutions</a></li>
+                        <li>SOC 2 Automation</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- page-title end -->
+
+
+        <!-- service-details -->
+        <section class="service-details p_relative">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+                        <div class="service-sidebar mr_40">
+                            <div class="sidebar-widget category-widget">
+                                <h3>Solutions</h3>
+                                <ul class="category-list clearfix">
+                                    <li><a href="streamline-soc2.html" class="current">SOC 2 Readiness</a></li>
+                                    <li><a href="achieve-pci-dss.html">Achieve PCI-DSS Compliance</a></li>
+                                    <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
+                                    <li><a href="achieve-iso27001-compliance.html">Achieve ISO 27001 Compliance</a></li>
+                                </ul>
+                            </div>
+                            <div class="sidebar-widget contact-widget centred">
+                                <div class="widget-content">
+                                    <div class="bg-layer" style="background-image: url(assets/images/service/risk-care.avif);"></div>
+                                    <h3>Need Help with <br />SOC 2 <span>Readiness?</span></h3>
+                                    <div class="icon-box"><i class="icon-29"></i></div>
+                                    <div class="inner-box">
+                                        <p><a href="mailto:info@aivric.com">info@aivric.com</a></p>
+                                        <h3><a href="tel:+19543426637">+1 954 342 6637</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                        <div class="service-details-content">
+                            <div class="content-one mb_90">
+                                <figure class="image-box"><img src="assets/images/service/service-1.avif" alt="SOC 2 Automation"></figure>
+                                <div class="text">
+                                    <h2>Accelerate SOC 2 Readiness with Autonomous Evidence and Continuous Controls</h2>
+                                    <p>Modern organizations cannot afford long, manual SOC 2 cycles. AiVRIC transforms SOC 2 readiness into a continuous, automated process�reducing audit timelines, eliminating documentation gaps, and equipping executives and auditors with accurate, real-time insights.</p>
+                                    <p>By combining cloud security posture management, continuous controls monitoring, automated evidence collection, and AI-driven narratives, AiVRIC helps you move from reactive compliance work to a predictable, efficient, and scalable SOC 2 operating model.</p>
+                                </div>
+                            </div>
+                            <div class="content-two mb_90">
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 text-column">
+                                        <div class="text-box">
+                                            <h3>The SOC 2 Challenge</h3>
+                                            <p>Achieving and maintaining SOC 2 compliance requires more than a set of policies. It demands consistent and defensible proof that your security controls are designed and operating effectively.</p>
+                                            <ul class="list-style-one clearfix">
+                                                <li>Complex, multi-cloud and SaaS environments</li>
+                                                <li>Manual, time-consuming evidence collection</li>
+                                                <li>Inconsistent or incomplete documentation</li>
+                                                <li>Limited visibility for executives and auditors</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 image-column">
+                                        <figure class="image-box"><img src="assets/images/resource/about-1.avif" alt="SOC 2 Evidence Automation"></figure>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content-three mb_85">
+                                <div class="text mb_60">
+                                    <h3>How AiVRIC Automates SOC 2 Compliance</h3>
+                                    <p>AiVRIC eliminates the heavy lift of compliance operations by automating the entire chain from control to evidence to audit narrative. The platform continuously evaluates your posture against SOC 2 expectations and prepares evidence bundles that are ready for auditor review.</p>
+                                </div>
+                                <div class="row clearfix soc2-grid">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                        <div class="single-item">
+                                            <div class="icon-box"><i class="icon-8"></i></div>
+                                            <h3>Continuous Controls Monitoring</h3>
+                                            <p>AiVRIC continuously evaluates cloud, identity, logging, and network configurations against SOC 2 control expectations, providing early warning for drift and misconfigurations before they become audit findings.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                        <div class="single-item">
+                                            <div class="icon-box"><i class="icon-13"></i></div>
+                                            <h3>Automated Evidence Collection</h3>
+                                            <p>Evidence is captured directly from your systems�configurations, logs, posture checks, and asset inventories�so your team spends less time gathering screenshots and more time improving security.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                        <div class="single-item">
+                                            <div class="icon-box"><i class="icon-9"></i></div>
+                                            <h3>AI-Generated Narratives</h3>
+                                            <p>Lighthouse AI transforms posture and control data into clear, consistent descriptions of how your controls are designed and operated, simplifying Section III narrative development and auditor communication.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                        <div class="single-item">
+                                            <div class="icon-box"><i class="icon-7"></i></div>
+                                            <h3>Risk Register Intelligence</h3>
+                                            <p>Findings from AiVRIC are automatically mapped to your risk register and aligned with business impact, ensuring that SOC 2 risks are evaluated, prioritized, and tracked to closure.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text mt_50">
+                                    <h3>Outcomes You Can Expect</h3>
+                                    <p>With AiVRIC, organizations typically experience:</p>
+                                    <ul class="list-style-one clearfix">
+                                        <li>Up to 70% reduction in SOC 2 audit preparation time</li>
+                                        <li>Consistent and defensible evidence for controls across all in-scope systems</li>
+                                        <li>Accelerated readiness for both Type 1 and Type 2 audits</li>
+                                        <li>Proactive remediation of posture gaps before auditors arrive</li>
+                                        <li>Improved collaboration between security, engineering, and compliance teams</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="content-four">
+                                <h3>Extend AiVRIC with Expert SOC 2 Services</h3>
+                                <p>AiVRIC can be deployed as a technology-only solution or combined with advisory services from AiVRIC�s certified service partners. When paired with vCISO and compliance experts, you benefit from a full SOC 2 Accelerator program that includes gap assessment, program design, documentation, and auditor navigation.</p>
+                                <ul class="download-list clearfix">
+                                    <li>
+                                        <div class="icon-box"><i class="icon-30"></i></div>
+                                        <h5>SOC 2 Automation Overview</h5>
+                                        <span>PDF (Coming Soon)</span>
+                                        <button type="button">Notify Me</button>
+                                    </li>
+                                    <li>
+                                        <div class="icon-box"><i class="icon-30"></i></div>
+                                        <h5>SOC 2 Accelerator Program Brief</h5>
+                                        <span>PDF (Coming Soon)</span>
+                                        <button type="button">Notify Me</button>
+                                    </li>
+                                </ul>
+                                <div class="mt_40">
+                                    <a href="contact.html" class="theme-btn-one">Request a SOC 2 Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- service-details end -->
+
+
+        <!-- main-footer -->
+        <footer class="main-footer">
+            <div class="widget-section">
+                <div class="pattern-layer">
+                    <div class="pattern-1" style="background-image: url(assets/images/shape/shape-20.avif);"></div>
+                    <div class="pattern-2" style="background-image: url(assets/images/shape/shape-21.avif);"></div>
+                </div>
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget logo-widget">
+                                <div class="widget-title">
+                                    <h3>AiVRIC</h3>
+                                </div>
+                                <div class="text">
+                                    <p>Autonomous Security, Compliance, and Risk Intelligence.</p>
+                                </div>
+                                <div class="subscribe-box">
+                                    <form action="contact.html" method="post">
+                                        <div class="form-group">
+                                            <input type="email" name="email" placeholder="Your email" required="">
+                                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget links-widget">
+                                <div class="widget-title">
+                                    <h3>Platform</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="links-list clearfix">
+                                        <li><a href="services.html#scanning">Security &amp; Risk Assessment</a></li>
+                                        <li><a href="services.html#compliance">Compliance Management</a></li>
+                                        <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget links-widget">
+                                <div class="widget-title">
+                                    <h3>Solutions</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="links-list clearfix">
+                                        <li><a href="streamline-soc2.html">SOC 2 Automation</a></li>
+                                        <li><a href="achieve-pci-dss.html">PCI-DSS Compliance</a></li>
+                                        <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
+                                        <li><a href="achieve-iso27001-compliance.html">ISO27001 Compliance</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget contact-widget">
+                                <div class="widget-title">
+                                    <h3>Contact</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="info-list clearfix">
+                                        <li><i class="fas fa-envelope"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                                        <li><i class="fas fa-phone-alt"></i><a href="tel:+19543426637">+1 954 342 6637</a></li>
+                                    </ul>
+                                </div>
+                                <ul class="social-links-two clearfix">
+                                    <li><a href="https://x.com/aivric"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="https://www.facebook.com/61581937785235/"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/aivric"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="https://www.instagram.com/aivrictechnologies/"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="auto-container">
+                    <div class="bottom-inner">
+                        <div class="copyright">
+                            <p>&copy; 2025 <a href="index.html">AiVRIC</a>. All Rights Reserved.</p>
+                        </div>
+                        <ul class="footer-nav">
+                            <li><a href="terms-of-use.html">Terms of Service</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- main-footer end -->
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+        
+    </div>
+
+
+    <!-- jequery plugins -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/validation.js"></script>
+    <script src="assets/js/jquery.fancybox.js"></script>
+    <script src="assets/js/appear.js"></script>
+    <script src="assets/js/scrollbar.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/parallax-scroll.js"></script>
+
+    <!-- main-js -->
+    <script src="assets/js/script.js"></script>
+
+</body><!-- End of .page_wrapper -->
+</html>
+

@@ -24,13 +24,14 @@
 <link href="assets/css/nice-select.css" rel="stylesheet">
 <link href="assets/css/color.css" rel="stylesheet">
 <link href="assets/css/elpath.css" rel="stylesheet">
-<link href="assets/css/style.css" rel="stylesheet">
+<link href="assets/css/style.css?v=20250115" rel="stylesheet">
 <link href="assets/css/elements-css/page-title.css" rel="stylesheet">
 <link href="assets/css/elements-css/service.css" rel="stylesheet">
 <link href="assets/css/elements-css/about.css" rel="stylesheet">
 <link href="assets/css/elements-css/subscribe.css" rel="stylesheet">
 <link href="assets/css/responsive.css" rel="stylesheet">
 
+  <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
 </head>
 
 
@@ -75,8 +76,28 @@
 
         <!-- main header -->
         <header class="main-header">
-            <!-- header-lower -->
-            <div class="header-lower">
+<div class="header-top-bar">
+    <div class="auto-container">
+        <div class="top-bar-inner">
+            <div class="top-bar-brand">AIVRIC TECHNOLOGIES</div>
+            <div class="top-bar-right">
+                <ul class="top-bar-links">
+                    <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-book-open"></i></span>Platform Guide</a></li>
+                    <li><a href="trust.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-shield-alt"></i></span>Trust Center</a></li>
+                </ul>
+                <span class="top-bar-separator">|</span>
+                <button class="theme-toggle" type="button" data-theme-toggle>Dark mode</button>
+                <ul class="top-bar-social">
+                    <li><a href="https://www.linkedin.com/company/aivric" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://x.com/aivric" aria-label="X"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://github.com" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- header-lower -->
+    <div class="header-lower">
                 <div class="auto-container">
                     <div class="outer-box">
                         <div class="logo-box">
@@ -90,53 +111,175 @@
                                 <i class="icon-bar"></i>
                             </div>
                             <nav class="main-menu navbar-expand-md navbar-light">
-                                <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                                    <ul class="navigation clearfix">
-                                        <li class="dropdown"><a href="services.html">Platform</a>
-                                            <ul>
-                                                <li><a href="services.html#scanning">Security Risk Assessment</a></li>
-                                                <li><a href="services.html#compliance">Compliance Management</a></li>
-                                                <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
-                                             </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Solutions</a>
-                                            <div class="megamenu">
-                                                <div class="row clearfix">
-                                                    <div class="col-lg-6 column">
-                                                        <h4>By Compliance Framework</h4>
-                                                        <ul>
-                                                            <li><a href="achieve-pci-dss.html">Achieve PCI DSS Compliance</a></li>
-                                                            <li><a href="streamline-soc2.html">Streamline SOC 2 Audits</a></li>
-                                                            <li><a href="cmmc-readiness.html">Prepare for CMMC Level 2</a></li>
-                                                            <li><a href="achieve-iso27001-compliance.html">Maintain ISO 27001</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-6 column">
-                                                        <h4>By Use Case</h4>
-                                                        <ul>
-                                                            <li><a href="aivric-vision.html">AiVRIC Vision as your Risk Advisor</a></li>
-                                                            <li><a href="use-case-vuln-mgmt.html">Multi-cloud Security Posture Management</a></li>
-                                                            <li><a href="use-case-kubernetes.html">Secure Kubernetes deployments</a></li>                                                                        
-                                                            <li><a href="use-case-github-security.html">Secure Github Repos</a></li> 
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li><a href="pricing.html">Pricing</a></li>
-                                        <li class="dropdown"><a href="#">Resources</a>
-      <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="why-aivric.html">Why AiVRIC</a></li>
-        <li><a href="trust.html">Trust Center</a></li>
-        <li><a href="AiVRIC-UserGuide/index.html">Platform Guide</a></li>
-        <li><a href="blog-portal.html">Blogs</a></li>
-        
-      </ul>
-    </li>
-                                    </ul>
-                                </div>
-                            </nav>
+    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+        <ul class="navigation clearfix">
+            <li class="dropdown platform-menu"><a href="services.html">Platform</a>
+                <div class="platform-megamenu">
+                    <div class="platform-grid">
+                        <a class="platform-card" href="genai-chat.html"><h4>GenAI Chat</h4><p>Fabric intelligence chat across every AiVRIC solution.</p><span>view more</span></a>
+                        <a class="platform-card" href="shared-data-layer.html"><h4>Shared Data Layer</h4><p>The Fabric data layer unifies telemetry and evidence.</p><span>view more</span></a>
+                        <a class="platform-card" href="agentic-design.html"><h4>Agentic Design</h4><p>Fabric agents coordinate actions across suites.</p><span>view more</span></a>
+                        <a class="platform-card" href="efficient-compute.html"><h4>Efficient Compute</h4><p>Fabric compute optimizes AI workloads end-to-end.</p><span>view more</span></a>
+                        <a class="platform-card" href="data-localization.html"><h4>Data Localization</h4><p>Fabric residency controls govern every dataset.</p><span>view more</span></a>
+                        <a class="platform-card" href="ai-model-inspection.html"><h4>AI Model Inspection</h4><p>Fabric inspection monitors AI models and risk.</p><span>view more</span></a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown"><a href="#">Solutions</a>
+                <div class="megamenu">
+                    <div class="mega-tabs" role="tablist">
+                        <button class="mega-tab is-active" type="button" data-mega-tab="solution" role="tab" aria-selected="true">By Solution</button>
+                        <button class="mega-tab" type="button" data-mega-tab="usecase" role="tab" aria-selected="false">By Use Case</button>
+                    </div>
+                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="solution" data-mega-active="defense" role="tabpanel">
+                        <div class="mega-rail mega-rail-stack">
+                            <button class="mega-stack-card is-active" type="button" data-mega-target="defense">
+                                <h4>Defense</h4>
+                                <p>A suite of solutions used to defend your organization from cyber threats.</p>
+                                <a class="mega-link" href="solutions-portal.html#defense">View all products -></a>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="offense">
+                                <h4>Offense</h4>
+                                <p>A suite that continuously simulates attacks across your digital ecosystem.</p>
+                                <a class="mega-link" href="solutions-portal.html#offense">View all products -></a>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="vision">
+                                <h4>Vision</h4>
+                                <p>Holistic context across the AiVRIC ecosystem and your environments.</p>
+                                <a class="mega-link" href="solutions-portal.html#vision">View all products -></a>
+                            </button>
+                        </div>
+                        <div class="mega-grid">
+                            <a class="mega-card" data-mega-category="defense" href="cspm-cloudsignals.html"><strong>CloudSignals+ RiskOps&trade;</strong><span>Scan all your cloud platform configs.</span></a>
+                            <a class="mega-card" data-mega-category="defense" href="ai-inspector.html"><strong>AI Signals&trade;</strong><span>LLM observability, evaluations, and prompt management for AI apps.</span></a>
+                            <a class="mega-card" data-mega-category="defense" href="air-remediation.html"><strong>AIRE Agentic Mesh&trade;</strong><span>Agentic role-based remediation agents.</span></a>
+                            <a class="mega-card" data-mega-category="offense" href="rogueagent.html"><strong>RogueAgent ASPM&trade;</strong><span>Analyze cloud posture using a risk lens.</span></a>
+                            <a class="mega-card" data-mega-category="vision" href="aivric-vision-professional.html"><strong>Vision AI Optics&trade;</strong><span>OpenAI-driven AI risk analysis and reporting.</span></a>
+                        </div>
+                    </div>
+                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="usecase" data-mega-active="compliance" role="tabpanel" hidden>
+                        <div class="mega-rail mega-rail-stack">
+                            <button class="mega-stack-card is-active" type="button" data-mega-target="compliance">
+                                <h4>Compliance</h4>
+                                <p>Framework-ready controls and audit automation.</p>
+                                <a class="mega-link" href="use-cases-portal.html#compliance">View all frameworks -></a>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="riskops">
+                                <h4>Risk Ops</h4>
+                                <p>Continuous risk operations and response alignment.</p>
+                                <a class="mega-link" href="use-cases-portal.html#riskops">View all programs -></a>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="productops">
+                                <h4>Product Ops</h4>
+                                <p>Security and compliance built into delivery workflows.</p>
+                                <a class="mega-link" href="use-cases-portal.html#productops">View all playbooks -></a>
+                            </button>
+                        </div>
+                        <div class="mega-grid">
+                            <a class="mega-card" data-mega-category="compliance" href="streamline-soc2.html"><strong>SOC 2 Type II</strong><span>Measure compliance against the SOC 2 Trust Service Principles.</span></a>
+                            <a class="mega-card" data-mega-category="compliance" href="achieve-pci-dss.html"><strong>PCI-DSS</strong><span>Continuous validation for PCI requirements and evidence.</span></a>
+                            <a class="mega-card" data-mega-category="compliance" href="cmmc-readiness.html"><strong>CMMC</strong><span>Readiness workflows for CMMC Level 2 assessments.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="issues-poams.html"><strong>Issues and POA&Ms</strong><span>Track issues, milestones, and remediation plans.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="security-exceptions.html"><strong>Security Exceptions</strong><span>Document approved exceptions with guardrails.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="threat-analysis.html"><strong>Threat Analysis</strong><span>Surface high-impact risks across environments.</span></a>
+                            <a class="mega-card" data-mega-category="productops" href="use-case-github-security.html"><strong>DevSecOps</strong><span>Secure Github repos and delivery workflows.</span></a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown blogs-menu"><a href="blog-portal.html">Blogs</a>
+                <div class="blogs-megamenu">
+                    <div class="blogs-mega-inner">
+                        <div class="blogs-list">
+                            <a class="blog-link is-active" data-blog="blog-future" href="/aivric-enterprise/blog-future-of-cloud-security.html">
+    <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/cloud-security-poster.avif" alt="Future of Cloud Security"></span>
+    <span class="blog-link-text">
+        <span class="blog-link-title">Future of Cloud Security</span>
+        <span class="blog-link-sub">Agentic defense for multi-cloud risk.</span>
+    </span>
+</a>
+                            <a class="blog-link" data-blog="blog-devops" href="/aivric-enterprise/blog-integrating-into-DevOps.html">
+    <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/threat-detected.avif" alt="Integrating Into DevOps"></span>
+    <span class="blog-link-text">
+        <span class="blog-link-title">Integrating Into DevOps</span>
+        <span class="blog-link-sub">Where AI controls meet pipelines.</span>
+    </span>
+</a>
+                            <a class="blog-link" data-blog="blog-compliance" href="/aivric-enterprise/blog-why-continuous-compliance-matters.html">
+    <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/SOC-2-compliance.avif" alt="Continuous Compliance"></span>
+    <span class="blog-link-text">
+        <span class="blog-link-title">Continuous Compliance</span>
+        <span class="blog-link-sub">Evidence-driven governance at speed.</span>
+    </span>
+</a>
+                            <a class="blog-link" data-blog="blog-healthcare" href="/aivric-enterprise/assets/blog-managing-healthcare-risk/index.html">
+    <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/SOC-2-compliance.avif" alt="Managing AI Risk in Healthcare"></span>
+    <span class="blog-link-text">
+        <span class="blog-link-title">Managing AI Risk in Healthcare</span>
+        <span class="blog-link-sub">Secure AI deployments for regulated care.</span>
+    </span>
+</a>
+                            <a class="blogs-all" href="blog-portal.html">View all blogs -></a>
+                        </div>
+                        <div class="blogs-preview">
+                            <div class="blog-preview is-active" data-blog-preview="blog-future">
+                                <div class="blog-thumb"><img src="assets/images/blog/cloud-security-poster.avif" alt="Blog preview image"></div>
+                                <h4>Future of Cloud Security</h4>
+                                <p>How agentic telemetry turns posture data into board-ready decisions.</p>
+                                <ul>
+                                    <li>Unified CSPM + AI control evidence.</li>
+                                    <li>Risk scoring tied to business impact.</li>
+                                    <li>Continuous evidence for audits.</li>
+                                </ul>
+                                <a href="blog-future-of-cloud-security.html">Read full article -></a>
+                            </div>
+                            <div class="blog-preview" data-blog-preview="blog-devops">
+                                <div class="blog-thumb"><img src="assets/images/blog/threat-detected.avif" alt="Blog preview image"></div>
+                                <h4>Integrating Into DevOps</h4>
+                                <p>Deliver secure software with agentic checks built into CI/CD.</p>
+                                <ul>
+                                    <li>Policy gates for releases.</li>
+                                    <li>Automated remediation routing.</li>
+                                    <li>Shared evidence across teams.</li>
+                                </ul>
+                                <a href="blog-integrating-into-DevOps.html">Read full article -></a>
+                            </div>
+                            <div class="blog-preview" data-blog-preview="blog-compliance">
+                                <div class="blog-thumb"><img src="assets/images/blog/SOC-2-compliance.avif" alt="Blog preview image"></div>
+                                <h4>Why Continuous Compliance Matters</h4>
+                                <p>Shift from point-in-time audits to always-on readiness.</p>
+                                <ul>
+                                    <li>Evidence pipelines for SOC 2 and ISO.</li>
+                                    <li>Automated control mapping.</li>
+                                    <li>Executive-ready compliance reporting.</li>
+                                </ul>
+                                <a href="blog-why-continuous-compliance-matters.html">Read full article -></a>
+                            </div>
+                            <div class="blog-preview" data-blog-preview="blog-healthcare">
+    <div class="blog-thumb"><img src="/aivric-enterprise/assets/images/blog/SOC-2-compliance.avif" alt="Managing AI Risk in Healthcare"></div>
+    <h4>Managing AI Risk in Healthcare</h4>
+    <p>Secure AI deployments for regulated care, from data controls to evidence-ready reporting.</p>
+    <ul>
+        <li>Customer-hosted SaaS with data control.</li>
+        <li>AI evaluations for regulated models.</li>
+        <li>Audit-ready evidence for leaders.</li>
+    </ul>
+    <a href="/aivric-enterprise/assets/blog-managing-healthcare-risk/index.html">Read full article -></a>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown"><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Resources</a>
+                <ul>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="why-aivric.html">Why AiVRIC</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
                         </div>
                                                 <ul class="menu-right-content">
                             <li class="search-box-outer search-toggler">
@@ -150,31 +293,31 @@
                 </div>
             </div>
 
-            <!--sticky Header-->
-            <div class="sticky-header">
-                <div class="auto-container">
-                    <div class="outer-box">
-                        <div class="logo-box">
-                            <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
-                        </div>
-                        <div class="menu-area clearfix">
-                            <nav class="main-menu clearfix">
-                                <!--Keep This Empty / Menu will come through Javascript-->
-                            </nav>
-                        </div>
-                                                <ul class="menu-right-content">
-                            <li class="search-box-outer search-toggler">
-                                <i class="icon-4"></i>
-                            </li>
-                            <li class="btn-box">
-                                <a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-one">Request a Demo</a>
-                            </li>
-                        </ul>
-                    </div>
+    <!--sticky Header-->
+    <div class="sticky-header">
+        <div class="auto-container">
+            <div class="outer-box">
+                <div class="logo-box">
+                    <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC Logo"></a></figure>
                 </div>
+                <div class="menu-area clearfix">
+                    <nav class="main-menu clearfix">
+                        <!--Keep This Empty / Menu will come through Javascript-->
+                    </nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="search-box-outer search-toggler">
+                        <i class="icon-4"></i>
+                    </li>
+                    <li class="btn-box">
+                        <a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-two">Request a Demo</a>
+                    </li>
+                </ul>
             </div>
-        </header>
-        <!-- main-header end -->
+        </div>
+    </div>
+</header>
+<!-- main-header end -->
 
         <!-- Mobile Menu  -->
         <div class="mobile-menu">
@@ -222,7 +365,7 @@
 
 
         <!-- services-section -->
-        <section id="scanning" class="about-section p_relative sec-pad">
+        <section id="cloudsignals" class="about-section p_relative sec-pad">
             <div class="auto-container">
                 <div class="row clearfix">
                     <div class="col-lg-6 col-md-12 col-sm-12 image-column">
@@ -237,23 +380,23 @@
                         <div class="content_block_one">
                             <div class="content-box p_relative ml_30">
                                 <div class="sec-title mb_25">
-                                    <span class="sub-title">Service</span>
-                                    <h2>Security & Risk Assessment</h2>
+                                    <span class="sub-title">Platform Suite</span>
+                                    <h2>CloudSignals (CSPM / posture)</h2>
                                 </div>
                                 <div class="text mb_35">
-                                    <p>Continuously identify, analyze, and evaluate risks to your organization's assets. Our platform provides a comprehensive view of your security posture, allowing you to prioritize and address the most critical threats.</p>
+                                    <p>Multi-cloud posture management that unifies configuration, compliance evidence, and drift detection across AWS, Azure, and GCP.</p>
                                 </div>
                                 <div class="inner-box mb_35">
                                     <div class="single-item">
                                         <div class="icon-box"><i class="icon-11"></i></div>
-                                        <h3>Automated Attack Surface Scanning</h3>
+                                        <h3>Continuous posture monitoring</h3>
                                     </div>
                                     <div class="single-item">
                                         <div class="icon-box"><i class="icon-11"></i></div>
-                                        <h3>Vulnerability Assessment & Prioritization</h3>
+                                        <h3>Policy mapping & compliance evidence</h3>
                                     </div>
                                 </div>
-                                <div class="btn-box"><a href="use-case-vuln-mgmt.html" class="theme-btn-one">Learn More</a></div>
+                                <div class="btn-box"><a href="#cloudsignals" class="theme-btn-one">Learn More</a></div>
                             </div>
                         </div>
                     </div>
@@ -261,21 +404,21 @@
             </div>
         </section>
 
-        <section id="compliance" class="working-process-section p_relative sec-pad centred bg-color-1">
+        <section id="aisignals" class="working-process-section p_relative sec-pad centred bg-color-1">
     <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-2.avif);"></div>
     <div class="auto-container">
         <div class="sec-title mb_50">
-            <span class="sub-title">Solution</span>
-            <h2>Comprehensive Compliance Management</h2>
+            <span class="sub-title">Platform Suite</span>
+            <h2>AI Signals&trade; (LLM observability + evaluations)</h2>
         </div>
         <div class="row clearfix"> 
             <div class="col-lg-3 col-md-6 col-sm-12 working-process-block"> 
                 <div class="working-process-block-one"> 
                     <div class="inner-box"> 
-                        <figure class="image-box"><img src="https://via.placeholder.com/300x200" alt=""></figure>
+                        <figure class="image-box"><img src="assets/images/service/service-2.avif" alt=""></figure>
                         <div class="lower-content">
-                            <h4>Compliance Automation</h4> 
-                            <p>Streamline adherence to major security and privacy frameworks such as PCI DSS, SOC 2, CMMC L2, and ISO 27001. Our platform automates control mapping and evidence gathering, reducing manual effort and ensuring consistency.</p> 
+                            <h4>Model safety evaluations</h4> 
+                            <p>Repeatable AI control tests for safety, bias, and hallucination risk across enterprise models.</p> 
                         </div>
                     </div> 
                 </div> 
@@ -283,10 +426,10 @@
             <div class="col-lg-3 col-md-6 col-sm-12 working-process-block"> 
                 <div class="working-process-block-one"> 
                     <div class="inner-box"> 
-                        <figure class="image-box"><img src="https://via.placeholder.com/300x200" alt=""></figure>
+                        <figure class="image-box"><img src="assets/images/service/service-3.avif" alt=""></figure>
                         <div class="lower-content">
-                            <h4>Continuous Monitoring</h4> 
-                            <p>Gain real-time visibility into your compliance posture. Our platform continuously monitors your environment, providing automated evidence collection to make audits faster, more reliable, and less burdensome for your team.</p> 
+                            <h4>Hallucination mitigation</h4> 
+                            <p>Detection and mitigation workflows with guardrails for prompts, tools, and responses.</p> 
                         </div>
                     </div> 
                 </div> 
@@ -294,10 +437,10 @@
             <div class="col-lg-3 col-md-6 col-sm-12 working-process-block"> 
                 <div class="working-process-block-one"> 
                     <div class="inner-box"> 
-                        <figure class="image-box"><img src="https://via.placeholder.com/300x200" alt=""></figure>
+                        <figure class="image-box"><img src="assets/images/service/service-1.avif" alt=""></figure>
                         <div class="lower-content">
-                            <h4>Automated Evidence Collection</h4> 
-                            <p>Automatically collect and securely store tamper-evident data for audits. Generate comprehensive, exportable reports that provide auditors with the information they need, simplifying the entire audit process.</p> 
+                            <h4>AI risk scoring</h4> 
+                            <p>Quantify model risk and track exposure trends across business units and use cases.</p> 
                         </div>
                     </div> 
                 </div> 
@@ -305,20 +448,20 @@
             <div class="col-lg-3 col-md-6 col-sm-12 working-process-block"> 
                 <div class="working-process-block-one"> 
                     <div class="inner-box"> 
-                        <figure class="image-box"><img src="https://via.placeholder.com/300x200" alt=""></figure>
+                        <figure class="image-box"><img src="assets/images/resource/about-2.avif" alt=""></figure>
                         <div class="lower-content">
-                            <h4>Custom Frameworks & Policies</h4> 
-                            <p>Tailor compliance to your organization's unique needs. Our platform allows you to create custom security and privacy frameworks, and enforce internal policies with the same rigor as industry-standard regulations.</p> 
+                            <h4>Governance-ready evidence</h4> 
+                            <p>Audit-ready inspection reports with mappings to AI policies and enterprise controls.</p> 
                         </div>
                     </div> 
                 </div> 
             </div> 
         </div>
-        <div class="btn-box" style="margin-top: 40px;"><a href="streamline-soc2.html" class="theme-btn-one">Learn More</a></div>
+        <div class="btn-box" style="margin-top: 40px;"><a href="#aisignals" class="theme-btn-one">Learn More</a></div>
     </div>
 </section>
 
-        <section id="remediation" class="about-section p_relative sec-pad">
+        <section id="grc-management" class="about-section p_relative sec-pad">
             <div class="auto-container">
                 <div class="row clearfix">
                     <div class="col-lg-6 col-md-12 col-sm-12 image-column">
@@ -333,23 +476,23 @@
                         <div class="content_block_one">
                             <div class="content-box p_relative ml_30">
                                 <div class="sec-title mb_25">
-                                    <span class="sub-title">Service</span>
-                                    <h2>AI-Powered Remediation</h2>
+                                    <span class="sub-title">Platform Suite</span>
+                                    <h2>GRC Management (controls, evidence, audits)</h2>
                                 </div>
                                 <div class="text mb_35">
-                                    <p>Leverage the power of AI to get intelligent, context-aware remediation plans. Our platform helps you fix vulnerabilities faster and more efficiently, reducing your window of exposure.</p>
+                                    <p>Centralize controls, evidence collection, and audit workflows with continuous governance and executive-ready reporting.</p>
                                 </div>
                                 <div class="inner-box mb_35">
                                     <div class="single-item">
                                         <div class="icon-box"><i class="icon-11"></i></div>
-                                        <h3>AI-Generated Remediation Steps</h3>
+                                        <h3>Control library & evidence mapping</h3>
                                     </div>
                                     <div class="single-item">
                                         <div class="icon-box"><i class="icon-11"></i></div>
-                                        <h3>Verification of Fixes</h3>
+                                        <h3>Audit-ready reporting & attestations</h3>
                                     </div>
                                 </div>
-                                <div class="btn-box"><a href="aivric-vision.html" class="theme-btn-one">Learn More</a></div>
+                                <div class="btn-box"><a href="#grc-management" class="theme-btn-one">Learn More</a></div>
                             </div>
                         </div>
                     </div>
@@ -358,12 +501,126 @@
         </section>
         <!-- solutions-section end -->
 
+        <section id="cyber-riskops" class="about-section p_relative sec-pad bg-color-1">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                        <div class="content_block_one">
+                            <div class="content-box p_relative mr_30">
+                                <div class="sec-title mb_25">
+                                    <span class="sub-title">Platform Suite</span>
+                                    <h2>Cyber RiskOps (risk register, POA&Ms, exceptions)</h2>
+                                </div>
+                                <div class="text mb_35">
+                                    <p>Operationalize risk management with unified registers, POA&amp;Ms, and exception workflows that keep leaders aligned.</p>
+                                </div>
+                                <div class="inner-box mb_35">
+                                    <div class="single-item">
+                                        <div class="icon-box"><i class="icon-11"></i></div>
+                                        <h3>Risk register with impact scoring</h3>
+                                    </div>
+                                    <div class="single-item">
+                                        <div class="icon-box"><i class="icon-11"></i></div>
+                                        <h3>POA&amp;Ms, exceptions, and remediation tracking</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                        <div class="image_block_one">
+                            <div class="image-box p_relative pl_50 ml_30">
+                                <figure class="image image-1"><img src="assets/images/service/service-2.avif" alt=""></figure>
+                                <figure class="image image-2"><img src="assets/images/resource/about-1.avif" alt=""></figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rogueagent" class="about-section p_relative sec-pad">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                        <div class="image_block_one">
+                            <div class="image-box p_relative pr_50 mr_30">
+                                <figure class="image image-1"><img src="assets/images/service/service-4.avif" alt=""></figure>
+                                <figure class="image image-2"><img src="assets/images/resource/about-2.avif" alt=""></figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                        <div class="content_block_one">
+                            <div class="content-box p_relative ml_30">
+                                <div class="sec-title mb_25">
+                                    <span class="sub-title">Platform Suite</span>
+                                    <h2>RogueAgent ASPM&trade; (offense / validation)</h2>
+                                </div>
+                                <div class="text mb_35">
+                                    <p>Validate defenses with continuous adversary simulation, attack path analysis, and digital risk scans.</p>
+                                </div>
+                                <div class="inner-box mb_35">
+                                    <div class="single-item">
+                                        <div class="icon-box"><i class="icon-11"></i></div>
+                                        <h3>ASPM and attack-path validation</h3>
+                                    </div>
+                                    <div class="single-item">
+                                        <div class="icon-box"><i class="icon-11"></i></div>
+                                        <h3>Red teaming + external risk scans</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="vision" class="about-section p_relative sec-pad bg-color-1">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                        <div class="content_block_one">
+                            <div class="content-box p_relative mr_30">
+                                <div class="sec-title mb_25">
+                                    <span class="sub-title">Platform Suite</span>
+                                    <h2>Vision (chat + dashboards + reporting)</h2>
+                                </div>
+                                <div class="text mb_35">
+                                    <p>Unify chat, dashboards, and reporting into a single intelligence center with cross-suite context.</p>
+                                </div>
+                                <div class="inner-box mb_35">
+                                    <div class="single-item">
+                                        <div class="icon-box"><i class="icon-11"></i></div>
+                                        <h3>Fabric chat with executive summaries</h3>
+                                    </div>
+                                    <div class="single-item">
+                                        <div class="icon-box"><i class="icon-11"></i></div>
+                                        <h3>Cross-suite dashboards and reports</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                        <div class="image_block_one">
+                            <div class="image-box p_relative pl_50 ml_30">
+                                <figure class="image image-1"><img src="assets/images/service/service-5.avif" alt=""></figure>
+                                <figure class="image image-2"><img src="assets/images/resource/about-3.avif" alt=""></figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- service-section -->
         <section class="service-section p_relative centred sec-pad">
             <div class="auto-container">
                 <div class="sec-title mb_70">
-                    <span class="sub-title">What We Do</span>
-                    <h2>Providing the Best Security Solutions in the Industry</h2>
+                    <span class="sub-title">Platform Suites</span>
+                    <h2>Six suites that power the AiVRIC Platform</h2>
                 </div>
                 <div class="row clearfix">
                     <div class="col-lg-4 col-md-6 col-sm-12 service-block">
@@ -372,15 +629,15 @@
                                 <div class="static-content">
                                     <div class="shape" style="background-image: url(assets/images/shape/shape-4.avif);"></div>
                                     <div class="icon-box"><i class="icon-7"></i></div>
-                                    <h3><a href="use-case-vuln-mgmt.html">Security & Risk Assessment</a></h3>
-                                    <p>Continuously identify, analyze, and evaluate risks to your organization's assets.</p>
+                                    <h3><a href="#cloudsignals">CloudSignals (CSPM)</a></h3>
+                                    <p>Multi-cloud posture visibility, drift detection, and compliance mapping.</p>
                                 </div>
                                 <div class="overlay-content">
                                     <div class="shape" style="background-image: url(assets/images/shape/shape-5.avif);"></div>
-                                    <h3><a href="use-case-vuln-mgmt.html">Security & Risk Assessment</a></h3>
-                                    <p>Continuously identify, analyze, and evaluate risks to your organization's assets.</p>
+                                    <h3><a href="#cloudsignals">CloudSignals (CSPM)</a></h3>
+                                    <p>Multi-cloud posture visibility, drift detection, and compliance mapping.</p>
                                     <div class="btn-box">
-                                        <a href="use-case-vuln-mgmt.html" class="theme-btn-one">Read More</a>
+                                        <a href="#cloudsignals" class="theme-btn-one">Read More</a>
                                     </div>
                                 </div>
                             </div>
@@ -391,14 +648,14 @@
                             <div class="inner-box">
                                 <div class="static-content">
                                     <div class="icon-box"><i class="icon-12"></i></div>
-                                    <h3><a href="streamline-soc2.html">Compliance Management</a></h3>
-                                    <p>Simplify and automate compliance with major frameworks like PCI DSS, SOC 2, CMMC L2, and ISO 27001.</p>
+                                    <h3><a href="#aisignals">AI Signals&trade;</a></h3>
+                                    <p>AI evaluations, hallucination mitigation, and model risk evidence.</p>
                                 </div>
                                 <div class="overlay-content">
-                                    <h3><a href="streamline-soc2.html">Compliance Management</a></h3>
-                                    <p>Simplify and automate compliance with major frameworks like PCI DSS, SOC 2, CMMC L2, and ISO 27001.</p>
+                                    <h3><a href="#aisignals">AI Signals&trade;</a></h3>
+                                    <p>AI evaluations, hallucination mitigation, and model risk evidence.</p>
                                     <div class="btn-box">
-                                        <a href="streamline-soc2.html" class="theme-btn-one">Read More</a>
+                                        <a href="#aisignals" class="theme-btn-one">Read More</a>
                                     </div>
                                 </div>
                             </div>
@@ -410,15 +667,73 @@
                                 <div class="static-content">
                                     <div class="shape" style="background-image: url(assets/images/shape/shape-6.avif);"></div>
                                     <div class="icon-box"><i class="icon-8"></i></div>
-                                    <h3><a href="aivric-vision.html">AI-Powered Remediation</a></h3>
-                                    <p>Leverage the power of AI to get intelligent, context-aware remediation plans.</p>
+                                    <h3><a href="#grc-management">GRC Management</a></h3>
+                                    <p>Controls, evidence, and audit workflows for continuous compliance.</p>
                                 </div>
                                 <div class="overlay-content">
                                     <div class="shape" style="background-image: url(assets/images/shape/shape-7.avif);"></div>
-                                    <h3><a href="aivric-vision.html">AI-Powered Remediation</a></h3>
-                                    <p>Leverage the power of AI to get intelligent, context-aware remediation plans.</p>
+                                    <h3><a href="#grc-management">GRC Management</a></h3>
+                                    <p>Controls, evidence, and audit workflows for continuous compliance.</p>
                                     <div class="btn-box">
-                                        <a href="aivric-vision.html" class="theme-btn-one">Read More</a>
+                                        <a href="#grc-management" class="theme-btn-one">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-one wow fadeInLeft animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <div class="static-content">
+                                    <div class="shape" style="background-image: url(assets/images/shape/shape-4.avif);"></div>
+                                    <div class="icon-box"><i class="icon-7"></i></div>
+                                    <h3><a href="#cyber-riskops">Cyber RiskOps</a></h3>
+                                    <p>Risk registers, POA&Ms, and exception management in one workflow.</p>
+                                </div>
+                                <div class="overlay-content">
+                                    <div class="shape" style="background-image: url(assets/images/shape/shape-5.avif);"></div>
+                                    <h3><a href="#cyber-riskops">Cyber RiskOps</a></h3>
+                                    <p>Risk registers, POA&Ms, and exception management in one workflow.</p>
+                                    <div class="btn-box">
+                                        <a href="#cyber-riskops" class="theme-btn-one">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <div class="static-content">
+                                    <div class="icon-box"><i class="icon-12"></i></div>
+                                    <h3><a href="#rogueagent">RogueAgent ASPM&trade;</a></h3>
+                                    <p>Offense validation with attack-path analysis and digital risk scans.</p>
+                                </div>
+                                <div class="overlay-content">
+                                    <h3><a href="#rogueagent">RogueAgent ASPM&trade;</a></h3>
+                                    <p>Offense validation with attack-path analysis and digital risk scans.</p>
+                                    <div class="btn-box">
+                                        <a href="#rogueagent" class="theme-btn-one">Read More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-one wow fadeInRight animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <div class="static-content">
+                                    <div class="shape" style="background-image: url(assets/images/shape/shape-6.avif);"></div>
+                                    <div class="icon-box"><i class="icon-8"></i></div>
+                                    <h3><a href="#vision">Vision</a></h3>
+                                    <p>Unified chat, dashboards, and reporting across every suite.</p>
+                                </div>
+                                <div class="overlay-content">
+                                    <div class="shape" style="background-image: url(assets/images/shape/shape-7.avif);"></div>
+                                    <h3><a href="#vision">Vision</a></h3>
+                                    <p>Unified chat, dashboards, and reporting across every suite.</p>
+                                    <div class="btn-box">
+                                        <a href="#vision" class="theme-btn-one">Read More</a>
                                     </div>
                                 </div>
                             </div>
@@ -428,6 +743,72 @@
             </div>
         </section>
         <!-- service-section end -->
+
+        <section id="integrations" class="service-section p_relative centred sec-pad bg-color-1">
+            <div class="auto-container">
+                <div class="sec-title mb_70">
+                    <span class="sub-title">Integrations &amp; Outputs</span>
+                    <h2>Connect to enterprise workflows and export evidence</h2>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-one">
+                            <div class="inner-box">
+                                <div class="static-content">
+                                    <div class="icon-box"><i class="icon-7"></i></div>
+                                    <h3>Ticketing</h3>
+                                    <p>Jira or ServiceNow workflows for remediation and approvals.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-one">
+                            <div class="inner-box">
+                                <div class="static-content">
+                                    <div class="icon-box"><i class="icon-12"></i></div>
+                                    <h3>SIEM/SOC</h3>
+                                    <p>Splunk or Microsoft Sentinel integrations for alert routing.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-one">
+                            <div class="inner-box">
+                                <div class="static-content">
+                                    <div class="icon-box"><i class="icon-8"></i></div>
+                                    <h3>CI/CD</h3>
+                                    <p>GitHub Actions pipelines with policy gates and checks.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-one">
+                            <div class="inner-box">
+                                <div class="static-content">
+                                    <div class="icon-box"><i class="icon-7"></i></div>
+                                    <h3>Evidence export</h3>
+                                    <p>PDF, CSV, JSON, and audit-ready evidence bundles.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
+                        <div class="service-block-one">
+                            <div class="inner-box">
+                                <div class="static-content">
+                                    <div class="icon-box"><i class="icon-12"></i></div>
+                                    <h3>API &amp; Webhooks</h3>
+                                    <p>Enterprise APIs and webhooks for custom automations.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- main-footer -->
         <footer class="main-footer">
@@ -462,11 +843,14 @@
                                     <h3>Platform</h3>
                                 </div>
                                 <div class="widget-content">
-                                    <ul class="links-list clearfix">
-                                        <li><a href="services.html#scanning">Security &amp; Risk Assessment</a></li>
-                                        <li><a href="services.html#compliance">Compliance Management</a></li>
-                                        <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
-                                    </ul>
+<ul class="links-list clearfix">
+    <li><a href="genai-chat.html">GenAI Chat</a></li>
+    <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
+    <li><a href="agentic-design.html">Agentic Design</a></li>
+    <li><a href="efficient-compute.html">Efficient Compute</a></li>
+    <li><a href="data-localization.html">Data Localization</a></li>
+    <li><a href="ai-model-inspection.html">AI Model Inspection</a></li>
+</ul>
                                 </div>
                             </div>
                         </div>
@@ -476,12 +860,14 @@
                                     <h3>Solutions</h3>
                                 </div>
                                 <div class="widget-content">
-                                    <ul class="links-list clearfix">
-                                        <li><a href="streamline-soc2.html">SOC 2 Automation</a></li>
-                                        <li><a href="achieve-pci-dss.html">PCI-DSS Compliance</a></li>
-                                        <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
-                                        <li><a href="achieve-iso27001-compliance.html">ISO27001 Compliance</a></li>
-                                    </ul>
+<ul class="links-list clearfix">
+    <li><a href="cspm-cloudsignals.html">CloudSignals+ RiskOps&trade;</a></li>
+    <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
+    <li><a href="air-remediation.html">AIRE Agentic Mesh&trade; Remediation</a></li>
+    <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
+    <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
+    <li><a href="aivric-vision-enterprise.html">Vision Enterprise</a></li>
+</ul>
                                 </div>
                             </div>
                         </div>
@@ -556,6 +942,78 @@
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
 
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/mega-hover.js"></script>
+    <script src="assets/js/mega-tabs.js"></script>
+
+    <script src="assets/js/blog-mega.js"></script>
 </body><!-- End of .page_wrapper -->
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

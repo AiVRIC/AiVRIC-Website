@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>Request a Demo - AiVRIC</title>
+
+    <!-- Fav Icon -->
+    <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link href="assets/css/font-awesome-all.css" rel="stylesheet">
+    <link href="assets/css/flaticon.css" rel="stylesheet">
+    <link href="assets/css/owl.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link href="assets/css/nice-select.css" rel="stylesheet">
+    <link href="assets/css/jquery-ui.css" rel="stylesheet">
+    <link href="assets/css/color.css" rel="stylesheet">
+    <link href="assets/css/elpath.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/elements-css/page-title.css" rel="stylesheet">
+    <link href="assets/css/elements-css/contact.css" rel="stylesheet">
+    <link href="assets/css/responsive.css" rel="stylesheet">
+
+    <style>
+        /* Demo hero */
+        .demo-hero {
+            position: relative;
+            padding: 160px 0 80px;
+            background: radial-gradient(circle at top left, #1b8cff 0%, #020617 55%, #020817 100%);
+            color: #fff;
+            text-align: left;
+        }
+        .demo-hero .overlay {
+            position: absolute;
+            inset: 0;
+            opacity: 0.18;
+            background-image: url(assets/images/banner/banner-2.avif);
+            background-size: cover;
+            background-position: center;
+        }
+        .demo-hero .auto-container {
+            position: relative;
+            z-index: 2;
+        }
+        .demo-hero h1 {
+            font-size: 42px;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 18px;
+        }
+        .demo-hero p.lead {
+            max-width: 560px;
+            font-size: 16px;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        /* Right-hand hero visual that fully covers its card */
+        .demo-hero-visual {
+            width: 100%;
+            height: 260px;
+            border-radius: 22px;
+            background-image: url(assets/images/background/page-title.avif);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 22px 48px rgba(15,23,42,0.5);
+        }
+        @media (min-width: 1200px) {
+            .demo-hero-visual {
+                height: 320px;
+            }
+        }
+
+        /* Main section */
+        .demo-main {
+            padding: 60px 0 120px;
+        }
+        .demo-main .value-list {
+            margin-top: 18px;
+        }
+        .demo-main .value-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .demo-main .value-list i {
+            color: #22c55e;
+            margin-top: 3px;
+        }
+
+        /* Salesforce form card */
+        .salesforce-web-to-lead {
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 28px 60px rgba(15, 23, 42, 0.25);
+            padding: 30px 30px 26px;
+        }
+        .salesforce-web-to-lead label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+        .salesforce-web-to-lead .form-control,
+        .salesforce-web-to-lead select {
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            font-size: 14px;
+            padding: 10px 12px;
+        }
+        .salesforce-web-to-lead .form-control:focus,
+        .salesforce-web-to-lead select:focus {
+            border-color: #1b8cff;
+            box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);
+            outline: none;
+        }
+
+        /* Nice Select dropdown list scrollbars */
+        .nice-select {
+            width: 100%;
+        }
+        .nice-select .list {
+            max-height: 260px;
+            overflow-y: auto !important;
+            overflow-x: hidden;
+        }
+        .nice-select .list::-webkit-scrollbar {
+            width: 8px;
+        }
+        .nice-select .list::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .nice-select .list::-webkit-scrollbar-thumb {
+            background: #cbd5f5;
+            border-radius: 4px;
+        }
+        .nice-select .list::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+
+        /* Fallback: native select scrollbars if Nice Select isn't applied */
+        .salesforce-web-to-lead select {
+            max-height: 260px;
+            overflow-y: auto;
+            -webkit-appearance: auto !important;
+            -moz-appearance: auto !important;
+            appearance: auto !important;
+        }
+        .salesforce-web-to-lead select::-webkit-scrollbar {
+            width: 8px;
+        }
+        .salesforce-web-to-lead select::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .salesforce-web-to-lead select::-webkit-scrollbar-thumb {
+            background: #cbd5f5;
+            border-radius: 4px;
+        }
+        .salesforce-web-to-lead select::-webkit-scrollbar-thumb:hover {
+            background: #9ca3af;
+        }
+
+        .demo-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 18px;
+        }
+        .demo-badge {
+            padding: 6px 10px;
+            border-radius: 999px;
+            border: 1px solid rgba(148, 163, 184, 0.65);
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #e5e7eb;
+        }
+
+        /* Honeypot field (hidden from users, visible to bots) */
+        .hp-aivric {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="boxed_wrapper">
+
+    <!-- preloader -->
+    <div class="loader-wrap">
+        <div class="preloader">
+            <div class="preloader-close">x</div>
+            <div id="handle-preloader" class="handle-preloader">
+                <div class="animation-preloader">
+                    <div class="spinner"></div>
+                    <div class="txt-loading">
+                        <span data-text-preloader="A" class="letters-loading">A</span>
+                        <span data-text-preloader="I" class="letters-loading">I</span>
+                        <span data-text-preloader="V" class="letters-loading">V</span>
+                        <span data-text-preloader="r" class="letters-loading">r</span>
+                        <span data-text-preloader="i" class="letters-loading">i</span>
+                        <span data-text-preloader="c" class="letters-loading">c</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- preloader end -->
+
+    <!-- main header -->
+    <header class="main-header header-style-two">
+        <div class="header-lower">
+            <div class="auto-container">
+                <div class="outer-box">
+                    <div class="logo-box">
+                        <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC"></a></figure>
+                    </div>
+                    <div class="menu-area clearfix">
+                        <!--Mobile Navigation Toggler-->
+                        <div class="mobile-nav-toggler">
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                            <i class="icon-bar"></i>
+                        </div>
+                        <nav class="main-menu navbar-expand-md navbar-light">
+                            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                <ul class="navigation clearfix">
+                                    <li class="dropdown"><a href="services.html">Platform</a>
+                                        <ul>
+                                            <li><a href="services.html#scanning">Security Risk Assessment</a></li>
+                                            <li><a href="services.html#compliance">Compliance Management</a></li>
+                                            <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown"><a href="#">Solutions</a>
+                                        <div class="megamenu">
+                                            <div class="row clearfix">
+                                                <div class="col-lg-6 column">
+                                                    <h4>By Compliance Framework</h4>
+                                                    <ul>
+                                                        <li><a href="achieve-pci-dss.html">Achieve PCI DSS Compliance</a></li>
+                                                        <li><a href="streamline-soc2.html">Streamline SOC 2 Audits</a></li>
+                                                        <li><a href="cmmc-readiness.html">Prepare for CMMC Level 2</a></li>
+                                                        <li><a href="achieve-iso27001-compliance.html">Maintain ISO 27001</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-6 column">
+                                                    <h4>By Use Case</h4>
+                                                    <ul>
+                                                        <li><a href="aivric-vision.html">AiVRIC Vision as your Risk Advisor</a></li>
+                                                        <li><a href="use-case-vuln-mgmt.html">Multi-cloud Security Posture Management</a></li>
+                                                        <li><a href="use-case-kubernetes.html">Secure Kubernetes deployments</a></li>                                                                        
+                                                        <li><a href="use-case-github-security.html">Secure Github Repos</a></li> 
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li><a href="pricing.html">Pricing</a></li>
+                                    <li class="dropdown"><a href="resources.html">Resources</a>
+                                        <ul>
+                                            <li><a href="about.html">About Us</a></li>
+                                            <li><a href="why-aivric.html">Why AiVRIC</a></li>
+                                            <li><a href="resources.html">Resources</a></li>
+                                            <li><a href="blog-portal.html">Blogs</a></li>
+                                            
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                    <ul class="menu-right-content">
+                        <li class="search-box-outer search-toggler">
+                            <i class="icon-4"></i>
+                        </li>
+                        <li class="btn-box">
+                            <a href="request-demo.html" class="theme-btn-one">Request a Demo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="sticky-header">
+            <div class="auto-container">
+                <div class="outer-box">
+                    <div class="logo-box">
+                        <figure class="logo">
+                            <a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC"></a>
+                        </figure>
+                    </div>
+                    <div class="menu-area clearfix">
+                        <nav class="main-menu clearfix"></nav>
+                    </div>
+                    <ul class="menu-right-content">
+                        <li class="search-box-outer search-toggler">
+                            <i class="icon-4"></i>
+                        </li>
+                        <li class="btn-box">
+                            <a href="request-demo.html" class="theme-btn-one">Request A Demo</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><i class="fas fa-times"></i></div>
+        <nav class="menu-box">
+            <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.avif" alt="AiVRIC"></a></div>
+            <div class="menu-outer"></div>
+            <div class="contact-info">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li>Wilmington, Delaware, USA</li>
+                    <li><a href="tel:+19543426637">+1 954 342 6637</a></li>
+                    <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                </ul>
+            </div>
+            <div class="social-links">
+                <ul class="clearfix">
+                    <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                    <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                    <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                    <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- End Mobile Menu -->
+
+    <!-- Demo hero -->
+    <section class="demo-hero">
+        <div class="overlay"></div>
+        <div class="auto-container">
+            <div class="row clearfix align-items-center">
+                <div class="col-lg-7 col-md-12">
+                    <h1>See AiVRIC in Action</h1>
+                    <p class="lead">
+                        Request a live walkthrough of AiVRIC to see how AI-powered assessments, remediation guidance,
+                        and compliance automation can simplify your cloud security operations.
+                    </p>
+                    <div class="demo-badges">
+                        <span class="demo-badge">Mid-Market &amp; Enterprise Ready</span>
+                        <span class="demo-badge">Cloud Security &amp; Compliance</span>
+                        <span class="demo-badge">Guided by Experts</span>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="demo-hero-visual"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main content -->
+    <section class="demo-main">
+        <div class="auto-container">
+            <div class="row clearfix">
+                
+                    <h3>What you’ll get from your demo</h3>
+                    <p>
+                        Every organization’s cloud footprint is different. In your session, our team will focus on
+                        the controls, frameworks, and deployments that matter most to you.
+                    </p>
+                    <ul class="value-list">
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Live walkthrough of AiVRIC’s assessment engine, findings, and remediation workflow.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Discussion of your current cloud platforms, frameworks, and audit priorities.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Example reports, export options, and how AiVRIC fits into your existing toolchain.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>Time for Q&amp;A with our security and compliance experts.</span>
+                        </li>
+                    </ul>
+                    <p class="mt_20">
+                        Complete the form and we’ll follow up quickly to confirm a time that works for your team.
+                    </p>
+               
+
+                <!-- Calendly inline widget begin -->
+<div class="calendly-inline-widget" data-url="https://calendly.com/aivric-sales/aivric-walkthrough-demo?primary_color=00b8ff" style="min-width:320px;height:700px;"></div>
+<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<!-- Calendly inline widget end -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- main-footer -->
+        <footer class="main-footer">
+            <div class="widget-section">
+                <div class="pattern-layer">
+                    <div class="pattern-1" style="background-image: url(assets/images/shape/shape-20.avif);"></div>
+                    <div class="pattern-2" style="background-image: url(assets/images/shape/shape-21.avif);"></div>
+                </div>
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget logo-widget">
+                                <div class="widget-title">
+                                    <h3>AiVRIC</h3>
+                                </div>
+                                <div class="text">
+                                    <p>Autonomous Security, Compliance, and Risk Intelligence.</p>
+                                </div>
+                                <div class="subscribe-box">
+                                    <form action="contact.html" method="post">
+                                        <div class="form-group">
+                                            <input type="email" name="email" placeholder="Your email" required="">
+                                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget links-widget">
+                                <div class="widget-title">
+                                    <h3>Platform</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="links-list clearfix">
+                                        <li><a href="services.html#scanning">Security &amp; Risk Assessment</a></li>
+                                        <li><a href="services.html#compliance">Compliance Management</a></li>
+                                        <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget links-widget">
+                                <div class="widget-title">
+                                    <h3>Solutions</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="links-list clearfix">
+                                        <li><a href="streamline-soc2.html">SOC 2 Automation</a></li>
+                                        <li><a href="achieve-pci-dss.html">PCI-DSS Compliance</a></li>
+                                        <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
+                                        <li><a href="achieve-iso27001-compliance.html">ISO27001 Compliance</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget contact-widget">
+                                <div class="widget-title">
+                                    <h3>Contact</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="info-list clearfix">
+                                        <li><i class="fas fa-envelope"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                                        <li><i class="fas fa-phone-alt"></i><a href="tel:+19543426637">+1 954 342 6637</a></li>
+                                    </ul>
+                                </div>
+                                <ul class="social-links-two clearfix">
+                                    <li><a href="https://x.com/aivric"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="https://www.facebook.com/61581937785235/"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/aivric"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="https://www.instagram.com/aivrictechnologies/"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="auto-container">
+                    <div class="bottom-inner">
+                        <div class="copyright">
+                            <p>&copy; 2025 <a href="index.html">AiVRIC</a>. All Rights Reserved.</p>
+                        </div>
+                        <ul class="footer-nav">
+                            <li><a href="terms-of-use.html">Terms of Service</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- main-footer end -->
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+        
+    </div>
+
+<!-- Scripts -->
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.js"></script>
+<script src="assets/js/wow.js"></script>
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/jquery.fancybox.js"></script>
+<script src="assets/js/appear.js"></script>
+<script src="assets/js/scrollbar.js"></script>
+<script src="assets/js/isotope.js"></script>
+<script src="assets/js/jquery.nice-select.min.js"></script>
+<script src="assets/js/parallax-scroll.js"></script>
+<script src="assets/js/jquery-ui.js"></script>
+<script src="assets/js/jquery.bootstrap-touchspin.js"></script>
+<script src="assets/js/script.js"></script>
+
+<script>
+    // Apply Nice Select to the Salesforce dropdowns if the plugin is loaded
+    jQuery(function ($) {
+        if ($.fn.niceSelect) {
+            $('#state_code, #country_code').niceSelect();
+        }
+
+        // Honeypot check – block submission if bot filled hidden field
+        $('#sf-webtolead').on('submit', function (e) {
+            var hp = $('#hp_aivric').val();
+            if (hp && hp.trim() !== '') {
+                e.preventDefault();
+                return false;
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

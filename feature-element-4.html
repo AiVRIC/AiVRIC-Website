@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -24,11 +24,12 @@
 <link href="assets/css/nice-select.css" rel="stylesheet">
 <link href="assets/css/color.css" rel="stylesheet">
 <link href="assets/css/elpath.css" rel="stylesheet">
-<link href="assets/css/style.css" rel="stylesheet">
+<link href="assets/css/style.css?v=20250115" rel="stylesheet">
 <link href="assets/css/elements-css/page-title.css" rel="stylesheet">
 <link href="assets/css/elements-css/feature.css" rel="stylesheet">
 <link href="assets/css/responsive.css" rel="stylesheet">
 
+  <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
 </head>
 
 
@@ -112,154 +113,175 @@
                                 <i class="icon-bar"></i>
                             </div>
                             <nav class="main-menu navbar-expand-md navbar-light">
-                                <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                                    <ul class="navigation clearfix">
-                                    <ul class="navigation clearfix">
-                                        <li class="dropdown"><a href="services.html">Platform</a>
-                                            <ul>
-                                                <li><a href="services.html#scanning">Security & Risk Assessment</a></li>
-                                                <li><a href="services.html#compliance">Compliance Management</a></li>
-                                                <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
-                                             </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="#">Solutions</a>
-                                            <div class="megamenu">
-                                                <div class="row clearfix">
-                                                    <div class="col-lg-6 column">
-                                                        <h4>By Compliance Framework</h4>
-                                                        <ul>
-                                                            <li><a href="#">Achieve PCI DSS Compliance</a></li>
-                                                            <li><a href="#">Streamline SOC 2 Audits</a></li>
-                                                            <li><a href="#">Prepare for CMMC Level 2</a></li>
-                                                            <li><a href="#">Maintain ISO 27001</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-6 column">
-                                                        <h4>By Use Case</h4>
-                                                        <ul>
-                                                            <li><a href="#">Cloud Security Posture</a></li>
-                                                            <li><a href="#">Vulnerability Management</a></li>
-                                                            <li><a href="#">Automated Remediation</a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li><a href="pricing.html">Pricing</a></li>
-                                        <li class="dropdown"><a href="#">Resources</a>
-      <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="why-aivric.html">Why AiVRIC</a></li>
-        <li><a href="trust.html">Trust Center</a></li>
-        <li><a href="AiVRIC-UserGuide/index.html">Platform Guide</a></li>
-        <li><a href="blog-portal.html">Blogs</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-      </ul>
-    </li>
-                                    </ul>
+    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+        <ul class="navigation clearfix">
+            <li class="dropdown platform-menu"><a href="services.html">Platform</a>
+                <div class="platform-megamenu">
+                    <div class="platform-grid">
+                        <a class="platform-card" href="genai-chat.html"><h4>GenAI Chat</h4><p>Fabric intelligence chat across every AiVRIC solution.</p><span>view more</span></a>
+                        <a class="platform-card" href="shared-data-layer.html"><h4>Shared Data Layer</h4><p>The Fabric data layer unifies telemetry and evidence.</p><span>view more</span></a>
+                        <a class="platform-card" href="agentic-design.html"><h4>Agentic Design</h4><p>Fabric agents coordinate actions across suites.</p><span>view more</span></a>
+                        <a class="platform-card" href="efficient-compute.html"><h4>Efficient Compute</h4><p>Fabric compute optimizes AI workloads end-to-end.</p><span>view more</span></a>
+                        <a class="platform-card" href="data-localization.html"><h4>Data Localization</h4><p>Fabric residency controls govern every dataset.</p><span>view more</span></a>
+                        <a class="platform-card" href="ai-model-inspection.html"><h4>AI Model Inspection</h4><p>Fabric inspection monitors AI models and risk.</p><span>view more</span></a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown"><a href="#">Solutions</a>
+                <div class="megamenu">
+                    <div class="mega-tabs" role="tablist">
+                        <button class="mega-tab is-active" type="button" data-mega-tab="solution" role="tab" aria-selected="true">By Solution</button>
+                        <button class="mega-tab" type="button" data-mega-tab="usecase" role="tab" aria-selected="false">By Use Case</button>
+                    </div>
+                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="solution" data-mega-active="defense" role="tabpanel">
+                        <div class="mega-rail mega-rail-stack">
+                            <button class="mega-stack-card is-active" type="button" data-mega-target="defense">
+                                <h4>Defense</h4>
+                                <p>A suite of solutions used to defend your organization from cyber threats.</p>
+                                <a class="mega-link" href="solutions-portal.html#defense">View all products -></a>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="offense">
+                                <h4>Offense</h4>
+                                <p>A suite that continuously simulates attacks across your digital ecosystem.</p>
+                                <a class="mega-link" href="solutions-portal.html#offense">View all products -></a>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="vision">
+                                <h4>Vision</h4>
+                                <p>Holistic context across the AiVRIC ecosystem and your environments.</p>
+                                <a class="mega-link" href="solutions-portal.html#vision">View all products -></a>
+                            </button>
+                        </div>
+                        <div class="mega-grid">
+                            <a class="mega-card" data-mega-category="defense" href="cspm-cloudsignals.html"><strong>CloudSignals+ RiskOps&trade;</strong><span>Scan all your cloud platform configs.</span></a>
+                            <a class="mega-card" data-mega-category="defense" href="ai-inspector.html"><strong>AI Signals&trade;</strong><span>LLM observability, evaluations, and prompt management for AI apps.</span></a>
+                            <a class="mega-card" data-mega-category="defense" href="air-remediation.html"><strong>AIRE Agentic Mesh&trade;</strong><span>Agentic role-based remediation agents.</span></a>
+                            <a class="mega-card" data-mega-category="offense" href="rogueagent.html"><strong>RogueAgent ASPM&trade;</strong><span>Analyze cloud posture using a risk lens.</span></a>
+                            <a class="mega-card" data-mega-category="vision" href="aivric-vision-professional.html"><strong>Vision AI Optics&trade;</strong><span>OpenAI-driven AI risk analysis and reporting.</span></a>
+                        </div>
+                    </div>
+                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="usecase" data-mega-active="compliance" role="tabpanel" hidden>
+                        <div class="mega-rail mega-rail-stack">
+                            <button class="mega-stack-card is-active" type="button" data-mega-target="compliance">
+                                <h4>Compliance</h4>
+                                <p>Framework-ready controls and audit automation.</p>
+                                <a class="mega-link" href="use-cases-portal.html#compliance">View all frameworks -></a>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="riskops">
+                                <h4>Risk Ops</h4>
+                                <p>Continuous risk operations and response alignment.</p>
+                                <a class="mega-link" href="use-cases-portal.html#riskops">View all programs -></a>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="productops">
+                                <h4>Product Ops</h4>
+                                <p>Security and compliance built into delivery workflows.</p>
+                                <a class="mega-link" href="use-cases-portal.html#productops">View all playbooks -></a>
+                            </button>
+                        </div>
+                        <div class="mega-grid">
+                            <a class="mega-card" data-mega-category="compliance" href="streamline-soc2.html"><strong>SOC 2 Type II</strong><span>Measure compliance against the SOC 2 Trust Service Principles.</span></a>
+                            <a class="mega-card" data-mega-category="compliance" href="achieve-pci-dss.html"><strong>PCI-DSS</strong><span>Continuous validation for PCI requirements and evidence.</span></a>
+                            <a class="mega-card" data-mega-category="compliance" href="cmmc-readiness.html"><strong>CMMC</strong><span>Readiness workflows for CMMC Level 2 assessments.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="issues-poams.html"><strong>Issues and POA&Ms</strong><span>Track issues, milestones, and remediation plans.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="security-exceptions.html"><strong>Security Exceptions</strong><span>Document approved exceptions with guardrails.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="threat-analysis.html"><strong>Threat Analysis</strong><span>Surface high-impact risks across environments.</span></a>
+                            <a class="mega-card" data-mega-category="productops" href="use-case-github-security.html"><strong>DevSecOps</strong><span>Secure Github repos and delivery workflows.</span></a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown blogs-menu"><a href="blog-portal.html">Blogs</a>
+                <div class="blogs-megamenu">
+                    <div class="blogs-mega-inner">
+                        <div class="blogs-list">
+                            <a class="blog-link is-active" data-blog="blog-future" href="/aivric-enterprise/blog-future-of-cloud-security.html">
+    <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/cloud-security-poster.avif" alt="Future of Cloud Security"></span>
+    <span class="blog-link-text">
+        <span class="blog-link-title">Future of Cloud Security</span>
+        <span class="blog-link-sub">Agentic defense for multi-cloud risk.</span>
+    </span>
+</a>
+                            <a class="blog-link" data-blog="blog-devops" href="/aivric-enterprise/blog-integrating-into-DevOps.html">
+    <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/threat-detected.avif" alt="Integrating Into DevOps"></span>
+    <span class="blog-link-text">
+        <span class="blog-link-title">Integrating Into DevOps</span>
+        <span class="blog-link-sub">Where AI controls meet pipelines.</span>
+    </span>
+</a>
+                            <a class="blog-link" data-blog="blog-compliance" href="/aivric-enterprise/blog-why-continuous-compliance-matters.html">
+    <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/SOC-2-compliance.avif" alt="Continuous Compliance"></span>
+    <span class="blog-link-text">
+        <span class="blog-link-title">Continuous Compliance</span>
+        <span class="blog-link-sub">Evidence-driven governance at speed.</span>
+    </span>
+</a>
+                            <a class="blog-link" data-blog="blog-healthcare" href="/aivric-enterprise/assets/blog-managing-healthcare-risk/index.html">
+    <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/SOC-2-compliance.avif" alt="Managing AI Risk in Healthcare"></span>
+    <span class="blog-link-text">
+        <span class="blog-link-title">Managing AI Risk in Healthcare</span>
+        <span class="blog-link-sub">Secure AI deployments for regulated care.</span>
+    </span>
+</a>
+                            <a class="blogs-all" href="blog-portal.html">View all blogs -></a>
+                        </div>
+                        <div class="blogs-preview">
+                            <div class="blog-preview is-active" data-blog-preview="blog-future">
+                                <div class="blog-thumb"><img src="assets/images/blog/cloud-security-poster.avif" alt="Blog preview image"></div>
+                                <h4>Future of Cloud Security</h4>
+                                <p>How agentic telemetry turns posture data into board-ready decisions.</p>
+                                <ul>
+                                    <li>Unified CSPM + AI control evidence.</li>
+                                    <li>Risk scoring tied to business impact.</li>
+                                    <li>Continuous evidence for audits.</li>
                                 </ul>
-                                                </li>
-                                            </ul>
-                                        </li>  
-                                        <li class="dropdown"><a href="index.html">Services</a>
-                                            <ul>
-                                                <li><a href="services.html">Our Services 1</a></li>
-                                                <li><a href="services-2.html">Our Services 2</a></li>
-                                                <li><a href="service-details.html">Tax Management</a></li>
-                                                <li><a href="service-details-2.html">Strategy & Planning</a></li>
-                                                <li><a href="service-details-3.html">Program Manager</a></li>
-                                                <li><a href="service-details-4.html">Investment Policy</a></li>
-                                                <li><a href="service-details-5.html">Financial Advices</a></li>
-                                                <li><a href="service-details-6.html">Insurance Strategy</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown"><a href="index.html">Pages</a>
-                                            <ul>
-                                                <li class="dropdown"><a href="index.html">Team</a>
-                                                    <ul>
-                                                        <li><a href="team.html">Team Member</a></li>
-                                                        <li><a href="team-details.html">Team Details</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li class="dropdown"><a href="index.html">Portfolio</a>
-                                                    <ul>
-                                                        <li><a href="portfolio.html">Portfolio 1</a></li>
-                                                        <li><a href="portfolio-2.html">Portfolio 2</a></li>
-                                                        <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                                    </ul>
-                                                </li>
-                                                <li><a href="about.html">About Us</a></li>
-                                                <li><a href="pricing.html">Pricing Table</a></li>
-                                                <li><a href="career.html">Career</a></li>
-                                                <li><a href="faq.html">Faq’s</a></li>
-                                                <li><a href="testimonial.html">Testimonials</a></li>
-                                                <li><a href="error.html">404</a></li>
-                                            </ul>
-                                        </li> 
-                                        <li class="dropdown"><a href="index.html">Shop</a>
-                                            <ul>
-                                                <li><a href="shop.html">Our Shop</a></li>
-                                                <li><a href="shop-details.html">Shop Details</a></li>
-                                                <li><a href="cart.html">Cart Page</a></li>
-                                                <li><a href="checkout.html">Checkout</a></li>
-                                            </ul>
-                                        </li> 
-                                        <li class="current dropdown"><a href="index.html">Elements</a>
-                                            <div class="megamenu">
-                                                <div class="row clearfix">
-                                                    <div class="col-lg-4 column">
-                                                        <ul>
-                                                            <li><h4>Elements 1</h4></li>
-                                                            <li><a href="feature-element-1.html">Feature Block 01</a></li>
-                                                            <li><a href="feature-element-2.html">Feature Block 02</a></li>
-                                                            <li><a href="feature-element-3.html">Feature Block 03</a></li>
-                                                            <li><a href="feature-element-4.html">Feature Block 04</a></li>
-                                                            <li><a href="service-element-1.html">Service Block 01</a></li>
-                                                            <li><a href="service-element-2.html">Service Block 02</a></li>
-                                                            <li><a href="service-element-3.html">service Block 03</a></li>
-                                                            <li><a href="service-element-4.html">service Block 04</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-4 column">
-                                                        <ul>
-                                                            <li><h4>Elements 2</h4></li>
-                                                            <li><a href="about-element-1.html">About Block 01</a></li>
-                                                            <li><a href="about-element-2.html">About Block 02</a></li>
-                                                            <li><a href="about-element-3.html">About Block 03</a></li>
-                                                            <li><a href="project-element-1.html">Project Block 01</a></li>
-                                                            <li><a href="project-element-2.html">Project Block 02</a></li>
-                                                            <li><a href="project-element-3.html">project Block 03</a></li>
-                                                            <li><a href="project-element-4.html">project Block 04</a></li>
-                                                            <li><a href="working-element-1.html">Working Block 01</a></li>
-                                                        </ul>
-                                                    </div> 
-                                                    <div class="col-lg-4 column">
-                                                        <ul>
-                                                            <li><h4>Elements 3</h4></li>
-                                                            <li><a href="working-element-2.html">Working Block 02</a></li>
-                                                            <li><a href="working-element-3.html">Working Block 03</a></li>
-                                                            <li><a href="working-element-4.html">Working Block 04</a></li>
-                                                            <li><a href="news-element-1.html">News Block 01</a></li>
-                                                            <li><a href="news-element-2.html">News Block 02</a></li>
-                                                            <li><a href="news-element-3.html">News Block 03</a></li>
-                                                            <li><a href="news-element-4.html">News Block 04</a></li>
-                                                            <li><a href="clients-element.html">Clients Block</a></li>
-                                                        </ul>
-                                                    </div>                                     
-                                                </div>                                            
-                                            </div>
-                                        </li>
-                                        <li class="dropdown"><a href="index.html">Blog</a>
-                                            <ul>
-                                                <li><a href="blog.html">Blog Grid</a></li>
-                                                <li><a href="blog-2.html">Blog Standard</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
-                                            </ul>
-                                        </li>  
-                                        <li><a href="contact.html">Contact Us</a></li> 
-                                    </ul>
-                                </div>
-                            </nav>
+                                <a href="blog-future-of-cloud-security.html">Read full article -></a>
+                            </div>
+                            <div class="blog-preview" data-blog-preview="blog-devops">
+                                <div class="blog-thumb"><img src="assets/images/blog/threat-detected.avif" alt="Blog preview image"></div>
+                                <h4>Integrating Into DevOps</h4>
+                                <p>Deliver secure software with agentic checks built into CI/CD.</p>
+                                <ul>
+                                    <li>Policy gates for releases.</li>
+                                    <li>Automated remediation routing.</li>
+                                    <li>Shared evidence across teams.</li>
+                                </ul>
+                                <a href="blog-integrating-into-DevOps.html">Read full article -></a>
+                            </div>
+                            <div class="blog-preview" data-blog-preview="blog-compliance">
+                                <div class="blog-thumb"><img src="assets/images/blog/SOC-2-compliance.avif" alt="Blog preview image"></div>
+                                <h4>Why Continuous Compliance Matters</h4>
+                                <p>Shift from point-in-time audits to always-on readiness.</p>
+                                <ul>
+                                    <li>Evidence pipelines for SOC 2 and ISO.</li>
+                                    <li>Automated control mapping.</li>
+                                    <li>Executive-ready compliance reporting.</li>
+                                </ul>
+                                <a href="blog-why-continuous-compliance-matters.html">Read full article -></a>
+                            </div>
+                            <div class="blog-preview" data-blog-preview="blog-healthcare">
+    <div class="blog-thumb"><img src="/aivric-enterprise/assets/images/blog/SOC-2-compliance.avif" alt="Managing AI Risk in Healthcare"></div>
+    <h4>Managing AI Risk in Healthcare</h4>
+    <p>Secure AI deployments for regulated care, from data controls to evidence-ready reporting.</p>
+    <ul>
+        <li>Customer-hosted SaaS with data control.</li>
+        <li>AI evaluations for regulated models.</li>
+        <li>Audit-ready evidence for leaders.</li>
+    </ul>
+    <a href="/aivric-enterprise/assets/blog-managing-healthcare-risk/index.html">Read full article -></a>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown"><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Resources</a>
+                <ul>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="why-aivric.html">Why AiVRIC</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
                         </div>
                                                 <ul class="menu-right-content">
                             <li class="search-box-outer search-toggler">
@@ -492,7 +514,65 @@
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
 
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/mega-hover.js"></script>
+    <script src="assets/js/mega-tabs.js"></script>
+
+    <script src="assets/js/blog-mega.js"></script>
 </body><!-- End of .page_wrapper -->
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

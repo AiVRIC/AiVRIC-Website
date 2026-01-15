@@ -24,21 +24,31 @@
   <link href="assets/css/nice-select.css" rel="stylesheet">
   <link href="assets/css/color.css" rel="stylesheet">
   <link href="assets/css/elpath.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style.css?v=20250115" rel="stylesheet">
   <link href="assets/css/responsive.css" rel="stylesheet">
 
   <!-- Page-specific styling (keeps AiVRIC look, adds modern pricing layout) -->
   <style>
     :root{
+      --text-strong: #f8fafc;
+      --text-default: #e5e7eb;
+      --text-muted: #cbd5e1;
+      --text-faint: #94a3b8;
+      --text-accent: #7dd3fc;
+      --surface-0: #050814;
+      --surface-1: rgba(255,255,255,0.06);
+      --surface-2: rgba(255,255,255,0.10);
+      --border-subtle: rgba(148,163,184,0.28);
+      --border-strong: rgba(148,163,184,0.5);
       --aivric-accent: #00d1ff;     /* aligns to your site CTA/cyan */
       --aivric-accent2: #2ee59d;    /* success/green */
       --aivric-ink: #0b1220;
-      --aivric-panel: rgba(255,255,255,0.06);
-      --aivric-panel2: rgba(255,255,255,0.09);
-      --aivric-line: rgba(255,255,255,0.12);
-      --aivric-text: rgba(255,255,255,0.92);
-      --aivric-muted: rgba(255,255,255,0.72);
-      --aivric-muted2: rgba(255,255,255,0.58);
+      --aivric-panel: var(--surface-1);
+      --aivric-panel2: var(--surface-2);
+      --aivric-line: var(--border-subtle);
+      --aivric-text: var(--text-default);
+      --aivric-muted: var(--text-muted);
+      --aivric-muted2: var(--text-faint);
       --aivric-shadow: 0 14px 40px rgba(0,0,0,0.28);
       --aivric-radius: 18px;
     }
@@ -51,15 +61,15 @@
         radial-gradient(1200px 900px at 70% -20%, rgba(0,209,255,0.22), transparent 55%),
         radial-gradient(900px 700px at 10% 10%, rgba(46, 113, 229, 0.14), transparent 60%),
         linear-gradient(180deg, #070b14 0%, #060a12 35%, #050814 100%);
-      color: var(--aivric-text);
+      color: var(--text-default);
     }
 
     /* Ensure header stays readable on dark bg */
     .main-header .header-lower,
     .sticky-header{
-      background: rgb(255, 255, 255);
+      background: rgba(6, 10, 18, 0.92);
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid var(--border-subtle);
     }
 
     /* Page container aligns with your template */
@@ -92,12 +102,12 @@
       gap:10px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(0,209,255,0.12);
-      border: 1px solid rgba(0,209,255,0.28);
-      color: var(--aivric-text);
+      background: rgba(0,209,255,0.14);
+      border: 1px solid rgba(0,209,255,0.35);
+      color: var(--text-strong);
       font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.2px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
     }
     .badge i{ color: var(--aivric-accent); }
 
@@ -107,7 +117,8 @@
       line-height: 1.06;
       margin: 14px 0 12px 0;
       letter-spacing: -0.8px;
-      color: var(--aivric-text);
+      color: var(--text-strong);
+      text-shadow: 0 2px 10px rgba(6, 12, 24, 0.45);
     }
     @media (max-width: 768px){
       .hero-title{ font-size: 36px; }
@@ -116,7 +127,7 @@
     .hero-sub{
       font-size: 16px;
       line-height: 1.75;
-      color: var(--aivric-muted);
+      color: var(--text-muted);
       margin: 0 0 18px 0;
       max-width: 70ch;
     }
@@ -142,7 +153,7 @@
       border: 1px solid rgba(255,255,255,0.10);
     }
     .hero-points i{ margin-top:2px; color: var(--aivric-accent2); }
-    .hero-points span{ color: var(--aivric-muted); font-size: 14px; line-height: 1.45; }
+    .hero-points span{ color: var(--text-muted); font-size: 14px; line-height: 1.45; }
 
     /* Toggle panel */
     .pricing-toggle{
@@ -160,7 +171,7 @@
     .toggle-title{
       font-size: 13px;
       letter-spacing: 0.25px;
-      color: var(--aivric-muted);
+      color: var(--text-faint);
       margin: 0 0 10px 0;
       font-weight: 700;
       text-transform: uppercase;
@@ -183,12 +194,12 @@
     }
     .toggle-label strong{
       font-size: 14px;
-      color: var(--aivric-text);
-      font-weight: 900;
-      letter-spacing: 0.2px;
+      color: var(--text-strong);
+      font-weight: 700;
+      letter-spacing: 0.3px;
     }
     .toggle-label small{
-      color: var(--aivric-muted2);
+      color: var(--text-muted);
       font-size: 12.5px;
       line-height: 1.4;
     }
@@ -219,13 +230,13 @@
 
     .toggle-foot{
       margin-top: 12px;
-      color: var(--aivric-muted2);
+      color: var(--text-faint);
       font-size: 12.5px;
       line-height: 1.55;
     }
     .legal-note{
       margin-top: 14px;
-      color: rgba(255,255,255,0.45);
+      color: var(--text-faint);
       font-size: 12px;
       line-height: 1.6;
     }
@@ -239,11 +250,12 @@
       font-size: 30px;
       margin: 18px 0 10px 0;
       letter-spacing: -0.3px;
-      color: var(--aivric-text);
+      color: var(--text-strong);
+      text-shadow: 0 2px 10px rgba(6, 12, 24, 0.45);
     }
     .section-sub{
       margin: 0 0 22px 0;
-      color: var(--aivric-muted);
+      color: var(--text-muted);
       line-height: 1.75;
       font-size: 15px;
       max-width: 88ch;
@@ -576,7 +588,280 @@
 
     /* Smooth anchor offset for sticky header */
     .anchor{ scroll-margin-top: 120px; }
-  </style>
+  
+    /* Suite pricing layout */
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top:18px;
+    }
+    .suite-section{ margin-top: 40px; }
+    .suite-header{
+      display:flex;
+      flex-wrap:wrap;
+      gap:24px;
+      align-items:flex-start;
+      justify-content:space-between;
+      padding: 24px;
+      background: var(--surface-1);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--aivric-radius);
+    }
+    .suite-tag{
+      display:inline-flex;
+      align-items:center;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(0,209,255,0.16);
+      border: 1px solid rgba(0,209,255,0.4);
+      color: var(--text-strong);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .suite-title{
+      font-family: Jost, Inter, sans-serif;
+      font-size: 28px;
+      margin-top: 10px;
+      color: var(--text-strong);
+      text-shadow: 0 2px 10px rgba(6, 12, 24, 0.45);
+    }
+    .suite-desc{
+      color: var(--text-muted);
+      margin: 6px 0 0;
+      max-width: 72ch;
+    }
+    .suite-meta{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .suite-meta-card{
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: var(--surface-2);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    .suite-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+    @media (max-width: 992px){
+      .suite-grid{ grid-template-columns: 1fr; }
+    }
+    .tier-card{
+      background: var(--surface-1);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--aivric-radius);
+      padding: 20px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      box-shadow: var(--aivric-shadow);
+    }
+    .tier-card.highlight{
+      border-color: rgba(0,209,255,0.5);
+      box-shadow: 0 18px 40px rgba(0,209,255,0.12);
+    }
+    .tier-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap: 12px;
+    }
+    .tier-title{
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-strong);
+      text-shadow: 0 1px 6px rgba(6, 12, 24, 0.4);
+    }
+    .tier-price{
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--text-faint);
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+    .tier-desc{
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+    .tier-group h4{
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--text-accent);
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+      font-weight: 600;
+      text-shadow: 0 1px 4px rgba(6, 12, 24, 0.45);
+    }
+    .tier-list{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 6px;
+    }
+    .tier-list li{
+      display:flex;
+      gap: 8px;
+      align-items:flex-start;
+      color: var(--text-default);
+      font-size: 13.5px;
+    }
+    .tier-list li:before{
+      content: "•";
+      color: var(--aivric-accent2);
+      margin-top: 1px;
+    }
+    .tier-icp{
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    .tier-cta{
+      margin-top: auto;
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: var(--aivric-accent);
+      color: #04121c;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .tier-cta:hover{ color: #04121c; background: #24ddff; }
+    .tier-cta.secondary{
+      background: transparent;
+      color: var(--text-strong);
+      border: 1px solid rgba(0,209,255,0.55);
+    }
+    .tier-cta.secondary:hover{
+      background: rgba(0, 209, 255, 0.18);
+      border-color: rgba(0,209,255,0.7);
+      color: #ffffff;
+    }
+    .offense-grid{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    @media (max-width: 992px){
+      .offense-grid{ grid-template-columns: 1fr; }
+    }
+    .offense-card{
+      background: var(--surface-1);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--aivric-radius);
+      padding: 20px;
+      box-shadow: var(--aivric-shadow);
+    }
+    .offense-card h3{
+      font-size: 20px;
+      color: var(--text-strong);
+      text-shadow: 0 1px 6px rgba(6, 12, 24, 0.4);
+    }
+    .offense-card h4{
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-strong);
+      letter-spacing: 0.2px;
+      text-shadow: 0 1px 6px rgba(6, 12, 24, 0.4);
+    }
+    .offense-card p{ color: var(--text-muted); }
+    .vision-muted .suite-header{
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.08);
+    }
+    .vision-muted .suite-tag{
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.08);
+      color: var(--text-faint);
+    }
+    .vision-muted .suite-desc{ color: var(--text-faint); }
+    .vision-muted .offense-card{ background: rgba(255,255,255,0.04); }\n  
+    /* Pricing dark-mode content contrast fixes */
+    .offense-card .tier-list li {
+      color: var(--text-default);
+    }
+    .offense-card .tier-list li:before {
+      color: var(--aivric-accent2);
+    }
+    .offense-card .tier-icp {
+      color: var(--text-muted);
+    }
+    .vision-muted .offense-card {
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.14);
+    }
+    .vision-muted .offense-card h4,
+    .vision-muted .offense-card p,
+    .vision-muted .offense-card li,
+    .vision-muted .offense-card .tier-icp {
+      color: var(--text-muted);
+    }
+    .vision-muted .tier-cta.secondary {
+      color: var(--text-accent);
+      border-color: rgba(0,209,255,0.45);
+    }\n  
+    /* Pricing CTA contrast (dark background) */
+    .pricing-hero .theme-btn-one,
+    .pricing-hero .theme-btn-two {
+      font-weight: 600;
+    }
+    .pricing-hero .theme-btn-two{
+      background: rgba(0, 209, 255, 0.18);
+      color: var(--text-strong);
+      border: 1px solid rgba(0, 209, 255, 0.55);
+      box-shadow: 0 10px 22px rgba(0, 209, 255, 0.18);
+    }
+    .pricing-hero .theme-btn-two:hover{
+      background: rgba(0, 209, 255, 0.28);
+      color: #ffffff;
+    }
+    header.main-header .menu-right-content .theme-btn-two{
+      background: rgba(0, 209, 255, 0.2);
+      color: var(--text-strong);
+      border: 1px solid rgba(0, 209, 255, 0.6);
+    }
+    header.main-header .menu-right-content .theme-btn-two:hover{
+      background: rgba(0, 209, 255, 0.32);
+      color: #ffffff;
+    }
+    header.main-header .main-menu .navigation > li > a{
+      color: var(--text-default);
+    }
+    header.main-header .main-menu .navigation > li > a:hover,
+    header.main-header .main-menu .navigation > li.current > a{
+      color: var(--text-accent);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    .pricing-wrap a:not(.theme-btn-one):not(.theme-btn-two):not(.tier-cta):hover{
+      color: var(--text-accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .pricing-wrap a:focus-visible,
+    header.main-header .main-menu .navigation > li > a:focus-visible,
+    header.main-header .menu-right-content a:focus-visible,
+    .tier-cta:focus-visible,
+    .theme-btn-one:focus-visible,
+    .theme-btn-two:focus-visible{
+      outline: 2px solid var(--text-accent);
+      outline-offset: 3px;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
+    }\n  </style>
+  <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
 </head>
 
 <body class="mode-saas">
@@ -615,7 +900,7 @@
             <div class="top-inner">
                 <div class="top-left">
                     <ul class="info clearfix">
-                        <li><i class="icon-1"></i>Mon–Fri 8:00 am–6:00 pm</li>
+                        <li><i class="icon-1"></i>Mon&ndash;Fri 8:00 am&ndash;6:00 pm</li>
                         <li><i class="icon-2"></i><a href="tel:+19543426637">+1-954-342-6637</a></li>
                         <li><i class="icon-3"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
                     </ul>
@@ -649,59 +934,175 @@
                     </div>
 
                     <nav class="main-menu navbar-expand-md navbar-light">
-                        <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                            <ul class="navigation clearfix">
-
-                                <li><a href="index.html">Home</a></li>
-
-                                <li class="dropdown"><a href="#">Platform</a>
-                                    <ul>
-                                        <li><a href="services.html#scanning">Cloud Security Scanning</a></li>
-                                        <li><a href="services.html#compliance">Compliance Automation</a></li>
-                                        <li><a href="services.html#remediation">AI-Driven Remediation</a></li>
-                                    </ul>
-                                </li>
-
-                                <li class="dropdown"><a href="#">Solutions</a>
-                                            <div class="megamenu">
-                                                <div class="row clearfix">
-                                                    <div class="col-lg-6 column">
-                                                        <h4>By Compliance Framework</h4>
-                                                        <ul>
-                                                            <li><a href="achieve-pci-dss.html">Achieve PCI DSS Compliance</a></li>
-                                                            <li><a href="streamline-soc2.html">Streamline SOC 2 Audits</a></li>
-                                                            <li><a href="cmmc-readiness.html">Prepare for CMMC Level 2</a></li>
-                                                            <li><a href="achieve-iso27001-compliance.html">Maintain ISO 27001</a></li>
-                                                        </ul>
-                                                    </div>
-                                                    <div class="col-lg-6 column">
-                                                        <h4>By Use Case</h4>
-                                                        <ul>
-                                                            <li><a href="aivric-vision.html">AiVRIC Vision as your Risk Advisor</a></li>
-                                                        <li><a href="use-case-vuln-mgmt.html">Multi-cloud Security Posture Management</a></li>
-                                                        <li><a href="use-case-kubernetes.html">Secure Kubernetes deployments</a></li>                                                                        
-                                                        <li><a href="use-case-github-security.html">Secure Github Repos</a></li> 
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                <li><a href="pricing.html">Pricing</a></li>
-
-                                <li class="current dropdown"><a href="#">Resources</a>
-                                    <ul>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="why-aivric.html">Why AiVRIC</a></li>
-        <li><a href="trust.html">Trust Center</a></li>
-        <li><a href="AiVRIC-UserGuide/index.html">Platform Guide</a></li>
-        <li><a href="blog-portal.html">Blogs</a></li>
-        
-      </ul>
-                                </li>                               
-                            </ul>
+    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+        <ul class="navigation clearfix">
+            <li class="dropdown platform-menu"><a href="services.html">Platform</a>
+                <div class="platform-megamenu">
+                    <div class="platform-grid">
+                        <a class="platform-card" href="genai-chat.html"><h4>GenAI Chat</h4><p>Fabric intelligence chat across every AiVRIC solution.</p><span>view more</span></a>
+                        <a class="platform-card" href="shared-data-layer.html"><h4>Shared Data Layer</h4><p>The Fabric data layer unifies telemetry and evidence.</p><span>view more</span></a>
+                        <a class="platform-card" href="agentic-design.html"><h4>Agentic Design</h4><p>Fabric agents coordinate actions across suites.</p><span>view more</span></a>
+                        <a class="platform-card" href="efficient-compute.html"><h4>Efficient Compute</h4><p>Fabric compute optimizes AI workloads end-to-end.</p><span>view more</span></a>
+                        <a class="platform-card" href="data-localization.html"><h4>Data Localization</h4><p>Fabric residency controls govern every dataset.</p><span>view more</span></a>
+                        <a class="platform-card" href="ai-model-inspection.html"><h4>AI Model Inspection</h4><p>Fabric inspection monitors AI models and risk.</p><span>view more</span></a>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown"><a href="#">Solutions</a>
+                <div class="megamenu">
+                    <div class="mega-tabs" role="tablist">
+                        <button class="mega-tab is-active" type="button" data-mega-tab="solution" role="tab" aria-selected="true">By Solution</button>
+                        <button class="mega-tab" type="button" data-mega-tab="usecase" role="tab" aria-selected="false">By Use Case</button>
+                    </div>
+                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="solution" data-mega-active="defense" role="tabpanel">
+                        <div class="mega-rail mega-rail-stack">
+                            <button class="mega-stack-card is-active" type="button" data-mega-target="defense">
+                                <h4>Defense</h4>
+                                <p>A suite of solutions used to defend your organization from cyber threats.</p>
+                                <a class="mega-link" href="solutions-portal.html#defense">View all products -></a>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="offense">
+                                <h4>Offense</h4>
+                                <p>A suite that continuously simulates attacks across your digital ecosystem.</p>
+                                <a class="mega-link" href="solutions-portal.html#offense">View all products -></a>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="vision">
+                                <h4>Vision</h4>
+                                <p>Holistic context across the AiVRIC ecosystem and your environments.</p>
+                                <a class="mega-link" href="solutions-portal.html#vision">View all products -></a>
+                            </button>
                         </div>
-                    </nav>
+                        <div class="mega-grid">
+                            <a class="mega-card" data-mega-category="defense" href="cspm-cloudsignals.html"><strong>CloudSignals+ RiskOps&trade;</strong><span>Scan all your cloud platform configs.</span></a>
+                            <a class="mega-card" data-mega-category="defense" href="ai-inspector.html"><strong>AI Signals&trade;</strong><span>LLM observability, evaluations, and prompt management for AI apps.</span></a>
+                            <a class="mega-card" data-mega-category="defense" href="air-remediation.html"><strong>AIRE Agentic Mesh&trade;</strong><span>Agentic role-based remediation agents.</span></a>
+                            <a class="mega-card" data-mega-category="offense" href="rogueagent.html"><strong>RogueAgent ASPM&trade;</strong><span>Analyze cloud posture using a risk lens.</span></a>
+                            <a class="mega-card" data-mega-category="vision" href="aivric-vision-professional.html"><strong>Vision AI Optics&trade;</strong><span>OpenAI-driven AI risk analysis and reporting.</span></a>
+                        </div>
+                    </div>
+                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="usecase" data-mega-active="compliance" role="tabpanel" hidden>
+                        <div class="mega-rail mega-rail-stack">
+                            <button class="mega-stack-card is-active" type="button" data-mega-target="compliance">
+                                <h4>Compliance</h4>
+                                <p>Framework-ready controls and audit automation.</p>
+                                <a class="mega-link" href="use-cases-portal.html#compliance">View all frameworks -></a>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="riskops">
+                                <h4>Risk Ops</h4>
+                                <p>Continuous risk operations and response alignment.</p>
+                                <a class="mega-link" href="use-cases-portal.html#riskops">View all programs -></a>
+                            </button>
+                            <button class="mega-stack-card" type="button" data-mega-target="productops">
+                                <h4>Product Ops</h4>
+                                <p>Security and compliance built into delivery workflows.</p>
+                                <a class="mega-link" href="use-cases-portal.html#productops">View all playbooks -></a>
+                            </button>
+                        </div>
+                        <div class="mega-grid">
+                            <a class="mega-card" data-mega-category="compliance" href="streamline-soc2.html"><strong>SOC 2 Type II</strong><span>Measure compliance against the SOC 2 Trust Service Principles.</span></a>
+                            <a class="mega-card" data-mega-category="compliance" href="achieve-pci-dss.html"><strong>PCI-DSS</strong><span>Continuous validation for PCI requirements and evidence.</span></a>
+                            <a class="mega-card" data-mega-category="compliance" href="cmmc-readiness.html"><strong>CMMC</strong><span>Readiness workflows for CMMC Level 2 assessments.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="issues-poams.html"><strong>Issues and POA&Ms</strong><span>Track issues, milestones, and remediation plans.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="security-exceptions.html"><strong>Security Exceptions</strong><span>Document approved exceptions with guardrails.</span></a>
+                            <a class="mega-card" data-mega-category="riskops" href="threat-analysis.html"><strong>Threat Analysis</strong><span>Surface high-impact risks across environments.</span></a>
+                            <a class="mega-card" data-mega-category="productops" href="use-case-github-security.html"><strong>DevSecOps</strong><span>Secure Github repos and delivery workflows.</span></a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown blogs-menu"><a href="blog-portal.html">Blogs</a>
+                <div class="blogs-megamenu">
+                    <div class="blogs-mega-inner">
+                        <div class="blogs-list">
+                            <a class="blog-link is-active" data-blog="blog-future" href="/aivric-enterprise/blog-future-of-cloud-security.html">
+    <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/cloud-security-poster.avif" alt="Future of Cloud Security"></span>
+    <span class="blog-link-text">
+        <span class="blog-link-title">Future of Cloud Security</span>
+        <span class="blog-link-sub">Agentic defense for multi-cloud risk.</span>
+    </span>
+</a>
+                            <a class="blog-link" data-blog="blog-devops" href="/aivric-enterprise/blog-integrating-into-DevOps.html">
+    <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/threat-detected.avif" alt="Integrating Into DevOps"></span>
+    <span class="blog-link-text">
+        <span class="blog-link-title">Integrating Into DevOps</span>
+        <span class="blog-link-sub">Where AI controls meet pipelines.</span>
+    </span>
+</a>
+                            <a class="blog-link" data-blog="blog-compliance" href="/aivric-enterprise/blog-why-continuous-compliance-matters.html">
+    <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/SOC-2-compliance.avif" alt="Continuous Compliance"></span>
+    <span class="blog-link-text">
+        <span class="blog-link-title">Continuous Compliance</span>
+        <span class="blog-link-sub">Evidence-driven governance at speed.</span>
+    </span>
+</a>
+                            <a class="blog-link" data-blog="blog-healthcare" href="/aivric-enterprise/assets/blog-managing-healthcare-risk/index.html">
+    <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/SOC-2-compliance.avif" alt="Managing AI Risk in Healthcare"></span>
+    <span class="blog-link-text">
+        <span class="blog-link-title">Managing AI Risk in Healthcare</span>
+        <span class="blog-link-sub">Secure AI deployments for regulated care.</span>
+    </span>
+</a>
+                            <a class="blogs-all" href="blog-portal.html">View all blogs -></a>
+                        </div>
+                        <div class="blogs-preview">
+                            <div class="blog-preview is-active" data-blog-preview="blog-future">
+                                <div class="blog-thumb"><img src="assets/images/blog/cloud-security-poster.avif" alt="Blog preview image"></div>
+                                <h4>Future of Cloud Security</h4>
+                                <p>How agentic telemetry turns posture data into board-ready decisions.</p>
+                                <ul>
+                                    <li>Unified CSPM + AI control evidence.</li>
+                                    <li>Risk scoring tied to business impact.</li>
+                                    <li>Continuous evidence for audits.</li>
+                                </ul>
+                                <a href="blog-future-of-cloud-security.html">Read full article -></a>
+                            </div>
+                            <div class="blog-preview" data-blog-preview="blog-devops">
+                                <div class="blog-thumb"><img src="assets/images/blog/threat-detected.avif" alt="Blog preview image"></div>
+                                <h4>Integrating Into DevOps</h4>
+                                <p>Deliver secure software with agentic checks built into CI/CD.</p>
+                                <ul>
+                                    <li>Policy gates for releases.</li>
+                                    <li>Automated remediation routing.</li>
+                                    <li>Shared evidence across teams.</li>
+                                </ul>
+                                <a href="blog-integrating-into-DevOps.html">Read full article -></a>
+                            </div>
+                            <div class="blog-preview" data-blog-preview="blog-compliance">
+                                <div class="blog-thumb"><img src="assets/images/blog/SOC-2-compliance.avif" alt="Blog preview image"></div>
+                                <h4>Why Continuous Compliance Matters</h4>
+                                <p>Shift from point-in-time audits to always-on readiness.</p>
+                                <ul>
+                                    <li>Evidence pipelines for SOC 2 and ISO.</li>
+                                    <li>Automated control mapping.</li>
+                                    <li>Executive-ready compliance reporting.</li>
+                                </ul>
+                                <a href="blog-why-continuous-compliance-matters.html">Read full article -></a>
+                            </div>
+                            <div class="blog-preview" data-blog-preview="blog-healthcare">
+    <div class="blog-thumb"><img src="/aivric-enterprise/assets/images/blog/SOC-2-compliance.avif" alt="Managing AI Risk in Healthcare"></div>
+    <h4>Managing AI Risk in Healthcare</h4>
+    <p>Secure AI deployments for regulated care, from data controls to evidence-ready reporting.</p>
+    <ul>
+        <li>Customer-hosted SaaS with data control.</li>
+        <li>AI evaluations for regulated models.</li>
+        <li>Audit-ready evidence for leaders.</li>
+    </ul>
+    <a href="/aivric-enterprise/assets/blog-managing-healthcare-risk/index.html">Read full article -></a>
+</div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="dropdown"><a href="AiVRIC-UserGuide/index.html">Resources</a>
+                <ul>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="why-aivric.html">Why AiVRIC</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
                 </div>
 
                 <ul class="menu-right-content">
@@ -733,490 +1134,216 @@
 <!-- ======================= END HEADER ======================= -->
 
 
-    <!-- Pricing Page Content -->
+        <!-- Pricing Page Content -->
     <section class="pricing-wrap">
       <div class="auto-container">
 
-        <!-- HERO -->
         <div class="pricing-hero">
-          <div class="hero-grid">
+          <div class="badge">
+            <i class="fas fa-layer-group"></i>
+            Suite-based pricing
+          </div>
+          <h1 class="hero-title">Enterprise pricing aligned to AiVRIC suites and outcomes.</h1>
+          <p class="hero-sub">
+            Configure each suite by environment or scope to match your security posture, audit goals, and AI governance needs.
+            Pricing is tailored to workload footprint and deployment model.
+          </p>
+          <div class="hero-actions">
+            <a class="theme-btn-one" href="request-demo.html">Request pricing</a>
+            <a class="theme-btn-two" href="request-demo.html">Talk to Sales</a>
+          </div>
+        </div>
+
+        <!-- DEFENSE SUITE -->
+        <div id="defense-suite" class="suite-section">
+          <div class="suite-header">
             <div>
-              <div class="badge">
-                <i class="fas fa-shield-alt"></i>
-                AiVRIC Pricing
+              <span class="suite-tag">DEFENSE Suite</span>
+              <h2 class="suite-title">AiVRIC DEFENSE</h2>
+              <p class="suite-desc">AI-powered security posture, risk, and compliance control plane.</p>
+            </div>
+            <div class="suite-meta">
+              <div class="suite-meta-card">Pricing model: Per environment or per asset</div>
+              <div class="suite-meta-card">Modules: CloudSignals+ RiskOps&trade; + AI Signals&trade;</div>
+            </div>
+          </div>
+
+          <div class="suite-grid">
+            <div class="tier-card">
+              <div class="tier-head">
+                <div>
+                  <div class="tier-title">Starter</div>
+                  <div class="tier-price">Per environment</div>
+                </div>
+              </div>
+              <p class="tier-desc">Establish baseline posture visibility and audit-ready reporting.</p>
+              <div class="tier-group">
+                <h4>Included modules</h4>
+                <ul class="tier-list">
+                  <li>CloudSignals+ RiskOps&trade;</li>
+                  <li>AI Signals&trade;</li>
+                </ul>
+              </div>
+              <div class="tier-group">
+                <h4>Key outcomes</h4>
+                <ul class="tier-list">
+                  <li>MTTD &darr;</li>
+                  <li>Audit prep time &darr;</li>
+                  <li>Asset coverage &uarr;</li>
+                </ul>
+              </div>
+              <div class="tier-group">
+                <h4>Ideal customer profile</h4>
+                <p class="tier-icp">Security teams starting posture automation and compliance reporting.</p>
+              </div>
+              <a class="tier-cta" href="request-demo.html">Get configuration</a>
+            </div>
+
+            <div class="tier-card">
+              <div class="tier-head">
+                <div>
+                  <div class="tier-title">Pro</div>
+                  <div class="tier-price">Per environment / per asset</div>
+                </div>
+              </div>
+              <p class="tier-desc">Continuous compliance workflows and risk-driven prioritization.</p>
+              <div class="tier-group">
+                <h4>Included modules</h4>
+                <ul class="tier-list">
+                  <li>CloudSignals+ RiskOps&trade;</li>
+                  <li>AI Signals&trade;</li>
+                </ul>
+              </div>
+              <div class="tier-group">
+                <h4>Key outcomes</h4>
+                <ul class="tier-list">
+                  <li>Control mapping time &darr;</li>
+                  <li>Risk prioritization &uarr;</li>
+                  <li>Evidence velocity &uarr;</li>
+                </ul>
+              </div>
+              <div class="tier-group">
+                <h4>Ideal customer profile</h4>
+                <p class="tier-icp">Mid-market security orgs managing multi-cloud compliance needs.</p>
+              </div>
+              <a class="tier-cta" href="request-demo.html">Request pricing</a>
+            </div>
+
+            <div class="tier-card highlight">
+              <div class="tier-head">
+                <div>
+                  <div class="tier-title">Enterprise</div>
+                  <div class="tier-price">Multi-environment scale</div>
+                </div>
+              </div>
+              <p class="tier-desc">Enterprise-wide governance with multi-cloud evidence and AI evaluations.</p>
+              <div class="tier-group">
+                <h4>Included modules</h4>
+                <ul class="tier-list">
+                  <li>CloudSignals+ RiskOps&trade;</li>
+                  <li>AI Signals&trade;</li>
+                </ul>
+              </div>
+              <div class="tier-group">
+                <h4>Key outcomes</h4>
+                <ul class="tier-list">
+                  <li>Multi-cloud governance &uarr;</li>
+                  <li>Risk-to-remediation time &darr;</li>
+                  <li>Audit readiness &uarr;</li>
+                </ul>
+              </div>
+              <div class="tier-group">
+                <h4>Ideal customer profile</h4>
+                <p class="tier-icp">Large enterprises with regulated workloads and complex cloud estates.</p>
+              </div>
+              <a class="tier-cta" href="request-demo.html">Request pricing</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- OFFENSE SUITE -->
+        <div id="offense-suite" class="suite-section">
+          <div class="suite-header">
+            <div>
+              <span class="suite-tag">OFFENSE Suite</span>
+              <h2 class="suite-title">AiVRIC OFFENSE</h2>
+              <p class="suite-desc">Agentic AI attack surface, validation, and adversarial simulation.</p>
+            </div>
+            <div class="suite-meta">
+              <div class="suite-meta-card">Pricing model: Usage or scope based</div>
+              <div class="suite-meta-card">Solution: RogueAgent ASPM&trade;</div>
+            </div>
+          </div>
+
+          <div class="offense-grid">
+            <div class="offense-card">
+              <h3>RogueAgent ASPM&trade;</h3>
+              <p>Scope-based pricing aligned to attack surface size, environments, and agent workload.</p>
+
+              <div class="tier-group">
+                <h4>Core capabilities</h4>
+                <ul class="tier-list">
+                  <li>Attack surface discovery and continuous validation.</li>
+                  <li>Adversarial simulation for real-world exposure testing.</li>
+                  <li>Continuous exposure management for defense hardening.</li>
+                </ul>
               </div>
 
-              <h1 class="hero-title">Pricing built for SOC 2 readiness, multi-cloud visibility, and enterprise scale.</h1>
+              <div class="tier-group">
+                <h4>Intended use cases</h4>
+                <ul class="tier-list">
+                  <li>Red team and breach validation.</li>
+                  <li>Continuous exposure monitoring.</li>
+                  <li>Control validation across environments.</li>
+                </ul>
+              </div>
 
-              <p class="hero-sub">
-                Choose a deployment model that fits your operating constraints—then scale by workload footprint and
-                instance separation. Transparent tiers, strong expansion economics, and outcome-driven add-ons.
-              </p>
+              <div class="hero-actions">
+                <a class="tier-cta" href="request-demo.html">Schedule demo</a>
+                <a class="tier-cta secondary" href="request-demo.html">Talk to an expert</a>
+              </div>
+            </div>
 
-              <ul class="hero-points">
-                <li><i class="fas fa-check-circle"></i><span><strong style="color:var(--aivric-text);">Outcome-first:</strong> compliance reporting + security posture in one platform.</span></li>
-                <li><i class="fas fa-check-circle"></i><span><strong style="color:var(--aivric-text);">Predictable scaling:</strong> priced by Workload Units (WU) and Instances.</span></li>
-                <li><i class="fas fa-check-circle"></i><span><strong style="color:var(--aivric-text);">Customer data control:</strong> customer-hosted SaaS or local Windows executable.</span></li>
-                <li><i class="fas fa-check-circle"></i><span><strong style="color:var(--aivric-text);">Expansion-ready:</strong> modules for evidence workflows, automation, and managed AI.</span></li>
+            <div class="offense-card">
+              <h4>Scope factors used for configuration</h4>
+              <ul class="tier-list">
+                <li>Number of environments and external assets.</li>
+                <li>Validation frequency and agent concurrency.</li>
+                <li>Program type (red team, validation, continuous exposure).</li>
               </ul>
             </div>
-
-            <div class="pricing-toggle">
-              <p class="toggle-title">Select a deployment model</p>
-
-              <div class="toggle-row" style="margin-bottom: 12px;">
-                <div class="toggle-label">
-                  <strong id="modeLabel">Customer-hosted SaaS</strong>
-                  <small id="modeSub">Runs in your cloud (Kubernetes). You own the data. Annual subscription.</small>
-                </div>
-
-                <label class="switch" aria-label="Toggle deployment model">
-                  <input type="checkbox" id="deployToggle">
-                  <span class="slider"></span>
-                </label>
-              </div>
-
-              <div class="toggle-foot">
-                <div class="note-saas">
-                  <strong style="color:var(--aivric-text);">Customer-hosted SaaS:</strong>
-                  optimized for continuous scanning, multi-cloud integrations, and scalable operations.
-                  Add instances for segregation (business units, environments, subsidiaries).
-                </div>
-                <div class="note-win">
-                  <strong style="color:var(--aivric-text);">Windows executable:</strong>
-                  optimized for local data storage and rapid assessments. Ideal for annual licensing and portability.
-                </div>
-              </div>
-
-              <div class="legal-note">
-                Definitions: <strong>WU (Workload Unit)</strong> represents a billable compute-like workload (e.g., VM, container workload, serverless app).
-                <strong>Instance</strong> represents a separated deployment boundary for segregation and scale.
-              </div>
-            </div>
           </div>
         </div>
 
-        <!-- PLANS -->
-        <div class="pricing-section">
-          <h2 class="section-title">Paid Plans</h2>
-          <p class="section-sub">
-            The list prices in this section for the AiVRIC solution has been packaged to meet expected outcomes of enterprise IT Security teams. Multi-year and volume discounts are available for qualified engagements.
-          </p>
-
-          <div class="pricing-grid">
-
-            <!-- STARTUP -->
-            <div class="p-card">
-              <div class="p-head">
-                <div class="plan-top">
-                  <h3 class="plan-name">Startup</h3>
-                  <div class="pill">SOC 2 readiness</div>
-                </div>
-                <p class="plan-desc">Land quickly with compliance posture and reporting without operational overhead.</p>
-              </div>
-
-              <div class="p-price">
-                <div class="price-row">
-                  <div class="price-amount">
-                    <span class="price-saas">$9,600</span>
-                    <span class="price-win">$8,400</span>
-                  </div>
-                  <div class="price-term">/ year</div>
-                </div>
-                <div class="price-note">
-                  Includes up to <strong>50 WU</strong>, <strong>1 cloud account/subscription</strong>, <strong>1 environment</strong>, SOC 2 reporting pack.
-                </div>
-              </div>
-
-              <div class="p-features">
-                <ul>
-                  <li><i class="fas fa-check-circle"></i><span>Security posture scanning with scheduled runs</span></li>
-                  <li><i class="fas fa-check-circle"></i><span>SOC 2-aligned outputs for readiness and audit prep</span></li>
-                  <li><i class="fas fa-check-circle"></i><span>Exportable findings and executive-ready summaries</span></li>
-                  <li><i class="fas fa-check-circle"></i><span>BYO-AI key support for AI-assisted insights</span></li>
-                </ul>
-              </div>
-
-              <div class="p-actions">
-                <a class="a-btn primary" href="#"><i class="fas fa-rocket"></i>Start with Startup</a>
-                <a class="a-btn ghost" href="#faq"><i class="fas fa-question-circle"></i>Pricing FAQs</a>
-              </div>
-
-              <div class="p-features" style="padding-top:0;">
-                <div class="price-note" style="margin:0;">
-                  <strong>Overage:</strong> +$180/month per additional 10 WU (or upgrade to Mid-Market).
-                </div>
-              </div>
-            </div>
-
-            <!-- MID-MARKET -->
-            <div class="p-card highlight">
-              <div class="p-head">
-                <div class="plan-top">
-                  <h3 class="plan-name">Mid-Market</h3>
-                  <div class="pill recommended">Most popular</div>
-                </div>
-                <p class="plan-desc">Multi-cloud visibility and governance for scaling security and compliance operations.</p>
-              </div>
-
-              <div class="p-price">
-                <div class="price-row">
-                  <div class="price-amount">
-                    <span class="price-saas">$36,000</span>
-                    <span class="price-win">$31,200</span>
-                  </div>
-                  <div class="price-term">/ year</div>
-                </div>
-                <div class="price-note">
-                  Includes up to <strong>300 WU</strong>, up to <strong>5 cloud accounts/subscriptions</strong>, multi-cloud connectors, team RBAC.
-                </div>
-              </div>
-
-              <div class="p-features">
-                <ul>
-                  <li><i class="fas fa-check-circle"></i><span>Multi-cloud connectors with scheduled scanning cadence</span></li>
-                  <li><i class="fas fa-check-circle"></i><span>Team workspaces & role-based access control</span></li>
-                  <li><i class="fas fa-check-circle"></i><span>Compliance packs (SOC 2 + expandable overlays)</span></li>
-                  <li><i class="fas fa-check-circle"></i><span>Operational dashboards and trend reporting</span></li>
-                </ul>
-              </div>
-
-              <div class="p-actions">
-                <a class="a-btn primary" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo?month=2026-01"><i class="fas fa-calendar-check"></i>Book a Demo</a>
-                <a class="a-btn" href="#modules"><i class="fas fa-puzzle-piece"></i>Add Modules</a>
-              </div>
-
-              <div class="p-features" style="padding-top:0;">
-                <div class="price-note" style="margin:0;">
-                  <strong>Overage bands:</strong> 301–600 WU +$24,000/year • 601–1,000 WU +$36,000/year
-                </div>
-              </div>
-            </div>
-
-            <!-- ENTERPRISE -->
-            <div class="p-card enterprise">
-              <div class="p-head">
-                <div class="plan-top">
-                  <h3 class="plan-name">Enterprise</h3>
-                  <div class="pill enterprise">Multi-instance</div>
-                </div>
-                <p class="plan-desc">Separation, scale, automation, and assurance for regulated and complex organizations.</p>
-              </div>
-
-              <div class="p-price">
-                <div class="price-row">
-                  <div class="price-amount">
-                    <span class="price-saas">$180,000</span>
-                    <span class="price-win">$156,000</span>
-                  </div>
-                  <div class="price-term">/ year</div>
-                </div>
-                <div class="price-note">
-                  Includes up to <strong>1,000 WU</strong>, up to <strong>15 cloud accounts/subscriptions</strong>, SSO/SCIM, API access, premium support.
-                </div>
-              </div>
-
-              <div class="p-features">
-                <ul>
-                  <li><i class="fas fa-check-circle"></i><span>Multi-instance support for segregation (BU/env/subsidiary)</span></li>
-                  <li><i class="fas fa-check-circle"></i><span>SSO/SAML + SCIM provisioning and enterprise RBAC</span></li>
-                  <li><i class="fas fa-check-circle"></i><span>API access and automation-ready reporting pipelines</span></li>
-                  <li><i class="fas fa-check-circle"></i><span>Premium support + SLA options for critical operations</span></li>
-                </ul>
-              </div>
-
-              <div class="p-actions">
-                <a class="a-btn primary" href="#"><i class="fas fa-handshake"></i>Talk to Sales</a>
-                <a class="a-btn" href="#compare"><i class="fas fa-columns"></i>Compare Plans</a>
-              </div>
-
-              <div class="p-features" style="padding-top:0;">
-                <div class="price-note" style="margin:0;">
-                  <strong>Instances:</strong> Base includes 1 instance • Each additional instance +$25,000/year<br>
-                  <strong>Overage bands:</strong> 1,001–2,500 WU +$90,000/year • 2,501–5,000 WU +$150,000/year • &gt;5,000 custom
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- JUMPSTART -->
-        <div class="pricing-section" id="jumpstart">
-          <h2 class="section-title">Free Jumpstart</h2>
-          <p class="section-sub">
-            Spin up a no-cost sandbox to experience AiVRIC. Ideal for quick validation, a first security scan, and showcasing reporting to stakeholders.
-          </p>
-
-          <div class="pricing-grid">
-            <div class="p-card highlight">
-              <div class="p-head">
-                <div class="plan-top">
-                  <h3 class="plan-name">Jumpstart</h3>
-                  <div class="pill">Free</div>
-                </div>
-                <p class="plan-desc">Limited trial with guided onboarding and sample reports so you can see value fast.</p>
-              </div>
-
-              <div class="p-price">
-                <div class="price-row">
-                  <div class="price-amount">
-                    <span class="price-saas">$0</span>
-                  </div>
-                  <div class="price-term">/ 30-day access</div>
-                </div>
-                <div class="price-note">
-                  Includes up to <strong>10 WU</strong>, <strong>1 cloud account/subscription</strong>, <strong>1 workspace</strong>, starter SOC 2 sample pack.
-                </div>
-              </div>
-
-              <div class="p-features">
-                <ul>
-                  <li><i class="fas fa-check-circle"></i><span>Quickstart scan & posture summary (up to 10 WU)</span></li>
-                  <li><i class="fas fa-check-circle"></i><span>Guided onboarding call (60 minutes)</span></li>
-                  <li><i class="fas fa-check-circle"></i><span>Sample SOC 2 evidence bundle and dashboards</span></li>
-                  <li><i class="fas fa-check-circle"></i><span>Email support during the trial window</span></li>
-                </ul>
-              </div>
-
-              <div class="p-actions">
-                <a class="a-btn primary" href="#"><i class="fas fa-play-circle"></i>Start Free Jumpstart</a>
-                <a class="a-btn ghost" href="#compare"><i class="fas fa-columns"></i>Compare to Paid Plans</a>
-              </div>
-
-              <div class="p-features" style="padding-top:0;">
-                <div class="price-note" style="margin:0;">
-                  Ready to expand? Upgrade to any paid plan to keep your configurations, findings, and reports.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- MODULES -->
-        <div id="modules" class="anchor"></div>
-        <div class="pricing-section">
-          <h2 class="section-title">Add-On Modules</h2>
-          <p class="section-sub">
-            Add AiVRIC modules to accelerate audit readiness, automate security operations, and increase repeatability at scale.
-            These modules differentiate AiVRIC from typical baseline scanning-only approaches.
-          </p>
-
-          <div class="modules-grid">
-            <div class="module">
-              <div class="module-top">
-                <h3>Compliance Ops Pack</h3>
-                <div class="tag">+$12k–$30k/yr</div>
-              </div>
-              <p>
-                Evidence workflows, audit trails, exception handling, compensating controls, and packaged outputs designed
-                to reduce audit effort and strengthen defensibility.
-              </p>
-            </div>
-
-            <div class="module">
-              <div class="module-top">
-                <h3>Automation & Integrations</h3>
-                <div class="tag">+$9.6k/yr</div>
-              </div>
-              <p>
-                Extended integrations (CI/CD, ticketing, exports), API enhancements, and automation patterns for continuous
-                governance and operationalization.
-              </p>
-            </div>
-
-            <div class="module">
-              <div class="module-top">
-                <h3>Managed AI Pack</h3>
-                <div class="tag">+$6k/yr</div>
-              </div>
-              <p>
-                AiVRIC-managed AI usage with a capped allowance for AI-assisted triage, summarization, and executive-ready
-                reporting (BYO-AI also supported).
-              </p>
-            </div>
-
-            <div class="module">
-              <div class="module-top">
-                <h3>Deployment & Hardening</h3>
-                <div class="tag">$7.5k–$25k</div>
-              </div>
-              <p>
-                One-time onboarding and hardening package for customer-hosted SaaS deployments. Reference architectures,
-                secure baselines, and operational readiness guidance.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- COMPARE -->
-        <div id="compare" class="anchor"></div>
-        <div class="pricing-section">
-          <h2 class="section-title">Compare plans</h2>
-          <p class="section-sub">
-            A concise view of what is included by default. For regulated environments, ask about add-on attestations,
-            separation requirements, and optional SLA support.
-          </p>
-
-          <div class="compare">
-            <div class="compare-head">
-              <strong>Plan capabilities</strong>
-              <span>Deployment model toggle updates pricing only</span>
-            </div>
-
-            <table class="compare-table" aria-label="AiVRIC pricing comparison table">
-              <thead>
-                <tr>
-                  <th style="width:30%;">Capability</th>
-                  <th>Jumpstart (Free)</th>
-                  <th>Startup</th>
-                  <th>Mid-Market</th>
-                  <th>Enterprise</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Included Workload Units (WU)</td>
-                  <td>10</td>
-                  <td>50</td>
-                  <td>300</td>
-                  <td>1,000</td>
-                </tr>
-                <tr>
-                  <td>Cloud accounts/subscriptions included</td>
-                  <td>1</td>
-                  <td>1</td>
-                  <td>Up to 5</td>
-                  <td>Up to 15</td>
-                </tr>
-                <tr>
-                  <td>Multi-cloud connectors</td>
-                  <td class="dash">-</td>
-                  <td class="dash">-</td>
-                  <td class="check">Yes</td>
-                  <td class="check">Yes</td>
-                </tr>
-                <tr>
-                  <td>Team RBAC / Workspaces</td>
-                  <td class="dash">-</td>
-                  <td>Basic</td>
-                  <td class="check">Yes</td>
-                  <td class="check">Yes</td>
-                </tr>
-                <tr>
-                  <td>SOC 2 reporting pack</td>
-                  <td class="dash">-</td>
-                  <td class="check">Yes</td>
-                  <td class="check">Yes</td>
-                  <td class="check">Yes</td>
-                </tr>
-                <tr>
-                  <td>SSO/SAML + SCIM</td>
-                  <td class="dash">-</td>
-                  <td class="dash">-</td>
-                  <td>Add-on</td>
-                  <td class="check">Included</td>
-                </tr>
-                <tr>
-                  <td>API access</td>
-                  <td class="dash">-</td>
-                  <td class="dash">-</td>
-                  <td>Add-on</td>
-                  <td class="check">Included</td>
-                </tr>
-                <tr>
-                  <td>Multi-instance separation</td>
-                  <td class="dash">-</td>
-                  <td class="dash">-</td>
-                  <td>Limited</td>
-                  <td class="check">Included</td>
-                </tr>
-                <tr>
-                  <td>Premium support / SLA options</td>
-                  <td class="dash">-</td>
-                  <td class="dash">-</td>
-                  <td>Add-on</td>
-                  <td class="check">Included</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
-        <!-- FAQ -->
-        <div id="faq" class="anchor"></div>
-        <div class="pricing-section">
-          <h2 class="section-title">Pricing FAQs</h2>
-          <p class="section-sub">
-            Straight answers to common procurement and third-party security review attestation questionnaires.            
-          </p>
-
-          <div class="faq">
-            <details>
-              <summary>What counts as a Workload Unit (WU)?</summary>
-              <p>
-                A WU is a billable compute-like workload such as a VM, container workload, or serverless application.
-                You can optionally extend WU counting to include certain managed services based on your roadmap and customer demand.
-              </p>
-            </details>
-
-            <details>
-              <summary>What is an “Instance” and when do I need more than one?</summary>
-              <p>
-                An Instance is a separated deployment boundary used to segregate data, access, and operational controls across business units,
-                environments (dev/test/prod), subsidiaries, or regulatory partitions. Enterprise customers commonly adopt multi-instance for assurance.
-              </p>
-            </details>
-
-            <details>
-              <summary>How does AiVRIC compete with open source options?</summary>
-              <p>
-                Baseline scanning is only one component of operational maturity. AiVRIC differentiates through repeatable workflows, evidence and audit outputs,
-                governance, automation, and multi-instance operations—capabilities that reduce time-to-assurance and total effort.
-              </p>
-            </details>
-
-            <details>
-              <summary>Is BYO-AI supported?</summary>
-              <p>
-                Yes. You can bring your own AI API key for AI-assisted triage and reporting. If preferred, Managed AI can be purchased as an add-on with defined usage limits.
-              </p>
-            </details>
-
-            <details>
-              <summary>Do you offer multi-year discounts?</summary>
-              <p>
-                Yes. Multi-year terms and volume tiers are available for qualified customers. A common pattern is 10–15% off for 2-year and 15–25% off for 3-year agreements,
-                with guardrails to protect long-term margin.
-              </p>
-            </details>
-
-            <details>
-              <summary>Can we start with Windows and later move to customer-hosted SaaS?</summary>
-              <p>
-                Yes. Many customers begin with Windows for rapid posture assessment, then transition to customer-hosted SaaS for continuous operations.
-                Your team can structure a migration plan and map pricing to preserve value and continuity.
-              </p>
-            </details>
-          </div>
-
-          <div class="cta">
+        <!-- VISION -->
+        <div id="vision-suite" class="suite-section vision-muted">
+          <div class="suite-header">
             <div>
-              <strong>Ready to see AiVRIC against your environment?</strong>
-              <span>
-                Book a guided demo using your preferred deployment model. We will align the plan to your workload footprint,
-                compliance targets (SOC 2, ISO 27001, NIST), and operational requirements.
-              </span>
+              <span class="suite-tag">COMING SOON</span>
+              <h2 class="suite-title">AiVRIC Vision</h2>
+              <p class="suite-desc">AI observability and governance for agentic and LLM-driven systems.</p>
             </div>
-            <div style="display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="a-btn primary" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo?month=2026-01"><i class="fas fa-calendar-check"></i>Book a Demo</a>
-              <a class="a-btn" href="#"><i class="fas fa-envelope"></i>Request a Quote</a>
+            <div class="suite-meta">
+              <div class="suite-meta-card">Future capability (no pricing yet)</div>
             </div>
           </div>
 
-          <div class="legal-note">
-            <strong>Important:</strong> Prices shown are sample list pricing for illustration. Final pricing may vary based on footprint, compliance requirements,
-            connector scope, and support/SLA needs. Taxes not included. Terms subject to your MSA and order form.
+          <div class="offense-grid">
+            <div class="offense-card">
+              <h4>High-level capabilities</h4>
+              <ul class="tier-list">
+                <li>Unified AI observability across suites.</li>
+                <li>Model governance and evaluation pipelines.</li>
+                <li>Executive-ready reporting and risk narratives.</li>
+              </ul>
+              <div class="hero-actions">
+                <a class="tier-cta" href="request-demo.html">Join early access</a>
+                <a class="tier-cta secondary" href="request-demo.html">Notify me</a>
+              </div>
+            </div>
+            <div class="offense-card">
+              <p class="tier-icp">AiVRIC Vision will unify defense and offense intelligence into a single AI governance layer for enterprise decision-making.</p>
+            </div>
           </div>
         </div>
 
@@ -1251,11 +1378,14 @@
               <div class="footer-widget links-widget">
                 <div class="widget-title"><h3>Platform</h3></div>
                 <div class="widget-content">
-                  <ul class="links-list clearfix">
-                    <li><a href="services.html#scanning">Security &amp; Risk Assessment</a></li>
-                    <li><a href="services.html#compliance">Compliance Management</a></li>
-                    <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
-                  </ul>
+<ul class="links-list clearfix">
+    <li><a href="genai-chat.html">GenAI Chat</a></li>
+    <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
+    <li><a href="agentic-design.html">Agentic Design</a></li>
+    <li><a href="efficient-compute.html">Efficient Compute</a></li>
+    <li><a href="data-localization.html">Data Localization</a></li>
+    <li><a href="ai-model-inspection.html">AI Model Inspection</a></li>
+</ul>
                 </div>
               </div>
             </div>
@@ -1264,12 +1394,14 @@
               <div class="footer-widget links-widget">
                 <div class="widget-title"><h3>Solutions</h3></div>
                 <div class="widget-content">
-                  <ul class="links-list clearfix">
-                    <li><a href="streamline-soc2.html">SOC 2 Automation</a></li>
-                    <li><a href="achieve-pci-dss.html">PCI-DSS Compliance</a></li>
-                    <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
-                    <li><a href="achieve-iso27001-compliance.html">ISO27001 Compliance</a></li>
-                  </ul>
+<ul class="links-list clearfix">
+    <li><a href="cspm-cloudsignals.html">CloudSignals+ RiskOps&trade;</a></li>
+    <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
+    <li><a href="air-remediation.html">AIRE Agentic Mesh&trade; Remediation</a></li>
+    <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
+    <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
+    <li><a href="aivric-vision-enterprise.html">Vision Enterprise</a></li>
+</ul>
                 </div>
               </div>
             </div>
@@ -1339,38 +1471,74 @@
   <script src="assets/js/parallax-scroll.js"></script>
   <script src="assets/js/script.js"></script>
 
-  <!-- Pricing mode toggle -->
-  <script>
-    (function(){
-      const body = document.body;
-      const toggle = document.getElementById('deployToggle');
-      const modeLabel = document.getElementById('modeLabel');
-      const modeSub = document.getElementById('modeSub');
-
-      // Default: SaaS mode
-      function setMode(isWindows){
-        if(isWindows){
-          body.classList.remove('mode-saas');
-          body.classList.add('mode-win');
-          modeLabel.textContent = "Windows executable";
-          modeSub.textContent = "Annual license. Local data storage. Run anywhere.";
-        }else{
-          body.classList.remove('mode-win');
-          body.classList.add('mode-saas');
-          modeLabel.textContent = "Customer-hosted SaaS";
-          modeSub.textContent = "Runs in your cloud (Kubernetes). You own the data. Annual subscription.";
-        }
-      }
-
-      if(toggle){
-        toggle.addEventListener('change', function(){
-          setMode(toggle.checked);
-        });
-      }
-      setMode(false);
-    })();
-  </script>
-
+    <script src="assets/js/theme-toggle.js"></script>
+    <script src="assets/js/mega-hover.js"></script>
+    <script src="assets/js/mega-tabs.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

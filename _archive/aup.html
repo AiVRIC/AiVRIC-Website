@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+  <title>AiVRIC Demo – Acceptable Use Policy</title>
+
+  <!-- Fav Icon -->
+  <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon" />
+
+  <!-- Google Fonts (matches AiVRIC site pattern) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Your Site Stylesheets -->
+  <link href="assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/responsive.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --aivric-bg: #0b1220;
+      --aivric-panel: rgba(255,255,255,0.06);
+      --aivric-panel2: rgba(255,255,255,0.10);
+      --aivric-text: rgba(255,255,255,0.92);
+      --aivric-muted: rgba(255,255,255,0.72);
+      --aivric-muted2: rgba(255,255,255,0.56);
+      --aivric-line: rgba(255,255,255,0.14);
+      --aivric-accent: #1fd0ff;      /* align to your brand accent if different */
+      --aivric-accent2: #2ee59d;
+      --aivric-warn: #ffce3a;
+      --aivric-danger: #ff5c7c;
+      --aivric-shadow: 0 18px 55px rgba(0,0,0,0.45);
+      --aivric-radius: 18px;
+    }
+
+    body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: radial-gradient(circle at top left, #1b8cff 0%, #020617 55%, #020817 100%);
+  color: var(--text);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 28px 16px;
+}
+
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    /* Centered modal layout */
+    .aup-wrap{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 24px 16px;
+    }
+
+    .aup-modal{
+      width: 100%;
+      max-width: 980px;
+      border-radius: var(--aivric-radius);
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.05));
+      border: 1px solid var(--aivric-line);
+      box-shadow: var(--aivric-shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .aup-header{
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      color: rgba(255,255,255,0.86);
+      background: rgba(0,0,0,0.12);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 0;
+    }
+    .brand img{
+      height: 26px;
+      width:auto;
+      display:block;
+    }
+    .brand .title{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      min-width:0;
+    }
+    .brand .title strong{
+      font-family: Jost, Inter, sans-serif;
+      font-size: 18px;
+      letter-spacing: -0.2px;
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    .brand .title span{
+      font-size: 12px;
+      color: var(--aivric-muted2);
+      line-height: 1.2;
+    }
+
+    .header-actions{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .pill{
+      font-size: 12px;
+      font-weight: 800;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: var(--aivric-text);
+      white-space: nowrap;
+    }
+    .pill.info{
+      background: rgba(31,208,255,0.12);
+      border-color: rgba(31,208,255,0.30);
+    }
+
+    .close-x{
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.06);
+      color: var(--aivric-text);
+      border-radius: 12px;
+      width: 38px;
+      height: 38px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition: 0.18s;
+    }
+    .close-x:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.10); }
+
+    .aup-body{
+      display:grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 0;
+      min-height: 520px;
+    }
+    @media (max-width: 992px){
+      .aup-body{ grid-template-columns: 1fr; }
+    }
+
+    .aup-content{
+      padding: 22px;
+      border-right: 1px solid rgba(255,255,255,0.10);
+    }
+    @media (max-width: 992px){
+      .aup-content{ border-right: none; border-bottom: 1px solid rgba(255,255,255,0.10); }
+    }
+
+    .aup-content h1{
+      font-family: Jost, Inter, sans-serif;
+      font-size: 28px;
+      letter-spacing: -0.4px;
+      color: rgba(255,255,255,0.86);
+      margin: 0 0 8px 0;
+    }
+    .aup-content .subtitle{
+      color: var(--aivric-muted);
+      font-size: 14px;
+      line-height: 1.7;
+      margin: 0 0 16px 0;
+      max-width: 85ch;
+    }
+
+    .scrollbox{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      padding: 16px;
+      height: 340px;
+      overflow:auto;
+    }
+
+    .scrollbox h2{
+      font-size: 14px;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.86);
+      margin: 16px 0 8px 0;
+    }
+    .scrollbox h2:first-child{ margin-top: 0; }
+    .scrollbox p, .scrollbox li{
+      color: var(--aivric-muted);
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+    .scrollbox ul{
+      padding-left: 18px;
+      margin: 8px 0 0 0;
+    }
+    .scrollbox li{ margin: 6px 0; }
+
+    .callouts{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    @media (max-width: 620px){
+      .callouts{ grid-template-columns: 1fr; }
+    }
+
+    .callout{
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      padding: 12px;
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+    }
+    .callout i{
+      margin-top: 2px;
+      color: var(--aivric-accent2);
+    }
+    .callout strong{
+      color: rgba(255,255,255,0.86);
+      display:block;
+      font-size: 13px;
+      letter-spacing: 0.2px;
+    }
+    .callout span{
+      display:block;
+      color: var(--aivric-muted2);
+      font-size: 12.5px;
+      line-height: 1.55;
+      margin-top: 2px;
+    }
+
+    .aup-side{
+      padding: 22px;
+      display:flex;
+      flex-direction:column;
+      gap: 14px;
+    }
+
+    .side-card{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      padding: 14px;
+    }
+    .side-card h3{
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      color: rgba(255,255,255,0.86);
+      font-weight: 900;
+      letter-spacing: 0.2px;
+    }
+    .side-card p{
+      margin: 0;
+      color: var(--aivric-muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .side-card .meta{
+      margin-top: 10px;
+      color: var(--aivric-muted2);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .form-row{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      margin-top: 6px;
+    }
+    .form-row input[type="checkbox"]{
+      margin-top: 3px;
+      width: 18px;
+      height: 18px;
+      accent-color: var(--aivric-accent);
+    }
+    .form-row label{
+      color: var(--aivric-muted);
+      font-size: 13.5px;
+      line-height: 1.55;
+      cursor:pointer;
+    }
+
+    .actions{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: var(--aivric-text);
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.2px;
+      cursor:pointer;
+      transition: 0.18s;
+      user-select:none;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.10); }
+    .btn.primary{
+      background: linear-gradient(90deg, rgba(31,208,255,0.95), rgba(46,229,157,0.80));
+      border-color: rgba(31,208,255,0.60);
+      color: #06101b;
+    }
+    .btn.primary:disabled{
+      opacity: 0.55;
+      cursor:not-allowed;
+      transform:none;
+      filter:none;
+    }
+    .btn.ghost{
+      background: transparent;
+      border-color: rgba(255,255,255,0.16);
+    }
+
+    .fineprint{
+      margin-top: 10px;
+      color: rgba(255,255,255,0.50);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* Print-friendly (optional) */
+    @media print{
+      body{ background: #fff; color: #000; }
+      .aup-modal{ box-shadow:none; border: 1px solid #ddd; }
+      .close-x, .actions, .pill{ display:none !important; }
+      .scrollbox{ height:auto; overflow:visible; border-color:#ddd; }
+      .aup-content, .aup-side{ border:none; }
+    }
+
+/* === AiVRIC Demo Environment Background === */
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* dev-defense style background */
+  background:
+    radial-gradient(1200px 800px at 20% -10%, rgba(27,140,255,0.35), transparent 55%),
+    radial-gradient(900px 700px at 90% 10%, rgba(46,229,157,0.20), transparent 60%),
+    linear-gradient(180deg, #020617 0%, #030712 45%, #020617 100%);
+
+  color: var(--text);
+  padding: 28px 16px;
+}
+
+/* Optional subtle texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 4px 4px;
+  opacity: 0.15;
+}
+
+
+
+  </style>
+</head>
+
+<body>
+  <div class="aup-wrap">
+    <div class="aup-modal" role="dialog" aria-modal="true" aria-labelledby="aupTitle">
+
+      <div class="aup-header">
+        <div class="brand">
+          <!-- Update logo path if needed -->
+          <img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC">
+          <div class="title">
+            <strong id="aupTitle">AiVRIC Demo Acceptable Use Policy</strong>
+            <span>Review and accept to proceed to the demo environment.</span>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <span class="pill info"><i class="fas fa-lock"></i> Demo Access Gate</span>
+          <button class="close-x" type="button" aria-label="Close" id="closeBtn">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="aup-body">
+        <!-- LEFT: Policy Text -->
+        <div class="aup-content">
+          <h1>Acceptable Use Policy</h1>
+          <p class="subtitle">
+            This policy governs use of the AiVRIC demonstration environment (“Demo”). The Demo is provided for evaluation
+            and is not intended for production workloads. By continuing, you agree to the terms below.
+          </p>
+
+          <div class="scrollbox" id="policyScroll" aria-label="Acceptable Use Policy text">
+            <h2>1. Purpose and scope</h2>
+            <p>
+              The AiVRIC Demo is a controlled environment designed to demonstrate platform capabilities. You may use the
+              Demo only for lawful evaluation, testing, and product understanding activities.
+            </p>
+
+            <h2>2. Authorized activities</h2>
+            <ul>
+              <li>Review product workflows, dashboards, and reporting outputs.</li>
+              <li>Explore supported integrations and non-destructive configuration settings.</li>
+              <li>Run demonstration scans or checks against <strong>systems you own</strong> or are <strong>explicitly authorized</strong> to test.</li>
+              <li>Use only test/dummy repositories, sample datasets, or non-sensitive data wherever possible.</li>
+            </ul>
+
+            <h2>3. Prohibited activities</h2>
+            <ul>
+              <li><strong>No unauthorized testing:</strong> Do not scan, probe, or test any third-party systems or networks without written authorization.</li>
+              <li><strong>No abuse or disruption:</strong> No denial-of-service, stress testing, or actions that degrade performance or availability.</li>
+              <li><strong>No malicious content:</strong> Do not upload malware, exploit code intended for harm, or attempt to weaponize outputs.</li>
+              <li><strong>No credential harvesting:</strong> Do not attempt to capture credentials, tokens, secrets, or access keys.</li>
+              <li><strong>No evasion:</strong> Do not bypass rate limits, access controls, licensing, or monitoring.</li>
+              <li><strong>No reverse engineering:</strong> Do not decompile, reverse engineer, or attempt to extract proprietary logic from the Demo.</li>
+              <li><strong>No sensitive data:</strong> Do not upload regulated data (PCI, PHI, SSNs), secrets, private keys, production customer data, or confidential IP.</li>
+            </ul>
+
+            <h2>4. Data handling and retention</h2>
+            <p>
+              The Demo is for evaluation; treat it as an untrusted environment for sensitive information. You are responsible for ensuring that
+              any data you input is appropriate. AiVRIC may log activity for security, troubleshooting, and service integrity.
+            </p>
+
+            <h2>5. Access, monitoring, and enforcement</h2>
+            <p>
+              AiVRIC may monitor usage to protect the platform and its users. If activity appears harmful or violates this policy, AiVRIC may
+              throttle, suspend, or terminate demo access without notice.
+            </p>
+
+            <h2>6. Confidentiality and permitted sharing</h2>
+            <p>
+              You may share high-level evaluation outcomes internally. Do not publicly disclose non-public performance results, security behavior,
+              or configuration details that could materially aid misuse, unless you have written permission from AiVRIC.
+            </p>
+
+            <h2>7. No warranties; evaluation-only</h2>
+            <p>
+              The Demo is provided “as is” for evaluation. Features, outputs, and availability may change. The Demo may contain sample data
+              and simulated behavior that does not represent production configurations.
+            </p>
+
+            <h2>8. Reporting issues</h2>
+            <p>
+              If you identify a security concern, suspected vulnerability, or misuse of the Demo, contact AiVRIC immediately at
+              <a href="mailto:security@aivric.com">security@aivric.com</a> or <a href="mailto:info@aivric.com">info@aivric.com</a>.
+            </p>
+
+            <h2>9. Agreement</h2>
+            <p>
+              By selecting “I agree” and continuing, you represent that you have authority to accept these terms on behalf of yourself and/or your
+              organization, and that your use will comply with this policy and applicable laws.
+            </p>
+          </div>
+
+          <div class="callouts">
+            <div class="callout">
+              <i class="fas fa-check-circle"></i>
+              <div>
+                <strong>Use only authorized targets</strong>
+                <span>Only test assets you own or have explicit written permission to assess.</span>
+              </div>
+            </div>
+            <div class="callout">
+              <i class="fas fa-shield-alt"></i>
+              <div>
+                <strong>Keep data non-sensitive</strong>
+                <span>Prefer sample data; avoid secrets, regulated data, or production datasets.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Acceptance + Actions -->
+        <div class="aup-side">
+          <div class="side-card">
+            <h3><i class="fas fa-info-circle" style="color: var(--aivric-accent);"></i> Quick summary</h3>
+            <p>
+              The demo is for evaluation only. Do not attempt to disrupt service, bypass controls, or test systems you do not own or control.
+              Use non-sensitive data whenever possible.
+            </p>
+            <div class="meta">
+              <div><strong>Applies to:</strong> AiVRIC Demo Environment</div>
+              <div><strong>Last updated:</strong> <span id="lastUpdated">2025-01-01</span></div>
+            </div>
+          </div>
+
+          <div class="side-card">
+            <h3><i class="fas fa-user-check" style="color: var(--aivric-accent2);"></i> Acceptance</h3>
+
+            <div class="form-row">
+              <input type="checkbox" id="agreeChk" />
+              <label for="agreeChk">
+                I have read and agree to the AiVRIC Demo Acceptable Use Policy.
+              </label>
+            </div>
+
+            <div class="form-row">
+              <input type="checkbox" id="authChk" />
+              <label for="authChk">
+                I will only test systems and repositories that I own or am authorized to assess.
+              </label>
+            </div>
+
+            <div class="actions">
+              <!-- Update href to your demo login destination -->
+              <button class="btn primary" id="continueToDemo" type="button" disabled>
+  Continue to Demo
+</button>
+
+              <!-- Optional: link back to your demo-request page -->
+              <a class="btn ghost" href="request-demo.html">
+                <i class="fas fa-undo"></i> Go Back
+              </a>
+            </div>
+
+            <div class="fineprint">
+              Tip: If this window was opened as a popup, “Close” will return you to the prior page.
+              If it was opened in a new tab, you may close the tab after acceptance.
+            </div>
+          </div>
+
+          <div class="side-card">
+            <h3><i class="fas fa-life-ring" style="color: var(--aivric-warn);"></i> Need help?</h3>
+            <p>
+              For demo support or questions about permitted use, contact
+              <a href="mailto:info@aivric.com">info@aivric.com</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const agreeChk = document.getElementById('agreeChk');
+      const authChk = document.getElementById('authChk');
+      const continueBtn = document.getElementById('continueBtn');
+      const closeBtn = document.getElementById('closeBtn');
+
+      // Set "Last updated" to today's date automatically (optional)
+      const d = new Date();
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth()+1).padStart(2,'0');
+      const dd = String(d.getDate()).padStart(2,'0');
+      document.getElementById('lastUpdated').textContent = `${yyyy}-${mm}-${dd}`;
+
+      function setContinueEnabled(enabled){
+        if(enabled){
+          continueBtn.style.pointerEvents = 'auto';
+          continueBtn.style.opacity = '1';
+          continueBtn.setAttribute('aria-disabled', 'false');
+        }else{
+          continueBtn.style.pointerEvents = 'none';
+          continueBtn.style.opacity = '0.55';
+          continueBtn.setAttribute('aria-disabled', 'true');
+        }
+      }
+
+      function updateState(){
+        const enabled = agreeChk.checked && authChk.checked;
+        setContinueEnabled(enabled);
+      }
+
+      agreeChk.addEventListener('change', updateState);
+      authChk.addEventListener('change', updateState);
+      updateState();
+
+      // Close behavior: if opened as popup, close; otherwise go back
+      closeBtn.addEventListener('click', function(){
+        try{
+          window.close();
+          // If browser blocks close (not opened by script), fallback:
+          setTimeout(() => {
+            if (!window.closed) history.back();
+          }, 120);
+        }catch(e){
+          history.back();
+        }
+      });
+
+      // Optional: block Enter key from accidentally navigating before acceptance
+      document.addEventListener('keydown', function(e){
+        if(e.key === 'Enter'){
+          const enabled = (agreeChk.checked && authChk.checked);
+          if(!enabled){
+            e.preventDefault();
+          }
+        }
+        if(e.key === 'Escape'){
+          closeBtn.click();
+        }
+      });
+    })();
+  </script>
+
+<script>
+(function(){
+  const GATE_KEY = "aivric_demo_gate";
+
+  // Update these IDs to match your actual checkbox IDs in aup.html
+  const chkPolicy = document.getElementById("ackPolicy");   // "I have read and agree..."
+  const chkAuth   = document.getElementById("ackAuth");     // "I will only test authorized..."
+  const btnContinue = document.getElementById("continueToDemo");
+
+  // Fallback if your checkbox IDs differ (optional)
+  const checkboxes = Array.from(document.querySelectorAll('input[type="checkbox"]'));
+  const policyBox = chkPolicy || checkboxes[0];
+  const authBox   = chkAuth   || checkboxes[1];
+
+  function qs(name){
+    return new URLSearchParams(window.location.search).get(name);
+  }
+
+  function getGate(){
+    try{
+      return JSON.parse(sessionStorage.getItem(GATE_KEY) || "null");
+    }catch(e){
+      return null;
+    }
+  }
+
+  function invalidateGate(){
+    sessionStorage.removeItem(GATE_KEY);
+  }
+
+  function gateIsValid(){
+    const gateParam = qs("gate");
+    const gate = getGate();
+    if(!gateParam || !gate) return false;
+    if(!gate.ok) return false;
+    if(gate.token !== gateParam) return false;
+    if(!gate.exp || Date.now() > gate.exp) return false;
+    if(!gate.demoUrl) return false;
+    return true;
+  }
+
+  function updateButtonState(){
+    const gateOk = gateIsValid();
+    const aupOk = Boolean(policyBox?.checked) && Boolean(authBox?.checked);
+    btnContinue.disabled = !(gateOk && aupOk);
+  }
+
+  // Enforce gate on load: direct access to aup.html should be blocked
+  if(!gateIsValid()){
+    invalidateGate();
+    // Send them back to the gate page (optionally include a reason)
+    window.location.replace("demo-access.html?error=complete_demo_request_first");
+    return;
+  }
+
+  // If gate is valid, allow interactions
+  updateButtonState();
+  document.addEventListener("change", updateButtonState);
+
+  btnContinue.addEventListener("click", function(){
+    if(btnContinue.disabled) return;
+
+    const gate = getGate();
+    if(!gate || !gate.demoUrl) return;
+
+    // Optional: clear the gate after use to prevent replays
+    invalidateGate();
+
+    // Continue to demo login page
+    window.location.href = gate.demoUrl;
+  });
+
+})();
+
+
+
+
+
+</script>
+
+
+</body>
+</html>

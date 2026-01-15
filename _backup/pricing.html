@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AiVRIC | Pricing</title>
+  <meta name="description" content="Enterprise pricing, deployment options, and ROI modeling for the AiVRIC Platform.">
+  <link rel="canonical" href="https://aivric.com/pricing">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800;900&family=Jost:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/font-awesome-all.css">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <style>
+
+    :root{
+      --aivric-accent: #00d1ff;     /* aligns to your site CTA/cyan */
+      --aivric-accent2: #2ee59d;    /* success/green */
+      --aivric-ink: #0b1220;
+      --aivric-panel: rgba(255,255,255,0.06);
+      --aivric-panel2: rgba(255,255,255,0.09);
+      --aivric-line: rgba(255,255,255,0.12);
+      --aivric-text: rgba(255,255,255,0.92);
+      --aivric-muted: rgba(255,255,255,0.72);
+      --aivric-muted2: rgba(255,255,255,0.58);
+      --aivric-shadow: 0 14px 40px rgba(0,0,0,0.28);
+      --aivric-radius: 18px;
+    }
+
+    /* Use your theme, but ensure this page background matches your darker sections */
+    body.mode-saas,
+    body.mode-win{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 900px at 70% -20%, rgba(0,209,255,0.22), transparent 55%),
+        radial-gradient(900px 700px at 10% 10%, rgba(46, 113, 229, 0.14), transparent 60%),
+        linear-gradient(180deg, #070b14 0%, #060a12 35%, #050814 100%);
+      color: var(--aivric-text);
+    }
+
+    /* Ensure header stays readable on dark bg */
+    .main-header .header-lower,
+    .sticky-header{
+      background: rgb(255, 255, 255);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    /* Page container aligns with your template */
+    .pricing-wrap{
+      padding: 120px 0 90px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    @media (max-width: 992px){
+      .pricing-wrap{ padding: 100px 0 70px 0; }
+    }
+
+    .pricing-hero{
+      padding: 10px 0 18px 0;
+    }
+
+    .hero-grid{
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 26px;
+      align-items: start;
+    }
+    @media (max-width: 992px){
+      .hero-grid{ grid-template-columns: 1fr; }
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(0,209,255,0.12);
+      border: 1px solid rgba(0,209,255,0.28);
+      color: var(--aivric-text);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+    .badge i{ color: var(--aivric-accent); }
+
+    .hero-title{
+      font-family: Jost, Inter, sans-serif;
+      font-size: 46px;
+      line-height: 1.06;
+      margin: 14px 0 12px 0;
+      letter-spacing: -0.8px;
+      color: var(--aivric-text);
+    }
+    @media (max-width: 768px){
+      .hero-title{ font-size: 36px; }
+    }
+
+    .hero-sub{
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--aivric-muted);
+      margin: 0 0 18px 0;
+      max-width: 70ch;
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 14px;
+      margin: 18px 0 0 0;
+      padding: 0;
+      list-style:none;
+    }
+    @media (max-width: 620px){
+      .hero-points{ grid-template-columns: 1fr; }
+    }
+    .hero-points li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+    }
+    .hero-points i{ margin-top:2px; color: var(--aivric-accent2); }
+    .hero-points span{ color: var(--aivric-muted); font-size: 14px; line-height: 1.45; }
+
+    /* Toggle panel */
+    .pricing-toggle{
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--aivric-radius);
+      box-shadow: var(--aivric-shadow);
+      padding: 18px;
+      position: sticky;
+      top: 110px;
+    }
+    @media (max-width: 992px){
+      .pricing-toggle{ position: relative; top: auto; }
+    }
+    .toggle-title{
+      font-size: 13px;
+      letter-spacing: 0.25px;
+      color: var(--aivric-muted);
+      margin: 0 0 10px 0;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .toggle-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+    }
+    .toggle-label{
+      display:flex;
+      flex-direction:column;
+      gap: 3px;
+      padding-right: 8px;
+    }
+    .toggle-label strong{
+      font-size: 14px;
+      color: var(--aivric-text);
+      font-weight: 900;
+      letter-spacing: 0.2px;
+    }
+    .toggle-label small{
+      color: var(--aivric-muted2);
+      font-size: 12.5px;
+      line-height: 1.4;
+    }
+
+    .switch{ position: relative; width: 56px; height: 32px; flex: 0 0 auto; }
+    .switch input{ display:none; }
+    .slider{
+      position:absolute; cursor:pointer;
+      inset:0;
+      background: rgba(255,255,255,0.18);
+      border: 1px solid rgba(255,255,255,0.18);
+      transition: 0.25s;
+      border-radius: 999px;
+    }
+    .slider:before{
+      position:absolute; content:"";
+      height: 24px; width: 24px;
+      left: 4px; top: 3px;
+      background: rgba(255,255,255,0.92);
+      transition: 0.25s;
+      border-radius: 999px;
+    }
+    input:checked + .slider{
+      background: rgba(0,209,255,0.45);
+      border-color: rgba(0,209,255,0.55);
+    }
+    input:checked + .slider:before{ transform: translateX(24px); }
+
+    .toggle-foot{
+      margin-top: 12px;
+      color: var(--aivric-muted2);
+      font-size: 12.5px;
+      line-height: 1.55;
+    }
+    .legal-note{
+      margin-top: 14px;
+      color: rgba(255,255,255,0.45);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    /* Section headings */
+    .pricing-section{
+      padding: 26px 0 0 0;
+    }
+    .section-title{
+      font-family: Jost, Inter, sans-serif;
+      font-size: 30px;
+      margin: 18px 0 10px 0;
+      letter-spacing: -0.3px;
+      color: var(--aivric-text);
+    }
+    .section-sub{
+      margin: 0 0 22px 0;
+      color: var(--aivric-muted);
+      line-height: 1.75;
+      font-size: 15px;
+      max-width: 88ch;
+    }
+
+    /* Pricing cards */
+    .pricing-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 10px;
+    }
+    @media (max-width: 992px){
+      .pricing-grid{ grid-template-columns: 1fr; }
+    }
+
+    .p-card{
+      border-radius: var(--aivric-radius);
+      background: var(--aivric-panel);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--aivric-shadow);
+      overflow: hidden;
+      position: relative;
+    }
+    .p-card.highlight{
+      border-color: rgba(46,229,157,0.35);
+    }
+    .p-card.enterprise{
+      border-color: rgba(255,206,58,0.28);
+    }
+
+    .p-head{
+      padding: 18px 18px 14px 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    }
+    .plan-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .plan-name{
+      font-family: Jost, Inter, sans-serif;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      margin: 0;
+      color: var(--aivric-text);
+    }
+    .pill{
+      font-size: 12px;
+      font-weight: 900;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: var(--aivric-text);
+      white-space: nowrap;
+    }
+    .pill.recommended{
+      background: rgba(46,229,157,0.14);
+      border-color: rgba(46,229,157,0.35);
+    }
+    .pill.enterprise{
+      background: rgba(255,206,58,0.12);
+      border-color: rgba(255,206,58,0.28);
+    }
+    .plan-desc{
+      margin: 0;
+      color: var(--aivric-muted);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+
+    .p-price{
+      padding: 14px 18px 10px 18px;
+    }
+    .price-row{
+      display:flex;
+      align-items:baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .price-amount{
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -0.6px;
+      color: var(--aivric-text);
+    }
+    .price-term{
+      color: var(--aivric-muted2);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .price-note{
+      margin-top: 8px;
+      color: var(--aivric-muted2);
+      font-size: 12.5px;
+      line-height: 1.55;
+    }
+
+    .p-features{
+      padding: 10px 18px 18px 18px;
+    }
+    .p-features ul{
+      list-style:none;
+      padding: 0;
+      margin: 0;
+      display:grid;
+      gap: 10px;
+    }
+    .p-features li{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      padding: 10px 12px;
+      border-radius: 12px;
+    }
+    .p-features i{ margin-top:2px; color: var(--aivric-accent2); }
+    .p-features span{ color: var(--aivric-muted); font-size: 13.5px; line-height: 1.45; }
+
+    .p-actions{
+      padding: 0 18px 18px 18px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons aligned with template feel (but independent) */
+    .a-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.06);
+      color: var(--aivric-text);
+      font-weight: 900;
+      font-size: 13px;
+      letter-spacing: 0.2px;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+    .a-btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.09);
+    }
+    .a-btn.primary{
+      background: linear-gradient(90deg, rgba(0,209,255,0.95), rgba(46,229,157,0.75));
+      border-color: rgba(0,209,255,0.55);
+      color: #031018;
+    }
+    .a-btn.primary:hover{ filter: brightness(1.02); }
+    .a-btn.ghost{ background: transparent; border-color: rgba(255,255,255,0.16); }
+
+    /* Modules */
+    .modules-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    @media (max-width: 1200px){
+      .modules-grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 620px){
+      .modules-grid{ grid-template-columns: 1fr; }
+    }
+    .module{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      padding: 16px;
+      box-shadow: var(--aivric-shadow);
+    }
+    .module-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap: 10px;
+    }
+    .module h3{
+      margin: 0;
+      font-size: 15px;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      color: var(--aivric-text);
+    }
+    .module .tag{
+      font-size: 12px;
+      font-weight: 900;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,209,255,0.14);
+      border: 1px solid rgba(0,209,255,0.30);
+      white-space: nowrap;
+      color: var(--aivric-text);
+    }
+    .module p{
+      margin: 10px 0 0 0;
+      color: var(--aivric-muted);
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+
+    /* Comparison table */
+    .compare{
+      margin-top: 18px;
+      border-radius: var(--aivric-radius);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      box-shadow: var(--aivric-shadow);
+      overflow: hidden;
+    }
+    .compare-head{
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .compare-head strong{
+      font-size: 14px;
+      letter-spacing: 0.2px;
+      color: var(--aivric-text);
+    }
+    .compare-head span{
+      color: var(--aivric-muted2);
+      font-size: 12px;
+    }
+    .compare-table{
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+    .compare-table th,
+    .compare-table td{
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      vertical-align: top;
+      color: var(--aivric-muted);
+    }
+    .compare-table th{
+      color: var(--aivric-text);
+      font-weight: 900;
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+    }
+    .check{ color: var(--aivric-accent2); font-weight: 900; }
+    .dash{ color: rgba(255,255,255,0.35); }
+
+    /* FAQ */
+    .faq{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 12px;
+    }
+    @media (max-width: 992px){
+      .faq{ grid-template-columns: 1fr; }
+    }
+    details{
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      padding: 14px 14px;
+      box-shadow: var(--aivric-shadow);
+    }
+    summary{
+      cursor:pointer;
+      font-weight: 900;
+      letter-spacing: 0.2px;
+      color: var(--aivric-text);
+      list-style: none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details p{
+      margin: 10px 0 0 0;
+      color: var(--aivric-muted);
+      line-height: 1.7;
+      font-size: 13.5px;
+    }
+
+    /* CTA */
+    .cta{
+      margin-top: 18px;
+      border-radius: var(--aivric-radius);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: linear-gradient(90deg, rgba(0, 89, 255, 0.14), rgba(46, 119, 229, 0.1));
+      box-shadow: var(--aivric-shadow);
+      padding: 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .cta strong{
+      font-family: Jost, Inter, sans-serif;
+      font-size: 20px;
+      letter-spacing: -0.2px;
+      color: var(--aivric-text);
+    }
+    .cta span{
+      display:block;
+      color: var(--aivric-muted);
+      margin-top: 6px;
+      font-size: 13.5px;
+      line-height: 1.65;
+      max-width: 74ch;
+    }
+
+    /* Hide/show prices by deployment model */
+    .price-saas, .price-win{ display:none; }
+    .mode-saas .price-saas{ display:inline; }
+    .mode-win .price-win{ display:inline; }
+
+    /* Notes */
+    .note-saas, .note-win{ display:none; }
+    .mode-saas .note-saas{ display:block; }
+    .mode-win .note-win{ display:block; }
+
+    /* Smooth anchor offset for sticky header */
+    .anchor{ scroll-margin-top: 120px; }
+  
+    .auto-container{ max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .roi-grid{
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    @media (max-width: 992px){
+      .roi-grid{ grid-template-columns: 1fr; }
+    }
+    .roi-card{
+      border-radius: var(--aivric-radius);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      box-shadow: var(--aivric-shadow);
+      padding: 18px;
+      display:grid;
+      gap: 12px;
+    }
+    .roi-field{
+      display:grid;
+      gap: 6px;
+    }
+    .roi-field label{
+      font-size: 12.5px;
+      color: var(--aivric-muted2);
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      text-transform: uppercase;
+    }
+    .roi-field input{
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 12px;
+      padding: 10px 12px;
+      color: var(--aivric-text);
+      font-size: 14px;
+    }
+    .roi-actions{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+    .roi-note{
+      color: var(--aivric-muted2);
+      font-size: 12.5px;
+    }
+    .roi-results{
+      background: linear-gradient(135deg, rgba(0,209,255,0.12), rgba(46,229,157,0.08));
+    }
+    .roi-metric{
+      display:flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+    }
+    .roi-metric span{
+      color: var(--aivric-muted2);
+      font-size: 12.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.25px;
+      font-weight: 800;
+    }
+    .roi-metric strong{
+      color: var(--aivric-text);
+      font-size: 20px;
+      letter-spacing: -0.2px;
+    }
+  </style>
+</head>
+<body class="mode-saas">
+<header class="site-header">
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <span class="topbar-label">AiVRIC Technologies</span>
+        <div class="topbar-links">
+          <a href="aivric-vision.html">AiVRIC Vision</a>
+          <a href="trust-center.html">Trust Center</a>
+          <a href="mailto:sales@aivric.com">sales@aivric.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo">
+        <span>AiVRIC</span>
+      </a>
+      <nav class="nav-links" aria-label="Main">
+        <div class="nav-group">
+          <button class="nav-trigger" type="button" aria-haspopup="true">Platform</button>
+          <div class="nav-panel">
+            <a href="product.html">AiVRIC Platform</a>
+            <a href="aivric-vision.html">AiVRIC Vision</a>
+            <a href="integrations.html">Integrations</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-trigger" type="button" aria-haspopup="true">Suites</button>
+          <div class="nav-panel">
+            <a href="solutions.html">AiVRIC Defense Suite</a>
+            <a href="solutions.html#posture">AiVRIC Posture Suite</a>
+            <a href="solutions.html#ai-signals">AI Signals</a>
+            <a href="solutions.html#offense">AiVRIC Offense Suite</a>
+          </div>
+        </div>
+        <a class="nav-link" href="pricing.html">Pricing</a>
+        <div class="nav-group">
+          <button class="nav-trigger" type="button" aria-haspopup="true">Resources</button>
+          <div class="nav-panel">
+            <a href="resources.html">Resource hub</a>
+            <a href="blog.html">Blog</a>
+            <a href="trust-center.html">Trust Center</a>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button class="nav-trigger" type="button" aria-haspopup="true">Company</button>
+          <div class="nav-panel">
+            <a href="company.html">About</a>
+            <a href="customers.html">Customers</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+      </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" type="button" data-theme-toggle>Dark mode</button>
+        <a class="btn btn-ghost" href="trust-center.html" data-analytics="security-packet">Security packet</a>
+        <a class="btn btn-primary" href="request-demo.html" data-analytics="book-demo">Book demo</a>
+        <button class="btn btn-ghost mobile-toggle" type="button" data-menu-toggle>Menu</button>
+      </div>
+    </div>
+  </header>
+  <main>
+
+    <section class="pricing-wrap">
+      <div class="auto-container">
+
+        <!-- HERO -->
+        <div class="pricing-hero">
+          <div class="hero-grid">
+            <div>
+              <div class="badge">
+                <i class="fas fa-shield-alt"></i>
+                AiVRIC Pricing
+              </div>
+
+              <h1 class="hero-title">Pricing built for SOC 2 readiness, multi-cloud visibility, and enterprise scale.</h1>
+
+              <p class="hero-sub">
+                Choose a deployment model that fits your operating constraints—then scale by workload footprint and
+                instance separation. Transparent tiers, strong expansion economics, and outcome-driven add-ons.
+              </p>
+
+              <ul class="hero-points">
+                <li><i class="fas fa-check-circle"></i><span><strong style="color:var(--aivric-text);">Outcome-first:</strong> compliance reporting + security posture in one platform.</span></li>
+                <li><i class="fas fa-check-circle"></i><span><strong style="color:var(--aivric-text);">Predictable scaling:</strong> priced by Workload Units (WU) and Instances.</span></li>
+                <li><i class="fas fa-check-circle"></i><span><strong style="color:var(--aivric-text);">Customer data control:</strong> customer-hosted SaaS or local Windows executable.</span></li>
+                <li><i class="fas fa-check-circle"></i><span><strong style="color:var(--aivric-text);">Expansion-ready:</strong> modules for evidence workflows, automation, and managed AI.</span></li>
+              </ul>
+            </div>
+
+            <div class="pricing-toggle">
+              <p class="toggle-title">Select a deployment model</p>
+
+              <div class="toggle-row" style="margin-bottom: 12px;">
+                <div class="toggle-label">
+                  <strong id="modeLabel">Customer-hosted SaaS</strong>
+                  <small id="modeSub">Runs in your cloud (Kubernetes). You own the data. Annual subscription.</small>
+                </div>
+
+                <label class="switch" aria-label="Toggle deployment model">
+                  <input type="checkbox" id="deployToggle">
+                  <span class="slider"></span>
+                </label>
+              </div>
+
+              <div class="toggle-foot">
+                <div class="note-saas">
+                  <strong style="color:var(--aivric-text);">Customer-hosted SaaS:</strong>
+                  optimized for continuous scanning, multi-cloud integrations, and scalable operations.
+                  Add instances for segregation (business units, environments, subsidiaries).
+                </div>
+                <div class="note-win">
+                  <strong style="color:var(--aivric-text);">Windows executable:</strong>
+                  optimized for local data storage and rapid assessments. Ideal for annual licensing and portability.
+                </div>
+              </div>
+
+              <div class="legal-note">
+                Definitions: <strong>WU (Workload Unit)</strong> represents a billable compute-like workload (e.g., VM, container workload, serverless app).
+                <strong>Instance</strong> represents a separated deployment boundary for segregation and scale.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PLANS -->
+        <div class="pricing-section">
+          <h2 class="section-title">Paid Plans</h2>
+          <p class="section-sub">
+            The list prices in this section for the AiVRIC solution has been packaged to meet expected outcomes of enterprise IT Security teams. Multi-year and volume discounts are available for qualified engagements.
+          </p>
+
+          <div class="pricing-grid">
+
+            <!-- STARTUP -->
+            <div class="p-card">
+              <div class="p-head">
+                <div class="plan-top">
+                  <h3 class="plan-name">Startup</h3>
+                  <div class="pill">SOC 2 readiness</div>
+                </div>
+                <p class="plan-desc">Land quickly with compliance posture and reporting without operational overhead.</p>
+              </div>
+
+              <div class="p-price">
+                <div class="price-row">
+                  <div class="price-amount">
+                    <span class="price-saas">$9,600</span>
+                    <span class="price-win">$8,400</span>
+                  </div>
+                  <div class="price-term">/ year</div>
+                </div>
+                <div class="price-note">
+                  Includes up to <strong>50 WU</strong>, <strong>1 cloud account/subscription</strong>, <strong>1 environment</strong>, SOC 2 reporting pack.
+                </div>
+              </div>
+
+              <div class="p-features">
+                <ul>
+                  <li><i class="fas fa-check-circle"></i><span>Security posture scanning with scheduled runs</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>SOC 2-aligned outputs for readiness and audit prep</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>Exportable findings and executive-ready summaries</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>BYO-AI key support for AI-assisted insights</span></li>
+                </ul>
+              </div>
+
+              <div class="p-actions">
+                <a class="a-btn primary" href="#"><i class="fas fa-rocket"></i>Start with Startup</a>
+                <a class="a-btn ghost" href="#faq"><i class="fas fa-question-circle"></i>Pricing FAQs</a>
+              </div>
+
+              <div class="p-features" style="padding-top:0;">
+                <div class="price-note" style="margin:0;">
+                  <strong>Overage:</strong> +$180/month per additional 10 WU (or upgrade to Mid-Market).
+                </div>
+              </div>
+            </div>
+
+            <!-- MID-MARKET -->
+            <div class="p-card highlight">
+              <div class="p-head">
+                <div class="plan-top">
+                  <h3 class="plan-name">Mid-Market</h3>
+                  <div class="pill recommended">Most popular</div>
+                </div>
+                <p class="plan-desc">Multi-cloud visibility and governance for scaling security and compliance operations.</p>
+              </div>
+
+              <div class="p-price">
+                <div class="price-row">
+                  <div class="price-amount">
+                    <span class="price-saas">$36,000</span>
+                    <span class="price-win">$31,200</span>
+                  </div>
+                  <div class="price-term">/ year</div>
+                </div>
+                <div class="price-note">
+                  Includes up to <strong>300 WU</strong>, up to <strong>5 cloud accounts/subscriptions</strong>, multi-cloud connectors, team RBAC.
+                </div>
+              </div>
+
+              <div class="p-features">
+                <ul>
+                  <li><i class="fas fa-check-circle"></i><span>Multi-cloud connectors with scheduled scanning cadence</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>Team workspaces & role-based access control</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>Compliance packs (SOC 2 + expandable overlays)</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>Operational dashboards and trend reporting</span></li>
+                </ul>
+              </div>
+
+              <div class="p-actions">
+                <a class="a-btn primary" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo?month=2026-01"><i class="fas fa-calendar-check"></i>Book a Demo</a>
+                <a class="a-btn" href="#modules"><i class="fas fa-puzzle-piece"></i>Add Modules</a>
+              </div>
+
+              <div class="p-features" style="padding-top:0;">
+                <div class="price-note" style="margin:0;">
+                  <strong>Overage bands:</strong> 301–600 WU +$24,000/year • 601–1,000 WU +$36,000/year
+                </div>
+              </div>
+            </div>
+
+            <!-- ENTERPRISE -->
+            <div class="p-card enterprise">
+              <div class="p-head">
+                <div class="plan-top">
+                  <h3 class="plan-name">Enterprise</h3>
+                  <div class="pill enterprise">Multi-instance</div>
+                </div>
+                <p class="plan-desc">Separation, scale, automation, and assurance for regulated and complex organizations.</p>
+              </div>
+
+              <div class="p-price">
+                <div class="price-row">
+                  <div class="price-amount">
+                    <span class="price-saas">$180,000</span>
+                    <span class="price-win">$156,000</span>
+                  </div>
+                  <div class="price-term">/ year</div>
+                </div>
+                <div class="price-note">
+                  Includes up to <strong>1,000 WU</strong>, up to <strong>15 cloud accounts/subscriptions</strong>, SSO/SCIM, API access, premium support.
+                </div>
+              </div>
+
+              <div class="p-features">
+                <ul>
+                  <li><i class="fas fa-check-circle"></i><span>Multi-instance support for segregation (BU/env/subsidiary)</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>SSO/SAML + SCIM provisioning and enterprise RBAC</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>API access and automation-ready reporting pipelines</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>Premium support + SLA options for critical operations</span></li>
+                </ul>
+              </div>
+
+              <div class="p-actions">
+                <a class="a-btn primary" href="#"><i class="fas fa-handshake"></i>Talk to Sales</a>
+                <a class="a-btn" href="#compare"><i class="fas fa-columns"></i>Compare Plans</a>
+              </div>
+
+              <div class="p-features" style="padding-top:0;">
+                <div class="price-note" style="margin:0;">
+                  <strong>Instances:</strong> Base includes 1 instance • Each additional instance +$25,000/year<br>
+                  <strong>Overage bands:</strong> 1,001–2,500 WU +$90,000/year • 2,501–5,000 WU +$150,000/year • &gt;5,000 custom
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- JUMPSTART -->
+        <div class="pricing-section" id="jumpstart">
+          <h2 class="section-title">Free Jumpstart</h2>
+          <p class="section-sub">
+            Spin up a no-cost sandbox to experience AiVRIC. Ideal for quick validation, a first security scan, and showcasing reporting to stakeholders.
+          </p>
+
+          <div class="pricing-grid">
+            <div class="p-card highlight">
+              <div class="p-head">
+                <div class="plan-top">
+                  <h3 class="plan-name">Jumpstart</h3>
+                  <div class="pill">Free</div>
+                </div>
+                <p class="plan-desc">Limited trial with guided onboarding and sample reports so you can see value fast.</p>
+              </div>
+
+              <div class="p-price">
+                <div class="price-row">
+                  <div class="price-amount">
+                    <span class="price-saas">$0</span>
+                  </div>
+                  <div class="price-term">/ 30-day access</div>
+                </div>
+                <div class="price-note">
+                  Includes up to <strong>10 WU</strong>, <strong>1 cloud account/subscription</strong>, <strong>1 workspace</strong>, starter SOC 2 sample pack.
+                </div>
+              </div>
+
+              <div class="p-features">
+                <ul>
+                  <li><i class="fas fa-check-circle"></i><span>Quickstart scan & posture summary (up to 10 WU)</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>Guided onboarding call (60 minutes)</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>Sample SOC 2 evidence bundle and dashboards</span></li>
+                  <li><i class="fas fa-check-circle"></i><span>Email support during the trial window</span></li>
+                </ul>
+              </div>
+
+              <div class="p-actions">
+                <a class="a-btn primary" href="#"><i class="fas fa-play-circle"></i>Start Free Jumpstart</a>
+                <a class="a-btn ghost" href="#compare"><i class="fas fa-columns"></i>Compare to Paid Plans</a>
+              </div>
+
+              <div class="p-features" style="padding-top:0;">
+                <div class="price-note" style="margin:0;">
+                  Ready to expand? Upgrade to any paid plan to keep your configurations, findings, and reports.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODULES -->
+        <div id="modules" class="anchor"></div>
+        <div class="pricing-section">
+          <h2 class="section-title">Add-On Modules</h2>
+          <p class="section-sub">
+            Add AiVRIC modules to accelerate audit readiness, automate security operations, and increase repeatability at scale.
+            These modules differentiate AiVRIC from typical baseline scanning-only approaches.
+          </p>
+
+          <div class="modules-grid">
+            <div class="module">
+              <div class="module-top">
+                <h3>Compliance Ops Pack</h3>
+                <div class="tag">+$12k–$30k/yr</div>
+              </div>
+              <p>
+                Evidence workflows, audit trails, exception handling, compensating controls, and packaged outputs designed
+                to reduce audit effort and strengthen defensibility.
+              </p>
+            </div>
+
+            <div class="module">
+              <div class="module-top">
+                <h3>Automation & Integrations</h3>
+                <div class="tag">+$9.6k/yr</div>
+              </div>
+              <p>
+                Extended integrations (CI/CD, ticketing, exports), API enhancements, and automation patterns for continuous
+                governance and operationalization.
+              </p>
+            </div>
+
+            <div class="module">
+              <div class="module-top">
+                <h3>Managed AI Pack</h3>
+                <div class="tag">+$6k/yr</div>
+              </div>
+              <p>
+                AiVRIC-managed AI usage with a capped allowance for AI-assisted triage, summarization, and executive-ready
+                reporting (BYO-AI also supported).
+              </p>
+            </div>
+
+            <div class="module">
+              <div class="module-top">
+                <h3>Deployment & Hardening</h3>
+                <div class="tag">$7.5k–$25k</div>
+              </div>
+              <p>
+                One-time onboarding and hardening package for customer-hosted SaaS deployments. Reference architectures,
+                secure baselines, and operational readiness guidance.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMPARE -->
+        <div id="compare" class="anchor"></div>
+        <div class="pricing-section">
+          <h2 class="section-title">Compare plans</h2>
+          <p class="section-sub">
+            A concise view of what is included by default. For regulated environments, ask about add-on attestations,
+            separation requirements, and optional SLA support.
+          </p>
+
+          <div class="compare">
+            <div class="compare-head">
+              <strong>Plan capabilities</strong>
+              <span>Deployment model toggle updates pricing only</span>
+            </div>
+
+            <table class="compare-table" aria-label="AiVRIC pricing comparison table">
+              <thead>
+                <tr>
+                  <th style="width:30%;">Capability</th>
+                  <th>Jumpstart (Free)</th>
+                  <th>Startup</th>
+                  <th>Mid-Market</th>
+                  <th>Enterprise</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Included Workload Units (WU)</td>
+                  <td>10</td>
+                  <td>50</td>
+                  <td>300</td>
+                  <td>1,000</td>
+                </tr>
+                <tr>
+                  <td>Cloud accounts/subscriptions included</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>Up to 5</td>
+                  <td>Up to 15</td>
+                </tr>
+                <tr>
+                  <td>Multi-cloud connectors</td>
+                  <td class="dash">-</td>
+                  <td class="dash">-</td>
+                  <td class="check">Yes</td>
+                  <td class="check">Yes</td>
+                </tr>
+                <tr>
+                  <td>Team RBAC / Workspaces</td>
+                  <td class="dash">-</td>
+                  <td>Basic</td>
+                  <td class="check">Yes</td>
+                  <td class="check">Yes</td>
+                </tr>
+                <tr>
+                  <td>SOC 2 reporting pack</td>
+                  <td class="dash">-</td>
+                  <td class="check">Yes</td>
+                  <td class="check">Yes</td>
+                  <td class="check">Yes</td>
+                </tr>
+                <tr>
+                  <td>SSO/SAML + SCIM</td>
+                  <td class="dash">-</td>
+                  <td class="dash">-</td>
+                  <td>Add-on</td>
+                  <td class="check">Included</td>
+                </tr>
+                <tr>
+                  <td>API access</td>
+                  <td class="dash">-</td>
+                  <td class="dash">-</td>
+                  <td>Add-on</td>
+                  <td class="check">Included</td>
+                </tr>
+                <tr>
+                  <td>Multi-instance separation</td>
+                  <td class="dash">-</td>
+                  <td class="dash">-</td>
+                  <td>Limited</td>
+                  <td class="check">Included</td>
+                </tr>
+                <tr>
+                  <td>Premium support / SLA options</td>
+                  <td class="dash">-</td>
+                  <td class="dash">-</td>
+                  <td>Add-on</td>
+                  <td class="check">Included</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div id="faq" class="anchor"></div>
+        <div class="pricing-section">
+          <h2 class="section-title">Pricing FAQs</h2>
+          <p class="section-sub">
+            Straight answers to common procurement and third-party security review attestation questionnaires.            
+          </p>
+
+          <div class="faq">
+            <details>
+              <summary>What counts as a Workload Unit (WU)?</summary>
+              <p>
+                A WU is a billable compute-like workload such as a VM, container workload, or serverless application.
+                You can optionally extend WU counting to include certain managed services based on your roadmap and customer demand.
+              </p>
+            </details>
+
+            <details>
+              <summary>What is an “Instance” and when do I need more than one?</summary>
+              <p>
+                An Instance is a separated deployment boundary used to segregate data, access, and operational controls across business units,
+                environments (dev/test/prod), subsidiaries, or regulatory partitions. Enterprise customers commonly adopt multi-instance for assurance.
+              </p>
+            </details>
+
+            <details>
+              <summary>How does AiVRIC compete with open source options?</summary>
+              <p>
+                Baseline scanning is only one component of operational maturity. AiVRIC differentiates through repeatable workflows, evidence and audit outputs,
+                governance, automation, and multi-instance operations—capabilities that reduce time-to-assurance and total effort.
+              </p>
+            </details>
+
+            <details>
+              <summary>Is BYO-AI supported?</summary>
+              <p>
+                Yes. You can bring your own AI API key for AI-assisted triage and reporting. If preferred, Managed AI can be purchased as an add-on with defined usage limits.
+              </p>
+            </details>
+
+            <details>
+              <summary>Do you offer multi-year discounts?</summary>
+              <p>
+                Yes. Multi-year terms and volume tiers are available for qualified customers. A common pattern is 10–15% off for 2-year and 15–25% off for 3-year agreements,
+                with guardrails to protect long-term margin.
+              </p>
+            </details>
+
+            <details>
+              <summary>Can we start with Windows and later move to customer-hosted SaaS?</summary>
+              <p>
+                Yes. Many customers begin with Windows for rapid posture assessment, then transition to customer-hosted SaaS for continuous operations.
+                Your team can structure a migration plan and map pricing to preserve value and continuity.
+              </p>
+            </details>
+          </div>
+
+          <div class="cta">
+            <div>
+              <strong>Ready to see AiVRIC against your environment?</strong>
+              <span>
+                Book a guided demo using your preferred deployment model. We will align the plan to your workload footprint,
+                compliance targets (SOC 2, ISO 27001, NIST), and operational requirements.
+              </span>
+            </div>
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="a-btn primary" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo?month=2026-01"><i class="fas fa-calendar-check"></i>Book a Demo</a>
+              <a class="a-btn" href="#"><i class="fas fa-envelope"></i>Request a Quote</a>
+            </div>
+          </div>
+
+          <div class="legal-note">
+            <strong>Important:</strong> Prices shown are sample list pricing for illustration. Final pricing may vary based on footprint, compliance requirements,
+            connector scope, and support/SLA needs. Taxes not included. Terms subject to your MSA and order form.
+          </div>
+        </div>
+
+      </div>
+            <div class="pricing-section" id="roi">
+          <h2 class="section-title">ROI calculator</h2>
+          <p class="section-sub">
+            Estimate annual savings from reduced audit prep time and tooling consolidation. Adjust the inputs to match your environment.
+          </p>
+
+          <div class="roi-grid">
+            <div class="roi-card">
+              <div class="roi-field">
+                <label for="roiHours">Annual audit prep hours</label>
+                <input id="roiHours" type="number" min="0" value="1200">
+              </div>
+              <div class="roi-field">
+                <label for="roiRate">Fully loaded hourly cost (USD)</label>
+                <input id="roiRate" type="number" min="0" value="120">
+              </div>
+              <div class="roi-field">
+                <label for="roiTooling">Current compliance tooling spend (annual)</label>
+                <input id="roiTooling" type="number" min="0" value="250000">
+              </div>
+              <div class="roi-field">
+                <label for="roiReduction">Estimated audit effort reduction (%)</label>
+                <input id="roiReduction" type="number" min="0" max="100" value="40">
+              </div>
+              <div class="roi-field">
+                <label for="roiToolingReduction">Tooling consolidation (%)</label>
+                <input id="roiToolingReduction" type="number" min="0" max="100" value="15">
+              </div>
+              <div class="roi-field">
+                <label for="roiCost">AiVRIC annual investment</label>
+                <input id="roiCost" type="number" min="0" value="180000">
+              </div>
+              <div class="roi-actions">
+                <button class="a-btn primary" type="button" id="roiCalc">Calculate ROI</button>
+                <span class="roi-note">Estimates are directional and should be validated in procurement.</span>
+              </div>
+            </div>
+            <div class="roi-card roi-results">
+              <div class="roi-metric">
+                <span>Estimated annual savings</span>
+                <strong id="roiSavings">$0</strong>
+              </div>
+              <div class="roi-metric">
+                <span>Estimated net gain</span>
+                <strong id="roiGain">$0</strong>
+              </div>
+              <div class="roi-metric">
+                <span>ROI</span>
+                <strong id="roiPercent">0%</strong>
+              </div>
+              <div class="roi-metric">
+                <span>Payback period</span>
+                <strong id="roiPayback">0 months</strong>
+              </div>
+            </div>
+          </div>
+        </div></section>
+
+    
+  </main>
+<footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>AiVRIC</h4>
+        <p>Agentic cybersecurity, GRC management, and AI evaluations on the AiVRIC Platform.</p>
+      </div>
+      <div>
+        <h4>Product</h4>
+        <a href="product.html">Platform</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="pricing.html">Pricing</a>
+      </div>
+      <div>
+        <h4>Trust</h4>
+        <a href="trust-center.html">Trust Center</a>
+        <a href="resources.html">Resources</a>
+        <a href="company.html">Company</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="../privacy-policy.html">Privacy</a>
+        <a href="../terms-of-use.html">Terms</a>
+        <a href="../aup.html">Acceptable Use</a>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/site.js"></script>
+  <script>
+    (function(){
+      const body = document.body;
+      const toggle = document.getElementById('deployToggle');
+      const modeLabel = document.getElementById('modeLabel');
+      const modeSub = document.getElementById('modeSub');
+
+      function setMode(isWindows){
+        if(isWindows){
+          body.classList.remove('mode-saas');
+          body.classList.add('mode-win');
+          if (modeLabel) modeLabel.textContent = "Windows executable";
+          if (modeSub) modeSub.textContent = "Annual license. Local data storage. Run anywhere.";
+        }else{
+          body.classList.remove('mode-win');
+          body.classList.add('mode-saas');
+          if (modeLabel) modeLabel.textContent = "Customer-hosted SaaS";
+          if (modeSub) modeSub.textContent = "Runs in your cloud (Kubernetes). You own the data. Annual subscription.";
+        }
+      }
+
+      if(toggle){
+        toggle.addEventListener('change', function(){
+          setMode(toggle.checked);
+        });
+      }
+      setMode(false);
+    })();
+  </script>
+  <script>
+    (function(){
+      const fields = {
+        hours: document.getElementById('roiHours'),
+        rate: document.getElementById('roiRate'),
+        tooling: document.getElementById('roiTooling'),
+        reduction: document.getElementById('roiReduction'),
+        toolingReduction: document.getElementById('roiToolingReduction'),
+        cost: document.getElementById('roiCost'),
+        savings: document.getElementById('roiSavings'),
+        gain: document.getElementById('roiGain'),
+        percent: document.getElementById('roiPercent'),
+        payback: document.getElementById('roiPayback'),
+        button: document.getElementById('roiCalc')
+      };
+
+      if (!fields.button) return;
+
+      const money = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+      const calc = () => {
+        const hours = parseFloat(fields.hours.value) || 0;
+        const rate = parseFloat(fields.rate.value) || 0;
+        const tooling = parseFloat(fields.tooling.value) || 0;
+        const reduction = (parseFloat(fields.reduction.value) || 0) / 100;
+        const toolingReduction = (parseFloat(fields.toolingReduction.value) || 0) / 100;
+        const cost = parseFloat(fields.cost.value) || 0;
+
+        const laborSavings = hours * rate * reduction;
+        const toolingSavings = tooling * toolingReduction;
+        const totalSavings = laborSavings + toolingSavings;
+        const netGain = totalSavings - cost;
+        const roi = cost > 0 ? (netGain / cost) * 100 : 0;
+        const paybackMonths = totalSavings > 0 ? Math.max(0, cost / (totalSavings / 12)) : 0;
+
+        fields.savings.textContent = money.format(totalSavings);
+        fields.gain.textContent = money.format(netGain);
+        fields.percent.textContent = `${roi.toFixed(0)}%`;
+        fields.payback.textContent = `${paybackMonths.toFixed(1)} months`;
+      };
+
+      fields.button.addEventListener('click', calc);
+      Object.keys(fields).forEach((key) => {
+        const input = fields[key];
+        if (input && input.tagName === 'INPUT') input.addEventListener('input', calc);
+      });
+      calc();
+    })();
+  </script>
+</body>
+</html>
+
+
+

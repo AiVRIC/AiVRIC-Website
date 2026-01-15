@@ -1,0 +1,592 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<title>GitHub Security - AiVRIC</title>
+
+<!-- Fav Icon -->
+<link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<!-- Stylesheets -->
+<link href="assets/css/font-awesome-all.css" rel="stylesheet">
+<link href="assets/css/flaticon.css" rel="stylesheet">
+<link href="assets/css/owl.css" rel="stylesheet">
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="assets/css/animate.css" rel="stylesheet">
+<link href="assets/css/nice-select.css" rel="stylesheet">
+<link href="assets/css/color.css" rel="stylesheet">
+<link href="assets/css/elpath.css" rel="stylesheet">
+<link href="assets/css/style.css" rel="stylesheet">
+<link href="assets/css/elements-css/page-title.css" rel="stylesheet">
+<link href="assets/css/elements-css/service-details.css" rel="stylesheet">
+<link href="assets/css/responsive.css" rel="stylesheet">
+
+<style>
+    /* Keep quad grid layout, just add spacing */
+    .soc2-grid .single-column { padding: 0 15px 34px; }
+    .soc2-grid .single-item { height: 100%; }
+    @media (min-width: 992px) {
+        .soc2-grid .single-column:nth-child(3),
+        .soc2-grid .single-column:nth-child(4) { margin-top: 60px; }
+    }
+
+    /* Dark intro card for GitHub page */
+    .gh-hero-card {
+        background-color: #111827;
+        color: #ffffff;
+        border-radius: 12px;
+        padding: 40px 48px;
+        box-shadow: 0 18px 45px rgba(0, 0, 0, 0.35);
+        margin-bottom: 70px;
+    }
+    .gh-hero-card h2 { color: #ffffff; margin-bottom: 18px; }
+    .gh-hero-card p {
+        color: #d0d4dc;
+        margin-bottom: 0;
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    /* Optional: small callout chips */
+    .usecase-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
+    }
+    .usecase-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border: 1px solid rgba(148,163,184,0.35);
+        border-radius: 999px;
+        font-size: 12px;
+        color: #e5e7eb;
+        background: rgba(255,255,255,0.03);
+    }
+    .usecase-chip i { opacity: 0.9; }
+</style>
+</head>
+
+
+<!-- page wrapper -->
+<body>
+
+    <div class="boxed_wrapper">
+
+       <!-- preloader -->
+        <div class="loader-wrap">
+            <div class="preloader">
+                <div class="preloader-close">x</div>
+                <div id="handle-preloader" class="handle-preloader">
+                    <div class="animation-preloader">
+                        <div class="spinner"></div>
+                        <div class="txt-loading">
+                            <span data-text-preloader="A" class="letters-loading">A</span>
+                            <span data-text-preloader="I" class="letters-loading">I</span>
+                            <span data-text-preloader="V" class="letters-loading">V</span>
+                            <span data-text-preloader="r" class="letters-loading">r</span>
+                            <span data-text-preloader="i" class="letters-loading">i</span>
+                            <span data-text-preloader="c" class="letters-loading">c</span>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+        <!-- preloader end -->
+
+
+        <!-- main header -->
+        <header class="main-header">
+            <!-- header-lower -->
+            <div class="header-lower">
+                <div class="auto-container">
+                    <div class="outer-box">
+                        <div class="logo-box">
+                            <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
+                        </div>
+                        <div class="menu-area clearfix">
+                            <!--Mobile Navigation Toggler-->
+                            <div class="mobile-nav-toggler">
+                                <i class="icon-bar"></i>
+                                <i class="icon-bar"></i>
+                                <i class="icon-bar"></i>
+                            </div>
+                            <nav class="main-menu navbar-expand-md navbar-light">
+                                <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                                    <ul class="navigation clearfix">
+                                        <li class="dropdown"><a href="services.html">Platform</a>
+                                            <ul>
+                                                <li><a href="services.html#scanning">Security Risk Assessment</a></li>
+                                                <li><a href="services.html#compliance">Compliance Management</a></li>
+                                                <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
+                                            </ul>
+                                        </li>
+                                        <li class="dropdown"><a href="#">Solutions</a>
+                                            <div class="megamenu">
+                                                <div class="row clearfix">
+                                                    <div class="col-lg-6 column">
+                                                        <h4>By Compliance Framework</h4>
+                                                        <ul>
+                                                            <li><a href="achieve-pci-dss.html">Achieve PCI DSS Compliance</a></li>
+                                                            <li><a href="streamline-soc2.html">Streamline SOC 2 Audits</a></li>
+                                                            <li><a href="cmmc-readiness.html">Prepare for CMMC Level 2</a></li>
+                                                            <li><a href="achieve-iso27001-compliance.html">Maintain ISO 27001</a></li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="col-lg-6 column">
+                                                        <h4>By Use Case</h4>
+                                                        <ul>
+                                                            <li><a href="aivric-vision.html">AiVRIC Vision as your Risk Advisor</a></li>
+                                                            <li><a href="use-case-vuln-mgmt.html">Multi-cloud Security Posture Management</a></li>
+                                                            <li><a href="use-case-kubernetes.html">Secure Kubernetes deployments</a></li>                                                                        
+                                                            <li><a href="use-case-github-security.html" class="current">Secure GitHub Repos</a></li> 
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>           
+                                        <li><a href="pricing.html">Pricing</a></li>
+                                        <li class="dropdown"><a href="#">Resources</a>
+      <ul>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="why-aivric.html">Why AiVRIC</a></li>
+        <li><a href="trust.html">Trust Center</a></li>
+        <li><a href="AiVRIC-UserGuide/index.html">Platform Guide</a></li>
+        <li><a href="blog-portal.html">Blogs</a></li>
+        
+      </ul>
+    </li>
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                        <ul class="menu-right-content">
+                            <li class="search-box-outer search-toggler">
+                                <i class="icon-4"></i>
+                            </li>
+                            <li class="btn-box">
+                                <a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-one">Request a Demo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!--sticky Header-->
+            <div class="sticky-header">
+                <div class="auto-container">
+                    <div class="outer-box">
+                        <div class="logo-box">
+                            <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
+                        </div>
+                        <div class="menu-area clearfix">
+                            <nav class="main-menu clearfix">
+                                <!-- Menu injected by script -->
+                            </nav>
+                        </div>
+                        <ul class="menu-right-content">
+                            <li class="search-box-outer search-toggler">
+                                <i class="icon-4"></i>
+                            </li>
+                            <li class="btn-box">
+                                <a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-one">Request a Demo</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- main-header end -->
+
+        <!-- Mobile Menu  -->
+        <div class="mobile-menu">
+            <div class="menu-backdrop"></div>
+            <div class="close-btn"><i class="fas fa-times"></i></div>
+            
+            <nav class="menu-box">
+                <div class="nav-logo"><a href="index.html"><img src="assets/images/logo-2.avif" alt="" title=""></a></div>
+                <div class="menu-outer"></div>
+                <div class="contact-info">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li>Wilmington, Delaware 19802</li>
+                        <li><a href="tel:+19543426637">+1 954 342 6637</a></li>
+                        <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                    </ul>
+                </div>
+                <div class="social-links">
+                    <ul class="clearfix">
+                        <li><a href="#"><span class="fab fa-twitter"></span></a></li>
+                        <li><a href="#"><span class="fab fa-facebook-square"></span></a></li>
+                        <li><a href="#"><span class="fab fa-pinterest-p"></span></a></li>
+                        <li><a href="#"><span class="fab fa-instagram"></span></a></li>
+                        <li><a href="#"><span class="fab fa-youtube"></span></a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!-- End Mobile Menu -->
+
+
+        <!-- page-title -->
+        <section class="page-title centred">
+            <div class="bg-layer" style="background-image: url(assets/images/background/page-title.avif);"></div>
+            <div class="auto-container">
+                <div class="content-box">
+                    <h1>GitHub Security with AiVRIC</h1>
+                    <ul class="bread-crumb clearfix">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#">Solutions</a></li>
+                        <li>GitHub Security</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- page-title end -->
+
+
+        <!-- service-details -->
+        <section class="service-details p_relative">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <!-- Sidebar -->
+                    <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+                        <div class="service-sidebar mr_40">
+                            <div class="sidebar-widget category-widget">
+                                <h3>Solutions</h3>
+                                <ul class="category-list clearfix">
+                                    <li><a href="aivric-vision.html">AiVRIC Vision as your Risk Advisor</a></li>
+                                    <li><a href="use-case-vuln-mgmt.html">Multi-cloud Security Posture Management</a></li>
+                                    <li><a href="use-case-kubernetes.html">Secure Kubernetes deployments</a></li>                                                                        
+                                    <li><a href="use-case-github-security.html" class="current">Secure GitHub Repos</a></li>                                    
+                                </ul>
+                            </div>
+                            <div class="sidebar-widget contact-widget centred">
+                                <div class="widget-content">
+                                    <div class="bg-layer" style="background-image: url(assets/images/service/risk-care.avif);"></div>
+                                    <h3>Need Help with <br />GitHub <span>Security?</span></h3>
+                                    <div class="icon-box"><i class="icon-29"></i></div>
+                                    <div class="inner-box">
+                                        <p><a href="mailto:info@aivric.com">info@aivric.com</a></p>
+                                        <h3><a href="tel:+19543426637">+1 954 342 6637</a></h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                        <div class="service-details-content">
+
+                            <!-- DARK INTRO CARD -->
+                            <div class="content-one mb_90">
+                                <div class="gh-hero-card">
+                                    <h2>Secure GitHub Repositories, CI/CD, and Dependencies — and Prove It to Auditors</h2>
+                                    <p>
+                                        Your source code and build pipelines are part of your production attack surface. Misconfigured
+                                        repository permissions, unprotected branches, leaked secrets, risky GitHub Actions, and vulnerable
+                                        dependencies can become the fastest path to compromise. AiVRIC helps you continuously assess
+                                        GitHub security posture, prioritise issues with business context, and map evidence to the
+                                        compliance frameworks customers and auditors expect.
+                                    </p>
+                                    <div class="usecase-chips">
+                                        <span class="usecase-chip"><i class="fas fa-shield-alt"></i> Repo posture & access controls</span>
+                                        <span class="usecase-chip"><i class="fas fa-code-branch"></i> Branch protection & reviews</span>
+                                        <span class="usecase-chip"><i class="fas fa-key"></i> Secret exposure detection</span>
+                                        <span class="usecase-chip"><i class="fas fa-cogs"></i> GitHub Actions hardening</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Challenge -->
+                            <div class="content-two mb_90">
+                                <div class="row clearfix">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 text-column">
+                                        <div class="text-box">
+                                            <h3>The GitHub Security Challenge</h3>
+                                            <p>
+                                                Development velocity often outpaces governance. Over time, repository sprawl, inconsistent
+                                                standards, and CI/CD complexity create blind spots that are difficult to detect and costly
+                                                to remediate under pressure.
+                                            </p>
+                                            <ul class="list-style-one clearfix">
+                                                <li>Too many repositories and organisations with inconsistent security settings</li>
+                                                <li>Overly broad permissions, stale access, and weak branch protection policies</li>
+                                                <li>Secrets in code, issues, pull requests, or workflows that enable rapid compromise</li>
+                                                <li>Supply chain risks: vulnerable dependencies, unpinned actions, and untrusted build steps</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 image-column">
+                                        <figure class="image-box">
+                                            <img src="assets/images/service/code-repo-PC.avif" alt="GitHub Security with AiVRIC">
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- How AiVRIC helps -->
+                            <div class="content-three mb_85">
+                                <div class="text mb_60">
+                                    <h3>How AiVRIC Supports GitHub Security Use Cases</h3>
+                                    <p>
+                                        AiVRIC provides continuous posture assessment for GitHub organisations and repositories, identifies
+                                        high-impact security gaps, and guides remediation with actionable, engineering-friendly recommendations.
+                                        Export evidence and posture views aligned to SOC 2, ISO 27001, PCI-DSS, NIST, and internal SDLC policies.
+                                    </p>
+                                </div>
+                                <div class="row clearfix soc2-grid">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                        <div class="single-item">
+                                            <div class="icon-box"><i class="icon-8"></i></div>
+                                            <h3>Repo &amp; Org Posture Baselines</h3>
+                                            <p>
+                                                Inventory organisations, repositories, and teams, then assess baseline controls such as
+                                                repository visibility, 2FA, SSO enforcement, security alerts, and administrative protections
+                                                across your estate.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                        <div class="single-item">
+                                            <div class="icon-box"><i class="icon-13"></i></div>
+                                            <h3>Access Governance &amp; Least Privilege</h3>
+                                            <p>
+                                                Identify over-privileged users and teams, dormant accounts, risky admin assignments, and
+                                                permission drift across critical repositories. Support access reviews with clear evidence
+                                                and ownership.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                        <div class="single-item">
+                                            <div class="icon-box"><i class="icon-9"></i></div>
+                                            <h3>Branch Protection &amp; Change Controls</h3>
+                                            <p>
+                                                Validate branch protections, required reviews, status checks, signed commits, and release
+                                                governance. Highlight repositories where production-impacting changes can bypass approvals.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
+                                        <div class="single-item">
+                                            <div class="icon-box"><i class="icon-7"></i></div>
+                                            <h3>CI/CD &amp; Supply Chain Risk</h3>
+                                            <p>
+                                                Detect risky GitHub Actions patterns (untrusted runners, excessive permissions, unpinned
+                                                actions), identify dependency exposure, and support remediation planning aligned to your
+                                                Secure SDLC standards.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="text mt_50">
+                                    <h3>Outcomes You Can Expect</h3>
+                                    <p>
+                                        With AiVRIC strengthening GitHub security posture, development and security teams operate with
+                                        shared visibility and consistent guardrails:
+                                    </p>
+                                    <ul class="list-style-one clearfix">
+                                        <li>Reduced likelihood of account takeover, token theft, and unauthorised code changes</li>
+                                        <li>Higher confidence in CI/CD integrity through hardened workflows and permission boundaries</li>
+                                        <li>Faster identification and response to secrets exposure and risky repo configurations</li>
+                                        <li>Audit-ready evidence aligned to SOC 2, ISO 27001, PCI-DSS, NIST, and internal SDLC policies</li>
+                                        <li>Executive-ready reporting that connects SDLC controls to business risk reduction</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Examples -->
+                            <div class="content-four mb_70">
+                                <h3>Example GitHub Security Use Cases with AiVRIC</h3>
+                                <p>
+                                    Organisations leverage AiVRIC to address targeted GitHub risks while building a repeatable,
+                                    scalable Secure SDLC foundation:
+                                </p>
+                                <ul class="list-style-one clearfix">
+                                    <li><strong>Repository Baseline Enforcement:</strong> Standardise repo settings (visibility, approvals, protections, alerts) and track drift across hundreds of repositories.</li>
+                                    <li><strong>Privileged Access Reviews:</strong> Produce periodic evidence of who has admin access to critical repositories and why, supporting access reviews and SOC 2 controls.</li>
+                                    <li><strong>Secret Exposure Response:</strong> Identify leaked credentials/tokens and drive a consistent response process (rotation, invalidation, incident tracking, prevention).</li>
+                                    <li><strong>CI/CD Hardening Program:</strong> Reduce build risk by tightening workflow permissions, pinning third-party actions, and validating secure runner configurations.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Advisory extension -->
+                            <div class="content-four">
+                                <h3>Extend AiVRIC with Secure SDLC &amp; DevSecOps Services</h3>
+                                <p>
+                                    AiVRIC can be deployed as a stand-alone posture and evidence platform or combined with AiVRIC’s certified service partners
+                                    Secure SDLC and DevSecOps services. Together, they enable a programmatic approach to GitHub governance,
+                                    policy definition, workflow hardening, and audit readiness—without slowing delivery.
+                                </p>
+                                <ul class="download-list clearfix">
+                                    <li>
+                                        <div class="icon-box"><i class="icon-30"></i></div>
+                                        <h5>GitHub Security with AiVRIC Overview</h5>
+                                        <span>PDF (Coming Soon)</span>
+                                        <button type="button">Notify Me</button>
+                                    </li>
+                                    <li>
+                                        <div class="icon-box"><i class="icon-30"></i></div>
+                                        <h5>Secure SDLC &amp; CI/CD Governance Guide</h5>
+                                        <span>PDF (Coming Soon)</span>
+                                        <button type="button">Notify Me</button>
+                                    </li>
+                                </ul>
+                                <div class="mt_40">
+                                    <a href="request-demo.html" class="theme-btn-one">Request a GitHub Security Demo</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- End Content -->
+                </div>
+            </div>
+        </section>
+        <!-- service-details end -->
+
+
+        <!-- main-footer -->
+        <footer class="main-footer">
+            <div class="widget-section">
+                <div class="pattern-layer">
+                    <div class="pattern-1" style="background-image: url(assets/images/shape/shape-20.avif);"></div>
+                    <div class="pattern-2" style="background-image: url(assets/images/shape/shape-21.avif);"></div>
+                </div>
+                <div class="auto-container">
+                    <div class="row clearfix">
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget logo-widget">
+                                <div class="widget-title">
+                                    <h3>AiVRIC</h3>
+                                </div>
+                                <div class="text">
+                                    <p>Autonomous Security, Compliance, and Risk Intelligence.</p>
+                                </div>
+                                <div class="subscribe-box">
+                                    <form action="contact.html" method="post">
+                                        <div class="form-group">
+                                            <input type="email" name="email" placeholder="Your email" required="">
+                                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget links-widget">
+                                <div class="widget-title">
+                                    <h3>Platform</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="links-list clearfix">
+                                        <li><a href="services.html#scanning">Security &amp; Risk Assessment</a></li>
+                                        <li><a href="services.html#compliance">Compliance Management</a></li>
+                                        <li><a href="services.html#remediation">AI-Powered Remediation</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget links-widget">
+                                <div class="widget-title">
+                                    <h3>Solutions</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="links-list clearfix">
+                                        <li><a href="streamline-soc2.html">SOC 2 Automation</a></li>
+                                        <li><a href="achieve-pci-dss.html">PCI-DSS Compliance</a></li>
+                                        <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
+                                        <li><a href="achieve-iso27001-compliance.html">ISO27001 Compliance</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget contact-widget">
+                                <div class="widget-title">
+                                    <h3>Contact</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="info-list clearfix">
+                                        <li><i class="fas fa-envelope"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                                        <li><i class="fas fa-phone-alt"></i><a href="tel:+19543426637">+1 954 342 6637</a></li>
+                                    </ul>
+                                </div>
+                                <ul class="social-links-two clearfix">
+                                    <li><a href="https://x.com/aivric"><i class="fab fa-twitter"></i></a></li>
+                                    <li><a href="https://www.facebook.com/61581937785235/"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="https://www.linkedin.com/company/aivric"><i class="fab fa-linkedin-in"></i></a></li>
+                                    <li><a href="https://www.instagram.com/aivrictechnologies/"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="auto-container">
+                    <div class="bottom-inner">
+                        <div class="copyright">
+                            <p>&copy; 2025 <a href="index.html">AiVRIC</a>. All Rights Reserved.</p>
+                        </div>
+                        <ul class="footer-nav">
+                            <li><a href="terms-of-use.html">Terms of Service</a></li>
+                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- main-footer end -->
+
+
+        <!--Scroll to top-->
+        <div class="scroll-to-top">
+            <div>
+                <div class="scroll-top-inner">
+                    <div class="scroll-bar">
+                        <div class="bar-inner"></div>
+                    </div>
+                    <div class="scroll-bar-text">Go To Top</div>
+                </div>
+            </div>
+        </div>
+        <!-- Scroll to top end -->
+        
+    </div>
+
+
+    <!-- jequery plugins -->
+    <script src="assets/js/jquery.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/validation.js"></script>
+    <script src="assets/js/jquery.fancybox.js"></script>
+    <script src="assets/js/appear.js"></script>
+    <script src="assets/js/scrollbar.js"></script>
+    <script src="assets/js/isotope.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/parallax-scroll.js"></script>
+
+    <!-- main-js -->
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html>
+
