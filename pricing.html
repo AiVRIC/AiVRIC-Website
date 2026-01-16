@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -51,6 +51,17 @@
       --aivric-muted2: var(--text-faint);
       --aivric-shadow: 0 14px 40px rgba(0,0,0,0.28);
       --aivric-radius: 18px;
+      --btn-bg: #00d1ff;
+      --btn-bg-hover: #24ddff;
+      --btn-bg-active: #00b8e6;
+      --btn-fg: #ffffff;
+      --btn-fg-hover: #ffffff;
+      --btn-fg-active: #e6f7ff;
+      --btn-border: rgba(0, 209, 255, 0.6);
+      --btn-border-hover: rgba(0, 209, 255, 0.85);
+      --btn-shadow: 0 12px 24px rgba(0, 209, 255, 0.2);
+      --btn-shadow-hover: 0 14px 28px rgba(0, 209, 255, 0.28);
+      --focus-ring: 0 0 0 3px rgba(56, 189, 248, 0.35);
     }
 
     /* Use your theme, but ensure this page background matches your darker sections */
@@ -717,7 +728,7 @@
       font-size: 13.5px;
     }
     .tier-list li:before{
-      content: "•";
+      content: "�";
       color: var(--aivric-accent2);
       margin-top: 1px;
     }
@@ -732,22 +743,59 @@
       align-items:center;
       padding: 10px 16px;
       border-radius: 999px;
-      background: var(--aivric-accent);
-      color: #04121c;
+      background: var(--btn-bg);
+      color: var(--btn-fg) !important;
+      border: 1px solid var(--btn-border);
       font-weight: 700;
+      letter-spacing: 0.01em;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
       text-decoration: none;
-      transition: all 0.2s;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: all 500ms ease;
+      box-shadow: var(--btn-shadow);
     }
-    .tier-cta:hover{ color: #04121c; background: #24ddff; }
+    .tier-cta:before{
+      position: absolute;
+      content: '';
+      inset: 0;
+      z-index: -1;
+      transform: scale(0,0);
+      background: #241E2F;
+      transition: all 500ms ease;
+    }
+    .tier-cta:hover:before,
+    .tier-cta:focus-visible:before{
+      transform: scale(1,1);
+    }
+.tier-cta:hover,
+    .tier-cta:focus-visible,
+    .tier-cta.secondary:hover,
+    .tier-cta.secondary:focus-visible{
+      background: var(--btn-bg-hover) !important;
+      color: var(--btn-fg-hover) !important;
+      border-color: var(--btn-border-hover) !important;
+      box-shadow: var(--btn-shadow-hover);
+      transform: translateY(-1px);
+    }
+    .tier-cta:active{
+      color: var(--btn-fg-active) !important;
+      background: var(--btn-bg-active);
+      border-color: var(--btn-border-hover);
+      box-shadow: none;
+    }
     .tier-cta.secondary{
-      background: transparent;
-      color: var(--text-strong);
-      border: 1px solid rgba(0,209,255,0.55);
+      background: rgba(0, 209, 255, 0.1);
+      color: var(--text-strong) !important;
+      border: 1px solid rgba(0,209,255,0.65);
+      box-shadow: none;
+      text-shadow: 0 1px 1px rgba(2, 20, 32, 0.35);
     }
-    .tier-cta.secondary:hover{
-      background: rgba(0, 209, 255, 0.18);
-      border-color: rgba(0,209,255,0.7);
-      color: #ffffff;
+    .tier-cta.secondary:active{
+      background: var(--btn-bg-active);
+      color: var(--btn-fg-active) !important;
+      border-color: var(--btn-border-hover);
     }
     .offense-grid{
       display:grid;
@@ -815,27 +863,77 @@
     }\n  
     /* Pricing CTA contrast (dark background) */
     .pricing-hero .theme-btn-one,
-    .pricing-hero .theme-btn-two {
-      font-weight: 600;
-    }
-    .pricing-hero .theme-btn-two{
-      background: rgba(0, 209, 255, 0.18);
-      color: var(--text-strong);
-      border: 1px solid rgba(0, 209, 255, 0.55);
-      box-shadow: 0 10px 22px rgba(0, 209, 255, 0.18);
-    }
-    .pricing-hero .theme-btn-two:hover{
-      background: rgba(0, 209, 255, 0.28);
-      color: #ffffff;
-    }
+    .pricing-hero .theme-btn-two,
+    header.main-header .menu-right-content .theme-btn-one,
     header.main-header .menu-right-content .theme-btn-two{
-      background: rgba(0, 209, 255, 0.2);
-      color: var(--text-strong);
-      border: 1px solid rgba(0, 209, 255, 0.6);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+      border-radius: 999px;
+      transition: all 0.2s;
     }
+    .pricing-hero .theme-btn-one,
+    header.main-header .menu-right-content .theme-btn-one{
+      background: var(--btn-bg);
+      color: var(--btn-fg) !important;
+      border: 1px solid var(--btn-border);
+      box-shadow: var(--btn-shadow);
+    }
+    .pricing-hero .theme-btn-one:hover,
+    header.main-header .menu-right-content .theme-btn-one:hover{
+      background: var(--btn-bg-hover);
+      color: var(--btn-fg-hover) !important;
+      border-color: var(--btn-border-hover);
+      box-shadow: var(--btn-shadow-hover);
+    }
+    .pricing-hero .theme-btn-one:active,
+    header.main-header .menu-right-content .theme-btn-one:active{
+      background: var(--btn-bg-active);
+      color: var(--btn-fg-active) !important;
+      border-color: var(--btn-border-hover);
+      box-shadow: none;
+    }
+        .pricing-hero .theme-btn-two,
+    header.main-header .menu-right-content .theme-btn-two{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+.pricing-hero .theme-btn-two,
+    header.main-header .menu-right-content .theme-btn-two{
+      background: rgba(0, 209, 255, 0.1);
+      color: var(--text-strong) !important;
+      border: 1px solid rgba(0, 209, 255, 0.65);
+      box-shadow: none;
+      text-shadow: 0 1px 1px rgba(2, 20, 32, 0.35);
+    }
+    .pricing-hero .theme-btn-two:hover,
     header.main-header .menu-right-content .theme-btn-two:hover{
-      background: rgba(0, 209, 255, 0.32);
-      color: #ffffff;
+      background: var(--btn-bg-hover);
+      color: var(--btn-fg-hover) !important;
+      border-color: var(--btn-border-hover);
+      box-shadow: var(--btn-shadow-hover);
+      transform: translateY(-1px);
+    }
+    .pricing-hero .theme-btn-two:active,
+    header.main-header .menu-right-content .theme-btn-two:active{
+      background: var(--btn-bg-active);
+      color: var(--btn-fg-active) !important;
+      border-color: var(--btn-border-hover);
+      box-shadow: none;
+    }
+    .tier-cta.disabled,
+    .theme-btn-one.disabled,
+    .theme-btn-two.disabled,
+    .tier-cta[disabled],
+    .theme-btn-one[disabled],
+    .theme-btn-two[disabled]{
+      background: #1b2432;
+      color: #7a8aa3;
+      border-color: #2a3547;
+      box-shadow: none;
+      cursor: not-allowed;
+      text-shadow: none;
     }
     header.main-header .main-menu .navigation > li > a{
       color: var(--text-default);
@@ -859,8 +957,33 @@
     .theme-btn-two:focus-visible{
       outline: 2px solid var(--text-accent);
       outline-offset: 3px;
-      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.25);
-    }\n  </style>
+      box-shadow: var(--focus-ring);
+    }\n      /* Pricing hover parity for secondary CTAs */
+    .pricing-hero .theme-btn-two:hover,
+    .pricing-hero .theme-btn-two:focus-visible,
+    header.main-header .menu-right-content .theme-btn-two:hover,
+    .tier-cta.secondary:hover,
+    .tier-cta.secondary:focus-visible,
+    .release-modal__actions .theme-btn-one:hover,
+    .release-modal__actions .theme-btn-two:hover,
+    .release-modal__actions .theme-btn-one:focus-visible,
+    .release-modal__actions .theme-btn-two:focus-visible{
+      background: var(--btn-bg-hover) !important;
+      color: var(--btn-fg-hover) !important;
+      border-color: var(--btn-border-hover) !important;
+      box-shadow: var(--btn-shadow-hover);
+      transform: translateY(-1px);
+    }
+    /* Pricing hover parity for tier CTAs */
+    .tier-cta:hover,
+    .tier-cta:focus-visible{
+      background: var(--btn-bg-hover) !important;
+      color: var(--btn-fg-hover) !important;
+      border-color: var(--btn-border-hover) !important;
+      box-shadow: var(--btn-shadow-hover);
+      transform: translateY(-1px);
+    }
+</style>
   <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
 </head>
 
@@ -1014,28 +1137,28 @@
                 <div class="blogs-megamenu">
                     <div class="blogs-mega-inner">
                         <div class="blogs-list">
-                            <a class="blog-link is-active" data-blog="blog-future" href="/aivric-enterprise/blog-future-of-cloud-security.html">
+                            <a class="blog-link is-active" data-blog="blog-future" href="/blog-future-of-cloud-security.html">
     <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/cloud-security-poster.avif" alt="Future of Cloud Security"></span>
     <span class="blog-link-text">
         <span class="blog-link-title">Future of Cloud Security</span>
         <span class="blog-link-sub">Agentic defense for multi-cloud risk.</span>
     </span>
 </a>
-                            <a class="blog-link" data-blog="blog-devops" href="/aivric-enterprise/blog-integrating-into-DevOps.html">
+                            <a class="blog-link" data-blog="blog-devops" href="/blog-integrating-into-DevOps.html">
     <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/threat-detected.avif" alt="Integrating Into DevOps"></span>
     <span class="blog-link-text">
         <span class="blog-link-title">Integrating Into DevOps</span>
         <span class="blog-link-sub">Where AI controls meet pipelines.</span>
     </span>
 </a>
-                            <a class="blog-link" data-blog="blog-compliance" href="/aivric-enterprise/blog-why-continuous-compliance-matters.html">
+                            <a class="blog-link" data-blog="blog-compliance" href="/blog-why-continuous-compliance-matters.html">
     <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/SOC-2-compliance.avif" alt="Continuous Compliance"></span>
     <span class="blog-link-text">
         <span class="blog-link-title">Continuous Compliance</span>
         <span class="blog-link-sub">Evidence-driven governance at speed.</span>
     </span>
 </a>
-                            <a class="blog-link" data-blog="blog-healthcare" href="/aivric-enterprise/assets/blog-managing-healthcare-risk/index.html">
+                            <a class="blog-link" data-blog="blog-healthcare" href="/assets/blog-managing-healthcare-risk/index.html">
     <span class="blog-link-media"><img src="/aivric-enterprise/assets/images/blog/SOC-2-compliance.avif" alt="Managing AI Risk in Healthcare"></span>
     <span class="blog-link-text">
         <span class="blog-link-title">Managing AI Risk in Healthcare</span>
@@ -1087,7 +1210,7 @@
         <li>AI evaluations for regulated models.</li>
         <li>Audit-ready evidence for leaders.</li>
     </ul>
-    <a href="/aivric-enterprise/assets/blog-managing-healthcare-risk/index.html">Read full article -></a>
+    <a href="/assets/blog-managing-healthcare-risk/index.html">Read full article -></a>
 </div>
                         </div>
                     </div>
@@ -1118,7 +1241,7 @@
         <div class="auto-container">
             <div class="outer-box">
                 <div class="logo-box">
-                    <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
+                    <figure class="logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC"></a></figure>
                 </div>
                 <div class="menu-area clearfix">
                     <nav class="main-menu clearfix"></nav>
@@ -1149,7 +1272,7 @@
             Pricing is tailored to workload footprint and deployment model.
           </p>
           <div class="hero-actions">
-            <a class="theme-btn-one" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">Request pricing</a>
+            <button type="button" class="theme-btn-one js-pricing-modal" data-suite="AiVRIC" data-tier="General" data-request="Pricing request">Request pricing</button>
             <a class="theme-btn-two" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">Talk to Sales</a>
           </div>
         </div>
@@ -1196,7 +1319,7 @@
                 <h4>Ideal customer profile</h4>
                 <p class="tier-icp">Security teams starting posture automation and compliance reporting.</p>
               </div>
-              <a class="tier-cta" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">Get configuration</a>
+              <button type="button" class="tier-cta js-pricing-modal" data-suite="AiVRIC Defense" data-tier="Starter" data-request="Configuration">Get configuration</button>
             </div>
 
             <div class="tier-card">
@@ -1226,7 +1349,7 @@
                 <h4>Ideal customer profile</h4>
                 <p class="tier-icp">Mid-market security orgs managing multi-cloud compliance needs.</p>
               </div>
-              <a class="tier-cta" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">Request pricing</a>
+              <button type="button" class="tier-cta js-pricing-modal" data-suite="AiVRIC Defense" data-tier="Pro" data-request="Pricing request">Request pricing</button>
             </div>
 
             <div class="tier-card highlight">
@@ -1256,7 +1379,7 @@
                 <h4>Ideal customer profile</h4>
                 <p class="tier-icp">Large enterprises with regulated workloads and complex cloud estates.</p>
               </div>
-              <a class="tier-cta" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">Request pricing</a>
+              <button type="button" class="tier-cta js-pricing-modal" data-suite="AiVRIC Defense" data-tier="Enterprise" data-request="Pricing request">Request pricing</button>
             </div>
           </div>
         </div>
@@ -1338,7 +1461,7 @@
               </ul>
               <div class="hero-actions">
                 <a class="tier-cta" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">Join early access</a>
-                <a class="tier-cta secondary" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">Notify me</a>
+                <button type="button" class="tier-cta secondary js-release-modal" data-solution="AiVRIC Vision">Notify me</button>
               </div>
             </div>
             <div class="offense-card">
@@ -1444,6 +1567,123 @@
     </footer>
     <!-- main-footer end -->
 
+    <div class="release-modal" id="release-modal">
+      <div class="release-modal__backdrop" data-release-close></div>
+      <div class="release-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="release-modal-title">
+        <button class="release-modal__close" type="button" data-release-close aria-label="Close">&times;</button>
+        <h3 class="release-modal__title" id="release-modal-title" data-release-title>Notify when released</h3>
+        <p class="release-modal__subtitle">Share your interest and we will alert you when this solution is ready.</p>
+        <form class="release-modal__form" data-release-form>
+          <input type="hidden" name="solution" data-release-solution>
+          <div class="release-modal__grid">
+            <div class="release-modal__field">
+              <label for="release-name">Name</label>
+              <input id="release-name" name="name" type="text" placeholder="Your name" required>
+            </div>
+            <div class="release-modal__field">
+              <label for="release-company">Company</label>
+              <input id="release-company" name="company" type="text" placeholder="Company name" required>
+            </div>
+            <div class="release-modal__field">
+              <label for="release-email">Email</label>
+              <input id="release-email" name="email" type="email" placeholder="you@company.com" required>
+            </div>
+          </div>
+          <div class="release-modal__interests">
+            <span>Key interests</span>
+            <div class="release-modal__checks">
+              <label><input type="checkbox" name="interest" value="Cross-suite visibility"> Cross-suite visibility</label>
+              <label><input type="checkbox" name="interest" value="Executive reporting packs"> Executive reporting packs</label>
+              <label><input type="checkbox" name="interest" value="Audit-ready dashboards"> Audit-ready dashboards</label>
+            </div>
+          </div>
+          <div class="release-modal__actions">
+            <button type="button" class="theme-btn-one" data-release-close>Cancel</button>
+            <button type="submit" class="theme-btn-two">Notify me</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="release-modal pricing-modal" id="pricing-modal">
+      <div class="release-modal__backdrop" data-pricing-close></div>
+      <div class="release-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="pricing-modal-title">
+        <button class="release-modal__close" type="button" data-pricing-close aria-label="Close">&times;</button>
+        <h3 class="release-modal__title" id="pricing-modal-title" data-pricing-title>Request pricing</h3>
+        <p class="release-modal__subtitle" data-pricing-summary>Share details so we can build a tailored proposal.</p>
+        <form class="release-modal__form" data-pricing-form>
+          <input type="hidden" name="solution" data-pricing-solution>
+          <div class="release-modal__grid">
+            <div class="release-modal__field">
+              <label for="pricing-name">Name</label>
+              <input id="pricing-name" name="name" type="text" placeholder="Your name" required>
+            </div>
+            <div class="release-modal__field">
+              <label for="pricing-company">Company</label>
+              <input id="pricing-company" name="company" type="text" placeholder="Company name" required>
+            </div>
+            <div class="release-modal__field">
+              <label for="pricing-email">Email</label>
+              <input id="pricing-email" name="email" type="email" placeholder="you@company.com" required>
+            </div>
+            <div class="release-modal__field">
+              <label for="pricing-phone">Phone</label>
+              <input id="pricing-phone" name="phone" type="tel" placeholder="+1 (555) 123-4567">
+            </div>
+          </div>
+          <div class="release-modal__interests">
+            <span>Suites of interest</span>
+            <div class="release-modal__checks">
+              <label><input type="checkbox" name="suite" value="AiVRIC Defense"> AiVRIC Defense</label>
+              <label><input type="checkbox" name="suite" value="AiVRIC Offense"> AiVRIC Offense</label>
+              <label><input type="checkbox" name="suite" value="AiVRIC Vision"> AiVRIC Vision</label>
+            </div>
+          </div>
+          <div class="release-modal__interests">
+            <span>Deployment model</span>
+            <div class="release-modal__checks">
+              <label><input type="checkbox" name="deployment" value="SaaS"> SaaS</label>
+              <label><input type="checkbox" name="deployment" value="Private cloud"> Private cloud</label>
+              <label><input type="checkbox" name="deployment" value="Hybrid"> Hybrid</label>
+            </div>
+          </div>
+          <div class="release-modal__grid">
+            <div class="release-modal__field">
+              <label for="pricing-envs">Environments</label>
+              <input id="pricing-envs" name="environments" type="text" placeholder="e.g., 6 prod + 12 non-prod">
+            </div>
+            <div class="release-modal__field">
+              <label for="pricing-assets">Assets / workloads</label>
+              <input id="pricing-assets" name="assets" type="text" placeholder="e.g., 4,500 assets">
+            </div>
+            <div class="release-modal__field">
+              <label for="pricing-timeline">Timeline</label>
+              <input id="pricing-timeline" name="timeline" type="text" placeholder="e.g., 30-60 days">
+            </div>
+          </div>
+          <div class="release-modal__interests">
+            <span>Compliance needs</span>
+            <div class="release-modal__checks">
+              <label><input type="checkbox" name="compliance" value="SOC 2"> SOC 2</label>
+              <label><input type="checkbox" name="compliance" value="ISO 27001"> ISO 27001</label>
+              <label><input type="checkbox" name="compliance" value="PCI DSS"> PCI DSS</label>
+              <label><input type="checkbox" name="compliance" value="CMMC"> CMMC</label>
+              <label><input type="checkbox" name="compliance" value="HIPAA"> HIPAA</label>
+              <label><input type="checkbox" name="compliance" value="Other"> Other</label>
+            </div>
+          </div>
+          <div class="release-modal__field">
+            <label for="pricing-notes">Notes / goals</label>
+            <input id="pricing-notes" name="notes" type="text" placeholder="Share key requirements or outcomes">
+          </div>
+          <div class="release-modal__actions">
+            <button type="button" class="theme-btn-one" data-pricing-close>Cancel</button>
+            <button type="submit" class="theme-btn-two">Send request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <!--Scroll to top-->
     <div class="scroll-to-top">
       <div>
@@ -1474,8 +1714,11 @@
     <script src="assets/js/theme-toggle.js"></script>
     <script src="assets/js/mega-hover.js"></script>
     <script src="assets/js/mega-tabs.js"></script>
+    <script src="assets/js/release-modal.js"></script>
+    <script src="assets/js/pricing-modal.js"></script>
 </body>
 </html>
+
 
 
 
