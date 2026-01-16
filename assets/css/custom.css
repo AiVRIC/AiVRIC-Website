@@ -2754,3 +2754,68 @@ html[data-theme="dark"] .portal-section.portal-page .portal-card .portal-link {
 html[data-theme="dark"] .portal-section.portal-page .portal-card .portal-link:hover {
     color: #7dd3fc;
 }
+
+@media (max-width: 768px) {
+    .release-modal__dialog {
+        width: min(92vw, 420px);
+        max-height: 88vh;
+        padding: 18px 16px 16px;
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .release-modal__form {
+        max-height: calc(88vh - 150px);
+        overflow-y: auto;
+        padding-right: 6px;
+    }
+
+    .release-modal__grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .release-modal__field label {
+        font-size: 12px;
+        letter-spacing: 0.6px;
+    }
+
+    .release-modal__field input,
+    .release-modal__field select,
+    .release-modal__field textarea {
+        min-height: 44px;
+        font-size: 14px;
+    }
+
+    .release-modal__interests {
+        margin-top: 12px;
+    }
+
+    .release-modal__checks {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .release-modal__checks label {
+        padding: 10px 12px;
+        min-height: 44px;
+    }
+
+    .release-modal__actions {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 16px;
+    }
+
+    .release-modal__actions .theme-btn-one,
+    .release-modal__actions .theme-btn-two {
+        width: 100%;
+        min-height: 44px;
+    }
+
+    .release-modal__close {
+        width: 36px;
+        height: 36px;
+        font-size: 22px;
+    }
+}
