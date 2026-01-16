@@ -246,7 +246,7 @@
           </div>
           <div class="policy-card" style="padding:14px;">
             <h3>Submit a Support Request</h3>
-            <form class="support-form" action="../sendemail.php" method="post">
+            <form id="support-form" class="support-form" onsubmit="return false;">
               <div>
                 <label for="support-name">Full Name</label>
                 <input id="support-name" name="name" type="text" placeholder="Your name" required>
@@ -401,5 +401,6 @@
       });
     })();
   </script>
+  <script src="../assets/js/support-form.js"></script>
 </body>
 </html>

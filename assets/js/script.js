@@ -35,37 +35,109 @@
 
 
 	//Submenu Dropdown Toggle
-	if($('.main-header li.dropdown ul').length){
-		$('.main-header .navigation li.dropdown').append('<div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>');
-		
+	if($('.main-header .navigation li.dropdown').length){
+		$('.main-header .navigation li.dropdown').each(function() {
+			var $item = $(this);
+			if ($item.children('.dropdown-btn').length === 0) {
+				$item.append('<div class="dropdown-btn" role="button" tabindex="0" aria-label="Toggle submenu"><span class="fas fa-angle-down"></span></div>');
+			}
+		});
 	}
 
 	//Mobile Nav Hide Show
 	if($('.mobile-menu').length){
 		
 		$('.mobile-menu .menu-box').mCustomScrollbar();
+		$('.mobile-menu .menu-box').attr('aria-hidden', 'true');
 		
 		var mobileMenuContent = $('.main-header .menu-area .main-menu').html();
 		$('.mobile-menu .menu-box .menu-outer').append(mobileMenuContent);
 		$('.sticky-header .main-menu').append(mobileMenuContent);
+
+		function initMobileDropdowns() {
+			$('.mobile-menu li.dropdown, .mobile-menu li.platform-menu').each(function(index) {
+				var $item = $(this);
+				if ($item.hasClass('platform-menu') && !$item.hasClass('dropdown')) {
+					$item.addClass('dropdown');
+				}
+				var $target = $item.children('ul, .megamenu, .blogs-megamenu, .platform-megamenu').first();
+				var $btn = $item.children('.dropdown-btn');
+				if ($btn.length === 0) {
+					$btn = $('<div class="dropdown-btn" role="button" tabindex="0" aria-label="Toggle submenu" aria-expanded="false"><span class="fas fa-angle-down"></span></div>');
+					var $anchor = $item.children('a').first();
+					if ($anchor.length) {
+						$btn.insertAfter($anchor);
+					} else {
+						$item.append($btn);
+					}
+				}
+				if ($target.length && !$target.attr('id')) {
+					$target.attr('id', 'mobile-submenu-' + index);
+				}
+				if ($target.length) {
+					$btn.attr('aria-controls', $target.attr('id'));
+				}
+				if (!$btn.hasClass('open') && $target.length) {
+					$target.hide();
+					$btn.attr('aria-expanded', 'false');
+				}
+			});
+		}
+		initMobileDropdowns();
 		
 		//Dropdown Button
-		$('.mobile-menu li.dropdown .dropdown-btn').on('click', function() {
-			$(this).toggleClass('open');
-			$(this).prev('ul').slideToggle(500);
+		$('.mobile-menu .dropdown-btn').off('click').on('click', function() {
+			var $btn = $(this);
+			var $li = $btn.closest('li');
+			var $panel = $li.children('ul, .megamenu, .blogs-megamenu, .platform-megamenu').first();
+			$btn.toggleClass('open');
+			$panel.slideToggle(500);
+			var isOpen = $btn.hasClass('open');
+			$btn.attr('aria-expanded', isOpen ? 'true' : 'false');
 		});
-		//Dropdown Button
-		$('.mobile-menu li.dropdown .dropdown-btn').on('click', function() {
-			$(this).prev('.megamenu').slideToggle(900);
+		$('.mobile-menu .dropdown-btn').off('keydown').on('keydown', function(event) {
+			if (event.key === 'Enter' || event.key === ' ') {
+				event.preventDefault();
+				$(this).trigger('click');
+			}
 		});
 		//Menu Toggle Btn
 		$('.mobile-nav-toggler').on('click', function() {
 			$('body').addClass('mobile-menu-visible');
+			$('.mobile-menu .menu-box').attr('aria-hidden', 'false');
+			initMobileDropdowns();
+			var $focusTarget = $('.mobile-menu .close-btn');
+			if ($focusTarget.length) {
+				setTimeout(function() { $focusTarget.focus(); }, 0);
+			}
 		});
 
 		//Menu Toggle Btn
 		$('.mobile-menu .menu-backdrop,.mobile-menu .close-btn').on('click', function() {
 			$('body').removeClass('mobile-menu-visible');
+			$('.mobile-menu .menu-box').attr('aria-hidden', 'true');
+		});
+
+		$(document).on('keydown', function(event) {
+			if (!$('body').hasClass('mobile-menu-visible')) {
+				return;
+			}
+			if (event.key !== 'Tab') {
+				return;
+			}
+			var $focusable = $('.mobile-menu .menu-box').find('a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])').filter(':visible');
+			if (!$focusable.length) {
+				return;
+			}
+			var first = $focusable[0];
+			var last = $focusable[$focusable.length - 1];
+			if (event.shiftKey && document.activeElement === first) {
+				event.preventDefault();
+				last.focus();
+			} else if (!event.shiftKey && document.activeElement === last) {
+				event.preventDefault();
+				first.focus();
+			}
 		});
 	}
 
