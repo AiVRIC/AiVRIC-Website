@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AiVRIC | Platform</title>
+  <meta name="description" content="Explore the AiVRIC platform capabilities including GenAI Chat, Shared Data Layer, Agentic Design, Efficient Compute, Data Localization, and AI Model Inspection.">
+  <link rel="icon" href="../Aivric-favicon-logo.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo">
+        <span>AiVRIC</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li class="nav-item has-dropdown">
+            <button class="nav-trigger" data-dropdown-toggle aria-expanded="false" aria-controls="dropdown-platform">Platform</button>
+            <div class="dropdown" id="dropdown-platform">
+              <div class="dropdown-grid">
+                <a href="platform.html#genai-chat">GenAI Chat<span>Fabric intelligence chat across every AiVRIC solution.</span></a>
+                <a href="platform.html#shared-data-layer">Shared Data Layer<span>The Fabric data layer unifies telemetry and evidence.</span></a>
+                <a href="platform.html#agentic-design">Agentic Design<span>Fabric agents coordinate actions across suites.</span></a>
+                <a href="platform.html#efficient-compute">Efficient Compute<span>Fabric compute optimizes AI workloads end-to-end.</span></a>
+                <a href="platform.html#data-localization">Data Localization<span>Fabric residency controls govern every dataset.</span></a>
+                <a href="platform.html#ai-model-inspection">AI Model Inspection<span>Fabric inspection monitors AI models and risk.</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item has-dropdown">
+            <button class="nav-trigger" data-dropdown-toggle aria-expanded="false" aria-controls="dropdown-solutions">Solutions</button>
+            <div class="dropdown" id="dropdown-solutions">
+              <div class="dropdown-grid">
+                <a href="solutions.html#defense">Defense Suite<span>Defend your organization from cyber threats.</span></a>
+                <a href="solutions.html#offense">Offense Suite<span>Continuously simulate attacks across your ecosystem.</span></a>
+                <a href="solutions.html#vision">Vision Suite<span>Holistic context across the AiVRIC ecosystem.</span></a>
+                <a href="solutions.html#cloudsignals">CloudSignals+ RiskOps&trade;<span>Scan all your cloud platform configs.</span></a>
+                <a href="solutions.html#ai-signals">AI Signals&trade;<span>LLM observability, evaluations, and prompt management.</span></a>
+                <a href="solutions.html#aire-agentic-mesh">AIRE Agentic Mesh&trade;<span>Agentic role-based remediation agents.</span></a>
+              </div>
+            </div>
+          </li>
+          <li><a class="nav-link" href="pricing.html">Pricing</a></li>
+          <li class="nav-item has-dropdown">
+            <button class="nav-trigger" data-dropdown-toggle aria-expanded="false" aria-controls="dropdown-resources">Resources</button>
+            <div class="dropdown" id="dropdown-resources">
+              <div class="dropdown-grid">
+                <a href="resources.html">Resource Hub<span>Guides, quick starts, and downloads.</span></a>
+                <a href="blog.html">Blog<span>AiVRIC research and security insights.</span></a>
+                <a href="../trust.html">Trust Center<span>Security posture and trust resources.</span></a>
+                <a href="../faq.html">FAQ<span>Answers to common questions.</span></a>
+                <a href="https://aivric.com/AiVRIC-UserGuide/index.html">Platform Guide<span>Documentation and user guide.</span></a>
+              </div>
+            </div>
+          </li>
+          <li><a class="nav-link" href="blog.html">Blog</a></li>
+          <li><a class="nav-link" href="about.html">About</a></li>
+          <li><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <a class="btn btn-ghost" href="pricing.html">Request pricing</a>
+        <a class="btn btn-primary" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">Request a Demo</a>
+      </div>
+      <button class="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-drawer" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-header">
+      <a class="brand" href="index.html">
+        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo">
+        <span>AiVRIC</span>
+      </a>
+      <button class="menu-close" data-menu-close aria-label="Close menu">&times;</button>
+    </div>
+    <nav class="mobile-nav" aria-label="Mobile">
+      <button class="accordion-trigger" data-accordion-toggle aria-expanded="false" aria-controls="mobile-platform">Platform</button>
+      <div class="accordion-panel" id="mobile-platform" hidden>
+        <a href="platform.html#genai-chat">GenAI Chat</a>
+        <a href="platform.html#shared-data-layer">Shared Data Layer</a>
+        <a href="platform.html#agentic-design">Agentic Design</a>
+        <a href="platform.html#efficient-compute">Efficient Compute</a>
+        <a href="platform.html#data-localization">Data Localization</a>
+        <a href="platform.html#ai-model-inspection">AI Model Inspection</a>
+      </div>
+      <button class="accordion-trigger" data-accordion-toggle aria-expanded="false" aria-controls="mobile-solutions">Solutions</button>
+      <div class="accordion-panel" id="mobile-solutions" hidden>
+        <a href="solutions.html#defense">Defense Suite</a>
+        <a href="solutions.html#offense">Offense Suite</a>
+        <a href="solutions.html#vision">Vision Suite</a>
+        <a href="solutions.html#cloudsignals">CloudSignals+ RiskOps&trade;</a>
+        <a href="solutions.html#ai-signals">AI Signals&trade;</a>
+        <a href="solutions.html#aire-agentic-mesh">AIRE Agentic Mesh&trade;</a>
+      </div>
+      <button class="accordion-trigger" data-accordion-toggle aria-expanded="false" aria-controls="mobile-resources">Resources</button>
+      <div class="accordion-panel" id="mobile-resources" hidden>
+        <a href="resources.html">Resource Hub</a>
+        <a href="blog.html">Blog</a>
+        <a href="../trust.html">Trust Center</a>
+        <a href="../faq.html">FAQ</a>
+        <a href="https://aivric.com/AiVRIC-UserGuide/index.html">Platform Guide</a>
+      </div>
+      <a class="mobile-link" href="pricing.html">Pricing</a>
+      <a class="mobile-link" href="blog.html">Blog</a>
+      <a class="mobile-link" href="about.html">About</a>
+      <a class="mobile-link" href="contact.html">Contact</a>
+    </nav>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">Request a Demo</a>
+      <a class="btn btn-outline" href="pricing.html">Request pricing</a>
+    </div>
+  </div>
+  <div class="overlay" data-menu-overlay></div>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <div class="eyebrow">AiVRIC Platform</div>
+        <h1>Fabric intelligence for autonomous security.</h1>
+        <p>The AiVRIC Fabric layer unifies telemetry, evidence, and agent coordination so every suite operates on the same risk signals.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">Request a Demo</a>
+          <a class="btn btn-outline" href="solutions.html">Explore Solutions</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="eyebrow">Core Capabilities</div>
+        <h2>Designed for enterprise governance and scale.</h2>
+        <div class="grid-3">
+          <article class="card reveal" id="genai-chat">
+            <h3>GenAI Chat</h3>
+            <p>Fabric intelligence chat across every AiVRIC solution.</p>
+          </article>
+          <article class="card reveal" id="shared-data-layer">
+            <h3>Shared Data Layer</h3>
+            <p>The Fabric data layer unifies telemetry and evidence.</p>
+          </article>
+          <article class="card reveal" id="agentic-design">
+            <h3>Agentic Design</h3>
+            <p>Fabric agents coordinate actions across suites.</p>
+          </article>
+          <article class="card reveal" id="efficient-compute">
+            <h3>Efficient Compute</h3>
+            <p>Fabric compute optimizes AI workloads end-to-end.</p>
+          </article>
+          <article class="card reveal" id="data-localization">
+            <h3>Data Localization</h3>
+            <p>Fabric residency controls govern every dataset.</p>
+          </article>
+          <article class="card reveal" id="ai-model-inspection">
+            <h3>AI Model Inspection</h3>
+            <p>Fabric inspection monitors AI models and risk.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container card card-outline">
+        <div class="grid-2">
+          <div>
+            <div class="eyebrow">Platform Pillars</div>
+            <h2>Minimal surface, maximum control.</h2>
+            <p>A streamlined interface that keeps compliance, security, and AI teams aligned with the same signals and outcomes.</p>
+          </div>
+          <div class="grid-2">
+            <div class="stat-card">
+              <strong>Unified evidence</strong>
+              <p>Centralize audit artifacts, mappings, and approvals.</p>
+            </div>
+            <div class="stat-card">
+              <strong>Agentic remediation</strong>
+              <p>Automated playbooks backed by human approvals.</p>
+            </div>
+            <div class="stat-card">
+              <strong>Board-ready reporting</strong>
+              <p>Translate posture into executive narratives.</p>
+            </div>
+            <div class="stat-card">
+              <strong>Shared risk signals</strong>
+              <p>One source of truth for security and compliance.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container cta-band">
+        <div>
+          <h2>Build on the AiVRIC Fabric layer.</h2>
+          <p>Connect your Defense, Offense, and Vision suites with shared telemetry and evidence.</p>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="solutions.html">Explore solutions</a>
+          <a class="btn btn-outline" href="pricing.html">Request pricing</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="index.html">
+          <img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo">
+          <span>AiVRIC</span>
+        </a>
+        <p>Autonomous Security, Compliance, and Risk Intelligence.</p>
+        <div class="hero-actions">
+          <a class="btn btn-outline" href="contact.html">Contact Sales</a>
+        </div>
+      </div>
+      <div>
+        <h4>Platform</h4>
+        <div class="footer-links">
+          <a href="platform.html#genai-chat">GenAI Chat</a>
+          <a href="platform.html#shared-data-layer">Shared Data Layer</a>
+          <a href="platform.html#agentic-design">Agentic Design</a>
+          <a href="platform.html#efficient-compute">Efficient Compute</a>
+          <a href="platform.html#data-localization">Data Localization</a>
+          <a href="platform.html#ai-model-inspection">AI Model Inspection</a>
+        </div>
+      </div>
+      <div>
+        <h4>Solutions</h4>
+        <div class="footer-links">
+          <a href="solutions.html#cloudsignals">CloudSignals+ RiskOps&trade;</a>
+          <a href="solutions.html#ai-signals">AI Signals&trade;</a>
+          <a href="solutions.html#aire-agentic-mesh">AIRE Agentic Mesh&trade;</a>
+          <a href="solutions.html#rogueagent">RogueAgent ASPM&trade;</a>
+          <a href="solutions.html#vision-aioptics">Vision AI Optics&trade;</a>
+          <a href="solutions.html#vision">Vision Enterprise</a>
+        </div>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <div class="footer-links">
+          <a href="about.html">About</a>
+          <a href="resources.html">Resources</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>&copy; 2025 AiVRIC. All Rights Reserved.</span>
+      <div class="footer-social">
+        <a href="https://x.com/aivric" aria-label="X">X</a>
+        <a href="https://www.facebook.com/61581937785235/" aria-label="Facebook">FB</a>
+        <a href="https://www.linkedin.com/company/aivric" aria-label="LinkedIn">IN</a>
+        <a href="https://www.instagram.com/aivrictechnologies/" aria-label="Instagram">IG</a>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="assets/js/main.js"></script>
+</body>
+</html>
