@@ -63,6 +63,11 @@
         <a class="nav-link" data-page-target="platform" href="platform-overview.html">Platform overview <small>How AiVRIC works</small></a>
       </div>
       <div class="nav-section">
+        <p class="nav-label">CloudSignals+RiskOps</p>
+        <a class="nav-link" data-page-target="cloudsignals" href="cloudsignals-riskops.html">Module overview <small>How it works</small></a>
+        <a class="nav-link" data-page-target="connectors" href="connectors.html">Connectors <small>Connect cloud accounts</small></a>
+      </div>
+      <div class="nav-section">
         <p class="nav-label">Assurance</p>
         <a class="nav-link" data-page-target="security" href="security-trust.html">Security & Trust <small>Controls</small></a>
         <a class="nav-link" data-page-target="governance" href="ai-governance.html">AI Governance <small>Policies</small></a>
@@ -179,6 +184,50 @@
         </div>
       </div>
 
+      <h2 id="cloudsignals">CloudSignals+RiskOps&#8482;</h2>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>What is CloudSignals+RiskOps?</h3>
+          <p>AiVRIC's continuous cloud security posture and compliance automation engine. It ingests configuration telemetry from connected cloud and SaaS providers, maps findings to compliance frameworks, scores risk, and surfaces AI-driven remediation guidance — updated every 24 hours.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Which cloud providers are supported?</h3>
+          <p>AWS, Microsoft Azure, Google Cloud Platform, Kubernetes, GitHub, Microsoft 365, MongoDB Atlas, and Alibaba Cloud. See the <a href="connectors.html">Connectors guide</a> for step-by-step setup instructions for each.</p>
+        </div>
+        <div class="guide-card">
+          <h3>How often are scans run?</h3>
+          <p>Automatically every 24 hours per connected provider. You can also trigger on-demand scans at any time from the provider card in Settings. Scan windows are configurable to avoid peak-traffic periods or change-freeze policies.</p>
+        </div>
+        <div class="guide-card">
+          <h3>What compliance frameworks are supported?</h3>
+          <p>SOC 2 Type II (all five TSC), PCI DSS v4.0, ISO/IEC 27001:2022, CMMC Level 2, CIS Benchmarks (L1 &amp; L2), and NIST CSF 2.0. Evidence is captured automatically per scan for each enabled framework.</p>
+        </div>
+        <div class="guide-card">
+          <h3>What credentials does AiVRIC need?</h3>
+          <p>Read-only access only — AiVRIC never requires write access for monitoring. AWS uses IAM role assumption; Azure uses a Service Principal with Reader role; GCP uses a Service Account Key; Kubernetes uses a kubeconfig with read-only RBAC. Remediation roles are opt-in and separately scoped.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Can I run a one-time scan without enabling recurring scans?</h3>
+          <p>Yes. Select <strong>Run a single scan</strong> during connector setup to perform a one-off audit without enabling the 24-hour recurring schedule. Useful for proof-of-concept assessments.</p>
+        </div>
+        <div class="guide-card">
+          <h3>How are findings prioritized?</h3>
+          <p>Findings are classified by severity (Critical, High, Medium, Low). The risk engine weights them by exploitability context, asset criticality, and control coverage gaps. AI-driven remediation steps are attached to each finding, including suggested ticket content and compensating controls.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Can I send findings to Slack, Jira, or my SIEM?</h3>
+          <p>Yes. CloudSignals+RiskOps integrates with Slack, Microsoft Teams, Jira, ServiceNow, Splunk (via HEC), Microsoft Sentinel (via data connector), and any SIEM that accepts CEF syslog or JSON. Webhooks are available for custom endpoints. Configure in <strong>Settings &gt; Notifications</strong> and <strong>Settings &gt; Integrations</strong>.</p>
+        </div>
+        <div class="guide-card">
+          <h3>How do I export evidence for auditors?</h3>
+          <p>Generate framework-specific evidence bundles (SOC 2, PCI DSS, ISO 27001) from the Reports panel. Bundles include control status, supporting data, and a pass/fail summary. CSV and JSON exports are also available directly from the Findings panel or via the Findings API.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Can I manage policies as code?</h3>
+          <p>Yes. The Policy API provides full programmatic control over rules, policy packs, and suppression entries. Policies are versioned and auditable; all changes are attributed to the author. Download the OpenAPI 3.0 spec from Settings &gt; API.</p>
+        </div>
+      </div>
+
       <h2 id="support">Support & operations</h2>
       <div class="callout primary">
         <strong>Contact us:</strong> Email <a href="mailto:support@aivric.com">support@aivric.com</a>, ping your account team, or schedule a working session from <a href="../support.html">Support</a>.
@@ -207,8 +256,9 @@
       <p class="toc-title">On this page</p>
       <div class="toc-links">
         <a href="#general">General</a>
-        <a href="#security">Security</a>
         <a href="#operations">Operations</a>
+        <a href="#security">Security</a>
+        <a href="#cloudsignals">CloudSignals+RiskOps</a>
         <a href="#support">Support</a>
       </div>
     </aside>
@@ -235,6 +285,8 @@
         { title: 'Platform Guide Home', url: 'index.html' },
         { title: 'Getting started', url: 'getting-started.html' },
         { title: 'Platform overview', url: 'platform-overview.html' },
+        { title: 'CloudSignals+RiskOps overview', url: 'cloudsignals-riskops.html' },
+        { title: 'Connectors', url: 'connectors.html' },
         { title: 'Security & Trust', url: 'security-trust.html' },
         { title: 'AI Governance', url: 'ai-governance.html' },
         { title: 'FAQ & Support', url: 'faq.html' }

@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>AiVRIC User Guide | Connectors</title>
+  <link rel="canonical" href="https://user-guide.aivric.com/connectors.html">
+  <meta name="description" content="Step-by-step guides for connecting AWS, Azure, GCP, Kubernetes, GitHub, Microsoft 365, MongoDB Atlas, and Alibaba Cloud to AiVRIC CloudSignals+RiskOps.">
+  <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../assets/css/color.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/responsive.css" rel="stylesheet">
+  <link href="userguide.css?v=2" rel="stylesheet">
+  <style>
+    .guide-content h1,
+    .guide-content h2,
+    .guide-content h3,
+    .guide-content h4 { color: #f4f8ff; }
+
+    /* Provider jump bar */
+    .provider-jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 28px;
+    }
+    .provider-jump a {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.04);
+      color: #e9f2ff;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+    .provider-jump a:hover {
+      border-color: rgba(9,211,251,0.5);
+      background: rgba(9,211,251,0.08);
+      color: #09d3fb;
+    }
+
+    /* Connector section */
+    .connector-section {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 28px;
+      margin-top: 28px;
+    }
+    .connector-section:first-of-type { border-top: none; margin-top: 0; }
+
+    .connector-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .connector-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      background: rgba(9,211,251,0.12);
+      border: 1px solid rgba(9,211,251,0.35);
+      color: #09d3fb;
+      white-space: nowrap;
+    }
+
+    /* Steps */
+    .step-list { margin: 14px 0; }
+    .step-item {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 16px;
+    }
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(9,211,251,0.12);
+      border: 1px solid rgba(9,211,251,0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+      color: #09d3fb;
+      flex-shrink: 0;
+    }
+    .step-body h4 { margin: 2px 0 4px; font-size: 15px; }
+    .step-body p { margin: 0 0 6px; font-size: 14px; color: #a8b7cb; }
+    .step-body ul { margin: 4px 0; padding-left: 18px; color: #a8b7cb; font-size: 14px; }
+    .step-body code {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 5px;
+      padding: 1px 6px;
+      font-family: monospace;
+      font-size: 13px;
+      color: #09d3fb;
+    }
+
+    .prereq-box {
+      border: 1px solid rgba(255,206,58,0.4);
+      background: rgba(255,206,58,0.06);
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin: 12px 0;
+      font-size: 14px;
+      color: #e9f2ff;
+    }
+    .prereq-box strong { color: #ffce3a; }
+    .prereq-box ul { margin: 6px 0 0; padding-left: 18px; color: #a8b7cb; }
+    .prereq-box a { color: #09d3fb; }
+  </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EG2Q8GD30V');
+</script>
+<body data-page="connectors">
+  <header class="guide-header">
+    <div class="bar">
+      <a class="brand" href="index.html">
+        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo">
+        <span>Platform Guide</span>
+      </a>
+      <div class="top-links">
+        <a href="../index.html">AiVRIC.com</a>
+        <a href="../trust.html">Trust Center</a>
+        <a href="../support.html">Support</a>
+        <a href="insider-early-access.html">Insider Early Access</a>
+      </div>
+      <div class="guide-search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input id="guide-search-input" type="search" placeholder="Search the Platform Guide" aria-label="Search the AiVRIC Platform Guide">
+        <div class="search-results" id="guide-search-results"></div>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+    </div>
+  </header>
+
+  <div class="guide-shell">
+    <aside class="guide-sidebar" id="sidebar">
+      <div class="nav-section">
+        <p class="nav-label">Essentials</p>
+        <a class="nav-link" data-page-target="home" href="index.html">Overview <small>Start here</small></a>
+        <a class="nav-link" data-page-target="getting-started" href="getting-started.html">Getting started <small>Setup</small></a>
+        <a class="nav-link" data-page-target="platform" href="platform-overview.html">Platform overview <small>How AiVRIC works</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">CloudSignals+RiskOps</p>
+        <a class="nav-link" data-page-target="cloudsignals" href="cloudsignals-riskops.html">Module overview <small>How it works</small></a>
+        <a class="nav-link" data-page-target="connectors" href="connectors.html">Connectors <small>Connect cloud accounts</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Assurance</p>
+        <a class="nav-link" data-page-target="security" href="security-trust.html">Security &amp; Trust <small>Controls</small></a>
+        <a class="nav-link" data-page-target="governance" href="ai-governance.html">AI Governance <small>Policies</small></a>
+        <a class="nav-link" data-page-target="faq" href="faq.html">FAQ &amp; Support <small>Answers</small></a>
+      </div>
+    </aside>
+
+    <main class="guide-content">
+      <span class="badge" id="top">Connector setup</span>
+      <h1>Connectors</h1>
+      <p>Connect your cloud accounts, SaaS platforms, and developer tooling to AiVRIC CloudSignals+RiskOps&#8482;. Each connector uses read-only credentials — AiVRIC never requires write access for monitoring. Once connected, an automated audit runs every <strong>24 hours</strong> to detect misconfigurations and posture drift.</p>
+
+      <div class="provider-jump" aria-label="Jump to connector">
+        <a href="#aws">AWS</a>
+        <a href="#azure">Azure</a>
+        <a href="#gcp">GCP</a>
+        <a href="#kubernetes">Kubernetes</a>
+        <a href="#github">GitHub</a>
+        <a href="#m365">Microsoft 365</a>
+        <a href="#mongodb">MongoDB Atlas</a>
+        <a href="#alibaba">Alibaba Cloud</a>
+      </div>
+
+      <!-- ──────────────── AWS ──────────────── -->
+      <div class="connector-section" id="aws">
+        <div class="connector-header">
+          <h2 style="margin:0;">Amazon Web Services</h2>
+          <span class="connector-badge">Cloud Provider</span>
+        </div>
+        <p>Securely connect your AWS accounts for continuous compliance monitoring and telemetry ingestion. AiVRIC performs an agentless read-only audit every 24 hours.</p>
+
+        <div class="prereq-box">
+          <strong>Prerequisites</strong>
+          <ul>
+            <li><strong>AWS Account ID:</strong> Found in the top-right dropdown of the AWS Console.</li>
+            <li><strong>STS active:</strong> Confirm your AWS Security Token Service (STS) has the <strong>EU (Ireland)</strong> endpoint active to allow the cross-account connection.</li>
+          </ul>
+        </div>
+
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>Navigate to Cloud Providers</h4>
+              <p>In the AiVRIC sidebar, go to <strong>Settings &gt; Cloud Providers</strong>. Click <strong>Add Cloud Provider</strong> and select <strong>Amazon Web Services</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Enter your AWS Account ID</h4>
+              <p>Enter your 12-digit <strong>AWS Account ID</strong> and provide a friendly alias to identify this environment in your dashboard (e.g., <code>prod-us-east</code>).</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>Choose authentication method</h4>
+              <p>AiVRIC supports two authentication methods:</p>
+              <table class="table" style="margin:8px 0;">
+                <thead><tr><th>Method</th><th>Recommended use</th><th>Security level</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>AWS SDK Default (IAM Role)</strong></td><td>Long-term production</td><td>High — role-based, no static keys</td></tr>
+                  <tr><td>Access &amp; Secret Key</td><td>Quick / one-time scans</td><td>Low — static keys, not for production</td></tr>
+                </tbody>
+              </table>
+              <p><strong>Recommended:</strong> Select <strong>Connect assuming IAM Role</strong>. Use the <strong>AWS CloudFormation Quick Link</strong> in the dashboard to automatically provision the read-only IAM role. Paste the generated <strong>Role ARN</strong> and confirm the <strong>External ID</strong> matches the value shown in AiVRIC.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h4>Verify and launch scan</h4>
+              <p>Review your connection details, then click <strong>Launch Scan</strong>. AiVRIC will immediately perform a baseline audit and continue automatically every 24 hours. To run a single audit without enabling the recurring schedule, select <strong>Run a single scan</strong> before clicking Launch.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ──────────────── AZURE ──────────────── -->
+      <div class="connector-section" id="azure">
+        <div class="connector-header">
+          <h2 style="margin:0;">Microsoft Azure</h2>
+          <span class="connector-badge">Cloud Provider</span>
+        </div>
+        <p>Connect your Azure subscriptions for continuous compliance and secure telemetry ingestion. AiVRIC uses a Service Principal with scoped read-only permissions.</p>
+
+        <div class="prereq-box">
+          <strong>Prerequisites</strong>
+          <ul>
+            <li><strong>Subscription ID:</strong> Your unique Azure subscription identifier (found in the Azure Portal under Subscriptions).</li>
+            <li><strong>Service Principal:</strong> An Entra ID App Registration with Reader or Security Auditor role assigned at the subscription scope. See the <a href="#azure-sp">Service Principal setup guide</a> below if you haven't created one yet.</li>
+          </ul>
+        </div>
+
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>Navigate to Cloud Providers</h4>
+              <p>In the AiVRIC sidebar, go to <strong>Settings &gt; Cloud Providers</strong>. Click <strong>Add Cloud Provider</strong> and select <strong>Microsoft Azure</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Enter your Subscription ID</h4>
+              <p>Paste your <strong>Subscription ID</strong> from the Azure Portal. Optionally add a friendly alias (e.g., <code>azure-prod</code>).</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>Enter Service Principal credentials</h4>
+              <p>Provide the following from your Entra ID App Registration:</p>
+              <ul>
+                <li><strong>Client ID:</strong> The Application (client) ID from the App Registration overview.</li>
+                <li><strong>Client Secret:</strong> The secret value generated under Certificates &amp; secrets. Copy it immediately — Azure hides it after you leave the page.</li>
+                <li><strong>Tenant ID:</strong> The Directory (tenant) ID from the App Registration overview.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h4>Verify and launch scan</h4>
+              <p>Once credentials are accepted, click <strong>Launch Scan</strong>. AiVRIC will run the baseline audit immediately and then every 24 hours thereafter. Select <strong>Run a single scan</strong> to disable the recurring schedule.</p>
+            </div>
+          </div>
+        </div>
+
+        <div id="azure-sp" class="guide-card" style="margin-top:18px;">
+          <h3>Azure Service Principal setup</h3>
+          <p>If you need to create a Service Principal for AiVRIC, follow these steps in the Azure Portal:</p>
+          <ol style="color:#a8b7cb;font-size:14px;padding-left:18px;margin:8px 0;">
+            <li>Go to <strong>Microsoft Entra ID &gt; App registrations</strong> and click <strong>+ New registration</strong>. Name it <code>AiVRIC-Scanner</code> and click Register.</li>
+            <li>On the Overview page, copy the <strong>Application (client) ID</strong> and <strong>Directory (tenant) ID</strong>.</li>
+            <li>Go to <strong>Certificates &amp; secrets</strong>, click <strong>+ New client secret</strong>, and copy the <strong>Secret Value</strong> before leaving the page.</li>
+            <li>Search for <strong>Subscriptions</strong>, select your target subscription, and copy the <strong>Subscription ID</strong>.</li>
+            <li>Under <strong>Access Control (IAM)</strong>, click <strong>+ Add role assignment</strong>. Assign the <strong>Reader</strong> or <strong>Security Auditor</strong> role to the <code>AiVRIC-Scanner</code> app registration.</li>
+          </ol>
+          <p style="margin-bottom:0;">Return to the AiVRIC onboarding flow with these four values: Tenant ID, Client ID, Client Secret, and Subscription ID.</p>
+        </div>
+      </div>
+
+      <!-- ──────────────── GCP ──────────────── -->
+      <div class="connector-section" id="gcp">
+        <div class="connector-header">
+          <h2 style="margin:0;">Google Cloud Platform</h2>
+          <span class="connector-badge">Cloud Provider</span>
+        </div>
+        <p>Connect your GCP projects for continuous compliance monitoring and automated risk scoring. AiVRIC uses a Service Account Key with read-only permissions.</p>
+
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>Navigate to Cloud Providers</h4>
+              <p>In the AiVRIC sidebar, go to <strong>Settings &gt; Cloud Providers</strong>. Click <strong>Add Cloud Provider</strong> and select <strong>Google Cloud Platform</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Enter your GCP Project ID</h4>
+              <p>Enter your unique <strong>GCP Project ID</strong> for the project you want to audit. Optionally add a friendly alias.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>Choose authentication method</h4>
+              <p>Select <strong>Connect via Service Account Key</strong>. In the GCP Console, create a Service Account with the <strong>Security Reviewer</strong> and <strong>Viewer</strong> roles, generate a JSON key, and paste the full contents of the key file into the field provided in AiVRIC.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h4>Verify and launch scan</h4>
+              <p>Click <strong>Launch Scan</strong> to begin. AiVRIC will run a baseline audit immediately and then every 24 hours. Use <strong>Run a single scan</strong> for a one-time assessment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ──────────────── KUBERNETES ──────────────── -->
+      <div class="connector-section" id="kubernetes">
+        <div class="connector-header">
+          <h2 style="margin:0;">Kubernetes</h2>
+          <span class="connector-badge">Container Platform</span>
+        </div>
+        <p>Gain unified visibility and posture monitoring across your containerized environments — including EKS, GKE, AKS, and self-managed clusters.</p>
+
+        <div class="prereq-box">
+          <strong>Prerequisites</strong>
+          <ul>
+            <li><strong>Kubeconfig file:</strong> Locate it at <code>~/.kube/config</code> on your management machine.</li>
+            <li><strong>Managed clusters (EKS/GKE/AKS):</strong> Ensure the cluster allows inbound API traffic from AiVRIC and that you have applied the required RBAC resources (ServiceAccount, ClusterRole, ClusterRoleBinding) with read-only permissions.</li>
+          </ul>
+        </div>
+
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>Navigate to Cloud Providers</h4>
+              <p>In the AiVRIC sidebar, go to <strong>Settings &gt; Cloud Providers</strong>. Click <strong>Add Cloud Provider</strong> and select <strong>Kubernetes</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Enter cluster context</h4>
+              <p>Identify the <strong>Kubernetes cluster context</strong> from your kubeconfig file (the value under <code>contexts[].name</code>) and enter it in the Cluster Context field.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>Provide kubeconfig</h4>
+              <p>Paste the full contents of your <strong>kubeconfig YAML</strong> into the authentication field. AiVRIC uses this to authenticate and enumerate cluster resources with read-only access.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h4>Verify and launch scan</h4>
+              <p>Review the connection summary and click <strong>Launch Scan</strong>. AiVRIC will run an automated audit every 24 hours to ensure continuous compliance across your cluster workloads.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ──────────────── GITHUB ──────────────── -->
+      <div class="connector-section" id="github">
+        <div class="connector-header">
+          <h2 style="margin:0;">GitHub</h2>
+          <span class="connector-badge">Developer Platform</span>
+        </div>
+        <p>Secure your repositories and delivery workflows with continuous monitoring of branch protections, secret exposure, repository settings, and pipeline configurations.</p>
+
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>Navigate to Cloud Providers</h4>
+              <p>In the AiVRIC sidebar, go to <strong>Settings &gt; Cloud Providers</strong>. Click <strong>Add Cloud Provider</strong> and select <strong>GitHub</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Enter GitHub account details</h4>
+              <p>Provide your GitHub <strong>Username</strong> or <strong>Organization name</strong>. Add a friendly alias to distinguish this account in your dashboard.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>Choose authentication method</h4>
+              <p>Select one of three options:</p>
+              <ul>
+                <li><strong>Personal Access Token (PAT):</strong> Generate a fine-grained PAT in GitHub with read-only repo and org scopes.</li>
+                <li><strong>OAuth App Token:</strong> Authorize via the AiVRIC OAuth app for your GitHub org.</li>
+                <li><strong>GitHub App:</strong> Install the AiVRIC GitHub App for least-privilege, per-repo access.</li>
+              </ul>
+              <p>Enter the required token or complete the OAuth flow to establish the secure connection.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h4>Verify and launch scan</h4>
+              <p>After a successful connection test, click <strong>Launch Scan</strong>. AiVRIC will automatically scan every 24 hours to detect repository misconfigurations and risks.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ──────────────── M365 ──────────────── -->
+      <div class="connector-section" id="m365">
+        <div class="connector-header">
+          <h2 style="margin:0;">Microsoft 365</h2>
+          <span class="connector-badge">SaaS Platform</span>
+        </div>
+        <p>Connect your Microsoft 365 tenant for continuous compliance monitoring and agentic security intelligence. CloudSignals+RiskOps&#8482; will continuously map your tenant controls to frameworks including SOC 2 and PCI DSS.</p>
+
+        <div class="prereq-box">
+          <strong>Prerequisites — complete in Microsoft Entra ID before connecting</strong>
+          <ul>
+            <li><strong>App Registration:</strong> Register a new application in Microsoft Entra ID (see <em>Step 3</em> for details).</li>
+            <li><strong>API Permissions:</strong> Grant the required Microsoft Graph and external API permissions to the app registration.</li>
+            <li><strong>PowerShell 7.4+:</strong> Required on the scanning host to enable full M365 check coverage (particularly PowerShell-based auditing for Exchange and Teams).</li>
+          </ul>
+        </div>
+
+        <div class="callout primary" style="margin:14px 0;">
+          <strong>Production recommendation:</strong> Use <strong>Application Certificate Authentication</strong>. This avoids managing static secrets, unlocks all M365 checks (including PowerShell-dependent ones), and is more secure for app-only authentication.
+        </div>
+
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>Navigate to Cloud Providers</h4>
+              <p>In the AiVRIC sidebar, go to <strong>Settings &gt; Cloud Providers</strong>. Click <strong>Add Cloud Provider</strong> and select <strong>Microsoft 365</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Enter your Domain ID</h4>
+              <p>In your Entra ID portal, locate the domain that acts as the unique identifier for your account (e.g., <code>contoso.onmicrosoft.com</code>). Paste this into the <strong>Domain ID</strong> field in AiVRIC.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>Set up Certificate Authentication (recommended)</h4>
+              <ol style="color:#a8b7cb;font-size:14px;padding-left:18px;margin:8px 0;">
+                <li><strong>Generate certificate:</strong> Create a self-signed certificate and export it as a <strong>Base64-encoded PFX</strong> file. Example using PowerShell:<br>
+                  <code>$cert = New-SelfSignedCertificate -Subject "AiVRIC-Scanner" -CertStoreLocation "Cert:\CurrentUser\My"</code><br>
+                  <code>Export-PfxCertificate -Cert $cert -FilePath "aivric-scanner.pfx" -Password (Read-Host -AsSecureString)</code>
+                </li>
+                <li><strong>Upload to Azure:</strong> Export the public portion (<code>.cer</code>) and upload it to your Entra ID App Registration under <em>Certificates &amp; secrets</em>.</li>
+                <li><strong>Configure AiVRIC:</strong> Select <strong>Certificate (Recommended)</strong> in the AiVRIC onboarding screen.</li>
+                <li><strong>Provide IDs:</strong> Enter your <strong>Tenant ID</strong> and <strong>Application (Client) ID</strong> from the App Registration overview.</li>
+                <li><strong>Upload PFX:</strong> Upload the PFX certificate file directly into the AiVRIC platform.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h4>Verify and launch scan</h4>
+              <p>Review the summary and click <strong>Launch Scan</strong>. AiVRIC will perform a baseline audit and then automatically scan every 24 hours to detect drift and misconfigurations across your tenant. Compliance evidence is captured continuously and mapped to SOC 2, PCI DSS, and CMMC frameworks automatically.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ──────────────── MONGODB ATLAS ──────────────── -->
+      <div class="connector-section" id="mongodb">
+        <div class="connector-header">
+          <h2 style="margin:0;">MongoDB Atlas</h2>
+          <span class="connector-badge">Database Platform</span>
+        </div>
+        <p>Connect your MongoDB Atlas organization for continuous security monitoring and risk intelligence across your database clusters and projects.</p>
+
+        <div class="prereq-box">
+          <strong>Prerequisites</strong>
+          <ul>
+            <li><strong>API Key Pair:</strong> Generate an API key in the MongoDB Atlas Console under <strong>Organization Settings &gt; Access Manager &gt; API Keys</strong>.</li>
+            <li>Note the <strong>Public Key</strong> (your API identifier) and the <strong>Private Key</strong> (the corresponding secret). The private key is only shown once at creation time.</li>
+          </ul>
+        </div>
+
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>Navigate to Cloud Providers</h4>
+              <p>In the AiVRIC sidebar, go to <strong>Settings &gt; Cloud Providers</strong>. Click <strong>Add Cloud Provider</strong> and select <strong>MongoDB Atlas</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Provide API key credentials</h4>
+              <p>Paste your <strong>Public Key</strong> and <strong>Private Key</strong> into the required fields. AiVRIC uses the API key pair to authenticate with the Atlas API and enumerate your organization's configuration.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>Verify and launch scan</h4>
+              <p>After the platform verifies the connection, click <strong>Launch Scan</strong>. AiVRIC will automatically run a scan every 24 hours to detect misconfigurations and security drift across your Atlas clusters.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ──────────────── ALIBABA CLOUD ──────────────── -->
+      <div class="connector-section" id="alibaba">
+        <div class="connector-header">
+          <h2 style="margin:0;">Alibaba Cloud</h2>
+          <span class="connector-badge">Cloud Provider</span>
+        </div>
+        <p>Connect your Alibaba Cloud account for continuous compliance monitoring and risk intelligence. AiVRIC supports RAM Role Assumption for secure, long-term production use.</p>
+
+        <div class="prereq-box">
+          <strong>Prerequisites</strong>
+          <ul>
+            <li><strong>Account ID:</strong> Click your profile avatar in the top-right corner of the Alibaba Cloud Console to find your Account ID.</li>
+            <li><strong>Permissions:</strong> Ensure you have a RAM User with Access Keys, or a RAM Role with read-only permissions (<em>ReadOnlyAccess</em> policy recommended) sufficient to audit your resources.</li>
+          </ul>
+        </div>
+
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>Navigate to Cloud Providers</h4>
+              <p>In the AiVRIC sidebar, go to <strong>Settings &gt; Cloud Providers</strong>. Click <strong>Add Cloud Provider</strong> and select <strong>Alibaba Cloud</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Enter your Alibaba Cloud Account ID</h4>
+              <p>Enter your <strong>Alibaba Cloud Account ID</strong> and optionally a friendly alias to identify this account in the dashboard.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>Choose authentication method</h4>
+              <p>AiVRIC supports two methods:</p>
+              <table class="table" style="margin:8px 0;">
+                <thead><tr><th>Method</th><th>Best for</th><th>Security level</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>RAM Role Assumption</strong></td><td>Long-term production</td><td>High — secure cross-account access</td></tr>
+                  <tr><td>Static Credentials (Access Key ID + Secret)</td><td>Quick / one-time scans</td><td>Low — avoid for production</td></tr>
+                </tbody>
+              </table>
+              <p><strong>Recommended:</strong> Select <strong>RAM Role Assumption</strong>. Provide the <strong>Role ARN</strong> and the <strong>Access Key ID / Secret</strong> of the RAM user authorized to assume that role. For static credential scans, enter the Access Key ID and Secret directly.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h4>Verify and launch scan</h4>
+              <p>Review your configuration, then click <strong>Launch Scan</strong>. AiVRIC will automatically run a scan every 24 hours to detect misconfigurations and posture drift.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ──────────────── COMMON NEXT STEPS ──────────────── -->
+      <div class="connector-section">
+        <h2>After connecting</h2>
+        <div class="guide-grid">
+          <div class="guide-card">
+            <h3>Review your first findings</h3>
+            <p>Navigate to the <strong>Findings</strong> panel. Filter by severity and assign owners. Critical and High findings surface at the top with AI-driven remediation steps.</p>
+          </div>
+          <div class="guide-card">
+            <h3>Enable compliance frameworks</h3>
+            <p>In <strong>Settings &gt; Policy Packs</strong>, enable SOC 2, PCI DSS, or ISO 27001 mapping. CloudSignals+RiskOps will immediately re-score your posture against the selected framework.</p>
+          </div>
+          <div class="guide-card">
+            <h3>Set up notifications</h3>
+            <p>Configure Slack, Teams, Jira, or ServiceNow alerts in <strong>Settings &gt; Notifications</strong>. Route Critical findings to your on-call channel for rapid response.</p>
+          </div>
+          <div class="guide-card">
+            <h3>Schedule scan windows</h3>
+            <p>Adjust the 24-hour scan cadence in <strong>Settings &gt; Scheduling &amp; Scan Windows</strong> to avoid peak-traffic periods or align with your change-freeze policies.</p>
+          </div>
+        </div>
+
+        <div class="callout warn" style="margin-top:20px;">
+          <strong>Need help with a connector?</strong> Email <a href="mailto:support@aivric.com">support@aivric.com</a> or <a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">schedule a setup session</a>. Our team can walk through any connector setup with you live.
+        </div>
+      </div>
+    </main>
+
+    <aside class="guide-toc">
+      <p class="toc-title">On this page</p>
+      <div class="toc-links">
+        <a href="#top">Overview</a>
+        <a href="#aws">AWS</a>
+        <a href="#azure">Azure</a>
+        <a href="#gcp">GCP</a>
+        <a href="#kubernetes">Kubernetes</a>
+        <a href="#github">GitHub</a>
+        <a href="#m365">Microsoft 365</a>
+        <a href="#mongodb">MongoDB Atlas</a>
+        <a href="#alibaba">Alibaba Cloud</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="guide-footer">
+    <span>user-guide.aivric.com</span>
+    <span class="tag">Connect &amp; monitor</span>
+  </footer>
+
+  <script>
+    (function(){
+      var page = document.body.dataset.page;
+      document.querySelectorAll('[data-page-target]').forEach(function(link){
+        if(link.dataset.pageTarget === page){ link.classList.add('active'); }
+      });
+      var toggle = document.querySelector('.nav-toggle');
+      var sidebar = document.getElementById('sidebar');
+      if(toggle && sidebar){ toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); }); }
+
+      var searchInput = document.getElementById('guide-search-input');
+      var resultsBox = document.getElementById('guide-search-results');
+      var pageIndex = [
+        { title: 'Platform Guide Home', url: 'index.html' },
+        { title: 'Getting started', url: 'getting-started.html' },
+        { title: 'Platform overview', url: 'platform-overview.html' },
+        { title: 'CloudSignals+RiskOps overview', url: 'cloudsignals-riskops.html' },
+        { title: 'Connectors', url: 'connectors.html' },
+        { title: 'Security & Trust', url: 'security-trust.html' },
+        { title: 'AI Governance', url: 'ai-governance.html' },
+        { title: 'FAQ & Support', url: 'faq.html' }
+      ];
+      var pageCache = {};
+
+      function sanitize(text){
+        return text.replace(/[<>]/g, function(ch){ return ch === '<' ? '&lt;' : '&gt;'; });
+      }
+
+      function getPageText(page){
+        if(pageCache[page.url]) return Promise.resolve(pageCache[page.url]);
+        return fetch(page.url).then(function(r){ return r.text(); }).then(function(html){
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+          var main = doc.querySelector('.guide-content') || doc.body;
+          var text = (main.innerText || '').replace(/\s+/g, ' ').trim();
+          pageCache[page.url] = text;
+          return text;
+        }).catch(function(){ return ''; });
+      }
+
+      async function performSearch(raw){
+        var query = raw.trim().toLowerCase();
+        if(!resultsBox) return;
+        if(query.length < 2){
+          resultsBox.innerHTML = '';
+          resultsBox.classList.remove('open');
+          return;
+        }
+        var matches = [];
+        for(var i = 0; i < pageIndex.length; i++){
+          var pageItem = pageIndex[i];
+          var text = await getPageText(pageItem);
+          var hay = text.toLowerCase();
+          var idx = hay.indexOf(query);
+          if(idx === -1) continue;
+          var start = Math.max(0, idx - 70);
+          var end = Math.min(text.length, idx + 140);
+          var snippet = sanitize(text.slice(start, end));
+          matches.push({ title: pageItem.title, url: pageItem.url, snippet: snippet });
+        }
+        if(!matches.length){
+          resultsBox.innerHTML = '<div class="no-results">No matches yet. Try another term.</div>';
+          resultsBox.classList.add('open');
+          return;
+        }
+        resultsBox.innerHTML = matches.slice(0,8).map(function(m){
+          return '<a class="result" href="'+m.url+'"><strong>'+m.title+'</strong><span>'+m.snippet+'...</span></a>';
+        }).join('');
+        resultsBox.classList.add('open');
+      }
+
+      if(searchInput && resultsBox){
+        searchInput.addEventListener('input', function(e){ performSearch(e.target.value); });
+        searchInput.addEventListener('focus', function(){ if(resultsBox.innerHTML){ resultsBox.classList.add('open'); }});
+      }
+      document.addEventListener('click', function(e){
+        if(!resultsBox) return;
+        if(!resultsBox.contains(e.target) && !searchInput.contains(e.target)){
+          resultsBox.classList.remove('open');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

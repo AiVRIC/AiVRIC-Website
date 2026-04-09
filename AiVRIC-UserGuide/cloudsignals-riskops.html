@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>AiVRIC User Guide | CloudSignals+RiskOps</title>
+  <link rel="canonical" href="https://user-guide.aivric.com/cloudsignals-riskops.html">
+  <meta name="description" content="CloudSignals+RiskOps: continuous cloud posture monitoring, compliance automation, risk scoring, and remediation guidance across AWS, Azure, GCP, Kubernetes, GitHub, M365, and more.">
+  <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../assets/css/color.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/responsive.css" rel="stylesheet">
+  <link href="userguide.css?v=2" rel="stylesheet">
+  <style>
+    .guide-content h1,
+    .guide-content h2,
+    .guide-content h3 { color: #f4f8ff; }
+    .provider-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin: 14px 0 24px;
+    }
+    .provider-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: #e9f2ff;
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+    .provider-chip:hover {
+      border-color: rgba(9,211,251,0.4);
+      background: rgba(9,211,251,0.06);
+      color: #09d3fb;
+    }
+    .provider-chip .icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: rgba(9,211,251,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .step-list { counter-reset: steps; margin: 14px 0; }
+    .step-item {
+      counter-increment: steps;
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 14px;
+    }
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(9,211,251,0.15);
+      border: 1px solid rgba(9,211,251,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+      color: #09d3fb;
+      flex-shrink: 0;
+    }
+    .step-body h4 { margin: 2px 0 4px; color: #f4f8ff; font-size: 15px; }
+    .step-body p { margin: 0; font-size: 14px; color: #a8b7cb; }
+    .framework-table td:first-child { font-weight: 700; color: #e9f2ff; }
+  </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EG2Q8GD30V');
+</script>
+<body data-page="cloudsignals">
+  <header class="guide-header">
+    <div class="bar">
+      <a class="brand" href="index.html">
+        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo">
+        <span>Platform Guide</span>
+      </a>
+      <div class="top-links">
+        <a href="../index.html">AiVRIC.com</a>
+        <a href="../trust.html">Trust Center</a>
+        <a href="../support.html">Support</a>
+        <a href="insider-early-access.html">Insider Early Access</a>
+      </div>
+      <div class="guide-search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input id="guide-search-input" type="search" placeholder="Search the Platform Guide" aria-label="Search the AiVRIC Platform Guide">
+        <div class="search-results" id="guide-search-results"></div>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+    </div>
+  </header>
+
+  <div class="guide-shell">
+    <aside class="guide-sidebar" id="sidebar">
+      <div class="nav-section">
+        <p class="nav-label">Essentials</p>
+        <a class="nav-link" data-page-target="home" href="index.html">Overview <small>Start here</small></a>
+        <a class="nav-link" data-page-target="getting-started" href="getting-started.html">Getting started <small>Setup</small></a>
+        <a class="nav-link" data-page-target="platform" href="platform-overview.html">Platform overview <small>How AiVRIC works</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">CloudSignals+RiskOps</p>
+        <a class="nav-link" data-page-target="cloudsignals" href="cloudsignals-riskops.html">Module overview <small>How it works</small></a>
+        <a class="nav-link" data-page-target="connectors" href="connectors.html">Connectors <small>Connect cloud accounts</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Assurance</p>
+        <a class="nav-link" data-page-target="security" href="security-trust.html">Security &amp; Trust <small>Controls</small></a>
+        <a class="nav-link" data-page-target="governance" href="ai-governance.html">AI Governance <small>Policies</small></a>
+        <a class="nav-link" data-page-target="faq" href="faq.html">FAQ &amp; Support <small>Answers</small></a>
+      </div>
+    </aside>
+
+    <main class="guide-content">
+      <span class="badge" id="overview">CloudSignals+RiskOps&#8482;</span>
+      <h1>CloudSignals+RiskOps</h1>
+      <p>CloudSignals+RiskOps&#8482; is AiVRIC's continuous cloud security posture and compliance automation engine. It ingests configuration telemetry from your cloud accounts, SaaS platforms, and developer tooling, then continuously maps findings to compliance frameworks, scores risk, and surfaces prioritized remediation guidance — all updated every 24 hours automatically.</p>
+
+      <div class="callout primary">
+        <strong>Always-on coverage.</strong> Once you connect a provider, CloudSignals+RiskOps runs an automated audit every <strong>24 hours</strong> to detect misconfigurations, identity drift, and posture degradation without requiring manual intervention.
+      </div>
+
+      <h2 id="how-it-works">How it works</h2>
+      <div class="step-list">
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <h4>Connect a provider</h4>
+            <p>Grant read-only access via IAM role, service principal, API key, or kubeconfig. AiVRIC never requires write access for monitoring; remediation roles are opt-in and separately scoped.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <h4>Telemetry ingestion</h4>
+            <p>CloudSignals+RiskOps polls your cloud APIs on a scheduled cadence (default: every 24 hours; configurable per connector). Configuration metadata, IAM policies, network rules, and resource settings are collected — no application payload data is ingested.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <h4>Policy evaluation</h4>
+            <p>Each collected resource is evaluated against your active policy packs and custom rules. Results are classified by severity (Critical, High, Medium, Low) and tagged to the relevant compliance controls.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-body">
+            <h4>Risk scoring &amp; prioritization</h4>
+            <p>Findings are aggregated into a posture score per environment and per framework. The risk engine weights findings by exploitability context, asset criticality, and control coverage gaps.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">5</div>
+          <div class="step-body">
+            <h4>Remediation &amp; evidence</h4>
+            <p>AI-driven remediation guidance is attached to each finding — including suggested Jira/ServiceNow tickets, compensating controls, and step-by-step fix instructions. Every decision is logged for auditors.</p>
+          </div>
+        </div>
+      </div>
+
+      <h2 id="providers">Supported providers</h2>
+      <p>CloudSignals+RiskOps supports the following cloud and SaaS providers. Click any to jump to the connector setup guide.</p>
+      <div class="provider-grid">
+        <a class="provider-chip" href="connectors.html#aws"><span class="icon">&#9881;</span> Amazon Web Services</a>
+        <a class="provider-chip" href="connectors.html#azure"><span class="icon">&#9881;</span> Microsoft Azure</a>
+        <a class="provider-chip" href="connectors.html#gcp"><span class="icon">&#9881;</span> Google Cloud Platform</a>
+        <a class="provider-chip" href="connectors.html#kubernetes"><span class="icon">&#9881;</span> Kubernetes</a>
+        <a class="provider-chip" href="connectors.html#github"><span class="icon">&#9881;</span> GitHub</a>
+        <a class="provider-chip" href="connectors.html#m365"><span class="icon">&#9881;</span> Microsoft 365</a>
+        <a class="provider-chip" href="connectors.html#mongodb"><span class="icon">&#9881;</span> MongoDB Atlas</a>
+        <a class="provider-chip" href="connectors.html#alibaba"><span class="icon">&#9881;</span> Alibaba Cloud</a>
+      </div>
+
+      <h2 id="compliance">Compliance framework mapping</h2>
+      <p>CloudSignals+RiskOps continuously maps your posture findings to the following frameworks. Evidence is captured automatically, so you always have an up-to-date audit trail.</p>
+      <table class="table framework-table">
+        <thead>
+          <tr><th>Framework</th><th>Coverage</th><th>Evidence output</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>SOC 2 Type II (TSC)</td><td>All five Trust Service Criteria: Security, Availability, Processing Integrity, Confidentiality, Privacy.</td><td>Control status dashboard, exportable evidence bundle for assessors.</td></tr>
+          <tr><td>PCI DSS v4.0</td><td>Network segmentation, access control, logging, vulnerability management, and encryption requirements.</td><td>Control mapping report; ROC evidence export template included.</td></tr>
+          <tr><td>ISO/IEC 27001:2022</td><td>Annex A controls mapped to cloud configuration and identity posture checks.</td><td>ISMS continuous monitoring report; nonconformity register with risk ratings.</td></tr>
+          <tr><td>CMMC Level 2</td><td>110 NIST SP 800-171 practices mapped to cloud and M365 configurations.</td><td>POA&amp;M template auto-populated with open findings and remediation status.</td></tr>
+          <tr><td>CIS Benchmarks</td><td>Level 1 and Level 2 hardening checks for AWS, Azure, GCP, Kubernetes, and M365.</td><td>Per-resource pass/fail with remediation steps.</td></tr>
+          <tr><td>NIST CSF 2.0</td><td>Identify, Protect, Detect, Respond, Recover functions mapped to posture findings.</td><td>Function-level heatmap and gap report.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="scanning">Scan scheduling</h2>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>Scheduled scans</h3>
+          <p>Default cadence is every 24 hours per connected provider. Configure scan windows to avoid peak traffic periods or align with change-freeze policies in <strong>Settings &gt; Scheduling &amp; Scan Windows</strong>.</p>
+        </div>
+        <div class="guide-card">
+          <h3>On-demand scans</h3>
+          <p>Trigger a scan at any time from the provider card in Settings, or via the API. Use this after infrastructure changes to get immediate posture feedback.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Single-run mode</h3>
+          <p>Select <strong>Run a single scan</strong> at connection time to perform a one-off audit without enabling the recurring schedule. Useful for proof-of-concept assessments.</p>
+        </div>
+      </div>
+
+      <h2 id="policies">Policy &amp; rule configuration</h2>
+      <div class="list-grid">
+        <ul>
+          <li><strong>Policy packs:</strong> Pre-built control packs for each supported framework. Enable with one click; customizable thresholds available.</li>
+          <li><strong>Custom rules:</strong> Write your own checks using the rule builder or import as code. Rules support JSON/YAML templates.</li>
+          <li><strong>Modes:</strong> <em>Monitor</em> (alert only), <em>Enforce</em> (auto-remediate where supported), or <em>Dry-run</em> (preview changes before applying).</li>
+        </ul>
+        <ul>
+          <li><strong>Suppression:</strong> Mark accepted risks with owner, justification, and expiry. Suppressed findings appear in the audit log with full context.</li>
+          <li><strong>Rule versioning:</strong> All policy changes are versioned and attributable. Rollback available from the Settings history view.</li>
+          <li><strong>API management:</strong> Manage rules as code via the Policy API; integrate with your IaC pipelines for GitOps-style governance.</li>
+        </ul>
+      </div>
+
+      <h2 id="analytics">Analytics &amp; dashboards</h2>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>Posture overview</h3>
+          <p>Environment-level security score with trend lines. Compare providers side-by-side and filter by severity, framework, or resource type.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Custom views</h3>
+          <p>Pin findings by owner, team, or business unit. Build views that surface what each stakeholder needs without exposing unrelated findings.</p>
+        </div>
+        <div class="guide-card">
+          <h3>MTTR tracking</h3>
+          <p>Track mean time to remediation per finding category and team. Use this data for quarterly posture reviews and board-level reporting.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Scheduled reports</h3>
+          <p>Generate weekly or monthly executive summaries. Schedule delivery to email or Slack/Teams with a single-click from the Reports panel.</p>
+        </div>
+      </div>
+
+      <h2 id="alerts">Alerts &amp; notifications</h2>
+      <table class="table">
+        <thead>
+          <tr><th>Channel</th><th>Setup</th><th>Trigger options</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Slack</td><td>Install the AiVRIC Slack app and map channels to severity levels or workspaces.</td><td>New Critical/High finding, posture score drop, scan completion, policy change.</td></tr>
+          <tr><td>Microsoft Teams</td><td>Add the AiVRIC Teams connector via the Teams admin center or channel settings.</td><td>Same trigger options as Slack; supports adaptive card formatting.</td></tr>
+          <tr><td>Email</td><td>Configure recipients per workspace in Settings &gt; Notifications.</td><td>Digest (daily/weekly) or real-time per-finding alerts.</td></tr>
+          <tr><td>Jira</td><td>OAuth connection to your Jira instance; map projects to AiVRIC workspaces.</td><td>Auto-create tickets on new High/Critical findings; sync status back on remediation.</td></tr>
+          <tr><td>ServiceNow</td><td>REST API integration; configure incident priority mapping in Settings &gt; Ticketing.</td><td>Auto-create incidents; bidirectional status sync.</td></tr>
+          <tr><td>Webhook</td><td>Register any HTTPS endpoint to receive CloudSignals+RiskOps event payloads.</td><td>Fully configurable per event type.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="siem">SIEM &amp; SOAR integration</h2>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>Splunk</h3>
+          <p>Forward findings and audit events to Splunk via the AiVRIC Add-on. Pre-built dashboards and correlation searches are included. Configure the Splunk HTTP Event Collector (HEC) endpoint in Settings &gt; Integrations.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Microsoft Sentinel</h3>
+          <p>Connect via the AiVRIC Sentinel data connector. Findings are mapped to the Azure Sentinel schema and surfaced as Security Alerts. Includes sample analytic rules and workbooks.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Generic SIEM (CEF/JSON)</h3>
+          <p>Export findings as CEF syslog or JSON via the Findings API. Compatible with QRadar, ArcSight, Elastic, and any platform that supports structured log ingestion.</p>
+        </div>
+      </div>
+
+      <h2 id="api">API &amp; automation</h2>
+      <div class="list-grid">
+        <ul>
+          <li><strong>REST API:</strong> Full programmatic access to findings, policies, workspaces, and connector status. API keys scoped per service account with expiration.</li>
+          <li><strong>Rate limits:</strong> Default 1,000 requests/minute per key. Contact support for higher limits on enterprise plans.</li>
+          <li><strong>Authentication:</strong> Bearer token; tokens generated in Settings &gt; API Keys with configurable TTL and IP allowlists.</li>
+        </ul>
+        <ul>
+          <li><strong>Sample scripts:</strong> Terraform, Python, and Bash automation recipes are available in the AiVRIC documentation library.</li>
+          <li><strong>Webhooks:</strong> Push-based event delivery for real-time pipeline integration.</li>
+          <li><strong>OpenAPI spec:</strong> Download the full OpenAPI 3.0 spec from Settings &gt; API to generate client SDKs in any language.</li>
+        </ul>
+      </div>
+
+      <h2 id="reporting">Exporting reports &amp; evidence</h2>
+      <div class="callout primary">
+        <strong>Audit-ready by default.</strong> Every scan decision is immutably logged with the resource state, rule version, evaluator identity, and timestamp. Exports include CSV, JSON, and formatted PDF bundles aligned to assessor requirements.
+      </div>
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3>Framework evidence bundles</h3>
+          <p>Generate a packaged evidence export for SOC 2, PCI DSS, or ISO 27001 assessors. Includes control status, supporting screenshots, and a findings summary with pass/fail counts.</p>
+        </div>
+        <div class="guide-card">
+          <h3>Quarterly posture reviews</h3>
+          <p>Use the Sample Quarterly Posture Review template to produce executive-ready presentations showing trend data, remediation velocity, and open risk items.</p>
+        </div>
+        <div class="guide-card">
+          <h3>CSV/JSON export</h3>
+          <p>Export any findings view as CSV or JSON directly from the Findings panel. Use the Findings API for automated exports into your BI or GRC tooling.</p>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <strong>Need help getting started?</strong> Reach out to <a href="mailto:support@aivric.com">support@aivric.com</a> or <a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">book a guided setup session</a>. Our team can walk through connector setup, policy configuration, and first-report generation with you.
+      </div>
+    </main>
+
+    <aside class="guide-toc">
+      <p class="toc-title">On this page</p>
+      <div class="toc-links">
+        <a href="#overview">Overview</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#providers">Providers</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#scanning">Scan scheduling</a>
+        <a href="#policies">Policies</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#alerts">Alerts</a>
+        <a href="#siem">SIEM</a>
+        <a href="#api">API</a>
+        <a href="#reporting">Reporting</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="guide-footer">
+    <span>user-guide.aivric.com</span>
+    <span class="tag">CloudSignals+RiskOps&#8482;</span>
+  </footer>
+
+  <script>
+    (function(){
+      var page = document.body.dataset.page;
+      document.querySelectorAll('[data-page-target]').forEach(function(link){
+        if(link.dataset.pageTarget === page){ link.classList.add('active'); }
+      });
+      var toggle = document.querySelector('.nav-toggle');
+      var sidebar = document.getElementById('sidebar');
+      if(toggle && sidebar){ toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); }); }
+
+      var searchInput = document.getElementById('guide-search-input');
+      var resultsBox = document.getElementById('guide-search-results');
+      var pageIndex = [
+        { title: 'Platform Guide Home', url: 'index.html' },
+        { title: 'Getting started', url: 'getting-started.html' },
+        { title: 'Platform overview', url: 'platform-overview.html' },
+        { title: 'CloudSignals+RiskOps overview', url: 'cloudsignals-riskops.html' },
+        { title: 'Connectors', url: 'connectors.html' },
+        { title: 'Security & Trust', url: 'security-trust.html' },
+        { title: 'AI Governance', url: 'ai-governance.html' },
+        { title: 'FAQ & Support', url: 'faq.html' }
+      ];
+      var pageCache = {};
+
+      function sanitize(text){
+        return text.replace(/[<>]/g, function(ch){ return ch === '<' ? '&lt;' : '&gt;'; });
+      }
+
+      function getPageText(page){
+        if(pageCache[page.url]) return Promise.resolve(pageCache[page.url]);
+        return fetch(page.url).then(function(r){ return r.text(); }).then(function(html){
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+          var main = doc.querySelector('.guide-content') || doc.body;
+          var text = (main.innerText || '').replace(/\s+/g, ' ').trim();
+          pageCache[page.url] = text;
+          return text;
+        }).catch(function(){ return ''; });
+      }
+
+      async function performSearch(raw){
+        var query = raw.trim().toLowerCase();
+        if(!resultsBox) return;
+        if(query.length < 2){
+          resultsBox.innerHTML = '';
+          resultsBox.classList.remove('open');
+          return;
+        }
+        var matches = [];
+        for(var i = 0; i < pageIndex.length; i++){
+          var pageItem = pageIndex[i];
+          var text = await getPageText(pageItem);
+          var hay = text.toLowerCase();
+          var idx = hay.indexOf(query);
+          if(idx === -1) continue;
+          var start = Math.max(0, idx - 70);
+          var end = Math.min(text.length, idx + 140);
+          var snippet = sanitize(text.slice(start, end));
+          matches.push({ title: pageItem.title, url: pageItem.url, snippet: snippet });
+        }
+        if(!matches.length){
+          resultsBox.innerHTML = '<div class="no-results">No matches yet. Try another term.</div>';
+          resultsBox.classList.add('open');
+          return;
+        }
+        resultsBox.innerHTML = matches.slice(0,8).map(function(m){
+          return '<a class="result" href="'+m.url+'"><strong>'+m.title+'</strong><span>'+m.snippet+'...</span></a>';
+        }).join('');
+        resultsBox.classList.add('open');
+      }
+
+      if(searchInput && resultsBox){
+        searchInput.addEventListener('input', function(e){ performSearch(e.target.value); });
+        searchInput.addEventListener('focus', function(){ if(resultsBox.innerHTML){ resultsBox.classList.add('open'); }});
+      }
+      document.addEventListener('click', function(e){
+        if(!resultsBox) return;
+        if(!resultsBox.contains(e.target) && !searchInput.contains(e.target)){
+          resultsBox.classList.remove('open');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

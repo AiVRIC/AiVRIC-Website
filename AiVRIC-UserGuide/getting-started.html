@@ -63,6 +63,11 @@
         <a class="nav-link" data-page-target="platform" href="platform-overview.html">Platform overview <small>How AiVRIC works</small></a>
       </div>
       <div class="nav-section">
+        <p class="nav-label">CloudSignals+RiskOps</p>
+        <a class="nav-link" data-page-target="cloudsignals" href="cloudsignals-riskops.html">Module overview <small>How it works</small></a>
+        <a class="nav-link" data-page-target="connectors" href="connectors.html">Connectors <small>Connect cloud accounts</small></a>
+      </div>
+      <div class="nav-section">
         <p class="nav-label">Assurance</p>
         <a class="nav-link" data-page-target="security" href="security-trust.html">Security & Trust <small>Controls</small></a>
         <a class="nav-link" data-page-target="governance" href="ai-governance.html">AI Governance <small>Policies</small></a>
@@ -111,17 +116,26 @@
       </div>
 
       <h2 id="connect">Connect your environment</h2>
+      <p>All connectors are powered by <strong>CloudSignals+RiskOps&#8482;</strong> — AiVRIC's continuous posture monitoring and compliance automation engine. Each connected provider is audited every 24 hours automatically.</p>
       <table class="table">
         <thead>
           <tr><th>Integration</th><th>Purpose</th><th>Quick action</th></tr>
         </thead>
         <tbody>
-          <tr><td>Cloud accounts</td><td>Continuously monitor misconfigurations and drift.</td><td>Deploy read-only role; test with sample scan.</td></tr>
-          <tr><td>Kubernetes</td><td>Secure cluster workloads and service account access.</td><td>Apply the helm chart; enable admission controls.</td></tr>
-          <tr><td>Git providers</td><td>Protect repos, secrets, and pipeline tokens.</td><td>Connect GitHub; enforce branch protection policies.</td></tr>
-          <tr><td>Ticketing</td><td>Send findings to owners and track remediation.</td><td>Map labels to severity; sync status back to AiVRIC.</td></tr>
+          <tr><td>AWS</td><td>Continuously monitor IAM hygiene, network rules, and resource configurations for drift.</td><td>Deploy read-only IAM role via CloudFormation Quick Link; launch scan.</td></tr>
+          <tr><td>Microsoft Azure</td><td>Audit subscriptions for misconfigurations, identity posture, and policy compliance.</td><td>Create App Registration + Service Principal; enter Tenant ID, Client ID, and Secret.</td></tr>
+          <tr><td>Google Cloud Platform</td><td>Scan GCP projects for posture drift and framework control gaps.</td><td>Create read-only Service Account; paste JSON key into AiVRIC.</td></tr>
+          <tr><td>Kubernetes</td><td>Secure cluster workloads, service account access, and runtime configurations.</td><td>Paste kubeconfig; apply read-only RBAC resources for managed clusters.</td></tr>
+          <tr><td>GitHub</td><td>Protect repos, branch protections, secrets exposure, and pipeline tokens.</td><td>Connect via PAT, OAuth App, or GitHub App with least-privilege scopes.</td></tr>
+          <tr><td>Microsoft 365</td><td>Monitor tenant controls for SOC 2, PCI DSS, and CMMC compliance.</td><td>Register Entra ID app; configure certificate authentication for full check coverage.</td></tr>
+          <tr><td>MongoDB Atlas</td><td>Audit database cluster configurations and access controls.</td><td>Generate an Atlas API key pair; paste Public and Private keys into AiVRIC.</td></tr>
+          <tr><td>Alibaba Cloud</td><td>Monitor resource configurations and IAM posture for drift.</td><td>Use RAM Role Assumption (recommended) or static credentials for quick scans.</td></tr>
+          <tr><td>Ticketing (Jira / ServiceNow)</td><td>Send findings to owners and track remediation status bidirectionally.</td><td>Connect via OAuth; map severity levels to ticket priority in Settings.</td></tr>
         </tbody>
       </table>
+      <div class="callout primary">
+        <strong>Full connector setup guides</strong> — including step-by-step instructions and authentication details for every provider — are available on the <a href="connectors.html">Connectors page</a>.
+      </div>
 
       <div class="callout primary" id="collaborate">
         <strong>Invite your team early.</strong> Assign domain owners (cloud, AI, compliance). Mirror GitLab's handbook clarity: list who owns what and how to escalate.
@@ -144,9 +158,14 @@
       <h2 id="resources">Resources</h2>
       <div class="guide-grid">
         <div class="guide-card">
-          <h3>Deployment templates</h3>
-          <p>Use IaC snippets (Terraform/Helm) to stand up connectors quickly.</p>
-          <a href="platform-overview.html#connectors">View connector details</a>
+          <h3>Connector setup guides</h3>
+          <p>Step-by-step instructions for AWS, Azure, GCP, Kubernetes, GitHub, M365, MongoDB Atlas, and Alibaba Cloud.</p>
+          <a href="connectors.html">View all connectors</a>
+        </div>
+        <div class="guide-card">
+          <h3>CloudSignals+RiskOps overview</h3>
+          <p>Understand the posture monitoring engine: scan cadence, compliance mapping, alerts, SIEM integration, and reporting.</p>
+          <a href="cloudsignals-riskops.html">Read the overview</a>
         </div>
         <div class="guide-card">
           <h3>Trust Center</h3>
@@ -193,6 +212,8 @@
         { title: 'Platform Guide Home', url: 'index.html' },
         { title: 'Getting started', url: 'getting-started.html' },
         { title: 'Platform overview', url: 'platform-overview.html' },
+        { title: 'CloudSignals+RiskOps overview', url: 'cloudsignals-riskops.html' },
+        { title: 'Connectors', url: 'connectors.html' },
         { title: 'Security & Trust', url: 'security-trust.html' },
         { title: 'AI Governance', url: 'ai-governance.html' },
         { title: 'FAQ & Support', url: 'faq.html' }
