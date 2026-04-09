@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>AiVRIC User Guide | Integrations</title>
+  <link rel="canonical" href="https://user-guide.aivric.com/integrations.html">
+  <meta name="description" content="Connect external services to AiVRIC CloudSignals+RiskOps: SIEM platforms, ticketing, incident management, endpoint security, notifications, and cloud storage exports.">
+  <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="../assets/css/color.css" rel="stylesheet">
+  <link href="../assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/responsive.css" rel="stylesheet">
+  <link href="userguide.css?v=2" rel="stylesheet">
+  <style>
+    .guide-content h1,
+    .guide-content h2,
+    .guide-content h3,
+    .guide-content h4 { color: #f4f8ff; }
+
+    /* Category jump bar */
+    .cat-jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 28px;
+    }
+    .cat-jump a {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.04);
+      color: #e9f2ff;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.2s ease;
+    }
+    .cat-jump a:hover {
+      border-color: rgba(9,211,251,0.5);
+      background: rgba(9,211,251,0.08);
+      color: #09d3fb;
+    }
+
+    /* Category section */
+    .int-category {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 28px;
+      margin-top: 28px;
+    }
+    .int-category:first-of-type { border-top: none; margin-top: 0; }
+
+    .cat-header { margin-bottom: 6px; }
+    .cat-header h2 { margin: 0 0 6px; }
+    .cat-header p { margin: 0 0 16px; color: #a8b7cb; font-size: 14px; }
+
+    /* Integration cards */
+    .int-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+      margin-top: 4px;
+    }
+    .int-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 14px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: border-color 0.2s ease;
+    }
+    .int-card:hover { border-color: rgba(9,211,251,0.3); }
+
+    .int-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .int-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(9,211,251,0.12);
+      border: 1px solid rgba(9,211,251,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+      color: #09d3fb;
+    }
+    .int-name {
+      font-weight: 700;
+      font-size: 15px;
+      color: #f4f8ff;
+    }
+    .int-tagline {
+      font-size: 13px;
+      color: #a8b7cb;
+      margin: 0;
+    }
+    .int-desc {
+      font-size: 13px;
+      color: #8a9ab4;
+      line-height: 1.55;
+      margin: 0;
+      flex: 1;
+    }
+    .int-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      border: 1px solid rgba(9,211,251,0.3);
+      background: rgba(9,211,251,0.07);
+      color: #09d3fb;
+      width: fit-content;
+    }
+  </style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EG2Q8GD30V');
+</script>
+<body data-page="integrations">
+  <header class="guide-header">
+    <div class="bar">
+      <a class="brand" href="index.html">
+        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo">
+        <span>Platform Guide</span>
+      </a>
+      <div class="top-links">
+        <a href="../index.html">AiVRIC.com</a>
+        <a href="../trust.html">Trust Center</a>
+        <a href="../support.html">Support</a>
+        <a href="insider-early-access.html">Insider Early Access</a>
+      </div>
+      <div class="guide-search">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input id="guide-search-input" type="search" placeholder="Search the Platform Guide" aria-label="Search the AiVRIC Platform Guide">
+        <div class="search-results" id="guide-search-results"></div>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+    </div>
+  </header>
+
+  <div class="guide-shell">
+    <aside class="guide-sidebar" id="sidebar">
+      <div class="nav-section">
+        <p class="nav-label">Essentials</p>
+        <a class="nav-link" data-page-target="home" href="index.html">Overview <small>Start here</small></a>
+        <a class="nav-link" data-page-target="getting-started" href="getting-started.html">Getting started <small>Setup</small></a>
+        <a class="nav-link" data-page-target="platform" href="platform-overview.html">Platform overview <small>How AiVRIC works</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">CloudSignals+RiskOps</p>
+        <a class="nav-link" data-page-target="cloudsignals" href="cloudsignals-riskops.html">Module overview <small>How it works</small></a>
+        <a class="nav-link" data-page-target="connectors" href="connectors.html">Connectors <small>Connect cloud accounts</small></a>
+        <a class="nav-link" data-page-target="integrations" href="integrations.html">Integrations <small>SIEM, ticketing &amp; alerts</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Assurance</p>
+        <a class="nav-link" data-page-target="security" href="security-trust.html">Security &amp; Trust <small>Controls</small></a>
+        <a class="nav-link" data-page-target="governance" href="ai-governance.html">AI Governance <small>Policies</small></a>
+        <a class="nav-link" data-page-target="faq" href="faq.html">FAQ &amp; Support <small>Answers</small></a>
+      </div>
+    </aside>
+
+    <main class="guide-content">
+      <span class="badge" id="top">Integrations</span>
+      <h1>Integrations</h1>
+      <p>Connect external services to enhance your security workflow and automatically export your scan results. Configure integrations in <strong>Settings &gt; Integrations</strong> — most require only an API key or webhook URL and are active within minutes.</p>
+
+      <div class="cat-jump" aria-label="Jump to category">
+        <a href="#siem">SIEM &amp; Security Hub</a>
+        <a href="#ticketing">Ticketing &amp; Incidents</a>
+        <a href="#endpoint">Endpoint Security</a>
+        <a href="#notifications">Notifications</a>
+        <a href="#storage">Storage</a>
+      </div>
+
+      <!-- ──────── SIEM & SECURITY HUB ──────── -->
+      <div class="int-category" id="siem">
+        <div class="cat-header">
+          <h2>SIEM &amp; Security Hub</h2>
+          <p>Send findings to security information and event management platforms for centralized monitoring and threat detection.</p>
+        </div>
+        <div class="int-grid">
+
+          <div class="int-card">
+            <div class="int-card-header">
+              <div class="int-icon">&#9749;</div>
+              <span class="int-name">AWS Security Hub</span>
+            </div>
+            <p class="int-tagline">Send security findings to AWS Security Hub.</p>
+            <p class="int-desc">Automatically forward CloudSignals+RiskOps findings to AWS Security Hub for centralized monitoring across your AWS environment. Findings are mapped to the AWS Security Finding Format (ASFF) and appear alongside native AWS checks, enabling unified visibility and workflow automation via Security Hub rules.</p>
+            <div>
+              <span class="int-badge">SIEM</span>
+            </div>
+          </div>
+
+          <div class="int-card">
+            <div class="int-card-header">
+              <div class="int-icon">&#9749;</div>
+              <span class="int-name">Microsoft Sentinel</span>
+            </div>
+            <p class="int-tagline">Send findings to Microsoft Sentinel SIEM.</p>
+            <p class="int-desc">Integrate with Microsoft Sentinel to automatically send security findings to your Azure Log Analytics workspace. Findings are ingested via the AiVRIC Sentinel data connector and surfaced as Security Alerts, with pre-built analytic rules and workbooks for threat detection, investigation, and response workflows.</p>
+            <div>
+              <span class="int-badge">SIEM</span>
+            </div>
+          </div>
+
+          <div class="int-card">
+            <div class="int-card-header">
+              <div class="int-icon">&#9749;</div>
+              <span class="int-name">Elastic Security</span>
+            </div>
+            <p class="int-tagline">Send findings to Elastic Security for centralized SIEM analysis.</p>
+            <p class="int-desc">Configure the Elastic Security integration to automatically send findings in Elastic Common Schema (ECS) format to your Elastic Stack. Enables ML-powered threat detection, cross-source correlation, and pre-built dashboards within Elastic Security for unified visibility across cloud and on-premises infrastructure.</p>
+            <div>
+              <span class="int-badge">SIEM</span>
+            </div>
+          </div>
+
+          <div class="int-card">
+            <div class="int-card-header">
+              <div class="int-icon">&#9749;</div>
+              <span class="int-name">Splunk</span>
+            </div>
+            <p class="int-tagline">Send findings to Splunk Enterprise Security.</p>
+            <p class="int-desc">Integrate with Splunk Enterprise Security via HTTP Event Collector (HEC) to stream security findings in real time. Enables alerting, correlation searches, and dashboards within Splunk ES — pre-built AiVRIC searches are included. Configure the HEC endpoint URL and token in <strong>Settings &gt; Integrations &gt; Splunk</strong>.</p>
+            <div>
+              <span class="int-badge">SIEM</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ──────── TICKETING & INCIDENT MANAGEMENT ──────── -->
+      <div class="int-category" id="ticketing">
+        <div class="cat-header">
+          <h2>Ticketing &amp; Incident Management</h2>
+          <p>Create tickets and incidents for security findings to track remediation through your existing workflows.</p>
+        </div>
+        <div class="int-grid">
+
+          <div class="int-card">
+            <div class="int-card-header">
+              <div class="int-icon">&#9654;</div>
+              <span class="int-name">Jira</span>
+            </div>
+            <p class="int-tagline">Create and manage security issues in Jira.</p>
+            <p class="int-desc">Automatically create Jira issues for security findings in your Jira projects. Map AiVRIC severity levels to Jira priority and issue type, assign issues to owners, and sync remediation status back to AiVRIC when issues are resolved. Supports Jira Cloud and Jira Data Center via OAuth or API token.</p>
+            <div>
+              <span class="int-badge">Ticketing</span>
+            </div>
+          </div>
+
+          <div class="int-card">
+            <div class="int-card-header">
+              <div class="int-icon">&#9654;</div>
+              <span class="int-name">ServiceNow</span>
+            </div>
+            <p class="int-tagline">Create security incidents in ServiceNow SIR.</p>
+            <p class="int-desc">Integrate with ServiceNow Security Incident Response (SIR) to automatically create and track security incidents from CloudSignals+RiskOps findings. Bidirectional status sync keeps AiVRIC and ServiceNow in lockstep throughout the remediation lifecycle, enabling streamlined vulnerability management and audit-ready evidence.</p>
+            <div>
+              <span class="int-badge">Ticketing</span>
+            </div>
+          </div>
+
+          <div class="int-card">
+            <div class="int-card-header">
+              <div class="int-icon">&#9654;</div>
+              <span class="int-name">PagerDuty</span>
+            </div>
+            <p class="int-tagline">Create incidents for critical security findings.</p>
+            <p class="int-desc">Integrate with PagerDuty to automatically create incidents for Critical and High severity findings, ensuring immediate on-call notification and rapid response. Map AiVRIC severity levels to PagerDuty escalation policies and service routing rules. Configure in <strong>Settings &gt; Integrations &gt; PagerDuty</strong> using your service integration key.</p>
+            <div>
+              <span class="int-badge">Incident</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ──────── ENDPOINT SECURITY ──────── -->
+      <div class="int-category" id="endpoint">
+        <div class="cat-header">
+          <h2>Endpoint Security</h2>
+          <p>Enrich endpoint security platforms with cloud infrastructure findings for unified threat detection.</p>
+        </div>
+        <div class="int-grid">
+
+          <div class="int-card">
+            <div class="int-card-header">
+              <div class="int-icon">&#9670;</div>
+              <span class="int-name">SentinelOne</span>
+            </div>
+            <p class="int-tagline">Send findings to SentinelOne Singularity.</p>
+            <p class="int-desc">Integrate with the SentinelOne Singularity platform to enrich your endpoint security posture with cloud infrastructure findings from CloudSignals+RiskOps. Enables unified threat detection and automated response across your entire environment — correlating cloud misconfigurations with endpoint telemetry for faster, more contextual investigation.</p>
+            <div>
+              <span class="int-badge">Endpoint</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ──────── NOTIFICATIONS ──────── -->
+      <div class="int-category" id="notifications">
+        <div class="cat-header">
+          <h2>Notifications</h2>
+          <p>Send real-time alerts and summaries to team collaboration platforms for immediate visibility.</p>
+        </div>
+        <div class="int-grid">
+
+          <div class="int-card">
+            <div class="int-card-header">
+              <div class="int-icon">&#9993;</div>
+              <span class="int-name">Microsoft Teams</span>
+            </div>
+            <p class="int-tagline">Send security alerts to Teams channels.</p>
+            <p class="int-desc">Integrate with Microsoft Teams to send scan summaries and critical security findings directly to your team channels for immediate visibility and collaboration. Alerts are delivered as adaptive cards with finding details and direct links back into the AiVRIC dashboard. Map different severity levels or workspaces to different channels.</p>
+            <div>
+              <span class="int-badge">Notification</span>
+            </div>
+          </div>
+
+          <div class="int-card">
+            <div class="int-card-header">
+              <div class="int-icon">&#9993;</div>
+              <span class="int-name">Slack</span>
+            </div>
+            <p class="int-tagline">Send security alerts to Slack channels.</p>
+            <p class="int-desc">Integrate with Slack to send scan summaries and critical security findings directly to your team channels for immediate visibility and collaboration. Install the AiVRIC Slack app and map channels to severity levels, workspaces, or compliance frameworks. Supports real-time per-finding alerts and scheduled daily or weekly digests.</p>
+            <div>
+              <span class="int-badge">Notification</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ──────── STORAGE ──────── -->
+      <div class="int-category" id="storage">
+        <div class="cat-header">
+          <h2>Storage</h2>
+          <p>Export scan results and findings to cloud storage for archival, long-term retention, and downstream analysis.</p>
+        </div>
+        <div class="int-grid">
+
+          <div class="int-card">
+            <div class="int-card-header">
+              <div class="int-icon">&#128190;</div>
+              <span class="int-name">Amazon S3</span>
+            </div>
+            <p class="int-tagline">Export security findings to Amazon S3 buckets.</p>
+            <p class="int-desc">Automatically export CloudSignals+RiskOps security findings to your S3 buckets in JSON or CSV format. Configure export frequency, bucket name, prefix path, and optional KMS encryption key in <strong>Settings &gt; Integrations &gt; Amazon S3</strong>. Exports can feed downstream tools such as Athena, Glue, or third-party GRC platforms.</p>
+            <div>
+              <span class="int-badge">Storage</span>
+            </div>
+          </div>
+
+          <div class="int-card">
+            <div class="int-card-header">
+              <div class="int-icon">&#128190;</div>
+              <span class="int-name">Azure Blob Storage</span>
+            </div>
+            <p class="int-tagline">Export security findings to Azure Blob Storage containers.</p>
+            <p class="int-desc">Automatically export security findings to your Azure Blob Storage containers. Configure the storage account, container name, optional folder prefix, and SAS token or service principal credentials in <strong>Settings &gt; Integrations &gt; Azure Blob Storage</strong>. Supports integration with Azure Data Factory and Microsoft Purview for downstream governance workflows.</p>
+            <div>
+              <span class="int-badge">Storage</span>
+            </div>
+          </div>
+
+          <div class="int-card">
+            <div class="int-card-header">
+              <div class="int-icon">&#128190;</div>
+              <span class="int-name">Google Cloud Storage</span>
+            </div>
+            <p class="int-tagline">Export security findings to Google Cloud Storage buckets.</p>
+            <p class="int-desc">Automatically export security findings to your GCS buckets in JSON or CSV format. Configure the bucket name, object prefix, export frequency, and HMAC or service account credentials in <strong>Settings &gt; Integrations &gt; Google Cloud Storage</strong>. Exported data can feed BigQuery, Dataflow, or third-party analytics pipelines for trend analysis and reporting.</p>
+            <div>
+              <span class="int-badge">Storage</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="callout primary" style="margin-top:28px;">
+        <strong>Don't see the integration you need?</strong> Contact <a href="mailto:support@aivric.com">support@aivric.com</a> or <a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">book a session</a> with the team. Custom webhook integrations are supported for any HTTPS endpoint — configure them in <strong>Settings &gt; Integrations &gt; Webhook</strong>.
+      </div>
+    </main>
+
+    <aside class="guide-toc">
+      <p class="toc-title">On this page</p>
+      <div class="toc-links">
+        <a href="#top">Overview</a>
+        <a href="#siem">SIEM &amp; Security Hub</a>
+        <a href="#ticketing">Ticketing &amp; Incidents</a>
+        <a href="#endpoint">Endpoint Security</a>
+        <a href="#notifications">Notifications</a>
+        <a href="#storage">Storage</a>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="guide-footer">
+    <span>user-guide.aivric.com</span>
+    <span class="tag">Connect &amp; automate</span>
+  </footer>
+
+  <script>
+    (function(){
+      var page = document.body.dataset.page;
+      document.querySelectorAll('[data-page-target]').forEach(function(link){
+        if(link.dataset.pageTarget === page){ link.classList.add('active'); }
+      });
+      var toggle = document.querySelector('.nav-toggle');
+      var sidebar = document.getElementById('sidebar');
+      if(toggle && sidebar){ toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); }); }
+
+      var searchInput = document.getElementById('guide-search-input');
+      var resultsBox = document.getElementById('guide-search-results');
+      var pageIndex = [
+        { title: 'Platform Guide Home', url: 'index.html' },
+        { title: 'Getting started', url: 'getting-started.html' },
+        { title: 'Platform overview', url: 'platform-overview.html' },
+        { title: 'CloudSignals+RiskOps overview', url: 'cloudsignals-riskops.html' },
+        { title: 'Connectors', url: 'connectors.html' },
+        { title: 'Integrations', url: 'integrations.html' },
+        { title: 'Security & Trust', url: 'security-trust.html' },
+        { title: 'AI Governance', url: 'ai-governance.html' },
+        { title: 'FAQ & Support', url: 'faq.html' }
+      ];
+      var pageCache = {};
+
+      function sanitize(text){
+        return text.replace(/[<>]/g, function(ch){ return ch === '<' ? '&lt;' : '&gt;'; });
+      }
+
+      function getPageText(page){
+        if(pageCache[page.url]) return Promise.resolve(pageCache[page.url]);
+        return fetch(page.url).then(function(r){ return r.text(); }).then(function(html){
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+          var main = doc.querySelector('.guide-content') || doc.body;
+          var text = (main.innerText || '').replace(/\s+/g, ' ').trim();
+          pageCache[page.url] = text;
+          return text;
+        }).catch(function(){ return ''; });
+      }
+
+      async function performSearch(raw){
+        var query = raw.trim().toLowerCase();
+        if(!resultsBox) return;
+        if(query.length < 2){
+          resultsBox.innerHTML = '';
+          resultsBox.classList.remove('open');
+          return;
+        }
+        var matches = [];
+        for(var i = 0; i < pageIndex.length; i++){
+          var pageItem = pageIndex[i];
+          var text = await getPageText(pageItem);
+          var hay = text.toLowerCase();
+          var idx = hay.indexOf(query);
+          if(idx === -1) continue;
+          var start = Math.max(0, idx - 70);
+          var end = Math.min(text.length, idx + 140);
+          var snippet = sanitize(text.slice(start, end));
+          matches.push({ title: pageItem.title, url: pageItem.url, snippet: snippet });
+        }
+        if(!matches.length){
+          resultsBox.innerHTML = '<div class="no-results">No matches yet. Try another term.</div>';
+          resultsBox.classList.add('open');
+          return;
+        }
+        resultsBox.innerHTML = matches.slice(0,8).map(function(m){
+          return '<a class="result" href="'+m.url+'"><strong>'+m.title+'</strong><span>'+m.snippet+'...</span></a>';
+        }).join('');
+        resultsBox.classList.add('open');
+      }
+
+      if(searchInput && resultsBox){
+        searchInput.addEventListener('input', function(e){ performSearch(e.target.value); });
+        searchInput.addEventListener('focus', function(){ if(resultsBox.innerHTML){ resultsBox.classList.add('open'); }});
+      }
+      document.addEventListener('click', function(e){
+        if(!resultsBox) return;
+        if(!resultsBox.contains(e.target) && !searchInput.contains(e.target)){
+          resultsBox.classList.remove('open');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
