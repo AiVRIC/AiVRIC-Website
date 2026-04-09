@@ -188,6 +188,9 @@
         <a href="#m365">Microsoft 365</a>
         <a href="#mongodb">MongoDB Atlas</a>
         <a href="#alibaba">Alibaba Cloud</a>
+        <a href="#cloudflare">Cloudflare</a>
+        <a href="#openstack">OpenStack</a>
+        <a href="#oci">Oracle Cloud (OCI)</a>
       </div>
 
       <!-- ──────────────── AWS ──────────────── -->
@@ -605,6 +608,184 @@
         </div>
       </div>
 
+      <!-- ──────────────── CLOUDFLARE ──────────────── -->
+      <div class="connector-section" id="cloudflare">
+        <div class="connector-header">
+          <h2 style="margin:0;">Cloudflare</h2>
+          <span class="connector-badge">Network &amp; Security Platform</span>
+        </div>
+        <p>Connect your Cloudflare account to monitor DNS security, WAF rule posture, Zero Trust access policies, firewall rules, and account-level configuration drift across your zones and teams.</p>
+
+        <div class="prereq-box">
+          <strong>Prerequisites</strong>
+          <ul>
+            <li><strong>API Token:</strong> Create a scoped API token in the Cloudflare dashboard under <strong>My Profile &gt; API Tokens</strong>. Use the <em>Read All Resources</em> template or create a custom token with the permissions listed below.</li>
+            <li><strong>Required permissions (read-only):</strong> Account Settings: Read; Zone Settings: Read; Firewall Services: Read; Access: Apps and Policies: Read; DNS: Read.</li>
+            <li><strong>Account ID:</strong> Found in the Cloudflare dashboard right sidebar on any zone overview page.</li>
+          </ul>
+        </div>
+
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>Navigate to Cloud Providers</h4>
+              <p>In the AiVRIC sidebar, go to <strong>Settings &gt; Cloud Providers</strong>. Click <strong>Add Cloud Provider</strong> and select <strong>Cloudflare</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Enter your Account ID</h4>
+              <p>Paste your <strong>Cloudflare Account ID</strong> and optionally add a friendly alias to identify this account in the dashboard (e.g., <code>cloudflare-prod</code>).</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>Provide your API Token</h4>
+              <p>Paste the scoped <strong>API Token</strong> generated in the Cloudflare dashboard. AiVRIC uses this token to authenticate against the Cloudflare API with read-only access to your account, zones, firewall rules, Zero Trust policies, and DNS records.</p>
+              <table class="table" style="margin:8px 0;">
+                <thead><tr><th>Coverage area</th><th>What AiVRIC audits</th></tr></thead>
+                <tbody>
+                  <tr><td>Zones &amp; DNS</td><td>DNSSEC status, proxy mode, record hygiene, TTL anomalies.</td></tr>
+                  <tr><td>WAF &amp; Firewall</td><td>Managed ruleset version, custom rule gaps, rate limiting posture.</td></tr>
+                  <tr><td>Zero Trust</td><td>Access application policies, identity provider bindings, device posture rules.</td></tr>
+                  <tr><td>Account settings</td><td>Two-factor enforcement, audit log configuration, API token hygiene.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h4>Verify and launch scan</h4>
+              <p>Click <strong>Launch Scan</strong> to begin. AiVRIC will run a baseline audit immediately and then automatically every 24 hours to detect firewall misconfigurations, policy drift, and security posture changes across your Cloudflare account.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ──────────────── OPENSTACK ──────────────── -->
+      <div class="connector-section" id="openstack">
+        <div class="connector-header">
+          <h2 style="margin:0;">OpenStack</h2>
+          <span class="connector-badge">Private Cloud Platform</span>
+        </div>
+        <p>Connect your OpenStack deployment for continuous posture monitoring of compute, network, identity, and storage services across your private cloud infrastructure.</p>
+
+        <div class="prereq-box">
+          <strong>Prerequisites</strong>
+          <ul>
+            <li><strong>Keystone endpoint:</strong> The public or internal Keystone Identity API endpoint for your OpenStack deployment (e.g., <code>https://keystone.example.com:5000/v3</code>).</li>
+            <li><strong>Application credential or service account:</strong> AiVRIC recommends using an <strong>Application Credential</strong> (Keystone v3) scoped to the target project with a read-only role (<em>reader</em> or equivalent). Avoid using admin credentials.</li>
+            <li><strong>Project/Tenant ID:</strong> The UUID of the OpenStack project you want to audit.</li>
+          </ul>
+        </div>
+
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>Navigate to Cloud Providers</h4>
+              <p>In the AiVRIC sidebar, go to <strong>Settings &gt; Cloud Providers</strong>. Click <strong>Add Cloud Provider</strong> and select <strong>OpenStack</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Enter your Keystone endpoint and Project ID</h4>
+              <p>Provide the <strong>Keystone Identity API URL</strong> and the <strong>Project ID</strong> for the project you want to audit. Optionally add a friendly alias (e.g., <code>openstack-dc1</code>).</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>Choose authentication method</h4>
+              <p>AiVRIC supports two authentication approaches:</p>
+              <table class="table" style="margin:8px 0;">
+                <thead><tr><th>Method</th><th>Best for</th><th>Security level</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Application Credential</strong></td><td>Long-term production</td><td>High — project-scoped, no admin exposure</td></tr>
+                  <tr><td>Username / Password + Domain</td><td>Quick assessments</td><td>Medium — avoid admin accounts</td></tr>
+                </tbody>
+              </table>
+              <p><strong>Recommended:</strong> Use an <strong>Application Credential</strong>. In Horizon or via the OpenStack CLI, create an application credential scoped to your target project with the <em>reader</em> role. Paste the <strong>Credential ID</strong> and <strong>Credential Secret</strong> into AiVRIC.</p>
+              <p>For username/password auth, provide the <strong>Username</strong>, <strong>Password</strong>, <strong>User Domain Name</strong>, and <strong>Project Domain Name</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h4>Verify and launch scan</h4>
+              <p>Click <strong>Launch Scan</strong>. AiVRIC will connect to your OpenStack APIs (Nova, Neutron, Keystone, Cinder, Swift) and run a baseline posture audit immediately, then every 24 hours to detect drift across your private cloud resources.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ──────────────── OCI ──────────────── -->
+      <div class="connector-section" id="oci">
+        <div class="connector-header">
+          <h2 style="margin:0;">Oracle Cloud Infrastructure</h2>
+          <span class="connector-badge">Cloud Provider</span>
+        </div>
+        <p>Connect your OCI tenancy for continuous posture monitoring across compute, networking, identity, storage, and security services. AiVRIC uses a dedicated IAM user with read-only policy permissions — no instance principal or admin credentials required.</p>
+
+        <div class="prereq-box">
+          <strong>Prerequisites</strong>
+          <ul>
+            <li><strong>Tenancy OCID:</strong> Found in the OCI Console under <strong>Profile &gt; Tenancy</strong>.</li>
+            <li><strong>User OCID:</strong> Create a dedicated IAM user (e.g., <code>aivric-scanner</code>) in <strong>Identity &gt; Users</strong> and copy its OCID. Assign a group with the <em>ReadOnlyAccess</em> or equivalent read-only policy at the tenancy or compartment scope.</li>
+            <li><strong>API signing key:</strong> Generate an RSA key pair (2048-bit minimum). Upload the public key to the IAM user's API Keys section and retain the private key for the connection.</li>
+            <li><strong>Fingerprint:</strong> Shown in the OCI Console after uploading the public key.</li>
+            <li><strong>Region:</strong> The OCI region identifier for your home region (e.g., <code>us-ashburn-1</code>).</li>
+          </ul>
+        </div>
+
+        <div class="step-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <h4>Navigate to Cloud Providers</h4>
+              <p>In the AiVRIC sidebar, go to <strong>Settings &gt; Cloud Providers</strong>. Click <strong>Add Cloud Provider</strong> and select <strong>Oracle Cloud Infrastructure</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <h4>Enter tenancy details</h4>
+              <p>Provide your <strong>Tenancy OCID</strong>, <strong>User OCID</strong>, and the <strong>OCI Region</strong> identifier. Optionally add a friendly alias (e.g., <code>oci-prod-ashburn</code>). To scope monitoring to a specific compartment rather than the full tenancy, enter the <strong>Compartment OCID</strong> as well.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <h4>Configure API key authentication</h4>
+              <p>OCI uses RSA key-pair signing for API authentication. Paste the contents of your <strong>private key</strong> (PEM format) and the corresponding <strong>Key Fingerprint</strong> shown in the OCI Console after you uploaded the public key to the IAM user.</p>
+              <table class="table" style="margin:8px 0;">
+                <thead><tr><th>Coverage area</th><th>What AiVRIC audits</th></tr></thead>
+                <tbody>
+                  <tr><td>Identity &amp; Access (IAM)</td><td>User MFA status, policy permissiveness, API key rotation age, group membership hygiene.</td></tr>
+                  <tr><td>Compute (Instances)</td><td>Unencrypted boot volumes, public instance exposure, metadata service configuration.</td></tr>
+                  <tr><td>Networking (VCN)</td><td>Security list rules, open ingress/egress, subnet routing anomalies, internet gateway exposure.</td></tr>
+                  <tr><td>Storage (Object &amp; Block)</td><td>Public bucket access, encryption enforcement, lifecycle policy gaps.</td></tr>
+                  <tr><td>Security Services</td><td>Cloud Guard status, Vulnerability Scanning configuration, audit log enablement.</td></tr>
+                  <tr><td>Database</td><td>Autonomous DB network access controls, encryption configuration, backup policy.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <h4>Verify and launch scan</h4>
+              <p>Click <strong>Launch Scan</strong>. AiVRIC will validate the API key against your tenancy and run a baseline posture audit immediately, then every 24 hours to continuously detect drift across your OCI resources. Select <strong>Run a single scan</strong> to perform a one-off assessment without enabling the recurring schedule.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- ──────────────── COMMON NEXT STEPS ──────────────── -->
       <div class="connector-section">
         <h2>After connecting</h2>
@@ -645,6 +826,9 @@
         <a href="#m365">Microsoft 365</a>
         <a href="#mongodb">MongoDB Atlas</a>
         <a href="#alibaba">Alibaba Cloud</a>
+        <a href="#cloudflare">Cloudflare</a>
+        <a href="#openstack">OpenStack</a>
+        <a href="#oci">Oracle Cloud (OCI)</a>
       </div>
     </aside>
   </div>
