@@ -1,375 +1,255 @@
-﻿/**
- * AiVRIC Stripe Checkout Integration
+/**
+ * AiVRIC CloudSignals commercialization wiring.
  *
- * This file handles Stripe Checkout session creation and Customer Portal redirection
- * for the AiVRIC subscription system.
- *
- * IMPORTANT: The Stripe publishable key is injected during GitHub Actions deployment
- * via the placeholder %%STRIPE_PUBLISHABLE_KEY%% from GitHub Secrets.
+ * Public pricing buttons call the AiVRIC Control Plane to create Stripe
+ * Checkout sessions. The website never stores Stripe secrets or raw price IDs.
  */
 
 (function() {
     'use strict';
 
-    // Configuration
     const CONFIG = {
-        defenseApiUrl: 'https://defense-api.AiVRIC.com',
-        stripePublishableKey: '%%STRIPE_PUBLISHABLE_KEY%%', // Replaced by GitHub Actions
+        controlPlaneApiUrl: '%%CONTROL_PLANE_API_URL%%',
+        defenseAppUrl: '%%CLOUDSIGNALS_APP_URL%%',
         successUrl: window.location.origin + '/success.html',
-        cancelUrl: window.location.origin + '/pricing.html'
+        cancelUrl: window.location.origin + '/pricing.html',
+        contactUrl: window.location.origin + '/contact.html'
     };
 
-    // Initialize Stripe.js
-    let stripe = null;
-    try {
-        stripe = Stripe(CONFIG.stripePublishableKey);
-    } catch (error) {
-        console.error('Failed to initialize Stripe:', error);
-        showError('Failed to initialize payment system. Please refresh the page.');
+    function normalizeConfig() {
+        if (!CONFIG.controlPlaneApiUrl || CONFIG.controlPlaneApiUrl.includes('%%')) {
+            CONFIG.controlPlaneApiUrl = 'https://control.aivric.com';
+        }
+        if (!CONFIG.defenseAppUrl || CONFIG.defenseAppUrl.includes('%%')) {
+            CONFIG.defenseAppUrl = 'https://defense.aivric.com';
+        }
+        CONFIG.controlPlaneApiUrl = CONFIG.controlPlaneApiUrl.replace(/\/$/, '');
     }
 
-    /**
-     * Product Price IDs (must match Stripe Dashboard)
-     * These will be updated after creating products in Stripe Dashboard
-     */
-    const PRICE_IDS = {
-        defense: 'price_XXXXXXXXXX', // Replace with actual Stripe Price ID
-        offense: 'price_XXXXXXXXXX', // Replace with actual Stripe Price ID
-        vision: 'price_XXXXXXXXXX', // Replace with actual Stripe Price ID
-        bundle_defense_offense: 'price_XXXXXXXXXX', // Replace with actual Stripe Price ID
-        bundle_all: 'price_XXXXXXXXXX' // Replace with actual Stripe Price ID
-    };
+    function getStoredTenantId() {
+        return (
+            localStorage.getItem('cloudsignals_tenant_id') ||
+            localStorage.getItem('aivric_tenant_id') ||
+            localStorage.getItem('tenant_id') ||
+            null
+        );
+    }
 
-    /**
-     * Create Stripe Checkout Session
-     *
-     * @param {string} priceId - The Stripe Price ID
-     * @param {string} product - The product name (defense, offense, vision, etc.)
-     */
-    async function createCheckoutSession(priceId, product) {
-        // Show loading state
-        const button = event.target;
-        const originalText = button.textContent;
-        button.disabled = true;
-        button.textContent = 'Loading...';
+    function getStoredEmail() {
+        return (
+            localStorage.getItem('cloudsignals_customer_email') ||
+            localStorage.getItem('aivric_customer_email') ||
+            localStorage.getItem('customer_email') ||
+            null
+        );
+    }
 
+    function setButtonLoading(button, loading) {
+        if (!button) return;
+        if (loading) {
+            button.dataset.originalText = button.textContent;
+            button.disabled = true;
+            button.textContent = 'Preparing checkout...';
+            return;
+        }
+        button.disabled = false;
+        button.textContent = button.dataset.originalText || button.textContent;
+    }
+
+    async function createCheckoutSession(button) {
+        const packageId = button.getAttribute('data-package-id');
+        const billingInterval = button.getAttribute('data-billing-interval') || 'monthly';
+        if (!packageId) {
+            showError('This pricing option is missing a package identifier.');
+            return;
+        }
+
+        setButtonLoading(button, true);
         try {
-            // Get JWT token from localStorage (user must be logged in)
-            const token = localStorage.getItem('auth_token');
-            if (!token) {
-                // Redirect to login if not authenticated
-                window.location.href = '/login.html?redirect=' + encodeURIComponent(window.location.pathname);
-                return;
-            }
-
-            // Call Defense API to create checkout session
-            const response = await fetch(`${CONFIG.defenseApiUrl}/api/v1/stripe/create-checkout-session`, {
+            const response = await fetch(`${CONFIG.controlPlaneApiUrl}/api/v1/commercialization/stripe/checkout-session`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
-                    price_id: priceId,
-                    product: product,
-                    success_url: CONFIG.successUrl,
-                    cancel_url: CONFIG.cancelUrl
+                    package_id: packageId,
+                    billing_interval: billingInterval,
+                    tenant_id: getStoredTenantId(),
+                    customer_email: getStoredEmail(),
+                    success_url: `${CONFIG.successUrl}?package=${encodeURIComponent(packageId)}&checkout=success`,
+                    cancel_url: `${CONFIG.cancelUrl}?package=${encodeURIComponent(packageId)}&checkout=cancelled`,
+                    allow_promotion_codes: true,
+                    metadata: {
+                        source: 'aivric_website',
+                        channel: 'public_pricing',
+                        package_id: packageId
+                    }
                 })
             });
 
+            const payload = await response.json().catch(() => ({}));
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.error || 'Failed to create checkout session');
+                throw new Error(payload.detail || payload.message || 'Unable to start checkout.');
             }
-
-            const session = await response.json();
-
-            // Redirect to Stripe Checkout
-            const result = await stripe.redirectToCheckout({
-                sessionId: session.id
-            });
-
-            if (result.error) {
-                throw new Error(result.error.message);
+            if (!payload.checkout_url) {
+                throw new Error('Checkout URL was not returned.');
             }
-
+            window.location.href = payload.checkout_url;
         } catch (error) {
-            console.error('Checkout error:', error);
-            showError(error.message || 'An error occurred. Please try again.');
-
-            // Restore button state
-            button.disabled = false;
-            button.textContent = originalText;
+            console.error('CloudSignals checkout error:', error);
+            showError(error.message || 'Unable to start checkout. Please try again.');
+            setButtonLoading(button, false);
         }
     }
 
-    /**
-     * Redirect to Stripe Customer Portal
-     * Allows users to manage their existing subscription
-     */
-    async function redirectToCustomerPortal() {
-        const button = event.target;
-        const originalText = button.textContent;
-        button.disabled = true;
-        button.textContent = 'Loading...';
+    function startFreePlan(button) {
+        const packageId = button.getAttribute('data-package-id') || 'pkg-cloudsignals-free';
+        const url = new URL(CONFIG.defenseAppUrl);
+        url.searchParams.set('plan', packageId);
+        url.searchParams.set('source', 'aivric_website');
+        window.location.href = url.toString();
+    }
 
+    function contactSales(button) {
+        const packageId = button.getAttribute('data-package-id') || 'pkg-cloudsignals-enterprise';
+        const url = new URL(CONFIG.contactUrl);
+        url.searchParams.set('package', packageId);
+        url.searchParams.set('source', 'cloudsignals_pricing');
+        window.location.href = url.toString();
+    }
+
+    async function redirectToCustomerPortal(button) {
+        const stripeCustomerId = localStorage.getItem('stripe_customer_id');
+        if (!stripeCustomerId) {
+            showError('Customer portal is available after your billing account is active.');
+            return;
+        }
+        setButtonLoading(button, true);
         try {
-            // Get JWT token from localStorage
-            const token = localStorage.getItem('auth_token');
-            if (!token) {
-                window.location.href = '/login.html?redirect=' + encodeURIComponent('/account.html');
-                return;
-            }
-
-            // Call Defense API to create portal session
-            const response = await fetch(`${CONFIG.defenseApiUrl}/api/v1/stripe/create-portal-session`, {
+            const response = await fetch(`${CONFIG.controlPlaneApiUrl}/api/v1/commercialization/stripe/customer-portal-session`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`
-                },
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({
+                    stripe_customer_id: stripeCustomerId,
                     return_url: window.location.origin + '/account.html'
                 })
             });
-
+            const payload = await response.json().catch(() => ({}));
             if (!response.ok) {
-                const errorData = await response.json();
-                throw new Error(errorData.error || 'Failed to create portal session');
+                throw new Error(payload.detail || payload.message || 'Unable to open the billing portal.');
             }
-
-            const portal = await response.json();
-
-            // Redirect to Stripe Customer Portal
-            window.location.href = portal.url;
-
+            window.location.href = payload.portal_url;
         } catch (error) {
-            console.error('Portal redirect error:', error);
-            showError(error.message || 'An error occurred. Please try again.');
-
-            // Restore button state
-            button.disabled = false;
-            button.textContent = originalText;
+            console.error('Customer portal error:', error);
+            showError(error.message || 'Unable to open the billing portal.');
+            setButtonLoading(button, false);
         }
     }
 
-    /**
-     * Get current user's subscription status
-     *
-     * @returns {Promise<Object>} Subscription status object
-     */
-    async function getSubscriptionStatus() {
-        try {
-            const token = localStorage.getItem('auth_token');
-            if (!token) {
-                return {
-                    has_defense: false,
-                    has_offense: false,
-                    has_vision: false,
-                    subscriptions: []
-                };
-            }
-
-            const response = await fetch(`${CONFIG.defenseApiUrl}/api/v1/subscriptions/status`, {
-                method: 'GET',
-                headers: {
-                    'Authorization': `Bearer ${token}`
-                }
-            });
-
-            if (!response.ok) {
-                throw new Error('Failed to fetch subscription status');
-            }
-
-            return await response.json();
-
-        } catch (error) {
-            console.error('Failed to get subscription status:', error);
-            return {
-                has_defense: false,
-                has_offense: false,
-                has_vision: false,
-                subscriptions: []
-            };
-        }
-    }
-
-    /**
-     * Display error message to user
-     *
-     * @param {string} message - Error message to display
-     */
     function showError(message) {
-        // Create error notification
-        const errorDiv = document.createElement('div');
-        errorDiv.className = 'stripe-error-notification';
-        errorDiv.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #dc3545;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            z-index: 10000;
-            max-width: 300px;
-            animation: slideIn 0.3s ease-in;
-        `;
-        errorDiv.innerHTML = `
-            <strong>Error</strong><br>
-            ${message}
-        `;
-
-        document.body.appendChild(errorDiv);
-
-        // Auto-remove after 5 seconds
-        setTimeout(() => {
-            errorDiv.style.animation = 'slideOut 0.3s ease-out';
-            setTimeout(() => {
-                document.body.removeChild(errorDiv);
-            }, 300);
-        }, 5000);
+        showNotification('Error', message, '#dc3545');
     }
 
-    /**
-     * Display success message to user
-     *
-     * @param {string} message - Success message to display
-     */
     function showSuccess(message) {
-        const successDiv = document.createElement('div');
-        successDiv.className = 'stripe-success-notification';
-        successDiv.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #28a745;
-            color: white;
-            padding: 15px 20px;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            z-index: 10000;
-            max-width: 300px;
-            animation: slideIn 0.3s ease-in;
-        `;
-        successDiv.innerHTML = `
-            <strong>Success</strong><br>
-            ${message}
-        `;
+        showNotification('Success', message, '#098f72');
+    }
 
-        document.body.appendChild(successDiv);
+    function showNotification(title, message, background) {
+        const notice = document.createElement('div');
+        const heading = document.createElement('strong');
+        const body = document.createElement('span');
+
+        notice.className = 'stripe-notification';
+        notice.style.cssText = [
+            'position:fixed',
+            'top:20px',
+            'right:20px',
+            `background:${background}`,
+            'color:#fff',
+            'padding:15px 20px',
+            'border-radius:8px',
+            'box-shadow:0 12px 30px rgba(0,0,0,0.25)',
+            'z-index:10000',
+            'max-width:340px',
+            'line-height:1.4',
+            'animation:stripeSlideIn 0.25s ease-out'
+        ].join(';');
+        heading.textContent = title;
+        body.textContent = message;
+        body.style.display = 'block';
+        body.style.marginTop = '4px';
+        notice.appendChild(heading);
+        notice.appendChild(body);
+        document.body.appendChild(notice);
 
         setTimeout(() => {
-            successDiv.style.animation = 'slideOut 0.3s ease-out';
+            notice.style.animation = 'stripeSlideOut 0.25s ease-in';
             setTimeout(() => {
-                document.body.removeChild(successDiv);
-            }, 300);
-        }, 5000);
+                if (notice.parentNode) {
+                    notice.parentNode.removeChild(notice);
+                }
+            }, 250);
+        }, 5500);
     }
 
-    /**
-     * Initialize event listeners on page load
-     */
     function initializeEventListeners() {
-        // Subscribe buttons (data-product and data-price-id attributes)
-        document.querySelectorAll('[data-stripe-subscribe]').forEach(button => {
-            button.addEventListener('click', function(event) {
+        document.querySelectorAll('[data-cloudsignals-checkout]').forEach(button => {
+            button.addEventListener('click', event => {
                 event.preventDefault();
-                const priceId = this.getAttribute('data-price-id');
-                const product = this.getAttribute('data-product');
-                createCheckoutSession(priceId, product);
+                createCheckoutSession(event.currentTarget);
             });
         });
 
-        // Customer Portal buttons
+        document.querySelectorAll('[data-cloudsignals-free]').forEach(button => {
+            button.addEventListener('click', event => {
+                event.preventDefault();
+                startFreePlan(event.currentTarget);
+            });
+        });
+
+        document.querySelectorAll('[data-contact-sales]').forEach(button => {
+            button.addEventListener('click', event => {
+                event.preventDefault();
+                contactSales(event.currentTarget);
+            });
+        });
+
         document.querySelectorAll('[data-stripe-portal]').forEach(button => {
-            button.addEventListener('click', function(event) {
+            button.addEventListener('click', event => {
                 event.preventDefault();
-                redirectToCustomerPortal();
+                redirectToCustomerPortal(event.currentTarget);
             });
         });
     }
 
-    /**
-     * Update pricing page UI based on user's subscription status
-     */
-    async function updatePricingPageUI() {
-        // Only run on pricing page
-        if (!window.location.pathname.includes('pricing')) return;
-
-        const status = await getSubscriptionStatus();
-
-        // Update button text for active subscriptions
-        document.querySelectorAll('[data-stripe-subscribe]').forEach(button => {
-            const product = button.getAttribute('data-product');
-
-            if (product === 'defense' && status.has_defense) {
-                button.textContent = 'Active Subscription';
-                button.disabled = true;
-                button.classList.add('subscription-active');
-            } else if (product === 'offense' && status.has_offense) {
-                button.textContent = 'Active Subscription';
-                button.disabled = true;
-                button.classList.add('subscription-active');
-            } else if (product === 'vision' && status.has_vision) {
-                button.textContent = 'Active Subscription';
-                button.disabled = true;
-                button.classList.add('subscription-active');
+    function installStyles() {
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes stripeSlideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
             }
-        });
+
+            @keyframes stripeSlideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
     }
 
-    // Add CSS animations
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
+    normalizeConfig();
+    installStyles();
 
-        @keyframes slideOut {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-        }
-
-        .subscription-active {
-            background-color: #6c757d !important;
-            cursor: not-allowed !important;
-        }
-    `;
-    document.head.appendChild(style);
-
-    // Initialize when DOM is ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', function() {
-            initializeEventListeners();
-            updatePricingPageUI();
-        });
+        document.addEventListener('DOMContentLoaded', initializeEventListeners);
     } else {
         initializeEventListeners();
-        updatePricingPageUI();
     }
 
-    // Export functions for global access if needed
-    window.AiVRICStripe = {
-        createCheckoutSession: createCheckoutSession,
-        redirectToCustomerPortal: redirectToCustomerPortal,
-        getSubscriptionStatus: getSubscriptionStatus,
-        PRICE_IDS: PRICE_IDS
+    window.AiVRICCloudSignalsCheckout = {
+        createCheckoutSession,
+        redirectToCustomerPortal,
+        startFreePlan,
+        contactSales,
+        showSuccess
     };
-
 })();
-
