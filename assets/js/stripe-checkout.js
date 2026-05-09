@@ -18,10 +18,10 @@
 
     function normalizeConfig() {
         if (!CONFIG.controlPlaneApiUrl || CONFIG.controlPlaneApiUrl.includes('%%')) {
-            CONFIG.controlPlaneApiUrl = 'https://control.aivric.com';
+            CONFIG.controlPlaneApiUrl = 'https://control-panel.aivric.com';
         }
         if (!CONFIG.defenseAppUrl || CONFIG.defenseAppUrl.includes('%%')) {
-            CONFIG.defenseAppUrl = 'https://defense.aivric.com';
+            CONFIG.defenseAppUrl = 'https://gcp-defense.aivric.com';
         }
         CONFIG.controlPlaneApiUrl = CONFIG.controlPlaneApiUrl.replace(/\/$/, '');
     }
@@ -102,7 +102,7 @@
 
     function startFreePlan(button) {
         const packageId = button.getAttribute('data-package-id') || 'pkg-cloudsignals-free';
-        const url = new URL(CONFIG.defenseAppUrl);
+        const url = new URL('/sign-up', CONFIG.defenseAppUrl);
         url.searchParams.set('plan', packageId);
         url.searchParams.set('source', 'aivric_website');
         window.location.href = url.toString();
