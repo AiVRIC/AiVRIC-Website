@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title>Solutions | AiVRIC</title>
+<title>AI Signals™ | AI Observability &amp; Governance | AiVRIC</title>
+<meta name="description" content="AI Signals™ by AiVRIC — end-to-end LLM tracing, prompt versioning, evaluation pipelines, and AI governance for enterprise teams. Now in Beta.">
 
 <!-- Fav Icon -->
 <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
@@ -32,6 +33,165 @@
 <link href="assets/css/responsive.css" rel="stylesheet">
 
   <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+
+  <style>
+    /* =============================================================
+       AiVRIC Product Pages — Shared Design System
+    ============================================================= */
+    :root{
+      --cs-cyan:#00d1ff; --cs-green:#2ee59d; --cs-gold:#ffd63a; --cs-purple:#a78bfa;
+      --cs-text-strong:#f8fafc; --cs-text:#e5e7eb; --cs-muted:#cbd5e1; --cs-faint:#94a3b8; --cs-accent:#7dd3fc;
+      --cs-surface-1:rgba(255,255,255,0.06); --cs-surface-2:rgba(255,255,255,0.10);
+      --cs-line:rgba(148,163,184,0.28); --cs-line-strong:rgba(148,163,184,0.5);
+      --cs-shadow:0 14px 40px rgba(0,0,0,0.28); --cs-radius:18px;
+      --cs-btn:#00d1ff; --cs-btn-hover:#24ddff;
+      --cs-btn-fg:#fff; --cs-btn-border:rgba(0,209,255,0.6);
+      --cs-btn-shadow:0 12px 24px rgba(0,209,255,0.2);
+      --cs-btn-shadow-hover:0 14px 28px rgba(0,209,255,0.28);
+    }
+    body.portal-page{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:radial-gradient(1200px 900px at 70% -20%,rgba(0,209,255,0.20),transparent 55%),
+        radial-gradient(900px 700px at 10% 10%,rgba(46,113,229,0.13),transparent 60%),
+        linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%);
+      color:var(--cs-text);
+    }
+    .cs-btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:11px 22px; border-radius:999px; font-weight:700; font-size:14px;
+      letter-spacing:0.01em; text-decoration:none; cursor:pointer; transition:all 0.22s;
+      text-shadow:0 1px 0 rgba(0,0,0,0.3); border:none;
+    }
+    .cs-btn.primary{ background:var(--cs-btn); color:var(--cs-btn-fg)!important; border:1px solid var(--cs-btn-border); box-shadow:var(--cs-btn-shadow); }
+    .cs-btn.primary:hover{ background:var(--cs-btn-hover); box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px); }
+    .cs-btn.secondary{ background:rgba(0,209,255,0.10); color:var(--cs-text-strong)!important; border:1px solid rgba(0,209,255,0.65); }
+    .cs-btn.secondary:hover{ background:var(--cs-btn-hover)!important; color:#fff!important; box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px); }
+    .cs-btn.ghost{ background:transparent; color:var(--cs-text-strong)!important; border:1px solid rgba(255,255,255,0.22); text-shadow:none; }
+    .cs-btn.ghost:hover{ background:rgba(255,255,255,0.07)!important; transform:translateY(-1px); }
+    .cs-product-page{ padding:0; }
+    /* Hero */
+    .csp-hero{ padding:100px 0 56px; position:relative; overflow:hidden; }
+    @media(max-width:992px){ .csp-hero{ padding:80px 0 40px; } }
+    .csp-hero-grid{ display:grid; grid-template-columns:1.25fr 0.75fr; gap:32px; align-items:start; }
+    @media(max-width:992px){ .csp-hero-grid{ grid-template-columns:1fr; } }
+    .csp-badge{ display:inline-flex; align-items:center; gap:8px; padding:7px 14px; border-radius:999px; background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.35); color:var(--cs-text-strong); font-size:12.5px; font-weight:600; letter-spacing:0.3px; margin-bottom:16px; }
+    .csp-badge i{ color:var(--cs-cyan); }
+    .csp-badge .avail-dot{ width:8px; height:8px; border-radius:50%; background:var(--cs-green); box-shadow:0 0 6px rgba(46,229,157,0.7); flex-shrink:0; }
+    .csp-badge .beta-dot{ width:8px; height:8px; border-radius:50%; background:var(--cs-cyan); box-shadow:0 0 6px rgba(0,209,255,0.7); flex-shrink:0; }
+    .csp-badge .alpha-dot{ width:8px; height:8px; border-radius:50%; background:var(--cs-gold); box-shadow:0 0 6px rgba(255,214,58,0.7); flex-shrink:0; }
+    .csp-badge .soon-dot{ width:8px; height:8px; border-radius:50%; background:var(--cs-faint); flex-shrink:0; }
+    .csp-title{ font-family:Jost,Inter,sans-serif; font-size:54px; font-weight:800; line-height:1.03; letter-spacing:-1.2px; color:var(--cs-text-strong); margin:0 0 14px; }
+    @media(max-width:768px){ .csp-title{ font-size:38px; } }
+    .csp-sub{ font-size:17px; line-height:1.75; color:var(--cs-muted); max-width:62ch; margin:0 0 24px; }
+    .csp-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+    /* Release band */
+    .csp-release-band{ display:flex; flex-wrap:wrap; gap:10px; }
+    .csp-rb-item{ display:flex; align-items:center; gap:8px; padding:8px 14px; border-radius:12px; background:var(--cs-surface-1); border:1px solid var(--cs-line); }
+    .csp-rb-label{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--cs-faint); }
+    .csp-rb-val{ font-size:13px; color:var(--cs-text); font-weight:600; }
+    .csp-rb-val.avail{ color:var(--cs-green); display:flex; align-items:center; gap:6px; }
+    .csp-rb-val.avail::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--cs-green); box-shadow:0 0 5px rgba(46,229,157,0.6); }
+    .csp-rb-val.beta{ color:var(--cs-cyan); }
+    .csp-rb-val.alpha{ color:var(--cs-gold); }
+    /* Hero sidebar */
+    .csp-hero-aside{ display:flex; flex-direction:column; gap:14px; padding-top:4px; }
+    .csp-quick-card{ border-radius:16px; padding:18px 20px; background:var(--cs-surface-1); border:1px solid var(--cs-line); box-shadow:var(--cs-shadow); }
+    .csp-quick-card h4{ font-size:13px; font-weight:700; color:var(--cs-text-strong); margin:0 0 12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .csp-quick-list{ list-style:none; padding:0; margin:0; display:grid; gap:7px; }
+    .csp-quick-list li{ display:flex; gap:9px; align-items:flex-start; font-size:13px; color:var(--cs-muted); line-height:1.45; }
+    .csp-quick-list li i{ color:var(--cs-green); flex-shrink:0; margin-top:1px; font-size:11px; }
+    .csp-quick-link{ display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-radius:12px; background:rgba(0,209,255,0.07); border:1px solid rgba(0,209,255,0.22); text-decoration:none; transition:background 0.2s; }
+    .csp-quick-link:hover{ background:rgba(0,209,255,0.12); }
+    .csp-quick-link span{ font-size:13.5px; font-weight:600; color:var(--cs-text-strong); }
+    .csp-quick-link i{ color:var(--cs-cyan); font-size:12px; }
+    /* Sections */
+    .csp-section{ padding:52px 0 0; }
+    .csp-eyebrow{ display:block; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--cs-cyan); margin-bottom:8px; }
+    .csp-section-title{ font-family:Jost,Inter,sans-serif; font-size:32px; font-weight:800; color:var(--cs-text-strong); margin:0 0 10px; letter-spacing:-0.4px; line-height:1.15; }
+    .csp-section-sub{ font-size:15px; line-height:1.75; color:var(--cs-muted); max-width:80ch; margin:0 0 28px; }
+    /* Module cards */
+    .csp-modules-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+    @media(max-width:1100px){ .csp-modules-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:576px){ .csp-modules-grid{ grid-template-columns:1fr; } }
+    .csp-modules-grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    @media(max-width:992px){ .csp-modules-grid-3{ grid-template-columns:1fr 1fr; } }
+    @media(max-width:576px){ .csp-modules-grid-3{ grid-template-columns:1fr; } }
+    .csp-module-card{ border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line); padding:22px; box-shadow:var(--cs-shadow); display:flex; flex-direction:column; gap:12px; transition:border-color 0.2s,box-shadow 0.2s; }
+    .csp-module-card:hover{ border-color:rgba(0,209,255,0.3); box-shadow:0 20px 48px rgba(0,0,0,0.3); }
+    .csp-module-icon{ width:46px; height:46px; border-radius:13px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+    .csp-module-icon.cyan{ background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.28); color:var(--cs-cyan); }
+    .csp-module-icon.green{ background:rgba(46,229,157,0.13); border:1px solid rgba(46,229,157,0.28); color:var(--cs-green); }
+    .csp-module-icon.gold{ background:rgba(255,214,58,0.13); border:1px solid rgba(255,214,58,0.28); color:var(--cs-gold); }
+    .csp-module-icon.purple{ background:rgba(167,139,250,0.13); border:1px solid rgba(167,139,250,0.28); color:var(--cs-purple); }
+    .csp-module-card h3{ font-size:16px; font-weight:700; color:var(--cs-text-strong); margin:0; }
+    .csp-module-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; flex:1; }
+    .csp-module-feats{ list-style:none; padding:0; margin:0; display:grid; gap:6px; }
+    .csp-module-feats li{ font-size:12.5px; color:var(--cs-muted); display:flex; gap:7px; align-items:flex-start; }
+    .csp-module-feats li::before{ content:"→"; color:var(--cs-cyan); font-size:11px; flex-shrink:0; margin-top:1px; }
+    /* Capabilities */
+    .csp-cap-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    @media(max-width:992px){ .csp-cap-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:576px){ .csp-cap-grid{ grid-template-columns:1fr; } }
+    .csp-cap-grid-2{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    @media(max-width:768px){ .csp-cap-grid-2{ grid-template-columns:1fr; } }
+    .csp-cap{ border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line); padding:20px; box-shadow:var(--cs-shadow); }
+    .csp-cap-icon{ width:40px; height:40px; border-radius:11px; background:rgba(0,209,255,0.11); border:1px solid rgba(0,209,255,0.24); display:flex; align-items:center; justify-content:center; color:var(--cs-cyan); font-size:16px; margin-bottom:12px; }
+    .csp-cap h4{ font-size:15px; font-weight:700; color:var(--cs-text-strong); margin:0 0 6px; }
+    .csp-cap p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; }
+    /* Compliance cards */
+    .csp-fw-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+    @media(max-width:768px){ .csp-fw-grid{ grid-template-columns:1fr; } }
+    .csp-fw-card{ border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line); overflow:hidden; box-shadow:var(--cs-shadow); }
+    .csp-fw-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 18px; cursor:pointer; user-select:none; }
+    .csp-fw-head::-webkit-details-marker{ display:none; }
+    .csp-fw-head-left{ display:flex; align-items:center; gap:12px; }
+    .csp-fw-logo{ width:36px; height:36px; border-radius:10px; background:rgba(0,209,255,0.11); border:1px solid rgba(0,209,255,0.24); display:flex; align-items:center; justify-content:center; color:var(--cs-cyan); font-size:14px; flex-shrink:0; }
+    .csp-fw-name{ font-size:15px; font-weight:700; color:var(--cs-text-strong); }
+    .csp-fw-sub{ font-size:12.5px; color:var(--cs-muted); margin-top:2px; }
+    .csp-fw-chevron{ color:var(--cs-faint); font-size:12px; transition:transform 0.2s; flex-shrink:0; }
+    details[open] .csp-fw-chevron{ transform:rotate(90deg); }
+    .csp-fw-body{ padding:14px 18px 16px; border-top:1px solid var(--cs-line); }
+    .csp-fw-req{ background:rgba(0,209,255,0.06); border:1px solid rgba(0,209,255,0.18); border-radius:10px; padding:10px 12px; margin-bottom:10px; font-size:13px; color:var(--cs-muted); line-height:1.6; }
+    .csp-fw-req strong{ color:var(--cs-cyan); }
+    .csp-fw-body ul{ padding-left:16px; margin:0; display:grid; gap:5px; }
+    .csp-fw-body li{ font-size:13.5px; color:var(--cs-muted); line-height:1.55; }
+    /* Deployment */
+    .csp-deploy-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    @media(max-width:768px){ .csp-deploy-grid{ grid-template-columns:1fr; } }
+    .csp-deploy-card{ border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line); padding:24px; box-shadow:var(--cs-shadow); }
+    .csp-deploy-card.highlight{ border-color:rgba(0,209,255,0.35); }
+    .csp-deploy-icon{ width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:14px; }
+    .csp-deploy-card h3{ font-size:17px; font-weight:700; color:var(--cs-text-strong); margin:0 0 8px; }
+    .csp-deploy-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0 0 14px; }
+    .csp-deploy-tags{ display:flex; flex-wrap:wrap; gap:6px; }
+    .csp-tag{ padding:4px 11px; border-radius:999px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); color:var(--cs-muted); font-size:12px; font-weight:600; }
+    /* FAQ */
+    .csp-faq-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px; }
+    @media(max-width:992px){ .csp-faq-grid{ grid-template-columns:1fr; } }
+    .csp-faq-item{ border-radius:16px; border:1px solid var(--cs-line); background:var(--cs-surface-1); padding:16px; box-shadow:var(--cs-shadow); }
+    .csp-faq-item summary{ cursor:pointer; font-weight:700; font-size:14.5px; color:var(--cs-text-strong); list-style:none; user-select:none; }
+    .csp-faq-item summary::-webkit-details-marker{ display:none; }
+    details[open] .csp-faq-item summary{ color:var(--cs-cyan); }
+    .csp-faq-item p{ margin:10px 0 0; color:var(--cs-muted); font-size:13.5px; line-height:1.75; }
+    .csp-faq-item a{ color:var(--cs-cyan); }
+    /* Bottom CTA */
+    .csp-bottom-cta{ margin:52px 0 60px; border-radius:var(--cs-radius); background:linear-gradient(135deg,rgba(0,209,255,0.09) 0%,rgba(46,229,157,0.05) 100%); border:1px solid rgba(0,209,255,0.25); box-shadow:0 24px 60px rgba(0,209,255,0.09); padding:40px; text-align:center; }
+    .csp-bottom-cta h2{ font-family:Jost,Inter,sans-serif; font-size:36px; font-weight:800; color:var(--cs-text-strong); margin:0 0 12px; letter-spacing:-0.5px; }
+    @media(max-width:768px){ .csp-bottom-cta h2{ font-size:26px; } }
+    .csp-bottom-cta p{ font-size:16px; color:var(--cs-muted); line-height:1.7; max-width:60ch; margin:0 auto 24px; }
+    .csp-bottom-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+    /* Divider */
+    .csp-divider{ height:1px; background:linear-gradient(90deg,transparent,var(--cs-line),transparent); margin:48px 0 0; }
+    /* Replaces pills */
+    .csp-replaces-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .csp-replaces-pill{ display:inline-flex; align-items:center; gap:7px; padding:7px 14px; border-radius:999px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.10); color:var(--cs-muted); font-size:13px; font-weight:600; }
+    .csp-replaces-pill i{ color:var(--cs-green); font-size:11px; }
+    /* Early-access notice strip */
+    .csp-notice-strip{ border-radius:14px; padding:16px 20px; background:rgba(255,214,58,0.06); border:1px solid rgba(255,214,58,0.22); display:flex; align-items:flex-start; gap:12px; margin-bottom:24px; }
+    .csp-notice-strip i{ color:var(--cs-gold); flex-shrink:0; margin-top:2px; }
+    .csp-notice-strip p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; }
+    .csp-notice-strip strong{ color:var(--cs-text-strong); }
+  </style>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
@@ -358,241 +518,347 @@
         </div><!-- End Mobile Menu -->
 
 
-        <!-- page-title -->
-        <section class="page-title centred">
-            <div class="bg-layer" style="background-image: url(assets/images/banner/banner-4.avif);"></div>
+        <!-- AI Signals product page (modernised) -->
+        <div class="cs-product-page">
+
+          <!-- ── HERO ── -->
+          <section class="csp-hero">
             <div class="auto-container">
-                <div class="content-box">
-                    <h1>AI Signals&trade;</h1>
-                    <ul class="bread-crumb clearfix">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="solutions.html">Solutions</a></li>
-                        <li>AI Signals&trade;</li>
+              <div class="csp-hero-grid">
+                <div>
+                  <nav aria-label="breadcrumb" style="margin-bottom:20px;">
+                    <ol style="list-style:none;padding:0;margin:0;display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--cs-faint);">
+                      <li><a href="index.html" style="color:var(--cs-faint);text-decoration:none;">Home</a></li>
+                      <li style="color:var(--cs-line-strong);">/</li>
+                      <li><a href="pricing.html" style="color:var(--cs-faint);text-decoration:none;">Solutions</a></li>
+                      <li style="color:var(--cs-line-strong);">/</li>
+                      <li style="color:var(--cs-cyan);">AI Signals™</li>
+                    </ol>
+                  </nav>
+
+                  <div class="csp-badge">
+                    <span class="beta-dot"></span>
+                    Beta &nbsp;·&nbsp; AI Observability &amp; Governance
+                  </div>
+
+                  <h1 class="csp-title">Full-stack observability<br>for production<br><span style="color:var(--cs-cyan);">language models.</span></h1>
+
+                  <p class="csp-sub">AI Signals™ gives engineering and compliance teams end-to-end visibility into LLM calls, prompt versions, and evaluation outcomes — so you can ship AI confidently and govern it continuously.</p>
+
+                  <div class="csp-notice-strip">
+                    <i class="fas fa-info-circle"></i>
+                    <p><strong>Beta access open.</strong> AI Signals™ is in active Beta. Core tracing, prompt management, and evaluation pipelines are production-ready. Join the Beta to get early access and influence the roadmap.</p>
+                  </div>
+
+                  <div class="csp-actions">
+                    <button type="button" class="cs-btn primary js-release-modal" data-solution="AI Signals™">
+                      <i class="fas fa-flask"></i> Join the Beta
+                    </button>
+                    <a href="pricing.html" class="cs-btn secondary">View all AiVRIC solutions</a>
+                    <a href="request-demo.html" class="cs-btn ghost">Request demo</a>
+                  </div>
+
+                  <div class="csp-release-band">
+                    <div class="csp-rb-item">
+                      <span class="csp-rb-label">Status</span>
+                      <span class="csp-rb-val beta">Beta</span>
+                    </div>
+                    <div class="csp-rb-item">
+                      <span class="csp-rb-label">Production releases</span>
+                      <span class="csp-rb-val">3 releases</span>
+                    </div>
+                    <div class="csp-rb-item">
+                      <span class="csp-rb-label">Last release</span>
+                      <span class="csp-rb-val">Dec 2025</span>
+                    </div>
+                    <div class="csp-rb-item">
+                      <span class="csp-rb-label">Next planned</span>
+                      <span class="csp-rb-val">Q2 2026</span>
+                    </div>
+                  </div>
+
+                  <div style="margin-top:20px;">
+                    <span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--cs-faint);display:block;margin-bottom:10px;">Replaces</span>
+                    <div class="csp-replaces-row">
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Ad-hoc prompt files</span>
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Manual eval spreadsheets</span>
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Opaque AI black boxes</span>
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Point-in-time model reviews</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="csp-hero-aside">
+                  <div class="csp-quick-card">
+                    <h4>Beta includes</h4>
+                    <ul class="csp-quick-list">
+                      <li><i class="fas fa-check-circle"></i>End-to-end LLM call tracing (OTLP)</li>
+                      <li><i class="fas fa-check-circle"></i>Prompt versioning with approvals</li>
+                      <li><i class="fas fa-check-circle"></i>LLM-as-judge evaluation pipelines</li>
+                      <li><i class="fas fa-check-circle"></i>Human feedback &amp; labeling queues</li>
+                      <li><i class="fas fa-check-circle"></i>Dataset regression runs</li>
+                      <li><i class="fas fa-check-circle"></i>Python &amp; JS/TS SDKs</li>
+                      <li><i class="fas fa-check-circle"></i>OpenAI, Anthropic, Bedrock support</li>
                     </ul>
+                  </div>
+                  <a href="pricing.html" class="csp-quick-link">
+                    <span>Compare all AiVRIC solutions</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+                  <a href="trust.html" class="csp-quick-link">
+                    <span>Trust Center &amp; security docs</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
                 </div>
+              </div>
             </div>
-        </section>
-        <!-- page-title end -->
-        <section class="portal-release-band">
+          </section>
+
+          <div class="csp-divider"></div>
+
+          <!-- ── MODULES ── -->
+          <section class="csp-section">
             <div class="auto-container">
-                <div class="release-band">
-                    <div class="release-item">
-                        <span class="release-label">Availability</span>
-                        <span class="release-status status-available">Available</span>
-                    </div>
-                    <div class="release-item">
-                        <span class="release-label">Production releases</span>
-                        <span class="release-value">3 releases</span>
-                    </div>
-                    <div class="release-item">
-                        <span class="release-label">Last release</span>
-                        <span class="release-value">12/2/2025</span>
-                    </div>
-                    <div class="release-item">
-                        <span class="release-label">Next planned release</span>
-                        <span class="release-value">01/31/2026</span>
-                    </div>
+              <span class="csp-eyebrow">Platform Modules</span>
+              <h2 class="csp-section-title">Four pillars of AI observability.</h2>
+              <p class="csp-section-sub">AI Signals™ covers the full AI development lifecycle — from runtime tracing through governance evidence.</p>
+              <div class="csp-modules-grid">
+                <div class="csp-module-card">
+                  <div class="csp-module-icon cyan"><i class="fas fa-project-diagram"></i></div>
+                  <h3>Tracing &amp; Telemetry</h3>
+                  <p>Capture every LLM call, retrieval step, tool invocation, and agent action with structured spans and session replay.</p>
+                  <ul class="csp-module-feats">
+                    <li>OTLP-compatible trace ingestion</li>
+                    <li>Token usage &amp; latency metrics</li>
+                    <li>Multi-step agent trace stitching</li>
+                    <li>Session-level replay viewer</li>
+                  </ul>
                 </div>
+                <div class="csp-module-card">
+                  <div class="csp-module-icon green"><i class="fas fa-code-branch"></i></div>
+                  <h3>Prompt Governance</h3>
+                  <p>Version-control prompts with approval workflows, rollback, and change audit trails that satisfy compliance evidence requirements.</p>
+                  <ul class="csp-module-feats">
+                    <li>Git-style prompt versioning</li>
+                    <li>Approval gates before production</li>
+                    <li>One-click rollback</li>
+                    <li>Change diff &amp; audit log export</li>
+                  </ul>
+                </div>
+                <div class="csp-module-card">
+                  <div class="csp-module-icon gold"><i class="fas fa-vial"></i></div>
+                  <h3>Evaluation Pipelines</h3>
+                  <p>Define scoring rubrics, run LLM-as-judge evaluations, and collect human feedback to continuously measure output quality.</p>
+                  <ul class="csp-module-feats">
+                    <li>LLM-as-judge scoring</li>
+                    <li>Human labeling queue</li>
+                    <li>Custom metric definitions</li>
+                    <li>Eval run comparison views</li>
+                  </ul>
+                </div>
+                <div class="csp-module-card">
+                  <div class="csp-module-icon purple"><i class="fas fa-database"></i></div>
+                  <h3>Dataset &amp; Benchmarking</h3>
+                  <p>Build golden datasets from production traces, run regression tests across model updates, and detect performance regressions before they ship.</p>
+                  <ul class="csp-module-feats">
+                    <li>Production trace → dataset pipeline</li>
+                    <li>Regression test runs</li>
+                    <li>Model-to-model benchmarks</li>
+                    <li>CI/CD eval gate integration</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-        </section>
-        <section class="portal-detail p_relative sec-pad">
+          </section>
+
+          <div class="csp-divider"></div>
+
+          <!-- ── CAPABILITIES ── -->
+          <section class="csp-section">
             <div class="auto-container">
-                <div class="portal-hero">
-                    <h2>AI Signals&trade;</h2>
-                    <p>AI Signals&trade; delivers AI application observability, prompt governance, and evaluation workflows so teams can ship and audit AI safely.</p>
+              <span class="csp-eyebrow">Key Capabilities</span>
+              <h2 class="csp-section-title">Built for AI teams that ship to production.</h2>
+              <p class="csp-section-sub">From developer-level tracing to CISO-level audit evidence — one platform for the full AI governance lifecycle.</p>
+              <div class="csp-cap-grid">
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-search"></i></div>
+                  <h4>LLM Call Tracing</h4>
+                  <p>Instrument any model provider — Anthropic, OpenAI, AWS Bedrock, Azure OpenAI, or open-source — and capture structured traces with zero code change via SDK auto-instrumentation.</p>
                 </div>
-                <div class="portal-detail-grid">
-                    <div class="portal-detail-box">
-                        <h4>What it delivers</h4>
-                        <ul class="list-style-one clearfix">
-                            <li>End-to-end tracing for LLM calls, retrieval, and agent actions.</li>
-                            <li>Prompt versioning with approvals and rollback.</li>
-                            <li>Evaluation pipelines with automated and human feedback.</li>
-                            <li>Dataset runs for regression testing and benchmarking.</li>
-                        </ul>
-                    </div>
-                    <div class="portal-detail-box">
-                        <h4>Procurement highlights</h4>
-                        <ul class="list-style-one clearfix">
-                            <li>Customer-hosted SaaS, VM, or Kubernetes deployment options.</li>
-                            <li>API-first platform with Python and JS/TS SDKs.</li>
-                            <li>Integrations for model providers and agent frameworks.</li>
-                            <li>Optional telemetry with opt-out controls.</li>
-                        </ul>
-                    </div>
-                    <div class="portal-replaces">
-                        <h4>Replaces the following Enterprise Solutions</h4>
-                        <ul class="portal-pill-list">
-                        <li class="portal-pill"><i class="fas fa-check"></i>Ad-hoc prompt files and untracked changes</li>
-                        <li class="portal-pill"><i class="fas fa-check"></i>Manual evaluation spreadsheets</li>
-                        <li class="portal-pill"><i class="fas fa-check"></i>Opaque AI black boxes</li>
-                        <li class="portal-pill"><i class="fas fa-check"></i>Point-in-time model reviews</li>
-                        </ul>
-                    </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-edit"></i></div>
+                  <h4>Prompt Version Control</h4>
+                  <p>Store, diff, and deploy prompt templates with semantic versioning. Gate production deploys behind approval workflows. Roll back in one click when output quality regresses.</p>
                 </div>
-                                <div class="portal-usecases">
-                    <h4>Meets the following use cases</h4>
-                    <ul class="portal-usecase-list">
-                        <li><a href="security-exceptions.html">Security Exceptions</a></li>
-                        <li><a href="threat-analysis.html">Threat Analysis</a></li>
-                        <li><a href="streamline-soc2.html">SOC 2 Type II</a></li>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-gavel"></i></div>
+                  <h4>LLM-as-Judge Scoring</h4>
+                  <p>Configure a judge model to score outputs on correctness, tone, groundedness, and custom rubrics. Run automatically on every trace or on-demand against evaluation datasets.</p>
+                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-users"></i></div>
+                  <h4>Human Feedback Loop</h4>
+                  <p>Route flagged outputs to labeling queues for SME review. Feed structured feedback back into eval pipelines for continuous improvement and compliance evidence.</p>
+                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-flask"></i></div>
+                  <h4>Interactive Playground</h4>
+                  <p>Iterate on prompts and model parameters in a side-by-side playground that integrates directly with your prompt library and logs every experiment as a traceable run.</p>
+                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-code"></i></div>
+                  <h4>Python &amp; JS/TS SDKs</h4>
+                  <p>Drop-in SDKs for Python and TypeScript with OpenTelemetry-compatible tracing. LangChain, LlamaIndex, and Vercel AI SDK callbacks included.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="csp-divider"></div>
+
+          <!-- ── COMPLIANCE ── -->
+          <section class="csp-section">
+            <div class="auto-container">
+              <span class="csp-eyebrow">AI Governance &amp; Compliance</span>
+              <h2 class="csp-section-title">Evidence-ready AI governance for auditors.</h2>
+              <p class="csp-section-sub">AI Signals™ creates verifiable audit trails for every prompt change, evaluation run, and model deployment — aligned to emerging AI governance standards.</p>
+              <div class="csp-fw-grid">
+                <details class="csp-fw-card">
+                  <summary class="csp-fw-head">
+                    <div class="csp-fw-head-left">
+                      <div class="csp-fw-logo"><i class="fas fa-certificate"></i></div>
+                      <div>
+                        <div class="csp-fw-name">SOC 2 — AI Service Controls</div>
+                        <div class="csp-fw-sub">Trust Services Criteria for AI-assisted systems</div>
+                      </div>
+                    </div>
+                    <i class="fas fa-chevron-right csp-fw-chevron"></i>
+                  </summary>
+                  <div class="csp-fw-body">
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Demonstrate continuous monitoring and retain timestamped evidence for AI services operating in your production environment.</div>
+                    <ul>
+                      <li>Centralizes LLM traces, prompt change logs, and eval outcomes as evidence artifacts</li>
+                      <li>Tracks approval chains for prompt promotions (CC6 change management)</li>
+                      <li>Provides export-ready audit bundles for SOC 2 Type II periods</li>
                     </ul>
-                </div>
-                                <div class="portal-compliance">
-                    <div class="sec-title mb_30">
-                        <span class="sub-title">Security & Compliance</span>
-                        <h3>Security and compliance frameworks supported</h3>
+                  </div>
+                </details>
+                <details class="csp-fw-card">
+                  <summary class="csp-fw-head">
+                    <div class="csp-fw-head-left">
+                      <div class="csp-fw-logo"><i class="fas fa-robot"></i></div>
+                      <div>
+                        <div class="csp-fw-name">NIST AI RMF 1.0</div>
+                        <div class="csp-fw-sub">AI Risk Management Framework — Govern, Map, Measure, Manage</div>
+                      </div>
                     </div>
-                    <p class="portal-compliance-intro">Evidence-ready AI governance aligned to enterprise requirements.</p>
-                    <details>
-                        <summary>SOC 2 (Security, Availability, Confidentiality)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Maintain continuous monitoring and retain audit evidence for AI services.
-                        </div>
-                        <ul>
-                            <li>Centralizes traces, prompts, and evaluations as evidence.</li>
-                            <li>Tracks approvals and changes for audit readiness.</li>
-                            <li>Produces executive-ready compliance reporting.</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>ISO/IEC 27001 (Information Security Management)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Demonstrate risk treatment and ongoing effectiveness for AI workflows.
-                        </div>
-                        <ul>
-                            <li>Maps evaluation results to risk controls.</li>
-                            <li>Maintains change history for prompts and configurations.</li>
-                            <li>Supports retention and export policies.</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>PCI-DSS (Payment Card Security)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Monitor systems, detect issues, and document remediation actions.
-                        </div>
-                        <ul>
-                            <li>Logs AI activity and evaluation outcomes.</li>
-                            <li>Flags risky inputs and policy violations.</li>
-                            <li>Generates audit-ready evidence bundles.</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>CMMC (Federal Contractor Readiness)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Maintain verifiable evidence of security practices and controls.
-                        </div>
-                        <ul>
-                            <li>Aligns AI governance checks to maturity targets.</li>
-                            <li>Tracks exceptions and remediation actions.</li>
-                            <li>Maintains evidence for assessments.</li>
-                        </ul>
-                    </details>
-                </div><div class="sec-title mb_30">
-                    <span class="sub-title">Key Capabilities</span>
-                    <h3>Capabilities aligned to enterprise requirements</h3>
-                </div>
-                <div class="portal-cap-grid">
-                                <div class="portal-cap">
-                                    <h5>Tracing & Session Replay</h5>
-                                    <p>Inspect LLM calls, tools, and user sessions.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Prompt Management</h5>
-                                    <p>Version control, approvals, and rollback.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Evaluation Pipelines</h5>
-                                    <p>LLM-as-judge, user feedback, and labeling.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Dataset Runs</h5>
-                                    <p>Benchmark and regression testing for models.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Playground</h5>
-                                    <p>Iterate on prompts and model configs fast.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>API & SDKs</h5>
-                                    <p>OpenAPI plus Python and JS/TS clients.</p>
-                                </div>
-                </div>
-                <div class="content-four mt_40">
-                    <div class="sec-title mb_30">
-                        <span class="sub-title">Outcomes</span>
-                        <h3>Business outcomes you can expect</h3>
+                    <i class="fas fa-chevron-right csp-fw-chevron"></i>
+                  </summary>
+                  <div class="csp-fw-body">
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Establish documentation, testing, and monitoring practices that demonstrate AI system trustworthiness throughout the lifecycle.</div>
+                    <ul>
+                      <li>Maps evaluation metrics to AI RMF Measure function outcomes</li>
+                      <li>Supports AI system documentation for the Govern and Map functions</li>
+                      <li>Human feedback and labeling align to the Manage function's oversight requirements</li>
+                    </ul>
+                  </div>
+                </details>
+                <details class="csp-fw-card">
+                  <summary class="csp-fw-head">
+                    <div class="csp-fw-head-left">
+                      <div class="csp-fw-logo"><i class="fas fa-globe"></i></div>
+                      <div>
+                        <div class="csp-fw-name">ISO/IEC 42001 — AI Management</div>
+                        <div class="csp-fw-sub">AI Management System (AIMS) certification standard</div>
+                      </div>
                     </div>
-                    <div class="portal-outcomes-grid">
-                        <div class="portal-cap">
-                            <h5>Speed AI delivery</h5>
-                            <p>Shorten feedback loops with traceability and testing.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Reduce AI risk</h5>
-                            <p>Continuously evaluate models with policy guardrails.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Audit-ready evidence</h5>
-                            <p>Export reports for compliance and governance teams.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Shared visibility</h5>
-                            <p>Align product, security, and compliance on AI usage.</p>
-                        </div>
+                    <i class="fas fa-chevron-right csp-fw-chevron"></i>
+                  </summary>
+                  <div class="csp-fw-body">
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Establish and maintain an AI management system with documented objectives, risk treatment, and performance monitoring.</div>
+                    <ul>
+                      <li>Prompt governance and approval workflows support Clause 8 operational planning</li>
+                      <li>Evaluation pipeline results feed AI system performance monitoring (Clause 9)</li>
+                      <li>Change history and rollback support continual improvement requirements (Clause 10)</li>
+                    </ul>
+                  </div>
+                </details>
+                <details class="csp-fw-card">
+                  <summary class="csp-fw-head">
+                    <div class="csp-fw-head-left">
+                      <div class="csp-fw-logo"><i class="fas fa-shield-alt"></i></div>
+                      <div>
+                        <div class="csp-fw-name">ISO/IEC 27001 — AI Data Controls</div>
+                        <div class="csp-fw-sub">Extends ISMS controls to AI training data and model outputs</div>
+                      </div>
                     </div>
-                        <div class="portal-cap">
-                            <h5>Ship AI with confidence</h5>
-                            <p>Gate releases with repeatable control tests.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Deliver AI governance evidence</h5>
-                            <p>Generate audit-ready reports for stakeholders.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Align to AI controls</h5>
-                            <p>Map evaluations to internal and external requirements.</p>
-                        </div>
-                    </div>
-                </div>
-                                <div class="content-four mt_40 portal-faq">
-                    <div class="sec-title mb_20">
-                        <span class="sub-title">Enterprise FAQs</span>
-                        <h3>Answers for security, compliance, and procurement teams</h3>
-                    </div>
-                    <div class="portal-faq-list">
-                        <details>
-                            <summary>Deployment models</summary>
-                            <p>SaaS, customer-hosted SaaS, or private deployment options with shared controls and audit artifacts. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Data residency &amp; retention</summary>
-                            <p>Regional data residency, configurable retention, and export/purge policies to meet governance needs. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Integrations (SIEM/SOAR, ticketing, CI/CD)</summary>
-                            <p>Native connectors and APIs for SIEM/SOAR, ticketing systems, and CI/CD workflows. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>SSO/SCIM &amp; RBAC</summary>
-                            <p>SSO and SCIM provisioning with granular RBAC for least-privilege access. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Evidence &amp; audit support</summary>
-                            <p>Evidence packages, control mappings, and audit-ready reporting for assessors. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Support/SLA options</summary>
-                            <p>Business and enterprise tiers with response-time SLAs and escalation paths. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                    </div>
-                </div>
-                <div class="mt_40 portal-actions">
-                    <a href="solutions-portal.html#defense" class="theme-btn-one">Back to Solutions</a>
-                    <a href="request-demo.html" class="theme-btn-two ml_10">Talk to Sales</a>
-                </div>
+                    <i class="fas fa-chevron-right csp-fw-chevron"></i>
+                  </summary>
+                  <div class="csp-fw-body">
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Extend risk treatment and effectiveness monitoring to AI pipelines and the data they process.</div>
+                    <ul>
+                      <li>Maps AI trace data retention to Annex A.8.10 information deletion controls</li>
+                      <li>Prompt change logs provide Annex A.8.32 change management evidence for AI assets</li>
+                      <li>Evaluation outcomes document AI risk treatment effectiveness for ISMS reviews</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
             </div>
-        </section><!-- main-footer -->
+          </section>
+
+          <div class="csp-divider"></div>
+
+          <!-- ── FAQ ── -->
+          <section class="csp-section">
+            <div class="auto-container">
+              <span class="csp-eyebrow">Enterprise FAQs</span>
+              <h2 class="csp-section-title">Answers for AI, security, and procurement teams.</h2>
+              <div class="csp-faq-grid">
+                <details class="csp-faq-item">
+                  <summary>What model providers are supported?</summary>
+                  <p>AI Signals™ works with any OTLP-compatible provider: Anthropic Claude, OpenAI GPT-4+, AWS Bedrock (Claude, Titan, Llama), Azure OpenAI, Google Vertex AI, and open-source models via LiteLLM. Framework callbacks for LangChain, LlamaIndex, and Vercel AI SDK ship out of the box.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>How is trace data stored and what are the privacy controls?</summary>
+                  <p>Traces are stored in AiVRIC's SOC 2-compliant infrastructure with AES-256 at rest and TLS in transit. Configurable PII redaction masks sensitive fields before ingestion. Self-hosted deployment keeps all trace data within your network. <a href="trust.html">Review Trust Center</a>.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>What deployment options are available?</summary>
+                  <p>AiVRIC SaaS (multi-tenant, managed), single-tenant SaaS (your cloud account), self-hosted Docker/Kubernetes (air-gapped supported). The Beta program runs on managed SaaS; self-hosted tiers are planned for GA.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>How does SDK instrumentation work?</summary>
+                  <p>The Python and JS/TS SDKs use OpenTelemetry-compatible spans. One import and one init call instruments all supported model provider clients automatically — no manual span creation needed for standard LLM calls.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>Can evaluation results be used as SOC 2 evidence?</summary>
+                  <p>Yes. AI Signals™ exports evaluation run results, prompt change logs, and human review records as timestamped PDF and JSON bundles. These are accepted as SOC 2 Type II operational evidence for AI-assisted system controls.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>Is there SSO and RBAC support?</summary>
+                  <p>SAML 2.0 and OIDC SSO are supported (Okta, Azure AD, Google Workspace). Role-based access controls with custom roles for viewers, evaluators, prompt owners, and admins. SCIM provisioning is on the GA roadmap.</p>
+                </details>
+              </div>
+            </div>
+          </section>
+
+          <!-- ── BOTTOM CTA ── -->
+          <div class="auto-container">
+            <div class="csp-bottom-cta">
+              <h2>Ship AI you can govern and audit.</h2>
+              <p>AI Signals™ Beta is open. Join now to get early access, shape the roadmap, and start building AI observability into your development workflow.</p>
+              <div class="csp-bottom-actions">
+                <button type="button" class="cs-btn primary js-release-modal" data-solution="AI Signals™">
+                  <i class="fas fa-flask"></i> Join the Beta
+                </button>
+                <a href="pricing.html" class="cs-btn secondary">View all solutions</a>
+                <a href="request-demo.html" class="cs-btn ghost">Request a demo</a>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /cs-product-page --><!-- main-footer -->
         <footer class="main-footer">
             <div class="widget-section">
                 <div class="pattern-layer">

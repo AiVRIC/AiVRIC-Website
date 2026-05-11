@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title>Solutions | AiVRIC</title>
+<title>Vision AI Optics™ | AI-Powered Security Analytics &amp; Reporting | AiVRIC</title>
+<meta name="description" content="Vision AI Optics™ by AiVRIC — unified executive dashboards, AI-generated risk narratives, cross-suite visibility, and audit-ready reporting. Coming soon.">
 
 <!-- Fav Icon -->
 <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
@@ -32,6 +33,104 @@
 <link href="assets/css/responsive.css" rel="stylesheet">
 
   <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+
+  <style>
+    /* =============================================================
+       AiVRIC Product Pages — Shared Design System
+    ============================================================= */
+    :root{
+      --cs-cyan:#00d1ff; --cs-green:#2ee59d; --cs-gold:#ffd63a; --cs-purple:#a78bfa;
+      --cs-text-strong:#f8fafc; --cs-text:#e5e7eb; --cs-muted:#cbd5e1; --cs-faint:#94a3b8;
+      --cs-surface-1:rgba(255,255,255,0.06); --cs-line:rgba(148,163,184,0.28);
+      --cs-shadow:0 14px 40px rgba(0,0,0,0.28); --cs-radius:18px;
+      --cs-btn:#00d1ff; --cs-btn-hover:#24ddff; --cs-btn-fg:#fff;
+      --cs-btn-border:rgba(0,209,255,0.6); --cs-btn-shadow:0 12px 24px rgba(0,209,255,0.2);
+      --cs-btn-shadow-hover:0 14px 28px rgba(0,209,255,0.28);
+    }
+    body.portal-page{ font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:radial-gradient(1200px 900px at 70% -20%,rgba(0,209,255,0.20),transparent 55%),radial-gradient(900px 700px at 10% 10%,rgba(46,113,229,0.13),transparent 60%),linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%); color:var(--cs-text); }
+    .cs-btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:11px 22px; border-radius:999px; font-weight:700; font-size:14px; letter-spacing:0.01em; text-decoration:none; cursor:pointer; transition:all 0.22s; border:none; }
+    .cs-btn.primary{ background:var(--cs-btn); color:var(--cs-btn-fg)!important; border:1px solid var(--cs-btn-border); box-shadow:var(--cs-btn-shadow); }
+    .cs-btn.primary:hover{ background:var(--cs-btn-hover); transform:translateY(-1px); }
+    .cs-btn.secondary{ background:rgba(0,209,255,0.10); color:var(--cs-text-strong)!important; border:1px solid rgba(0,209,255,0.65); }
+    .cs-btn.secondary:hover{ background:var(--cs-btn-hover)!important; color:#fff!important; transform:translateY(-1px); }
+    .cs-btn.ghost{ background:transparent; color:var(--cs-text-strong)!important; border:1px solid rgba(255,255,255,0.22); }
+    .cs-btn.ghost:hover{ background:rgba(255,255,255,0.07)!important; transform:translateY(-1px); }
+    .cs-product-page{ padding:0; }
+    .csp-hero{ padding:100px 0 56px; position:relative; overflow:hidden; }
+    @media(max-width:992px){ .csp-hero{ padding:80px 0 40px; } }
+    .csp-hero-grid{ display:grid; grid-template-columns:1.25fr 0.75fr; gap:32px; align-items:start; }
+    @media(max-width:992px){ .csp-hero-grid{ grid-template-columns:1fr; } }
+    .csp-badge{ display:inline-flex; align-items:center; gap:8px; padding:7px 14px; border-radius:999px; background:rgba(148,163,184,0.12); border:1px solid rgba(148,163,184,0.25); color:var(--cs-text-strong); font-size:12.5px; font-weight:600; margin-bottom:16px; }
+    .csp-badge .soon-dot{ width:8px; height:8px; border-radius:50%; background:var(--cs-faint); flex-shrink:0; }
+    .csp-badge .beta-dot{ width:8px; height:8px; border-radius:50%; background:var(--cs-cyan); box-shadow:0 0 6px rgba(0,209,255,0.7); flex-shrink:0; }
+    .csp-badge .alpha-dot{ width:8px; height:8px; border-radius:50%; background:var(--cs-gold); box-shadow:0 0 6px rgba(255,214,58,0.7); flex-shrink:0; }
+    .csp-title{ font-family:Jost,Inter,sans-serif; font-size:54px; font-weight:800; line-height:1.03; letter-spacing:-1.2px; color:var(--cs-text-strong); margin:0 0 14px; }
+    @media(max-width:768px){ .csp-title{ font-size:38px; } }
+    .csp-sub{ font-size:17px; line-height:1.75; color:var(--cs-muted); max-width:62ch; margin:0 0 24px; }
+    .csp-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+    .csp-release-band{ display:flex; flex-wrap:wrap; gap:10px; }
+    .csp-rb-item{ display:flex; align-items:center; gap:8px; padding:8px 14px; border-radius:12px; background:var(--cs-surface-1); border:1px solid var(--cs-line); }
+    .csp-rb-label{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--cs-faint); }
+    .csp-rb-val{ font-size:13px; color:var(--cs-text); font-weight:600; }
+    .csp-rb-val.soon{ color:var(--cs-faint); }
+    .csp-hero-aside{ display:flex; flex-direction:column; gap:14px; padding-top:4px; }
+    .csp-quick-card{ border-radius:16px; padding:18px 20px; background:var(--cs-surface-1); border:1px solid var(--cs-line); box-shadow:var(--cs-shadow); }
+    .csp-quick-card h4{ font-size:13px; font-weight:700; color:var(--cs-text-strong); margin:0 0 12px; text-transform:uppercase; letter-spacing:0.5px; }
+    .csp-quick-list{ list-style:none; padding:0; margin:0; display:grid; gap:7px; }
+    .csp-quick-list li{ display:flex; gap:9px; align-items:flex-start; font-size:13px; color:var(--cs-muted); line-height:1.45; }
+    .csp-quick-list li i{ color:var(--cs-cyan); flex-shrink:0; margin-top:1px; font-size:11px; }
+    .csp-quick-link{ display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-radius:12px; background:rgba(0,209,255,0.07); border:1px solid rgba(0,209,255,0.22); text-decoration:none; transition:background 0.2s; }
+    .csp-quick-link:hover{ background:rgba(0,209,255,0.12); }
+    .csp-quick-link span{ font-size:13.5px; font-weight:600; color:var(--cs-text-strong); }
+    .csp-quick-link i{ color:var(--cs-cyan); font-size:12px; }
+    .csp-section{ padding:52px 0 0; }
+    .csp-eyebrow{ display:block; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--cs-cyan); margin-bottom:8px; }
+    .csp-section-title{ font-family:Jost,Inter,sans-serif; font-size:32px; font-weight:800; color:var(--cs-text-strong); margin:0 0 10px; letter-spacing:-0.4px; line-height:1.15; }
+    .csp-section-sub{ font-size:15px; line-height:1.75; color:var(--cs-muted); max-width:80ch; margin:0 0 28px; }
+    .csp-modules-grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    @media(max-width:992px){ .csp-modules-grid-3{ grid-template-columns:1fr 1fr; } }
+    @media(max-width:576px){ .csp-modules-grid-3{ grid-template-columns:1fr; } }
+    .csp-module-card{ border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line); padding:22px; box-shadow:var(--cs-shadow); display:flex; flex-direction:column; gap:12px; transition:border-color 0.2s; }
+    .csp-module-card:hover{ border-color:rgba(0,209,255,0.3); }
+    .csp-module-icon{ width:46px; height:46px; border-radius:13px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+    .csp-module-icon.cyan{ background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.28); color:var(--cs-cyan); }
+    .csp-module-icon.green{ background:rgba(46,229,157,0.13); border:1px solid rgba(46,229,157,0.28); color:var(--cs-green); }
+    .csp-module-icon.gold{ background:rgba(255,214,58,0.13); border:1px solid rgba(255,214,58,0.28); color:var(--cs-gold); }
+    .csp-module-icon.purple{ background:rgba(167,139,250,0.13); border:1px solid rgba(167,139,250,0.28); color:var(--cs-purple); }
+    .csp-module-card h3{ font-size:16px; font-weight:700; color:var(--cs-text-strong); margin:0; }
+    .csp-module-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; flex:1; }
+    .csp-module-feats{ list-style:none; padding:0; margin:0; display:grid; gap:6px; }
+    .csp-module-feats li{ font-size:12.5px; color:var(--cs-muted); display:flex; gap:7px; align-items:flex-start; }
+    .csp-module-feats li::before{ content:"→"; color:var(--cs-cyan); font-size:11px; flex-shrink:0; margin-top:1px; }
+    .csp-cap-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    @media(max-width:992px){ .csp-cap-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:576px){ .csp-cap-grid{ grid-template-columns:1fr; } }
+    .csp-cap{ border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line); padding:20px; box-shadow:var(--cs-shadow); }
+    .csp-cap-icon{ width:40px; height:40px; border-radius:11px; background:rgba(0,209,255,0.11); border:1px solid rgba(0,209,255,0.24); display:flex; align-items:center; justify-content:center; color:var(--cs-cyan); font-size:16px; margin-bottom:12px; }
+    .csp-cap h4{ font-size:15px; font-weight:700; color:var(--cs-text-strong); margin:0 0 6px; }
+    .csp-cap p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; }
+    .csp-faq-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px; }
+    @media(max-width:992px){ .csp-faq-grid{ grid-template-columns:1fr; } }
+    .csp-faq-item{ border-radius:16px; border:1px solid var(--cs-line); background:var(--cs-surface-1); padding:16px; box-shadow:var(--cs-shadow); }
+    .csp-faq-item summary{ cursor:pointer; font-weight:700; font-size:14.5px; color:var(--cs-text-strong); list-style:none; user-select:none; }
+    .csp-faq-item summary::-webkit-details-marker{ display:none; }
+    details[open] .csp-faq-item summary{ color:var(--cs-cyan); }
+    .csp-faq-item p{ margin:10px 0 0; color:var(--cs-muted); font-size:13.5px; line-height:1.75; }
+    .csp-faq-item a{ color:var(--cs-cyan); }
+    .csp-bottom-cta{ margin:52px 0 60px; border-radius:var(--cs-radius); background:linear-gradient(135deg,rgba(0,209,255,0.09) 0%,rgba(46,229,157,0.05) 100%); border:1px solid rgba(0,209,255,0.25); padding:40px; text-align:center; }
+    .csp-bottom-cta h2{ font-family:Jost,Inter,sans-serif; font-size:36px; font-weight:800; color:var(--cs-text-strong); margin:0 0 12px; letter-spacing:-0.5px; }
+    @media(max-width:768px){ .csp-bottom-cta h2{ font-size:26px; } }
+    .csp-bottom-cta p{ font-size:16px; color:var(--cs-muted); line-height:1.7; max-width:60ch; margin:0 auto 24px; }
+    .csp-bottom-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+    .csp-divider{ height:1px; background:linear-gradient(90deg,transparent,var(--cs-line),transparent); margin:48px 0 0; }
+    .csp-replaces-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .csp-replaces-pill{ display:inline-flex; align-items:center; gap:7px; padding:7px 14px; border-radius:999px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.10); color:var(--cs-muted); font-size:13px; font-weight:600; }
+    .csp-replaces-pill i{ color:var(--cs-green); font-size:11px; }
+    .csp-notice-strip{ border-radius:14px; padding:16px 20px; background:rgba(148,163,184,0.06); border:1px solid rgba(148,163,184,0.20); display:flex; align-items:flex-start; gap:12px; margin-bottom:24px; }
+    .csp-notice-strip i{ color:var(--cs-faint); flex-shrink:0; margin-top:2px; }
+    .csp-notice-strip p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; }
+    .csp-notice-strip strong{ color:var(--cs-text-strong); }
+  </style>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
@@ -358,221 +457,222 @@
         </div><!-- End Mobile Menu -->
 
 
-        <!-- page-title -->
-        <section class="page-title centred">
-            <div class="bg-layer" style="background-image: url(assets/images/banner/banner-4.avif);"></div>
+        <div class="cs-product-page">
+
+          <!-- ── HERO ── -->
+          <section class="csp-hero">
             <div class="auto-container">
-                <div class="content-box">
-                    <h1>AiVRIC Vision AI Optics&trade;</h1>
-                    <ul class="bread-crumb clearfix">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="solutions.html">Solutions</a></li>
-                        <li>Vision AI Optics&trade;</li>
+              <div class="csp-hero-grid">
+                <div>
+                  <nav aria-label="breadcrumb" style="margin-bottom:20px;">
+                    <ol style="list-style:none;padding:0;margin:0;display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--cs-faint);">
+                      <li><a href="index.html" style="color:var(--cs-faint);text-decoration:none;">Home</a></li>
+                      <li style="color:var(--cs-line-strong);">/</li>
+                      <li><a href="pricing.html" style="color:var(--cs-faint);text-decoration:none;">Solutions</a></li>
+                      <li style="color:var(--cs-line-strong);">/</li>
+                      <li style="color:var(--cs-faint);">Vision AI Optics™</li>
+                    </ol>
+                  </nav>
+
+                  <div class="csp-badge">
+                    <span class="soon-dot"></span>
+                    Coming Soon &nbsp;·&nbsp; AI-Powered Analytics &amp; Reporting
+                  </div>
+
+                  <h1 class="csp-title">Unified security<br>intelligence<br><span style="color:var(--cs-purple);">for leaders.</span></h1>
+
+                  <p class="csp-sub">Vision AI Optics™ surfaces executive-ready insights from across the AiVRIC platform — combining AI-generated risk narratives, cross-suite dashboards, and always-current audit evidence into a single reporting layer.</p>
+
+                  <div class="csp-notice-strip">
+                    <i class="fas fa-clock"></i>
+                    <p><strong>Coming in 2026.</strong> Vision AI Optics™ is in design and early development. Core GenAI reporting capabilities are already live inside CloudSignals+RiskOps™ (Vision AI module). The standalone reporting suite launches in 2026.</p>
+                  </div>
+
+                  <div class="csp-actions">
+                    <button type="button" class="cs-btn primary js-release-modal" data-solution="Vision AI Optics™">
+                      <i class="fas fa-bell"></i> Get notified at launch
+                    </button>
+                    <a href="cspm-cloudsignals.html" class="cs-btn secondary">Try Vision AI in CloudSignals</a>
+                    <a href="pricing.html" class="cs-btn ghost">View all solutions</a>
+                  </div>
+
+                  <div class="csp-release-band">
+                    <div class="csp-rb-item">
+                      <span class="csp-rb-label">Status</span>
+                      <span class="csp-rb-val soon">Coming Soon</span>
+                    </div>
+                    <div class="csp-rb-item">
+                      <span class="csp-rb-label">Preview in</span>
+                      <span class="csp-rb-val">CloudSignals+RiskOps™</span>
+                    </div>
+                    <div class="csp-rb-item">
+                      <span class="csp-rb-label">Planned GA</span>
+                      <span class="csp-rb-val">2026</span>
+                    </div>
+                  </div>
+
+                  <div style="margin-top:20px;">
+                    <span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--cs-faint);display:block;margin-bottom:10px;">Replaces</span>
+                    <div class="csp-replaces-row">
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Custom BI reporting</span>
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Manual compliance summaries</span>
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Spreadsheet risk dashboards</span>
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Static audit packs</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="csp-hero-aside">
+                  <div class="csp-quick-card">
+                    <h4>Planned capabilities</h4>
+                    <ul class="csp-quick-list">
+                      <li><i class="fas fa-circle" style="color:var(--cs-purple);font-size:8px;"></i>Cross-suite security dashboards</li>
+                      <li><i class="fas fa-circle" style="color:var(--cs-purple);font-size:8px;"></i>AI-generated risk narratives</li>
+                      <li><i class="fas fa-circle" style="color:var(--cs-purple);font-size:8px;"></i>Executive board reporting</li>
+                      <li><i class="fas fa-circle" style="color:var(--cs-purple);font-size:8px;"></i>Compliance posture summaries</li>
+                      <li><i class="fas fa-circle" style="color:var(--cs-purple);font-size:8px;"></i>KPI tracking &amp; trend analysis</li>
+                      <li><i class="fas fa-circle" style="color:var(--cs-purple);font-size:8px;"></i>Evidence linking to findings</li>
+                      <li><i class="fas fa-circle" style="color:var(--cs-purple);font-size:8px;"></i>Stakeholder-level access tiers</li>
                     </ul>
+                  </div>
+                  <a href="cspm-cloudsignals.html" class="csp-quick-link">
+                    <span>Vision AI module (in CloudSignals now)</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+                  <a href="pricing.html" class="csp-quick-link">
+                    <span>View all AiVRIC solutions</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
                 </div>
+              </div>
             </div>
-        </section>
-        <!-- page-title end -->
-        <section class="portal-release-band">
+          </section>
+
+          <div class="csp-divider"></div>
+
+          <!-- ── MODULES ── -->
+          <section class="csp-section">
             <div class="auto-container">
-                <div class="release-band">
-                    <div class="release-item">
-                        <span class="release-label">Availability</span>
-                        <span class="release-status status-coming">Coming Soon</span>
-                    </div>
-                    <div class="release-item">
-                        <span class="release-label">Production releases</span>
-                        <span class="release-value">No releases</span>
-                    </div>
-                    <div class="release-item">
-                        <span class="release-label">Last release</span>
-                        <span class="release-value">Pending release</span>
-                    </div>
-                    <div class="release-item">
-                        <span class="release-label">Next planned release</span>
-                        <span class="release-value">03/16/2026</span>
-                    </div>
+              <span class="csp-eyebrow">Planned Modules</span>
+              <h2 class="csp-section-title">Three reporting layers. One unified lens.</h2>
+              <p class="csp-section-sub">Vision AI Optics™ will connect CloudSignals, AI Signals, and RogueAgent into a single reporting surface for leaders and auditors.</p>
+              <div class="csp-modules-grid-3">
+                <div class="csp-module-card">
+                  <div class="csp-module-icon purple"><i class="fas fa-chart-pie"></i></div>
+                  <h3>Unified Dashboards</h3>
+                  <p>Cross-suite visibility panels that aggregate posture scores, active risks, compliance status, and AI observability metrics from every AiVRIC solution in one view.</p>
+                  <ul class="csp-module-feats">
+                    <li>Real-time posture score tile</li>
+                    <li>Risk &amp; compliance combined view</li>
+                    <li>AI health &amp; eval trend panels</li>
+                    <li>Configurable KPI tiles</li>
+                  </ul>
                 </div>
+                <div class="csp-module-card">
+                  <div class="csp-module-icon cyan"><i class="fas fa-file-chart-line" style="font-size:18px;"></i><i class="fas fa-robot" style="font-size:18px;"></i></div>
+                  <h3>AI Report Engine</h3>
+                  <p>GenAI-powered report generation produces plain-language executive summaries, board risk narratives, and compliance status briefings from structured platform data.</p>
+                  <ul class="csp-module-feats">
+                    <li>Board-ready risk narrative generation</li>
+                    <li>Compliance status plain-language briefs</li>
+                    <li>Scheduled automated report delivery</li>
+                    <li>Audience-aware tone &amp; detail levels</li>
+                  </ul>
+                </div>
+                <div class="csp-module-card">
+                  <div class="csp-module-icon green"><i class="fas fa-link"></i></div>
+                  <h3>Evidence Intelligence</h3>
+                  <p>Trace every dashboard insight back to its source evidence — findings, scans, evaluations, and remediation records — with one-click drill-through to the originating artifact.</p>
+                  <ul class="csp-module-feats">
+                    <li>Insight-to-evidence traceability</li>
+                    <li>Audit-ready evidence bundle export</li>
+                    <li>Configurable retention policies</li>
+                    <li>Auditor sharing access controls</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-        </section>
-        <section class="portal-detail p_relative sec-pad">
+          </section>
+
+          <div class="csp-divider"></div>
+
+          <!-- ── CAPABILITIES ── -->
+          <section class="csp-section">
             <div class="auto-container">
-                <div class="portal-hero">
-                    <h2>AiVRIC Vision AI Optics&trade;</h2>
-                    <p>Unified dashboards and reporting for security and compliance leaders.</p>
+              <span class="csp-eyebrow">Planned Capabilities</span>
+              <h2 class="csp-section-title">Built for CISOs, compliance leads, and board reporting.</h2>
+              <p class="csp-section-sub">Vision AI Optics™ is designed to close the last-mile gap between security operations and executive communication.</p>
+              <div class="csp-cap-grid">
+                <div class="csp-cap">
+                  <div class="csp-cap-icon" style="background:rgba(167,139,250,0.11);border-color:rgba(167,139,250,0.24);color:var(--cs-purple);"><i class="fas fa-th-large"></i></div>
+                  <h4>Cross-Suite Visibility</h4>
+                  <p>Aggregate security posture, AI governance health, and attack surface exposure from all AiVRIC solutions into a unified lens — no tab-switching or manual aggregation.</p>
                 </div>
-                <div class="portal-detail-grid">
-                    <div class="portal-detail-box">
-                        <h4>What it delivers</h4>
-                        <ul class="list-style-one clearfix">
-                            <li>Cross-suite visibility.</li>
-                                        <li>Executive reporting packs.</li>
-                                        <li>Audit-ready dashboards.</li>
-                        </ul>
-                    </div>
-<div class="portal-detail-box">
-                        <h4>Procurement highlights</h4>
-                        <ul class="list-style-one clearfix">
-                            <li>Pre-built reporting templates.</li>
-                                        <li>Role-based access controls.</li>
-                                        <li>Exportable insights and evidence.</li>
-                        </ul>
-                    </div>
-<div class="portal-replaces">
-                        <h4>Replaces the following Enterprise Solutions</h4>
-                        <ul class="portal-pill-list">
-                        <li class="portal-pill"><i class="fas fa-check"></i>Custom BI reporting</li>
-                        <li class="portal-pill"><i class="fas fa-check"></i>Manual compliance summaries</li>
-                        <li class="portal-pill"><i class="fas fa-check"></i>Spreadsheet-based risk dashboards</li>
-                        <li class="portal-pill"><i class="fas fa-check"></i>Static audit packs</li>
-                        </ul>
-                    </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon" style="background:rgba(167,139,250,0.11);border-color:rgba(167,139,250,0.24);color:var(--cs-purple);"><i class="fas fa-magic"></i></div>
+                  <h4>GenAI Risk Narratives</h4>
+                  <p>AI drafts plain-language summaries of your current risk posture, top findings, and compliance gaps — tailored for board, audit committee, or operational audiences on demand.</p>
                 </div>
-                                <div class="portal-usecases">
-                    <h4>Meets the following use cases</h4>
-                    <ul class="portal-usecase-list">
-                        <li><a href="streamline-soc2.html">SOC 2 Type II</a></li>
-                        <li><a href="achieve-pci-dss.html">PCI-DSS</a></li>
-                        <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
-                        <li><a href="issues-poams.html">Issues and POA&Ms</a></li>
-                        <li><a href="threat-analysis.html">Threat Analysis</a></li>
-                    </ul>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon" style="background:rgba(167,139,250,0.11);border-color:rgba(167,139,250,0.24);color:var(--cs-purple);"><i class="fas fa-chart-line"></i></div>
+                  <h4>Trend &amp; KPI Tracking</h4>
+                  <p>Track posture score trends, open risk count, compliance drift, and mean-time-to-remediate over configurable time horizons with anomaly detection alerts.</p>
                 </div>
-                                <div class="portal-compliance">
-                    <div class="sec-title mb_30">
-                        <span class="sub-title">Security & Compliance</span>
-                        <h3>Security and compliance frameworks supported</h3>
-                    </div>
-                    <p class="portal-compliance-intro">Mapped controls, evidence, and reporting for enterprise requirements.</p>
-                    <details>
-                        <summary>SOC 2 (Security, Availability, Confidentiality)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Maintain continuous monitoring of security controls and retain audit evidence.
-                        </div>
-                        <ul>
-                            <li>Centralizes control evidence and logs for audits.</li>
-                            <li>Tracks remediation activity with approvals and timestamps.</li>
-                            <li>Provides executive-ready compliance reporting.</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>ISO/IEC 27001 (Information Security Management)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Establish risk treatment controls and demonstrate ongoing effectiveness.
-                        </div>
-                        <ul>
-                            <li>Maps findings to control objectives and risk registers.</li>
-                            <li>Documents remediation and verification workflows.</li>
-                            <li>Maintains evidence for continuous assurance.</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>PCI-DSS (Payment Card Security)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Monitor systems, detect misconfigurations, and document remediation actions.
-                        </div>
-                        <ul>
-                            <li>Flags posture gaps and policy violations in real time.</li>
-                            <li>Produces audit-ready reports for assessors.</li>
-                            <li>Tracks remediation with accountability.</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>CMMC (Federal Contractor Readiness)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Implement security practices and keep verifiable evidence of performance.
-                        </div>
-                        <ul>
-                            <li>Aligns controls to maturity requirements.</li>
-                            <li>Maintains POA&Ms and exception documentation.</li>
-                            <li>Supports evidence collection for audits.</li>
-                        </ul>
-                    </details>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon" style="background:rgba(167,139,250,0.11);border-color:rgba(167,139,250,0.24);color:var(--cs-purple);"><i class="fas fa-file-export"></i></div>
+                  <h4>Audit-Ready Exports</h4>
+                  <p>One-click export of evidence bundles, compliance summaries, and risk register snapshots in PDF, JSON, and CSV — ready for assessors, auditors, and legal review.</p>
                 </div>
-                <div class="sec-title mb_30">
-                    <span class="sub-title">Key Capabilities</span>
-                    <h3>Capabilities aligned to enterprise requirements</h3>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon" style="background:rgba(167,139,250,0.11);border-color:rgba(167,139,250,0.24);color:var(--cs-purple);"><i class="fas fa-user-tie"></i></div>
+                  <h4>Stakeholder Access Tiers</h4>
+                  <p>Give board members, auditors, and GRC leads read-only dashboards with audience-appropriate data — no security platform license required for reporting consumers.</p>
                 </div>
-                <div class="portal-cap-grid">
-                                <div class="portal-cap">
-                                    <h5>Unified Dashboards</h5>
-                                    <p>Defense and Offense insights.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Report Automation</h5>
-                                    <p>Standard and custom reports.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Risk Summaries</h5>
-                                    <p>Executive-level summaries.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Evidence Linking</h5>
-                                    <p>Trace insights to evidence.</p>
-                                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon" style="background:rgba(167,139,250,0.11);border-color:rgba(167,139,250,0.24);color:var(--cs-purple);"><i class="fas fa-bell"></i></div>
+                  <h4>Scheduled Report Delivery</h4>
+                  <p>Configure weekly board packs, monthly compliance summaries, or real-time risk alerts delivered via email, Slack, or Teams to the right audience automatically.</p>
                 </div>
-                <div class="content-four mt_40">
-                    <div class="sec-title mb_30">
-                        <span class="sub-title">Outcomes</span>
-                        <h3>Business outcomes you can expect</h3>
-                    </div>
-                    <div class="portal-outcomes-grid">
-                        <div class="portal-cap">
-                            <h5>Faster executive reporting</h5>
-                            <p>Prebuilt views deliver instant leadership updates.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Unified risk narrative</h5>
-                            <p>Consistent story across suites and stakeholders.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Audit readiness on demand</h5>
-                            <p>Evidence exports ready for auditors anytime.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Improved stakeholder alignment</h5>
-                            <p>Shared KPIs for security, IT, and compliance teams.</p>
-                        </div>
-                    </div>
-                </div>
-                                <div class="content-four mt_40 portal-faq">
-                    <div class="sec-title mb_20">
-                        <span class="sub-title">Enterprise FAQs</span>
-                        <h3>Answers for security, compliance, and procurement teams</h3>
-                    </div>
-                    <div class="portal-faq-list">
-                        <details>
-                            <summary>Deployment models</summary>
-                            <p>SaaS, customer-hosted SaaS, or private deployment options with shared controls and audit artifacts. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Data residency &amp; retention</summary>
-                            <p>Regional data residency, configurable retention, and export/purge policies to meet governance needs. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Integrations (SIEM/SOAR, ticketing, CI/CD)</summary>
-                            <p>Native connectors and APIs for SIEM/SOAR, ticketing systems, and CI/CD workflows. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>SSO/SCIM &amp; RBAC</summary>
-                            <p>SSO and SCIM provisioning with granular RBAC for least-privilege access. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Evidence &amp; audit support</summary>
-                            <p>Evidence packages, control mappings, and audit-ready reporting for assessors. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Support/SLA options</summary>
-                            <p>Business and enterprise tiers with response-time SLAs and escalation paths. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                    </div>
-                </div>
-                <div class="mt_40 portal-actions">
-                    <a href="solutions-portal.html#vision" class="theme-btn-one">Back to Solutions</a>
-                    <button type="button" class="theme-btn-two ml_10 js-release-modal" data-solution="AiVRIC Vision AI Optics&trade;">Notify when released</button>
-                </div>
+              </div>
             </div>
-        </section><!-- main-footer -->
+          </section>
+
+          <div class="csp-divider"></div>
+
+          <!-- ── AVAILABLE NOW nudge ── -->
+          <section class="csp-section">
+            <div class="auto-container">
+              <div style="border-radius:var(--cs-radius);background:linear-gradient(135deg,rgba(167,139,250,0.08),rgba(0,209,255,0.05));border:1px solid rgba(167,139,250,0.22);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+                <div>
+                  <span style="display:block;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--cs-purple);margin-bottom:8px;">Vision AI Available Now</span>
+                  <h3 style="font-family:Jost,Inter,sans-serif;font-size:22px;font-weight:800;color:var(--cs-text-strong);margin:0 0 6px;">Try GenAI risk narratives in CloudSignals+RiskOps™ today.</h3>
+                  <p style="font-size:14px;color:var(--cs-muted);margin:0;">The Vision AI module — GenAI risk narratives, intelligent compliance summaries, and AI chat — is live inside CloudSignals+RiskOps™. No wait required.</p>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:10px;flex-shrink:0;">
+                  <a href="cspm-cloudsignals.html" class="cs-btn primary" style="white-space:nowrap;">
+                    <i class="fas fa-bolt"></i> Explore CloudSignals+RiskOps™
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ── BOTTOM CTA ── -->
+          <div class="auto-container">
+            <div class="csp-bottom-cta" style="margin-top:52px;">
+              <h2>Security intelligence at the executive level.</h2>
+              <p>Vision AI Optics™ is coming in 2026. Get notified at launch and be among the first to see unified AI-powered reporting for your entire AiVRIC deployment.</p>
+              <div class="csp-bottom-actions">
+                <button type="button" class="cs-btn primary js-release-modal" data-solution="Vision AI Optics™">
+                  <i class="fas fa-bell"></i> Notify me at launch
+                </button>
+                <a href="cspm-cloudsignals.html" class="cs-btn secondary">Start with CloudSignals now</a>
+                <a href="pricing.html" class="cs-btn ghost">View all solutions</a>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /cs-product-page --><!-- main-footer -->
         <footer class="main-footer">
             <div class="widget-section">
                 <div class="pattern-layer">
