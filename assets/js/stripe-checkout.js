@@ -9,7 +9,7 @@
     'use strict';
 
     const CONFIG = {
-        controlPlaneApiUrl: 'https://control.aivric.com',
+        controlPlaneApiUrl: 'https://control-panel.aivric.com',
         defenseAppUrl: 'https://defense.aivric.com',
         successUrl: window.location.origin + '/success.html',
         cancelUrl: window.location.origin + window.location.pathname,
@@ -18,7 +18,7 @@
 
     function normalizeConfig() {
         if (!CONFIG.controlPlaneApiUrl || CONFIG.controlPlaneApiUrl.includes('%%')) {
-            CONFIG.controlPlaneApiUrl = 'https://control.aivric.com';
+            CONFIG.controlPlaneApiUrl = 'https://control-panel.aivric.com';
         }
         if (!CONFIG.defenseAppUrl || CONFIG.defenseAppUrl.includes('%%')) {
             CONFIG.defenseAppUrl = 'https://defense.aivric.com';
