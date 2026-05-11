@@ -3028,6 +3028,113 @@ header.main-header .main-menu .navigation > li.dropdown .blogs-megamenu {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   Header Top Bar
+══════════════════════════════════════════════════════════════════════════════ */
+.header-top-bar {
+  background: #050c18;
+  border-bottom: 1px solid rgba(0, 209, 255, 0.08);
+  padding: 6px 0;
+  position: relative;
+  z-index: 10;
+}
+.header-top-bar .top-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.top-bar-brand {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.top-bar-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.top-bar-links li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  padding: 3px 8px;
+  border-radius: 5px;
+  transition: color 0.15s, background 0.15s;
+}
+.top-bar-links li a:hover {
+  color: #00d1ff;
+  background: rgba(0, 209, 255, 0.07);
+}
+.top-bar-icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+}
+.top-bar-icon.accent-cyan i { color: #00d1ff; }
+.top-bar-separator {
+  color: rgba(255, 255, 255, 0.15);
+  font-size: 12px;
+  user-select: none;
+}
+.top-bar-social {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.top-bar-social li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 5px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 12px;
+  text-decoration: none;
+  transition: color 0.15s, background 0.15s;
+}
+.top-bar-social li a:hover {
+  color: #00d1ff;
+  background: rgba(0, 209, 255, 0.08);
+}
+.theme-toggle {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 5px;
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+  line-height: 1.6;
+}
+.theme-toggle:hover {
+  color: #00d1ff;
+  border-color: rgba(0, 209, 255, 0.4);
+}
+@media (max-width: 767px) {
+  .header-top-bar { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
    CloudSignals+RiskOps Mega-Menu  (cs-product-menu)
 ══════════════════════════════════════════════════════════════════════════════ */
 header.main-header .main-menu .navigation > li.cs-product-menu .cs-product-megamenu {
