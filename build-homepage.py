@@ -12,12 +12,22 @@ INDEX = SITE / "index.html"
 
 raw = INDEX.read_text(encoding="utf-8", errors="replace")
 
-BANNER_ANCHOR = "        <!-- banner-section -->"
 FOOTER_ANCHOR = "        <!-- main-footer -->"
 
-bi = raw.find(BANNER_ANCHOR)
+# Support first run (original page) and reruns (already rebuilt page)
+bi = raw.find("        <!-- banner-section -->")
+if bi == -1:
+    # Already rebuilt — start just after the mobile menu block
+    mobile_end = raw.find("<!-- End Mobile Menu -->")
+    assert mobile_end != -1, "Could not find Mobile Menu end"
+    bi = raw.find("\n", mobile_end) + 1  # char after that line's newline
+    # consume any blank lines so we start clean
+    while bi < len(raw) and raw[bi] in (" ", "\n", "\r", "\t"):
+        bi += 1
+    bi = raw.rfind("\n", 0, bi) + 1  # back to start of last blank line
+
 fi = raw.find(FOOTER_ANCHOR)
-assert bi != -1 and fi != -1, "Anchors not found"
+assert fi != -1, "Could not find main-footer anchor"
 
 HEAD = raw[:bi]
 TAIL = raw[fi:]
@@ -65,7 +75,7 @@ HP_CSS = """
 /* ═══════════════════════════════════════════════════════════════════════
    SECTION 1 — HERO
 ═══════════════════════════════════════════════════════════════════════ */
-.hp-hero{position:relative;min-height:100vh;background:var(--hp-bg);overflow:hidden;display:flex;align-items:center;padding:140px 0 80px}
+.hp-hero{position:relative;min-height:100vh;background:var(--hp-bg);overflow:hidden;display:flex;align-items:center;padding:100px 0 60px}
 /* animated grid overlay */
 .hp-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,209,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,209,255,.035) 1px,transparent 1px);background-size:64px 64px;animation:hp-grid-pulse 9s ease-in-out infinite;pointer-events:none}
 @keyframes hp-grid-pulse{0%,100%{opacity:.3}50%{opacity:.8}}
@@ -809,9 +819,11 @@ NEW_BODY = r"""
 
 """
 
-# ── Inject CSS into <head> ─────────────────────────────────────────────────────
-if 'id="hp-styles"' not in HEAD:
-    HEAD = HEAD.replace("</head>", HP_CSS + "\n</head>", 1)
+# ── Inject CSS into <head> (replace existing block if present) ────────────────
+import re as _re
+if 'id="hp-styles"' in HEAD:
+    HEAD = _re.sub(r'\n<style id="hp-styles">.*?</style>', '', HEAD, flags=_re.DOTALL)
+HEAD = HEAD.replace("</head>", HP_CSS + "\n</head>", 1)
 
 # ── Assemble ─────────────────────────────────────────────────────────────────
 NEW_RAW = HEAD + NEW_BODY + "\n        " + TAIL
