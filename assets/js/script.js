@@ -706,13 +706,20 @@ $(document).ready(function(){
   var page = (window.location.pathname.split('/').pop() || 'index.html')
                .replace(/[?#].*$/, '') || 'index.html';
 
+  // Skip external URLs — their basename could collide with local pages
+  function localBasename(href) {
+    if (!href) return '';
+    if (/^https?:\/\//i.test(href)) return '';
+    return href.split('/').pop().replace(/[?#].*$/, '');
+  }
+
   var $topItems = $('.main-menu .navigation > li');
 
   $topItems.each(function(){
     var $li = $(this);
 
     // 1. Check top-level anchor href
-    var topHref = ($li.children('a').attr('href') || '').split('/').pop().replace(/[?#].*$/, '');
+    var topHref = localBasename($li.children('a').attr('href') || '');
     if(topHref && topHref !== '#' && topHref === page){
       $li.addClass('current');
       return; // next li
@@ -721,7 +728,7 @@ $(document).ready(function(){
     // 2. Check all descendant links (mega-menu cards, dropdown items, etc.)
     var found = false;
     $li.find('a[href]').each(function(){
-      var href = ($(this).attr('href') || '').split('/').pop().replace(/[?#].*$/, '');
+      var href = localBasename($(this).attr('href') || '');
       if(href && href === page){
         found = true;
         return false; // break .each

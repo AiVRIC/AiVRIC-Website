@@ -2740,7 +2740,8 @@ header.main-header .main-menu .navigation > li.dropdown .megamenu {
 header.main-header .main-menu .navigation > li.dropdown:hover .megamenu,
 header.main-header .main-menu .navigation > li.dropdown:hover > ul,
 header.main-header .main-menu .navigation > li.dropdown:hover .platform-megamenu,
-header.main-header .main-menu .navigation > li.dropdown:hover .blogs-megamenu {
+header.main-header .main-menu .navigation > li.dropdown:hover .blogs-megamenu,
+header.main-header .main-menu .navigation > li.dropdown:hover .cs-product-megamenu {
   opacity: 1 !important;
   visibility: visible !important;
   margin-top: 0 !important;
@@ -3024,4 +3025,211 @@ header.main-header .main-menu .navigation > li.dropdown .blogs-megamenu {
 .blog-preview a {
   font-weight: 700;
   color: #7dd3fc;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CloudSignals+RiskOps Mega-Menu  (cs-product-menu)
+══════════════════════════════════════════════════════════════════════════════ */
+header.main-header .main-menu .navigation > li.cs-product-menu .cs-product-megamenu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 920px;
+  margin-top: 18px;
+  padding: 0;
+  border-radius: 18px;
+  background: #050c18;
+  border: 1px solid rgba(0, 209, 255, 0.14);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(0, 209, 255, 0.04);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, margin-top 0.2s ease, visibility 0.2s ease;
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.cs-mega-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 26px;
+  background: rgba(0, 209, 255, 0.04);
+  border-bottom: 1px solid rgba(0, 209, 255, 0.1);
+}
+
+.cs-mega-hdr-info { flex: 1; }
+
+.cs-mega-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #2ee59d;
+  margin-bottom: 6px;
+}
+
+.cs-avail-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2ee59d;
+  box-shadow: 0 0 6px #2ee59d;
+  display: inline-block;
+  flex-shrink: 0;
+  animation: cs-avail-blink 2s ease-in-out infinite;
+}
+@keyframes cs-avail-blink { 0%,100%{opacity:1} 50%{opacity:.35} }
+
+.cs-mega-hdr h3 {
+  font-size: 17px;
+  font-weight: 800;
+  color: #f0f8ff;
+  margin: 0 0 4px;
+  font-family: 'Jost', sans-serif;
+}
+
+.cs-mega-hdr p {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cs-mega-pricing-cta {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #00d1ff;
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 8px 16px;
+  border: 1px solid rgba(0, 209, 255, 0.3);
+  border-radius: 8px;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+.cs-mega-pricing-cta:hover {
+  background: rgba(0, 209, 255, 0.08);
+  border-color: #00d1ff;
+  color: #00d1ff;
+}
+
+.cs-mega-body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  padding: 20px 26px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cs-mega-col {
+  padding: 0 18px 0 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+.cs-mega-col:first-child { padding-left: 0; }
+.cs-mega-col:last-child { border-right: none; padding-right: 0; padding-left: 18px; }
+.cs-mega-col:not(:first-child):not(:last-child) { padding: 0 18px; }
+
+.cs-mega-col-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #94a3b8;
+  margin-bottom: 12px;
+}
+
+.cs-mega-feat-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 9px 8px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #e2e8f0;
+  transition: background 0.15s;
+  margin-bottom: 2px;
+}
+.cs-mega-feat-card:hover {
+  background: rgba(0, 209, 255, 0.06);
+  color: #e2e8f0;
+}
+.cs-mega-feat-card i {
+  color: #00d1ff;
+  font-size: 14px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  width: 16px;
+}
+.cs-mega-feat-card strong {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin-bottom: 2px;
+}
+.cs-mega-feat-card span {
+  font-size: 11px;
+  color: #94a3b8;
+  line-height: 1.4;
+  display: block;
+}
+
+.cs-mega-ftr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 26px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.cs-mega-ftr-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.cs-mega-ftr-link:hover { color: #00d1ff; }
+
+.cs-mega-ftr-ctas { display: flex; gap: 10px; }
+
+.cs-mega-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 18px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #00d1ff;
+  color: #050c18 !important;
+  text-decoration: none;
+  transition: background 0.15s;
+}
+.cs-mega-btn-primary:hover { background: #00e8ff; color: #050c18 !important; }
+
+.cs-mega-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 18px;
+  border-radius: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid rgba(0, 209, 255, 0.3);
+  color: #00d1ff !important;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+.cs-mega-btn-ghost:hover {
+  background: rgba(0, 209, 255, 0.08);
+  border-color: #00d1ff;
+  color: #00d1ff !important;
 }
