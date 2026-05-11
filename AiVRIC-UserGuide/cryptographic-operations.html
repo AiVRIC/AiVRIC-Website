@@ -37,7 +37,7 @@
 <body data-page="cryptographic-operations">
   <header class="guide-header">
     <div class="bar">
-      <a class="brand" href="index.html"><span class="dot"></span>AiVRIC User Guide</a>
+      <a class="brand" href="index.html"><img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo"><span>Platform Guide</span></a>
 
       <div class="top-links">
         <a href="../index.html">AiVRIC.com</a>
@@ -55,8 +55,31 @@
     </div>
   </header>
 
-  <main class="policy-main">
-    <div class="policy-hero">
+    <div class="guide-shell">
+    <aside class="guide-sidebar" id="sidebar">
+      <div class="nav-section">
+        <p class="nav-label">Essentials</p>
+        <a class="nav-link" data-page-target="home" href="index.html">Overview <small>Start here</small></a>
+        <a class="nav-link" data-page-target="getting-started" href="getting-started.html">Getting started <small>Setup</small></a>
+        <a class="nav-link" data-page-target="platform" href="platform-overview.html">Platform overview <small>How AiVRIC works</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">CloudSignals+RiskOps</p>
+        <a class="nav-link" data-page-target="cloudsignals" href="cloudsignals-riskops.html">Module overview <small>How it works</small></a>
+        <a class="nav-link" data-page-target="connectors" href="connectors.html">Connectors <small>Connect cloud accounts</small></a>
+        <a class="nav-link" data-page-target="integrations" href="integrations.html">Integrations <small>SIEM, ticketing &amp; alerts</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Assurance</p>
+        <a class="nav-link" data-page-target="security" href="security-trust.html">Security &amp; Trust <small>Controls</small></a>
+        <a class="nav-link" data-page-target="governance" href="ai-governance.html">AI Governance <small>Policies</small></a>
+        <a class="nav-link" data-page-target="faq" href="faq.html">FAQ &amp; Support <small>Answers</small></a>
+      </div>
+    </aside>
+
+    <main class="guide-content">
+
+    <div class="policy-hero" style="margin-bottom:16px">
       <span class="badge">Security policy</span>
       <h1>Cryptographic Operations</h1>
       <p>Governs encryption, key management, and cryptographic services across AiVRIC to protect sensitive data at rest and in transit.</p>
@@ -69,10 +92,10 @@
     </div>
 
     <!-- TOC -->
-    <section class="policy-section" aria-label="Table of contents">
-      <div class="policy-card">
+    <section class="guide-section" aria-label="Table of contents">
+      <div class="guide-card">
         <h2>On this page</h2>
-        <ul class="policy-list">
+        <ul class="policy-list guide-content-list">
           <li><a href="#purpose">Purpose & scope</a></li>
           <li><a href="#controls">Key controls</a></li>
           <li><a href="#procedures">Operating procedures</a></li>
@@ -82,8 +105,8 @@
     </section>
 
     <!-- PURPOSE -->
-    <section class="policy-section" id="purpose">
-      <div class="policy-card">
+    <section class="guide-section" id="purpose">
+      <div class="guide-card">
         <h2>Purpose & scope</h2>
 
         <p>
@@ -103,8 +126,8 @@
     </section>
 
     <!-- CONTROLS -->
-    <section class="policy-section" id="controls">
-      <div class="policy-card">
+    <section class="guide-section" id="controls">
+      <div class="guide-card">
         <h2>Key controls</h2>
 
         <ul class="policy-list policy-list--separated">
@@ -160,8 +183,8 @@
     </section>
 
     <!-- PROCEDURES -->
-    <section class="policy-section" id="procedures">
-      <div class="policy-card">
+    <section class="guide-section" id="procedures">
+      <div class="guide-card">
         <h2>Operating procedures</h2>
 
         <ul class="policy-list policy-list--separated">
@@ -202,8 +225,8 @@
     </section>
 
     <!-- EVIDENCE -->
-    <section class="policy-section" id="evidence">
-      <div class="policy-card">
+    <section class="guide-section" id="evidence">
+      <div class="guide-card">
         <h2>Evidence & ownership</h2>
 
         <ul class="policy-list policy-list--separated">
@@ -229,7 +252,8 @@
         </ul>
       </div>
     </section>
-  </main>
+      </main>
+  </div>
 
   <footer class="guide-footer">
     <span>user-guide.aivric.com</span>
@@ -238,6 +262,19 @@
 
   <script>
     (function(){
+      var toggle = document.querySelector('.nav-toggle');
+      var sidebar = document.getElementById('sidebar');
+      if(toggle && sidebar){
+        toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); });
+      }
+    })();
+  </script>
+  <script>
+    (function(){
+      var p = document.body.dataset.page;
+      document.querySelectorAll('[data-page-target]').forEach(function(a){
+        if(a.dataset.pageTarget === p){ a.classList.add('active'); }
+      });
       var toggle = document.querySelector('.nav-toggle');
       var sidebar = document.getElementById('sidebar');
       if(toggle && sidebar){

@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title>Solutions | AiVRIC</title>
+<title>Threat Analysis | Business-Prioritized Risk Intelligence | AiVRIC</title>
+<meta name="description" content="Correlate threats and prioritize remediation by business impact with threat analysis from AiVRIC CloudSignals+RiskOps.">
 
 <!-- Fav Icon -->
 <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
@@ -32,6 +33,407 @@
 <link href="assets/css/responsive.css" rel="stylesheet">
 
   <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       CloudSignals Product Page — Design System
+       Matches cloudsignals-pricing.html token set
+    ========================================================= */
+    :root{
+      --cs-cyan:#00d1ff; --cs-green:#2ee59d; --cs-gold:#ffd63a; --cs-purple:#a78bfa;
+      --cs-text-strong:#f8fafc; --cs-text:#e5e7eb; --cs-muted:#cbd5e1; --cs-faint:#94a3b8; --cs-accent:#7dd3fc;
+      --cs-surface-1:rgba(255,255,255,0.06); --cs-surface-2:rgba(255,255,255,0.10);
+      --cs-line:rgba(148,163,184,0.28); --cs-line-strong:rgba(148,163,184,0.5);
+      --cs-shadow:0 14px 40px rgba(0,0,0,0.28); --cs-radius:18px;
+      --cs-btn:#00d1ff; --cs-btn-hover:#24ddff; --cs-btn-active:#00b8e6;
+      --cs-btn-fg:#fff; --cs-btn-border:rgba(0,209,255,0.6);
+      --cs-btn-border-hover:rgba(0,209,255,0.85);
+      --cs-btn-shadow:0 12px 24px rgba(0,209,255,0.2);
+      --cs-btn-shadow-hover:0 14px 28px rgba(0,209,255,0.28);
+    }
+
+    body.portal-page{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 900px at 70% -20%,rgba(0,209,255,0.20),transparent 55%),
+        radial-gradient(900px 700px at 10% 10%,rgba(46,113,229,0.13),transparent 60%),
+        linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%);
+      color:var(--cs-text);
+    }
+
+    /* ---- Shared button primitives ---- */
+    .cs-btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:11px 22px; border-radius:999px; font-weight:700; font-size:14px;
+      letter-spacing:0.01em; text-decoration:none; cursor:pointer; transition:all 0.22s;
+      text-shadow:0 1px 0 rgba(0,0,0,0.3);
+    }
+    .cs-btn.primary{
+      background:var(--cs-btn); color:var(--cs-btn-fg)!important;
+      border:1px solid var(--cs-btn-border); box-shadow:var(--cs-btn-shadow);
+    }
+    .cs-btn.primary:hover{
+      background:var(--cs-btn-hover); border-color:var(--cs-btn-border-hover);
+      box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px);
+    }
+    .cs-btn.secondary{
+      background:rgba(0,209,255,0.10); color:var(--cs-text-strong)!important;
+      border:1px solid rgba(0,209,255,0.65); box-shadow:none;
+      text-shadow:0 1px 1px rgba(2,20,32,0.35);
+    }
+    .cs-btn.secondary:hover{
+      background:var(--cs-btn-hover)!important; color:#fff!important;
+      border-color:var(--cs-btn-border-hover)!important;
+      box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px);
+    }
+    .cs-btn.ghost{
+      background:transparent; color:var(--cs-text-strong)!important;
+      border:1px solid rgba(255,255,255,0.22); box-shadow:none; text-shadow:none;
+    }
+    .cs-btn.ghost:hover{
+      background:rgba(255,255,255,0.07)!important; transform:translateY(-1px);
+    }
+    .cs-btn[data-cloudsignals-free]{
+      background:var(--cs-btn); color:var(--cs-btn-fg)!important;
+      border:1px solid var(--cs-btn-border); box-shadow:var(--cs-btn-shadow);
+    }
+    .cs-btn[data-cloudsignals-free]:hover{
+      background:var(--cs-btn-hover); border-color:var(--cs-btn-border-hover);
+      box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px);
+    }
+
+    /* ---- Page wrapper ---- */
+    .cs-product-page{ padding:0; }
+
+    /* ---- Hero ---- */
+    .csp-hero{
+      padding:100px 0 56px;
+      position:relative; overflow:hidden;
+    }
+    @media(max-width:992px){ .csp-hero{ padding:80px 0 40px; } }
+    .csp-hero-grid{
+      display:grid; grid-template-columns:1.25fr 0.75fr; gap:32px; align-items:start;
+    }
+    @media(max-width:992px){ .csp-hero-grid{ grid-template-columns:1fr; } }
+
+    .csp-badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 14px; border-radius:999px;
+      background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.35);
+      color:var(--cs-text-strong); font-size:12.5px; font-weight:600; letter-spacing:0.3px;
+      margin-bottom:16px;
+    }
+    .csp-badge i{ color:var(--cs-cyan); }
+    .csp-badge .avail-dot{
+      width:8px; height:8px; border-radius:50%; background:var(--cs-green);
+      box-shadow:0 0 6px rgba(46,229,157,0.7); flex-shrink:0;
+    }
+
+    .csp-title{
+      font-family:Jost,Inter,sans-serif; font-size:54px; font-weight:800;
+      line-height:1.03; letter-spacing:-1.2px; color:var(--cs-text-strong); margin:0 0 14px;
+    }
+    @media(max-width:768px){ .csp-title{ font-size:38px; } }
+    .csp-sub{
+      font-size:17px; line-height:1.75; color:var(--cs-muted); max-width:62ch; margin:0 0 24px;
+    }
+    .csp-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+
+    /* Release band (inline) */
+    .csp-release-band{
+      display:flex; flex-wrap:wrap; gap:10px;
+    }
+    .csp-rb-item{
+      display:flex; align-items:center; gap:8px;
+      padding:8px 14px; border-radius:12px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+    }
+    .csp-rb-label{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--cs-faint); }
+    .csp-rb-val{ font-size:13px; color:var(--cs-text); font-weight:600; }
+    .csp-rb-val.avail{
+      color:var(--cs-green);
+      display:flex; align-items:center; gap:6px;
+    }
+    .csp-rb-val.avail::before{
+      content:""; width:7px; height:7px; border-radius:50%;
+      background:var(--cs-green); box-shadow:0 0 5px rgba(46,229,157,0.6);
+    }
+
+    /* Hero sidebar */
+    .csp-hero-aside{
+      display:flex; flex-direction:column; gap:14px; padding-top:4px;
+    }
+    .csp-quick-card{
+      border-radius:16px; padding:18px 20px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      box-shadow:var(--cs-shadow);
+    }
+    .csp-quick-card h4{
+      font-size:13px; font-weight:700; color:var(--cs-text-strong); margin:0 0 12px;
+      text-transform:uppercase; letter-spacing:0.5px;
+    }
+    .csp-quick-list{ list-style:none; padding:0; margin:0; display:grid; gap:7px; }
+    .csp-quick-list li{
+      display:flex; gap:9px; align-items:flex-start;
+      font-size:13px; color:var(--cs-muted); line-height:1.45;
+    }
+    .csp-quick-list li i{ color:var(--cs-green); flex-shrink:0; margin-top:1px; font-size:11px; }
+    .csp-quick-link{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 16px; border-radius:12px;
+      background:rgba(0,209,255,0.07); border:1px solid rgba(0,209,255,0.22);
+      text-decoration:none; transition:background 0.2s;
+    }
+    .csp-quick-link:hover{ background:rgba(0,209,255,0.12); }
+    .csp-quick-link span{ font-size:13.5px; font-weight:600; color:var(--cs-text-strong); }
+    .csp-quick-link i{ color:var(--cs-cyan); font-size:12px; }
+
+    /* ---- Shared section ---- */
+    .csp-section{ padding:52px 0 0; }
+    .csp-eyebrow{
+      display:block; font-size:12px; font-weight:700; letter-spacing:1.5px;
+      text-transform:uppercase; color:var(--cs-cyan); margin-bottom:8px;
+    }
+    .csp-section-title{
+      font-family:Jost,Inter,sans-serif; font-size:32px; font-weight:800;
+      color:var(--cs-text-strong); margin:0 0 10px; letter-spacing:-0.4px; line-height:1.15;
+    }
+    .csp-section-sub{
+      font-size:15px; line-height:1.75; color:var(--cs-muted); max-width:80ch; margin:0 0 28px;
+    }
+
+    /* ---- Module cards ---- */
+    .csp-modules-grid{
+      display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+    }
+    @media(max-width:1100px){ .csp-modules-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:576px){ .csp-modules-grid{ grid-template-columns:1fr; } }
+    .csp-module-card{
+      border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      padding:22px; box-shadow:var(--cs-shadow);
+      display:flex; flex-direction:column; gap:12px;
+      transition:border-color 0.2s,box-shadow 0.2s;
+    }
+    .csp-module-card:hover{ border-color:rgba(0,209,255,0.3); box-shadow:0 20px 48px rgba(0,0,0,0.3); }
+    .csp-module-icon{
+      width:46px; height:46px; border-radius:13px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:20px; flex-shrink:0;
+    }
+    .csp-module-icon.cyan{ background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.28); color:var(--cs-cyan); }
+    .csp-module-icon.green{ background:rgba(46,229,157,0.13); border:1px solid rgba(46,229,157,0.28); color:var(--cs-green); }
+    .csp-module-icon.gold{ background:rgba(255,214,58,0.13); border:1px solid rgba(255,214,58,0.28); color:var(--cs-gold); }
+    .csp-module-icon.purple{ background:rgba(167,139,250,0.13); border:1px solid rgba(167,139,250,0.28); color:var(--cs-purple); }
+    .csp-module-card h3{ font-size:16px; font-weight:700; color:var(--cs-text-strong); margin:0; }
+    .csp-module-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; flex:1; }
+    .csp-module-feats{ list-style:none; padding:0; margin:0; display:grid; gap:6px; }
+    .csp-module-feats li{
+      font-size:12.5px; color:var(--cs-muted); display:flex; gap:7px; align-items:flex-start;
+    }
+    .csp-module-feats li::before{ content:"→"; color:var(--cs-cyan); font-size:11px; flex-shrink:0; margin-top:1px; }
+
+    /* ---- Capabilities grid ---- */
+    .csp-cap-grid{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+    }
+    @media(max-width:992px){ .csp-cap-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:576px){ .csp-cap-grid{ grid-template-columns:1fr; } }
+    .csp-cap{
+      border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      padding:20px; box-shadow:var(--cs-shadow);
+    }
+    .csp-cap-icon{
+      width:40px; height:40px; border-radius:11px;
+      background:rgba(0,209,255,0.11); border:1px solid rgba(0,209,255,0.24);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--cs-cyan); font-size:16px; margin-bottom:12px;
+    }
+    .csp-cap h4{ font-size:15px; font-weight:700; color:var(--cs-text-strong); margin:0 0 6px; }
+    .csp-cap p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; }
+
+    /* ---- Scope strip (plan limits) ---- */
+    .csp-scope-strip{
+      border-radius:var(--cs-radius);
+      background:linear-gradient(90deg,rgba(0,89,255,0.11),rgba(0,209,255,0.06));
+      border:1px solid rgba(0,89,255,0.22); padding:26px 28px;
+      display:flex; flex-direction:column; gap:16px;
+    }
+    .csp-scope-header{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+    .csp-scope-header h3{ font-family:Jost,Inter,sans-serif; font-size:20px; font-weight:700; color:var(--cs-text-strong); margin:0; }
+    .csp-scope-metrics{
+      display:grid; grid-template-columns:repeat(6,1fr); gap:14px;
+    }
+    @media(max-width:1100px){ .csp-scope-metrics{ grid-template-columns:repeat(3,1fr); } }
+    @media(max-width:576px){ .csp-scope-metrics{ grid-template-columns:repeat(2,1fr); } }
+    .csp-metric{
+      background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09);
+      border-radius:14px; padding:14px 12px; text-align:center;
+    }
+    .csp-metric-val{
+      font-family:Jost,Inter,sans-serif; font-size:24px; font-weight:800;
+      color:var(--cs-cyan); letter-spacing:-0.5px; display:block; margin-bottom:4px;
+    }
+    .csp-metric-label{ font-size:12px; color:var(--cs-muted); line-height:1.4; }
+    .csp-scope-note{
+      font-size:13px; color:var(--cs-faint); line-height:1.6;
+    }
+    .csp-scope-note a{ color:var(--cs-cyan); }
+
+    /* ---- Compliance ---- */
+    .csp-fw-grid{
+      display:grid; grid-template-columns:repeat(2,1fr); gap:14px;
+    }
+    @media(max-width:768px){ .csp-fw-grid{ grid-template-columns:1fr; } }
+    .csp-fw-card{
+      border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      overflow:hidden; box-shadow:var(--cs-shadow);
+    }
+    .csp-fw-head{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:16px 18px; cursor:pointer; user-select:none;
+    }
+    .csp-fw-head::-webkit-details-marker{ display:none; }
+    .csp-fw-head-left{ display:flex; align-items:center; gap:12px; }
+    .csp-fw-logo{
+      width:36px; height:36px; border-radius:10px;
+      background:rgba(0,209,255,0.11); border:1px solid rgba(0,209,255,0.24);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--cs-cyan); font-size:14px; flex-shrink:0;
+    }
+    .csp-fw-name{ font-size:15px; font-weight:700; color:var(--cs-text-strong); }
+    .csp-fw-sub{ font-size:12.5px; color:var(--cs-muted); margin-top:2px; }
+    .csp-fw-chevron{ color:var(--cs-faint); font-size:12px; transition:transform 0.2s; flex-shrink:0; }
+    details[open] .csp-fw-chevron{ transform:rotate(90deg); }
+    .csp-fw-body{
+      padding:0 18px 16px;
+      border-top:1px solid var(--cs-line);
+      padding-top:14px;
+    }
+    .csp-fw-req{
+      background:rgba(0,209,255,0.06); border:1px solid rgba(0,209,255,0.18);
+      border-radius:10px; padding:10px 12px; margin-bottom:10px;
+      font-size:13px; color:var(--cs-muted); line-height:1.6;
+    }
+    .csp-fw-req strong{ color:var(--cs-cyan); }
+    .csp-fw-body ul{ padding-left:16px; margin:0; display:grid; gap:5px; }
+    .csp-fw-body li{ font-size:13.5px; color:var(--cs-muted); line-height:1.55; }
+
+    /* ---- Deployment options ---- */
+    .csp-deploy-grid{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+    }
+    @media(max-width:768px){ .csp-deploy-grid{ grid-template-columns:1fr; } }
+    .csp-deploy-card{
+      border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      padding:24px; box-shadow:var(--cs-shadow);
+    }
+    .csp-deploy-card.highlight{ border-color:rgba(0,209,255,0.35); }
+    .csp-deploy-icon{
+      width:44px; height:44px; border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px; margin-bottom:14px;
+    }
+    .csp-deploy-card h3{ font-size:17px; font-weight:700; color:var(--cs-text-strong); margin:0 0 8px; }
+    .csp-deploy-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0 0 14px; }
+    .csp-deploy-tags{ display:flex; flex-wrap:wrap; gap:6px; }
+    .csp-tag{
+      padding:4px 11px; border-radius:999px;
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+      color:var(--cs-muted); font-size:12px; font-weight:600;
+    }
+
+    /* ---- Pricing preview ---- */
+    .csp-pricing-preview{
+      border-radius:var(--cs-radius);
+      background:linear-gradient(135deg,rgba(0,209,255,0.08) 0%,rgba(46,229,157,0.04) 100%);
+      border:1px solid rgba(0,209,255,0.25);
+      box-shadow:0 20px 56px rgba(0,209,255,0.08),var(--cs-shadow);
+      padding:32px;
+    }
+    .csp-pp-grid{
+      display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center;
+    }
+    @media(max-width:768px){ .csp-pp-grid{ grid-template-columns:1fr; } }
+    .csp-pp-tiers{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    .csp-pp-tier{
+      padding:8px 16px; border-radius:12px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      display:flex; flex-direction:column; gap:2px; min-width:100px;
+    }
+    .csp-pp-tier.active{ border-color:rgba(0,209,255,0.38); background:rgba(0,209,255,0.07); }
+    .csp-pp-tier-name{ font-size:13px; font-weight:700; color:var(--cs-text-strong); }
+    .csp-pp-tier-price{ font-size:12px; color:var(--cs-muted); }
+    .csp-pp-aside{ display:flex; flex-direction:column; gap:10px; align-items:flex-end; }
+
+    /* ---- FAQ ---- */
+    .csp-faq-grid{
+      display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px;
+    }
+    @media(max-width:992px){ .csp-faq-grid{ grid-template-columns:1fr; } }
+    .csp-faq-item{
+      border-radius:16px; border:1px solid var(--cs-line);
+      background:var(--cs-surface-1); padding:16px; box-shadow:var(--cs-shadow);
+    }
+    .csp-faq-item summary{
+      cursor:pointer; font-weight:700; font-size:14.5px; color:var(--cs-text-strong);
+      list-style:none; user-select:none;
+    }
+    .csp-faq-item summary::-webkit-details-marker{ display:none; }
+    details[open] .csp-faq-item summary,
+    .csp-faq-item[open] summary{ color:var(--cs-cyan); }
+    .csp-faq-item p{
+      margin:10px 0 0; color:var(--cs-muted); font-size:13.5px; line-height:1.75;
+    }
+    .csp-faq-item a{ color:var(--cs-cyan); }
+
+    /* ---- Bottom CTA ---- */
+    .csp-bottom-cta{
+      margin:52px 0 60px;
+      border-radius:var(--cs-radius);
+      background:linear-gradient(135deg,rgba(0,209,255,0.09) 0%,rgba(46,229,157,0.05) 100%);
+      border:1px solid rgba(0,209,255,0.25);
+      box-shadow:0 24px 60px rgba(0,209,255,0.09);
+      padding:40px; text-align:center;
+    }
+    .csp-bottom-cta h2{
+      font-family:Jost,Inter,sans-serif; font-size:36px; font-weight:800;
+      color:var(--cs-text-strong); margin:0 0 12px; letter-spacing:-0.5px;
+    }
+    @media(max-width:768px){ .csp-bottom-cta h2{ font-size:26px; } }
+    .csp-bottom-cta p{
+      font-size:16px; color:var(--cs-muted); line-height:1.7;
+      max-width:60ch; margin:0 auto 24px;
+    }
+    .csp-bottom-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+
+    /* ---- Divider ---- */
+    .csp-divider{
+      height:1px; background:linear-gradient(90deg,transparent,var(--cs-line),transparent);
+      margin:48px 0 0;
+    }
+
+    /* ---- Use case pills ---- */
+    .csp-usecase-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .csp-usecase-pill{
+      display:inline-flex; align-items:center; gap:7px;
+      padding:9px 16px; border-radius:12px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      color:var(--cs-muted); font-size:13.5px; font-weight:600; text-decoration:none;
+      transition:border-color 0.2s,color 0.2s;
+    }
+    .csp-usecase-pill:hover{ border-color:rgba(0,209,255,0.35); color:var(--cs-cyan); }
+    .csp-usecase-pill i{ color:var(--cs-cyan); font-size:11px; }
+
+    /* ---- "Replaces" ---- */
+    .csp-replaces-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .csp-replaces-pill{
+      display:inline-flex; align-items:center; gap:7px;
+      padding:7px 14px; border-radius:999px;
+      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.10);
+      color:var(--cs-muted); font-size:13px; font-weight:600;
+    }
+    .csp-replaces-pill i{ color:var(--cs-green); font-size:11px; }
+  </style>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
@@ -315,102 +717,131 @@
                 </div>
             </nav>
         </div><!-- End Mobile Menu -->
-
-
-        <!-- page-title -->
-        <section class="page-title centred">
-            <div class="bg-layer" style="background-image: url(assets/images/banner/banner-4.avif);"></div>
-            <div class="auto-container">
-                <div class="content-box">
-                    <h1>Threat Analysis</h1>
-                    <ul class="bread-crumb clearfix">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="solutions.html">Solutions</a></li>
-                        <li>Threat Analysis</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <!-- page-title end -->        <section class="portal-detail p_relative sec-pad">
-            <div class="auto-container">
-                <div class="portal-hero">
-                    <h2>Threat Analysis</h2>
-                    <p>Prioritize threats and align remediation to business impact.</p>
-                </div>
-                <div class="portal-related">
-    <h4>AiVRIC solutions required</h4>
-    <div class="portal-badges">
-        <span class="portal-badge badge-rogue"><i class="fas fa-crosshairs"></i>RogueAgent ASPM&trade;</span>
-        <span class="portal-badge badge-risk"><i class="fas fa-radar"></i>Digital Risk Monitoring</span>
-        <span class="portal-badge badge-vision"><i class="fas fa-eye"></i>AiVRIC Vision</span>
+<style>
+  :root{--fp-cyan:#00d1ff;--fp-green:#2ee59d;--fp-gold:#ffd63a;--fp-purple:#a78bfa;
+    --fp-text:#f8fafc;--fp-muted:#cbd5e1;--fp-surf:rgba(255,255,255,0.06);--fp-line:rgba(148,163,184,0.22);}
+  .fpp-hero{padding:90px 0 48px;}
+  .fpp-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;
+    background:rgba(255,214,58,0.12);border:1px solid rgba(255,214,58,0.32);
+    color:#f8fafc;font-size:12px;font-weight:700;margin-bottom:14px;}
+  .fpp-badge .gold-dot{width:7px;height:7px;border-radius:50%;background:#ffd63a;
+    box-shadow:0 0 6px rgba(255,214,58,0.6);}
+  .fpp-title{font-family:Jost,Inter,sans-serif;font-size:48px;font-weight:800;
+    line-height:1.05;letter-spacing:-1px;color:#f8fafc;margin:0 0 12px;}
+  .fpp-sub{font-size:16px;color:#cbd5e1;line-height:1.75;max-width:60ch;margin:0 0 24px;}
+  .fpp-actions{display:flex;gap:12px;flex-wrap:wrap;}
+  .fpp-section{padding:48px 0 0;}
+  .fpp-eyebrow{display:block;font-size:11.5px;font-weight:700;letter-spacing:1.5px;
+    text-transform:uppercase;color:var(--fp-cyan);margin-bottom:8px;}
+  .fpp-section-title{font-family:Jost,Inter,sans-serif;font-size:28px;font-weight:800;
+    color:#f8fafc;margin:0 0 8px;}
+  .fpp-section-sub{font-size:14.5px;color:#cbd5e1;line-height:1.7;max-width:72ch;margin:0 0 24px;}
+  .fpp-cap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  @media(max-width:768px){.fpp-cap-grid{grid-template-columns:1fr;}}
+  .fpp-cap{border-radius:16px;background:rgba(255,255,255,0.06);border:1px solid rgba(148,163,184,0.22);padding:20px;}
+  .fpp-cap-icon{width:40px;height:40px;border-radius:11px;background:rgba(255,214,58,0.1);
+    border:1px solid rgba(255,214,58,0.22);display:flex;align-items:center;justify-content:center;
+    color:#ffd63a;font-size:16px;margin-bottom:12px;}
+  .fpp-cap h4{font-size:15px;font-weight:700;color:#f8fafc;margin:0 0 6px;}
+  .fpp-cap p{font-size:13.5px;color:#cbd5e1;line-height:1.65;margin:0;}
+  .fpp-outcome-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:768px){.fpp-outcome-grid{grid-template-columns:1fr;}}
+  .fpp-outcome{border-radius:14px;background:rgba(255,255,255,0.06);border:1px solid rgba(148,163,184,0.22);
+    padding:18px;text-align:center;}
+  .fpp-outcome-num{font-family:Jost,Inter,sans-serif;font-size:32px;font-weight:800;
+    color:#ffd63a;display:block;margin-bottom:4px;}
+  .fpp-outcome p{font-size:13.5px;color:#cbd5e1;line-height:1.6;margin:0;}
+  .fpp-cta{padding:44px 0 28px;text-align:center;}
+  .fpp-cta h2{font-family:Jost,Inter,sans-serif;font-size:28px;font-weight:800;color:#f8fafc;margin:0 0 10px;}
+  .fpp-cta p{font-size:15px;color:#cbd5e1;margin:0 0 20px;}
+</style>
+<div class="cs-product-page">
+  <section class="fpp-hero">
+    <div class="auto-container">
+      <div class="fpp-badge"><span class="gold-dot"></span> CloudSignals+RiskOps &mdash; Available Now</div>
+      <h1 class="fpp-title">Threat Analysis.<br>Prioritized by business impact.</h1>
+      <p class="fpp-sub">Correlate threats, apply business-context risk scoring, and deliver executive-ready intelligence — so your team knows exactly where to focus remediation effort.</p>
+      <div class="fpp-actions">
+        <a href="https://calendly.com/aivric/cloudsignals-demo" class="cs-btn primary">Book a Demo</a>
+        <a href="cloudsignals-pricing.html" class="cs-btn secondary">View Pricing</a>
+        <a href="cspm-cloudsignals.html" class="cs-btn ghost">CloudSignals+RiskOps</a>
+      </div>
     </div>
+  </section>
+
+  <section class="fpp-section">
+    <div class="auto-container">
+      <span class="fpp-eyebrow">Capabilities</span>
+      <h2 class="fpp-section-title">From raw signals to actionable intelligence</h2>
+      <p class="fpp-section-sub">CloudSignals+RiskOps correlates findings across all connected providers and layers on business context to surface the threats that matter most.</p>
+      <div class="fpp-cap-grid">
+        <div class="fpp-cap">
+          <div class="fpp-cap-icon"><i class="fas fa-random"></i></div>
+          <h4>Threat Correlation</h4>
+          <p>Automatically correlate related findings across cloud providers, identities, and assets to surface attack paths and multi-vector exposures.</p>
+        </div>
+        <div class="fpp-cap">
+          <div class="fpp-cap-icon"><i class="fas fa-thermometer-half"></i></div>
+          <h4>Risk Scoring</h4>
+          <p>Business-context risk scoring combines technical severity, asset criticality, and exposure to rank threats by real-world impact — not just CVSS.</p>
+        </div>
+        <div class="fpp-cap">
+          <div class="fpp-cap-icon"><i class="fas fa-chart-bar"></i></div>
+          <h4>Executive Reports</h4>
+          <p>Auto-generated threat intelligence reports formatted for C-suite and board — risk posture, top threats, trend lines, and remediation status.</p>
+        </div>
+        <div class="fpp-cap">
+          <div class="fpp-cap-icon"><i class="fas fa-directions"></i></div>
+          <h4>Action Guidance</h4>
+          <p>Each threat surfaces with step-by-step remediation guidance, affected asset list, and compliance impact — no manual triage required.</p>
+        </div>
+        <div class="fpp-cap">
+          <div class="fpp-cap-icon"><i class="fas fa-satellite-dish"></i></div>
+          <h4>Threat Intelligence Integration</h4>
+          <p>Enrich findings with external threat intelligence feeds to contextualize exposure against active threat actors and known vulnerabilities.</p>
+        </div>
+        <div class="fpp-cap">
+          <div class="fpp-cap-icon"><i class="fas fa-cogs"></i></div>
+          <h4>SOC Workflow Integration</h4>
+          <p>Push prioritized threats directly to your SIEM, SOAR, or ticketing system via native integrations with Jira, ServiceNow, Splunk, and more.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fpp-section">
+    <div class="auto-container">
+      <span class="fpp-eyebrow">Outcomes</span>
+      <h2 class="fpp-section-title">What threat analysis delivers</h2>
+      <div class="fpp-outcome-grid">
+        <div class="fpp-outcome">
+          <span class="fpp-outcome-num">Faster</span>
+          <p>Mean time to response — threats surfaced with context and guidance, not raw logs</p>
+        </div>
+        <div class="fpp-outcome">
+          <span class="fpp-outcome-num">Fewer</span>
+          <p>Alert fatigue incidents — business-context scoring cuts noise before it reaches the SOC</p>
+        </div>
+        <div class="fpp-outcome">
+          <span class="fpp-outcome-num">Ready</span>
+          <p>Executive and board-level threat reporting — on demand, no manual prep required</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="fpp-section fpp-cta">
+    <div class="auto-container">
+      <h2>Ready to prioritize what matters?</h2>
+      <p>See how CloudSignals+RiskOps turns raw security signals into business-prioritized threat intelligence.</p>
+      <div class="fpp-actions" style="justify-content:center">
+        <a href="https://calendly.com/aivric/cloudsignals-demo" class="cs-btn primary">Book a Demo</a>
+        <a href="cloudsignals-pricing.html" class="cs-btn secondary">Compare plans</a>
+      </div>
+    </div>
+  </section>
 </div>
-                <div class="portal-detail-grid">
-                    <div class="portal-detail-box">
-                        <h4>What it delivers</h4>
-                        <ul class="list-style-one clearfix">
-                            <li>Threat correlation across signals.</li>
-                                        <li>Risk scoring and prioritization.</li>
-                                        <li>Executive-ready reporting.</li>
-                        </ul>
-                    </div>
-                    <div class="portal-detail-box">
-                        <h4>Procurement highlights</h4>
-                        <ul class="list-style-one clearfix">
-                            <li>Threat intelligence integration.</li>
-                                        <li>Risk reporting aligned to governance.</li>
-                                        <li>Workflow integration with SOC operations.</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="sec-title mb_30">
-                    <span class="sub-title">Key Capabilities</span>
-                    <h3>Capabilities aligned to enterprise requirements</h3>
-                </div>
-                <div class="portal-cap-grid">
-                                <div class="portal-cap">
-                                    <h5>Threat Correlation</h5>
-                                    <p>Map signals to threats.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Risk Scoring</h5>
-                                    <p>Prioritize by impact.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Executive Reports</h5>
-                                    <p>Board-ready summaries.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Action Guidance</h5>
-                                    <p>Recommended remediation paths.</p>
-                                </div>
-                </div>
-                <div class="content-four mt_40">
-                    <div class="sec-title mb_30">
-                        <span class="sub-title">Outcomes</span>
-                        <h3>Business outcomes you can expect</h3>
-                    </div>
-                    <div class="portal-outcomes-grid">
-                        <div class="portal-cap">
-                            <h5>Reduce exposure to high-impact threats</h5>
-                            <p>Prioritize critical risks with full context.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Improve response prioritization</h5>
-                            <p>Rank threats by likelihood and impact.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Deliver actionable intelligence</h5>
-                            <p>Provide clear guidance for remediation.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt_40 portal-actions">
-                    <a href="use-cases-portal.html#riskops" class="theme-btn-one">Back to Use Cases</a>
-                    <a href="request-demo.html" class="theme-btn-two ml_10">Talk to Sales</a>
-                </div>
-            </div>
-        </section><!-- main-footer -->
+        </div><!-- /cs-product-page --><!-- main-footer -->
         <footer class="main-footer">
             <div class="widget-section">
                 <div class="pattern-layer">
@@ -550,6 +981,13 @@
     <script src="assets/js/blog-mega.js"></script>
 </body><!-- End of .page_wrapper -->
 </html>
+
+
+
+
+
+
+
 
 
 

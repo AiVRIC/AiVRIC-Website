@@ -1,11 +1,12 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title>CMMC Readiness - AiVRIC</title>
+<title>CMMC Level 2 Readiness | NIST 800-171 Automation | AiVRIC CloudSignals</title>
+<meta name="description" content="Operationalize CMMC Level 2 readiness with continuous NIST SP 800-171 verification, dynamic SSP and POA&M support from AiVRIC CloudSignals+RiskOps.">
 
 <!-- Fav Icon -->
 <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
@@ -26,27 +27,413 @@
 <link href="assets/css/elpath.css" rel="stylesheet">
 <link href="assets/css/style.css?v=20250115" rel="stylesheet">
 <link href="assets/css/elements-css/page-title.css" rel="stylesheet">
-<link href="assets/css/elements-css/service-details.css" rel="stylesheet">
+<link href="assets/css/elements-css/service.css" rel="stylesheet">
+<link href="assets/css/elements-css/about.css" rel="stylesheet">
+<link href="assets/css/elements-css/subscribe.css" rel="stylesheet">
 <link href="assets/css/responsive.css" rel="stylesheet">
 
-<style>
-    /* CMMC quad grid ? add space between cards, keep 2x2 layout */
-    .cmmc-grid .single-column {
-        padding: 0 15px 34px;
-    }
-
-    .cmmc-grid .single-item {
-        height: 100%;
-    }
-
-    @media (min-width: 992px) {
-        .cmmc-grid .single-column:nth-child(3),
-        .cmmc-grid .single-column:nth-child(4) {
-            margin-top: 60px;
-        }
-    }
-</style>
   <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       CloudSignals Product Page — Design System
+       Matches cloudsignals-pricing.html token set
+    ========================================================= */
+    :root{
+      --cs-cyan:#00d1ff; --cs-green:#2ee59d; --cs-gold:#ffd63a; --cs-purple:#a78bfa;
+      --cs-text-strong:#f8fafc; --cs-text:#e5e7eb; --cs-muted:#cbd5e1; --cs-faint:#94a3b8; --cs-accent:#7dd3fc;
+      --cs-surface-1:rgba(255,255,255,0.06); --cs-surface-2:rgba(255,255,255,0.10);
+      --cs-line:rgba(148,163,184,0.28); --cs-line-strong:rgba(148,163,184,0.5);
+      --cs-shadow:0 14px 40px rgba(0,0,0,0.28); --cs-radius:18px;
+      --cs-btn:#00d1ff; --cs-btn-hover:#24ddff; --cs-btn-active:#00b8e6;
+      --cs-btn-fg:#fff; --cs-btn-border:rgba(0,209,255,0.6);
+      --cs-btn-border-hover:rgba(0,209,255,0.85);
+      --cs-btn-shadow:0 12px 24px rgba(0,209,255,0.2);
+      --cs-btn-shadow-hover:0 14px 28px rgba(0,209,255,0.28);
+    }
+
+    body.portal-page{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 900px at 70% -20%,rgba(0,209,255,0.20),transparent 55%),
+        radial-gradient(900px 700px at 10% 10%,rgba(46,113,229,0.13),transparent 60%),
+        linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%);
+      color:var(--cs-text);
+    }
+
+    /* ---- Shared button primitives ---- */
+    .cs-btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:11px 22px; border-radius:999px; font-weight:700; font-size:14px;
+      letter-spacing:0.01em; text-decoration:none; cursor:pointer; transition:all 0.22s;
+      text-shadow:0 1px 0 rgba(0,0,0,0.3);
+    }
+    .cs-btn.primary{
+      background:var(--cs-btn); color:var(--cs-btn-fg)!important;
+      border:1px solid var(--cs-btn-border); box-shadow:var(--cs-btn-shadow);
+    }
+    .cs-btn.primary:hover{
+      background:var(--cs-btn-hover); border-color:var(--cs-btn-border-hover);
+      box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px);
+    }
+    .cs-btn.secondary{
+      background:rgba(0,209,255,0.10); color:var(--cs-text-strong)!important;
+      border:1px solid rgba(0,209,255,0.65); box-shadow:none;
+      text-shadow:0 1px 1px rgba(2,20,32,0.35);
+    }
+    .cs-btn.secondary:hover{
+      background:var(--cs-btn-hover)!important; color:#fff!important;
+      border-color:var(--cs-btn-border-hover)!important;
+      box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px);
+    }
+    .cs-btn.ghost{
+      background:transparent; color:var(--cs-text-strong)!important;
+      border:1px solid rgba(255,255,255,0.22); box-shadow:none; text-shadow:none;
+    }
+    .cs-btn.ghost:hover{
+      background:rgba(255,255,255,0.07)!important; transform:translateY(-1px);
+    }
+    .cs-btn[data-cloudsignals-free]{
+      background:var(--cs-btn); color:var(--cs-btn-fg)!important;
+      border:1px solid var(--cs-btn-border); box-shadow:var(--cs-btn-shadow);
+    }
+    .cs-btn[data-cloudsignals-free]:hover{
+      background:var(--cs-btn-hover); border-color:var(--cs-btn-border-hover);
+      box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px);
+    }
+
+    /* ---- Page wrapper ---- */
+    .cs-product-page{ padding:0; }
+
+    /* ---- Hero ---- */
+    .csp-hero{
+      padding:100px 0 56px;
+      position:relative; overflow:hidden;
+    }
+    @media(max-width:992px){ .csp-hero{ padding:80px 0 40px; } }
+    .csp-hero-grid{
+      display:grid; grid-template-columns:1.25fr 0.75fr; gap:32px; align-items:start;
+    }
+    @media(max-width:992px){ .csp-hero-grid{ grid-template-columns:1fr; } }
+
+    .csp-badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 14px; border-radius:999px;
+      background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.35);
+      color:var(--cs-text-strong); font-size:12.5px; font-weight:600; letter-spacing:0.3px;
+      margin-bottom:16px;
+    }
+    .csp-badge i{ color:var(--cs-cyan); }
+    .csp-badge .avail-dot{
+      width:8px; height:8px; border-radius:50%; background:var(--cs-green);
+      box-shadow:0 0 6px rgba(46,229,157,0.7); flex-shrink:0;
+    }
+
+    .csp-title{
+      font-family:Jost,Inter,sans-serif; font-size:54px; font-weight:800;
+      line-height:1.03; letter-spacing:-1.2px; color:var(--cs-text-strong); margin:0 0 14px;
+    }
+    @media(max-width:768px){ .csp-title{ font-size:38px; } }
+    .csp-sub{
+      font-size:17px; line-height:1.75; color:var(--cs-muted); max-width:62ch; margin:0 0 24px;
+    }
+    .csp-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+
+    /* Release band (inline) */
+    .csp-release-band{
+      display:flex; flex-wrap:wrap; gap:10px;
+    }
+    .csp-rb-item{
+      display:flex; align-items:center; gap:8px;
+      padding:8px 14px; border-radius:12px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+    }
+    .csp-rb-label{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--cs-faint); }
+    .csp-rb-val{ font-size:13px; color:var(--cs-text); font-weight:600; }
+    .csp-rb-val.avail{
+      color:var(--cs-green);
+      display:flex; align-items:center; gap:6px;
+    }
+    .csp-rb-val.avail::before{
+      content:""; width:7px; height:7px; border-radius:50%;
+      background:var(--cs-green); box-shadow:0 0 5px rgba(46,229,157,0.6);
+    }
+
+    /* Hero sidebar */
+    .csp-hero-aside{
+      display:flex; flex-direction:column; gap:14px; padding-top:4px;
+    }
+    .csp-quick-card{
+      border-radius:16px; padding:18px 20px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      box-shadow:var(--cs-shadow);
+    }
+    .csp-quick-card h4{
+      font-size:13px; font-weight:700; color:var(--cs-text-strong); margin:0 0 12px;
+      text-transform:uppercase; letter-spacing:0.5px;
+    }
+    .csp-quick-list{ list-style:none; padding:0; margin:0; display:grid; gap:7px; }
+    .csp-quick-list li{
+      display:flex; gap:9px; align-items:flex-start;
+      font-size:13px; color:var(--cs-muted); line-height:1.45;
+    }
+    .csp-quick-list li i{ color:var(--cs-green); flex-shrink:0; margin-top:1px; font-size:11px; }
+    .csp-quick-link{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 16px; border-radius:12px;
+      background:rgba(0,209,255,0.07); border:1px solid rgba(0,209,255,0.22);
+      text-decoration:none; transition:background 0.2s;
+    }
+    .csp-quick-link:hover{ background:rgba(0,209,255,0.12); }
+    .csp-quick-link span{ font-size:13.5px; font-weight:600; color:var(--cs-text-strong); }
+    .csp-quick-link i{ color:var(--cs-cyan); font-size:12px; }
+
+    /* ---- Shared section ---- */
+    .csp-section{ padding:52px 0 0; }
+    .csp-eyebrow{
+      display:block; font-size:12px; font-weight:700; letter-spacing:1.5px;
+      text-transform:uppercase; color:var(--cs-cyan); margin-bottom:8px;
+    }
+    .csp-section-title{
+      font-family:Jost,Inter,sans-serif; font-size:32px; font-weight:800;
+      color:var(--cs-text-strong); margin:0 0 10px; letter-spacing:-0.4px; line-height:1.15;
+    }
+    .csp-section-sub{
+      font-size:15px; line-height:1.75; color:var(--cs-muted); max-width:80ch; margin:0 0 28px;
+    }
+
+    /* ---- Module cards ---- */
+    .csp-modules-grid{
+      display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+    }
+    @media(max-width:1100px){ .csp-modules-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:576px){ .csp-modules-grid{ grid-template-columns:1fr; } }
+    .csp-module-card{
+      border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      padding:22px; box-shadow:var(--cs-shadow);
+      display:flex; flex-direction:column; gap:12px;
+      transition:border-color 0.2s,box-shadow 0.2s;
+    }
+    .csp-module-card:hover{ border-color:rgba(0,209,255,0.3); box-shadow:0 20px 48px rgba(0,0,0,0.3); }
+    .csp-module-icon{
+      width:46px; height:46px; border-radius:13px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:20px; flex-shrink:0;
+    }
+    .csp-module-icon.cyan{ background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.28); color:var(--cs-cyan); }
+    .csp-module-icon.green{ background:rgba(46,229,157,0.13); border:1px solid rgba(46,229,157,0.28); color:var(--cs-green); }
+    .csp-module-icon.gold{ background:rgba(255,214,58,0.13); border:1px solid rgba(255,214,58,0.28); color:var(--cs-gold); }
+    .csp-module-icon.purple{ background:rgba(167,139,250,0.13); border:1px solid rgba(167,139,250,0.28); color:var(--cs-purple); }
+    .csp-module-card h3{ font-size:16px; font-weight:700; color:var(--cs-text-strong); margin:0; }
+    .csp-module-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; flex:1; }
+    .csp-module-feats{ list-style:none; padding:0; margin:0; display:grid; gap:6px; }
+    .csp-module-feats li{
+      font-size:12.5px; color:var(--cs-muted); display:flex; gap:7px; align-items:flex-start;
+    }
+    .csp-module-feats li::before{ content:"→"; color:var(--cs-cyan); font-size:11px; flex-shrink:0; margin-top:1px; }
+
+    /* ---- Capabilities grid ---- */
+    .csp-cap-grid{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+    }
+    @media(max-width:992px){ .csp-cap-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:576px){ .csp-cap-grid{ grid-template-columns:1fr; } }
+    .csp-cap{
+      border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      padding:20px; box-shadow:var(--cs-shadow);
+    }
+    .csp-cap-icon{
+      width:40px; height:40px; border-radius:11px;
+      background:rgba(0,209,255,0.11); border:1px solid rgba(0,209,255,0.24);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--cs-cyan); font-size:16px; margin-bottom:12px;
+    }
+    .csp-cap h4{ font-size:15px; font-weight:700; color:var(--cs-text-strong); margin:0 0 6px; }
+    .csp-cap p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; }
+
+    /* ---- Scope strip (plan limits) ---- */
+    .csp-scope-strip{
+      border-radius:var(--cs-radius);
+      background:linear-gradient(90deg,rgba(0,89,255,0.11),rgba(0,209,255,0.06));
+      border:1px solid rgba(0,89,255,0.22); padding:26px 28px;
+      display:flex; flex-direction:column; gap:16px;
+    }
+    .csp-scope-header{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+    .csp-scope-header h3{ font-family:Jost,Inter,sans-serif; font-size:20px; font-weight:700; color:var(--cs-text-strong); margin:0; }
+    .csp-scope-metrics{
+      display:grid; grid-template-columns:repeat(6,1fr); gap:14px;
+    }
+    @media(max-width:1100px){ .csp-scope-metrics{ grid-template-columns:repeat(3,1fr); } }
+    @media(max-width:576px){ .csp-scope-metrics{ grid-template-columns:repeat(2,1fr); } }
+    .csp-metric{
+      background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09);
+      border-radius:14px; padding:14px 12px; text-align:center;
+    }
+    .csp-metric-val{
+      font-family:Jost,Inter,sans-serif; font-size:24px; font-weight:800;
+      color:var(--cs-cyan); letter-spacing:-0.5px; display:block; margin-bottom:4px;
+    }
+    .csp-metric-label{ font-size:12px; color:var(--cs-muted); line-height:1.4; }
+    .csp-scope-note{
+      font-size:13px; color:var(--cs-faint); line-height:1.6;
+    }
+    .csp-scope-note a{ color:var(--cs-cyan); }
+
+    /* ---- Compliance ---- */
+    .csp-fw-grid{
+      display:grid; grid-template-columns:repeat(2,1fr); gap:14px;
+    }
+    @media(max-width:768px){ .csp-fw-grid{ grid-template-columns:1fr; } }
+    .csp-fw-card{
+      border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      overflow:hidden; box-shadow:var(--cs-shadow);
+    }
+    .csp-fw-head{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:16px 18px; cursor:pointer; user-select:none;
+    }
+    .csp-fw-head::-webkit-details-marker{ display:none; }
+    .csp-fw-head-left{ display:flex; align-items:center; gap:12px; }
+    .csp-fw-logo{
+      width:36px; height:36px; border-radius:10px;
+      background:rgba(0,209,255,0.11); border:1px solid rgba(0,209,255,0.24);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--cs-cyan); font-size:14px; flex-shrink:0;
+    }
+    .csp-fw-name{ font-size:15px; font-weight:700; color:var(--cs-text-strong); }
+    .csp-fw-sub{ font-size:12.5px; color:var(--cs-muted); margin-top:2px; }
+    .csp-fw-chevron{ color:var(--cs-faint); font-size:12px; transition:transform 0.2s; flex-shrink:0; }
+    details[open] .csp-fw-chevron{ transform:rotate(90deg); }
+    .csp-fw-body{
+      padding:0 18px 16px;
+      border-top:1px solid var(--cs-line);
+      padding-top:14px;
+    }
+    .csp-fw-req{
+      background:rgba(0,209,255,0.06); border:1px solid rgba(0,209,255,0.18);
+      border-radius:10px; padding:10px 12px; margin-bottom:10px;
+      font-size:13px; color:var(--cs-muted); line-height:1.6;
+    }
+    .csp-fw-req strong{ color:var(--cs-cyan); }
+    .csp-fw-body ul{ padding-left:16px; margin:0; display:grid; gap:5px; }
+    .csp-fw-body li{ font-size:13.5px; color:var(--cs-muted); line-height:1.55; }
+
+    /* ---- Deployment options ---- */
+    .csp-deploy-grid{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+    }
+    @media(max-width:768px){ .csp-deploy-grid{ grid-template-columns:1fr; } }
+    .csp-deploy-card{
+      border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      padding:24px; box-shadow:var(--cs-shadow);
+    }
+    .csp-deploy-card.highlight{ border-color:rgba(0,209,255,0.35); }
+    .csp-deploy-icon{
+      width:44px; height:44px; border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px; margin-bottom:14px;
+    }
+    .csp-deploy-card h3{ font-size:17px; font-weight:700; color:var(--cs-text-strong); margin:0 0 8px; }
+    .csp-deploy-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0 0 14px; }
+    .csp-deploy-tags{ display:flex; flex-wrap:wrap; gap:6px; }
+    .csp-tag{
+      padding:4px 11px; border-radius:999px;
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+      color:var(--cs-muted); font-size:12px; font-weight:600;
+    }
+
+    /* ---- Pricing preview ---- */
+    .csp-pricing-preview{
+      border-radius:var(--cs-radius);
+      background:linear-gradient(135deg,rgba(0,209,255,0.08) 0%,rgba(46,229,157,0.04) 100%);
+      border:1px solid rgba(0,209,255,0.25);
+      box-shadow:0 20px 56px rgba(0,209,255,0.08),var(--cs-shadow);
+      padding:32px;
+    }
+    .csp-pp-grid{
+      display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center;
+    }
+    @media(max-width:768px){ .csp-pp-grid{ grid-template-columns:1fr; } }
+    .csp-pp-tiers{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    .csp-pp-tier{
+      padding:8px 16px; border-radius:12px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      display:flex; flex-direction:column; gap:2px; min-width:100px;
+    }
+    .csp-pp-tier.active{ border-color:rgba(0,209,255,0.38); background:rgba(0,209,255,0.07); }
+    .csp-pp-tier-name{ font-size:13px; font-weight:700; color:var(--cs-text-strong); }
+    .csp-pp-tier-price{ font-size:12px; color:var(--cs-muted); }
+    .csp-pp-aside{ display:flex; flex-direction:column; gap:10px; align-items:flex-end; }
+
+    /* ---- FAQ ---- */
+    .csp-faq-grid{
+      display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px;
+    }
+    @media(max-width:992px){ .csp-faq-grid{ grid-template-columns:1fr; } }
+    .csp-faq-item{
+      border-radius:16px; border:1px solid var(--cs-line);
+      background:var(--cs-surface-1); padding:16px; box-shadow:var(--cs-shadow);
+    }
+    .csp-faq-item summary{
+      cursor:pointer; font-weight:700; font-size:14.5px; color:var(--cs-text-strong);
+      list-style:none; user-select:none;
+    }
+    .csp-faq-item summary::-webkit-details-marker{ display:none; }
+    details[open] .csp-faq-item summary,
+    .csp-faq-item[open] summary{ color:var(--cs-cyan); }
+    .csp-faq-item p{
+      margin:10px 0 0; color:var(--cs-muted); font-size:13.5px; line-height:1.75;
+    }
+    .csp-faq-item a{ color:var(--cs-cyan); }
+
+    /* ---- Bottom CTA ---- */
+    .csp-bottom-cta{
+      margin:52px 0 60px;
+      border-radius:var(--cs-radius);
+      background:linear-gradient(135deg,rgba(0,209,255,0.09) 0%,rgba(46,229,157,0.05) 100%);
+      border:1px solid rgba(0,209,255,0.25);
+      box-shadow:0 24px 60px rgba(0,209,255,0.09);
+      padding:40px; text-align:center;
+    }
+    .csp-bottom-cta h2{
+      font-family:Jost,Inter,sans-serif; font-size:36px; font-weight:800;
+      color:var(--cs-text-strong); margin:0 0 12px; letter-spacing:-0.5px;
+    }
+    @media(max-width:768px){ .csp-bottom-cta h2{ font-size:26px; } }
+    .csp-bottom-cta p{
+      font-size:16px; color:var(--cs-muted); line-height:1.7;
+      max-width:60ch; margin:0 auto 24px;
+    }
+    .csp-bottom-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+
+    /* ---- Divider ---- */
+    .csp-divider{
+      height:1px; background:linear-gradient(90deg,transparent,var(--cs-line),transparent);
+      margin:48px 0 0;
+    }
+
+    /* ---- Use case pills ---- */
+    .csp-usecase-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .csp-usecase-pill{
+      display:inline-flex; align-items:center; gap:7px;
+      padding:9px 16px; border-radius:12px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      color:var(--cs-muted); font-size:13.5px; font-weight:600; text-decoration:none;
+      transition:border-color 0.2s,color 0.2s;
+    }
+    .csp-usecase-pill:hover{ border-color:rgba(0,209,255,0.35); color:var(--cs-cyan); }
+    .csp-usecase-pill i{ color:var(--cs-cyan); font-size:11px; }
+
+    /* ---- "Replaces" ---- */
+    .csp-replaces-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .csp-replaces-pill{
+      display:inline-flex; align-items:center; gap:7px;
+      padding:7px 14px; border-radius:999px;
+      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.10);
+      color:var(--cs-muted); font-size:13px; font-weight:600;
+    }
+    .csp-replaces-pill i{ color:var(--cs-green); font-size:11px; }
+  </style>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
@@ -64,6 +451,8 @@
 
     <div class="boxed_wrapper">
 
+
+        
        <!-- preloader -->
         <div class="loader-wrap">
             <div class="preloader">
@@ -328,175 +717,219 @@
                 </div>
             </nav>
         </div><!-- End Mobile Menu -->
-
-
-        <!-- page-title -->
-        <section class="page-title centred">
-            <div class="bg-layer" style="background-image: url(assets/images/banner/banner-4.avif);"></div>
-            <div class="auto-container">
-                <div class="content-box">
-                    <h1>CMMC Readiness</h1>
-                    <ul class="bread-crumb clearfix">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#">Portfolio</a></li>
-                        <li>CMMC Readiness</li>
-                    </ul>
-                </div>
+<div class="cs-product-page">
+  <section class="csp-hero">
+    <div class="auto-container">
+      <div class="csp-hero-grid">
+        <div>
+          <div class="csp-badge">
+            <span class="beta-dot"></span>
+            CMMC Readiness &mdash; CloudSignals+RiskOps&#x2122;
+          </div>
+          <h1 class="csp-title">CMMC Level 2 Readiness.<br>Continuously verified.</h1>
+          <p class="csp-sub">Operationalize CMMC Level 2 compliance for defense contractors with automated NIST SP 800-171 mapping, continuous technical monitoring, and dynamic SSP and POA&amp;M support.</p>
+          <div class="csp-actions">
+            <a href="https://calendly.com/aivric/cloudsignals-demo" class="cs-btn primary">Request a CMMC Demo</a>
+            <a href="cloudsignals-pricing.html" class="cs-btn secondary">View Pricing</a>
+          </div>
+          <div class="csp-release-band">
+        <div class="csp-rb-item"><span class="csp-rb-label">CloudSignals+RiskOps</span><span class="csp-rb-val avail">Available Now</span></div>
+        <div class="csp-rb-item"><span class="csp-rb-label">Level</span><span class="csp-rb-val ">CMMC Level 2</span></div>
+        <div class="csp-rb-item"><span class="csp-rb-label">Alignment</span><span class="csp-rb-val ">NIST SP 800-171 + DFARS</span></div>
+          </div>
+        </div>
+        <div class="csp-hero-aside">
+          <div class="csp-quick-card">
+            <h4>Key Capabilities</h4>
+            <ul class="csp-quick-list">
+        <li><i class="fas fa-check-circle"></i> Automated mapping to all 110 NIST SP 800-171 practices</li>
+        <li><i class="fas fa-check-circle"></i> Continuous technical control verification (not just self-assessment)</li>
+        <li><i class="fas fa-check-circle"></i> Dynamic SSP and POA&amp;M with live posture data</li>
+        <li><i class="fas fa-check-circle"></i> CMMC Level 2 readiness scoring for leadership and assessors</li>
+        <li><i class="fas fa-check-circle"></i> CUI protection posture across cloud and SaaS</li>
+        <li><i class="fas fa-check-circle"></i> DFARS alignment and evidence packs</li>
+            </ul>
+          </div>
+          <a class="csp-quick-link" href="cloudsignals-pricing.html">
+            <span>CloudSignals+RiskOps Pricing</span>
+            <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="csp-section">
+    <div class="auto-container">
+      <span class="csp-eyebrow">How it works</span>
+      <h2 class="csp-section-title">Four modules for CMMC Level 2 readiness</h2>
+      <p class="csp-section-sub">CloudSignals+RiskOps replaces fragile spreadsheet-based CMMC tracking with live, technically verified posture data.</p>
+      <div class="csp-modules-grid">
+        <div class="csp-module-card">
+          <div class="csp-module-icon cyan"><i class="fas fa-map"></i></div>
+          <h3>NIST SP 800-171 Mapping</h3>
+          <p>Every technical control check is automatically mapped to the applicable NIST 800-171 practice.</p>
+          <ul class="csp-module-feats">
+          <li>All 110 practices covered</li>
+          <li>Finding-to-practice traceability</li>
+          <li>Cross-walk to CMMC Level 2 domains</li>
+          </ul>
+        </div>
+        <div class="csp-module-card">
+          <div class="csp-module-icon green"><i class="fas fa-heartbeat"></i></div>
+          <h3>Continuous Technical Monitoring</h3>
+          <p>Move beyond self-assessment — CloudSignals continuously verifies technical controls in your CUI environment.</p>
+          <ul class="csp-module-feats">
+          <li>24-hour automated posture checks</li>
+          <li>CUI environment boundary monitoring</li>
+          <li>Drift detection with alerting</li>
+          </ul>
+        </div>
+        <div class="csp-module-card">
+          <div class="csp-module-icon gold"><i class="fas fa-file-alt"></i></div>
+          <h3>SSP &amp; POA&amp;M Support</h3>
+          <p>Dynamic System Security Plan and POA&amp;M updated with live posture data, not quarterly snapshots.</p>
+          <ul class="csp-module-feats">
+          <li>Live SSP status per practice</li>
+          <li>POA&amp;M with milestones and ownership</li>
+          <li>Exportable for assessor review</li>
+          </ul>
+        </div>
+        <div class="csp-module-card">
+          <div class="csp-module-icon purple"><i class="fas fa-chart-bar"></i></div>
+          <h3>Readiness Reporting</h3>
+          <p>Leadership and C3PAO-ready readiness reports showing practice coverage, gaps, and trend lines.</p>
+          <ul class="csp-module-feats">
+          <li>Practice-level status dashboard</li>
+          <li>Gap analysis with risk ranking</li>
+          <li>Evidence packs for assessors</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="csp-section">
+    <div class="auto-container">
+      <span class="csp-eyebrow">Capabilities</span>
+      <h2 class="csp-section-title">End-to-end CMMC Level 2 capabilities</h2>
+      <div class="csp-cap-grid">
+        <div class="csp-cap">
+          <div class="csp-cap-icon"><i class="fas fa-search"></i></div>
+          <h4>Control Gap Analysis</h4>
+          <p>Identify which NIST 800-171 practices are not met and what's needed to close the gap.</p>
+        </div>
+        <div class="csp-cap">
+          <div class="csp-cap-icon"><i class="fas fa-heartbeat"></i></div>
+          <h4>Continuous Verification</h4>
+          <p>Automatically verify technical controls in your environment — not self-reported status.</p>
+        </div>
+        <div class="csp-cap">
+          <div class="csp-cap-icon"><i class="fas fa-file-contract"></i></div>
+          <h4>SSP Generation</h4>
+          <p>Maintain a live System Security Plan that reflects actual posture, not point-in-time snapshots.</p>
+        </div>
+        <div class="csp-cap">
+          <div class="csp-cap-icon"><i class="fas fa-tasks"></i></div>
+          <h4>POA&amp;M Tracking</h4>
+          <p>Track remediation milestones and ownership for every open CMMC finding.</p>
+        </div>
+        <div class="csp-cap">
+          <div class="csp-cap-icon"><i class="fas fa-archive"></i></div>
+          <h4>Evidence Collection</h4>
+          <p>Collect and package timestamped technical evidence for each NIST 800-171 practice.</p>
+        </div>
+        <div class="csp-cap">
+          <div class="csp-cap-icon"><i class="fas fa-clipboard-check"></i></div>
+          <h4>Assessor Reporting</h4>
+          <p>Generate C3PAO-ready evidence bundles and readiness summaries on demand.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="csp-section">
+    <div class="auto-container">
+      <span class="csp-eyebrow">Compliance</span>
+      <h2 class="csp-section-title">Frameworks and standards covered</h2>
+      <div class="csp-fw-grid">
+        <details class="csp-fw-card">
+          <summary class="csp-fw-head">
+            <div class="csp-fw-head-left">
+              <div class="csp-fw-logo"><i class="fas fa-shield-alt"></i></div>
+              <span class="csp-fw-name">CMMC Level 2</span>
             </div>
-        </section>
-        <!-- page-title end -->
-
-
-        <!-- service-details -->
-        <section class="service-details p_relative">
-            <div class="auto-container">
-                <div class="row clearfix">
-                    <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
-                        <div class="service-sidebar mr_40">
-                            <div class="sidebar-widget category-widget">
-                                <h3>Solutions</h3>
-                                <ul class="category-list clearfix">
-                                    <li><a href="streamline-soc2.html">SOC 2 Readiness</a></li>
-                                    <li><a href="achieve-pci-dss.html">Achieve PCI-DSS Compliance</a></li>
-                                    <li><a href="cmmc-readiness.html" class="current">CMMC Readiness</a></li>
-                                    <li><a href="achieve-iso27001-compliance.html">Achieve ISO 27001 Compliance</a></li>
-                                </ul>
-                            </div>
-                            <div class="sidebar-widget contact-widget centred">
-                                <div class="widget-content">
-                                    <div class="bg-layer" style="background-image: url(assets/images/service/risk-care.avif);"></div>
-                                    <h3>Need Help with <br />CMMC <span>Level 2?</span></h3>
-                                    <div class="icon-box"><i class="icon-29"></i></div>
-                                    <div class="inner-box">
-                                        <p><a href="mailto:info@aivric.com">info@aivric.com</a></p>
-                                        <h3><a href="tel:+19543426637">+1 954 342 6637</a></h3>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-8 col-md-12 col-sm-12 content-side">
-                        <div class="service-details-content">
-
-                            <!-- Hero content -->
-                            <div class="content-one mb_90">
-                                <figure class="image-box"><img src="assets/images/service/service-1.avif" alt="CMMC Automation"></figure>
-                                <div class="text">
-                                    <h2>Operationalize CMMC Level 2 Readiness with Continuous Verification</h2>
-                                    <p>Defense Industrial Base (DIB) contractors must demonstrate that they can reliably protect Controlled Unclassified Information (CUI). AiVRIC helps you build and maintain CMMC Level 2 readiness by continuously monitoring technical controls, mapping posture to NIST SP 800-171 requirements, and automating the evidence required for assessments.</p>
-                                    <p>Instead of relying on static spreadsheets and one-time gap assessments, AiVRIC provides a living view of your CMMC posture: what is implemented, what is partially implemented, and where risk remains. This allows leadership to make confident decisions about contracts, timelines, and remediation priorities.</p>
-                                </div>
-                            </div>
-
-                            <!-- Challenge section -->
-                            <div class="content-two mb_90">
-                                <div class="row clearfix">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 text-column">
-                                        <div class="text-box">
-                                            <h3>The CMMC Readiness Challenge</h3>
-                                            <p>CMMC 2.0 Level 2 is built on 110 NIST SP 800-171 practices and requires traceable proof that each requirement is implemented and maintained. For most organizations, the hard part is keeping everything current and defensible.</p>
-                                            <ul class="list-style-one clearfix">
-                                                <li>Complex environments spanning cloud, on-prem, and OT/edge systems</li>
-                                                <li>Dozens of tools producing uncorrelated security signals</li>
-                                                <li>Manual SSP, POA&amp;M, and evidence updates that quickly fall out of date</li>
-                                                <li>Limited visibility for executives, program managers, and assessment teams</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 image-column">
-                                        <figure class="image-box"><img src="assets/images/resource/about-1.avif" alt="CMMC Readiness Dashboard"></figure>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- How AiVRIC helps -->
-                            <div class="content-three mb_85">
-                                <div class="text mb_60">
-                                    <h3>How AiVRIC Accelerates CMMC Readiness</h3>
-                                    <p>AiVRIC connects posture data from your infrastructure, identity, endpoint, and logging platforms to the CMMC framework. It continuously evaluates technical controls, aligns them to NIST SP 800-171 requirements, and auto-generates evidence and narratives that can feed your SSP and POA&amp;M.</p>
-                                </div>
-
-                                <div class="row clearfix cmmc-grid">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
-                                        <div class="single-item">
-                                            <div class="icon-box"><i class="icon-8"></i></div>
-                                            <h3>Automated Mapping to NIST SP 800-171</h3>
-                                            <p>AiVRIC normalizes posture data from cloud, identity, endpoint, and network tools and maps it directly to NIST SP 800-171 practices, giving you a clear line of sight from each control to its supporting evidence.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
-                                        <div class="single-item">
-                                            <div class="icon-box"><i class="icon-13"></i></div>
-                                            <h3>Continuous Technical Control Monitoring</h3>
-                                            <p>The platform continuously checks configurations, access controls, system hardening, logging, and vulnerability status for in-scope assets?surfacing misconfigurations and control failures before they appear in an assessment report.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
-                                        <div class="single-item">
-                                            <div class="icon-box"><i class="icon-9"></i></div>
-                                            <h3>Dynamic SSP &amp; POA&amp;M Support</h3>
-                                            <p>Findings and implementation details captured in AiVRIC can be used to drive SSP content and POA&amp;M items, keeping your documentation in sync with the actual state of controls and remediation activities.</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-lg-6 col-md-6 col-sm-12 single-column">
-                                        <div class="single-item">
-                                            <div class="icon-box"><i class="icon-7"></i></div>
-                                            <h3>Readiness Reporting for Leadership &amp; Assessors</h3>
-                                            <p>Executive views summarize readiness by domain, control family, and risk level, while assessor-oriented views present evidence, test results, and narratives in a structure aligned to CMMC Level 2 expectations.</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="text mt_50">
-                                    <h3>Outcomes You Can Expect</h3>
-                                    <p>With AiVRIC, CMMC readiness becomes transparent, measurable, and repeatable:</p>
-                                    <ul class="list-style-one clearfix">
-                                        <li>Faster CMMC gap analysis and remediation planning</li>
-                                        <li>Near real-time visibility into NIST SP 800-171 implementation status</li>
-                                        <li>Reduced manual effort to maintain SSPs, POA&amp;Ms, and evidence libraries</li>
-                                        <li>Improved collaboration between security, IT, contracts, and program offices</li>
-                                        <li>Stronger assurance for primes and DoD customers that CUI is protected</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <!-- Services extension -->
-                            <div class="content-four">
-                                <h3>Combine AiVRIC with CMMC Advisory Services</h3>
-                                <p>AiVRIC can operate as a standalone readiness and evidence platform or be paired with CMMC advisory services from AiVRIC?s certified service partners. Together they deliver a full CMMC Readiness Program, including scoping, gap assessment, remediation planning, documentation, and preparation for third-party assessments.</p>
-                                <ul class="download-list clearfix">
-                                    <li>
-                                        <div class="icon-box"><i class="icon-30"></i></div>
-                                        <h5>CMMC Readiness Overview</h5>
-                                        <span>PDF (Coming Soon)</span>
-                                        <button type="button">Notify Me</button>
-                                    </li>
-                                    <li>
-                                        <div class="icon-box"><i class="icon-30"></i></div>
-                                        <h5>CMMC Readiness Program Brief</h5>
-                                        <span>PDF (Coming Soon)</span>
-                                        <button type="button">Notify Me</button>
-                                    </li>
-                                </ul>
-                                <div class="mt_40">
-                                    <a href="contact.html" class="theme-btn-one">Request a CMMC Readiness Demo</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
+            <span class="csp-fw-badge">Fully mapped</span>
+          </summary>
+          <div class="csp-fw-body">
+            <ul class="csp-fw-list">
+                <li>All 110 NIST SP 800-171 practices</li>
+                <li>CMMC Level 2 domain coverage</li>
+                <li>C3PAO-ready evidence packs</li>
+            </ul>
+          </div>
+        </details>
+        <details class="csp-fw-card">
+          <summary class="csp-fw-head">
+            <div class="csp-fw-head-left">
+              <div class="csp-fw-logo"><i class="fas fa-cog"></i></div>
+              <span class="csp-fw-name">NIST SP 800-171</span>
             </div>
-        </section>
-        <!-- service-details end -->
-
-
-        <!-- main-footer -->
+            <span class="csp-fw-badge">Fully mapped</span>
+          </summary>
+          <div class="csp-fw-body">
+            <ul class="csp-fw-list">
+                <li>Practice-level control checks across 14 domains</li>
+                <li>Automated technical verification</li>
+                <li>Self-assessment score (SPRS) support</li>
+            </ul>
+          </div>
+        </details>
+        <details class="csp-fw-card">
+          <summary class="csp-fw-head">
+            <div class="csp-fw-head-left">
+              <div class="csp-fw-logo"><i class="fas fa-gavel"></i></div>
+              <span class="csp-fw-name">DFARS / ITAR</span>
+            </div>
+            <span class="csp-fw-badge">Covered</span>
+          </summary>
+          <div class="csp-fw-body">
+            <ul class="csp-fw-list">
+                <li>DFARS 252.204-7012 alignment</li>
+                <li>CUI handling evidence</li>
+                <li>Supplier and contractor posture tracking</li>
+            </ul>
+          </div>
+        </details>
+        <details class="csp-fw-card">
+          <summary class="csp-fw-head">
+            <div class="csp-fw-head-left">
+              <div class="csp-fw-logo"><i class="fas fa-sitemap"></i></div>
+              <span class="csp-fw-name">NIST CSF</span>
+            </div>
+            <span class="csp-fw-badge">Cross-walk available</span>
+          </summary>
+          <div class="csp-fw-body">
+            <ul class="csp-fw-list">
+                <li>CSF category alignment for CMMC domains</li>
+                <li>Shared evidence across NIST frameworks</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+  <section class="csp-section csp-bottom-cta">
+    <div class="auto-container">
+      <div class="csp-fw-grid" style="display:flex;flex-direction:column;align-items:center;text-align:center;gap:14px;padding:40px 0 20px;">
+        <h2 class="csp-section-title" style="margin:0">Ready to operationalize CMMC readiness?</h2>
+        <p class="csp-section-sub" style="margin:0">Replace spreadsheet-based CMMC tracking with continuously verified, audit-ready posture data.</p>
+        <div class="csp-actions" style="justify-content:center">
+          <a href="https://calendly.com/aivric/cloudsignals-demo" class="cs-btn primary">Schedule a CMMC Demo</a>
+          <a href="cloudsignals-pricing.html" class="cs-btn secondary">Compare plans</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+        </div><!-- /cs-product-page --><!-- main-footer -->
         <footer class="main-footer">
             <div class="widget-section">
                 <div class="pattern-layer">
@@ -636,6 +1069,19 @@
     <script src="assets/js/blog-mega.js"></script>
 </body><!-- End of .page_wrapper -->
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

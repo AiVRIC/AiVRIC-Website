@@ -28,7 +28,7 @@
 <body data-page="third-party-management">
   <header class="guide-header">
     <div class="bar">
-      <a class="brand" href="index.html"><span class="dot"></span>AiVRIC User Guide</a>
+      <a class="brand" href="index.html"><img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo"><span>Platform Guide</span></a>
       <div class="top-links">
         <a href="../index.html">AiVRIC.com</a>
         <a href="../trust.html">Trust Center</a>
@@ -41,8 +41,31 @@
       </div>
       <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
     </div>
-  </header>  <main class="policy-main">
-    <div class="policy-hero">
+  </header>    <div class="guide-shell">
+    <aside class="guide-sidebar" id="sidebar">
+      <div class="nav-section">
+        <p class="nav-label">Essentials</p>
+        <a class="nav-link" data-page-target="home" href="index.html">Overview <small>Start here</small></a>
+        <a class="nav-link" data-page-target="getting-started" href="getting-started.html">Getting started <small>Setup</small></a>
+        <a class="nav-link" data-page-target="platform" href="platform-overview.html">Platform overview <small>How AiVRIC works</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">CloudSignals+RiskOps</p>
+        <a class="nav-link" data-page-target="cloudsignals" href="cloudsignals-riskops.html">Module overview <small>How it works</small></a>
+        <a class="nav-link" data-page-target="connectors" href="connectors.html">Connectors <small>Connect cloud accounts</small></a>
+        <a class="nav-link" data-page-target="integrations" href="integrations.html">Integrations <small>SIEM, ticketing &amp; alerts</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Assurance</p>
+        <a class="nav-link" data-page-target="security" href="security-trust.html">Security &amp; Trust <small>Controls</small></a>
+        <a class="nav-link" data-page-target="governance" href="ai-governance.html">AI Governance <small>Policies</small></a>
+        <a class="nav-link" data-page-target="faq" href="faq.html">FAQ &amp; Support <small>Answers</small></a>
+      </div>
+    </aside>
+
+    <main class="guide-content">
+
+    <div class="policy-hero" style="margin-bottom:16px">
       <span class="badge">Security policy</span>
       <h1>Third-Party Management</h1>
       <p>Assesses and governs vendors and partners that handle AiVRIC data or services.</p>
@@ -53,10 +76,10 @@
       </div>
     </div>
 
-    <section class="policy-section" aria-label="Table of contents">
-      <div class="policy-card">
+    <section class="guide-section" aria-label="Table of contents">
+      <div class="guide-card">
         <h2>On this page</h2>
-        <ul class="policy-list">
+        <ul class="policy-list guide-content-list">
           <li><a href="#purpose">Purpose & scope</a></li>
           <li><a href="#controls">Key controls</a></li>
           <li><a href="#procedures">Operating procedures</a></li>
@@ -65,18 +88,18 @@
       </div>
     </section>
 
-    <section class="policy-section" id="purpose">
-      <div class="policy-card">
+    <section class="guide-section" id="purpose">
+      <div class="guide-card">
         <h2>Purpose & scope</h2>
         <p>This policy guides how AiVRIC designs, operates, and validates <strong>Third-Party Management</strong> across production, corporate, and partner environments.</p>
         <p>It applies to employees, contractors, vendors, and any system interacting with AiVRIC data or services.</p>
       </div>
     </section>
 
-    <section class="policy-section" id="controls">
-      <div class="policy-card">
+    <section class="guide-section" id="controls">
+      <div class="guide-card">
         <h2>Key controls</h2>
-        <ul class="policy-list">
+        <ul class="policy-list guide-content-list">
       <li>Perform security and privacy due diligence before onboarding vendors.</li>
       <li>Use contracts and DPAs with required controls and breach notifications.</li>
       <li>Monitor vendor performance and reassess risk periodically.</li>
@@ -85,10 +108,10 @@
       </div>
     </section>
 
-    <section class="policy-section" id="procedures">
-      <div class="policy-card">
+    <section class="guide-section" id="procedures">
+      <div class="guide-card">
         <h2>Operating procedures</h2>
-        <ul class="policy-list">
+        <ul class="policy-list guide-content-list">
       <li>Complete vendor risk questionnaires and reviews before approval.</li>
       <li>Maintain a vendor inventory with data types and owners.</li>
       <li>Reassess high-risk vendors annually or after incidents.</li>
@@ -96,21 +119,35 @@
       </div>
     </section>
 
-    <section class="policy-section" id="evidence">
-      <div class="policy-card">
+    <section class="guide-section" id="evidence">
+      <div class="guide-card">
         <h2>Evidence & ownership</h2>
         <p><strong>Owner:</strong> Security & Compliance. <strong>Review cadence:</strong> annually or after material changes.</p>
         <p><strong>Evidence:</strong> Collected via AiVRIC audit logs, ticketing systems, monitoring dashboards, and vendor records as appropriate to this policy area.</p>
         <p><strong>Contact:</strong> <a href="mailto:security@aivric.com">security@aivric.com</a></p>
       </div>
     </section>
-  </main>  <footer class="guide-footer">
+      </main>
+  </div>  <footer class="guide-footer">
     <span>user-guide.aivric.com</span>
     <span class="tag">Security policies</span>
   </footer>
 
   <script>
     (function(){
+      var toggle = document.querySelector('.nav-toggle');
+      var sidebar = document.getElementById('sidebar');
+      if(toggle && sidebar){
+        toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); });
+      }
+    })();
+  </script>
+  <script>
+    (function(){
+      var p = document.body.dataset.page;
+      document.querySelectorAll('[data-page-target]').forEach(function(a){
+        if(a.dataset.pageTarget === p){ a.classList.add('active'); }
+      });
       var toggle = document.querySelector('.nav-toggle');
       var sidebar = document.getElementById('sidebar');
       if(toggle && sidebar){

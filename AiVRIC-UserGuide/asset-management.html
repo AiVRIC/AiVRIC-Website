@@ -31,7 +31,7 @@
 <body data-page="asset-management">
   <header class="guide-header">
     <div class="bar">
-      <a class="brand" href="index.html"><span class="dot"></span>AiVRIC User Guide</a>
+      <a class="brand" href="index.html"><img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo"><span>Platform Guide</span></a>
       <div class="top-links">
         <a href="../index.html">AiVRIC.com</a>
         <a href="../trust.html">Trust Center</a>
@@ -46,8 +46,31 @@
     </div>
   </header>
 
-  <main class="policy-main">
-    <div class="policy-hero">
+    <div class="guide-shell">
+    <aside class="guide-sidebar" id="sidebar">
+      <div class="nav-section">
+        <p class="nav-label">Essentials</p>
+        <a class="nav-link" data-page-target="home" href="index.html">Overview <small>Start here</small></a>
+        <a class="nav-link" data-page-target="getting-started" href="getting-started.html">Getting started <small>Setup</small></a>
+        <a class="nav-link" data-page-target="platform" href="platform-overview.html">Platform overview <small>How AiVRIC works</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">CloudSignals+RiskOps</p>
+        <a class="nav-link" data-page-target="cloudsignals" href="cloudsignals-riskops.html">Module overview <small>How it works</small></a>
+        <a class="nav-link" data-page-target="connectors" href="connectors.html">Connectors <small>Connect cloud accounts</small></a>
+        <a class="nav-link" data-page-target="integrations" href="integrations.html">Integrations <small>SIEM, ticketing &amp; alerts</small></a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Assurance</p>
+        <a class="nav-link" data-page-target="security" href="security-trust.html">Security &amp; Trust <small>Controls</small></a>
+        <a class="nav-link" data-page-target="governance" href="ai-governance.html">AI Governance <small>Policies</small></a>
+        <a class="nav-link" data-page-target="faq" href="faq.html">FAQ &amp; Support <small>Answers</small></a>
+      </div>
+    </aside>
+
+    <main class="guide-content">
+
+    <div class="policy-hero" style="margin-bottom:16px">
       <span class="badge">Security standard</span>
       <h1>Asset Management (AST)</h1>
       <p>
@@ -68,10 +91,10 @@
       -->
     </div>
 
-    <section class="policy-section" aria-label="Table of contents">
-      <div class="policy-card">
+    <section class="guide-section" aria-label="Table of contents">
+      <div class="guide-card">
         <h2>On this page</h2>
-        <ul class="policy-list">
+        <ul class="policy-list guide-content-list">
           <li><a href="#purpose">Purpose</a></li>
           <li><a href="#scope">Scope</a></li>
           <li><a href="#policy">Policy statement</a></li>
@@ -85,8 +108,8 @@
       </div>
     </section>
 
-    <section class="policy-section" id="purpose">
-      <div class="policy-card">
+    <section class="guide-section" id="purpose">
+      <div class="guide-card">
         <h2>Purpose</h2>
         <p>
           To ensure technology assets are appropriately managed throughout the asset lifecycle, from procurement through disposal,
@@ -96,8 +119,8 @@
       </div>
     </section>
 
-    <section class="policy-section" id="scope">
-      <div class="policy-card">
+    <section class="guide-section" id="scope">
+      <div class="guide-card">
         <h2>Scope</h2>
         <p>
           This standard applies to AiVRIC, its affiliates (as applicable), and all assets owned, leased, controlled, or used by AiVRIC,
@@ -114,8 +137,8 @@
       </div>
     </section>
 
-    <section class="policy-section" id="policy">
-      <div class="policy-card">
+    <section class="guide-section" id="policy">
+      <div class="guide-card">
         <h2>Policy statement</h2>
         <p>
           AiVRIC protects its assets and data by implementing an IT Asset Management (ITAM) capability to identify, assess, monitor,
@@ -124,8 +147,8 @@
       </div>
     </section>
 
-    <section class="policy-section" id="controls">
-      <div class="policy-card">
+    <section class="guide-section" id="controls">
+      <div class="guide-card">
         <h2>Key controls (AST)</h2>
         <ul class="policy-list policy-list--separated">
           <li><strong>AST-01 Asset Governance:</strong> Establish and maintain ITAM, including (1) a list of devices and (where feasible) personnel with access, (2) a method to determine owner/contact/purpose, and (3) a list of company-approved products.</li>
@@ -159,8 +182,8 @@
       </div>
     </section>
 
-    <section class="policy-section" id="procedures">
-      <div class="policy-card">
+    <section class="guide-section" id="procedures">
+      <div class="guide-card">
         <h2>Operating procedures</h2>
         <ul class="policy-list policy-list--separated">
           <li><strong>ITAM governance:</strong> Maintain an approved products list; ensure asset onboarding includes owner/custodian assignment and purpose.</li>
@@ -176,15 +199,15 @@
       </div>
     </section>
 
-    <section class="policy-section" id="data-classification">
-      <div class="policy-card">
+    <section class="guide-section" id="data-classification">
+      <div class="guide-card">
         <h2>Data classification & handling (summary)</h2>
         <p>
           AiVRIC classifies information to ensure assets and media are protected proportionate to sensitivity. Distribution is limited
           based on business need, and protective controls increase with classification.
         </p>
 
-        <div class="policy-card" style="padding: 0; border: 0; box-shadow: none;">
+        <div class="guide-card" style="padding: 0; border: 0; box-shadow: none;">
           <div class="table-responsive">
             <table class="table table-bordered" aria-label="Data classification summary">
               <thead>
@@ -221,7 +244,7 @@
         </div>
 
         <h3 class="mt-4">Handling expectations (high-level)</h3>
-        <ul class="policy-list">
+        <ul class="policy-list guide-content-list">
           <li><strong>Encryption:</strong> Use strong encryption for sensitive data in transit and at rest (mandatory for higher sensitivity). Avoid FTP for sensitive classifications.</li>
           <li><strong>Remote access:</strong> For highly sensitive data, remote access must be business-justified and protected by MFA.</li>
           <li><strong>Printing/scanning:</strong> Verify destinations; avoid unattended printouts; encrypt scanned images when handling sensitive data; use confidential printing where required.</li>
@@ -233,8 +256,8 @@
       </div>
     </section>
 
-    <section class="policy-section" id="compliance">
-      <div class="policy-card">
+    <section class="guide-section" id="compliance">
+      <div class="guide-card">
         <h2>Compliance, exceptions, and enforcement</h2>
 
         <h3>Compliance measurement</h3>
@@ -256,14 +279,14 @@
       </div>
     </section>
 
-    <section class="policy-section" id="frameworks">
-      <div class="policy-card">
+    <section class="guide-section" id="frameworks">
+      <div class="guide-card">
         <h2>Framework alignment</h2>
         <p>
           This standard is designed to support common assurance and compliance expectations. The source standard aligns Asset Management (AST)
           to a control framework and references SOC 2, ISO/IEC 27001:2022, and HIPAA as applicable.
         </p>
-        <ul class="policy-list">
+        <ul class="policy-list guide-content-list">
           <li><strong>SOC 2:</strong> Asset and configuration accountability, access governance, and operational monitoring expectations.</li>
           <li><strong>ISO/IEC 27001:2022:</strong> Organizational context and scope considerations for asset-related controls.</li>
           <li><strong>HIPAA (where applicable):</strong> Device and media controls for regulated information handling.</li>
@@ -274,8 +297,8 @@
       </div>
     </section>
 
-    <section class="policy-section" id="evidence">
-      <div class="policy-card">
+    <section class="guide-section" id="evidence">
+      <div class="guide-card">
         <h2>Evidence & ownership</h2>
         <p><strong>Control owners:</strong> Security & Compliance, IT Operations, and Product/Engineering (as applicable).</p>
         <p>
@@ -286,7 +309,8 @@
         <p><strong>Contact:</strong> <a href="mailto:security@aivric.com">security@aivric.com</a></p>
       </div>
     </section>
-  </main>
+      </main>
+  </div>
 
   <footer class="guide-footer">
     <span>user-guide.aivric.com</span>
@@ -295,6 +319,19 @@
 
   <script>
     (function(){
+      var toggle = document.querySelector('.nav-toggle');
+      var sidebar = document.getElementById('sidebar');
+      if(toggle && sidebar){
+        toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); });
+      }
+    })();
+  </script>
+  <script>
+    (function(){
+      var p = document.body.dataset.page;
+      document.querySelectorAll('[data-page-target]').forEach(function(a){
+        if(a.dataset.pageTarget === p){ a.classList.add('active'); }
+      });
       var toggle = document.querySelector('.nav-toggle');
       var sidebar = document.getElementById('sidebar');
       if(toggle && sidebar){

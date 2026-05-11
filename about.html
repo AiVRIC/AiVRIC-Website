@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title>About Us - AiVRIC</title>
+<title>About AiVRIC | Autonomous Security, Compliance &amp; AI Risk Platform</title>
+<meta name="description" content="AiVRIC is an enterprise security operations platform unifying cloud security, AI governance, compliance automation, and offensive security.">
 
 <!-- Fav Icon -->
 <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
@@ -26,15 +27,413 @@
 <link href="assets/css/elpath.css" rel="stylesheet">
 <link href="assets/css/style.css?v=20250115" rel="stylesheet">
 <link href="assets/css/elements-css/page-title.css" rel="stylesheet">
-<link href="assets/css/elements-css/about.css" rel="stylesheet">
 <link href="assets/css/elements-css/service.css" rel="stylesheet">
-<link href="assets/css/elements-css/clients.css" rel="stylesheet">
-<link href="assets/css/elements-css/team.css" rel="stylesheet">
-<link href="assets/css/elements-css/chooseus.css" rel="stylesheet">
-<link href="assets/css/elements-css/testimonial.css" rel="stylesheet">
+<link href="assets/css/elements-css/about.css" rel="stylesheet">
+<link href="assets/css/elements-css/subscribe.css" rel="stylesheet">
 <link href="assets/css/responsive.css" rel="stylesheet">
 
   <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       CloudSignals Product Page — Design System
+       Matches cloudsignals-pricing.html token set
+    ========================================================= */
+    :root{
+      --cs-cyan:#00d1ff; --cs-green:#2ee59d; --cs-gold:#ffd63a; --cs-purple:#a78bfa;
+      --cs-text-strong:#f8fafc; --cs-text:#e5e7eb; --cs-muted:#cbd5e1; --cs-faint:#94a3b8; --cs-accent:#7dd3fc;
+      --cs-surface-1:rgba(255,255,255,0.06); --cs-surface-2:rgba(255,255,255,0.10);
+      --cs-line:rgba(148,163,184,0.28); --cs-line-strong:rgba(148,163,184,0.5);
+      --cs-shadow:0 14px 40px rgba(0,0,0,0.28); --cs-radius:18px;
+      --cs-btn:#00d1ff; --cs-btn-hover:#24ddff; --cs-btn-active:#00b8e6;
+      --cs-btn-fg:#fff; --cs-btn-border:rgba(0,209,255,0.6);
+      --cs-btn-border-hover:rgba(0,209,255,0.85);
+      --cs-btn-shadow:0 12px 24px rgba(0,209,255,0.2);
+      --cs-btn-shadow-hover:0 14px 28px rgba(0,209,255,0.28);
+    }
+
+    body.portal-page{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 900px at 70% -20%,rgba(0,209,255,0.20),transparent 55%),
+        radial-gradient(900px 700px at 10% 10%,rgba(46,113,229,0.13),transparent 60%),
+        linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%);
+      color:var(--cs-text);
+    }
+
+    /* ---- Shared button primitives ---- */
+    .cs-btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:11px 22px; border-radius:999px; font-weight:700; font-size:14px;
+      letter-spacing:0.01em; text-decoration:none; cursor:pointer; transition:all 0.22s;
+      text-shadow:0 1px 0 rgba(0,0,0,0.3);
+    }
+    .cs-btn.primary{
+      background:var(--cs-btn); color:var(--cs-btn-fg)!important;
+      border:1px solid var(--cs-btn-border); box-shadow:var(--cs-btn-shadow);
+    }
+    .cs-btn.primary:hover{
+      background:var(--cs-btn-hover); border-color:var(--cs-btn-border-hover);
+      box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px);
+    }
+    .cs-btn.secondary{
+      background:rgba(0,209,255,0.10); color:var(--cs-text-strong)!important;
+      border:1px solid rgba(0,209,255,0.65); box-shadow:none;
+      text-shadow:0 1px 1px rgba(2,20,32,0.35);
+    }
+    .cs-btn.secondary:hover{
+      background:var(--cs-btn-hover)!important; color:#fff!important;
+      border-color:var(--cs-btn-border-hover)!important;
+      box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px);
+    }
+    .cs-btn.ghost{
+      background:transparent; color:var(--cs-text-strong)!important;
+      border:1px solid rgba(255,255,255,0.22); box-shadow:none; text-shadow:none;
+    }
+    .cs-btn.ghost:hover{
+      background:rgba(255,255,255,0.07)!important; transform:translateY(-1px);
+    }
+    .cs-btn[data-cloudsignals-free]{
+      background:var(--cs-btn); color:var(--cs-btn-fg)!important;
+      border:1px solid var(--cs-btn-border); box-shadow:var(--cs-btn-shadow);
+    }
+    .cs-btn[data-cloudsignals-free]:hover{
+      background:var(--cs-btn-hover); border-color:var(--cs-btn-border-hover);
+      box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px);
+    }
+
+    /* ---- Page wrapper ---- */
+    .cs-product-page{ padding:0; }
+
+    /* ---- Hero ---- */
+    .csp-hero{
+      padding:100px 0 56px;
+      position:relative; overflow:hidden;
+    }
+    @media(max-width:992px){ .csp-hero{ padding:80px 0 40px; } }
+    .csp-hero-grid{
+      display:grid; grid-template-columns:1.25fr 0.75fr; gap:32px; align-items:start;
+    }
+    @media(max-width:992px){ .csp-hero-grid{ grid-template-columns:1fr; } }
+
+    .csp-badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 14px; border-radius:999px;
+      background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.35);
+      color:var(--cs-text-strong); font-size:12.5px; font-weight:600; letter-spacing:0.3px;
+      margin-bottom:16px;
+    }
+    .csp-badge i{ color:var(--cs-cyan); }
+    .csp-badge .avail-dot{
+      width:8px; height:8px; border-radius:50%; background:var(--cs-green);
+      box-shadow:0 0 6px rgba(46,229,157,0.7); flex-shrink:0;
+    }
+
+    .csp-title{
+      font-family:Jost,Inter,sans-serif; font-size:54px; font-weight:800;
+      line-height:1.03; letter-spacing:-1.2px; color:var(--cs-text-strong); margin:0 0 14px;
+    }
+    @media(max-width:768px){ .csp-title{ font-size:38px; } }
+    .csp-sub{
+      font-size:17px; line-height:1.75; color:var(--cs-muted); max-width:62ch; margin:0 0 24px;
+    }
+    .csp-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+
+    /* Release band (inline) */
+    .csp-release-band{
+      display:flex; flex-wrap:wrap; gap:10px;
+    }
+    .csp-rb-item{
+      display:flex; align-items:center; gap:8px;
+      padding:8px 14px; border-radius:12px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+    }
+    .csp-rb-label{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--cs-faint); }
+    .csp-rb-val{ font-size:13px; color:var(--cs-text); font-weight:600; }
+    .csp-rb-val.avail{
+      color:var(--cs-green);
+      display:flex; align-items:center; gap:6px;
+    }
+    .csp-rb-val.avail::before{
+      content:""; width:7px; height:7px; border-radius:50%;
+      background:var(--cs-green); box-shadow:0 0 5px rgba(46,229,157,0.6);
+    }
+
+    /* Hero sidebar */
+    .csp-hero-aside{
+      display:flex; flex-direction:column; gap:14px; padding-top:4px;
+    }
+    .csp-quick-card{
+      border-radius:16px; padding:18px 20px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      box-shadow:var(--cs-shadow);
+    }
+    .csp-quick-card h4{
+      font-size:13px; font-weight:700; color:var(--cs-text-strong); margin:0 0 12px;
+      text-transform:uppercase; letter-spacing:0.5px;
+    }
+    .csp-quick-list{ list-style:none; padding:0; margin:0; display:grid; gap:7px; }
+    .csp-quick-list li{
+      display:flex; gap:9px; align-items:flex-start;
+      font-size:13px; color:var(--cs-muted); line-height:1.45;
+    }
+    .csp-quick-list li i{ color:var(--cs-green); flex-shrink:0; margin-top:1px; font-size:11px; }
+    .csp-quick-link{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 16px; border-radius:12px;
+      background:rgba(0,209,255,0.07); border:1px solid rgba(0,209,255,0.22);
+      text-decoration:none; transition:background 0.2s;
+    }
+    .csp-quick-link:hover{ background:rgba(0,209,255,0.12); }
+    .csp-quick-link span{ font-size:13.5px; font-weight:600; color:var(--cs-text-strong); }
+    .csp-quick-link i{ color:var(--cs-cyan); font-size:12px; }
+
+    /* ---- Shared section ---- */
+    .csp-section{ padding:52px 0 0; }
+    .csp-eyebrow{
+      display:block; font-size:12px; font-weight:700; letter-spacing:1.5px;
+      text-transform:uppercase; color:var(--cs-cyan); margin-bottom:8px;
+    }
+    .csp-section-title{
+      font-family:Jost,Inter,sans-serif; font-size:32px; font-weight:800;
+      color:var(--cs-text-strong); margin:0 0 10px; letter-spacing:-0.4px; line-height:1.15;
+    }
+    .csp-section-sub{
+      font-size:15px; line-height:1.75; color:var(--cs-muted); max-width:80ch; margin:0 0 28px;
+    }
+
+    /* ---- Module cards ---- */
+    .csp-modules-grid{
+      display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+    }
+    @media(max-width:1100px){ .csp-modules-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:576px){ .csp-modules-grid{ grid-template-columns:1fr; } }
+    .csp-module-card{
+      border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      padding:22px; box-shadow:var(--cs-shadow);
+      display:flex; flex-direction:column; gap:12px;
+      transition:border-color 0.2s,box-shadow 0.2s;
+    }
+    .csp-module-card:hover{ border-color:rgba(0,209,255,0.3); box-shadow:0 20px 48px rgba(0,0,0,0.3); }
+    .csp-module-icon{
+      width:46px; height:46px; border-radius:13px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:20px; flex-shrink:0;
+    }
+    .csp-module-icon.cyan{ background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.28); color:var(--cs-cyan); }
+    .csp-module-icon.green{ background:rgba(46,229,157,0.13); border:1px solid rgba(46,229,157,0.28); color:var(--cs-green); }
+    .csp-module-icon.gold{ background:rgba(255,214,58,0.13); border:1px solid rgba(255,214,58,0.28); color:var(--cs-gold); }
+    .csp-module-icon.purple{ background:rgba(167,139,250,0.13); border:1px solid rgba(167,139,250,0.28); color:var(--cs-purple); }
+    .csp-module-card h3{ font-size:16px; font-weight:700; color:var(--cs-text-strong); margin:0; }
+    .csp-module-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; flex:1; }
+    .csp-module-feats{ list-style:none; padding:0; margin:0; display:grid; gap:6px; }
+    .csp-module-feats li{
+      font-size:12.5px; color:var(--cs-muted); display:flex; gap:7px; align-items:flex-start;
+    }
+    .csp-module-feats li::before{ content:"→"; color:var(--cs-cyan); font-size:11px; flex-shrink:0; margin-top:1px; }
+
+    /* ---- Capabilities grid ---- */
+    .csp-cap-grid{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+    }
+    @media(max-width:992px){ .csp-cap-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:576px){ .csp-cap-grid{ grid-template-columns:1fr; } }
+    .csp-cap{
+      border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      padding:20px; box-shadow:var(--cs-shadow);
+    }
+    .csp-cap-icon{
+      width:40px; height:40px; border-radius:11px;
+      background:rgba(0,209,255,0.11); border:1px solid rgba(0,209,255,0.24);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--cs-cyan); font-size:16px; margin-bottom:12px;
+    }
+    .csp-cap h4{ font-size:15px; font-weight:700; color:var(--cs-text-strong); margin:0 0 6px; }
+    .csp-cap p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; }
+
+    /* ---- Scope strip (plan limits) ---- */
+    .csp-scope-strip{
+      border-radius:var(--cs-radius);
+      background:linear-gradient(90deg,rgba(0,89,255,0.11),rgba(0,209,255,0.06));
+      border:1px solid rgba(0,89,255,0.22); padding:26px 28px;
+      display:flex; flex-direction:column; gap:16px;
+    }
+    .csp-scope-header{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+    .csp-scope-header h3{ font-family:Jost,Inter,sans-serif; font-size:20px; font-weight:700; color:var(--cs-text-strong); margin:0; }
+    .csp-scope-metrics{
+      display:grid; grid-template-columns:repeat(6,1fr); gap:14px;
+    }
+    @media(max-width:1100px){ .csp-scope-metrics{ grid-template-columns:repeat(3,1fr); } }
+    @media(max-width:576px){ .csp-scope-metrics{ grid-template-columns:repeat(2,1fr); } }
+    .csp-metric{
+      background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09);
+      border-radius:14px; padding:14px 12px; text-align:center;
+    }
+    .csp-metric-val{
+      font-family:Jost,Inter,sans-serif; font-size:24px; font-weight:800;
+      color:var(--cs-cyan); letter-spacing:-0.5px; display:block; margin-bottom:4px;
+    }
+    .csp-metric-label{ font-size:12px; color:var(--cs-muted); line-height:1.4; }
+    .csp-scope-note{
+      font-size:13px; color:var(--cs-faint); line-height:1.6;
+    }
+    .csp-scope-note a{ color:var(--cs-cyan); }
+
+    /* ---- Compliance ---- */
+    .csp-fw-grid{
+      display:grid; grid-template-columns:repeat(2,1fr); gap:14px;
+    }
+    @media(max-width:768px){ .csp-fw-grid{ grid-template-columns:1fr; } }
+    .csp-fw-card{
+      border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      overflow:hidden; box-shadow:var(--cs-shadow);
+    }
+    .csp-fw-head{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:16px 18px; cursor:pointer; user-select:none;
+    }
+    .csp-fw-head::-webkit-details-marker{ display:none; }
+    .csp-fw-head-left{ display:flex; align-items:center; gap:12px; }
+    .csp-fw-logo{
+      width:36px; height:36px; border-radius:10px;
+      background:rgba(0,209,255,0.11); border:1px solid rgba(0,209,255,0.24);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--cs-cyan); font-size:14px; flex-shrink:0;
+    }
+    .csp-fw-name{ font-size:15px; font-weight:700; color:var(--cs-text-strong); }
+    .csp-fw-sub{ font-size:12.5px; color:var(--cs-muted); margin-top:2px; }
+    .csp-fw-chevron{ color:var(--cs-faint); font-size:12px; transition:transform 0.2s; flex-shrink:0; }
+    details[open] .csp-fw-chevron{ transform:rotate(90deg); }
+    .csp-fw-body{
+      padding:0 18px 16px;
+      border-top:1px solid var(--cs-line);
+      padding-top:14px;
+    }
+    .csp-fw-req{
+      background:rgba(0,209,255,0.06); border:1px solid rgba(0,209,255,0.18);
+      border-radius:10px; padding:10px 12px; margin-bottom:10px;
+      font-size:13px; color:var(--cs-muted); line-height:1.6;
+    }
+    .csp-fw-req strong{ color:var(--cs-cyan); }
+    .csp-fw-body ul{ padding-left:16px; margin:0; display:grid; gap:5px; }
+    .csp-fw-body li{ font-size:13.5px; color:var(--cs-muted); line-height:1.55; }
+
+    /* ---- Deployment options ---- */
+    .csp-deploy-grid{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+    }
+    @media(max-width:768px){ .csp-deploy-grid{ grid-template-columns:1fr; } }
+    .csp-deploy-card{
+      border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      padding:24px; box-shadow:var(--cs-shadow);
+    }
+    .csp-deploy-card.highlight{ border-color:rgba(0,209,255,0.35); }
+    .csp-deploy-icon{
+      width:44px; height:44px; border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px; margin-bottom:14px;
+    }
+    .csp-deploy-card h3{ font-size:17px; font-weight:700; color:var(--cs-text-strong); margin:0 0 8px; }
+    .csp-deploy-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0 0 14px; }
+    .csp-deploy-tags{ display:flex; flex-wrap:wrap; gap:6px; }
+    .csp-tag{
+      padding:4px 11px; border-radius:999px;
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+      color:var(--cs-muted); font-size:12px; font-weight:600;
+    }
+
+    /* ---- Pricing preview ---- */
+    .csp-pricing-preview{
+      border-radius:var(--cs-radius);
+      background:linear-gradient(135deg,rgba(0,209,255,0.08) 0%,rgba(46,229,157,0.04) 100%);
+      border:1px solid rgba(0,209,255,0.25);
+      box-shadow:0 20px 56px rgba(0,209,255,0.08),var(--cs-shadow);
+      padding:32px;
+    }
+    .csp-pp-grid{
+      display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center;
+    }
+    @media(max-width:768px){ .csp-pp-grid{ grid-template-columns:1fr; } }
+    .csp-pp-tiers{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    .csp-pp-tier{
+      padding:8px 16px; border-radius:12px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      display:flex; flex-direction:column; gap:2px; min-width:100px;
+    }
+    .csp-pp-tier.active{ border-color:rgba(0,209,255,0.38); background:rgba(0,209,255,0.07); }
+    .csp-pp-tier-name{ font-size:13px; font-weight:700; color:var(--cs-text-strong); }
+    .csp-pp-tier-price{ font-size:12px; color:var(--cs-muted); }
+    .csp-pp-aside{ display:flex; flex-direction:column; gap:10px; align-items:flex-end; }
+
+    /* ---- FAQ ---- */
+    .csp-faq-grid{
+      display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px;
+    }
+    @media(max-width:992px){ .csp-faq-grid{ grid-template-columns:1fr; } }
+    .csp-faq-item{
+      border-radius:16px; border:1px solid var(--cs-line);
+      background:var(--cs-surface-1); padding:16px; box-shadow:var(--cs-shadow);
+    }
+    .csp-faq-item summary{
+      cursor:pointer; font-weight:700; font-size:14.5px; color:var(--cs-text-strong);
+      list-style:none; user-select:none;
+    }
+    .csp-faq-item summary::-webkit-details-marker{ display:none; }
+    details[open] .csp-faq-item summary,
+    .csp-faq-item[open] summary{ color:var(--cs-cyan); }
+    .csp-faq-item p{
+      margin:10px 0 0; color:var(--cs-muted); font-size:13.5px; line-height:1.75;
+    }
+    .csp-faq-item a{ color:var(--cs-cyan); }
+
+    /* ---- Bottom CTA ---- */
+    .csp-bottom-cta{
+      margin:52px 0 60px;
+      border-radius:var(--cs-radius);
+      background:linear-gradient(135deg,rgba(0,209,255,0.09) 0%,rgba(46,229,157,0.05) 100%);
+      border:1px solid rgba(0,209,255,0.25);
+      box-shadow:0 24px 60px rgba(0,209,255,0.09);
+      padding:40px; text-align:center;
+    }
+    .csp-bottom-cta h2{
+      font-family:Jost,Inter,sans-serif; font-size:36px; font-weight:800;
+      color:var(--cs-text-strong); margin:0 0 12px; letter-spacing:-0.5px;
+    }
+    @media(max-width:768px){ .csp-bottom-cta h2{ font-size:26px; } }
+    .csp-bottom-cta p{
+      font-size:16px; color:var(--cs-muted); line-height:1.7;
+      max-width:60ch; margin:0 auto 24px;
+    }
+    .csp-bottom-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+
+    /* ---- Divider ---- */
+    .csp-divider{
+      height:1px; background:linear-gradient(90deg,transparent,var(--cs-line),transparent);
+      margin:48px 0 0;
+    }
+
+    /* ---- Use case pills ---- */
+    .csp-usecase-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .csp-usecase-pill{
+      display:inline-flex; align-items:center; gap:7px;
+      padding:9px 16px; border-radius:12px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      color:var(--cs-muted); font-size:13.5px; font-weight:600; text-decoration:none;
+      transition:border-color 0.2s,color 0.2s;
+    }
+    .csp-usecase-pill:hover{ border-color:rgba(0,209,255,0.35); color:var(--cs-cyan); }
+    .csp-usecase-pill i{ color:var(--cs-cyan); font-size:11px; }
+
+    /* ---- "Replaces" ---- */
+    .csp-replaces-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .csp-replaces-pill{
+      display:inline-flex; align-items:center; gap:7px;
+      padding:7px 14px; border-radius:999px;
+      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.10);
+      color:var(--cs-muted); font-size:13px; font-weight:600;
+    }
+    .csp-replaces-pill i{ color:var(--cs-green); font-size:11px; }
+  </style>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
@@ -48,7 +447,7 @@
 
 
 <!-- page wrapper -->
-<body>
+<body class="portal-page">
 
     <div class="boxed_wrapper">
 
@@ -318,208 +717,140 @@
                 </div>
             </nav>
         </div><!-- End Mobile Menu -->
+<style>
+  :root{--ab-cyan:#00d1ff;--ab-green:#2ee59d;--ab-gold:#ffd63a;--ab-purple:#a78bfa;
+    --ab-text:#f8fafc;--ab-muted:#cbd5e1;--ab-faint:#94a3b8;
+    --ab-surf:rgba(255,255,255,0.06);--ab-line:rgba(148,163,184,0.22);}
+  .abp-hero{padding:100px 0 56px;text-align:center;}
+  .abp-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border-radius:999px;
+    background:rgba(0,209,255,0.12);border:1px solid rgba(0,209,255,0.3);
+    color:var(--ab-text);font-size:12px;font-weight:700;margin-bottom:18px;}
+  .abp-title{font-family:Jost,Inter,sans-serif;font-size:52px;font-weight:800;
+    line-height:1.04;letter-spacing:-1.2px;color:var(--ab-text);margin:0 0 16px;}
+  @media(max-width:768px){.abp-title{font-size:36px;}}
+  .abp-sub{font-size:18px;color:var(--ab-muted);line-height:1.75;max-width:66ch;margin:0 auto 28px;}
+  .abp-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+  .abp-section{padding:52px 0 0;}
+  .abp-eyebrow{display:block;font-size:12px;font-weight:700;letter-spacing:1.5px;
+    text-transform:uppercase;color:var(--ab-cyan);margin-bottom:8px;text-align:center;}
+  .abp-section-title{font-family:Jost,Inter,sans-serif;font-size:30px;font-weight:800;
+    color:var(--ab-text);margin:0 0 8px;text-align:center;}
+  .abp-section-sub{font-size:15px;color:var(--ab-muted);line-height:1.75;max-width:72ch;
+    margin:0 auto 28px;text-align:center;}
+  .abp-what-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media(max-width:900px){.abp-what-grid{grid-template-columns:1fr;}}
+  .abp-what-card{border-radius:18px;background:var(--ab-surf);border:1px solid var(--ab-line);
+    padding:24px;display:flex;flex-direction:column;gap:12px;}
+  .abp-what-icon{width:48px;height:48px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+  .abp-what-icon.cyan{background:rgba(0,209,255,0.12);border:1px solid rgba(0,209,255,0.28);color:var(--ab-cyan);}
+  .abp-what-icon.green{background:rgba(46,229,157,0.12);border:1px solid rgba(46,229,157,0.28);color:var(--ab-green);}
+  .abp-what-icon.gold{background:rgba(255,214,58,0.12);border:1px solid rgba(255,214,58,0.28);color:var(--ab-gold);}
+  .abp-what-card h3{font-size:18px;font-weight:700;color:var(--ab-text);margin:0;}
+  .abp-what-card p{font-size:14px;color:var(--ab-muted);line-height:1.7;margin:0;flex:1;}
+  .abp-value-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+  @media(max-width:768px){.abp-value-grid{grid-template-columns:1fr;}}
+  .abp-value-card{border-radius:16px;background:var(--ab-surf);border:1px solid var(--ab-line);padding:20px;}
+  .abp-value-card h4{font-size:15px;font-weight:700;color:var(--ab-text);margin:0 0 8px;
+    display:flex;align-items:center;gap:10px;}
+  .abp-value-card h4 i{color:var(--ab-cyan);font-size:14px;}
+  .abp-value-card p{font-size:13.5px;color:var(--ab-muted);line-height:1.7;margin:0;}
+  .abp-mission{border-radius:18px;
+    background:linear-gradient(135deg,rgba(0,89,255,0.12) 0%,rgba(0,209,255,0.06) 100%);
+    border:1px solid rgba(0,89,255,0.2);padding:36px 40px;text-align:center;margin-top:24px;}
+  .abp-mission p{font-size:17px;color:var(--ab-muted);line-height:1.8;max-width:72ch;margin:0 auto;}
+  .abp-mission strong{color:var(--ab-text);}
+  .abp-cta{padding:52px 0 24px;text-align:center;}
+  .abp-cta h2{font-family:Jost,Inter,sans-serif;font-size:28px;font-weight:800;color:var(--ab-text);margin:0 0 10px;}
+  .abp-cta p{font-size:15px;color:var(--ab-muted);margin:0 0 20px;}
+</style>
+<div class="cs-product-page">
+  <section class="abp-hero">
+    <div class="auto-container">
+      <div class="abp-badge"><i class="fas fa-building"></i> Company</div>
+      <h1 class="abp-title">We built AiVRIC because<br>security deserved better.</h1>
+      <p class="abp-sub">AiVRIC is an enterprise security operations platform that unifies cloud security, AI governance, compliance automation, and offensive security into one continuously operating system.</p>
+      <div class="abp-actions">
+        <a href="why-aivric.html" class="cs-btn primary">Why AiVRIC</a>
+        <a href="cspm-cloudsignals.html" class="cs-btn secondary">Our Platform</a>
+      </div>
+    </div>
+  </section>
 
+  <section class="abp-section">
+    <div class="auto-container">
+      <div class="abp-mission">
+        <p><strong>Our mission</strong> is to make autonomous, continuous security and compliance accessible to every organization that runs in the cloud &mdash; so that security teams spend their energy on decisions, not documentation.</p>
+      </div>
+    </div>
+  </section>
 
-        <!-- page-title -->
-        <section class="page-title centred">
-            <div class="bg-layer" style="background-image: url(assets/images/background/page-title.avif);"></div>
-            <div class="auto-container">
-                <div class="content-box">
-                    <h1>About AiVRIC</h1>
-                    <ul class="bread-crumb clearfix">
-                        <li><a href="index.html">Home</a></li>
-                        <li>About Us</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <!-- page-title end -->
+  <section class="abp-section">
+    <div class="auto-container">
+      <span class="abp-eyebrow">What we do</span>
+      <h2 class="abp-section-title">Three capabilities. One platform.</h2>
+      <p class="abp-section-sub">AiVRIC brings together the capabilities that modern security and compliance teams need — built to work together, not bolted together.</p>
+      <div class="abp-what-grid">
+        <div class="abp-what-card">
+          <div class="abp-what-icon cyan"><i class="fas fa-cloud"></i></div>
+          <h3>Cloud Security &amp; GRC</h3>
+          <p>CloudSignals+RiskOps delivers continuous cloud security posture management, automated compliance evidence, risk register intelligence, and AI-generated audit narratives across AWS, Azure, GCP, Kubernetes, and more.</p>
+          <a href="cspm-cloudsignals.html" style="font-size:13px;font-weight:700;color:#00d1ff;">Explore CloudSignals &rarr;</a>
+        </div>
+        <div class="abp-what-card">
+          <div class="abp-what-icon green"><i class="fas fa-robot"></i></div>
+          <h3>AI Signal Intelligence</h3>
+          <p>AI Signals&trade; monitors AI models, agents, and pipelines for security and compliance risk. REDTEAM testing, MCP governance, OWASP LLM TOP 10 compliance, and real-time observability for your AI stack.</p>
+          <a href="ai-inspector.html" style="font-size:13px;font-weight:700;color:#2ee59d;">Explore AI Signals &rarr;</a>
+        </div>
+        <div class="abp-what-card">
+          <div class="abp-what-icon gold"><i class="fas fa-crosshairs"></i></div>
+          <h3>Offensive Security</h3>
+          <p>RogueAgent ASPM&trade; maps your enterprise attack surface continuously, identifies exploitable paths, and delivers evidence your teams can act on — without waiting for an annual pen test.</p>
+          <a href="rogueagent.html" style="font-size:13px;font-weight:700;color:#ffd63a;">Explore RogueAgent &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <section class="abp-section">
+    <div class="auto-container">
+      <span class="abp-eyebrow">Why we're different</span>
+      <h2 class="abp-section-title">Built for the way security teams actually work</h2>
+      <p class="abp-section-sub">AiVRIC was designed by practitioners who ran security programs at scale. Every design decision reflects real-world trade-offs.</p>
+      <div class="abp-value-grid">
+        <div class="abp-value-card">
+          <h4><i class="fas fa-infinity"></i> Continuous by default</h4>
+          <p>Everything in AiVRIC runs continuously — posture monitoring, evidence collection, compliance scoring, threat analysis. No manual cycles, no point-in-time snapshots.</p>
+        </div>
+        <div class="abp-value-card">
+          <h4><i class="fas fa-brain"></i> AI-powered throughout</h4>
+          <p>Lighthouse AI generates audit narratives, prioritizes risk by business context, and surfaces intelligence that would take analysts hours to produce manually.</p>
+        </div>
+        <div class="abp-value-card">
+          <h4><i class="fas fa-layer-group"></i> Unified data layer</h4>
+          <p>One shared data layer connects cloud posture, AI risk, offensive findings, and compliance state — so your teams work from a single source of truth.</p>
+        </div>
+        <div class="abp-value-card">
+          <h4><i class="fas fa-users-cog"></i> Built by practitioners</h4>
+          <p>AiVRIC was founded by 3HUE Security, a security advisory firm that has led security programs at enterprise scale. Every feature solves a problem we lived.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <!-- about-section -->
-        <section class="about-section p_relative">
-            <div class="auto-container">
-                <div class="row clearfix">
-                    <div class="col-lg-6 col-md-12 col-sm-12 image-column">
-                        <div class="image_block_one">
-                            <div class="image-box p_relative pr_50 mr_30">
-                                <figure class="image image-1"><img src="assets/images/resource/about-1.avif" alt=""></figure>
-                                <figure class="image image-2"><img src="assets/images/service/dashboard.avif" alt=""></figure>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                        <div class="content_block_one">
-                            <div class="content-box p_relative ml_30">
-                                <div class="sec-title mb_25">
-                                    <span class="sub-title">About AiVRIC</span>
-                                    <h2>The Future of Automated Security and Compliance</h2>
-                                </div>
-                                <div class="text mb_35">
-                                    <p>At AiVRIC, we are pioneering the next generation of cybersecurity solutions. Our mission is to empower organizations to achieve a state of continuous security and compliance through intelligent automation. We believe that by harnessing the power of artificial intelligence, we can transform the way businesses manage risk and protect their digital assets.</p>
-									<p>Founded by a team of cybersecurity veterans and AI experts, AiVRIC was born out of the need for a more proactive, efficient, and intelligent approach to security. We are dedicated to developing a unified platform that not only identifies threats but also provides actionable, automated remediation, making robust security accessible to all.</p>
-                                </div>
-                                <div class="inner-box mb_35">
-                                    <div class="single-item">
-                                        <div class="icon-box"><i class="icon-11"></i></div>
-                                        <h3>Visionary Technology</h3>
-                                        <p>We are committed to pushing the boundaries of what's possible in cybersecurity through continuous innovation.</p>
-                                    </div>
-                                    <div class="single-item">
-                                        <div class="icon-box"><i class="icon-11"></i></div>
-                                        <h3>Customer-Centric</h3>
-                                        <p>Your security is our priority. We build lasting partnerships by delivering solutions that meet your unique needs.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- about-section end -->
-
-
-        <!-- service-style-two -->
-        <section class="service-style-two p_relative bg-color-1">
-            <div class="auto-container">
-                <div class="sec-title centred mb_50">
-                    <span class="sub-title">What We Do</span>
-                    <h2>Providing the Best Security Solutions</h2>
-                </div>
-                <div class="row clearfix">
-                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
-                        <div class="service-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <figure class="image-box"><img src="assets/images/service/service-1.avif" alt=""></figure>
-                                <div class="lower-content">
-                                    <div class="inner">
-                                        <div class="icon-box"><i class="icon-7"></i></div>
-                                        <h3><a href="use-case-vuln-mgmt.html">Security & Risk Assessment</a></h3>
-                                        <p>Continuously identify, analyze, and evaluate risks to your organization's assets.</p>
-                                        <div class="btn-box">
-                                            <a href="use-case-vuln-mgmt.html" class="theme-btn-one">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
-                        <div class="service-block-two wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <figure class="image-box"><img src="assets/images/service/service-2.avif" alt=""></figure>
-                                <div class="lower-content">
-                                    <div class="inner">
-                                        <div class="icon-box"><i class="icon-12"></i></div>
-                                        <h3><a href="streamline-soc2.html">Compliance Management</a></h3>
-                                        <p>Simplify and automate compliance with major frameworks like PCI DSS, SOC 2, and ISO 27001.</p>
-                                        <div class="btn-box">
-                                            <a href="streamline-soc2.html" class="theme-btn-one">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 service-block">
-                        <div class="service-block-two wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <figure class="image-box"><img src="assets/images/service/service-3.avif" alt=""></figure>
-                                <div class="lower-content">
-                                    <div class="inner">
-                                        <div class="icon-box"><i class="icon-8"></i></div>
-                                        <h3><a href="aivric-vision.html">AI-Powered Remediation</a></h3>
-                                        <p>Leverage AI to get intelligent, context-aware remediation plans and fix vulnerabilities faster.</p>
-                                        <div class="btn-box">
-                                            <a href="aivric-vision.html" class="theme-btn-one">Read More</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- service-style-two end -->
-
-
-        <!-- clients-section -->
-        <section class="clients-section p_relative bg-color-2">
-            <div class="auto-container">
-                <div class="inner-box">                    
-                    <figure class="clients-logo"><a href="index.html"><img src="assets/images/clients/3hue-color.avif" alt=""></a></figure>
-                    <figure class="clients-logo"><a href="index.html"><img src="assets/images/clients/link-logo-2.avif" alt=""></a></figure>
-                    <figure class="clients-logo"><a href="index.html"><img src="assets/images/clients/your-logo.avif" alt=""></a></figure>                    
-                </div>
-            </div>
-        </section>
-        <!-- clients-section end -->
-
-
-        
-
-
-        <!-- chooseus-style-two -->
-        <section class="chooseus-style-two sec-pad">
-            <div class="bg-layer parallax-bg" data-parallax='{"y": 100}' style="background-image: url(assets/images/background/chooseus-bg.avif);"></div>
-            <div class="auto-container">
-                <div class="row clearfix">
-                    <div class="col-xl-6 col-lg-12 offset-xl-6 content-column">
-                        <div class="content_block_six">
-                            <div class="content-box p_relative ml_30">
-                                <div class="sec-title mb_50">
-                                    <span class="sub-title">Why Choose AiVRIC</span>
-                                    <h2>The AiVRIC Advantage</h2>
-                                </div>
-                                <ul class="accordion-box">
-                                    <li class="accordion block active-block">
-                                        <div class="acc-btn active">
-                                            <div class="icon-box"></div>
-                                            <h3>Unified Security Platform</h3>
-                                        </div>
-                                        <div class="acc-content current">
-                                            <div class="text">
-                                                <p>Gain a holistic view of your security posture with a single, integrated platform. AiVRIC combines risk assessment, compliance management, and automated remediation to provide a comprehensive solution.</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="accordion block">
-                                        <div class="acc-btn">
-                                            <div class="icon-box"></div>
-                                            <h3>Intelligence-Driven Automation</h3>
-                                        </div>
-                                        <div class="acc-content">
-                                            <div class="text">
-                                                <p>Our platform is powered by advanced AI that not only identifies threats but also provides context-aware, actionable remediation plans, enabling you to fix vulnerabilities faster and more effectively.</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="accordion block">
-                                        <div class="acc-btn">
-                                            <div class="icon-box"></div>
-                                            <h3>Continuous & Proactive Security</h3>
-                                        </div>
-                                        <div class="acc-content">
-                                            <div class="text">
-                                                <p>Move from a reactive to a proactive security stance. AiVRIC provides continuous monitoring and automated scanning to ensure you are always aware of your risk landscape and prepared for emerging threats.</p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- chooseus-style-two end -->
-
-
-       
-
-        <!-- main-footer -->
+  <section class="abp-section abp-cta">
+    <div class="auto-container">
+      <h2>Let's talk.</h2>
+      <p>Whether you're exploring CloudSignals+RiskOps, AI Signals, or the full platform — we'd like to show you what it does.</p>
+      <div class="abp-actions">
+        <a href="https://calendly.com/aivric/cloudsignals-demo" class="cs-btn primary">Book a Demo</a>
+        <a href="contact.html" class="cs-btn secondary">Contact us</a>
+      </div>
+    </div>
+  </section>
+</div>
+        </div><!-- /cs-product-page --><!-- main-footer -->
         <footer class="main-footer">
             <div class="widget-section">
                 <div class="pattern-layer">
@@ -659,6 +990,21 @@
     <script src="assets/js/blog-mega.js"></script>
 </body><!-- End of .page_wrapper -->
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

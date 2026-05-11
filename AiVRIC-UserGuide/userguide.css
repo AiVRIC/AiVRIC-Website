@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --ink: #050a14;
   --panel: #0c1424;
   --panel-2: #0f1a30;
@@ -637,3 +637,34 @@ body[data-page="home"] .guide-header {
   .guide-shell { padding: 0 16px; }
   .guide-content { padding: 18px 16px; }
 }
+
+/* ─── Dark guide header (design-system update 2026-05) ─── */
+.guide-header {
+  background: rgba(5, 10, 20, 0.96) !important;
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(148,163,184,0.12) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4) !important;
+}
+.brand { color: var(--text) !important; }
+.brand span { color: var(--text) !important; }
+.top-links a { color: var(--muted) !important; border-color: transparent !important; }
+.top-links a:hover {
+  color: var(--accent) !important;
+  border-color: rgba(9,211,251,0.3) !important;
+  background: rgba(9,211,251,0.07) !important;
+}
+.guide-search {
+  background: rgba(255,255,255,0.05) !important;
+  border-color: rgba(255,255,255,0.1) !important;
+  color: var(--text) !important;
+}
+.guide-search input { color: var(--text) !important; }
+.guide-search input::placeholder { color: var(--muted) !important; }
+.guide-search i { color: var(--muted) !important; }
+.nav-toggle {
+  background: rgba(255,255,255,0.06) !important;
+  border-color: rgba(255,255,255,0.12) !important;
+  color: var(--text) !important;
+}
+/* guide-content heading colors */
+.guide-content h1, .guide-content h2, .guide-content h3 { color: #f4f8ff; }
