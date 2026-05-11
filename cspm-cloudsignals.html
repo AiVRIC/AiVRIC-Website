@@ -5,7 +5,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title>Solutions | AiVRIC</title>
+<title>CloudSignals+RiskOps™ | Cloud Security &amp; GRC Platform | AiVRIC</title>
+<meta name="description" content="CloudSignals+RiskOps™ by AiVRIC — AI-native multi-cloud CSPM, risk register, continuous compliance, TPRM, and GenAI risk narratives. Start free or view pricing.">
 
 <!-- Fav Icon -->
 <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
@@ -32,6 +33,407 @@
 <link href="assets/css/responsive.css" rel="stylesheet">
 
   <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+
+  <style>
+    /* =========================================================
+       CloudSignals Product Page — Design System
+       Matches cloudsignals-pricing.html token set
+    ========================================================= */
+    :root{
+      --cs-cyan:#00d1ff; --cs-green:#2ee59d; --cs-gold:#ffd63a; --cs-purple:#a78bfa;
+      --cs-text-strong:#f8fafc; --cs-text:#e5e7eb; --cs-muted:#cbd5e1; --cs-faint:#94a3b8; --cs-accent:#7dd3fc;
+      --cs-surface-1:rgba(255,255,255,0.06); --cs-surface-2:rgba(255,255,255,0.10);
+      --cs-line:rgba(148,163,184,0.28); --cs-line-strong:rgba(148,163,184,0.5);
+      --cs-shadow:0 14px 40px rgba(0,0,0,0.28); --cs-radius:18px;
+      --cs-btn:#00d1ff; --cs-btn-hover:#24ddff; --cs-btn-active:#00b8e6;
+      --cs-btn-fg:#fff; --cs-btn-border:rgba(0,209,255,0.6);
+      --cs-btn-border-hover:rgba(0,209,255,0.85);
+      --cs-btn-shadow:0 12px 24px rgba(0,209,255,0.2);
+      --cs-btn-shadow-hover:0 14px 28px rgba(0,209,255,0.28);
+    }
+
+    body.portal-page{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 900px at 70% -20%,rgba(0,209,255,0.20),transparent 55%),
+        radial-gradient(900px 700px at 10% 10%,rgba(46,113,229,0.13),transparent 60%),
+        linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%);
+      color:var(--cs-text);
+    }
+
+    /* ---- Shared button primitives ---- */
+    .cs-btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:11px 22px; border-radius:999px; font-weight:700; font-size:14px;
+      letter-spacing:0.01em; text-decoration:none; cursor:pointer; transition:all 0.22s;
+      text-shadow:0 1px 0 rgba(0,0,0,0.3);
+    }
+    .cs-btn.primary{
+      background:var(--cs-btn); color:var(--cs-btn-fg)!important;
+      border:1px solid var(--cs-btn-border); box-shadow:var(--cs-btn-shadow);
+    }
+    .cs-btn.primary:hover{
+      background:var(--cs-btn-hover); border-color:var(--cs-btn-border-hover);
+      box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px);
+    }
+    .cs-btn.secondary{
+      background:rgba(0,209,255,0.10); color:var(--cs-text-strong)!important;
+      border:1px solid rgba(0,209,255,0.65); box-shadow:none;
+      text-shadow:0 1px 1px rgba(2,20,32,0.35);
+    }
+    .cs-btn.secondary:hover{
+      background:var(--cs-btn-hover)!important; color:#fff!important;
+      border-color:var(--cs-btn-border-hover)!important;
+      box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px);
+    }
+    .cs-btn.ghost{
+      background:transparent; color:var(--cs-text-strong)!important;
+      border:1px solid rgba(255,255,255,0.22); box-shadow:none; text-shadow:none;
+    }
+    .cs-btn.ghost:hover{
+      background:rgba(255,255,255,0.07)!important; transform:translateY(-1px);
+    }
+    .cs-btn[data-cloudsignals-free]{
+      background:var(--cs-btn); color:var(--cs-btn-fg)!important;
+      border:1px solid var(--cs-btn-border); box-shadow:var(--cs-btn-shadow);
+    }
+    .cs-btn[data-cloudsignals-free]:hover{
+      background:var(--cs-btn-hover); border-color:var(--cs-btn-border-hover);
+      box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px);
+    }
+
+    /* ---- Page wrapper ---- */
+    .cs-product-page{ padding:0; }
+
+    /* ---- Hero ---- */
+    .csp-hero{
+      padding:100px 0 56px;
+      position:relative; overflow:hidden;
+    }
+    @media(max-width:992px){ .csp-hero{ padding:80px 0 40px; } }
+    .csp-hero-grid{
+      display:grid; grid-template-columns:1.25fr 0.75fr; gap:32px; align-items:start;
+    }
+    @media(max-width:992px){ .csp-hero-grid{ grid-template-columns:1fr; } }
+
+    .csp-badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 14px; border-radius:999px;
+      background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.35);
+      color:var(--cs-text-strong); font-size:12.5px; font-weight:600; letter-spacing:0.3px;
+      margin-bottom:16px;
+    }
+    .csp-badge i{ color:var(--cs-cyan); }
+    .csp-badge .avail-dot{
+      width:8px; height:8px; border-radius:50%; background:var(--cs-green);
+      box-shadow:0 0 6px rgba(46,229,157,0.7); flex-shrink:0;
+    }
+
+    .csp-title{
+      font-family:Jost,Inter,sans-serif; font-size:54px; font-weight:800;
+      line-height:1.03; letter-spacing:-1.2px; color:var(--cs-text-strong); margin:0 0 14px;
+    }
+    @media(max-width:768px){ .csp-title{ font-size:38px; } }
+    .csp-sub{
+      font-size:17px; line-height:1.75; color:var(--cs-muted); max-width:62ch; margin:0 0 24px;
+    }
+    .csp-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+
+    /* Release band (inline) */
+    .csp-release-band{
+      display:flex; flex-wrap:wrap; gap:10px;
+    }
+    .csp-rb-item{
+      display:flex; align-items:center; gap:8px;
+      padding:8px 14px; border-radius:12px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+    }
+    .csp-rb-label{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--cs-faint); }
+    .csp-rb-val{ font-size:13px; color:var(--cs-text); font-weight:600; }
+    .csp-rb-val.avail{
+      color:var(--cs-green);
+      display:flex; align-items:center; gap:6px;
+    }
+    .csp-rb-val.avail::before{
+      content:""; width:7px; height:7px; border-radius:50%;
+      background:var(--cs-green); box-shadow:0 0 5px rgba(46,229,157,0.6);
+    }
+
+    /* Hero sidebar */
+    .csp-hero-aside{
+      display:flex; flex-direction:column; gap:14px; padding-top:4px;
+    }
+    .csp-quick-card{
+      border-radius:16px; padding:18px 20px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      box-shadow:var(--cs-shadow);
+    }
+    .csp-quick-card h4{
+      font-size:13px; font-weight:700; color:var(--cs-text-strong); margin:0 0 12px;
+      text-transform:uppercase; letter-spacing:0.5px;
+    }
+    .csp-quick-list{ list-style:none; padding:0; margin:0; display:grid; gap:7px; }
+    .csp-quick-list li{
+      display:flex; gap:9px; align-items:flex-start;
+      font-size:13px; color:var(--cs-muted); line-height:1.45;
+    }
+    .csp-quick-list li i{ color:var(--cs-green); flex-shrink:0; margin-top:1px; font-size:11px; }
+    .csp-quick-link{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:12px 16px; border-radius:12px;
+      background:rgba(0,209,255,0.07); border:1px solid rgba(0,209,255,0.22);
+      text-decoration:none; transition:background 0.2s;
+    }
+    .csp-quick-link:hover{ background:rgba(0,209,255,0.12); }
+    .csp-quick-link span{ font-size:13.5px; font-weight:600; color:var(--cs-text-strong); }
+    .csp-quick-link i{ color:var(--cs-cyan); font-size:12px; }
+
+    /* ---- Shared section ---- */
+    .csp-section{ padding:52px 0 0; }
+    .csp-eyebrow{
+      display:block; font-size:12px; font-weight:700; letter-spacing:1.5px;
+      text-transform:uppercase; color:var(--cs-cyan); margin-bottom:8px;
+    }
+    .csp-section-title{
+      font-family:Jost,Inter,sans-serif; font-size:32px; font-weight:800;
+      color:var(--cs-text-strong); margin:0 0 10px; letter-spacing:-0.4px; line-height:1.15;
+    }
+    .csp-section-sub{
+      font-size:15px; line-height:1.75; color:var(--cs-muted); max-width:80ch; margin:0 0 28px;
+    }
+
+    /* ---- Module cards ---- */
+    .csp-modules-grid{
+      display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+    }
+    @media(max-width:1100px){ .csp-modules-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:576px){ .csp-modules-grid{ grid-template-columns:1fr; } }
+    .csp-module-card{
+      border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      padding:22px; box-shadow:var(--cs-shadow);
+      display:flex; flex-direction:column; gap:12px;
+      transition:border-color 0.2s,box-shadow 0.2s;
+    }
+    .csp-module-card:hover{ border-color:rgba(0,209,255,0.3); box-shadow:0 20px 48px rgba(0,0,0,0.3); }
+    .csp-module-icon{
+      width:46px; height:46px; border-radius:13px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:20px; flex-shrink:0;
+    }
+    .csp-module-icon.cyan{ background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.28); color:var(--cs-cyan); }
+    .csp-module-icon.green{ background:rgba(46,229,157,0.13); border:1px solid rgba(46,229,157,0.28); color:var(--cs-green); }
+    .csp-module-icon.gold{ background:rgba(255,214,58,0.13); border:1px solid rgba(255,214,58,0.28); color:var(--cs-gold); }
+    .csp-module-icon.purple{ background:rgba(167,139,250,0.13); border:1px solid rgba(167,139,250,0.28); color:var(--cs-purple); }
+    .csp-module-card h3{ font-size:16px; font-weight:700; color:var(--cs-text-strong); margin:0; }
+    .csp-module-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; flex:1; }
+    .csp-module-feats{ list-style:none; padding:0; margin:0; display:grid; gap:6px; }
+    .csp-module-feats li{
+      font-size:12.5px; color:var(--cs-muted); display:flex; gap:7px; align-items:flex-start;
+    }
+    .csp-module-feats li::before{ content:"→"; color:var(--cs-cyan); font-size:11px; flex-shrink:0; margin-top:1px; }
+
+    /* ---- Capabilities grid ---- */
+    .csp-cap-grid{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+    }
+    @media(max-width:992px){ .csp-cap-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:576px){ .csp-cap-grid{ grid-template-columns:1fr; } }
+    .csp-cap{
+      border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      padding:20px; box-shadow:var(--cs-shadow);
+    }
+    .csp-cap-icon{
+      width:40px; height:40px; border-radius:11px;
+      background:rgba(0,209,255,0.11); border:1px solid rgba(0,209,255,0.24);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--cs-cyan); font-size:16px; margin-bottom:12px;
+    }
+    .csp-cap h4{ font-size:15px; font-weight:700; color:var(--cs-text-strong); margin:0 0 6px; }
+    .csp-cap p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; }
+
+    /* ---- Scope strip (plan limits) ---- */
+    .csp-scope-strip{
+      border-radius:var(--cs-radius);
+      background:linear-gradient(90deg,rgba(0,89,255,0.11),rgba(0,209,255,0.06));
+      border:1px solid rgba(0,89,255,0.22); padding:26px 28px;
+      display:flex; flex-direction:column; gap:16px;
+    }
+    .csp-scope-header{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+    .csp-scope-header h3{ font-family:Jost,Inter,sans-serif; font-size:20px; font-weight:700; color:var(--cs-text-strong); margin:0; }
+    .csp-scope-metrics{
+      display:grid; grid-template-columns:repeat(6,1fr); gap:14px;
+    }
+    @media(max-width:1100px){ .csp-scope-metrics{ grid-template-columns:repeat(3,1fr); } }
+    @media(max-width:576px){ .csp-scope-metrics{ grid-template-columns:repeat(2,1fr); } }
+    .csp-metric{
+      background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09);
+      border-radius:14px; padding:14px 12px; text-align:center;
+    }
+    .csp-metric-val{
+      font-family:Jost,Inter,sans-serif; font-size:24px; font-weight:800;
+      color:var(--cs-cyan); letter-spacing:-0.5px; display:block; margin-bottom:4px;
+    }
+    .csp-metric-label{ font-size:12px; color:var(--cs-muted); line-height:1.4; }
+    .csp-scope-note{
+      font-size:13px; color:var(--cs-faint); line-height:1.6;
+    }
+    .csp-scope-note a{ color:var(--cs-cyan); }
+
+    /* ---- Compliance ---- */
+    .csp-fw-grid{
+      display:grid; grid-template-columns:repeat(2,1fr); gap:14px;
+    }
+    @media(max-width:768px){ .csp-fw-grid{ grid-template-columns:1fr; } }
+    .csp-fw-card{
+      border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      overflow:hidden; box-shadow:var(--cs-shadow);
+    }
+    .csp-fw-head{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:16px 18px; cursor:pointer; user-select:none;
+    }
+    .csp-fw-head::-webkit-details-marker{ display:none; }
+    .csp-fw-head-left{ display:flex; align-items:center; gap:12px; }
+    .csp-fw-logo{
+      width:36px; height:36px; border-radius:10px;
+      background:rgba(0,209,255,0.11); border:1px solid rgba(0,209,255,0.24);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--cs-cyan); font-size:14px; flex-shrink:0;
+    }
+    .csp-fw-name{ font-size:15px; font-weight:700; color:var(--cs-text-strong); }
+    .csp-fw-sub{ font-size:12.5px; color:var(--cs-muted); margin-top:2px; }
+    .csp-fw-chevron{ color:var(--cs-faint); font-size:12px; transition:transform 0.2s; flex-shrink:0; }
+    details[open] .csp-fw-chevron{ transform:rotate(90deg); }
+    .csp-fw-body{
+      padding:0 18px 16px;
+      border-top:1px solid var(--cs-line);
+      padding-top:14px;
+    }
+    .csp-fw-req{
+      background:rgba(0,209,255,0.06); border:1px solid rgba(0,209,255,0.18);
+      border-radius:10px; padding:10px 12px; margin-bottom:10px;
+      font-size:13px; color:var(--cs-muted); line-height:1.6;
+    }
+    .csp-fw-req strong{ color:var(--cs-cyan); }
+    .csp-fw-body ul{ padding-left:16px; margin:0; display:grid; gap:5px; }
+    .csp-fw-body li{ font-size:13.5px; color:var(--cs-muted); line-height:1.55; }
+
+    /* ---- Deployment options ---- */
+    .csp-deploy-grid{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
+    }
+    @media(max-width:768px){ .csp-deploy-grid{ grid-template-columns:1fr; } }
+    .csp-deploy-card{
+      border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      padding:24px; box-shadow:var(--cs-shadow);
+    }
+    .csp-deploy-card.highlight{ border-color:rgba(0,209,255,0.35); }
+    .csp-deploy-icon{
+      width:44px; height:44px; border-radius:12px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:18px; margin-bottom:14px;
+    }
+    .csp-deploy-card h3{ font-size:17px; font-weight:700; color:var(--cs-text-strong); margin:0 0 8px; }
+    .csp-deploy-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0 0 14px; }
+    .csp-deploy-tags{ display:flex; flex-wrap:wrap; gap:6px; }
+    .csp-tag{
+      padding:4px 11px; border-radius:999px;
+      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+      color:var(--cs-muted); font-size:12px; font-weight:600;
+    }
+
+    /* ---- Pricing preview ---- */
+    .csp-pricing-preview{
+      border-radius:var(--cs-radius);
+      background:linear-gradient(135deg,rgba(0,209,255,0.08) 0%,rgba(46,229,157,0.04) 100%);
+      border:1px solid rgba(0,209,255,0.25);
+      box-shadow:0 20px 56px rgba(0,209,255,0.08),var(--cs-shadow);
+      padding:32px;
+    }
+    .csp-pp-grid{
+      display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center;
+    }
+    @media(max-width:768px){ .csp-pp-grid{ grid-template-columns:1fr; } }
+    .csp-pp-tiers{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    .csp-pp-tier{
+      padding:8px 16px; border-radius:12px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      display:flex; flex-direction:column; gap:2px; min-width:100px;
+    }
+    .csp-pp-tier.active{ border-color:rgba(0,209,255,0.38); background:rgba(0,209,255,0.07); }
+    .csp-pp-tier-name{ font-size:13px; font-weight:700; color:var(--cs-text-strong); }
+    .csp-pp-tier-price{ font-size:12px; color:var(--cs-muted); }
+    .csp-pp-aside{ display:flex; flex-direction:column; gap:10px; align-items:flex-end; }
+
+    /* ---- FAQ ---- */
+    .csp-faq-grid{
+      display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px;
+    }
+    @media(max-width:992px){ .csp-faq-grid{ grid-template-columns:1fr; } }
+    .csp-faq-item{
+      border-radius:16px; border:1px solid var(--cs-line);
+      background:var(--cs-surface-1); padding:16px; box-shadow:var(--cs-shadow);
+    }
+    .csp-faq-item summary{
+      cursor:pointer; font-weight:700; font-size:14.5px; color:var(--cs-text-strong);
+      list-style:none; user-select:none;
+    }
+    .csp-faq-item summary::-webkit-details-marker{ display:none; }
+    details[open] .csp-faq-item summary,
+    .csp-faq-item[open] summary{ color:var(--cs-cyan); }
+    .csp-faq-item p{
+      margin:10px 0 0; color:var(--cs-muted); font-size:13.5px; line-height:1.75;
+    }
+    .csp-faq-item a{ color:var(--cs-cyan); }
+
+    /* ---- Bottom CTA ---- */
+    .csp-bottom-cta{
+      margin:52px 0 60px;
+      border-radius:var(--cs-radius);
+      background:linear-gradient(135deg,rgba(0,209,255,0.09) 0%,rgba(46,229,157,0.05) 100%);
+      border:1px solid rgba(0,209,255,0.25);
+      box-shadow:0 24px 60px rgba(0,209,255,0.09);
+      padding:40px; text-align:center;
+    }
+    .csp-bottom-cta h2{
+      font-family:Jost,Inter,sans-serif; font-size:36px; font-weight:800;
+      color:var(--cs-text-strong); margin:0 0 12px; letter-spacing:-0.5px;
+    }
+    @media(max-width:768px){ .csp-bottom-cta h2{ font-size:26px; } }
+    .csp-bottom-cta p{
+      font-size:16px; color:var(--cs-muted); line-height:1.7;
+      max-width:60ch; margin:0 auto 24px;
+    }
+    .csp-bottom-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+
+    /* ---- Divider ---- */
+    .csp-divider{
+      height:1px; background:linear-gradient(90deg,transparent,var(--cs-line),transparent);
+      margin:48px 0 0;
+    }
+
+    /* ---- Use case pills ---- */
+    .csp-usecase-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .csp-usecase-pill{
+      display:inline-flex; align-items:center; gap:7px;
+      padding:9px 16px; border-radius:12px;
+      background:var(--cs-surface-1); border:1px solid var(--cs-line);
+      color:var(--cs-muted); font-size:13.5px; font-weight:600; text-decoration:none;
+      transition:border-color 0.2s,color 0.2s;
+    }
+    .csp-usecase-pill:hover{ border-color:rgba(0,209,255,0.35); color:var(--cs-cyan); }
+    .csp-usecase-pill i{ color:var(--cs-cyan); font-size:11px; }
+
+    /* ---- "Replaces" ---- */
+    .csp-replaces-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+    .csp-replaces-pill{
+      display:inline-flex; align-items:center; gap:7px;
+      padding:7px 14px; border-radius:999px;
+      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.10);
+      color:var(--cs-muted); font-size:13px; font-weight:600;
+    }
+    .csp-replaces-pill i{ color:var(--cs-green); font-size:11px; }
+  </style>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
@@ -358,220 +760,578 @@
         </div><!-- End Mobile Menu -->
 
 
-        <!-- page-title -->
-        <section class="page-title centred">
-            <div class="bg-layer" style="background-image: url(assets/images/banner/banner-4.avif);"></div>
+        <!-- ======================================================
+             CloudSignals+RiskOps™ — Product Page (modernised)
+        ====================================================== -->
+        <div class="cs-product-page">
+
+          <!-- ── HERO ── -->
+          <section class="csp-hero">
             <div class="auto-container">
-                <div class="content-box">
-                    <h1>CloudSignals+ RiskOps&trade;</h1>
-                    <ul class="bread-crumb clearfix">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="solutions.html">Solutions</a></li>
-                        <li>CSPM</li>
+              <div class="csp-hero-grid">
+
+                <!-- LEFT: copy -->
+                <div>
+                  <nav aria-label="breadcrumb" style="margin-bottom:20px;">
+                    <ol style="list-style:none;padding:0;margin:0;display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--cs-faint);">
+                      <li><a href="index.html" style="color:var(--cs-faint);text-decoration:none;">Home</a></li>
+                      <li style="color:var(--cs-line-strong);">/</li>
+                      <li><a href="pricing.html" style="color:var(--cs-faint);text-decoration:none;">Solutions</a></li>
+                      <li style="color:var(--cs-line-strong);">/</li>
+                      <li style="color:var(--cs-cyan);">CloudSignals+RiskOps™</li>
+                    </ol>
+                  </nav>
+
+                  <div class="csp-badge">
+                    <span class="avail-dot"></span>
+                    Generally Available &nbsp;·&nbsp; AWS · Azure · GCP
+                  </div>
+
+                  <h1 class="csp-title">Cloud security and<br>risk operations.<br><span style="color:var(--cs-cyan);">Unified.</span></h1>
+
+                  <p class="csp-sub">CloudSignals+RiskOps™ is AiVRIC's AI-native CSPM and GRC platform — continuous multi-cloud posture management, an always-current risk register, automated compliance evidence, third-party risk, and GenAI-powered risk narratives in one product.</p>
+
+                  <div class="csp-actions">
+                    <button type="button" class="cs-btn primary" data-cloudsignals-free data-package-id="pkg-cloudsignals-free">
+                      <i class="fas fa-bolt"></i> Start free — no credit card
+                    </button>
+                    <a href="cloudsignals-pricing.html" class="cs-btn secondary">View pricing &amp; plans</a>
+                    <a href="request-demo.html" class="cs-btn ghost">Request demo</a>
+                  </div>
+
+                  <!-- release metadata band -->
+                  <div class="csp-release-band">
+                    <div class="csp-rb-item">
+                      <span class="csp-rb-label">Status</span>
+                      <span class="csp-rb-val avail">Available</span>
+                    </div>
+                    <div class="csp-rb-item">
+                      <span class="csp-rb-label">Production releases</span>
+                      <span class="csp-rb-val">3 releases</span>
+                    </div>
+                    <div class="csp-rb-item">
+                      <span class="csp-rb-label">Last release</span>
+                      <span class="csp-rb-val">Dec 2025</span>
+                    </div>
+                    <div class="csp-rb-item">
+                      <span class="csp-rb-label">Next planned</span>
+                      <span class="csp-rb-val">Q2 2026</span>
+                    </div>
+                  </div>
+
+                  <!-- Replaces pills -->
+                  <div style="margin-top:20px;">
+                    <span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--cs-faint);display:block;margin-bottom:10px;">Replaces</span>
+                    <div class="csp-replaces-row">
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Native cloud security scanners</span>
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Spreadsheet compliance tracking</span>
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Manual evidence gathering</span>
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Point-in-time posture reviews</span>
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Siloed GRC tools</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- RIGHT: sidebar cards -->
+                <div class="csp-hero-aside">
+                  <div class="csp-quick-card">
+                    <h4>What's in every plan</h4>
+                    <ul class="csp-quick-list">
+                      <li><i class="fas fa-check-circle"></i>Multi-cloud inventory (AWS, Azure, GCP)</li>
+                      <li><i class="fas fa-check-circle"></i>500+ CSPM checks out of the box</li>
+                      <li><i class="fas fa-check-circle"></i>Risk register with scoring &amp; ownership</li>
+                      <li><i class="fas fa-check-circle"></i>Compliance framework mapping</li>
+                      <li><i class="fas fa-check-circle"></i>GenAI risk narrative &amp; chat</li>
+                      <li><i class="fas fa-check-circle"></i>Audit-ready evidence export</li>
+                      <li><i class="fas fa-check-circle"></i>Jira &amp; webhook integrations</li>
+                      <li><i class="fas fa-check-circle"></i>Role-based access control</li>
                     </ul>
+                  </div>
+
+                  <a href="cloudsignals-pricing.html" class="csp-quick-link">
+                    <span>Compare all 5 pricing plans</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+
+                  <a href="trust.html" class="csp-quick-link">
+                    <span>Trust Center &amp; security docs</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+
+                  <!-- Use-case links -->
+                  <div class="csp-quick-card" style="padding-top:14px;">
+                    <h4>Use cases</h4>
+                    <div class="csp-usecase-row">
+                      <a href="streamline-soc2.html" class="csp-usecase-pill"><i class="fas fa-check"></i>SOC 2 Type II</a>
+                      <a href="achieve-pci-dss.html" class="csp-usecase-pill"><i class="fas fa-check"></i>PCI-DSS</a>
+                      <a href="cmmc-readiness.html" class="csp-usecase-pill"><i class="fas fa-check"></i>CMMC</a>
+                      <a href="issues-poams.html" class="csp-usecase-pill"><i class="fas fa-check"></i>POA&amp;Ms</a>
+                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
-        </section>
-        <!-- page-title end -->
-        <section class="portal-release-band">
+          </section>
+
+          <div class="csp-divider"></div>
+
+          <!-- ── MODULES ── -->
+          <section class="csp-section">
             <div class="auto-container">
-                <div class="release-band">
-                    <div class="release-item">
-                        <span class="release-label">Availability</span>
-                        <span class="release-status status-available">Available</span>
-                    </div>
-                    <div class="release-item">
-                        <span class="release-label">Production releases</span>
-                        <span class="release-value">3 releases</span>
-                    </div>
-                    <div class="release-item">
-                        <span class="release-label">Last release</span>
-                        <span class="release-value">12/2/2025</span>
-                    </div>
-                    <div class="release-item">
-                        <span class="release-label">Next planned release</span>
-                        <span class="release-value">01/31/2026</span>
-                    </div>
+              <span class="csp-eyebrow">Platform Modules</span>
+              <h2 class="csp-section-title">Four modules. One unified product.</h2>
+              <p class="csp-section-sub">Every CloudSignals subscription includes all four modules — no add-on fees, no separate licenses.</p>
+
+              <div class="csp-modules-grid">
+                <div class="csp-module-card">
+                  <div class="csp-module-icon cyan"><i class="fas fa-cloud"></i></div>
+                  <h3>CloudSignals CSPM</h3>
+                  <p>Continuous multi-cloud posture management across AWS, Azure, and GCP with 500+ automated checks and real-time drift detection.</p>
+                  <ul class="csp-module-feats">
+                    <li>Unified cloud asset inventory</li>
+                    <li>Misconfiguration detection &amp; scoring</li>
+                    <li>Policy-as-code guardrails</li>
+                    <li>Agentless deployment in &lt;15 min</li>
+                  </ul>
                 </div>
+                <div class="csp-module-card">
+                  <div class="csp-module-icon green"><i class="fas fa-chart-line"></i></div>
+                  <h3>RiskOps™ Register</h3>
+                  <p>A living risk register that auto-populates from scan findings, assigns ownership, tracks treatment decisions, and quantifies exposure.</p>
+                  <ul class="csp-module-feats">
+                    <li>Auto-generated risk records</li>
+                    <li>Risk quantification (financial impact)</li>
+                    <li>Treatment workflow &amp; approvals</li>
+                    <li>Executive risk reporting</li>
+                  </ul>
+                </div>
+                <div class="csp-module-card">
+                  <div class="csp-module-icon gold"><i class="fas fa-handshake"></i></div>
+                  <h3>TPRM Discovery</h3>
+                  <p>Automate third-party risk assessments with vendor discovery, elevated review workflows, and managed entity linkage to your risk posture.</p>
+                  <ul class="csp-module-feats">
+                    <li>Vendor &amp; supplier discovery</li>
+                    <li>Elevated vendor review queue</li>
+                    <li>Managed entity risk linkage</li>
+                    <li>250 TPRM records (Premium)</li>
+                  </ul>
+                </div>
+                <div class="csp-module-card">
+                  <div class="csp-module-icon purple"><i class="fas fa-robot"></i></div>
+                  <h3>Vision AI Optics</h3>
+                  <p>GenAI-powered risk narratives, intelligent compliance summaries, and a natural language chat interface across your entire security posture.</p>
+                  <ul class="csp-module-feats">
+                    <li>GenAI risk narratives per finding</li>
+                    <li>NL compliance summaries</li>
+                    <li>Tenant-context AI chat</li>
+                    <li>1,500 vision prompts/mo (Premium)</li>
+                  </ul>
+                </div>
+              </div>
             </div>
-        </section>
-        <section class="portal-detail p_relative sec-pad">
+          </section>
+
+          <div class="csp-divider"></div>
+
+          <!-- ── CAPABILITIES ── -->
+          <section class="csp-section">
             <div class="auto-container">
-                <div class="portal-hero">
-                    <h2>CloudSignals+ RiskOps&trade;</h2>
-                    <p>CloudSignals delivers continuous cloud security posture management across AWS, Azure, and GCP.</p>
+              <span class="csp-eyebrow">Key Capabilities</span>
+              <h2 class="csp-section-title">Built for enterprise security and compliance teams</h2>
+              <p class="csp-section-sub">Every capability maps to a real procurement requirement — from CISO dashboards to audit evidence packages.</p>
+
+              <div class="csp-cap-grid">
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-layer-group"></i></div>
+                  <h4>Unified Cloud Inventory</h4>
+                  <p>Normalize assets, configurations, and metadata across AWS, Azure, and GCP into a single queryable inventory with relationships intact.</p>
                 </div>
-                <div class="portal-detail-grid">
-                    <div class="portal-detail-box">
-                        <h4>What it delivers</h4>
-                        <ul class="list-style-one clearfix">
-                            <li>Multi-cloud inventory and policy mapping.</li>
-                                        <li>Misconfiguration detection with context.</li>
-                                        <li>Compliance evidence automation.</li>
-                        </ul>
-                    </div>
-                    <div class="portal-detail-box">
-                        <h4>Procurement highlights</h4>
-                        <ul class="list-style-one clearfix">
-                            <li>Mapped to SOC 2, ISO 27001, PCI-DSS.</li>
-                                        <li>API-driven integrations for SIEM/ITSM.</li>
-                                        <li>Deployment in SaaS or customer-hosted SaaS.</li>
-                        </ul>
-                    </div>
-                    <div class="portal-replaces">
-                        <h4>Replaces the following Enterprise Solutions</h4>
-                        <ul class="portal-pill-list">
-                        <li class="portal-pill"><i class="fas fa-check"></i>Native cloud security scanners</li>
-                        <li class="portal-pill"><i class="fas fa-check"></i>Spreadsheet-based compliance tracking</li>
-                        <li class="portal-pill"><i class="fas fa-check"></i>Manual evidence gathering</li>
-                        <li class="portal-pill"><i class="fas fa-check"></i>Point-in-time posture reviews</li>
-                        </ul>
-                    </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-map"></i></div>
+                  <h4>Control Framework Mapping</h4>
+                  <p>Automatically map findings to 14+ compliance frameworks — SOC 2, ISO 27001, PCI-DSS, CMMC, HIPAA, NIST CSF, and more.</p>
                 </div>
-                                <div class="portal-usecases">
-                    <h4>Meets the following use cases</h4>
-                    <ul class="portal-usecase-list">
-                        <li><a href="streamline-soc2.html">SOC 2 Type II</a></li>
-                        <li><a href="achieve-pci-dss.html">PCI-DSS</a></li>
-                        <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
-                        <li><a href="issues-poams.html">Issues and POA&Ms</a></li>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-sort-amount-down"></i></div>
+                  <h4>Risk Prioritization Engine</h4>
+                  <p>Context-aware scoring combines severity, exploitability, asset criticality, and business impact to surface what matters most.</p>
+                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-file-alt"></i></div>
+                  <h4>Automated Evidence Collection</h4>
+                  <p>Continuously gather and package audit evidence — control screenshots, configuration snapshots, and remediation records — exportable on demand.</p>
+                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-shield-alt"></i></div>
+                  <h4>Release Governance</h4>
+                  <p>Track change windows, approval gates, and deployment risk so audit findings never surprise your change advisory board.</p>
+                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-plug"></i></div>
+                  <h4>Jira &amp; SIEM Integration</h4>
+                  <p>Native Jira bi-directional sync, webhook connectors, and SIEM forwarding keep your existing workflows intact while enriching them with risk context.</p>
+                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-users-cog"></i></div>
+                  <h4>RBAC &amp; Multi-Tenancy</h4>
+                  <p>Granular role-based access, SSO/SCIM provisioning, and multi-tenant isolation for MSPs and large enterprise organizations.</p>
+                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-tachometer-alt"></i></div>
+                  <h4>Executive &amp; Audit Reporting</h4>
+                  <p>Board-ready posture summaries, trend charts, and auditor-facing compliance reports generated automatically on a configurable schedule.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="csp-divider"></div>
+
+          <!-- ── PLAN SCOPE (Premium metrics) ── -->
+          <section class="csp-section">
+            <div class="auto-container">
+              <div class="csp-scope-strip">
+                <div class="csp-scope-header">
+                  <h3>Premium plan — what's included</h3>
+                  <a href="cloudsignals-pricing.html" class="cs-btn secondary" style="font-size:13px;padding:9px 18px;">
+                    Compare all plans <i class="fas fa-arrow-right" style="font-size:11px;"></i>
+                  </a>
+                </div>
+                <div class="csp-scope-metrics">
+                  <div class="csp-metric">
+                    <span class="csp-metric-val">75</span>
+                    <div class="csp-metric-label">Cloud accounts</div>
+                  </div>
+                  <div class="csp-metric">
+                    <span class="csp-metric-val">25K</span>
+                    <div class="csp-metric-label">Managed assets</div>
+                  </div>
+                  <div class="csp-metric">
+                    <span class="csp-metric-val">1,500</span>
+                    <div class="csp-metric-label">Scans / month</div>
+                  </div>
+                  <div class="csp-metric">
+                    <span class="csp-metric-val">50</span>
+                    <div class="csp-metric-label">Seats</div>
+                  </div>
+                  <div class="csp-metric">
+                    <span class="csp-metric-val">1,000</span>
+                    <div class="csp-metric-label">Risk records</div>
+                  </div>
+                  <div class="csp-metric">
+                    <span class="csp-metric-val">180</span>
+                    <div class="csp-metric-label">Days retention</div>
+                  </div>
+                </div>
+                <p class="csp-scope-note">Premium is $499/month. Need more? <a href="cloudsignals-pricing.html#enterprise">Enterprise plans</a> offer custom limits, dedicated CSM, and white-glove onboarding. All plans include a <a href="cloudsignals-pricing.html#free">permanent free tier</a>.</p>
+              </div>
+            </div>
+          </section>
+
+          <div class="csp-divider"></div>
+
+          <!-- ── COMPLIANCE FRAMEWORKS ── -->
+          <section class="csp-section">
+            <div class="auto-container">
+              <span class="csp-eyebrow">Security &amp; Compliance</span>
+              <h2 class="csp-section-title">14+ frameworks. Mapped controls. Audit-ready evidence.</h2>
+              <p class="csp-section-sub">CloudSignals ships with pre-built control mappings so your team goes from scan to audit evidence without manual cross-referencing.</p>
+
+              <div class="csp-fw-grid">
+                <details class="csp-fw-card">
+                  <summary class="csp-fw-head">
+                    <div class="csp-fw-head-left">
+                      <div class="csp-fw-logo"><i class="fas fa-certificate"></i></div>
+                      <div>
+                        <div class="csp-fw-name">SOC 2 (Type I &amp; II)</div>
+                        <div class="csp-fw-sub">Security, Availability, Confidentiality, Processing Integrity, Privacy</div>
+                      </div>
+                    </div>
+                    <i class="fas fa-chevron-right csp-fw-chevron"></i>
+                  </summary>
+                  <div class="csp-fw-body">
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Maintain continuous monitoring of security controls and retain timestamped audit evidence for assessor review.</div>
+                    <ul>
+                      <li>Centralizes control evidence and configuration logs for Type II periods</li>
+                      <li>Tracks remediation activity with approval workflows and timestamps</li>
+                      <li>Generates executive-ready Trust Services Criteria reporting</li>
+                      <li>Supports CC6, CC7, and A1 Trust Services criteria out of the box</li>
                     </ul>
-                </div>
-                                <div class="portal-compliance">
-                    <div class="sec-title mb_30">
-                        <span class="sub-title">Security & Compliance</span>
-                        <h3>Security and compliance frameworks supported</h3>
+                  </div>
+                </details>
+
+                <details class="csp-fw-card">
+                  <summary class="csp-fw-head">
+                    <div class="csp-fw-head-left">
+                      <div class="csp-fw-logo"><i class="fas fa-globe"></i></div>
+                      <div>
+                        <div class="csp-fw-name">ISO/IEC 27001:2022</div>
+                        <div class="csp-fw-sub">Information Security Management System (ISMS)</div>
+                      </div>
                     </div>
-                    <p class="portal-compliance-intro">Mapped controls, evidence, and reporting for enterprise requirements.</p>
-                    <details>
-                        <summary>SOC 2 (Security, Availability, Confidentiality)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Maintain continuous monitoring of security controls and retain audit evidence.
-                        </div>
-                        <ul>
-                            <li>Centralizes control evidence and logs for audits.</li>
-                            <li>Tracks remediation activity with approvals and timestamps.</li>
-                            <li>Provides executive-ready compliance reporting.</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>ISO/IEC 27001 (Information Security Management)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Establish risk treatment controls and demonstrate ongoing effectiveness.
-                        </div>
-                        <ul>
-                            <li>Maps findings to control objectives and risk registers.</li>
-                            <li>Documents remediation and verification workflows.</li>
-                            <li>Maintains evidence for continuous assurance.</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>PCI-DSS (Payment Card Security)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Monitor systems, detect misconfigurations, and document remediation actions.
-                        </div>
-                        <ul>
-                            <li>Flags posture gaps and policy violations in real time.</li>
-                            <li>Produces audit-ready reports for assessors.</li>
-                            <li>Tracks remediation with accountability.</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>CMMC (Federal Contractor Readiness)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Implement security practices and keep verifiable evidence of performance.
-                        </div>
-                        <ul>
-                            <li>Aligns controls to maturity requirements.</li>
-                            <li>Maintains POA&Ms and exception documentation.</li>
-                            <li>Supports evidence collection for audits.</li>
-                        </ul>
-                    </details>
-                </div>
-                <div class="sec-title mb_30">
-                    <span class="sub-title">Key Capabilities</span>
-                    <h3>Capabilities aligned to enterprise requirements</h3>
-                </div>
-                <div class="portal-cap-grid">
-                                <div class="portal-cap">
-                                    <h5>Unified Inventory</h5>
-                                    <p>Normalize assets and configurations.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Control Mapping</h5>
-                                    <p>Map findings to frameworks.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Risk Prioritization</h5>
-                                    <p>Score and rank misconfigurations.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Automated Evidence</h5>
-                                    <p>Exportable audit packs.</p>
-                                </div>
-                </div>
-                <div class="content-four mt_40">
-                    <div class="sec-title mb_30">
-                        <span class="sub-title">Outcomes</span>
-                        <h3>Business outcomes you can expect</h3>
+                    <i class="fas fa-chevron-right csp-fw-chevron"></i>
+                  </summary>
+                  <div class="csp-fw-body">
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Establish risk treatment controls and demonstrate ongoing effectiveness to certification body.</div>
+                    <ul>
+                      <li>Maps findings to Annex A control objectives and risk register entries</li>
+                      <li>Documents remediation and verification workflows for ISMS evidence</li>
+                      <li>Supports Statement of Applicability (SoA) generation</li>
+                      <li>Aligns to 2022 revision control set (93 controls, 11 new)</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <details class="csp-fw-card">
+                  <summary class="csp-fw-head">
+                    <div class="csp-fw-head-left">
+                      <div class="csp-fw-logo"><i class="fas fa-credit-card"></i></div>
+                      <div>
+                        <div class="csp-fw-name">PCI-DSS v4.0</div>
+                        <div class="csp-fw-sub">Payment Card Industry Data Security Standard</div>
+                      </div>
                     </div>
-                    <div class="portal-outcomes-grid">
-                        <div class="portal-cap">
-                            <h5>Reduce misconfiguration exposure</h5>
-                            <p>Detect risky cloud drift across AWS, Azure, and GCP.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Speed up audits with evidence</h5>
-                            <p>Automate control mapping and export audit-ready packs.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Improve cloud governance</h5>
-                            <p>Enforce policy guardrails with clear ownership.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Prioritize remediation</h5>
-                            <p>Risk-score findings to focus teams on what matters most.</p>
-                        </div>
+                    <i class="fas fa-chevron-right csp-fw-chevron"></i>
+                  </summary>
+                  <div class="csp-fw-body">
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Monitor cardholder data environment continuously, detect misconfigurations, and provide assessor-ready documentation.</div>
+                    <ul>
+                      <li>Flags CDE scope misconfigurations and policy violations in real time</li>
+                      <li>Produces SAQ and QSA-ready reports with evidence attachments</li>
+                      <li>Tracks remediation with accountability chains for Requirement 12</li>
+                      <li>Supports v4.0 customized approach evidence requirements</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <details class="csp-fw-card">
+                  <summary class="csp-fw-head">
+                    <div class="csp-fw-head-left">
+                      <div class="csp-fw-logo"><i class="fas fa-flag-usa"></i></div>
+                      <div>
+                        <div class="csp-fw-name">CMMC 2.0</div>
+                        <div class="csp-fw-sub">Cybersecurity Maturity Model Certification — Federal Contractor Readiness</div>
+                      </div>
                     </div>
-                </div>
-                                <div class="content-four mt_40 portal-faq">
-                    <div class="sec-title mb_20">
-                        <span class="sub-title">Enterprise FAQs</span>
-                        <h3>Answers for security, compliance, and procurement teams</h3>
+                    <i class="fas fa-chevron-right csp-fw-chevron"></i>
+                  </summary>
+                  <div class="csp-fw-body">
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Implement NIST SP 800-171 practices and maintain verifiable evidence of performance for DoD assessments.</div>
+                    <ul>
+                      <li>Aligns controls to Level 1 (17), Level 2 (110), and Level 3 requirements</li>
+                      <li>Maintains POA&amp;Ms and exception documentation for C3PAO assessors</li>
+                      <li>Supports System Security Plan (SSP) evidence collection</li>
+                      <li>Tracks CUI boundary compliance and access control findings</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <details class="csp-fw-card">
+                  <summary class="csp-fw-head">
+                    <div class="csp-fw-head-left">
+                      <div class="csp-fw-logo"><i class="fas fa-heartbeat"></i></div>
+                      <div>
+                        <div class="csp-fw-name">HIPAA Security Rule</div>
+                        <div class="csp-fw-sub">Health Insurance Portability and Accountability Act</div>
+                      </div>
                     </div>
-                    <div class="portal-faq-list">
-                        <details>
-                            <summary>Deployment models</summary>
-                            <p>SaaS, customer-hosted SaaS, or private deployment options with shared controls and audit artifacts. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Data residency &amp; retention</summary>
-                            <p>Regional data residency, configurable retention, and export/purge policies to meet governance needs. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Integrations (SIEM/SOAR, ticketing, CI/CD)</summary>
-                            <p>Native connectors and APIs for SIEM/SOAR, ticketing systems, and CI/CD workflows. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>SSO/SCIM &amp; RBAC</summary>
-                            <p>SSO and SCIM provisioning with granular RBAC for least-privilege access. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Evidence &amp; audit support</summary>
-                            <p>Evidence packages, control mappings, and audit-ready reporting for assessors. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Support/SLA options</summary>
-                            <p>Business and enterprise tiers with response-time SLAs and escalation paths. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
+                    <i class="fas fa-chevron-right csp-fw-chevron"></i>
+                  </summary>
+                  <div class="csp-fw-body">
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Protect electronic PHI with administrative, physical, and technical safeguards; maintain risk analysis documentation.</div>
+                    <ul>
+                      <li>Maps cloud misconfigurations to ePHI safeguard violations</li>
+                      <li>Supports annual risk analysis documentation requirements</li>
+                      <li>Tracks BAA-relevant third-party risk in TPRM module</li>
+                      <li>Provides breach notification risk scoring for covered entities</li>
+                    </ul>
+                  </div>
+                </details>
+
+                <details class="csp-fw-card">
+                  <summary class="csp-fw-head">
+                    <div class="csp-fw-head-left">
+                      <div class="csp-fw-logo"><i class="fas fa-shield-alt"></i></div>
+                      <div>
+                        <div class="csp-fw-name">NIST CSF 2.0 &amp; 800-53</div>
+                        <div class="csp-fw-sub">Plus: CIS Benchmarks, FedRAMP, GDPR, DORA</div>
+                      </div>
                     </div>
-                </div>
-                <div class="mt_40 portal-actions">
-                    <a href="solutions-portal.html#defense" class="theme-btn-one">Back to Solutions</a>
-                    <a href="request-demo.html" class="theme-btn-two ml_10">Talk to Sales</a>
-                </div>
+                    <i class="fas fa-chevron-right csp-fw-chevron"></i>
+                  </summary>
+                  <div class="csp-fw-body">
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Identify, protect, detect, respond, and recover — with evidence that the framework functions are operational.</div>
+                    <ul>
+                      <li>Full NIST CSF 2.0 function and subcategory mapping</li>
+                      <li>CIS Benchmark checks for AWS, Azure, GCP (L1 and L2)</li>
+                      <li>FedRAMP Low/Moderate control evidence support</li>
+                      <li>GDPR technical controls and data residency monitoring</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
             </div>
-        </section><!-- main-footer -->
+          </section>
+
+          <div class="csp-divider"></div>
+
+          <!-- ── DEPLOYMENT OPTIONS ── -->
+          <section class="csp-section">
+            <div class="auto-container">
+              <span class="csp-eyebrow">Deployment</span>
+              <h2 class="csp-section-title">Deploy the way your security policy requires</h2>
+              <p class="csp-section-sub">CloudSignals adapts to your data residency, network, and sovereignty requirements — not the other way around.</p>
+
+              <div class="csp-deploy-grid">
+                <div class="csp-deploy-card highlight">
+                  <div class="csp-deploy-icon" style="background:rgba(0,209,255,0.12);border:1px solid rgba(0,209,255,0.28);color:var(--cs-cyan);">
+                    <i class="fas fa-cloud"></i>
+                  </div>
+                  <h3>AiVRIC SaaS</h3>
+                  <p>Managed, fully hosted by AiVRIC. Connect cloud accounts via read-only IAM roles. No agents. No infrastructure to maintain. Operational in &lt;15 minutes.</p>
+                  <div class="csp-deploy-tags">
+                    <span class="csp-tag">No agents</span>
+                    <span class="csp-tag">&lt;15 min setup</span>
+                    <span class="csp-tag">Auto-updates</span>
+                    <span class="csp-tag">SOC 2 hosting</span>
+                  </div>
+                </div>
+                <div class="csp-deploy-card">
+                  <div class="csp-deploy-icon" style="background:rgba(46,229,157,0.12);border:1px solid rgba(46,229,157,0.28);color:var(--cs-green);">
+                    <i class="fas fa-server"></i>
+                  </div>
+                  <h3>Customer-hosted SaaS</h3>
+                  <p>Deploy into your own AWS, Azure, or GCP environment. AiVRIC manages the application layer; you own the infrastructure and data plane entirely.</p>
+                  <div class="csp-deploy-tags">
+                    <span class="csp-tag">Data stays in your cloud</span>
+                    <span class="csp-tag">VPC-isolated</span>
+                    <span class="csp-tag">Managed updates</span>
+                  </div>
+                </div>
+                <div class="csp-deploy-card">
+                  <div class="csp-deploy-icon" style="background:rgba(255,214,58,0.12);border:1px solid rgba(255,214,58,0.28);color:var(--cs-gold);">
+                    <i class="fas fa-network-wired"></i>
+                  </div>
+                  <h3>Air-gapped / Private</h3>
+                  <p>Fully disconnected deployment for high-security or regulated environments. Packaged container images delivered via secure transfer with offline update support.</p>
+                  <div class="csp-deploy-tags">
+                    <span class="csp-tag">FedRAMP-ready</span>
+                    <span class="csp-tag">No internet required</span>
+                    <span class="csp-tag">Enterprise tier</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="csp-divider"></div>
+
+          <!-- ── PRICING PREVIEW ── -->
+          <section class="csp-section">
+            <div class="auto-container">
+              <div class="csp-pricing-preview">
+                <div class="csp-pp-grid">
+                  <div>
+                    <span class="csp-eyebrow" style="margin-bottom:6px;">Pricing</span>
+                    <h2 class="csp-section-title" style="margin-bottom:8px;">Start free. Scale as you grow.</h2>
+                    <p style="font-size:15px;color:var(--cs-muted);line-height:1.7;margin:0 0 4px;">Every plan includes all four modules. No feature gating per module. Paid plans start at <strong style="color:var(--cs-text-strong);">$499/month</strong> for up to 75 cloud accounts.</p>
+                    <div class="csp-pp-tiers">
+                      <div class="csp-pp-tier active">
+                        <span class="csp-pp-tier-name">Free</span>
+                        <span class="csp-pp-tier-price">$0 forever</span>
+                      </div>
+                      <div class="csp-pp-tier">
+                        <span class="csp-pp-tier-name">Growth Trial</span>
+                        <span class="csp-pp-tier-price">Free / 14 days</span>
+                      </div>
+                      <div class="csp-pp-tier">
+                        <span class="csp-pp-tier-name">Premium</span>
+                        <span class="csp-pp-tier-price">$499/mo</span>
+                      </div>
+                      <div class="csp-pp-tier">
+                        <span class="csp-pp-tier-name">Enterprise</span>
+                        <span class="csp-pp-tier-price">Custom</span>
+                      </div>
+                      <div class="csp-pp-tier">
+                        <span class="csp-pp-tier-name">White-label</span>
+                        <span class="csp-pp-tier-price">Custom</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="csp-pp-aside">
+                    <a href="cloudsignals-pricing.html" class="cs-btn primary">
+                      View full pricing <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <button type="button" class="cs-btn secondary" data-cloudsignals-free data-package-id="pkg-cloudsignals-free">
+                      Start free now
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="csp-divider"></div>
+
+          <!-- ── FAQ ── -->
+          <section class="csp-section">
+            <div class="auto-container">
+              <span class="csp-eyebrow">Enterprise FAQs</span>
+              <h2 class="csp-section-title">Answers for security, compliance, and procurement teams</h2>
+
+              <div class="csp-faq-grid">
+                <details class="csp-faq-item">
+                  <summary>What deployment models are supported?</summary>
+                  <p>AiVRIC SaaS (fully managed), customer-hosted SaaS (your cloud, AiVRIC-managed app layer), and air-gapped private deployment. All models share the same feature set. <a href="trust.html">Review our Trust Center</a> for infrastructure details.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>Where does my cloud data reside?</summary>
+                  <p>AiVRIC SaaS is hosted on AWS with regional data residency options (US, EU). Customer-hosted SaaS keeps all data in your own cloud account. Air-gapped deployments are fully offline. <a href="trust.html">See our data handling policy</a>.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>What IAM permissions are needed?</summary>
+                  <p>CloudSignals uses read-only IAM roles — no write access to your cloud accounts required. We provide Terraform modules and CloudFormation templates for role provisioning. Least-privilege role definitions are published in our documentation.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>How does SSO and user provisioning work?</summary>
+                  <p>CloudSignals supports SAML 2.0 and OIDC SSO (Okta, Azure AD, Google Workspace, and any standards-compliant IdP). SCIM 2.0 provisioning is supported for automated user lifecycle management. Granular RBAC with custom roles available on Premium and above.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>What integrations are available?</summary>
+                  <p>Native Jira bi-directional sync (create issues, update status from findings), Slack and Teams notifications, webhook connectors for SIEM/SOAR (Splunk, Sentinel, QRadar), and a REST API for custom integrations. CI/CD pipeline scanning available via GitHub Actions and Azure Pipelines plugins.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>How is pricing calculated?</summary>
+                  <p>Pricing is based on cloud accounts, not scanned resources. This means your cost is predictable regardless of asset growth within an account. The Free tier supports 3 cloud accounts permanently. See the <a href="cloudsignals-pricing.html">full pricing page</a> for tier details.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>Is there an audit evidence export?</summary>
+                  <p>Yes — every plan includes automated evidence packaging. Export control evidence, configuration snapshots, and remediation records as PDF, CSV, or JSON. Enterprise plans support scheduled automated evidence delivery to auditor portals.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>What SLAs and support options are available?</summary>
+                  <p>Free and Growth Trial plans receive community support. Premium includes business-hours email/chat SLA (next business day). Enterprise and White-label plans include dedicated CSM, 4-hour critical SLA, and named escalation paths. <a href="request-demo.html">Talk to sales</a> for enterprise SLA details.</p>
+                </details>
+              </div>
+            </div>
+          </section>
+
+          <!-- ── BOTTOM CTA ── -->
+          <div class="auto-container">
+            <div class="csp-bottom-cta">
+              <h2>Ready to secure your cloud?</h2>
+              <p>Start free in minutes — no credit card required. Connect your first cloud account and see your posture score before lunch.</p>
+              <div class="csp-bottom-actions">
+                <button type="button" class="cs-btn primary" data-cloudsignals-free data-package-id="pkg-cloudsignals-free">
+                  <i class="fas fa-bolt"></i> Start free — no credit card
+                </button>
+                <a href="cloudsignals-pricing.html" class="cs-btn secondary">Compare plans</a>
+                <a href="request-demo.html" class="cs-btn ghost">Request a demo</a>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /cs-product-page --><!-- main-footer -->
         <footer class="main-footer">
             <div class="widget-section">
                 <div class="pattern-layer">
