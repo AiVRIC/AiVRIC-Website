@@ -699,4 +699,36 @@
 
 	
 
+
+
+/* ── Active nav detection (2026-05) ──────────────────────────────────────── */
+$(document).ready(function(){
+  var page = (window.location.pathname.split('/').pop() || 'index.html')
+               .replace(/[?#].*$/, '') || 'index.html';
+
+  var $topItems = $('.main-menu .navigation > li');
+
+  $topItems.each(function(){
+    var $li = $(this);
+
+    // 1. Check top-level anchor href
+    var topHref = ($li.children('a').attr('href') || '').split('/').pop().replace(/[?#].*$/, '');
+    if(topHref && topHref !== '#' && topHref === page){
+      $li.addClass('current');
+      return; // next li
+    }
+
+    // 2. Check all descendant links (mega-menu cards, dropdown items, etc.)
+    var found = false;
+    $li.find('a[href]').each(function(){
+      var href = ($(this).attr('href') || '').split('/').pop().replace(/[?#].*$/, '');
+      if(href && href === page){
+        found = true;
+        return false; // break .each
+      }
+    });
+    if(found){ $li.addClass('current'); }
+  });
+});
+
 })(window.jQuery);
