@@ -9,19 +9,19 @@
     'use strict';
 
     const CONFIG = {
-        controlPlaneApiUrl: '%%CONTROL_PLANE_API_URL%%',
-        defenseAppUrl: '%%CLOUDSIGNALS_APP_URL%%',
+        controlPlaneApiUrl: 'https://control.aivric.com',
+        defenseAppUrl: 'https://defense.aivric.com',
         successUrl: window.location.origin + '/success.html',
-        cancelUrl: window.location.origin + '/pricing.html',
+        cancelUrl: window.location.origin + window.location.pathname,
         contactUrl: window.location.origin + '/contact.html'
     };
 
     function normalizeConfig() {
         if (!CONFIG.controlPlaneApiUrl || CONFIG.controlPlaneApiUrl.includes('%%')) {
-            CONFIG.controlPlaneApiUrl = 'https://control-panel.aivric.com';
+            CONFIG.controlPlaneApiUrl = 'https://control.aivric.com';
         }
         if (!CONFIG.defenseAppUrl || CONFIG.defenseAppUrl.includes('%%')) {
-            CONFIG.defenseAppUrl = 'https://gcp-defense.aivric.com';
+            CONFIG.defenseAppUrl = 'https://defense.aivric.com';
         }
         CONFIG.controlPlaneApiUrl = CONFIG.controlPlaneApiUrl.replace(/\/$/, '');
     }
