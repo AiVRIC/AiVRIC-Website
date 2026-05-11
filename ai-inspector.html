@@ -597,7 +597,9 @@
                       <li><i class="fas fa-check-circle"></i>LLM-as-judge evaluation pipelines</li>
                       <li><i class="fas fa-check-circle"></i>Human feedback &amp; labeling queues</li>
                       <li><i class="fas fa-check-circle"></i>Dataset regression runs</li>
-                      <li><i class="fas fa-check-circle"></i>Python &amp; JS/TS SDKs</li>
+                      <li><i class="fas fa-check-circle"></i>AI Security Core — REDTEAM, SAST, MODEL_SCAN, MCP TEST</li>
+                      <li><i class="fas fa-check-circle"></i>MCP Governance — server inventory &amp; policy enforcement</li>
+                      <li><i class="fas fa-check-circle"></i>Reports — OWASP LLM TOP 10, NIST AI RMF, EU AI ACT</li>
                       <li><i class="fas fa-check-circle"></i>OpenAI, Anthropic, Bedrock support</li>
                     </ul>
                   </div>
@@ -620,51 +622,73 @@
           <section class="csp-section">
             <div class="auto-container">
               <span class="csp-eyebrow">Platform Modules</span>
-              <h2 class="csp-section-title">Four pillars of AI observability.</h2>
-              <p class="csp-section-sub">AI Signals™ covers the full AI development lifecycle — from runtime tracing through governance evidence.</p>
-              <div class="csp-modules-grid">
-                <div class="csp-module-card">
-                  <div class="csp-module-icon cyan"><i class="fas fa-project-diagram"></i></div>
-                  <h3>Tracing &amp; Telemetry</h3>
-                  <p>Capture every LLM call, retrieval step, tool invocation, and agent action with structured spans and session replay.</p>
+              <h2 class="csp-section-title">Six modules. Full AI governance lifecycle.</h2>
+              <p class="csp-section-sub">AI Signals™ covers observability, prompt governance, evaluation, AI security testing, MCP governance, and compliance reporting — in one platform.</p>
+              <div class="csp-modules-grid-3">
+                <div class="csp-module-card" style="--mod-accent:var(--cs-cyan)">
+                  <div class="csp-mod-icon"><i class="fas fa-project-diagram"></i></div>
+                  <h3>Observability</h3>
+                  <p>Capture every LLM call, retrieval step, tool invocation, and agent action with structured spans, session replay, and model cost tracking.</p>
                   <ul class="csp-module-feats">
                     <li>OTLP-compatible trace ingestion</li>
-                    <li>Token usage &amp; latency metrics</li>
+                    <li>Token usage &amp; latency percentiles</li>
                     <li>Multi-step agent trace stitching</li>
                     <li>Session-level replay viewer</li>
                   </ul>
                 </div>
-                <div class="csp-module-card">
-                  <div class="csp-module-icon green"><i class="fas fa-code-branch"></i></div>
-                  <h3>Prompt Governance</h3>
-                  <p>Version-control prompts with approval workflows, rollback, and change audit trails that satisfy compliance evidence requirements.</p>
+                <div class="csp-module-card" style="--mod-accent:var(--cs-green)">
+                  <div class="csp-mod-icon"><i class="fas fa-code-branch"></i></div>
+                  <h3>Prompt Management</h3>
+                  <p>Version-control prompts with approval workflows, rollback, and a live playground. Change audit trails satisfy compliance evidence requirements.</p>
                   <ul class="csp-module-feats">
                     <li>Git-style prompt versioning</li>
                     <li>Approval gates before production</li>
                     <li>One-click rollback</li>
-                    <li>Change diff &amp; audit log export</li>
+                    <li>Playground with trace-linked runs</li>
                   </ul>
                 </div>
-                <div class="csp-module-card">
-                  <div class="csp-module-icon gold"><i class="fas fa-vial"></i></div>
-                  <h3>Evaluation Pipelines</h3>
-                  <p>Define scoring rubrics, run LLM-as-judge evaluations, and collect human feedback to continuously measure output quality.</p>
+                <div class="csp-module-card" style="--mod-accent:var(--cs-gold)">
+                  <div class="csp-mod-icon"><i class="fas fa-vial"></i></div>
+                  <h3>Evaluation</h3>
+                  <p>Score outputs with LLM-as-judge and custom metrics. Collect human feedback, build golden datasets, and run regression tests on every release.</p>
                   <ul class="csp-module-feats">
                     <li>LLM-as-judge scoring</li>
-                    <li>Human labeling queue</li>
-                    <li>Custom metric definitions</li>
-                    <li>Eval run comparison views</li>
+                    <li>Human annotation queue</li>
+                    <li>Dataset regression runs</li>
+                    <li>Model-to-model compare views</li>
                   </ul>
                 </div>
-                <div class="csp-module-card">
-                  <div class="csp-module-icon purple"><i class="fas fa-database"></i></div>
-                  <h3>Dataset &amp; Benchmarking</h3>
-                  <p>Build golden datasets from production traces, run regression tests across model updates, and detect performance regressions before they ship.</p>
+                <div class="csp-module-card" style="--mod-accent:#f87171">
+                  <div class="csp-mod-icon"><i class="fas fa-shield-virus"></i></div>
+                  <h3>Security Core</h3>
+                  <p>Queue additive AI security runs without touching your Observe data flows. Target Agents, RAG pipelines, Prompts, Models, Repositories, or MCP Servers.</p>
                   <ul class="csp-module-feats">
-                    <li>Production trace → dataset pipeline</li>
-                    <li>Regression test runs</li>
-                    <li>Model-to-model benchmarks</li>
-                    <li>CI/CD eval gate integration</li>
+                    <li>REDTEAM, SAST, MODEL_SCAN runs</li>
+                    <li>MCP TEST &amp; COMPARE run types</li>
+                    <li>Customer-managed runner provisioning</li>
+                    <li>Findings feed into reports</li>
+                  </ul>
+                </div>
+                <div class="csp-module-card" style="--mod-accent:#60a5fa">
+                  <div class="csp-mod-icon"><i class="fas fa-server"></i></div>
+                  <h3>MCP Governance</h3>
+                  <p>Inventory MCP servers, enforce tool-access policy modes, and track operational health. Policy rule sets are JSON-defined and scoped per asset or project.</p>
+                  <ul class="csp-module-feats">
+                    <li>Server registry (HTTP, SSE transports)</li>
+                    <li>Monitor, Audit, Block policy modes</li>
+                    <li>JSON allowTools / denyTools rule sets</li>
+                    <li>Operational health dashboard</li>
+                  </ul>
+                </div>
+                <div class="csp-module-card" style="--mod-accent:var(--cs-purple)">
+                  <div class="csp-mod-icon"><i class="fas fa-file-alt"></i></div>
+                  <h3>Compliance Reports</h3>
+                  <p>Generate framework-mapped evidence reports from AI Signals findings and security run artifacts. Machine-collected evidence ensures reproducibility.</p>
+                  <ul class="csp-module-feats">
+                    <li>OWASP LLM TOP 10 coverage</li>
+                    <li>NIST AI RMF 1.0 mapping</li>
+                    <li>EU AI ACT evidence bundles</li>
+                    <li>Exportable PDF &amp; JSON reports</li>
                   </ul>
                 </div>
               </div>
@@ -710,6 +734,21 @@
                   <h4>Python &amp; JS/TS SDKs</h4>
                   <p>Drop-in SDKs for Python and TypeScript with OpenTelemetry-compatible tracing. LangChain, LlamaIndex, and Vercel AI SDK callbacks included.</p>
                 </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon" style="color:#f87171"><i class="fas fa-shield-virus"></i></div>
+                  <h4>AI Security Runs</h4>
+                  <p>Queue REDTEAM, SAST, MODEL_SCAN, MCP TEST, and COMPARE runs against Agent, RAG, Prompt, Model, Repository, or MCP Server targets — without touching your live Observe streams.</p>
+                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon" style="color:#60a5fa"><i class="fas fa-server"></i></div>
+                  <h4>MCP Policy Enforcement</h4>
+                  <p>Register MCP servers by endpoint, set per-asset policy modes (Monitor, Audit, Block), and define JSON rule sets controlling which tools agents may call at runtime.</p>
+                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon" style="color:var(--cs-purple)"><i class="fas fa-file-alt"></i></div>
+                  <h4>Framework Evidence Reports</h4>
+                  <p>Generate reproducible compliance evidence reports mapped to OWASP LLM TOP 10, NIST AI RMF 1.0, and EU AI ACT — built entirely from machine-collected findings, not manual notes.</p>
+                </div>
               </div>
             </div>
           </section>
@@ -721,25 +760,25 @@
             <div class="auto-container">
               <span class="csp-eyebrow">AI Governance &amp; Compliance</span>
               <h2 class="csp-section-title">Evidence-ready AI governance for auditors.</h2>
-              <p class="csp-section-sub">AI Signals™ creates verifiable audit trails for every prompt change, evaluation run, and model deployment — aligned to emerging AI governance standards.</p>
+              <p class="csp-section-sub">AI Signals™ generates machine-collected compliance reports and verifiable audit trails for every prompt change, security run, and model deployment — aligned to the frameworks regulators are asking about now.</p>
               <div class="csp-fw-grid">
                 <details class="csp-fw-card">
                   <summary class="csp-fw-head">
                     <div class="csp-fw-head-left">
-                      <div class="csp-fw-logo"><i class="fas fa-certificate"></i></div>
+                      <div class="csp-fw-logo"><i class="fas fa-list-ol"></i></div>
                       <div>
-                        <div class="csp-fw-name">SOC 2 — AI Service Controls</div>
-                        <div class="csp-fw-sub">Trust Services Criteria for AI-assisted systems</div>
+                        <div class="csp-fw-name">OWASP LLM TOP 10</div>
+                        <div class="csp-fw-sub">Security risk framework for LLM-powered applications</div>
                       </div>
                     </div>
                     <i class="fas fa-chevron-right csp-fw-chevron"></i>
                   </summary>
                   <div class="csp-fw-body">
-                    <div class="csp-fw-req"><strong>Core requirement:</strong> Demonstrate continuous monitoring and retain timestamped evidence for AI services operating in your production environment.</div>
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Identify, document, and evidence controls addressing the ten most critical risks in LLM applications — prompt injection, data leakage, insecure output handling, and more.</div>
                     <ul>
-                      <li>Centralizes LLM traces, prompt change logs, and eval outcomes as evidence artifacts</li>
-                      <li>Tracks approval chains for prompt promotions (CC6 change management)</li>
-                      <li>Provides export-ready audit bundles for SOC 2 Type II periods</li>
+                      <li>Security Core runs (REDTEAM, SAST, MODEL_SCAN) generate findings mapped to OWASP LLM TOP 10 categories</li>
+                      <li>One-click evidence report generation from accumulated security run results</li>
+                      <li>Framework coverage score tracks which TOP 10 risks have tested controls</li>
                     </ul>
                   </div>
                 </details>
@@ -757,8 +796,8 @@
                   <div class="csp-fw-body">
                     <div class="csp-fw-req"><strong>Core requirement:</strong> Establish documentation, testing, and monitoring practices that demonstrate AI system trustworthiness throughout the lifecycle.</div>
                     <ul>
-                      <li>Maps evaluation metrics to AI RMF Measure function outcomes</li>
-                      <li>Supports AI system documentation for the Govern and Map functions</li>
+                      <li>Evaluation metrics mapped to AI RMF Measure function outcomes</li>
+                      <li>AI system documentation for the Govern and Map functions via trace metadata</li>
                       <li>Human feedback and labeling align to the Manage function's oversight requirements</li>
                     </ul>
                   </div>
@@ -766,40 +805,40 @@
                 <details class="csp-fw-card">
                   <summary class="csp-fw-head">
                     <div class="csp-fw-head-left">
-                      <div class="csp-fw-logo"><i class="fas fa-globe"></i></div>
+                      <div class="csp-fw-logo"><i class="fas fa-flag"></i></div>
                       <div>
-                        <div class="csp-fw-name">ISO/IEC 42001 — AI Management</div>
-                        <div class="csp-fw-sub">AI Management System (AIMS) certification standard</div>
+                        <div class="csp-fw-name">EU AI ACT</div>
+                        <div class="csp-fw-sub">Regulation (EU) 2024/1689 — Risk classification and compliance obligations</div>
                       </div>
                     </div>
                     <i class="fas fa-chevron-right csp-fw-chevron"></i>
                   </summary>
                   <div class="csp-fw-body">
-                    <div class="csp-fw-req"><strong>Core requirement:</strong> Establish and maintain an AI management system with documented objectives, risk treatment, and performance monitoring.</div>
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Demonstrate technical documentation, human oversight measures, and conformity assessment evidence for AI systems deployed in the EU.</div>
                     <ul>
-                      <li>Prompt governance and approval workflows support Clause 8 operational planning</li>
-                      <li>Evaluation pipeline results feed AI system performance monitoring (Clause 9)</li>
-                      <li>Change history and rollback support continual improvement requirements (Clause 10)</li>
+                      <li>AI Signals reports generate EU AI ACT evidence bundles from machine-collected security and evaluation runs</li>
+                      <li>Prompt governance change logs provide technical documentation for high-risk AI system dossiers</li>
+                      <li>Human annotation and oversight workflows satisfy Articles 14/16 human oversight obligations</li>
                     </ul>
                   </div>
                 </details>
                 <details class="csp-fw-card">
                   <summary class="csp-fw-head">
                     <div class="csp-fw-head-left">
-                      <div class="csp-fw-logo"><i class="fas fa-shield-alt"></i></div>
+                      <div class="csp-fw-logo"><i class="fas fa-certificate"></i></div>
                       <div>
-                        <div class="csp-fw-name">ISO/IEC 27001 — AI Data Controls</div>
-                        <div class="csp-fw-sub">Extends ISMS controls to AI training data and model outputs</div>
+                        <div class="csp-fw-name">SOC 2 — AI Service Controls</div>
+                        <div class="csp-fw-sub">Trust Services Criteria for AI-assisted systems</div>
                       </div>
                     </div>
                     <i class="fas fa-chevron-right csp-fw-chevron"></i>
                   </summary>
                   <div class="csp-fw-body">
-                    <div class="csp-fw-req"><strong>Core requirement:</strong> Extend risk treatment and effectiveness monitoring to AI pipelines and the data they process.</div>
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Demonstrate continuous monitoring and retain timestamped evidence for AI services operating in your production environment.</div>
                     <ul>
-                      <li>Maps AI trace data retention to Annex A.8.10 information deletion controls</li>
-                      <li>Prompt change logs provide Annex A.8.32 change management evidence for AI assets</li>
-                      <li>Evaluation outcomes document AI risk treatment effectiveness for ISMS reviews</li>
+                      <li>Centralizes LLM traces, prompt change logs, and eval outcomes as evidence artifacts</li>
+                      <li>Tracks approval chains for prompt promotions (CC6 change management)</li>
+                      <li>Provides export-ready audit bundles for SOC 2 Type II periods</li>
                     </ul>
                   </div>
                 </details>
@@ -838,6 +877,18 @@
                 <details class="csp-faq-item">
                   <summary>Is there SSO and RBAC support?</summary>
                   <p>SAML 2.0 and OIDC SSO are supported (Okta, Azure AD, Google Workspace). Role-based access controls with custom roles for viewers, evaluators, prompt owners, and admins. SCIM provisioning is on the GA roadmap.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>What Security Core run types and targets are available?</summary>
+                  <p>Security Core supports five run types: <strong>REDTEAM</strong> (adversarial prompt attack simulation), <strong>SAST</strong> (static analysis of prompts and pipeline code), <strong>MODEL_SCAN</strong> (model safety and alignment checks), <strong>MCP TEST</strong> (policy gate verification for MCP servers), and <strong>COMPARE</strong> (side-by-side safety comparison across model versions). Targets include Agent, RAG, Prompt, Model, Repository, and MCP Server. Customer-managed runners can be provisioned for private environments.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>How does MCP Governance work?</summary>
+                  <p>Register any MCP server by name, endpoint URL, and transport (HTTP or SSE). Set a policy mode per server or per project scope — <strong>Monitor</strong> (observe only), <strong>Audit</strong> (log all tool calls), or <strong>Block</strong> (enforce allow/deny rules). Policy rule sets are defined in JSON with <code>allowTools</code> and <code>denyTools</code> arrays. v1 focuses on observe and policy gate flows; full server lifecycle management is on the roadmap.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>What compliance report formats does AI Signals™ generate?</summary>
+                  <p>Reports are generated from machine-collected evidence only — security run findings, evaluation outcomes, and prompt change artifacts — so they remain reproducible and auditor-verifiable. Reports are downloadable as PDF and JSON. Current framework templates: OWASP LLM TOP 10, NIST AI RMF 1.0, and EU AI ACT. Framework Coverage scores per framework are shown on the Reports dashboard.</p>
                 </details>
               </div>
             </div>

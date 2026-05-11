@@ -642,15 +642,53 @@
           <!-- ── AVAILABLE NOW nudge ── -->
           <section class="csp-section">
             <div class="auto-container">
-              <div style="border-radius:var(--cs-radius);background:linear-gradient(135deg,rgba(167,139,250,0.08),rgba(0,209,255,0.05));border:1px solid rgba(167,139,250,0.22);padding:28px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
-                <div>
-                  <span style="display:block;font-size:12px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:var(--cs-purple);margin-bottom:8px;">Vision AI Available Now</span>
-                  <h3 style="font-family:Jost,Inter,sans-serif;font-size:22px;font-weight:800;color:var(--cs-text-strong);margin:0 0 6px;">Try GenAI risk narratives in CloudSignals+RiskOps™ today.</h3>
-                  <p style="font-size:14px;color:var(--cs-muted);margin:0;">The Vision AI module — GenAI risk narratives, intelligent compliance summaries, and AI chat — is live inside CloudSignals+RiskOps™. No wait required.</p>
+              <div style="border-radius:var(--cs-radius);background:linear-gradient(135deg,rgba(167,139,250,0.10),rgba(0,209,255,0.05));border:1px solid rgba(167,139,250,0.28);padding:32px 36px;">
+                <span style="display:block;font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--cs-purple);margin-bottom:12px;">Vision AI Module — Available Now in CloudSignals</span>
+                <h3 style="font-family:Jost,Inter,sans-serif;font-size:24px;font-weight:800;color:var(--cs-text-strong);margin:0 0 8px;">Security-native AI telemetry is already live inside CloudSignals+RiskOps™.</h3>
+                <p style="font-size:15px;color:var(--cs-muted);margin:0 0 24px;max-width:72ch;">The Vision AI module — Model Insights, Security-Native Telemetry, and AI chat — is production-ready today. No wait required. Teams are already using it to track LLM quality across their CloudSignals workflows.</p>
+
+                <!-- Live metrics row -->
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px;">
+                  <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(167,139,250,0.22);border-radius:12px;padding:16px;text-align:center;">
+                    <div style="font-size:28px;font-weight:800;color:var(--cs-purple);font-family:Jost,sans-serif;line-height:1;">96</div>
+                    <div style="font-size:11px;color:var(--cs-faint);margin-top:4px;letter-spacing:0.3px;">Telemetry sessions tracked</div>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(46,229,157,0.22);border-radius:12px;padding:16px;text-align:center;">
+                    <div style="font-size:28px;font-weight:800;color:var(--cs-green);font-family:Jost,sans-serif;line-height:1;">67.7%</div>
+                    <div style="font-size:11px;color:var(--cs-faint);margin-top:4px;letter-spacing:0.3px;">Closed-loop success rate</div>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(0,209,255,0.22);border-radius:12px;padding:16px;text-align:center;">
+                    <div style="font-size:28px;font-weight:800;color:var(--cs-cyan);font-family:Jost,sans-serif;line-height:1;">70.6</div>
+                    <div style="font-size:11px;color:var(--cs-faint);margin-top:4px;letter-spacing:0.3px;">Avg quality score</div>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,214,58,0.22);border-radius:12px;padding:16px;text-align:center;">
+                    <div style="font-size:28px;font-weight:800;color:var(--cs-gold);font-family:Jost,sans-serif;line-height:1;">324.8K</div>
+                    <div style="font-size:11px;color:var(--cs-faint);margin-top:4px;letter-spacing:0.3px;">Tokens tracked (30d window)</div>
+                  </div>
                 </div>
-                <div style="display:flex;flex-direction:column;gap:10px;flex-shrink:0;">
+
+                <!-- Feature highlights -->
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;">
+                  <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(148,163,184,0.16);border-radius:10px;padding:14px 16px;">
+                    <div style="font-size:12px;font-weight:700;color:var(--cs-text-strong);margin-bottom:4px;"><i class="fas fa-signal" style="color:var(--cs-purple);margin-right:6px;"></i>Security-Native Telemetry</div>
+                    <p style="font-size:12px;color:var(--cs-faint);margin:0;">Curated into CloudSignals posture signals — not raw trace console noise.</p>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(148,163,184,0.16);border-radius:10px;padding:14px 16px;">
+                    <div style="font-size:12px;font-weight:700;color:var(--cs-text-strong);margin-bottom:4px;"><i class="fas fa-lock" style="color:var(--cs-cyan);margin-right:6px;"></i>Tenant-Bound Isolation</div>
+                    <p style="font-size:12px;color:var(--cs-faint);margin:0;">Export boundary controls — Tenant Bound or Shared Project Per Tenant.</p>
+                  </div>
+                  <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(148,163,184,0.16);border-radius:10px;padding:14px 16px;">
+                    <div style="font-size:12px;font-weight:700;color:var(--cs-text-strong);margin-bottom:4px;"><i class="fas fa-bell" style="color:var(--cs-green);margin-right:6px;"></i>Alert Signals</div>
+                    <p style="font-size:12px;color:var(--cs-faint);margin:0;">Prompt drift, quality degradation, and privacy tradeoff advisories surfaced automatically.</p>
+                  </div>
+                </div>
+
+                <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center;">
                   <a href="cspm-cloudsignals.html" class="cs-btn primary" style="white-space:nowrap;">
                     <i class="fas fa-bolt"></i> Explore CloudSignals+RiskOps™
+                  </a>
+                  <a href="ai-inspector.html" class="cs-btn secondary" style="white-space:nowrap;">
+                    AI Signals™ — powers the telemetry layer
                   </a>
                 </div>
               </div>
