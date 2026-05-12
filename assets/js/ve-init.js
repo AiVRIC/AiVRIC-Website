@@ -1,11 +1,23 @@
-/* AiVRIC Visual Enhancement — video reveal v4
- * Videos start at opacity:0 (set in CSS).
- * This script fades each video to opacity:1 once it begins playing.
- * CSS handles all placeholder aesthetics — no fallback images needed.
- * Remove this file once brand videos are in assets/videos/.
+/* AiVRIC Visual Enhancement — asset reveal v5
+ * Brand imgs start at opacity:0 in CSS; revealed here when they load.
+ * Videos start at opacity:0 in CSS; revealed here when they play.
+ * CSS handles all placeholder aesthetics until assets land.
  */
 (function () {
   function init() {
+    /* Reveal brand PNG images when they successfully load */
+    [].forEach.call(
+      document.querySelectorAll('.ve-vid-frame img:not([data-ve-bg])'),
+      function (img) {
+        if (img.complete && img.naturalWidth > 0) {
+          img.style.opacity = '1';
+        } else {
+          img.addEventListener('load', function () { img.style.opacity = '1'; });
+        }
+      }
+    );
+
+    /* Fade in videos when they begin playing */
     [].forEach.call(
       document.querySelectorAll('.ve-vid-frame video, .ve-threat-bg video, .ve-ba-vid-bg video'),
       function (vid) {
