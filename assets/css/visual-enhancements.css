@@ -31,14 +31,26 @@
   width:100%; height:100%;
   object-fit:cover; display:block;
 }
+/* Videos start invisible — JS fades them in when playing */
+.ve-vid-frame video,
+.ve-threat-bg video,
+.ve-ba-vid-bg video { opacity:0; transition:opacity .8s ease; }
+
+/* Explicit stacking order */
+.ve-vid-frame img:not([data-ve-bg]),
+.ve-threat-bg img:not([data-ve-bg]),
+.ve-ba-vid-bg img:not([data-ve-bg]) { z-index:1; }
+
+.ve-vid-frame video { z-index:2; }
+
 .ve-vid-overlay{
-  position:absolute; inset:0; z-index:2; pointer-events:none;
+  position:absolute; inset:0; z-index:3; pointer-events:none;
   background:linear-gradient(135deg,rgba(0,209,255,.05) 0%,transparent 55%),
              linear-gradient(to bottom,transparent 60%,rgba(6,11,20,.75));
 }
 .ve-vid-scanlines{
-  position:absolute; inset:0; z-index:3; pointer-events:none;
-  background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.04) 2px,rgba(0,0,0,.04) 4px);
+  position:absolute; inset:0; z-index:4; pointer-events:none;
+  background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(0,0,0,.03) 3px,rgba(0,0,0,.04) 4px);
 }
 
 /* ── Live dot ── */
@@ -373,47 +385,113 @@
 }
 
 /* ══════════════════════════════════════════════════════════════════
-   BROKEN IMAGE / PENDING ASSET HANDLING
+   FRAME PLACEHOLDER SYSTEM — shows until brand assets land
+   All placeholder visuals sit at z-index 0, below img (z-1) and video (z-2)
 ══════════════════════════════════════════════════════════════════ */
 
-/* Hide broken alt text while brand images are pending */
+/* Suppress broken img icon / alt text */
 .ve-vid-frame img,
 .ve-threat-bg img,
-.ve-ba-vid-bg img{
-  font-size:0;
-  color:transparent;
+.ve-ba-vid-bg img { font-size:0; color:transparent; }
+
+/* ── Dot-grid texture (::before, z-index 0) ── */
+.ve-vid-frame::before{
+  content:''; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background-image:radial-gradient(circle, rgba(0,209,255,.2) 1px, transparent 1px);
+  background-size:30px 30px; background-position:15px 15px;
 }
 
-/* Animated scan shimmer — visible when no image/video has loaded yet */
-@keyframes ve-shimmer{
-  0%{background-position:200% 0}
-  100%{background-position:-200% 0}
-}
-@keyframes ve-scan-line{
-  0%{top:-4px}
-  100%{top:100%}
+/* ── Radar-pulse ring (::after, z-index 0) ── */
+@keyframes ve-ring-out{
+  0%  { transform:translate(-50%,-50%) scale(.45); opacity:.7; }
+  75% { transform:translate(-50%,-50%) scale(1.15); opacity:0; }
+  100%{ transform:translate(-50%,-50%) scale(1.15); opacity:0; }
 }
 .ve-vid-frame::after{
-  content:'';
-  position:absolute; inset:0; z-index:1; pointer-events:none;
-  background:linear-gradient(
-    110deg,
-    transparent 30%,
-    rgba(0,209,255,.045) 50%,
-    transparent 70%
-  );
-  background-size:200% 100%;
-  animation:ve-shimmer 3.5s linear infinite;
+  content:''; position:absolute; z-index:0; pointer-events:none;
+  top:50%; left:50%;
+  width:96px; height:96px; border-radius:50%;
+  border:1px solid rgba(0,209,255,.35);
+  animation:ve-ring-out 2.8s ease-out infinite;
 }
-/* Once an image or video is present the shimmer sits behind it harmlessly
-   because img/video are also absolute and appear above z-index:1 in source order */
-.ve-vid-frame img[src],.ve-vid-frame video[src]{z-index:2;}
 
-/* Horizontal scan line pulse */
+/* ── Moving scan line ── */
+@keyframes ve-scan-line{ 0%{top:-4px} 100%{top:100%} }
 .ve-vid-frame .ve-vid-scanlines::after{
-  content:'';
-  display:block;
+  content:''; display:block;
   position:absolute; left:0; right:0; height:2px;
-  background:linear-gradient(90deg,transparent,rgba(0,209,255,.35),transparent);
-  animation:ve-scan-line 4s linear infinite;
+  background:linear-gradient(90deg,transparent,rgba(0,209,255,.28),transparent);
+  animation:ve-scan-line 5s linear infinite;
+}
+
+/* ════════════════════════════════════════
+   PER-FRAME BACKGROUND THEMES
+   (Each frame's background overrides the base .ve-vid-frame background)
+   ════════════════════════════════════════ */
+
+/* Platform Film hero (clip 4 — Main Promo, cyan/teal) */
+.ve-pf-frame{
+  background:
+    radial-gradient(ellipse 55% 45% at 72% 28%, rgba(0,209,255,.11) 0%, transparent 58%),
+    radial-gradient(ellipse 45% 40% at 22% 74%, rgba(46,229,157,.06) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 50% 50%, rgba(0,209,255,.03) 0%, transparent 80%),
+    #040d1a;
+}
+
+/* Dashboard Showcase main panel (clip 2 — Platform Reveal, cyan/blue) */
+.ve-ds-main{
+  background:
+    radial-gradient(ellipse 50% 40% at 68% 32%, rgba(0,209,255,.1) 0%, transparent 58%),
+    radial-gradient(ellipse 40% 50% at 16% 70%, rgba(26,143,227,.07) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0,209,255,.03) 0%, transparent 75%),
+    #040d1a;
+}
+
+/* Dashboard Showcase side panel (clip 3 — Risk Intelligence, purple/cyan) */
+.ve-ds-side{
+  background:
+    radial-gradient(ellipse 58% 50% at 50% 36%, rgba(155,109,255,.12) 0%, transparent 58%),
+    radial-gradient(ellipse 40% 35% at 20% 74%, rgba(0,209,255,.06) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 40% at 80% 70%, rgba(26,143,227,.04) 0%, transparent 50%),
+    #040d1a;
+}
+.ve-ds-side::after{ border-color:rgba(155,109,255,.4); }
+.ve-ds-side::before{ background-image:radial-gradient(circle, rgba(155,109,255,.2) 1px, transparent 1px); }
+
+/* Threat Intelligence map (clip 1 — red arcs, red/purple) */
+.ve-ti-frame{
+  background:
+    radial-gradient(ellipse 52% 38% at 28% 62%, rgba(255,59,92,.16) 0%, transparent 58%),
+    radial-gradient(ellipse 38% 32% at 72% 36%, rgba(155,109,255,.1) 0%, transparent 52%),
+    radial-gradient(ellipse 65% 50% at 50% 50%, rgba(26,143,227,.04) 0%, transparent 70%),
+    #040d1a;
+}
+.ve-ti-frame::after{ border-color:rgba(255,59,92,.4); animation-duration:3.4s; }
+.ve-ti-frame::before{ background-image:radial-gradient(circle, rgba(255,59,92,.18) 1px, transparent 1px); }
+
+/* How-Visual frame (clip 3 re-use, cyan) */
+.ve-hv-frame{
+  background:
+    radial-gradient(ellipse 55% 45% at 62% 36%, rgba(0,209,255,.09) 0%, transparent 58%),
+    radial-gradient(ellipse 35% 30% at 22% 68%, rgba(46,229,157,.05) 0%, transparent 50%),
+    #040d1a;
+}
+
+/* RiskOps Portal (clip 5 — amber/green enterprise) */
+.ve-rp-frame{
+  background:
+    radial-gradient(ellipse 52% 42% at 54% 56%, rgba(255,214,58,.09) 0%, transparent 58%),
+    radial-gradient(ellipse 38% 32% at 20% 28%, rgba(0,229,160,.08) 0%, transparent 48%),
+    radial-gradient(ellipse 30% 25% at 80% 22%, rgba(0,229,160,.05) 0%, transparent 40%),
+    #040d1a;
+}
+.ve-rp-frame::after{ border-color:rgba(255,214,58,.35); animation-duration:3.2s; }
+.ve-rp-frame::before{ background-image:radial-gradient(circle, rgba(255,214,58,.14) 1px, transparent 1px); }
+
+/* Trust Reel (clip 7 — shield/brand, teal) */
+.ve-tr-frame{
+  background:
+    radial-gradient(ellipse 65% 65% at 50% 50%, rgba(0,209,255,.09) 0%, transparent 65%),
+    radial-gradient(ellipse 35% 30% at 20% 20%, rgba(46,229,157,.05) 0%, transparent 45%),
+    #040d1a;
 }
