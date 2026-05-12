@@ -371,3 +371,49 @@
   }
   .ve-ti-frame{aspect-ratio:16/9;}
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   BROKEN IMAGE / PENDING ASSET HANDLING
+══════════════════════════════════════════════════════════════════ */
+
+/* Hide broken alt text while brand images are pending */
+.ve-vid-frame img,
+.ve-threat-bg img,
+.ve-ba-vid-bg img{
+  font-size:0;
+  color:transparent;
+}
+
+/* Animated scan shimmer — visible when no image/video has loaded yet */
+@keyframes ve-shimmer{
+  0%{background-position:200% 0}
+  100%{background-position:-200% 0}
+}
+@keyframes ve-scan-line{
+  0%{top:-4px}
+  100%{top:100%}
+}
+.ve-vid-frame::after{
+  content:'';
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:linear-gradient(
+    110deg,
+    transparent 30%,
+    rgba(0,209,255,.045) 50%,
+    transparent 70%
+  );
+  background-size:200% 100%;
+  animation:ve-shimmer 3.5s linear infinite;
+}
+/* Once an image or video is present the shimmer sits behind it harmlessly
+   because img/video are also absolute and appear above z-index:1 in source order */
+.ve-vid-frame img[src],.ve-vid-frame video[src]{z-index:2;}
+
+/* Horizontal scan line pulse */
+.ve-vid-frame .ve-vid-scanlines::after{
+  content:'';
+  display:block;
+  position:absolute; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,transparent,rgba(0,209,255,.35),transparent);
+  animation:ve-scan-line 4s linear infinite;
+}
