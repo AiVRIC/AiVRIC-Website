@@ -1,64 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <title>AiVRIC Platform Guide | Overview</title>
-  <link rel="canonical" href="https://user-guide.aivric.com/index.html">
-  <meta name="description" content="Navigate the AiVRIC Platform Guide: onboarding, platform overview, trust, governance, and FAQs for secure AI operations.">
+  <title>AiVRIC Platform Guide</title>
+  <link rel="canonical" href="https://aivric.com/AiVRIC-UserGuide/index.html">
+  <meta name="description" content="The complete resource center for AiVRIC: onboarding, module documentation, security policies, governance, and support.">
   <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
   <link href="../assets/css/bootstrap.css" rel="stylesheet">
-  <link href="../assets/css/color.css" rel="stylesheet">
-  <link href="../assets/css/style.css" rel="stylesheet">
-  <link href="../assets/css/responsive.css" rel="stylesheet">
-  <link href="userguide.css?v=2" rel="stylesheet">
-  <style>
-    .support-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 12px;
-      margin-top: 8px;
-    }
-    .support-form {
-      display: grid;
-      gap: 10px;
-    }
-    .support-form label {
-      font-weight: 700;
-      color: #dfe9ff;
-    }
-  .support-form input,
-  .support-form select,
-  .support-form textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.06);
-    color: #f4f8ff;
-    box-sizing: border-box;
-  }
-  .support-form select { color: #f4f8ff; }
-  .support-form select option{
-    color: #111111;
-    background: #ffffff;
-  }
-    .support-form textarea { min-height: 120px; resize: vertical; }
-    .support-form button {
-      padding: 12px 14px;
-      border-radius: 12px;
-      border: none;
-      background: #09d3fb;
-      color: #0a1526;
-      font-weight: 800;
-      cursor: pointer;
-      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
-    }
-    .support-form button:hover { background: #0a1526; color: #ffffff; }
-  </style>
+  <link href="userguide.css?v=3" rel="stylesheet">
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
@@ -66,319 +19,276 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-EG2Q8GD30V');
 </script>
 <body data-page="home">
   <header class="guide-header">
     <div class="bar">
       <a class="brand" href="index.html">
-        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo">
-        <span>Platform Guide</span>
+        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC">
+        <span class="brand-sep"></span>
+        <span class="brand-sub">Platform Guide</span>
       </a>
       <div class="top-links">
         <a href="../index.html">AiVRIC.com</a>
         <a href="../trust.html">Trust Center</a>
         <a href="../support.html">Support</a>
-        <a href="insider-early-access.html">Insider Early Access</a>
+        <a href="insider-early-access.html" class="ug-cta">Insider Access</a>
       </div>
       <div class="guide-search">
-        <i class="fa fa-search" aria-hidden="true"></i>
-        <input id="guide-search-input" type="search" placeholder="Search the Platform Guide" aria-label="Search the AiVRIC Platform Guide">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <input id="guide-search-input" type="search" placeholder="Search the Platform Guide…" aria-label="Search the AiVRIC Platform Guide">
+        <span class="ug-kbd">⌘K</span>
         <div class="search-results" id="guide-search-results"></div>
       </div>
-      <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" onclick="document.getElementById('sidebar').classList.toggle('open')">Menu</button>
     </div>
   </header>
 
   <main class="handbook-main">
+
+    <!-- Hero -->
     <div class="handbook-hero">
       <span class="badge">AiVRIC Platform Guide</span>
-      <h1>Welcome to the AiVRIC Platform Resource Center</h1>
-      <p>Explore how AiVRIC runs secure AI operations. Use the grid below to jump into platform fundamentals, governance, and trust content.</p>
+      <h1>Everything you need<br>to run AiVRIC.</h1>
+      <p>Onboarding guides, connector references, compliance policies, and governance documentation — organized for security teams and platform administrators.</p>
       <div class="handbook-actions">
-        <a class="tag" href="getting-started.html">Start onboarding</a>
-        <a class="tag" href="platform-overview.html">See the platform</a>
-        <a class="tag" href="../trust.html">Open Trust Center</a>
-        
+        <a class="tag" href="getting-started.html" style="background:rgba(0,209,255,.1);border-color:rgba(0,209,255,.3);color:#00d1ff;font-weight:700;">Start onboarding &rarr;</a>
+        <a class="tag" href="platform-overview.html">Platform overview</a>
+        <a class="tag" href="../trust.html">Trust Center</a>
+        <a class="tag" href="faq.html">FAQ &amp; Support</a>
       </div>
     </div>
 
-    <section class="handbook-grid" aria-label="Platform guide sections">
-      <article class="handbook-card">
-        <h3>Company and values</h3>
-        <p>How AiVRIC operates and the principles behind the platform.</p>
-        <ul>
-          <li><a href="../why-aivric.html">Why AiVRIC</a></li>
-          <li><a href="../aivric-vision.html">Vision</a></li>
-          <li><a href="../about.html">About AiVRIC</a></li>
-        </ul>
-      </article>
+    <!-- Quick-start paths -->
+    <p class="ug-section-label">Quick paths</p>
+    <div class="ug-paths">
+      <a class="ug-path-card" href="getting-started.html">
+        <div class="ug-path-icon cyan"><i class="fas fa-rocket"></i></div>
+        <div class="ug-path-label">New to AiVRIC?</div>
+        <div class="ug-path-desc">Workspace setup, team invites, and your first connector — in under 30 minutes.</div>
+        <div class="ug-path-arrow">Getting Started &rarr;</div>
+      </a>
+      <a class="ug-path-card" href="connectors.html">
+        <div class="ug-path-icon green"><i class="fas fa-plug"></i></div>
+        <div class="ug-path-label">Connect cloud accounts</div>
+        <div class="ug-path-desc">AWS, Azure, GCP, Kubernetes, GitHub, Microsoft 365, and more.</div>
+        <div class="ug-path-arrow">Connector guides &rarr;</div>
+      </a>
+      <a class="ug-path-card" href="cloudsignals-riskops.html">
+        <div class="ug-path-icon amber"><i class="fas fa-shield-alt"></i></div>
+        <div class="ug-path-label">Set up compliance</div>
+        <div class="ug-path-desc">Map controls to SOC 2, ISO 27001, PCI DSS, HIPAA, and CMMC frameworks automatically.</div>
+        <div class="ug-path-arrow">CloudSignals+RiskOps &rarr;</div>
+      </a>
+      <a class="ug-path-card" href="ai-governance.html">
+        <div class="ug-path-icon purple"><i class="fas fa-brain"></i></div>
+        <div class="ug-path-label">Govern AI workloads</div>
+        <div class="ug-path-desc">Approval workflows, guardrails, lifecycle controls, and policy enforcement for AI models.</div>
+        <div class="ug-path-arrow">AI Governance &rarr;</div>
+      </a>
+    </div>
 
+    <!-- Core docs -->
+    <p class="ug-section-label">Core documentation</p>
+    <section class="handbook-grid" aria-label="Core documentation">
       <article class="handbook-card">
-        <h3>Getting started</h3>
-        <p>Set up workspaces, connect systems, and invite your team.</p>
+        <h3>&#x1F4CB; Getting Started</h3>
+        <p>Set up workspaces, configure SSO, connect cloud providers, and invite your team.</p>
         <ul>
           <li><a href="getting-started.html">Onboarding checklist</a></li>
           <li><a href="connectors.html">Connectors setup guide</a></li>
           <li><a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">Book a guided setup</a></li>
         </ul>
       </article>
-
       <article class="handbook-card">
-        <h3>CloudSignals+RiskOps&#8482;</h3>
+        <h3>&#x1F6E1;&#xFE0F; CloudSignals+RiskOps&trade;</h3>
         <p>Continuous cloud posture monitoring, compliance automation, and AI-driven remediation.</p>
         <ul>
           <li><a href="cloudsignals-riskops.html">Module overview</a></li>
           <li><a href="connectors.html">Connect cloud accounts</a></li>
           <li><a href="cloudsignals-riskops.html#compliance">Framework mapping</a></li>
-          <li><a href="cloudsignals-riskops.html#analytics">Dashboards &amp; reporting</a></li>
+          <li><a href="integrations.html">SIEM &amp; ticketing integrations</a></li>
         </ul>
       </article>
-
-      
-
       <article class="handbook-card">
-        <h3>Security and trust</h3>
-        <p>Data handling, access controls, and compliance posture.</p>
+        <h3>&#x1F50C; Connectors &amp; Integrations</h3>
+        <p>Step-by-step setup for every supported cloud provider, data source, and alerting destination.</p>
         <ul>
-          <li><a href="security-trust.html">Platform Security and trust</a></li>
+          <li><a href="connectors.html#aws">AWS</a></li>
+          <li><a href="connectors.html#azure">Microsoft Azure</a></li>
+          <li><a href="connectors.html#gcp">Google Cloud Platform</a></li>
+          <li><a href="connectors.html#k8s">Kubernetes</a></li>
+          <li><a href="connectors.html">All connectors &rarr;</a></li>
+        </ul>
+      </article>
+      <article class="handbook-card">
+        <h3>&#x1F510; Security &amp; Trust</h3>
+        <p>Data handling, access controls, and compliance posture details.</p>
+        <ul>
+          <li><a href="security-trust.html">Platform Security &amp; Trust</a></li>
           <li><a href="../trust.html">AiVRIC Trust Center</a></li>
-          
+          <li><a href="ai-governance.html">AI Governance guide</a></li>
         </ul>
       </article>
-
       <article class="handbook-card">
-        <h3>AI governance</h3>
-        <p>Policies, approvals, and lifecycle controls for AI workloads.</p>
+        <h3>&#x2139;&#xFE0F; About AiVRIC</h3>
+        <p>Company values, product philosophy, and platform vision.</p>
         <ul>
-          <li><a href="ai-governance.html">Governance guide</a></li>
-          <li><a href="platform-overview.html#guardrails">Guardrails</a></li>
-          <li><a href="ai-autonomous-technologies.html">Cybersecurity Standards</a></li>
+          <li><a href="../why-aivric.html">Why AiVRIC</a></li>
+          <li><a href="../about.html">About us</a></li>
+          <li><a href="../aivric-vision.html">Platform vision</a></li>
         </ul>
       </article>
-
-      
-
-      
-
-      
+      <article class="handbook-card">
+        <h3>&#x2753; FAQ &amp; Support</h3>
+        <p>Quick answers, support contacts, and working session booking.</p>
+        <ul>
+          <li><a href="faq.html">Frequently asked questions</a></li>
+          <li><a href="mailto:support@aivric.com">support@aivric.com</a></li>
+          <li><a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">Schedule a working session</a></li>
+        </ul>
+      </article>
     </section>
 
-    <section class="policy-section">
+    <!-- Quick-launch tiles -->
+    <p class="ug-section-label">Quick-launch</p>
+    <section class="policy-section" aria-label="Quick launch tiles">
       <div class="policy-card">
-        <h2>AiVRIC Platform User Guide</h2>
-        <p>Quick-launch tiles for core SaaS guide sections: onboarding, platform fundamentals, governance, security, and FAQs.</p>
+        <h2>Platform guide sections</h2>
+        <p>Quick access to core areas of the AiVRIC Platform Guide.</p>
         <div class="policy-link-grid">
           <a class="policy-pill" href="getting-started.html">
             <div class="pill-inner">
-              <div class="pill-face pill-front">
-                <span class="pill-acronym">START</span>
-                <span class="pill-title">Getting Started</span>
-              </div>
-              <div class="pill-face pill-back">
-                <span class="pill-acronym">START</span>
-                <span class="pill-desc">Onboarding steps, invites, and workspace setup.</span>
-              </div>
+              <div class="pill-face pill-front"><span class="pill-acronym">START</span><span class="pill-title">Getting Started</span></div>
+              <div class="pill-face pill-back"><span class="pill-acronym">START</span><span class="pill-desc">Onboarding steps, invites, and workspace setup.</span></div>
             </div>
           </a>
           <a class="policy-pill" href="platform-overview.html">
             <div class="pill-inner">
-              <div class="pill-face pill-front">
-                <span class="pill-acronym">PLATFORM</span>
-                <span class="pill-title">Platform Overview</span>
-              </div>
-              <div class="pill-face pill-back">
-                <span class="pill-acronym">PLATFORM</span>
-                <span class="pill-desc">Architecture, connectors, and guardrails tour.</span>
-              </div>
+              <div class="pill-face pill-front"><span class="pill-acronym">PLATFORM</span><span class="pill-title">Platform Overview</span></div>
+              <div class="pill-face pill-back"><span class="pill-acronym">PLATFORM</span><span class="pill-desc">Architecture, connectors, and guardrails tour.</span></div>
             </div>
           </a>
           <a class="policy-pill" href="security-trust.html">
             <div class="pill-inner">
-              <div class="pill-face pill-front">
-                <span class="pill-acronym">TRUST</span>
-                <span class="pill-title">Security & Trust</span>
-              </div>
-              <div class="pill-face pill-back">
-                <span class="pill-acronym">TRUST</span>
-                <span class="pill-desc">Trust Center summaries and compliance posture.</span>
-              </div>
+              <div class="pill-face pill-front"><span class="pill-acronym">TRUST</span><span class="pill-title">Security &amp; Trust</span></div>
+              <div class="pill-face pill-back"><span class="pill-acronym">TRUST</span><span class="pill-desc">Trust Center summaries and compliance posture.</span></div>
             </div>
           </a>
           <a class="policy-pill" href="ai-governance.html">
             <div class="pill-inner">
-              <div class="pill-face pill-front">
-                <span class="pill-acronym">AI</span>
-                <span class="pill-title">AI Governance</span>
-              </div>
-              <div class="pill-face pill-back">
-                <span class="pill-acronym">AI</span>
-                <span class="pill-desc">Approvals, controls, and lifecycle for AI workloads.</span>
-              </div>
+              <div class="pill-face pill-front"><span class="pill-acronym">AI GOV</span><span class="pill-title">AI Governance</span></div>
+              <div class="pill-face pill-back"><span class="pill-acronym">AI GOV</span><span class="pill-desc">Approvals, controls, and lifecycle for AI workloads.</span></div>
             </div>
           </a>
           <a class="policy-pill" href="faq.html">
             <div class="pill-inner">
-              <div class="pill-face pill-front">
-                <span class="pill-acronym">FAQ</span>
-                <span class="pill-title">FAQs</span>
-              </div>
-              <div class="pill-face pill-back">
-                <span class="pill-acronym">FAQ</span>
-                <span class="pill-desc">Quick answers on setup, roles, and support.</span>
-              </div>
+              <div class="pill-face pill-front"><span class="pill-acronym">FAQ</span><span class="pill-title">FAQ &amp; Support</span></div>
+              <div class="pill-face pill-back"><span class="pill-acronym">FAQ</span><span class="pill-desc">Quick answers on setup, roles, and support.</span></div>
             </div>
           </a>
           <a class="policy-pill" href="cloudsignals-riskops.html">
             <div class="pill-inner">
-              <div class="pill-face pill-front">
-                <span class="pill-acronym">CS+RO</span>
-                <span class="pill-title">CloudSignals+RiskOps</span>
-              </div>
-              <div class="pill-face pill-back">
-                <span class="pill-acronym">CS+RO</span>
-                <span class="pill-desc">Continuous posture monitoring, compliance automation, and risk scoring.</span>
-              </div>
+              <div class="pill-face pill-front"><span class="pill-acronym">CS+RO</span><span class="pill-title">CloudSignals+RiskOps</span></div>
+              <div class="pill-face pill-back"><span class="pill-acronym">CS+RO</span><span class="pill-desc">Continuous posture monitoring, compliance, and risk scoring.</span></div>
             </div>
           </a>
-          <a class="policy-pill" href="connectors.html">
-            <div class="pill-inner">
-              <div class="pill-face pill-front">
-                <span class="pill-acronym">CONNECT</span>
-                <span class="pill-title">Connectors</span>
-              </div>
-              <div class="pill-face pill-back">
-                <span class="pill-acronym">CONNECT</span>
-                <span class="pill-desc">AWS, Azure, GCP, Kubernetes, GitHub, M365, MongoDB, Alibaba Cloud.</span>
-              </div>
-            </div>
-          </a>
-
         </div>
       </div>
     </section>
 
-    <section class="policy-section">
-      <div class="policy-card">
-        <h2>Platform Support</h2>
-        <p>How to get help, report issues, and connect with AiVRIC support.</p>
-        <div class="support-grid">
-          <div class="policy-card" style="padding:14px;">
-            <h3>Contact & Hours</h3>
-            <ul class="policy-list">              
-              <li>Email: <a href="mailto:support@aivric.com">support@aivric.com</a></li>
-              <li>Phone: <a href="tel:+19543426637">+1-954-342-6637</a> (Mon-Fri, 8:00 am - 6:00 pm ET)</li>
-              <li>Response targets: Standard within one business day; urgent tickets prioritized.</li>
-              <li><a href="faq.html">FAQs</a> · <a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">Schedule a working session</a></li>
-            </ul>
-          </div>
-          <div class="policy-card" style="padding:14px;">
-            <h3>Submit a Support Request</h3>
-            <form id="support-form" class="support-form" onsubmit="return false;">
-              <div>
-                <label for="support-name">Full Name</label>
-                <input id="support-name" name="name" type="text" placeholder="Your name" required>
-              </div>
-              <div>
-                <label for="support-email">Work Email</label>
-                <input id="support-email" name="email" type="email" placeholder="you@company.com" required>
-              </div>
-              <div>
-                <label for="support-company">Organization</label>
-                <input id="support-company" name="company" type="text" placeholder="Company or team name">
-              </div>
-              <div>
-                <label for="support-plan">Plan / Service</label>
-                <select id="support-plan" name="plan">
-                  <option value="">Select your plan</option>
-                  <option value="defense-starter">AiVRIC Defense - Starter</option>
-                  <option value="defense-professional">AiVRIC Defense - Professional</option>
-                  <option value="defense-enterprise">AiVRIC Defense - Enterprise</option>
-                  <option value="aivric-plus">AiVRIC+ Services Platform</option>
-                  <option value="managed-grc">Managed GRC Services</option>
-                  <option value="other">Other / Evaluating</option>
-                </select>
-              </div>
-              <div>
-                <label for="support-priority">Priority</label>
-                <select id="support-priority" name="priority">
-                  <option value="normal">Normal</option>
-                  <option value="high">High - Production Impact</option>
-                  <option value="urgent">Urgent - Security or Compliance Risk</option>
-                </select>
-              </div>
-              <div>
-                <label for="support-category">Request Type</label>
-                <select id="support-category" name="category">
-                  <option value="">Select type</option>
-                  <option value="onboarding">Onboarding & Setup</option>
-                  <option value="technical">Technical Issue / Error</option>
-                  <option value="integrations">Integrations & APIs</option>
-                  <option value="compliance">Compliance & Reporting</option>
-                  <option value="billing">Billing & Subscription</option>
-                  <option value="other">Other Question</option>
-                </select>
-              </div>
-              <div>
-                <label for="support-subject">Subject</label>
-                <input id="support-subject" name="subject" type="text" placeholder="Short summary of your request" required>
-              </div>
-              <div>
-                <label for="support-message">Details</label>
-                <textarea id="support-message" name="message" placeholder="Describe what you need help with. Include impact, relevant environments/accounts, recent changes, and any error messages you are seeing." required></textarea>
-              </div>
-              <div>
-                <small>By submitting, you consent to AiVRIC using this information to respond, per our <a href="../privacy-policy.html">Privacy Policy</a>.</small>
-              </div>
-              <div>
-                <button type="submit">Submit Support Request</button>
-              </div>
-            </form>
-          </div>
+    <!-- Policy library -->
+    <p class="ug-section-label">Policy library</p>
+    <div class="ug-policy-hub">
+      <div class="ug-policy-group">
+        <div class="ug-policy-group-title">Security policies</div>
+        <div class="ug-policy-links">
+          <a class="ug-policy-link" href="cloud-security.html">Cloud Security</a>
+          <a class="ug-policy-link" href="network-security.html">Network Security</a>
+          <a class="ug-policy-link" href="endpoint-security.html">Endpoint Security</a>
+          <a class="ug-policy-link" href="identification-authorization-control.html">Identity &amp; Access</a>
+          <a class="ug-policy-link" href="data-classification-handling.html">Data Classification</a>
+          <a class="ug-policy-link" href="data-privacy.html">Data Privacy</a>
+          <a class="ug-policy-link" href="incident-response-operations.html">Incident Response</a>
+          <a class="ug-policy-link" href="threat-management.html">Threat Management</a>
+          <a class="ug-policy-link" href="vulnerability-patch-management.html">Vuln &amp; Patch Mgmt</a>
+          <a class="ug-policy-link" href="security-operations.html">Security Operations</a>
+          <a class="ug-policy-link" href="risk-assessment.html">Risk Assessment</a>
+          <a class="ug-policy-link" href="third-party-management.html">Third-Party Mgmt</a>
         </div>
       </div>
-    </section>
+      <div class="ug-policy-group">
+        <div class="ug-policy-group-title">Platform policies</div>
+        <div class="ug-policy-links">
+          <a class="ug-policy-link" href="ai-autonomous-technologies.html">AI &amp; Autonomous Tech</a>
+          <a class="ug-policy-link" href="secure-engineering-architecture.html">Secure Engineering</a>
+          <a class="ug-policy-link" href="web-security.html">Web Security</a>
+          <a class="ug-policy-link" href="asset-management.html">Asset Management</a>
+          <a class="ug-policy-link" href="cryptographic-operations.html">Cryptographic Ops</a>
+          <a class="ug-policy-link" href="information-assurance.html">Information Assurance</a>
+          <a class="ug-policy-link" href="acceptable-use-policy.html">Acceptable Use</a>
+        </div>
+      </div>
+      <div class="ug-policy-group">
+        <div class="ug-policy-group-title">Operations</div>
+        <div class="ug-policy-links">
+          <a class="ug-policy-link" href="business-continuity-disaster-recovery.html">Business Continuity &amp; DR</a>
+          <a class="ug-policy-link" href="capacity-performance-management.html">Capacity Management</a>
+          <a class="ug-policy-link" href="maintenance.html">Maintenance</a>
+          <a class="ug-policy-link" href="security-awareness-training.html">Security Awareness</a>
+          <a class="ug-policy-link" href="mobile-device-management.html">Mobile Device Mgmt</a>
+          <a class="ug-policy-link" href="physical-environmental-security.html">Physical Security</a>
+          <a class="ug-policy-link" href="human-resources-security.html">HR Security</a>
+          <a class="ug-policy-link" href="project-resource-management.html">Project Mgmt</a>
+          <a class="ug-policy-link" href="technology-development-acquisition.html">Tech Dev &amp; Acquisition</a>
+          <a class="ug-policy-link" href="security-privacy-governance.html">Privacy &amp; Governance</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Support strip -->
+    <p class="ug-section-label">Support</p>
+    <div class="ug-support-strip">
+      <div class="ug-support-item">
+        <div class="ug-support-label">Email support</div>
+        <div class="ug-support-value"><a href="mailto:support@aivric.com">support@aivric.com</a></div>
+      </div>
+      <div class="ug-support-item">
+        <div class="ug-support-label">Phone</div>
+        <div class="ug-support-value"><a href="tel:+19543426637">+1-954-342-6637</a> &mdash; Mon&ndash;Fri, 8am&ndash;6pm ET</div>
+      </div>
+      <div class="ug-support-item">
+        <div class="ug-support-label">Live session</div>
+        <div class="ug-support-value"><a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">Book a guided setup &rarr;</a></div>
+      </div>
+      <div class="ug-support-item">
+        <div class="ug-support-label">Response SLA</div>
+        <div class="ug-support-value">Standard: 1 business day &mdash; Urgent: same-day triage</div>
+      </div>
+    </div>
+
   </main>
 
   <footer class="guide-footer">
-    <span>AiVRIC Platform Guide</span>
-    <span class="tag">Built for secure AI operations</span>
+    <span>&copy; 2025 AiVRIC Technologies &mdash; <a href="../privacy-policy.html">Privacy</a> &middot; <a href="acceptable-use-policy.html">Acceptable Use</a></span>
+    <span class="tag">Platform Guide v3</span>
   </footer>
-
   <script>
     (function(){
-      var toggle = document.querySelector('.nav-toggle');
-      var sidebar = document.getElementById('sidebar');
-      if(toggle && sidebar){
-        toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); });
-      }
-
       var searchInput = document.getElementById('guide-search-input');
-      var resultsBox = document.getElementById('guide-search-results');
-      var pageIndex = [
-        { title: 'Platform Guide Home', url: 'index.html' },
-        { title: 'Getting started', url: 'getting-started.html' },
-        { title: 'Platform overview', url: 'platform-overview.html' },
-        { title: 'CloudSignals+RiskOps overview', url: 'cloudsignals-riskops.html' },
-        { title: 'Connectors', url: 'connectors.html' },
-        { title: 'Integrations', url: 'integrations.html' },
-        { title: 'Security & Trust', url: 'security-trust.html' },
-        { title: 'AI Governance', url: 'ai-governance.html' },
-        { title: 'FAQ & Support', url: 'faq.html' }
-      ];
+      var resultsBox  = document.getElementById('guide-search-results');
+      var pageIndex = [{"title": "Platform Guide Home", "url": "index.html"}, {"title": "Getting Started", "url": "getting-started.html"}, {"title": "Platform Overview", "url": "platform-overview.html"}, {"title": "CloudSignals+RiskOps Overview", "url": "cloudsignals-riskops.html"}, {"title": "Connectors", "url": "connectors.html"}, {"title": "Integrations", "url": "integrations.html"}, {"title": "Security & Trust", "url": "security-trust.html"}, {"title": "AI Governance", "url": "ai-governance.html"}, {"title": "Compliance Overview", "url": "compliance.html"}, {"title": "FAQ & Support", "url": "faq.html"}, {"title": "Insider Early Access", "url": "insider-early-access.html"}, {"title": "Cloud Security", "url": "cloud-security.html"}, {"title": "Network Security", "url": "network-security.html"}, {"title": "Endpoint Security", "url": "endpoint-security.html"}, {"title": "Identity & Access Control", "url": "identification-authorization-control.html"}, {"title": "Data Classification", "url": "data-classification-handling.html"}, {"title": "Data Privacy", "url": "data-privacy.html"}, {"title": "Incident Response", "url": "incident-response-operations.html"}, {"title": "Threat Management", "url": "threat-management.html"}, {"title": "Vulnerability & Patch Mgmt", "url": "vulnerability-patch-management.html"}, {"title": "Security Operations", "url": "security-operations.html"}, {"title": "Risk Assessment", "url": "risk-assessment.html"}, {"title": "Third-Party Management", "url": "third-party-management.html"}, {"title": "AI & Autonomous Technologies", "url": "ai-autonomous-technologies.html"}, {"title": "Secure Engineering Architecture", "url": "secure-engineering-architecture.html"}, {"title": "Web Security", "url": "web-security.html"}, {"title": "Asset Management", "url": "asset-management.html"}, {"title": "Cryptographic Operations", "url": "cryptographic-operations.html"}, {"title": "Information Assurance", "url": "information-assurance.html"}, {"title": "Acceptable Use Policy", "url": "acceptable-use-policy.html"}, {"title": "Business Continuity & DR", "url": "business-continuity-disaster-recovery.html"}, {"title": "Capacity & Performance Mgmt", "url": "capacity-performance-management.html"}, {"title": "Maintenance", "url": "maintenance.html"}, {"title": "Security Awareness & Training", "url": "security-awareness-training.html"}, {"title": "Mobile Device Management", "url": "mobile-device-management.html"}, {"title": "Physical & Environmental Security", "url": "physical-environmental-security.html"}, {"title": "HR Security", "url": "human-resources-security.html"}, {"title": "Project & Resource Management", "url": "project-resource-management.html"}, {"title": "Tech Dev & Acquisition", "url": "technology-development-acquisition.html"}, {"title": "Security & Privacy Governance", "url": "security-privacy-governance.html"}];
       var pageCache = {};
 
-      function sanitize(text){
-        return text.replace(/[<>]/g, function(ch){ return ch === '<' ? '&lt;' : '&gt;'; });
-      }
+      function sanitize(t){ return t.replace(/[<>]/g, function(c){ return c==='<'?'&lt;':'&gt;'; }); }
 
       function getPageText(page){
         if(pageCache[page.url]) return Promise.resolve(pageCache[page.url]);
         return fetch(page.url).then(function(r){ return r.text(); }).then(function(html){
           var doc = new DOMParser().parseFromString(html, 'text/html');
           var main = doc.querySelector('.guide-content') || doc.body;
-          var text = (main.innerText || '').replace(/\s+/g, ' ').trim();
+          var text = (main.textContent||'').replace(/\s+/g,' ').trim();
           pageCache[page.url] = text;
           return text;
         }).catch(function(){ return ''; });
@@ -387,52 +297,39 @@
       async function performSearch(raw){
         var query = raw.trim().toLowerCase();
         if(!resultsBox) return;
-        if(query.length < 2){
-          resultsBox.innerHTML = '';
-          resultsBox.classList.remove('open');
-          return;
-        }
-
+        if(query.length < 2){ resultsBox.innerHTML=''; resultsBox.classList.remove('open'); return; }
         var matches = [];
-        for (var i = 0; i < pageIndex.length; i++){
+        for(var i=0; i<pageIndex.length; i++){
           var page = pageIndex[i];
           var text = await getPageText(page);
           var hay = text.toLowerCase();
           var idx = hay.indexOf(query);
-          if(idx === -1) continue;
-          var start = Math.max(0, idx - 70);
-          var end = Math.min(text.length, idx + 140);
-          var snippet = sanitize(text.slice(start, end));
-          matches.push({ title: page.title, url: page.url, snippet: snippet });
+          if(idx===-1) continue;
+          var start = Math.max(0,idx-70);
+          var end = Math.min(text.length,idx+140);
+          var snippet = sanitize(text.slice(start,end));
+          matches.push({title:page.title, url:page.url, snippet:snippet});
         }
-
         if(!matches.length){
-          resultsBox.innerHTML = '<div class="no-results">No matches yet. Try another term.</div>';
-          resultsBox.classList.add('open');
-          return;
+          resultsBox.innerHTML='<div class="no-results">No matches found.</div>';
+          resultsBox.classList.add('open'); return;
         }
-
-        resultsBox.innerHTML = matches.slice(0, 8).map(function(m){
-          return '<a class="result" href="'+m.url+'"><strong>'+m.title+'</strong><span>'+m.snippet+'...</span></a>';
+        resultsBox.innerHTML = matches.slice(0,8).map(function(m){
+          return '<a class="result" href="'+m.url+'"><strong>'+m.title+'</strong><span>'+m.snippet+'…</span></a>';
         }).join('');
         resultsBox.classList.add('open');
       }
 
       if(searchInput && resultsBox){
         searchInput.addEventListener('input', function(e){ performSearch(e.target.value); });
-        searchInput.addEventListener('focus', function(e){
-          if(resultsBox.innerHTML){ resultsBox.classList.add('open'); }
-        });
+        searchInput.addEventListener('focus', function(){ if(resultsBox.innerHTML) resultsBox.classList.add('open'); });
       }
-
       document.addEventListener('click', function(e){
         if(!resultsBox) return;
-        if(!resultsBox.contains(e.target) && !searchInput.contains(e.target)){
+        if(!resultsBox.contains(e.target) && searchInput && !searchInput.contains(e.target))
           resultsBox.classList.remove('open');
-        }
       });
     })();
   </script>
-  <script src="../assets/js/support-form.js"></script>
 </body>
 </html>

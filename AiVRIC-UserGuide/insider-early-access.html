@@ -4,225 +4,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <title>AiVRIC User Guide | Insider Early Access</title>
-  <link rel="canonical" href="https://user-guide.aivric.com/insider-early-access.html">
+  <title>AiVRIC Platform Guide | Insider Early Access</title>
+  <link rel="canonical" href="https://aivric.com/AiVRIC-UserGuide/insider-early-access.html">
   <meta name="description" content="Founder-led early access program delivering secure remediation, continuous visibility, and audit-ready outcomes.">
   <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
   <link href="../assets/css/bootstrap.css" rel="stylesheet">
-  <link href="../assets/css/color.css" rel="stylesheet">
-  <link href="../assets/css/style.css" rel="stylesheet">
-  <link href="../assets/css/responsive.css" rel="stylesheet">
-  <link href="userguide.css?v=2" rel="stylesheet">
-  <style>
-    .guide-content h1,
-    .guide-content h2,
-    .guide-content h3 {
-      color: #f4f8ff;
-    }
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 12px;
-    }
-    .cta-row .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .cta-row .tag,
-    .cta-row .tag-button {
-      padding: 10px 16px;
-      font-weight: 700;
-      border-radius: 999px;
-      border: 1px solid rgba(9, 211, 251, 0.4);
-      box-shadow: 0 14px 30px rgba(0,0,0,0.25);
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-    .cta-row .tag:hover,
-    .cta-row .tag-button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 18px 34px rgba(0,0,0,0.35);
-    }
-    .cta-primary {
-      background: linear-gradient(120deg, #09d3fb, #4ee2ff);
-      color: #071321;
-      border-color: transparent;
-    }
-    .cta-secondary {
-      background: rgba(255,255,255,0.08);
-      color: #e7f3ff;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    .tag-button {
-      border: none;
-      cursor: pointer;
-    }
-    .callout strong { display: block; margin-bottom: 6px; }
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(5, 12, 24, 0.82);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-      z-index: 9999;
-    }
-    .modal-overlay.is-open { display: flex; }
-    .insider-modal {
-      width: min(980px, 100%);
-      background: #0f1b33;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.5);
-      overflow: hidden;
-    }
-    .insider-modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 24px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(120deg, rgba(10, 30, 60, 0.9), rgba(14, 26, 52, 0.9));
-    }
-    .insider-modal-header h3 { margin: 0; color: #f4f8ff; font-size: 20px; }
-    .insider-modal-header p { margin: 4px 0 0; color: #b8c6e5; font-size: 13px; }
-    .insider-modal-close {
-      border: none;
-      background: transparent;
-      color: #f4f8ff;
-      font-size: 20px;
-      cursor: pointer;
-    }
-    .insider-modal-body { padding: 20px 24px 24px; }
-    .stepper {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 18px;
-    }
-    .stepper span {
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.08);
-      color: #9fb3d9;
-      font-size: 12px;
-    }
-    .stepper span.active {
-      background: #09d3fb;
-      color: #0a1526;
-      font-weight: 700;
-    }
-    .step { display: none; }
-    .step.is-active { display: block; }
-    .step h4 { margin: 0 0 8px; color: #f4f8ff; }
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 12px 16px;
-      margin-top: 12px;
-    }
-    .form-field label {
-      display: block;
-      font-weight: 700;
-      color: #dfe9ff;
-      margin-bottom: 6px;
-    }
-    .form-field input,
-    .form-field select,
-    .form-field textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.06);
-      color: #f4f8ff;
-      box-sizing: border-box;
-    }
-    .field-hint {
-      margin-top: 6px;
-      font-size: 12px;
-      color: #9fb3d9;
-    }
-    .field-error {
-      margin-top: 6px;
-      font-size: 12px;
-      color: #ffb3b3;
-    }
-    .form-field select {
-      background: rgba(255,255,255,0.08);
-      color: #f4f8ff;
-    }
-    .form-field select option {
-      color: #0a1526;
-      background: #ffffff;
-    }
-    .form-field select:focus {
-      outline: none;
-      border-color: rgba(9, 211, 251, 0.7);
-      box-shadow: 0 0 0 2px rgba(9, 211, 251, 0.2);
-    }
-    .form-field textarea { min-height: 120px; resize: vertical; }
-    .inline-options {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 8px;
-    }
-    .inline-options label {
-      display: grid;
-      grid-template-columns: 16px 1fr;
-      align-items: center;
-      justify-content: start;
-      column-gap: 6px;
-      padding: 6px 10px 6px 8px;
-      border-radius: 10px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      font-weight: 500;
-      color: #c9d6f4;
-      text-align: left;
-    }
-    .inline-options input[type="checkbox"],
-    .inline-options input[type="radio"] {
-      margin: 0;
-    }
-    .inline-options.geography {
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-      justify-content: start;
-    }
-    .step-actions {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-top: 18px;
-    }
-    .step-actions .tag { border: none; cursor: pointer; }
-    .step-actions .tag.secondary {
-      background: rgba(255,255,255,0.08);
-      color: #d7e3ff;
-    }
-    .form-error {
-      margin-top: 12px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      background: rgba(255, 93, 93, 0.12);
-      border: 1px solid rgba(255, 93, 93, 0.3);
-      color: #ffd7d7;
-      font-size: 13px;
-    }
-    .hidden { display: none; }
-    .confirmation {
-      padding: 24px;
-      border-radius: 16px;
-      background: rgba(9, 211, 251, 0.1);
-      border: 1px solid rgba(9, 211, 251, 0.25);
-      color: #e9f4ff;
-    }
-  </style>
+  <link href="userguide.css?v=3" rel="stylesheet">
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
@@ -230,47 +19,99 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-EG2Q8GD30V');
 </script>
-<body data-page="insider">
+<body data-page="insider-early-access">
   <header class="guide-header">
     <div class="bar">
       <a class="brand" href="index.html">
-        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo">
-        <span>Platform Guide</span>
+        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC">
+        <span class="brand-sep"></span>
+        <span class="brand-sub">Platform Guide</span>
       </a>
       <div class="top-links">
         <a href="../index.html">AiVRIC.com</a>
         <a href="../trust.html">Trust Center</a>
         <a href="../support.html">Support</a>
+        <a href="insider-early-access.html" class="ug-cta">Insider Access</a>
       </div>
       <div class="guide-search">
-        <i class="fa fa-search" aria-hidden="true"></i>
-        <input id="guide-search-input" type="search" placeholder="Search the Platform Guide" aria-label="Search the AiVRIC Platform Guide">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <input id="guide-search-input" type="search" placeholder="Search the Platform Guide…" aria-label="Search the AiVRIC Platform Guide">
+        <span class="ug-kbd">⌘K</span>
         <div class="search-results" id="guide-search-results"></div>
       </div>
-      <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" onclick="document.getElementById('sidebar').classList.toggle('open')">Menu</button>
     </div>
   </header>
 
   <div class="guide-shell">
     <aside class="guide-sidebar" id="sidebar">
       <div class="nav-section">
-        <p class="nav-label">Essentials</p>
-        <a class="nav-link" data-page-target="home" href="index.html">Overview <small>Start here</small></a>
-        <a class="nav-link" data-page-target="getting-started" href="getting-started.html">Getting started <small>Setup</small></a>
-        <a class="nav-link" data-page-target="platform" href="platform-overview.html">Platform overview <small>How AiVRIC works</small></a>
+        <p class="nav-label">Quick Start</p>
+        <a class="nav-link" href="index.html">Overview</a>
+        <a class="nav-link" href="getting-started.html">Getting Started</a>
+        <a class="nav-link" href="platform-overview.html">Platform Overview</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">CloudSignals+RiskOps</p>
+        <a class="nav-link" href="cloudsignals-riskops.html">Module Overview</a>
+        <a class="nav-link" href="connectors.html">Connectors</a>
+        <a class="nav-link" href="integrations.html">Integrations</a>
       </div>
       <div class="nav-section">
         <p class="nav-label">Assurance</p>
-        <a class="nav-link" data-page-target="security" href="security-trust.html">Security & Trust <small>Controls</small></a>
-        <a class="nav-link" data-page-target="governance" href="ai-governance.html">AI Governance <small>Policies</small></a>
-        <a class="nav-link" data-page-target="faq" href="faq.html">FAQ & Support <small>Answers</small></a>
+        <a class="nav-link" href="security-trust.html">Security &amp; Trust</a>
+        <a class="nav-link" href="ai-governance.html">AI Governance</a>
+        <a class="nav-link" href="compliance.html">Compliance Overview</a>
+        <a class="nav-link" href="faq.html">FAQ &amp; Support</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Security Policies</p>
+        <a class="nav-link" href="cloud-security.html">Cloud Security</a>
+        <a class="nav-link" href="network-security.html">Network Security</a>
+        <a class="nav-link" href="endpoint-security.html">Endpoint Security</a>
+        <a class="nav-link" href="identification-authorization-control.html">Identity &amp; Access Control</a>
+        <a class="nav-link" href="data-classification-handling.html">Data Classification</a>
+        <a class="nav-link" href="data-privacy.html">Data Privacy</a>
+        <a class="nav-link" href="incident-response-operations.html">Incident Response</a>
+        <a class="nav-link" href="threat-management.html">Threat Management</a>
+        <a class="nav-link" href="vulnerability-patch-management.html">Vuln &amp; Patch Mgmt</a>
+        <a class="nav-link" href="security-operations.html">Security Operations</a>
+        <a class="nav-link" href="risk-assessment.html">Risk Assessment</a>
+        <a class="nav-link" href="third-party-management.html">Third-Party Mgmt</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Platform Policies</p>
+        <a class="nav-link" href="ai-autonomous-technologies.html">AI &amp; Autonomous Tech</a>
+        <a class="nav-link" href="secure-engineering-architecture.html">Secure Engineering</a>
+        <a class="nav-link" href="web-security.html">Web Security</a>
+        <a class="nav-link" href="asset-management.html">Asset Management</a>
+        <a class="nav-link" href="cryptographic-operations.html">Cryptographic Ops</a>
+        <a class="nav-link" href="information-assurance.html">Information Assurance</a>
+        <a class="nav-link" href="acceptable-use-policy.html">Acceptable Use</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Operations</p>
+        <a class="nav-link" href="business-continuity-disaster-recovery.html">Business Continuity &amp; DR</a>
+        <a class="nav-link" href="capacity-performance-management.html">Capacity Management</a>
+        <a class="nav-link" href="maintenance.html">Maintenance</a>
+        <a class="nav-link" href="security-awareness-training.html">Security Awareness</a>
+        <a class="nav-link" href="mobile-device-management.html">Mobile Device Mgmt</a>
+        <a class="nav-link" href="physical-environmental-security.html">Physical Security</a>
+        <a class="nav-link" href="human-resources-security.html">HR Security</a>
+        <a class="nav-link" href="project-resource-management.html">Project Management</a>
+        <a class="nav-link" href="technology-development-acquisition.html">Tech Dev &amp; Acquisition</a>
+        <a class="nav-link" href="security-privacy-governance.html">Privacy &amp; Governance</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">More</p>
+        <a class="nav-link active" href="insider-early-access.html">Insider Early Access</a>
       </div>
     </aside>
 
-    <main class="guide-content">
+    <main class="guide-content" id="main-content">
+
       <span class="badge" id="overview">Program brief</span>
       <h1>AiVRIC Insider Early Access Program</h1>
       <p>Secure Remediation. Continuous Visibility. Real Outcomes.</p>
@@ -377,404 +218,34 @@
         <a class="tag cta-secondary" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo">Request a confirmation call</a>
       </div>
 
+    
     </main>
 
     <aside class="guide-toc">
       <p class="toc-title">On this page</p>
-      <div class="toc-links">
-        <a href="#overview">Overview</a>
-        <a href="#why">Why this exists</a>
-        <a href="#what-is">What it is</a>
-        <a href="#includes">What it includes</a>
-        <a href="#use-cases">Use cases</a>
-        <a href="#structure">Structure & pricing</a>
-        <a href="#who">Who it is for</a>
-        <a href="#request">Request access</a>
-      </div>
+      <div class="toc-links"></div>
     </aside>
   </div>
 
-  <div class="modal-overlay" id="insider-access-modal" aria-hidden="true">
-    <div class="insider-modal" role="dialog" aria-modal="true" aria-labelledby="insider-access-title">
-      <div class="insider-modal-header">
-        <div>
-          <h3 id="insider-access-title">Insider Early Access Questionnaire</h3>
-          <p>Complete the step-by-step qualification to request Insider Early Access.</p>
-        </div>
-        <button class="insider-modal-close" type="button" data-close-modal aria-label="Close form">×</button>
-      </div>
-      <div class="insider-modal-body">
-        <div class="stepper" id="insider-stepper"></div>
-        <form id="insider-access-form">
-          <div class="step is-active" data-step="1">
-            <h4>Section 1 — Organization Profile</h4>
-            <div class="form-grid">
-              <div class="form-field">
-                <label for="org-name">1. Organization Name</label>
-                <input id="org-name" name="organization_name" type="text" required>
-              </div>
-              <div class="form-field">
-                <label for="org-website">2. Organization Website</label>
-                <input id="org-website" name="organization_website" type="url" placeholder="https://example.com" required>
-                <div class="field-hint">Include the full URL with https:// (e.g., https://example.com).</div>
-              </div>
-              <div class="form-field">
-                <label for="industry">3. Industry</label>
-                <select id="industry" name="industry" required>
-                  <option value="">Select one</option>
-                  <option value="technology">Technology / SaaS / Software</option>
-                  <option value="financial-services">Financial Services</option>
-                  <option value="healthcare">Healthcare & Life Sciences</option>
-                  <option value="manufacturing">Manufacturing</option>
-                  <option value="retail">Retail & E-commerce</option>
-                  <option value="transportation">Transportation & Logistics</option>
-                  <option value="energy">Energy & Utilities</option>
-                  <option value="government">Government / Public Sector</option>
-                  <option value="education">Education</option>
-                  <option value="media">Media & Entertainment</option>
-                  <option value="telecom">Telecommunications</option>
-                  <option value="real-estate">Real Estate</option>
-                  <option value="hospitality">Hospitality & Travel</option>
-                  <option value="professional-services">Professional Services / Consulting</option>
-                  <option value="nonprofit">Nonprofit</option>
-                  <option value="other">Other (free text)</option>
-                </select>
-                <input id="industry-other" class="hidden" name="industry_other" type="text" placeholder="Describe your industry">
-              </div>
-              <div class="form-field">
-                <label for="company-size">4. Company Size</label>
-                <select id="company-size" name="company_size" required>
-                  <option value="">Select one</option>
-                  <option value="lt50">&lt; 50 employees</option>
-                  <option value="50-250">50–250</option>
-                  <option value="250-1000">250–1,000</option>
-                  <option value="1000plus">1,000+</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-field" style="margin-top:12px;">
-                <label>5. Primary Geography of Operations</label>
-              <div class="inline-options geography" data-required-group="geography">
-                <label><input type="checkbox" name="geography" value="north-america">North America</label>
-                <label><input type="checkbox" name="geography" value="europe">Europe</label>
-                <label><input type="checkbox" name="geography" value="apac">APAC</label>
-                <label><input type="checkbox" name="geography" value="latam">LATAM</label>
-                <label><input type="checkbox" name="geography" value="other">Other</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="step" data-step="2">
-            <h4>Section 2 — Primary Contact</h4>
-            <div class="form-grid">
-              <div class="form-field">
-                <label for="full-name">6. Full Name</label>
-                <input id="full-name" name="full_name" type="text" required>
-              </div>
-              <div class="form-field">
-                <label for="title-role">7. Title / Role</label>
-                <input id="title-role" name="title_role" type="text" placeholder="CISO, CTO, VP Engineering">
-              </div>
-              <div class="form-field">
-                <label for="work-email">8. Work Email</label>
-                <input id="work-email" name="work_email" type="email" placeholder="name@company.com" required>
-                <div class="field-hint">Use your work email format (e.g., name@company.com).</div>
-                <div class="field-error hidden" id="work-email-error">Please use a company email address (personal domains are not accepted).</div>
-              </div>
-              <div class="form-field">
-                <label>9. Executive decision-maker for security tooling and architecture?</label>
-                <div class="inline-options">
-                  <label><input type="radio" name="decision_maker" value="yes" required>Yes</label>
-                  <label><input type="radio" name="decision_maker" value="no">No</label>
-                  <label><input type="radio" name="decision_maker" value="shared">Shared decision</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="step" data-step="3">
-            <h4>Section 3 — Motivation & Timing (Critical)</h4>
-            <div class="form-field">
-              <label>10. What prompted your interest in AiVRIC Insider Early Access?</label>
-              <div class="inline-options" data-required-group="interest_prompt">
-                <label><input type="checkbox" name="interest_prompt" value="audit">Upcoming audit or regulatory review</label>
-                <label><input type="checkbox" name="interest_prompt" value="board">Board or investor risk scrutiny</label>
-                <label><input type="checkbox" name="interest_prompt" value="posture">Cloud security posture concerns</label>
-                <label><input type="checkbox" name="interest_prompt" value="post-incident">Post-incident remediation</label>
-                <label><input type="checkbox" name="interest_prompt" value="architecture">Evaluating long-term security architecture</label>
-                <label><input type="checkbox" name="interest_prompt" value="tools">Replacing fragmented tools</label>
-                <label><input type="checkbox" name="interest_prompt" value="other" data-other-input="interest-other">Other (free text)</label>
-              </div>
-              <input id="interest-other" class="hidden" name="interest_other" type="text" placeholder="Share context">
-            </div>
-            <div class="form-grid">
-              <div class="form-field">
-                <label for="timeline">11. What is your target timeline to begin?</label>
-                <select id="timeline" name="timeline" required>
-                  <option value="">Select one</option>
-                  <option value="0-30">Immediately (0–30 days)</option>
-                  <option value="30-60">Near-term (30–60 days)</option>
-                  <option value="60-90">Exploratory (60–90 days)</option>
-                  <option value="research">Research only</option>
-                </select>
-              </div>
-              <div class="form-field">
-                <label>12. What outcome matters most right now?</label>
-                <div class="inline-options">
-                  <label><input type="radio" name="primary_outcome" value="audit" required>Audit readiness / posture validation</label>
-                  <label><input type="radio" name="primary_outcome" value="risk">Risk reduction and remediation</label>
-                  <label><input type="radio" name="primary_outcome" value="visibility">Continuous visibility across cloud & identity</label>
-                  <label><input type="radio" name="primary_outcome" value="architecture">Architecture and control maturity</label>
-                  <label><input type="radio" name="primary_outcome" value="confidence">Executive / board confidence</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="step" data-step="4">
-            <h4>Section 4 — Environment Overview (Customer-Hosted Readiness)</h4>
-            <div class="form-field">
-              <label>13. Primary Cloud Environment(s)</label>
-              <div class="inline-options" data-required-group="cloud_env">
-                <label><input type="checkbox" name="cloud_env" value="aws">AWS</label>
-                <label><input type="checkbox" name="cloud_env" value="azure">Azure</label>
-                <label><input type="checkbox" name="cloud_env" value="gcp">GCP</label>
-                <label><input type="checkbox" name="cloud_env" value="hybrid">Hybrid / On-prem</label>
-                <label><input type="checkbox" name="cloud_env" value="other" data-other-input="cloud-other">Other</label>
-              </div>
-              <input id="cloud-other" class="hidden" name="cloud_other" type="text" placeholder="Describe other environment">
-            </div>
-            <div class="form-grid">
-              <div class="form-field">
-                <label for="cloud-accounts">14. Approximate number of cloud accounts / subscriptions</label>
-                <select id="cloud-accounts" name="cloud_accounts" required>
-                  <option value="">Select one</option>
-                  <option value="1-5">1–5</option>
-                  <option value="6-20">6–20</option>
-                  <option value="21-50">21–50</option>
-                  <option value="50plus">50+</option>
-                </select>
-              </div>
-              <div class="form-field">
-                <label>15. Identity Provider(s) in Use</label>
-                <div class="inline-options" data-required-group="idp">
-                  <label><input type="checkbox" name="idp" value="entra">Azure AD / Entra</label>
-                  <label><input type="checkbox" name="idp" value="okta">Okta</label>
-                  <label><input type="checkbox" name="idp" value="google">Google Workspace</label>
-                  <label><input type="checkbox" name="idp" value="onprem">On-prem AD</label>
-                  <label><input type="checkbox" name="idp" value="other" data-other-input="idp-other">Other</label>
-                </div>
-                <input id="idp-other" class="hidden" name="idp_other" type="text" placeholder="Describe other identity provider">
-              </div>
-              <div class="form-field">
-                <label>16. Do you have a Kubernetes or containerized environment?</label>
-                <div class="inline-options">
-                  <label><input type="radio" name="kubernetes" value="yes" required>Yes</label>
-                  <label><input type="radio" name="kubernetes" value="no">No</label>
-                  <label><input type="radio" name="kubernetes" value="planning">Planning</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="step" data-step="5">
-            <h4>Section 5 — Compliance & Risk Context</h4>
-            <div class="form-field">
-              <label>17. Which frameworks are relevant to your organization?</label>
-              <div class="inline-options" data-required-group="frameworks">
-                <label><input type="checkbox" name="frameworks" value="soc2">SOC 2</label>
-                <label><input type="checkbox" name="frameworks" value="iso27001">ISO 27001</label>
-                <label><input type="checkbox" name="frameworks" value="hipaa">HIPAA</label>
-                <label><input type="checkbox" name="frameworks" value="pci">PCI-DSS</label>
-                <label><input type="checkbox" name="frameworks" value="nist">NIST / CSF</label>
-                <label><input type="checkbox" name="frameworks" value="other" data-other-input="framework-other">Other</label>
-              </div>
-              <input id="framework-other" class="hidden" name="framework_other" type="text" placeholder="Other frameworks">
-            </div>
-            <div class="form-grid">
-              <div class="form-field">
-                <label>18. Current audit posture</label>
-                <div class="inline-options">
-                  <label><input type="radio" name="audit_posture" value="pre" required>Pre-audit / preparing</label>
-                  <label><input type="radio" name="audit_posture" value="active">In active audit cycle</label>
-                  <label><input type="radio" name="audit_posture" value="post">Post-audit remediation</label>
-                  <label><input type="radio" name="audit_posture" value="continuous">Continuous compliance required</label>
-                  <label><input type="radio" name="audit_posture" value="not-audited">Not currently audited</label>
-                </div>
-              </div>
-              <div class="form-field">
-                <label>19. Experienced in the last 24 months?</label>
-                <div class="inline-options" data-required-group="last24">
-                  <label><input type="checkbox" name="last24" value="findings">Significant audit findings</label>
-                  <label><input type="checkbox" name="last24" value="mra">MRAs or regulatory observations</label>
-                  <label><input type="checkbox" name="last24" value="delayed">Delayed audits</label>
-                  <label><input type="checkbox" name="last24" value="incidents">Security incidents</label>
-                  <label><input type="checkbox" name="last24" value="none">None of the above</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="step" data-step="6">
-            <h4>Section 6 — Current Security Operations</h4>
-            <div class="form-grid">
-              <div class="form-field">
-                <label>20. Current security tooling posture</label>
-                <div class="inline-options">
-                  <label><input type="radio" name="tooling_posture" value="fragmented" required>Fragmented point tools</label>
-                  <label><input type="radio" name="tooling_posture" value="partial">Partially integrated</label>
-                  <label><input type="radio" name="tooling_posture" value="manual">Heavily manual</label>
-                  <label><input type="radio" name="tooling_posture" value="mature">Mature but difficult to operate</label>
-                  <label><input type="radio" name="tooling_posture" value="not-confident">Not confident</label>
-                </div>
-              </div>
-              <div class="form-field">
-                <label>21. Biggest friction point today</label>
-                <div class="inline-options">
-                  <label><input type="radio" name="friction" value="alerts" required>Too many alerts / low signal</label>
-                  <label><input type="radio" name="friction" value="prioritization">Lack of prioritization</label>
-                  <label><input type="radio" name="friction" value="remediation">Slow remediation</label>
-                  <label><input type="radio" name="friction" value="evidence">Poor evidence quality</label>
-                  <label><input type="radio" name="friction" value="governance">Governance does not reflect reality</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="step" data-step="7">
-            <h4>Section 7 — Insider Early Access Fit</h4>
-            <div class="form-field">
-              <label>22. What are you hoping to evaluate during early access?</label>
-              <div class="inline-options" data-required-group="evaluate">
-                <label><input type="checkbox" name="evaluate" value="visibility">AiVRIC risk visibility and prioritization</label>
-                <label><input type="checkbox" name="evaluate" value="remediation">Secure remediation guidance</label>
-                <label><input type="checkbox" name="evaluate" value="architecture">Architecture and control design</label>
-                <label><input type="checkbox" name="evaluate" value="assurance">Continuous assurance model</label>
-                <label><input type="checkbox" name="evaluate" value="reporting">Executive reporting clarity</label>
-              </div>
-            </div>
-            <div class="form-grid">
-              <div class="form-field">
-                <label>23. Interested in the customer-hosted deployment model?</label>
-                <div class="inline-options">
-                  <label><input type="radio" name="customer_hosted_interest" value="yes" required>Yes</label>
-                  <label><input type="radio" name="customer_hosted_interest" value="no">No</label>
-                  <label><input type="radio" name="customer_hosted_interest" value="guidance">Need guidance</label>
-                </div>
-              </div>
-              <div class="form-field">
-                <label>24. Internal technical resources available for customer-hosted deployment?</label>
-                <div class="inline-options">
-                  <label><input type="radio" name="resources" value="yes" required>Yes</label>
-                  <label><input type="radio" name="resources" value="limited">Limited</label>
-                  <label><input type="radio" name="resources" value="no">No</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="step" data-step="8">
-            <h4>Section 8 — Commitment & Expectations</h4>
-            <div class="form-grid">
-              <div class="form-field">
-                <label>25. Approach to early access programs</label>
-                <div class="inline-options">
-                  <label><input type="radio" name="early_access_approach" value="serious" required>Serious evaluation with intent to adopt</label>
-                  <label><input type="radio" name="early_access_approach" value="strategic">Strategic learning opportunity</label>
-                  <label><input type="radio" name="early_access_approach" value="validation">Validation before long-term commitment</label>
-                  <label><input type="radio" name="early_access_approach" value="research">Research only</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="step" data-step="9">
-            <h4>Section 9 — Open Context</h4>
-            <div class="form-field">
-              <label for="open-context">26. Is there anything about your environment, audit pressure, or risk posture we should understand?</label>
-              <textarea id="open-context" name="open_context" required></textarea>
-            </div>
-          </div>
-
-          <div class="step" data-step="10">
-            <h4>Section 10 — Final Confirmation</h4>
-            <div class="form-grid">
-              <div class="form-field">
-              <label for="hear-about">27. How did you hear about AiVRIC Insider Early Access?</label>
-              <select id="hear-about" name="hear_about" required>
-                <option value="">Select one</option>
-                <option value="founder-post">Founder post / article</option>
-                <option value="referral">Referral</option>
-                <option value="linkedin">LinkedIn</option>
-                <option value="investor">Investor / board</option>
-                <option value="other">Other (free text)</option>
-              </select>
-              <input id="hear-about-other" class="hidden" name="hear_about_other" type="text" placeholder="Share how you heard about us">
-              <div class="field-hint">If you select Other, add a brief description.</div>
-            </div>
-              <div class="form-field">
-                <label>28. May we contact you to schedule a short confirmation discussion if needed?</label>
-                <div class="inline-options">
-                  <label><input type="radio" name="contact_permission" value="yes" required>Yes</label>
-                  <label><input type="radio" name="contact_permission" value="no">No</label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="step-actions">
-            <button class="tag secondary" type="button" data-step-prev>Previous</button>
-            <button class="tag" type="button" data-step-next>Next</button>
-            <button class="tag hidden" type="submit" data-step-submit>Request Insider Early Access</button>
-          </div>
-          <div class="form-error hidden" id="insider-form-error">Please complete all required fields before continuing.</div>
-        </form>
-        <div class="confirmation hidden" id="insider-confirmation">
-          <h4>Thank you for your request.</h4>
-          <p>Our team will review your submission and follow up if your organization is a strong fit for the Insider Early Access cohort.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <footer class="guide-footer">
-    <span>user-guide.aivric.com</span>
-    <span class="tag">Early access</span>
+    <span>&copy; 2025 AiVRIC Technologies &mdash; <a href="../privacy-policy.html">Privacy</a> &middot; <a href="acceptable-use-policy.html">Acceptable Use</a></span>
+    <span class="tag">Platform Guide v3</span>
   </footer>
-
   <script>
     (function(){
-      var page = document.body.dataset.page;
-      document.querySelectorAll('[data-page-target]').forEach(function(link){
-        if(link.dataset.pageTarget === page){ link.classList.add('active'); }
-      });
-      var toggle = document.querySelector('.nav-toggle');
-      var sidebar = document.getElementById('sidebar');
-      if(toggle && sidebar){ toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); }); }
-
       var searchInput = document.getElementById('guide-search-input');
-      var resultsBox = document.getElementById('guide-search-results');
-      var pageIndex = [
-        { title: 'Platform Guide Home', url: 'index.html' },
-        { title: 'Getting started', url: 'getting-started.html' },
-        { title: 'Platform overview', url: 'platform-overview.html' },
-        { title: 'Security & Trust', url: 'security-trust.html' },
-        { title: 'AI Governance', url: 'ai-governance.html' },
-        { title: 'FAQ & Support', url: 'faq.html' },
-        { title: 'Insider Early Access', url: 'insider-early-access.html' }
-      ];
+      var resultsBox  = document.getElementById('guide-search-results');
+      var pageIndex = [{"title": "Platform Guide Home", "url": "index.html"}, {"title": "Getting Started", "url": "getting-started.html"}, {"title": "Platform Overview", "url": "platform-overview.html"}, {"title": "CloudSignals+RiskOps Overview", "url": "cloudsignals-riskops.html"}, {"title": "Connectors", "url": "connectors.html"}, {"title": "Integrations", "url": "integrations.html"}, {"title": "Security & Trust", "url": "security-trust.html"}, {"title": "AI Governance", "url": "ai-governance.html"}, {"title": "Compliance Overview", "url": "compliance.html"}, {"title": "FAQ & Support", "url": "faq.html"}, {"title": "Insider Early Access", "url": "insider-early-access.html"}, {"title": "Cloud Security", "url": "cloud-security.html"}, {"title": "Network Security", "url": "network-security.html"}, {"title": "Endpoint Security", "url": "endpoint-security.html"}, {"title": "Identity & Access Control", "url": "identification-authorization-control.html"}, {"title": "Data Classification", "url": "data-classification-handling.html"}, {"title": "Data Privacy", "url": "data-privacy.html"}, {"title": "Incident Response", "url": "incident-response-operations.html"}, {"title": "Threat Management", "url": "threat-management.html"}, {"title": "Vulnerability & Patch Mgmt", "url": "vulnerability-patch-management.html"}, {"title": "Security Operations", "url": "security-operations.html"}, {"title": "Risk Assessment", "url": "risk-assessment.html"}, {"title": "Third-Party Management", "url": "third-party-management.html"}, {"title": "AI & Autonomous Technologies", "url": "ai-autonomous-technologies.html"}, {"title": "Secure Engineering Architecture", "url": "secure-engineering-architecture.html"}, {"title": "Web Security", "url": "web-security.html"}, {"title": "Asset Management", "url": "asset-management.html"}, {"title": "Cryptographic Operations", "url": "cryptographic-operations.html"}, {"title": "Information Assurance", "url": "information-assurance.html"}, {"title": "Acceptable Use Policy", "url": "acceptable-use-policy.html"}, {"title": "Business Continuity & DR", "url": "business-continuity-disaster-recovery.html"}, {"title": "Capacity & Performance Mgmt", "url": "capacity-performance-management.html"}, {"title": "Maintenance", "url": "maintenance.html"}, {"title": "Security Awareness & Training", "url": "security-awareness-training.html"}, {"title": "Mobile Device Management", "url": "mobile-device-management.html"}, {"title": "Physical & Environmental Security", "url": "physical-environmental-security.html"}, {"title": "HR Security", "url": "human-resources-security.html"}, {"title": "Project & Resource Management", "url": "project-resource-management.html"}, {"title": "Tech Dev & Acquisition", "url": "technology-development-acquisition.html"}, {"title": "Security & Privacy Governance", "url": "security-privacy-governance.html"}];
       var pageCache = {};
 
-      function sanitize(text){
-        return text.replace(/[<>]/g, function(ch){ return ch === '<' ? '&lt;' : '&gt;'; });
-      }
+      function sanitize(t){ return t.replace(/[<>]/g, function(c){ return c==='<'?'&lt;':'&gt;'; }); }
 
       function getPageText(page){
         if(pageCache[page.url]) return Promise.resolve(pageCache[page.url]);
         return fetch(page.url).then(function(r){ return r.text(); }).then(function(html){
           var doc = new DOMParser().parseFromString(html, 'text/html');
           var main = doc.querySelector('.guide-content') || doc.body;
-          var text = (main.innerText || '').replace(/\\s+/g, ' ').trim();
+          var text = (main.textContent||'').replace(/\s+/g,' ').trim();
           pageCache[page.url] = text;
           return text;
         }).catch(function(){ return ''; });
@@ -783,240 +254,40 @@
       async function performSearch(raw){
         var query = raw.trim().toLowerCase();
         if(!resultsBox) return;
-        if(query.length < 2){
-          resultsBox.innerHTML = '';
-          return;
-        }
-        var results = [];
-        for (var i = 0; i < pageIndex.length; i++){
+        if(query.length < 2){ resultsBox.innerHTML=''; resultsBox.classList.remove('open'); return; }
+        var matches = [];
+        for(var i=0; i<pageIndex.length; i++){
           var page = pageIndex[i];
           var text = await getPageText(page);
-          if(text.toLowerCase().indexOf(query) !== -1){
-            results.push(page);
-          }
+          var hay = text.toLowerCase();
+          var idx = hay.indexOf(query);
+          if(idx===-1) continue;
+          var start = Math.max(0,idx-70);
+          var end = Math.min(text.length,idx+140);
+          var snippet = sanitize(text.slice(start,end));
+          matches.push({title:page.title, url:page.url, snippet:snippet});
         }
-        if(!results.length){
-          resultsBox.innerHTML = '<div class="result-item">No matches found.</div>';
-          return;
+        if(!matches.length){
+          resultsBox.innerHTML='<div class="no-results">No matches found.</div>';
+          resultsBox.classList.add('open'); return;
         }
-        resultsBox.innerHTML = results.map(function(page){
-          return '<a class="result-item" href="' + page.url + '">' + sanitize(page.title) + '</a>';
+        resultsBox.innerHTML = matches.slice(0,8).map(function(m){
+          return '<a class="result" href="'+m.url+'"><strong>'+m.title+'</strong><span>'+m.snippet+'…</span></a>';
         }).join('');
+        resultsBox.classList.add('open');
       }
 
-      if(searchInput){
-        searchInput.addEventListener('input', function(){ performSearch(searchInput.value); });
+      if(searchInput && resultsBox){
+        searchInput.addEventListener('input', function(e){ performSearch(e.target.value); });
+        searchInput.addEventListener('focus', function(){ if(resultsBox.innerHTML) resultsBox.classList.add('open'); });
       }
-
-      var modal = document.getElementById('insider-access-modal');
-      var openButtons = document.querySelectorAll('[data-open-modal=\"insider-early-access\"]');
-      var closeButtons = document.querySelectorAll('[data-close-modal]');
-      var form = document.getElementById('insider-access-form');
-      var steps = Array.prototype.slice.call(document.querySelectorAll('.step'));
-      var stepper = document.getElementById('insider-stepper');
-      var currentStep = 0;
-      var prevBtn = document.querySelector('[data-step-prev]');
-      var nextBtn = document.querySelector('[data-step-next]');
-      var submitBtn = document.querySelector('[data-step-submit]');
-      var confirmation = document.getElementById('insider-confirmation');
-      var errorBox = document.getElementById('insider-form-error');
-      var workEmail = document.getElementById('work-email');
-      var workEmailError = document.getElementById('work-email-error');
-
-      function buildStepper(){
-        if(!stepper) return;
-        stepper.innerHTML = steps.map(function(step, index){
-          var title = step.querySelector('h4') ? step.querySelector('h4').textContent : 'Step ' + (index + 1);
-          return '<span data-step-index=\"' + index + '\">' + title + '</span>';
-        }).join('');
-      }
-
-      function updateStepper(){
-        if(!stepper) return;
-        var items = stepper.querySelectorAll('span');
-        items.forEach(function(item, index){
-          item.classList.toggle('active', index === currentStep);
-        });
-      }
-
-      function showStep(index){
-        steps.forEach(function(step, stepIndex){
-          step.classList.toggle('is-active', stepIndex === index);
-        });
-        currentStep = index;
-        if(prevBtn){ prevBtn.disabled = currentStep === 0; }
-        if(nextBtn){ nextBtn.classList.toggle('hidden', currentStep === steps.length - 1); }
-        if(submitBtn){ submitBtn.classList.toggle('hidden', currentStep !== steps.length - 1); }
-        if(errorBox){ errorBox.classList.add('hidden'); }
-        updateStepper();
-      }
-
-      function openModal(){
-        if(!modal) return;
-        modal.classList.add('is-open');
-        modal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        showStep(0);
-        if(form){ form.classList.remove('hidden'); }
-        if(confirmation){ confirmation.classList.add('hidden'); }
-      }
-
-      function closeModal(){
-        if(!modal) return;
-        modal.classList.remove('is-open');
-        modal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-      }
-
-      openButtons.forEach(function(button){
-        button.addEventListener('click', function(event){
-          event.preventDefault();
-          openModal();
-        });
+      document.addEventListener('click', function(e){
+        if(!resultsBox) return;
+        if(!resultsBox.contains(e.target) && searchInput && !searchInput.contains(e.target))
+          resultsBox.classList.remove('open');
       });
-      closeButtons.forEach(function(button){
-        button.addEventListener('click', closeModal);
-      });
-      if(modal){
-        modal.addEventListener('click', function(event){
-          if(event.target === modal){ closeModal(); }
-        });
-      }
-      document.addEventListener('keydown', function(event){
-        if(event.key === 'Escape' && modal && modal.classList.contains('is-open')){ closeModal(); }
-      });
-
-      if(prevBtn){
-        prevBtn.addEventListener('click', function(){
-          if(currentStep > 0){ showStep(currentStep - 1); }
-        });
-      }
-      if(nextBtn){
-        nextBtn.addEventListener('click', function(){
-          if(currentStep < steps.length - 1){
-            if(validateStep(currentStep)){ showStep(currentStep + 1); }
-          }
-        });
-      }
-
-      if(form){
-        form.addEventListener('submit', function(event){
-          event.preventDefault();
-          if(!validateStep(currentStep)){ return; }
-          form.classList.add('hidden');
-          if(confirmation){ confirmation.classList.remove('hidden'); }
-        });
-      }
-
-      function toggleOtherField(input){
-        var targetId = input.getAttribute('data-other-input');
-        if(!targetId) return;
-        var field = document.getElementById(targetId);
-        if(!field) return;
-        var shouldShow = input.checked;
-        field.classList.toggle('hidden', !shouldShow);
-        field.required = shouldShow;
-      }
-
-      document.querySelectorAll('[data-other-input]').forEach(function(input){
-        if(input.type === 'checkbox'){
-          input.addEventListener('change', function(){ toggleOtherField(input); });
-        }
-      });
-
-      var industrySelect = document.getElementById('industry');
-      var industryOther = document.getElementById('industry-other');
-      if(industrySelect && industryOther){
-        industrySelect.addEventListener('change', function(){
-          var showOther = industrySelect.value === 'other';
-          industryOther.classList.toggle('hidden', !showOther);
-          industryOther.required = showOther;
-        });
-      }
-
-      var hearAboutSelect = document.getElementById('hear-about');
-      var hearAboutOther = document.getElementById('hear-about-other');
-      if(hearAboutSelect && hearAboutOther){
-        hearAboutSelect.addEventListener('change', function(){
-          var showOther = hearAboutSelect.value === 'other';
-          hearAboutOther.classList.toggle('hidden', !showOther);
-          hearAboutOther.required = showOther;
-        });
-      }
-
-      function validateStep(stepIndex){
-        if(!steps[stepIndex]) return true;
-        var step = steps[stepIndex];
-        var invalid = false;
-
-        step.querySelectorAll('input[required], select[required], textarea[required]').forEach(function(field){
-          if(!field.checkValidity()){ invalid = true; }
-        });
-
-        step.querySelectorAll('[data-required-group]').forEach(function(group){
-          var groupInputs = group.querySelectorAll('input[type=\"checkbox\"], input[type=\"radio\"]');
-          var anyChecked = Array.prototype.some.call(groupInputs, function(input){ return input.checked; });
-          if(!anyChecked){ invalid = true; }
-        });
-
-        if(errorBox){
-          errorBox.classList.toggle('hidden', !invalid);
-        }
-        return !invalid;
-      }
-
-      function isPersonalEmail(email){
-        var domain = email.split('@')[1] ? email.split('@')[1].toLowerCase() : '';
-        var blocked = [
-          'gmail.com', 'googlemail.com',
-          'outlook.com', 'hotmail.com', 'live.com', 'msn.com',
-          'yahoo.com', 'yahoo.co.uk', 'ymail.com',
-          'aol.com',
-          'comcast.net', 'sbcglobal.net', 'att.net', 'verizon.net', 'cox.net', 'charter.net',
-          'icloud.com', 'me.com', 'mac.com',
-          'proton.me', 'protonmail.com',
-          'pm.me',
-          'zoho.com', 'zohomail.com',
-          'gmx.com', 'gmx.net', 'gmx.de', 'gmx.co.uk',
-          'mail.com',
-          'fastmail.com',
-          'hey.com',
-          'yandex.com', 'yandex.ru',
-          'qq.com', '163.com', '126.com',
-          'mail.ru',
-          'rediffmail.com',
-          'tutanota.com', 'tuta.com',
-          'hushmail.com',
-          'inbox.com',
-          'lavabit.com',
-          'rocketmail.com',
-          'btinternet.com', 'bt.com',
-          'prodigy.net',
-          'bellsouth.net',
-          'earthlink.net'
-        ];
-        return blocked.indexOf(domain) !== -1;
-      }
-
-      function validateWorkEmail(){
-        if(!workEmail) return true;
-        var value = workEmail.value.trim();
-        var isInvalid = value && isPersonalEmail(value);
-        workEmail.setCustomValidity(isInvalid ? 'Personal email domains are not accepted.' : '');
-        if(workEmailError){
-          workEmailError.classList.toggle('hidden', !isInvalid);
-        }
-        return !isInvalid;
-      }
-
-      if(workEmail){
-        workEmail.addEventListener('input', validateWorkEmail);
-        workEmail.addEventListener('blur', validateWorkEmail);
-      }
-
-      buildStepper();
-      showStep(0);
     })();
   </script>
+  <script src="../assets/js/support-form.js"></script>
 </body>
 </html>

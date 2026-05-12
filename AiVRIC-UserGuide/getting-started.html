@@ -1,27 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <title>AiVRIC User Guide | Getting Started</title>
-  <link rel="canonical" href="https://user-guide.aivric.com/getting-started.html">
+  <title>AiVRIC Platform Guide | Getting Started</title>
+  <link rel="canonical" href="https://aivric.com/AiVRIC-UserGuide/getting-started.html">
   <meta name="description" content="Onboard to AiVRIC with setup steps, workspace design, connectors, and team collaboration guidance.">
   <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
   <link href="../assets/css/bootstrap.css" rel="stylesheet">
-  <link href="../assets/css/color.css" rel="stylesheet">
-  <link href="../assets/css/style.css" rel="stylesheet">
-  <link href="../assets/css/responsive.css" rel="stylesheet">
-  <link href="userguide.css?v=2" rel="stylesheet">
-  <style>
-    .guide-content h1,
-    .guide-content h2,
-    .guide-content h3 {
-      color: #f4f8ff;
-    }
-  </style>
+  <link href="userguide.css?v=3" rel="stylesheet">
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
@@ -29,130 +19,180 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-EG2Q8GD30V');
 </script>
 <body data-page="getting-started">
   <header class="guide-header">
     <div class="bar">
       <a class="brand" href="index.html">
-        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo">
-        <span>Platform Guide</span>
+        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC">
+        <span class="brand-sep"></span>
+        <span class="brand-sub">Platform Guide</span>
       </a>
       <div class="top-links">
         <a href="../index.html">AiVRIC.com</a>
         <a href="../trust.html">Trust Center</a>
         <a href="../support.html">Support</a>
-        <a href="insider-early-access.html">Insider Early Access</a>
+        <a href="insider-early-access.html" class="ug-cta">Insider Access</a>
       </div>
       <div class="guide-search">
-        <i class="fa fa-search" aria-hidden="true"></i>
-        <input id="guide-search-input" type="search" placeholder="Search the Platform Guide" aria-label="Search the AiVRIC Platform Guide">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <input id="guide-search-input" type="search" placeholder="Search the Platform Guide…" aria-label="Search the AiVRIC Platform Guide">
+        <span class="ug-kbd">⌘K</span>
         <div class="search-results" id="guide-search-results"></div>
       </div>
-      <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" onclick="document.getElementById('sidebar').classList.toggle('open')">Menu</button>
     </div>
   </header>
 
   <div class="guide-shell">
     <aside class="guide-sidebar" id="sidebar">
       <div class="nav-section">
-        <p class="nav-label">Essentials</p>
-        <a class="nav-link" data-page-target="home" href="index.html">Overview <small>Start here</small></a>
-        <a class="nav-link" data-page-target="getting-started" href="getting-started.html">Getting started <small>Setup</small></a>
-        <a class="nav-link" data-page-target="platform" href="platform-overview.html">Platform overview <small>How AiVRIC works</small></a>
+        <p class="nav-label">Quick Start</p>
+        <a class="nav-link" href="index.html">Overview</a>
+        <a class="nav-link active" href="getting-started.html">Getting Started</a>
+        <a class="nav-link" href="platform-overview.html">Platform Overview</a>
       </div>
       <div class="nav-section">
         <p class="nav-label">CloudSignals+RiskOps</p>
-        <a class="nav-link" data-page-target="cloudsignals" href="cloudsignals-riskops.html">Module overview <small>How it works</small></a>
-        <a class="nav-link" data-page-target="connectors" href="connectors.html">Connectors <small>Connect cloud accounts</small></a>
-        <a class="nav-link" data-page-target="integrations" href="integrations.html">Integrations <small>SIEM, ticketing &amp; alerts</small></a>
+        <a class="nav-link" href="cloudsignals-riskops.html">Module Overview</a>
+        <a class="nav-link" href="connectors.html">Connectors</a>
+        <a class="nav-link" href="integrations.html">Integrations</a>
       </div>
       <div class="nav-section">
         <p class="nav-label">Assurance</p>
-        <a class="nav-link" data-page-target="security" href="security-trust.html">Security & Trust <small>Controls</small></a>
-        <a class="nav-link" data-page-target="governance" href="ai-governance.html">AI Governance <small>Policies</small></a>
-        <a class="nav-link" data-page-target="faq" href="faq.html">FAQ & Support <small>Answers</small></a>
+        <a class="nav-link" href="security-trust.html">Security &amp; Trust</a>
+        <a class="nav-link" href="ai-governance.html">AI Governance</a>
+        <a class="nav-link" href="compliance.html">Compliance Overview</a>
+        <a class="nav-link" href="faq.html">FAQ &amp; Support</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Security Policies</p>
+        <a class="nav-link" href="cloud-security.html">Cloud Security</a>
+        <a class="nav-link" href="network-security.html">Network Security</a>
+        <a class="nav-link" href="endpoint-security.html">Endpoint Security</a>
+        <a class="nav-link" href="identification-authorization-control.html">Identity &amp; Access Control</a>
+        <a class="nav-link" href="data-classification-handling.html">Data Classification</a>
+        <a class="nav-link" href="data-privacy.html">Data Privacy</a>
+        <a class="nav-link" href="incident-response-operations.html">Incident Response</a>
+        <a class="nav-link" href="threat-management.html">Threat Management</a>
+        <a class="nav-link" href="vulnerability-patch-management.html">Vuln &amp; Patch Mgmt</a>
+        <a class="nav-link" href="security-operations.html">Security Operations</a>
+        <a class="nav-link" href="risk-assessment.html">Risk Assessment</a>
+        <a class="nav-link" href="third-party-management.html">Third-Party Mgmt</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Platform Policies</p>
+        <a class="nav-link" href="ai-autonomous-technologies.html">AI &amp; Autonomous Tech</a>
+        <a class="nav-link" href="secure-engineering-architecture.html">Secure Engineering</a>
+        <a class="nav-link" href="web-security.html">Web Security</a>
+        <a class="nav-link" href="asset-management.html">Asset Management</a>
+        <a class="nav-link" href="cryptographic-operations.html">Cryptographic Ops</a>
+        <a class="nav-link" href="information-assurance.html">Information Assurance</a>
+        <a class="nav-link" href="acceptable-use-policy.html">Acceptable Use</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Operations</p>
+        <a class="nav-link" href="business-continuity-disaster-recovery.html">Business Continuity &amp; DR</a>
+        <a class="nav-link" href="capacity-performance-management.html">Capacity Management</a>
+        <a class="nav-link" href="maintenance.html">Maintenance</a>
+        <a class="nav-link" href="security-awareness-training.html">Security Awareness</a>
+        <a class="nav-link" href="mobile-device-management.html">Mobile Device Mgmt</a>
+        <a class="nav-link" href="physical-environmental-security.html">Physical Security</a>
+        <a class="nav-link" href="human-resources-security.html">HR Security</a>
+        <a class="nav-link" href="project-resource-management.html">Project Management</a>
+        <a class="nav-link" href="technology-development-acquisition.html">Tech Dev &amp; Acquisition</a>
+        <a class="nav-link" href="security-privacy-governance.html">Privacy &amp; Governance</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">More</p>
+        <a class="nav-link" href="insider-early-access.html">Insider Early Access</a>
       </div>
     </aside>
 
-    <main class="guide-content">
-      <span class="badge" id="checklist">Onboarding checklist</span>
+    <main class="guide-content" id="main-content">
+      <span class="badge">Onboarding</span>
       <h1>Getting started</h1>
-      <p>Launch AiVRIC quickly with a secure baseline. Follow the step-by-step flow and mirror how GitLab documents clear ownership and actions.</p>
+      <p>Launch AiVRIC quickly with a secure baseline. Follow the four-step flow below, then connect your first cloud account.</p>
 
-      <div class="guide-grid">
-        <div class="guide-card">
-          <h3>1) Plan workspaces</h3>
-          <p>Map environments to workspaces (e.g., prod, staging, R&D). Align each with data sensitivity and owners.</p>
-          <ul>
-            <li>Define owners in IAM groups.</li>
-            <li>Enable SSO and SCIM before inviting users.</li>
-          </ul>
+      <div class="ug-steps">
+        <div class="ug-step">
+          <div class="ug-step-num">1</div>
+          <div class="ug-step-body">
+            <h3>Plan workspaces</h3>
+            <p>Map environments to workspaces (e.g., prod, staging, R&amp;D). Align each with data sensitivity and named owners.</p>
+            <ul>
+              <li>Define owners in IAM groups before inviting users.</li>
+              <li>Enable SSO and SCIM first to enforce directory-driven access.</li>
+            </ul>
+          </div>
         </div>
-        <div class="guide-card">
-          <h3>2) Secure access</h3>
-          <p>Use SSO + MFA; grant least-privilege roles in cloud accounts. Configure break-glass with short-lived tokens.</p>
-          <ul>
-            <li>Map roles to AiVRIC groups.</li>
-            <li>Audit login attempts weekly.</li>
-          </ul>
+        <div class="ug-step">
+          <div class="ug-step-num">2</div>
+          <div class="ug-step-body">
+            <h3>Secure access</h3>
+            <p>Use SSO + MFA; grant least-privilege roles in cloud accounts. Configure break-glass with short-lived tokens.</p>
+            <ul>
+              <li>Map cloud roles to AiVRIC permission groups.</li>
+              <li>Audit login attempts weekly; alert on anomalies.</li>
+            </ul>
+          </div>
         </div>
-        <div class="guide-card">
-          <h3>3) Connect systems</h3>
-          <p>Connect cloud accounts, Kubernetes, GitHub, and ticketing to start control monitoring.</p>
-          <ul>
-            <li>Use deployment templates per connector.</li>
-            <li>Verify data collection scope.</li>
-          </ul>
+        <div class="ug-step">
+          <div class="ug-step-num">3</div>
+          <div class="ug-step-body">
+            <h3>Connect systems</h3>
+            <p>Connect cloud accounts, Kubernetes clusters, GitHub, and ticketing to start continuous control monitoring.</p>
+            <ul>
+              <li>Use deployment templates provided per connector.</li>
+              <li>Verify data collection scope before enabling enforcement.</li>
+            </ul>
+          </div>
         </div>
-        <div class="guide-card">
-          <h3>4) Apply guardrails</h3>
-          <p>Enable policy packs for compliance (SOC 2, ISO 27001) and AI safeguards (PII, secrets, jailbreaks).</p>
-          <ul>
-            <li>Run dry-runs first; review impact.</li>
-            <li>Promote to enforce mode after sign-off.</li>
-          </ul>
+        <div class="ug-step">
+          <div class="ug-step-num">4</div>
+          <div class="ug-step-body">
+            <h3>Apply guardrails</h3>
+            <p>Enable policy packs for compliance (SOC 2, ISO 27001) and AI safeguards (PII, secrets, jailbreaks).</p>
+            <ul>
+              <li>Run dry-runs first; review impact report before enforcing.</li>
+              <li>Promote to enforce mode after stakeholder sign-off.</li>
+            </ul>
+          </div>
         </div>
       </div>
 
       <h2 id="connect">Connect your environment</h2>
-      <p>All connectors are powered by <strong>CloudSignals+RiskOps&#8482;</strong> — AiVRIC's continuous posture monitoring and compliance automation engine. Each connected provider is audited every 24 hours automatically.</p>
+      <p>All connectors are powered by <strong>CloudSignals+RiskOps&trade;</strong> — AiVRIC's continuous posture monitoring engine. Every connected provider is audited automatically on a 24-hour cycle.</p>
       <table class="table">
-        <thead>
-          <tr><th>Integration</th><th>Purpose</th><th>Quick action</th></tr>
-        </thead>
+        <thead><tr><th>Provider</th><th>Purpose</th><th>Quick action</th></tr></thead>
         <tbody>
-          <tr><td>AWS</td><td>Continuously monitor IAM hygiene, network rules, and resource configurations for drift.</td><td>Deploy read-only IAM role via CloudFormation Quick Link; launch scan.</td></tr>
-          <tr><td>Microsoft Azure</td><td>Audit subscriptions for misconfigurations, identity posture, and policy compliance.</td><td>Create App Registration + Service Principal; enter Tenant ID, Client ID, and Secret.</td></tr>
+          <tr><td>AWS</td><td>Monitor IAM hygiene, network rules, and resource configurations for drift.</td><td>Deploy read-only IAM role via CloudFormation Quick Link.</td></tr>
+          <tr><td>Microsoft Azure</td><td>Audit subscriptions for misconfigurations, identity posture, and policy compliance.</td><td>Create App Registration + Service Principal; enter Tenant ID, Client ID, Secret.</td></tr>
           <tr><td>Google Cloud Platform</td><td>Scan GCP projects for posture drift and framework control gaps.</td><td>Create read-only Service Account; paste JSON key into AiVRIC.</td></tr>
-          <tr><td>Kubernetes</td><td>Secure cluster workloads, service account access, and runtime configurations.</td><td>Paste kubeconfig; apply read-only RBAC resources for managed clusters.</td></tr>
-          <tr><td>GitHub</td><td>Protect repos, branch protections, secrets exposure, and pipeline tokens.</td><td>Connect via PAT, OAuth App, or GitHub App with least-privilege scopes.</td></tr>
-          <tr><td>Microsoft 365</td><td>Monitor tenant controls for SOC 2, PCI DSS, and CMMC compliance.</td><td>Register Entra ID app; configure certificate authentication for full check coverage.</td></tr>
-          <tr><td>MongoDB Atlas</td><td>Audit database cluster configurations and access controls.</td><td>Generate an Atlas API key pair; paste Public and Private keys into AiVRIC.</td></tr>
-          <tr><td>Alibaba Cloud</td><td>Monitor resource configurations and IAM posture for drift.</td><td>Use RAM Role Assumption (recommended) or static credentials for quick scans.</td></tr>
-          <tr><td>Ticketing (Jira / ServiceNow)</td><td>Send findings to owners and track remediation status bidirectionally.</td><td>Connect via OAuth; map severity levels to ticket priority in Settings.</td></tr>
+          <tr><td>Kubernetes</td><td>Secure cluster workloads, service account access, and runtime configurations.</td><td>Paste kubeconfig; apply read-only RBAC manifests.</td></tr>
+          <tr><td>GitHub</td><td>Protect repos, branch protections, secrets exposure, and pipeline tokens.</td><td>Connect via PAT, OAuth App, or GitHub App.</td></tr>
+          <tr><td>Microsoft 365</td><td>Monitor tenant controls for SOC 2, PCI DSS, and CMMC compliance.</td><td>Register Entra ID app; configure certificate authentication.</td></tr>
+          <tr><td>MongoDB Atlas</td><td>Audit database cluster configurations and access controls.</td><td>Generate an Atlas API key pair and paste into AiVRIC.</td></tr>
+          <tr><td>Alibaba Cloud</td><td>Monitor resource configurations and IAM posture for drift.</td><td>Use RAM Role Assumption or static credentials.</td></tr>
+          <tr><td>Jira / ServiceNow</td><td>Send findings to owners and track remediation bidirectionally.</td><td>Connect via OAuth; map severity to ticket priority.</td></tr>
         </tbody>
       </table>
       <div class="callout primary">
-        <strong>Full connector setup guides</strong> — including step-by-step instructions and authentication details for every provider — are available on the <a href="connectors.html">Connectors page</a>.
+        <strong>Full connector guides</strong> — step-by-step instructions and authentication details for every provider — are on the <a href="connectors.html">Connectors page</a>.
       </div>
 
-      <div class="callout primary" id="collaborate">
-        <strong>Invite your team early.</strong> Assign domain owners (cloud, AI, compliance). Mirror GitLab's handbook clarity: list who owns what and how to escalate.
-      </div>
-
-      <h2>Collaborate and ship</h2>
+      <h2 id="collaborate">Collaborate and ship</h2>
       <div class="list-grid">
         <ul>
-          <li><strong>Approvals:</strong> Require dual approval for high-impact guardrails; log who approved.</li>
+          <li><strong>Approvals:</strong> Require dual approval for high-impact guardrails; log who approved and when.</li>
           <li><strong>Change windows:</strong> Align policy changes with your release calendar.</li>
           <li><strong>Notifications:</strong> Route critical findings to Slack/Teams with runbooks attached.</li>
         </ul>
         <ul>
           <li><strong>Observability:</strong> Forward audit logs to your SIEM; tag events by workspace.</li>
-          <li><strong>Testing:</strong> Use staging workspaces to validate connectors before production.</li>
-          <li><strong>Ownership:</strong> Keep owners visible in tickets and in the left rail for fast navigation.</li>
+          <li><strong>Testing:</strong> Validate connectors in staging workspaces before production.</li>
+          <li><strong>Ownership:</strong> Keep owners visible in tickets for fast escalation.</li>
         </ul>
       </div>
 
@@ -160,22 +200,22 @@
       <div class="guide-grid">
         <div class="guide-card">
           <h3>Connector setup guides</h3>
-          <p>Step-by-step instructions for AWS, Azure, GCP, Kubernetes, GitHub, M365, MongoDB Atlas, and Alibaba Cloud.</p>
+          <p>Step-by-step instructions for all eight supported cloud providers.</p>
           <a href="connectors.html">View all connectors</a>
         </div>
         <div class="guide-card">
           <h3>CloudSignals+RiskOps overview</h3>
-          <p>Understand the posture monitoring engine: scan cadence, compliance mapping, alerts, SIEM integration, and reporting.</p>
+          <p>Scan cadence, compliance mapping, alerts, SIEM integration, and reporting.</p>
           <a href="cloudsignals-riskops.html">Read the overview</a>
         </div>
         <div class="guide-card">
           <h3>Trust Center</h3>
-          <p>Access SOC 2, penetration testing summaries, and data handling details.</p>
+          <p>SOC 2 readiness, penetration testing summaries, and data handling details.</p>
           <a href="../trust.html">Open Trust Center</a>
         </div>
         <div class="guide-card">
           <h3>Support</h3>
-          <p>Need a hand? We're available for live working sessions.</p>
+          <p>Live working sessions available. We'll walk through your setup with you.</p>
           <a href="../support.html">Contact support</a>
         </div>
       </div>
@@ -184,7 +224,7 @@
     <aside class="guide-toc">
       <p class="toc-title">On this page</p>
       <div class="toc-links">
-        <a href="#checklist">Checklist</a>
+        <a href="#checklist">Four steps</a>
         <a href="#connect">Connect</a>
         <a href="#collaborate">Collaborate</a>
         <a href="#resources">Resources</a>
@@ -193,45 +233,24 @@
   </div>
 
   <footer class="guide-footer">
-    <span>user-guide.aivric.com</span>
-    <span class="tag">Onboarding without guesswork</span>
+    <span>&copy; 2025 AiVRIC Technologies &mdash; <a href="../privacy-policy.html">Privacy</a> &middot; <a href="acceptable-use-policy.html">Acceptable Use</a></span>
+    <span class="tag">Platform Guide v3</span>
   </footer>
-
   <script>
     (function(){
-      var page = document.body.dataset.page;
-      document.querySelectorAll('[data-page-target]').forEach(function(link){
-        if(link.dataset.pageTarget === page){ link.classList.add('active'); }
-      });
-      var toggle = document.querySelector('.nav-toggle');
-      var sidebar = document.getElementById('sidebar');
-      if(toggle && sidebar){ toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); }); }
-
       var searchInput = document.getElementById('guide-search-input');
-      var resultsBox = document.getElementById('guide-search-results');
-      var pageIndex = [
-        { title: 'Platform Guide Home', url: 'index.html' },
-        { title: 'Getting started', url: 'getting-started.html' },
-        { title: 'Platform overview', url: 'platform-overview.html' },
-        { title: 'CloudSignals+RiskOps overview', url: 'cloudsignals-riskops.html' },
-        { title: 'Connectors', url: 'connectors.html' },
-        { title: 'Integrations', url: 'integrations.html' },
-        { title: 'Security & Trust', url: 'security-trust.html' },
-        { title: 'AI Governance', url: 'ai-governance.html' },
-        { title: 'FAQ & Support', url: 'faq.html' }
-      ];
+      var resultsBox  = document.getElementById('guide-search-results');
+      var pageIndex = [{"title": "Platform Guide Home", "url": "index.html"}, {"title": "Getting Started", "url": "getting-started.html"}, {"title": "Platform Overview", "url": "platform-overview.html"}, {"title": "CloudSignals+RiskOps Overview", "url": "cloudsignals-riskops.html"}, {"title": "Connectors", "url": "connectors.html"}, {"title": "Integrations", "url": "integrations.html"}, {"title": "Security & Trust", "url": "security-trust.html"}, {"title": "AI Governance", "url": "ai-governance.html"}, {"title": "Compliance Overview", "url": "compliance.html"}, {"title": "FAQ & Support", "url": "faq.html"}, {"title": "Insider Early Access", "url": "insider-early-access.html"}, {"title": "Cloud Security", "url": "cloud-security.html"}, {"title": "Network Security", "url": "network-security.html"}, {"title": "Endpoint Security", "url": "endpoint-security.html"}, {"title": "Identity & Access Control", "url": "identification-authorization-control.html"}, {"title": "Data Classification", "url": "data-classification-handling.html"}, {"title": "Data Privacy", "url": "data-privacy.html"}, {"title": "Incident Response", "url": "incident-response-operations.html"}, {"title": "Threat Management", "url": "threat-management.html"}, {"title": "Vulnerability & Patch Mgmt", "url": "vulnerability-patch-management.html"}, {"title": "Security Operations", "url": "security-operations.html"}, {"title": "Risk Assessment", "url": "risk-assessment.html"}, {"title": "Third-Party Management", "url": "third-party-management.html"}, {"title": "AI & Autonomous Technologies", "url": "ai-autonomous-technologies.html"}, {"title": "Secure Engineering Architecture", "url": "secure-engineering-architecture.html"}, {"title": "Web Security", "url": "web-security.html"}, {"title": "Asset Management", "url": "asset-management.html"}, {"title": "Cryptographic Operations", "url": "cryptographic-operations.html"}, {"title": "Information Assurance", "url": "information-assurance.html"}, {"title": "Acceptable Use Policy", "url": "acceptable-use-policy.html"}, {"title": "Business Continuity & DR", "url": "business-continuity-disaster-recovery.html"}, {"title": "Capacity & Performance Mgmt", "url": "capacity-performance-management.html"}, {"title": "Maintenance", "url": "maintenance.html"}, {"title": "Security Awareness & Training", "url": "security-awareness-training.html"}, {"title": "Mobile Device Management", "url": "mobile-device-management.html"}, {"title": "Physical & Environmental Security", "url": "physical-environmental-security.html"}, {"title": "HR Security", "url": "human-resources-security.html"}, {"title": "Project & Resource Management", "url": "project-resource-management.html"}, {"title": "Tech Dev & Acquisition", "url": "technology-development-acquisition.html"}, {"title": "Security & Privacy Governance", "url": "security-privacy-governance.html"}];
       var pageCache = {};
 
-      function sanitize(text){
-        return text.replace(/[<>]/g, function(ch){ return ch === '<' ? '&lt;' : '&gt;'; });
-      }
+      function sanitize(t){ return t.replace(/[<>]/g, function(c){ return c==='<'?'&lt;':'&gt;'; }); }
 
       function getPageText(page){
         if(pageCache[page.url]) return Promise.resolve(pageCache[page.url]);
         return fetch(page.url).then(function(r){ return r.text(); }).then(function(html){
           var doc = new DOMParser().parseFromString(html, 'text/html');
           var main = doc.querySelector('.guide-content') || doc.body;
-          var text = (main.innerText || '').replace(/\s+/g, ' ').trim();
+          var text = (main.textContent||'').replace(/\s+/g,' ').trim();
           pageCache[page.url] = text;
           return text;
         }).catch(function(){ return ''; });
@@ -240,49 +259,40 @@
       async function performSearch(raw){
         var query = raw.trim().toLowerCase();
         if(!resultsBox) return;
-        if(query.length < 2){
-          resultsBox.innerHTML = '';
-          resultsBox.classList.remove('open');
-          return;
-        }
-
+        if(query.length < 2){ resultsBox.innerHTML=''; resultsBox.classList.remove('open'); return; }
         var matches = [];
-        for (var i = 0; i < pageIndex.length; i++){
-          var pageItem = pageIndex[i];
-          var text = await getPageText(pageItem);
+        for(var i=0; i<pageIndex.length; i++){
+          var page = pageIndex[i];
+          var text = await getPageText(page);
           var hay = text.toLowerCase();
           var idx = hay.indexOf(query);
-          if(idx === -1) continue;
-          var start = Math.max(0, idx - 70);
-          var end = Math.min(text.length, idx + 140);
-          var snippet = sanitize(text.slice(start, end));
-          matches.push({ title: pageItem.title, url: pageItem.url, snippet: snippet });
+          if(idx===-1) continue;
+          var start = Math.max(0,idx-70);
+          var end = Math.min(text.length,idx+140);
+          var snippet = sanitize(text.slice(start,end));
+          matches.push({title:page.title, url:page.url, snippet:snippet});
         }
-
         if(!matches.length){
-          resultsBox.innerHTML = '<div class="no-results">No matches yet. Try another term.</div>';
-          resultsBox.classList.add('open');
-          return;
+          resultsBox.innerHTML='<div class="no-results">No matches found.</div>';
+          resultsBox.classList.add('open'); return;
         }
-
-        resultsBox.innerHTML = matches.slice(0, 8).map(function(m){
-          return '<a class="result" href="'+m.url+'"><strong>'+m.title+'</strong><span>'+m.snippet+'...</span></a>';
+        resultsBox.innerHTML = matches.slice(0,8).map(function(m){
+          return '<a class="result" href="'+m.url+'"><strong>'+m.title+'</strong><span>'+m.snippet+'…</span></a>';
         }).join('');
         resultsBox.classList.add('open');
       }
 
       if(searchInput && resultsBox){
         searchInput.addEventListener('input', function(e){ performSearch(e.target.value); });
-        searchInput.addEventListener('focus', function(){ if(resultsBox.innerHTML){ resultsBox.classList.add('open'); }});
+        searchInput.addEventListener('focus', function(){ if(resultsBox.innerHTML) resultsBox.classList.add('open'); });
       }
-
       document.addEventListener('click', function(e){
         if(!resultsBox) return;
-        if(!resultsBox.contains(e.target) && !searchInput.contains(e.target)){
+        if(!resultsBox.contains(e.target) && searchInput && !searchInput.contains(e.target))
           resultsBox.classList.remove('open');
-        }
       });
     })();
   </script>
+  <script src="../assets/js/support-form.js"></script>
 </body>
 </html>

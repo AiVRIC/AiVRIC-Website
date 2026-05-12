@@ -1,20 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <title>AiVRIC User Guide | Acceptable Use Policy</title>
-  <link rel="canonical" href="https://user-guide.aivric.com/acceptable-use-policy.html">
+  <title>AiVRIC Platform Guide | Acceptable Use Policy</title>
+  <link rel="canonical" href="https://aivric.com/AiVRIC-UserGuide/acceptable-use-policy.html">
   <meta name="description" content="Defines appropriate, secure, and lawful use of AiVRIC systems, data, and services.">
   <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
   <link href="../assets/css/bootstrap.css" rel="stylesheet">
-  <link href="../assets/css/color.css" rel="stylesheet">
-  <link href="../assets/css/style.css" rel="stylesheet">
-  <link href="../assets/css/responsive.css" rel="stylesheet">
-  <link href="userguide.css" rel="stylesheet">
+  <link href="userguide.css?v=3" rel="stylesheet">
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
@@ -22,48 +19,99 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-EG2Q8GD30V');
 </script>
 <body data-page="acceptable-use-policy">
   <header class="guide-header">
     <div class="bar">
-      <a class="brand" href="index.html"><img src="../assets/images/logo/aivric.svg" alt="AiVRIC logo"><span>Platform Guide</span></a>
+      <a class="brand" href="index.html">
+        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC">
+        <span class="brand-sep"></span>
+        <span class="brand-sub">Platform Guide</span>
+      </a>
       <div class="top-links">
         <a href="../index.html">AiVRIC.com</a>
         <a href="../trust.html">Trust Center</a>
         <a href="../support.html">Support</a>
-        <a href="insider-early-access.html">Insider Early Access</a>
+        <a href="insider-early-access.html" class="ug-cta">Insider Access</a>
       </div>
       <div class="guide-search">
-        <i class="fa fa-search" aria-hidden="true"></i>
-        <input type="search" placeholder="Search the User Guide (coming soon)" aria-label="Search the AiVRIC User Guide">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <input id="guide-search-input" type="search" placeholder="Search the Platform Guide…" aria-label="Search the AiVRIC Platform Guide">
+        <span class="ug-kbd">⌘K</span>
+        <div class="search-results" id="guide-search-results"></div>
       </div>
-      <button class="nav-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" onclick="document.getElementById('sidebar').classList.toggle('open')">Menu</button>
     </div>
-  </header>    <div class="guide-shell">
+  </header>
+
+  <div class="guide-shell">
     <aside class="guide-sidebar" id="sidebar">
       <div class="nav-section">
-        <p class="nav-label">Essentials</p>
-        <a class="nav-link" data-page-target="home" href="index.html">Overview <small>Start here</small></a>
-        <a class="nav-link" data-page-target="getting-started" href="getting-started.html">Getting started <small>Setup</small></a>
-        <a class="nav-link" data-page-target="platform" href="platform-overview.html">Platform overview <small>How AiVRIC works</small></a>
+        <p class="nav-label">Quick Start</p>
+        <a class="nav-link" href="index.html">Overview</a>
+        <a class="nav-link" href="getting-started.html">Getting Started</a>
+        <a class="nav-link" href="platform-overview.html">Platform Overview</a>
       </div>
       <div class="nav-section">
         <p class="nav-label">CloudSignals+RiskOps</p>
-        <a class="nav-link" data-page-target="cloudsignals" href="cloudsignals-riskops.html">Module overview <small>How it works</small></a>
-        <a class="nav-link" data-page-target="connectors" href="connectors.html">Connectors <small>Connect cloud accounts</small></a>
-        <a class="nav-link" data-page-target="integrations" href="integrations.html">Integrations <small>SIEM, ticketing &amp; alerts</small></a>
+        <a class="nav-link" href="cloudsignals-riskops.html">Module Overview</a>
+        <a class="nav-link" href="connectors.html">Connectors</a>
+        <a class="nav-link" href="integrations.html">Integrations</a>
       </div>
       <div class="nav-section">
         <p class="nav-label">Assurance</p>
-        <a class="nav-link" data-page-target="security" href="security-trust.html">Security &amp; Trust <small>Controls</small></a>
-        <a class="nav-link" data-page-target="governance" href="ai-governance.html">AI Governance <small>Policies</small></a>
-        <a class="nav-link" data-page-target="faq" href="faq.html">FAQ &amp; Support <small>Answers</small></a>
+        <a class="nav-link" href="security-trust.html">Security &amp; Trust</a>
+        <a class="nav-link" href="ai-governance.html">AI Governance</a>
+        <a class="nav-link" href="compliance.html">Compliance Overview</a>
+        <a class="nav-link" href="faq.html">FAQ &amp; Support</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Security Policies</p>
+        <a class="nav-link" href="cloud-security.html">Cloud Security</a>
+        <a class="nav-link" href="network-security.html">Network Security</a>
+        <a class="nav-link" href="endpoint-security.html">Endpoint Security</a>
+        <a class="nav-link" href="identification-authorization-control.html">Identity &amp; Access Control</a>
+        <a class="nav-link" href="data-classification-handling.html">Data Classification</a>
+        <a class="nav-link" href="data-privacy.html">Data Privacy</a>
+        <a class="nav-link" href="incident-response-operations.html">Incident Response</a>
+        <a class="nav-link" href="threat-management.html">Threat Management</a>
+        <a class="nav-link" href="vulnerability-patch-management.html">Vuln &amp; Patch Mgmt</a>
+        <a class="nav-link" href="security-operations.html">Security Operations</a>
+        <a class="nav-link" href="risk-assessment.html">Risk Assessment</a>
+        <a class="nav-link" href="third-party-management.html">Third-Party Mgmt</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Platform Policies</p>
+        <a class="nav-link" href="ai-autonomous-technologies.html">AI &amp; Autonomous Tech</a>
+        <a class="nav-link" href="secure-engineering-architecture.html">Secure Engineering</a>
+        <a class="nav-link" href="web-security.html">Web Security</a>
+        <a class="nav-link" href="asset-management.html">Asset Management</a>
+        <a class="nav-link" href="cryptographic-operations.html">Cryptographic Ops</a>
+        <a class="nav-link" href="information-assurance.html">Information Assurance</a>
+        <a class="nav-link active" href="acceptable-use-policy.html">Acceptable Use</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Operations</p>
+        <a class="nav-link" href="business-continuity-disaster-recovery.html">Business Continuity &amp; DR</a>
+        <a class="nav-link" href="capacity-performance-management.html">Capacity Management</a>
+        <a class="nav-link" href="maintenance.html">Maintenance</a>
+        <a class="nav-link" href="security-awareness-training.html">Security Awareness</a>
+        <a class="nav-link" href="mobile-device-management.html">Mobile Device Mgmt</a>
+        <a class="nav-link" href="physical-environmental-security.html">Physical Security</a>
+        <a class="nav-link" href="human-resources-security.html">HR Security</a>
+        <a class="nav-link" href="project-resource-management.html">Project Management</a>
+        <a class="nav-link" href="technology-development-acquisition.html">Tech Dev &amp; Acquisition</a>
+        <a class="nav-link" href="security-privacy-governance.html">Privacy &amp; Governance</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">More</p>
+        <a class="nav-link" href="insider-early-access.html">Insider Early Access</a>
       </div>
     </aside>
 
-    <main class="guide-content">
+    <main class="guide-content" id="main-content">
+
 
     <div class="policy-hero" style="margin-bottom:16px">
       <span class="badge">Security policy</span>
@@ -127,33 +175,76 @@
         <p><strong>Contact:</strong> <a href="mailto:security@aivric.com">security@aivric.com</a></p>
       </div>
     </section>
-      </main>
-  </div>  <footer class="guide-footer">
-    <span>user-guide.aivric.com</span>
-    <span class="tag">Security policies</span>
-  </footer>
+      
+    </main>
 
+    <aside class="guide-toc">
+      <p class="toc-title">On this page</p>
+      <div class="toc-links"></div>
+    </aside>
+  </div>
+
+  <footer class="guide-footer">
+    <span>&copy; 2025 AiVRIC Technologies &mdash; <a href="../privacy-policy.html">Privacy</a> &middot; <a href="acceptable-use-policy.html">Acceptable Use</a></span>
+    <span class="tag">Platform Guide v3</span>
+  </footer>
   <script>
     (function(){
-      var toggle = document.querySelector('.nav-toggle');
-      var sidebar = document.getElementById('sidebar');
-      if(toggle && sidebar){
-        toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); });
+      var searchInput = document.getElementById('guide-search-input');
+      var resultsBox  = document.getElementById('guide-search-results');
+      var pageIndex = [{"title": "Platform Guide Home", "url": "index.html"}, {"title": "Getting Started", "url": "getting-started.html"}, {"title": "Platform Overview", "url": "platform-overview.html"}, {"title": "CloudSignals+RiskOps Overview", "url": "cloudsignals-riskops.html"}, {"title": "Connectors", "url": "connectors.html"}, {"title": "Integrations", "url": "integrations.html"}, {"title": "Security & Trust", "url": "security-trust.html"}, {"title": "AI Governance", "url": "ai-governance.html"}, {"title": "Compliance Overview", "url": "compliance.html"}, {"title": "FAQ & Support", "url": "faq.html"}, {"title": "Insider Early Access", "url": "insider-early-access.html"}, {"title": "Cloud Security", "url": "cloud-security.html"}, {"title": "Network Security", "url": "network-security.html"}, {"title": "Endpoint Security", "url": "endpoint-security.html"}, {"title": "Identity & Access Control", "url": "identification-authorization-control.html"}, {"title": "Data Classification", "url": "data-classification-handling.html"}, {"title": "Data Privacy", "url": "data-privacy.html"}, {"title": "Incident Response", "url": "incident-response-operations.html"}, {"title": "Threat Management", "url": "threat-management.html"}, {"title": "Vulnerability & Patch Mgmt", "url": "vulnerability-patch-management.html"}, {"title": "Security Operations", "url": "security-operations.html"}, {"title": "Risk Assessment", "url": "risk-assessment.html"}, {"title": "Third-Party Management", "url": "third-party-management.html"}, {"title": "AI & Autonomous Technologies", "url": "ai-autonomous-technologies.html"}, {"title": "Secure Engineering Architecture", "url": "secure-engineering-architecture.html"}, {"title": "Web Security", "url": "web-security.html"}, {"title": "Asset Management", "url": "asset-management.html"}, {"title": "Cryptographic Operations", "url": "cryptographic-operations.html"}, {"title": "Information Assurance", "url": "information-assurance.html"}, {"title": "Acceptable Use Policy", "url": "acceptable-use-policy.html"}, {"title": "Business Continuity & DR", "url": "business-continuity-disaster-recovery.html"}, {"title": "Capacity & Performance Mgmt", "url": "capacity-performance-management.html"}, {"title": "Maintenance", "url": "maintenance.html"}, {"title": "Security Awareness & Training", "url": "security-awareness-training.html"}, {"title": "Mobile Device Management", "url": "mobile-device-management.html"}, {"title": "Physical & Environmental Security", "url": "physical-environmental-security.html"}, {"title": "HR Security", "url": "human-resources-security.html"}, {"title": "Project & Resource Management", "url": "project-resource-management.html"}, {"title": "Tech Dev & Acquisition", "url": "technology-development-acquisition.html"}, {"title": "Security & Privacy Governance", "url": "security-privacy-governance.html"}];
+      var pageCache = {};
+
+      function sanitize(t){ return t.replace(/[<>]/g, function(c){ return c==='<'?'&lt;':'&gt;'; }); }
+
+      function getPageText(page){
+        if(pageCache[page.url]) return Promise.resolve(pageCache[page.url]);
+        return fetch(page.url).then(function(r){ return r.text(); }).then(function(html){
+          var doc = new DOMParser().parseFromString(html, 'text/html');
+          var main = doc.querySelector('.guide-content') || doc.body;
+          var text = (main.textContent||'').replace(/\s+/g,' ').trim();
+          pageCache[page.url] = text;
+          return text;
+        }).catch(function(){ return ''; });
       }
-    })();
-  </script>
-  <script>
-    (function(){
-      var p = document.body.dataset.page;
-      document.querySelectorAll('[data-page-target]').forEach(function(a){
-        if(a.dataset.pageTarget === p){ a.classList.add('active'); }
+
+      async function performSearch(raw){
+        var query = raw.trim().toLowerCase();
+        if(!resultsBox) return;
+        if(query.length < 2){ resultsBox.innerHTML=''; resultsBox.classList.remove('open'); return; }
+        var matches = [];
+        for(var i=0; i<pageIndex.length; i++){
+          var page = pageIndex[i];
+          var text = await getPageText(page);
+          var hay = text.toLowerCase();
+          var idx = hay.indexOf(query);
+          if(idx===-1) continue;
+          var start = Math.max(0,idx-70);
+          var end = Math.min(text.length,idx+140);
+          var snippet = sanitize(text.slice(start,end));
+          matches.push({title:page.title, url:page.url, snippet:snippet});
+        }
+        if(!matches.length){
+          resultsBox.innerHTML='<div class="no-results">No matches found.</div>';
+          resultsBox.classList.add('open'); return;
+        }
+        resultsBox.innerHTML = matches.slice(0,8).map(function(m){
+          return '<a class="result" href="'+m.url+'"><strong>'+m.title+'</strong><span>'+m.snippet+'…</span></a>';
+        }).join('');
+        resultsBox.classList.add('open');
+      }
+
+      if(searchInput && resultsBox){
+        searchInput.addEventListener('input', function(e){ performSearch(e.target.value); });
+        searchInput.addEventListener('focus', function(){ if(resultsBox.innerHTML) resultsBox.classList.add('open'); });
+      }
+      document.addEventListener('click', function(e){
+        if(!resultsBox) return;
+        if(!resultsBox.contains(e.target) && searchInput && !searchInput.contains(e.target))
+          resultsBox.classList.remove('open');
       });
-      var toggle = document.querySelector('.nav-toggle');
-      var sidebar = document.getElementById('sidebar');
-      if(toggle && sidebar){
-        toggle.addEventListener('click', function(){ sidebar.classList.toggle('open'); });
-      }
     })();
   </script>
+  <script src="../assets/js/support-form.js"></script>
 </body>
 </html>
