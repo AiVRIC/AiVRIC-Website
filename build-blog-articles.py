@@ -22,7 +22,7 @@ def between(src, start_marker, end_marker):
     e = src.find(end_marker, s) + len(end_marker)
     return src[s:e] if s != -1 else ""
 
-NAV    = between(raw_t, "<!-- page wrapper -->", "<!-- End Mobile Menu -->")
+NAV    = between(raw_t, "<!-- main header -->", "<!-- End Mobile Menu -->")
 FOOTER = between(raw_t, "<!-- main-footer -->",  "<!-- main-footer end -->")
 
 gf_s = raw_t.find('<style id="gf-styles">')

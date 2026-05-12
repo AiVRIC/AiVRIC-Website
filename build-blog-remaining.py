@@ -19,7 +19,7 @@ def between(src, start, end):
     e = src.find(end, s) + len(end)
     return src[s:e] if s != -1 else ""
 
-NAV_ROOT   = between(raw_t, "<!-- page wrapper -->", "<!-- End Mobile Menu -->")
+NAV_ROOT   = between(raw_t, "<!-- main header -->", "<!-- End Mobile Menu -->")
 FOOTER_ROOT = between(raw_t, "<!-- main-footer -->",  "<!-- main-footer end -->")
 
 gf_s = raw_t.find('<style id="gf-styles">')
