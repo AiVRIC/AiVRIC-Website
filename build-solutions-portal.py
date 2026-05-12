@@ -1,38 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+#!/usr/bin/env python3
+"""
+AiVRIC Solutions Portal — Full Re-imagination
+Replaces body content between mobile-menu-end and footer with a dark,
+animated, market-leading all-products page matching the hp- design system.
+"""
+from pathlib import Path
+import re as _re
 
-<title>All Products | AiVRIC Platform</title>
+SITE  = Path(r"C:\Projects\AiVRIC-Website")
+PAGE  = SITE / "solutions-portal.html"
 
-<!-- Fav Icon -->
-<link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+raw = PAGE.read_text(encoding="utf-8", errors="replace")
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+FOOTER_ANCHOR  = "        <!-- main-footer -->"
+MOBILE_END_TAG = "<!-- End Mobile Menu -->"
 
-<!-- Stylesheets -->
-<link href="assets/css/font-awesome-all.css" rel="stylesheet">
-<link href="assets/css/flaticon.css" rel="stylesheet">
-<link href="assets/css/owl.css" rel="stylesheet">
-<link href="assets/css/bootstrap.css" rel="stylesheet">
-<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
-<link href="assets/css/animate.css" rel="stylesheet">
-<link href="assets/css/nice-select.css" rel="stylesheet">
-<link href="assets/css/color.css" rel="stylesheet">
-<link href="assets/css/elpath.css" rel="stylesheet">
-<link href="assets/css/style.css?v=20250115" rel="stylesheet">
-<link href="assets/css/elements-css/page-title.css" rel="stylesheet">
-<link href="assets/css/elements-css/service.css" rel="stylesheet">
-<link href="assets/css/elements-css/about.css" rel="stylesheet">
-<link href="assets/css/elements-css/subscribe.css" rel="stylesheet">
-<link href="assets/css/responsive.css" rel="stylesheet">
+mobile_end = raw.find(MOBILE_END_TAG)
+assert mobile_end != -1, "Mobile Menu end not found"
+bi = raw.find("\n", mobile_end) + 1
+while bi < len(raw) and raw[bi] in (" ", "\n", "\r", "\t"):
+    bi += 1
+bi = raw.rfind("\n", 0, bi) + 1
 
-  <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+fi = raw.find(FOOTER_ANCHOR)
+assert fi != -1, "Footer anchor not found"
 
+HEAD = raw[:bi]
+TAIL = raw[fi:]
+
+# ── Inline CSS ────────────────────────────────────────────────────────────────
+SP_CSS = """
 <style id="sp-styles">
 /* ── tokens ── */
 :root{
@@ -197,293 +194,10 @@
 .sp-btn-primary:hover{background:#00e8ff;color:#050c18;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,209,255,.35)}
 .sp-btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:8px;font-size:15px;font-weight:600;border:1px solid rgba(0,209,255,.3);color:var(--sp-cyan);text-decoration:none;transition:all .2s}
 .sp-btn-ghost:hover{background:rgba(0,209,255,.08);border-color:var(--sp-cyan);transform:translateY(-2px)}
-</style>
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+</style>"""
 
-  gtag('config', 'G-EG2Q8GD30V');
-</script>
-
-
-<!-- page wrapper -->
-<body class="portal-page">
-
-    <div class="boxed_wrapper">
-
-
-        
-       <!-- preloader -->
-        <div class="loader-wrap">
-            <div class="preloader">
-                <div class="preloader-close">x</div>
-                <div id="handle-preloader" class="handle-preloader">
-                    <div class="animation-preloader">
-                        <div class="spinner"></div>
-                        <div class="txt-loading">
-                            <span data-text-preloader="A" class="letters-loading">
-                                A
-                            </span>
-                            <span data-text-preloader="I" class="letters-loading">
-                                I
-                            </span>
-                            <span data-text-preloader="V" class="letters-loading">
-                                V
-                            </span>
-                            <span data-text-preloader="r" class="letters-loading">
-                                r
-                            </span>
-                            <span data-text-preloader="i" class="letters-loading">
-                                i
-                            </span>
-                            <span data-text-preloader="c" class="letters-loading">
-                                c
-                            </span>
-                        </div>
-                    </div>  
-                </div>
-            </div>
-        </div>
-        <!-- preloader end -->
-
-
-        <!-- main header -->
-        <header class="main-header">
-<div class="header-top-bar">
-    <div class="auto-container">
-        <div class="top-bar-inner">
-            <div class="top-bar-brand">AIVRIC TECHNOLOGIES</div>
-            <div class="top-bar-right">
-                <ul class="top-bar-links">
-                    <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-book-open"></i></span>Platform Guide</a></li>
-                    <li><a href="trust.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-shield-alt"></i></span>Trust Center</a></li>
-                </ul>
-                <span class="top-bar-separator">|</span>
-                <button class="theme-toggle" type="button" data-theme-toggle>Dark mode</button>
-                <ul class="top-bar-social">
-                    <li><a href="https://www.linkedin.com/company/aivric" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li><a href="https://x.com/aivric" aria-label="X"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="https://github.com" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-    <!-- header-lower -->
-    <div class="header-lower">
-                <div class="auto-container">
-                    <div class="outer-box">
-                        <div class="logo-box">
-                            <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
-                        </div>
-                        <div class="menu-area clearfix">
-                            <!--Mobile Navigation Toggler-->
-                            <div class="mobile-nav-toggler">
-                                <i class="icon-bar"></i>
-                                <i class="icon-bar"></i>
-                                <i class="icon-bar"></i>
-                            </div>
-                            <nav class="main-menu navbar-expand-md navbar-light">
-    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-        <ul class="navigation clearfix">
-            <li class="dropdown platform-menu"><a href="services.html">Platform</a>
-                <div class="platform-megamenu">
-                    <div class="platform-grid">
-                        <a class="platform-card" href="genai-chat.html"><h4>GenAI Chat</h4><p>Fabric intelligence chat across every AiVRIC solution.</p><span>view more</span></a>
-                        <a class="platform-card" href="shared-data-layer.html"><h4>Shared Data Layer</h4><p>The Fabric data layer unifies telemetry and evidence.</p><span>view more</span></a>
-                        <a class="platform-card" href="agentic-design.html"><h4>Agentic Design</h4><p>Fabric agents coordinate actions across suites.</p><span>view more</span></a>
-                        <a class="platform-card" href="efficient-compute.html"><h4>Efficient Compute</h4><p>Fabric compute optimizes AI workloads end-to-end.</p><span>view more</span></a>
-                        <a class="platform-card" href="data-localization.html"><h4>Data Localization</h4><p>Fabric residency controls govern every dataset.</p><span>view more</span></a>
-                        <a class="platform-card" href="ai-model-inspection.html"><h4>AI Model Inspection</h4><p>Fabric inspection monitors AI models and risk.</p><span>view more</span></a>
-                    </div>
-                </div>
-            </li>
-            <li class="dropdown cs-product-menu"><a href="cspm-cloudsignals.html">CloudSignals+RiskOps</a>
-                <div class="cs-product-megamenu">
-                    <div class="cs-mega-hdr">
-                        <div class="cs-mega-hdr-info">
-                            <span class="cs-mega-status"><span class="cs-avail-dot"></span>Available Now</span>
-                            <h3>CloudSignals+RiskOps&trade;</h3>
-                            <p>AI-native cloud security posture, risk operations, and continuous compliance &mdash; in one platform.</p>
-                        </div>
-                        <a href="cloudsignals-pricing.html" class="cs-mega-pricing-cta">Compare plans &amp; pricing &rarr;</a>
-                    </div>
-                    <div class="cs-mega-body">
-                        <div class="cs-mega-col">
-                            <span class="cs-mega-col-label">Posture &amp; Discovery</span>
-                            <a class="cs-mega-feat-card" href="cloudsignals-cspm.html"><i class="fas fa-cloud"></i><div><strong>Multi-Cloud CSPM</strong><span>Scan AWS, Azure, GCP, and OCI posture in real time.</span></div></a>
-                            <a class="cs-mega-feat-card" href="cloudsignals-findings.html"><i class="fas fa-exclamation-triangle"></i><div><strong>Findings &amp; Risk Signals</strong><span>Prioritized risk signals with business-context scoring.</span></div></a>
-                        </div>
-                        <div class="cs-mega-col">
-                            <span class="cs-mega-col-label">Risk &amp; Compliance</span>
-                            <a class="cs-mega-feat-card" href="cloudsignals-risk-register.html"><i class="fas fa-clipboard-list"></i><div><strong>Risk Register &amp; RiskOps</strong><span>GRC-grade risk records, treatments, and portfolio exposure.</span></div></a>
-                            <a class="cs-mega-feat-card" href="cloudsignals-compliance.html"><i class="fas fa-shield-alt"></i><div><strong>Continuous Compliance</strong><span>SOC 2, ISO 27001, PCI-DSS, CMMC, HIPAA.</span></div></a>
-                            <a class="cs-mega-feat-card" href="cloudsignals-tprm.html"><i class="fas fa-handshake"></i><div><strong>Third-Party Risk (TPRM)</strong><span>Vendor assessments and ongoing monitoring.</span></div></a>
-                        </div>
-                        <div class="cs-mega-col">
-                            <span class="cs-mega-col-label">Intelligence</span>
-                            <a class="cs-mega-feat-card" href="cloudsignals-vision-ai.html"><i class="fas fa-brain"></i><div><strong>Vision AI &amp; Narratives</strong><span>GenAI risk summaries, AI chat, and model insights.</span></div></a>
-                            <a class="cs-mega-feat-card" href="ai-inspector.html"><i class="fas fa-satellite-dish"></i><div><strong>AI Signals&trade; Integration</strong><span>LLM telemetry as security-native compliance signals.</span></div></a>
-                        </div>
-                    </div>
-                    <div class="cs-mega-ftr">
-                        <a href="cspm-cloudsignals.html" class="cs-mega-ftr-link">Product overview &rarr;</a>
-                        <div class="cs-mega-ftr-ctas">
-                            <a href="cloudsignals-pricing.html" class="cs-mega-btn-primary">Compare plans &amp; pricing</a>
-                            <a href="request-demo.html" class="cs-mega-btn-ghost">Request a demo</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="dropdown"><a href="#">Portfolio</a>
-                <div class="megamenu">
-                    <div class="mega-tabs" role="tablist">
-                        <button class="mega-tab is-active" type="button" data-mega-tab="solution" role="tab" aria-selected="true">By Solution</button>
-                        <button class="mega-tab" type="button" data-mega-tab="usecase" role="tab" aria-selected="false">By Use Case</button>
-                    </div>
-                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="solution" data-mega-active="defense" role="tabpanel">
-                        <div class="mega-rail mega-rail-stack">
-                            <button class="mega-stack-card is-active" type="button" data-mega-target="defense">
-                                <h4>Defense</h4>
-                                <p>A suite of solutions used to defend your organization from cyber threats.</p>
-                                <a class="mega-link" href="solutions-portal.html#defense">View all products -></a>
-                            </button>
-                            <button class="mega-stack-card" type="button" data-mega-target="offense">
-                                <h4>Offense</h4>
-                                <p>A suite that continuously simulates attacks across your digital ecosystem.</p>
-                                <a class="mega-link" href="solutions-portal.html#offense">View all products -></a>
-                            </button>
-                            <button class="mega-stack-card" type="button" data-mega-target="vision">
-                                <h4>Vision</h4>
-                                <p>Holistic context across the AiVRIC ecosystem and your environments.</p>
-                                <a class="mega-link" href="solutions-portal.html#vision">View all products -></a>
-                            </button>
-                        </div>
-                        <div class="mega-grid">
-                            <a class="mega-card" data-mega-category="defense" href="cspm-cloudsignals.html"><strong>CloudSignals+ RiskOps&trade;</strong><span>Scan all your cloud platform configs.</span></a>
-                            <a class="mega-card" data-mega-category="defense" href="ai-inspector.html"><strong>AI Signals&trade;</strong><span>LLM observability, evaluations, and prompt management for AI apps.</span></a>
-                            <a class="mega-card" data-mega-category="defense" href="air-remediation.html"><strong>AIRE Agentic Mesh&trade;</strong><span>Agentic role-based remediation agents.</span></a>
-                            <a class="mega-card" data-mega-category="offense" href="rogueagent.html"><strong>RogueAgent ASPM&trade;</strong><span>Analyze cloud posture using a risk lens.</span></a>
-                            <a class="mega-card" data-mega-category="vision" href="aivric-vision-professional.html"><strong>Vision AI Optics&trade;</strong><span>OpenAI-driven AI risk analysis and reporting.</span></a>
-                        </div>
-                    </div>
-                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="usecase" data-mega-active="compliance" role="tabpanel" hidden>
-                        <div class="mega-rail mega-rail-stack">
-                            <button class="mega-stack-card is-active" type="button" data-mega-target="compliance">
-                                <h4>Compliance</h4>
-                                <p>Framework-ready controls and audit automation.</p>
-                                <a class="mega-link" href="use-cases-portal.html#compliance">View all frameworks -></a>
-                            </button>
-                            <button class="mega-stack-card" type="button" data-mega-target="riskops">
-                                <h4>Risk Ops</h4>
-                                <p>Continuous risk operations and response alignment.</p>
-                                <a class="mega-link" href="use-cases-portal.html#riskops">View all programs -></a>
-                            </button>
-                            <button class="mega-stack-card" type="button" data-mega-target="productops">
-                                <h4>Product Ops</h4>
-                                <p>Security and compliance built into delivery workflows.</p>
-                                <a class="mega-link" href="use-cases-portal.html#productops">View all playbooks -></a>
-                            </button>
-                        </div>
-                        <div class="mega-grid">
-                            <a class="mega-card" data-mega-category="compliance" href="streamline-soc2.html"><strong>SOC 2 Type II</strong><span>Measure compliance against the SOC 2 Trust Service Principles.</span></a>
-                            <a class="mega-card" data-mega-category="compliance" href="achieve-pci-dss.html"><strong>PCI-DSS</strong><span>Continuous validation for PCI requirements and evidence.</span></a>
-                            <a class="mega-card" data-mega-category="compliance" href="cmmc-readiness.html"><strong>CMMC</strong><span>Readiness workflows for CMMC Level 2 assessments.</span></a>
-                            <a class="mega-card" data-mega-category="riskops" href="issues-poams.html"><strong>Issues and POA&Ms</strong><span>Track issues, milestones, and remediation plans.</span></a>
-                            <a class="mega-card" data-mega-category="riskops" href="security-exceptions.html"><strong>Security Exceptions</strong><span>Document approved exceptions with guardrails.</span></a>
-                            <a class="mega-card" data-mega-category="riskops" href="threat-analysis.html"><strong>Threat Analysis</strong><span>Surface high-impact risks across environments.</span></a>
-                            <a class="mega-card" data-mega-category="productops" href="use-case-github-security.html"><strong>DevSecOps</strong><span>Secure Github repos and delivery workflows.</span></a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="dropdown"><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Resources</a>
-                <ul>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="why-aivric.html">Why AiVRIC</a></li>
-                    <li><a href="blog-portal.html">Blog</a></li>
-                    <li><a href="why-aivric-exists.html">Why AiVRIC Exists</a></li>
-                    <li><a href="blog-future-of-cloud-security.html">Future of Cloud Security</a></li>
-                    <li><a href="blog-why-continuous-compliance-matters.html">Continuous Compliance</a></li>
-
-                </ul>
-            </li>
-        </ul>
-    </div>
-</nav>
-                        </div>
-                                                <ul class="menu-right-content">
-                            <li class="search-box-outer search-toggler">
-                                <i class="icon-4"></i>
-                            </li>
-                            <li class="btn-box">
-                                <a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-one">Request a Demo</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-    <!--sticky Header-->
-    <div class="sticky-header">
-        <div class="auto-container">
-            <div class="outer-box">
-                <div class="logo-box">
-                    <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC Logo"></a></figure>
-                </div>
-                <div class="menu-area clearfix">
-                    <nav class="main-menu clearfix">
-                        <!--Keep This Empty / Menu will come through Javascript-->
-                    </nav>
-                </div>
-                <ul class="menu-right-content">
-                    <li class="search-box-outer search-toggler">
-                        <i class="icon-4"></i>
-                    </li>
-                    <li class="btn-box">
-                        <a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-two">Request a Demo</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</header>
-<!-- main-header end -->
-        <!-- Mobile Menu  -->
-        <div class="mobile-menu">
-            <div class="menu-backdrop"></div>
-            <div class="close-btn" role="button" tabindex="0" aria-label="Close menu"><i class="fas fa-times"></i></div>
-            
-            <nav class="menu-box">
-                <div class="nav-logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" title=""></a></div>
-                <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
-                <div class="contact-info">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li>Wilmington, Delaware USA</li>
-                        <li><a href="tel:+8801682648101">+1 9543426637</a></li>
-                        <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
-                    </ul>
-                </div>
-                <div class="social-links">
-                    <ul class="clearfix">
-                        <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
-                        <li><a href="https://www.facebook.com/profile.php?id=61581937785235"><span class="fab fa-facebook-square"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
-                        <li><a href="https://www.instagram.com/aivrictechnologies/"><span class="fab fa-instagram"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div><!-- End Mobile Menu -->
-
-
-
+# ── Body content ──────────────────────────────────────────────────────────────
+NEW_BODY = r"""
         <!-- ═══ PAGE HERO ═══ -->
         <section class="sp-hero">
           <div class="sp-hero-grid"></div>
@@ -866,216 +580,49 @@
           </div>
         </section>
 
-
-                <!-- main-footer -->
-        <footer class="main-footer">
-            <div class="widget-section">
-                <div class="pattern-layer">
-                    <div class="pattern-1" style="background-image: url(assets/images/shape/shape-20.avif);"></div>
-                    <div class="pattern-2" style="background-image: url(assets/images/shape/shape-21.avif);"></div>
-                </div>
-                <div class="auto-container">
-                    <div class="row clearfix">
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget logo-widget">
-                                <div class="widget-title">
-                                    <h3>AiVRIC</h3>
-                                </div>
-                                <div class="text">
-                                    <p>Autonomous Security, Compliance, and Risk Intelligence.</p>
-                                </div>
-                                <div class="subscribe-box">
-                                    <form action="contact.html" method="post">
-                                        <div class="form-group">
-                                            <input type="email" name="email" placeholder="Your email" required="">
-                                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget links-widget">
-                                <div class="widget-title">
-                                    <h3>Platform</h3>
-                                </div>
-                                <div class="widget-content">
-<ul class="links-list clearfix">
-    <li><a href="genai-chat.html">GenAI Chat</a></li>
-    <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
-    <li><a href="agentic-design.html">Agentic Design</a></li>
-    <li><a href="efficient-compute.html">Efficient Compute</a></li>
-    <li><a href="data-localization.html">Data Localization</a></li>
-    <li><a href="ai-model-inspection.html">AI Model Inspection</a></li>
-</ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget links-widget">
-                                <div class="widget-title">
-                                    <h3>Solutions</h3>
-                                </div>
-                                <div class="widget-content">
-<ul class="links-list clearfix">
-    <li><a href="cspm-cloudsignals.html">CloudSignals+ RiskOps&trade;</a></li>
-    <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
-    <li><a href="air-remediation.html">AIRE Agentic Mesh&trade; Remediation</a></li>
-    <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
-    <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
-    <li><a href="aivric-vision-enterprise.html">Vision Enterprise</a></li>
-</ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget contact-widget">
-                                <div class="widget-title">
-                                    <h3>Contact</h3>
-                                </div>
-                                <div class="widget-content">
-                                    <ul class="info-list clearfix">
-                                        <li><i class="fas fa-envelope"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
-                                        <li><i class="fas fa-phone-alt"></i><a href="tel:+19543426637">+1 954 342 6637</a></li>
-                                    </ul>
-                                </div>
-                                <ul class="social-links-two clearfix">
-                                    <li><a href="https://x.com/aivric"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="https://www.facebook.com/61581937785235/"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="https://www.linkedin.com/company/aivric"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="https://www.instagram.com/aivrictechnologies/"><i class="fab fa-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="auto-container">
-                    <div class="bottom-inner">
-                        <div class="copyright">
-                            <p>&copy; 2025 <a href="index.html">AiVRIC</a>. All Rights Reserved.</p>
-                        </div>
-                        <ul class="footer-nav">
-                            <li><a href="terms-of-use.html">Terms of Service</a></li>
-                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- main-footer end -->
-
-
-        <!--Scroll to top-->
-        <div class="scroll-to-top">
-            <div>
-                <div class="scroll-top-inner">
-                    <div class="scroll-bar">
-                        <div class="bar-inner"></div>
-                    </div>
-                    <div class="scroll-bar-text">Go To Top</div>
-                </div>
-            </div>
-        </div>
-        <!-- Scroll to top end -->
-        
-    </div>
-
-
-    <!-- jequery plugins -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/wow.js"></script>
-    <script src="assets/js/validation.js"></script>
-    <script src="assets/js/jquery.fancybox.js"></script>
-    <script src="assets/js/appear.js"></script>
-    <script src="assets/js/scrollbar.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/jquery.nice-select.min.js"></script>
-    <script src="assets/js/parallax-scroll.js"></script>
-
-    <!-- main-js -->
-    <script src="assets/js/script.js"></script>
-
-    <script src="assets/js/theme-toggle.js"></script>
-    <script src="assets/js/mega-hover.js"></script>
-    <script src="assets/js/mega-tabs.js"></script>
-
-    <script src="assets/js/blog-mega.js"></script>
-</body><!-- End of .page_wrapper -->
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+"""
+
+# ── Inject CSS into <head> ────────────────────────────────────────────────────
+if 'id="sp-styles"' in HEAD:
+    HEAD = _re.sub(r'\n<style id="sp-styles">.*?</style>', '', HEAD, flags=_re.DOTALL)
+HEAD = HEAD.replace("</head>", SP_CSS + "\n</head>", 1)
+
+# ── Update page title ─────────────────────────────────────────────────────────
+HEAD = HEAD.replace(
+    "<title>Solutions | AiVRIC</title>",
+    "<title>All Products | AiVRIC Platform</title>"
+)
+
+# ── Assemble ──────────────────────────────────────────────────────────────────
+NEW_RAW = HEAD + NEW_BODY + "\n        " + TAIL
+PAGE.write_text(NEW_RAW, encoding="utf-8")
+print(f"[OK] solutions-portal.html written — {len(NEW_RAW):,} chars")
+
+# ── Verify ────────────────────────────────────────────────────────────────────
+checks = [
+    ("sp-hero",           "Hero section"),
+    ("sp-suite-pills",    "Suite pills"),
+    ("sp-connect-section","How They Connect"),
+    ('id="defense"',      "Defense anchor"),
+    ('id="offense"',      "Offense anchor"),
+    ('id="vision"',       "Vision anchor"),
+    ("sp-product-card",   "Product cards"),
+    ("sp-badge-live",     "LIVE badges"),
+    ("sp-badge-road",     "ROADMAP badges"),
+    ("sp-vision-callout", "Vision platform callout"),
+    ("sp-final-cta",      "Final CTA"),
+    ("main-footer",       "Footer preserved"),
+    ("sp-grad-def",       "Gradient text"),
+    ("sp-suite-hdr",      "Suite headers"),
+    ("sp-btn-def",        "Defense CTA button"),
+    ("sp-btn-off",        "Offense CTA button"),
+    ("sp-btn-vis",        "Vision CTA button"),
+]
+passed = 0
+for needle, label in checks:
+    if needle in NEW_RAW:
+        print(f"  [OK] {label}")
+        passed += 1
+    else:
+        print(f"  [!!] MISSING: {label}  ({needle!r})")
+print(f"\n{passed}/{len(checks)} checks passed")
