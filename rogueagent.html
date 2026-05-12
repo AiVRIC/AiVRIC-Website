@@ -227,6 +227,7 @@
 /* keep old .main-footer link colors from interfering */
 .gf-footer .links-list,.gf-footer .footer-widget,.gf-footer .widget-section,.gf-footer .footer-bottom{display:none!important}
 </style>
+<link href="assets/css/visual-enhancements.css" rel="stylesheet">
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
@@ -560,7 +561,39 @@
             </div>
           </section>
 
-          <div class="csp-divider auto-container"></div>
+          <div class="csp-divider
+<!-- ═══════════ VE: Threat Intel Map ═══════════ -->
+<section class="ve-threat-intel">
+  <div class="auto-container" style="position:relative;">
+    <div class="ve-ti-header">
+      <div class="ve-eyebrow" style="justify-content:center;margin-bottom:14px;">
+        <span class="ve-eyebrow-dot" style="background:var(--ve-red);box-shadow:0 0 6px var(--ve-red);"></span>&nbsp;Global Signal Coverage
+      </div>
+      <h2 class="ve-h2" style="text-align:center;">Attack surface telemetry.<br><span class="ve-grad-red">Everywhere your targets live.</span></h2>
+      <p class="ve-sub centred">RogueAgent continuously maps your external attack surface and correlates it against live global threat intelligence &mdash; so you see what adversaries see before they act.</p>
+    </div>
+    <div class="ve-vid-frame ve-ti-frame">
+      <div class="ve-vid-scanlines"></div>
+      <img src="assets/images/brand/Threat-Signals-1.png" alt="Global threat intelligence map">
+      <video autoplay muted loop playsinline poster="assets/images/brand/Threat-Signals-1.png">
+        <source src="assets/videos/clip1-threat-signals.mp4" type="video/mp4">
+      </video>
+      <div class="ve-vid-overlay"></div>
+      <div class="ve-ctrl-bar" style="bottom:16px;left:50%;transform:translateX(-50%);">
+        <span class="ve-ctrl-live"><span class="ve-live-dot"></span>&nbsp;LIVE SIGNAL FEED</span>
+        <span class="ve-ctrl-meta"><i class="fas fa-globe"></i>&nbsp;Global coverage</span>
+      </div>
+    </div>
+    <div class="ve-ti-stats">
+      <div class="ve-ti-stat"><span class="ve-ti-num">6</span><span class="ve-ti-lab">continents tracked</span></div>
+      <div class="ve-ti-stat"><span class="ve-ti-num c">24/7</span><span class="ve-ti-lab">live signal feed</span></div>
+      <div class="ve-ti-stat"><span class="ve-ti-num a">OSINT</span><span class="ve-ti-lab">+ commercial intel</span></div>
+      <div class="ve-ti-stat"><span class="ve-ti-num p">ASM</span><span class="ve-ti-lab">external surface</span></div>
+    </div>
+  </div>
+</section>
+<!-- ═══════════ END VE: Threat Intel Map ═══════════ -->
+ auto-container"></div>
 
           <!-- ── RELEASE BAND ── -->
           <section class="csp-release-band auto-container">
