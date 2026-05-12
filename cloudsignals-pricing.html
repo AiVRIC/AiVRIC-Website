@@ -476,6 +476,1643 @@
     .anchor{ scroll-margin-top:120px; }
   </style>
   <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+<style id="gf-styles">
+/* === GLOBAL FOOTER === */
+.gf-footer{background:#050b17;position:relative;overflow:hidden;font-family:'Inter',sans-serif}
+/* subtle dot-grid */
+.gf-footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(0,209,255,.045) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+/* gradient glow top-line */
+.gf-top-rule{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,209,255,.55) 30%,rgba(46,229,157,.4) 70%,transparent 100%);position:relative;z-index:1}
+/* body */
+.gf-body{padding:72px 0 52px;position:relative;z-index:1}
+.gf-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:52px}
+@media(max-width:991px){.gf-grid{grid-template-columns:1fr 1fr;gap:36px 40px}}
+@media(max-width:599px){.gf-grid{grid-template-columns:1fr;gap:32px}}
+/* brand col */
+.gf-logo-link{display:inline-block;margin-bottom:14px}
+.gf-logo{height:34px;width:auto;display:block}
+.gf-tagline{font-size:13px;color:#4e637a;line-height:1.7;margin-bottom:22px;max-width:255px}
+/* email subscribe */
+.gf-subscribe-row{display:flex;gap:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:8px;overflow:hidden;margin-bottom:7px;transition:border-color .2s}
+.gf-subscribe-row:focus-within{border-color:rgba(0,209,255,.35)}
+.gf-subscribe-row input{flex:1;background:transparent;border:none;outline:none;padding:10px 14px;font-size:13px;color:#e2e8f0;font-family:'Inter',sans-serif}
+.gf-subscribe-row input::placeholder{color:#3d5268}
+.gf-subscribe-row button{background:#00d1ff;border:none;padding:10px 15px;color:#030a12;cursor:pointer;font-size:13px;transition:background .2s;flex-shrink:0}
+.gf-subscribe-row button:hover{background:#33daff}
+.gf-subscribe-note{font-size:11px;color:#3d5268;margin:0 0 22px}
+/* social */
+.gf-social{display:flex;gap:8px}
+.gf-social-link{width:33px;height:33px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#4e637a;font-size:13px;text-decoration:none;transition:all .2s}
+.gf-social-link:hover{background:rgba(0,209,255,.09);border-color:rgba(0,209,255,.28);color:#00d1ff}
+/* nav columns */
+.gf-col-title{font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#94a3b8;margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.06)}
+.gf-links{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:9px}
+.gf-links li a{font-size:13.5px;color:#4e637a;text-decoration:none;transition:color .18s;display:inline-block}
+.gf-links li a:hover{color:#cbd5e1}
+/* contact block */
+.gf-contact-block{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.gf-contact-link{display:flex;align-items:center;gap:8px;font-size:13px;color:#4e637a;text-decoration:none;transition:color .18s}
+.gf-contact-link i{color:#00d1ff;font-size:12px;width:14px;text-align:center;flex-shrink:0}
+.gf-contact-link:hover{color:#cbd5e1}
+/* bottom bar */
+.gf-bottom{border-top:1px solid rgba(255,255,255,.055);padding:16px 0;position:relative;z-index:1}
+.gf-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.gf-copy{font-size:12px;color:#3d5268;margin:0}
+.gf-copy a{color:#4e637a;text-decoration:none;transition:color .18s}
+.gf-copy a:hover{color:#94a3b8}
+.gf-bottom-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.gf-trust-pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#2ee59d;background:rgba(46,229,157,.07);border:1px solid rgba(46,229,157,.18);border-radius:100px;padding:4px 12px;letter-spacing:.3px}
+.gf-trust-dot{width:6px;height:6px;border-radius:50%;background:#2ee59d;box-shadow:0 0 6px #2ee59d;animation:gf-blink 2s ease-in-out infinite}
+@keyframes gf-blink{0%,100%{opacity:1}50%{opacity:.25}}
+.gf-bottom-nav{display:flex;gap:18px}
+.gf-bottom-nav a{font-size:12px;color:#3d5268;text-decoration:none;transition:color .18s}
+.gf-bottom-nav a:hover{color:#94a3b8}
+/* remove old footer pattern images */
+.gf-footer .pattern-layer{display:none!important}
+/* keep old .main-footer link colors from interfering */
+.gf-footer .links-list,.gf-footer .footer-widget,.gf-footer .widget-section,.gf-footer .footer-bottom{display:none!important}
+</style>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EG2Q8GD30V');
+</script>
+
+<body>
+<div class="boxed_wrapper">
+
+  <!--Search Popup-->
+  <div id="search-popup" class="search-popup">
+    <div class="popup-inner">
+      <div class="upper-box clearfix">
+        <figure class="logo-box pull-left"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
+        <div class="close-search pull-right"><span class="far fa-times"></span></div>
+      </div>
+      <div class="overlay-layer"></div>
+      <div class="auto-container">
+        <div class="search-form">
+          <form method="post" action="index.html">
+            <div class="form-group">
+              <fieldset>
+                <input type="search" class="form-control" name="search-input" value="" placeholder="Type your keyword and hit" required>
+                <button type="submit"><i class="far fa-search"></i></button>
+              </fieldset>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================= HEADER ======================= -->
+  <header class="main-header header-style-two">
+    <!-- Header Lower (Navigation) -->
+    <div class="header-lower">
+      <div class="auto-container">
+        <div class="outer-box">
+          <div class="logo-box">
+            <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC"></a></figure>
+          </div>
+          <div class="menu-area clearfix">
+            <div class="mobile-nav-toggler">
+              <i class="icon-bar"></i><i class="icon-bar"></i><i class="icon-bar"></i>
+            </div>
+            <nav class="main-menu navbar-expand-md navbar-light">
+              <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                <ul class="navigation clearfix">
+                  <li class="dropdown platform-menu"><a href="services.html">Platform</a>
+                    <div class="platform-megamenu">
+                      <div class="platform-grid">
+                        <a class="platform-card" href="genai-chat.html"><h4>GenAI Chat</h4><p>Fabric intelligence chat across every AiVRIC solution.</p><span>view more</span></a>
+                        <a class="platform-card" href="shared-data-layer.html"><h4>Shared Data Layer</h4><p>The Fabric data layer unifies telemetry and evidence.</p><span>view more</span></a>
+                        <a class="platform-card" href="agentic-design.html"><h4>Agentic Design</h4><p>Fabric agents coordinate actions across suites.</p><span>view more</span></a>
+                        <a class="platform-card" href="efficient-compute.html"><h4>Efficient Compute</h4><p>Fabric compute optimizes AI workloads end-to-end.</p><span>view more</span></a>
+                        <a class="platform-card" href="data-localization.html"><h4>Data Localization</h4><p>Fabric residency controls govern every dataset.</p><span>view more</span></a>
+                        <a class="platform-card" href="ai-model-inspection.html"><h4>AI Model Inspection</h4><p>Fabric inspection monitors AI models and risk.</p><span>view more</span></a>
+                      </div>
+                    </div>
+                  </li>
+            <li class="dropdown cs-product-menu"><a href="cspm-cloudsignals.html">CloudSignals+RiskOps</a>
+                <div class="cs-product-megamenu">
+                    <div class="cs-mega-hdr">
+                        <div class="cs-mega-hdr-info">
+                            <span class="cs-mega-status"><span class="cs-avail-dot"></span>Available Now</span>
+                            <h3>CloudSignals+RiskOps&trade;</h3>
+                            <p>AI-native cloud security posture, risk operations, and continuous compliance &mdash; in one platform.</p>
+                        </div>
+                        <a href="cloudsignals-pricing.html" class="cs-mega-pricing-cta">Compare plans &amp; pricing &rarr;</a>
+                    </div>
+                    <div class="cs-mega-body">
+                        <div class="cs-mega-col">
+                            <span class="cs-mega-col-label">Posture &amp; Discovery</span>
+                            <a class="cs-mega-feat-card" href="cloudsignals-cspm.html"><i class="fas fa-cloud"></i><div><strong>Multi-Cloud CSPM</strong><span>Scan AWS, Azure, GCP, and OCI posture in real time.</span></div></a>
+                            <a class="cs-mega-feat-card" href="cloudsignals-findings.html"><i class="fas fa-exclamation-triangle"></i><div><strong>Findings &amp; Risk Signals</strong><span>Prioritized risk signals with business-context scoring.</span></div></a>
+                        </div>
+                        <div class="cs-mega-col">
+                            <span class="cs-mega-col-label">Risk &amp; Compliance</span>
+                            <a class="cs-mega-feat-card" href="cloudsignals-risk-register.html"><i class="fas fa-clipboard-list"></i><div><strong>Risk Register &amp; RiskOps</strong><span>GRC-grade risk records, treatments, and portfolio exposure.</span></div></a>
+                            <a class="cs-mega-feat-card" href="cloudsignals-compliance.html"><i class="fas fa-shield-alt"></i><div><strong>Continuous Compliance</strong><span>SOC 2, ISO 27001, PCI-DSS, CMMC, HIPAA.</span></div></a>
+                            <a class="cs-mega-feat-card" href="cloudsignals-tprm.html"><i class="fas fa-handshake"></i><div><strong>Third-Party Risk (TPRM)</strong><span>Vendor assessments and ongoing monitoring.</span></div></a>
+                        </div>
+                        <div class="cs-mega-col">
+                            <span class="cs-mega-col-label">Intelligence</span>
+                            <a class="cs-mega-feat-card" href="cloudsignals-vision-ai.html"><i class="fas fa-brain"></i><div><strong>Vision AI &amp; Narratives</strong><span>GenAI risk summaries, AI chat, and model insights.</span></div></a>
+                            <a class="cs-mega-feat-card" href="ai-inspector.html"><i class="fas fa-satellite-dish"></i><div><strong>AI Signals&trade; Integration</strong><span>LLM telemetry as security-native compliance signals.</span></div></a>
+                        </div>
+                    </div>
+                    <div class="cs-mega-ftr">
+                        <a href="cspm-cloudsignals.html" class="cs-mega-ftr-link">Product overview &rarr;</a>
+                        <div class="cs-mega-ftr-ctas">
+                            <a href="cloudsignals-pricing.html" class="cs-mega-btn-primary">Compare plans &amp; pricing</a>
+                            <a href="request-demo.html" class="cs-mega-btn-ghost">Request a demo</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+                  <li class="dropdown"><a href="#">Portfolio</a>
+                    <div class="megamenu">
+                      <div class="mega-tabs" role="tablist">
+                        <button class="mega-tab is-active" type="button" data-mega-tab="solution" role="tab" aria-selected="true">By Solution</button>
+                        <button class="mega-tab" type="button" data-mega-tab="usecase" role="tab" aria-selected="false">By Use Case</button>
+                      </div>
+                      <div class="mega-panel mega-panel-static" data-mega-tabpanel="solution" data-mega-active="defense" role="tabpanel">
+                        <div class="mega-rail mega-rail-stack">
+                          <button class="mega-stack-card is-active" type="button" data-mega-target="defense"><h4>Defense</h4><p>A suite of solutions used to defend your organization from cyber threats.</p><a class="mega-link" href="solutions-portal.html#defense">View all products -></a></button>
+                          <button class="mega-stack-card" type="button" data-mega-target="offense"><h4>Offense</h4><p>A suite that continuously simulates attacks across your digital ecosystem.</p><a class="mega-link" href="solutions-portal.html#offense">View all products -></a></button>
+                          <button class="mega-stack-card" type="button" data-mega-target="vision"><h4>Vision</h4><p>Holistic context across the AiVRIC ecosystem and your environments.</p><a class="mega-link" href="solutions-portal.html#vision">View all products -></a></button>
+                        </div>
+                        <div class="mega-grid">
+                          <a class="mega-card" data-mega-category="defense" href="cspm-cloudsignals.html"><strong>CloudSignals+ RiskOps&trade;</strong><span>Scan all your cloud platform configs.</span></a>
+                          <a class="mega-card" data-mega-category="defense" href="ai-inspector.html"><strong>AI Signals&trade;</strong><span>LLM observability, evaluations, and prompt management for AI apps.</span></a>
+                          <a class="mega-card" data-mega-category="defense" href="air-remediation.html"><strong>AIRE Agentic Mesh&trade;</strong><span>Agentic role-based remediation agents.</span></a>
+                          <a class="mega-card" data-mega-category="offense" href="rogueagent.html"><strong>RogueAgent ASPM&trade;</strong><span>Analyze cloud posture using a risk lens.</span></a>
+                          <a class="mega-card" data-mega-category="vision" href="aivric-vision-professional.html"><strong>Vision AI Optics&trade;</strong><span>OpenAI-driven AI risk analysis and reporting.</span></a>
+                        </div>
+                      </div>
+                      <div class="mega-panel mega-panel-static" data-mega-tabpanel="usecase" data-mega-active="compliance" role="tabpanel" hidden>
+                        <div class="mega-rail mega-rail-stack">
+                          <button class="mega-stack-card is-active" type="button" data-mega-target="compliance"><h4>Compliance</h4><p>Framework-ready controls and audit automation.</p><a class="mega-link" href="use-cases-portal.html#compliance">View all frameworks -></a></button>
+                          <button class="mega-stack-card" type="button" data-mega-target="riskops"><h4>Risk Ops</h4><p>Continuous risk operations and response alignment.</p><a class="mega-link" href="use-cases-portal.html#riskops">View all programs -></a></button>
+                          <button class="mega-stack-card" type="button" data-mega-target="productops"><h4>Product Ops</h4><p>Security and compliance built into delivery workflows.</p><a class="mega-link" href="use-cases-portal.html#productops">View all playbooks -></a></button>
+                        </div>
+                        <div class="mega-grid">
+                          <a class="mega-card" data-mega-category="compliance" href="streamline-soc2.html"><strong>SOC 2 Type II</strong><span>Measure compliance against the SOC 2 Trust Service Principles.</span></a>
+                          <a class="mega-card" data-mega-category="compliance" href="achieve-pci-dss.html"><strong>PCI-DSS</strong><span>Continuous validation for PCI requirements and evidence.</span></a>
+                          <a class="mega-card" data-mega-category="compliance" href="cmmc-readiness.html"><strong>CMMC</strong><span>Readiness workflows for CMMC Level 2 assessments.</span></a>
+                          <a class="mega-card" data-mega-category="riskops" href="issues-poams.html"><strong>Issues and POA&Ms</strong><span>Track issues, milestones, and remediation plans.</span></a>
+                          <a class="mega-card" data-mega-category="riskops" href="security-exceptions.html"><strong>Security Exceptions</strong><span>Document approved exceptions with guardrails.</span></a>
+                          <a class="mega-card" data-mega-category="riskops" href="threat-analysis.html"><strong>Threat Analysis</strong><span>Surface high-impact risks across environments.</span></a>
+                          <a class="mega-card" data-mega-category="productops" href="use-case-github-security.html"><strong>DevSecOps</strong><span>Secure Github repos and delivery workflows.</span></a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="dropdown"><a href="AiVRIC-UserGuide/index.html">Resources</a>
+                    <ul>
+                      <li><a href="pricing.html">Pricing</a></li>
+                      <li><a href="about.html">About Us</a></li>
+                      <li><a href="why-aivric.html">Why AiVRIC</a></li>
+                    <li><a href="blog-portal.html">Blog</a></li>
+                    <li><a href="why-aivric-exists.html">Why AiVRIC Exists</a></li>
+                    <li><a href="blog-future-of-cloud-security.html">Future of Cloud Security</a></li>
+                    <li><a href="blog-why-continuous-compliance-matters.html">Continuous Compliance</a></li>
+
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          <ul class="menu-right-content">
+            <li class="btn-box"><a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-one">Request a Demo</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <div class="sticky-header">
+      <div class="auto-container">
+        <div class="outer-box">
+          <div class="logo-box">
+            <figure class="logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC"></a></figure>
+          </div>
+          <div class="menu-area clearfix"><nav class="main-menu clearfix"></nav></div>
+          <ul class="menu-right-content">
+            <li class="btn-box"><a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-one">Request a Demo</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="menu-backdrop"></div>
+    <div class="close-btn" role="button" tabindex="0" aria-label="Close menu"><i class="fas fa-times"></i></div>
+    <nav class="menu-box">
+      <div class="nav-logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" title=""></a></div>
+      <div class="menu-outer"></div>
+      <div class="contact-info">
+        <h4>Contact Info</h4>
+        <ul><li>Wilmington, Delaware USA</li><li><a href="tel:+19543426637">+1 9543426637</a></li><li><a href="mailto:info@aivric.com">info@aivric.com</a></li></ul>
+      </div>
+      <div class="social-links">
+        <ul class="clearfix">
+          <li><a href="https://x.com/aivric"><span class="fab fa-twitter"></span></a></li>
+          <li><a href="https://www.linkedin.com/company/aivric"><span class="fab fa-linkedin-in"></span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- ======================= END HEADER ======================= -->
+
+
+  <!-- ======================= PAGE CONTENT ======================= -->
+  <main class="cs-page">
+    <div class="auto-container">
+
+      <!-- BREADCRUMB -->
+      <div class="breadcrumb-row">
+        <a href="pricing.html">Pricing</a>
+        <i class="fas fa-chevron-right" style="font-size:10px;"></i>
+        <span>CloudSignals+RiskOps™</span>
+      </div>
+
+      <!-- ===== HERO ===== -->
+      <div class="cs-hero">
+        <div class="cs-hero-grid">
+          <div>
+            <div class="badge"><i class="fas fa-shield-alt"></i>&nbsp; Defense Suite &mdash; CSPM &amp; GRC Platform</div>
+            <h1 class="cs-hero-title">Cloud security and risk operations. Unified.</h1>
+            <p class="cs-hero-sub">
+              CloudSignals+RiskOps™ gives your security and GRC team a single operating system for multi-cloud posture management, risk quantification, compliance evidence, and AI-powered risk narratives. Start free today.
+            </p>
+            <div class="cs-hero-actions">
+              <button type="button" class="theme-btn-one" data-cloudsignals-free data-package-id="pkg-cloudsignals-free">Start free</button>
+              <button type="button" class="theme-btn-two tier-cta" data-cloudsignals-checkout data-package-id="pkg-cloudsignals-growth-trial" data-billing-interval="monthly">Start 14-day trial</button>
+              <a class="tier-cta ghost" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" target="_blank" rel="noopener">Book a demo</a>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;padding-top:8px;">
+            <div style="border-radius:14px;background:var(--surface-1);border:1px solid var(--border-subtle);padding:14px 16px;">
+              <div style="font-size:13px;font-weight:700;color:var(--text-strong);margin-bottom:8px;">What's included in every plan</div>
+              <ul style="list-style:none;padding:0;margin:0;display:grid;gap:6px;">
+                <li style="font-size:13px;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--aivric-accent2);margin-top:2px;flex-shrink:0;"></i> AWS, Azure, and GCP scanning</li>
+                <li style="font-size:13px;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--aivric-accent2);margin-top:2px;flex-shrink:0;"></i> SOC 2, ISO 27001, PCI DSS &amp; more</li>
+                <li style="font-size:13px;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--aivric-accent2);margin-top:2px;flex-shrink:0;"></i> GenAI risk chat &amp; risk narratives</li>
+                <li style="font-size:13px;color:var(--text-muted);display:flex;gap:8px;"><i class="fas fa-check" style="color:var(--aivric-accent2);margin-top:2px;flex-shrink:0;"></i> Deploy in &lt; 15 minutes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOCIAL PROOF BAR -->
+      <div class="social-proof-bar">
+        <div class="sp-card">
+          <span class="sp-number">14+</span>
+          <div class="sp-label">Compliance frameworks supported out of the box</div>
+        </div>
+        <div class="sp-card">
+          <span class="sp-number">3</span>
+          <div class="sp-label">Major cloud providers — AWS, Azure, GCP — scanned natively</div>
+        </div>
+        <div class="sp-card">
+          <span class="sp-number">&lt; 15 min</span>
+          <div class="sp-label">Average time from signup to first cloud scan result</div>
+        </div>
+        <div class="sp-card">
+          <span class="sp-number">Free</span>
+          <div class="sp-label">To start — no credit card, no sales call required</div>
+        </div>
+      </div>
+
+      <!-- ===== PRICING TIERS ===== -->
+      <div id="pricing" class="cs-section anchor">
+        <span class="cs-section-label">Pricing</span>
+        <h2 class="cs-section-title">Start free. Scale as you grow.</h2>
+        <p class="cs-section-sub">Every plan includes multi-cloud CSPM, compliance frameworks, and GenAI risk chat. Upgrade to unlock Risk Register, TPRM, advanced integrations, and enterprise controls.</p>
+
+        <!-- Row 1: Free / Growth Trial / Premium -->
+        <div class="tiers-grid">
+
+          <div class="tier-card">
+            <div class="tc-head">
+              <div class="tc-top">
+                <h3 class="tc-name">Free</h3>
+              </div>
+              <p class="tc-desc">Low-friction entry point for posture discovery and platform evaluation. No credit card required.</p>
+            </div>
+            <div class="tc-price">
+              <div class="tc-price-row">
+                <span class="tc-amount">$0</span>
+                <span class="tc-term">forever</span>
+              </div>
+              <p class="tc-price-note">Limited scan quota &amp; asset count. Upgrade anytime.</p>
+            </div>
+            <div class="tc-features">
+              <ul>
+                <li><i class="fas fa-check"></i><span>1 cloud account connected</span></li>
+                <li><i class="fas fa-check"></i><span>Limited posture scans per month</span></li>
+                <li><i class="fas fa-check"></i><span>Basic findings visibility</span></li>
+                <li><i class="fas fa-check"></i><span>1 compliance framework preview</span></li>
+                <li><i class="fas fa-check"></i><span>TPRM &amp; RiskOps preview (5 records)</span></li>
+                <li><i class="fas fa-check"></i><span>Community support</span></li>
+              </ul>
+            </div>
+            <div class="tc-actions">
+              <button type="button" class="tier-cta" data-cloudsignals-free data-package-id="pkg-cloudsignals-free" style="width:100%;justify-content:center;">Start free &rarr;</button>
+            </div>
+          </div>
+
+          <div class="tier-card highlight">
+            <div class="tc-head">
+              <div class="tc-top">
+                <h3 class="tc-name">Growth Trial</h3>
+                <span class="tc-pill popular">Most Popular</span>
+              </div>
+              <p class="tc-desc">Full-featured 14-day Premium trial with the complete findings-to-risk-to-treatment workflow. Payment method required; cancel before trial end to avoid billing.</p>
+            </div>
+            <div class="tc-price">
+              <div class="tc-price-row">
+                <span class="tc-amount">Free</span>
+                <span class="tc-term">/ 14 days</span>
+              </div>
+              <p class="tc-price-note">Converts to Premium at end of trial. Cancel anytime before then.</p>
+            </div>
+            <div class="tc-features">
+              <ul>
+                <li><i class="fas fa-check"></i><span>Unlimited cloud accounts &amp; scans during trial</span></li>
+                <li><i class="fas fa-check"></i><span>Full Risk Register, Threat Register &amp; Scenario Studio</span></li>
+                <li><i class="fas fa-check"></i><span>Portfolio Analytics &amp; RiskOps Insights</span></li>
+                <li><i class="fas fa-check"></i><span>All compliance frameworks (SOC 2, ISO, PCI, CMMC, HIPAA)</span></li>
+                <li><i class="fas fa-check"></i><span>Vision AI Chat with tenant intelligence</span></li>
+                <li><i class="fas fa-check"></i><span>TPRM full access &amp; report exports</span></li>
+                <li><i class="fas fa-check"></i><span>Jira integration</span></li>
+              </ul>
+            </div>
+            <div class="tc-actions">
+              <button type="button" class="tier-cta" data-cloudsignals-checkout data-package-id="pkg-cloudsignals-growth-trial" data-billing-interval="monthly" style="width:100%;justify-content:center;">Start Growth Trial &rarr;</button>
+            </div>
+          </div>
+
+          <div class="tier-card">
+            <div class="tc-head">
+              <div class="tc-top">
+                <h3 class="tc-name">Premium</h3>
+              </div>
+              <p class="tc-desc">The full CloudSignals+RiskOps operating system for growing security and GRC teams ready to operationalize cloud risk.</p>
+            </div>
+            <div class="tc-price">
+              <div class="tc-price-row">
+                <span class="tc-amount">$499</span>
+                <span class="tc-term">/ month</span>
+              </div>
+              <p class="tc-price-note">Billed monthly. Annual plans available — contact sales for discount.</p>
+            </div>
+            <div class="tc-features">
+              <ul>
+                <li><i class="fas fa-check"></i><span>Multi-cloud CSPM across all accounts</span></li>
+                <li><i class="fas fa-check"></i><span>Risk Register, Threat Register, Scenario Studio</span></li>
+                <li><i class="fas fa-check"></i><span>Managed Entities &amp; GRC users (up to 10)</span></li>
+                <li><i class="fas fa-check"></i><span>Vision Chat with tenant intelligence context</span></li>
+                <li><i class="fas fa-check"></i><span>Jira, reports, exports &amp; practical TPRM</span></li>
+                <li><i class="fas fa-check"></i><span>Email support with SLA</span></li>
+                <li><i class="fas fa-check"></i><span>99.9% uptime SLA</span></li>
+              </ul>
+            </div>
+            <div class="tc-actions">
+              <button type="button" class="tier-cta" data-cloudsignals-checkout data-package-id="pkg-cloudsignals-premium" data-billing-interval="monthly" style="width:100%;justify-content:center;">Buy Premium &rarr;</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Enterprise / White-label -->
+        <div class="tiers-grid-wide">
+
+          <div class="tier-card enterprise">
+            <div class="tc-head">
+              <div class="tc-top">
+                <h3 class="tc-name">Enterprise</h3>
+                <span class="tc-pill enterprise">Custom</span>
+              </div>
+              <p class="tc-desc">Advanced CloudSignals+RiskOps for regulated teams with complex operating needs, large cloud portfolios, and procurement-led security programs.</p>
+            </div>
+            <div class="tc-price">
+              <div class="tc-price-row">
+                <span class="tc-amount" style="font-size:26px;">Custom pricing</span>
+              </div>
+              <p class="tc-price-note">Tailored to your cloud footprint, asset count, and deployment model. Volume discounts available.</p>
+            </div>
+            <div class="tc-features">
+              <ul>
+                <li><i class="fas fa-check"></i><span>Everything in Premium, plus:</span></li>
+                <li><i class="fas fa-check"></i><span>SSO / SAML &amp; advanced user management</span></li>
+                <li><i class="fas fa-check"></i><span>Advanced data retention &amp; audit logging</span></li>
+                <li><i class="fas fa-check"></i><span>Premium Vision AI usage &amp; advanced integrations</span></li>
+                <li><i class="fas fa-check"></i><span>Dedicated customer success manager</span></li>
+                <li><i class="fas fa-check"></i><span>Advanced TPRM workflows</span></li>
+                <li><i class="fas fa-check"></i><span>Optional dedicated cloud runtime</span></li>
+                <li><i class="fas fa-check"></i><span>Custom onboarding &amp; SLA &gt; 99.9%</span></li>
+              </ul>
+            </div>
+            <div class="tc-actions">
+              <button type="button" class="tier-cta secondary" data-contact-sales data-package-id="pkg-cloudsignals-enterprise" style="width:100%;justify-content:center;">Contact Sales &rarr;</button>
+            </div>
+          </div>
+
+          <div class="tier-card provider">
+            <div class="tc-head">
+              <div class="tc-top">
+                <h3 class="tc-name">White-label Provider</h3>
+                <span class="tc-pill provider">MSP / MSSP</span>
+              </div>
+              <p class="tc-desc">Build a branded CloudSignals+RiskOps service line. Dedicated operating model for MSSPs, MSPs, and VARs delivering cyber, GRC, and CSPM to their clients.</p>
+            </div>
+            <div class="tc-price">
+              <div class="tc-price-row">
+                <span class="tc-amount" style="font-size:26px;">Custom pricing</span>
+              </div>
+              <p class="tc-price-note">Priced per managed tenant or monthly active customer. Volume tiers available.</p>
+            </div>
+            <div class="tc-features">
+              <ul>
+                <li><i class="fas fa-check"></i><span>Provider &amp; MSP branding profiles</span></li>
+                <li><i class="fas fa-check"></i><span>Multi-tenant MSP management console</span></li>
+                <li><i class="fas fa-check"></i><span>Customer-segmented runtime strategy</span></li>
+                <li><i class="fas fa-check"></i><span>Provider-scale RiskOps &amp; TPRM</span></li>
+                <li><i class="fas fa-check"></i><span>Release governance &amp; support audit trail</span></li>
+                <li><i class="fas fa-check"></i><span>Partner onboarding &amp; enablement program</span></li>
+              </ul>
+            </div>
+            <div class="tc-actions">
+              <button type="button" class="tier-cta secondary" data-contact-sales data-package-id="pkg-whitedog-provider" style="width:100%;justify-content:center;">Become a Provider &rarr;</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== FEATURE MATRIX ===== -->
+      <div id="features" class="cs-section anchor">
+        <span class="cs-section-label">Feature Comparison</span>
+        <h2 class="cs-section-title">Everything included, tier by tier.</h2>
+        <p class="cs-section-sub">Detailed breakdown of what's in each CloudSignals+RiskOps plan so you can make an informed procurement decision.</p>
+
+        <div class="matrix-wrap">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Free</th>
+                <th>Growth Trial</th>
+                <th>Premium</th>
+                <th>Enterprise</th>
+                <th>White-label</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="group-row"><td colspan="6">Cloud Posture (CSPM)</td></tr>
+              <tr><td>Cloud accounts</td><td class="mlimit">1</td><td class="mhigh">Unlimited</td><td class="mhigh">Unlimited</td><td class="mhigh">Unlimited</td><td class="mhigh">Multi-tenant</td></tr>
+              <tr><td>AWS / Azure / GCP scanning</td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+              <tr><td>Monthly scan quota</td><td class="mlimit">Limited</td><td class="mhigh">Unlimited</td><td class="mhigh">Unlimited</td><td class="mhigh">Unlimited</td><td class="mhigh">Unlimited</td></tr>
+              <tr><td>Findings severity triage</td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+              <tr><td>Asset inventory</td><td class="mlimit">Starter limit</td><td class="mhigh">Full</td><td class="mhigh">Full</td><td class="mhigh">Full</td><td class="mhigh">Full</td></tr>
+
+              <tr class="group-row"><td colspan="6">Risk &amp; Compliance Operations</td></tr>
+              <tr><td>Risk Register</td><td class="mlimit">Preview</td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+              <tr><td>Threat Register</td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+              <tr><td>Scenario Studio</td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+              <tr><td>Portfolio Analytics</td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+              <tr><td>Compliance frameworks</td><td class="mlimit">1 preview</td><td class="mhigh">All 14+</td><td class="mhigh">All 14+</td><td class="mhigh">All 14+</td><td class="mhigh">All 14+</td></tr>
+              <tr><td>TPRM records</td><td class="mlimit">5 preview</td><td class="mhigh">Full access</td><td class="mhigh">Full access</td><td class="mhigh">Advanced</td><td class="mhigh">Provider-scale</td></tr>
+              <tr><td>Audit-ready reports</td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+
+              <tr class="group-row"><td colspan="6">AI &amp; Intelligence</td></tr>
+              <tr><td>Vision AI GenAI Chat</td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td class="mhigh">Premium usage</td><td class="mhigh">Premium usage</td></tr>
+              <tr><td>RiskOps AI Insights</td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+              <tr><td>Executive risk narratives</td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+
+              <tr class="group-row"><td colspan="6">Integrations &amp; Exports</td></tr>
+              <tr><td>Jira integration</td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+              <tr><td>CSV / PDF exports</td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+              <tr><td>Advanced integrations (SIEM, ticketing)</td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+
+              <tr class="group-row"><td colspan="6">Enterprise &amp; MSP Controls</td></tr>
+              <tr><td>GRC user seats</td><td class="mlimit">1</td><td class="mhigh">Unlimited (trial)</td><td class="mlimit">Up to 10</td><td class="mhigh">Unlimited</td><td class="mhigh">Unlimited</td></tr>
+              <tr><td>SSO / SAML</td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+              <tr><td>Advanced data retention</td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+              <tr><td>Custom branding</td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td></tr>
+              <tr><td>Multi-tenant MSP console</td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td></tr>
+              <tr><td>Dedicated runtime (optional)</td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+
+              <tr class="group-row"><td colspan="6">Support &amp; SLA</td></tr>
+              <tr><td>Support channel</td><td>Community</td><td>Community</td><td>Email + SLA</td><td>Dedicated CSM</td><td>Partner program</td></tr>
+              <tr><td>Uptime SLA</td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td class="mhigh">99.9%</td><td class="mhigh">99.9%+</td><td class="mhigh">Custom</td></tr>
+              <tr><td>Custom onboarding</td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mdash">&mdash;</span></td><td><span class="mcheck">✓</span></td><td><span class="mcheck">✓</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ===== WHY CLOUDSIGNALS ===== -->
+      <div id="why" class="cs-section anchor">
+        <span class="cs-section-label">Why CloudSignals+RiskOps</span>
+        <h2 class="cs-section-title">Built different, by design.</h2>
+        <p class="cs-section-sub">Most security platforms make you choose between CSPM and GRC, or require separate products and separate budgets. CloudSignals+RiskOps was architected to bridge both — with AI at the center.</p>
+
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-icon"><i class="fas fa-brain"></i></div>
+            <h3>AI-native, not AI-bolted</h3>
+            <p>GenAI risk narratives, Vision AI Chat, and agentic remediation are built into every workflow — not added as a premium add-on. Your findings become business risk stories automatically.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon"><i class="fas fa-layer-group"></i></div>
+            <h3>CSPM + GRC in one platform</h3>
+            <p>Most orgs buy a cloud scanner and a separate GRC tool. CloudSignals eliminates the gap — posture findings flow directly into risk registers, threat scenarios, and audit evidence.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon"><i class="fas fa-building"></i></div>
+            <h3>Built for mid-market scale</h3>
+            <p>Priced and designed for 50–5,000 employee organizations. Enterprise capabilities without enterprise complexity. Get your first compliance report in under an hour — not months.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon"><i class="fas fa-store"></i></div>
+            <h3>White-label from day one</h3>
+            <p>MSSPs and MSPs can deliver a fully branded CloudSignals+RiskOps service line to their clients without custom development. Multi-tenant console, provider branding, and partner enablement included.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon"><i class="fas fa-link"></i></div>
+            <h3>Part of a unified platform</h3>
+            <p>CloudSignals is the first solution of a broader AiVRIC platform — Defense, Offense, and Vision are all in development and share the same data fabric. Your investment grows with the platform.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-icon"><i class="fas fa-server"></i></div>
+            <h3>Deploy your way</h3>
+            <p>SaaS, customer-hosted private cloud, or hybrid. Data residency controls, BYOK support, and optional dedicated runtimes for regulated industries that need full data sovereignty.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== ROI STRIP ===== -->
+      <div class="roi-strip">
+        <div style="margin-bottom:20px;">
+          <span class="cs-section-label">Value for your investment</span>
+          <h2 class="cs-section-title" style="margin:0;">What CloudSignals+RiskOps replaces.</h2>
+        </div>
+        <div class="roi-grid">
+          <div class="roi-item">
+            <span class="roi-metric">3-in-1</span>
+            <span class="roi-label">Tools replaced in one subscription</span>
+            <p class="roi-sub">A standalone CSPM tool, a separate GRC platform, and a standalone TPRM tool — CloudSignals consolidates all three under one login and one contract.</p>
+          </div>
+          <div class="roi-item">
+            <span class="roi-metric">&lt; 1 hr</span>
+            <span class="roi-label">To first compliance evidence report</span>
+            <p class="roi-sub">Connect your cloud account, run a scan, and generate a SOC 2 or ISO 27001 evidence report in under an hour. No professional services engagement required.</p>
+          </div>
+          <div class="roi-item">
+            <span class="roi-metric">Always-on</span>
+            <span class="roi-label">Audit readiness instead of quarterly prep</span>
+            <p class="roi-sub">Replace 6–8 weeks of manual audit prep with continuous evidence collection. Your compliance posture is always current — not frozen at audit time.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== COMPETITIVE COMPARISON ===== -->
+      <div id="compare" class="cs-section anchor">
+        <span class="cs-section-label">Competitive Comparison</span>
+        <h2 class="cs-section-title">How CloudSignals compares.</h2>
+
+        <div class="comp-intro">
+          <p class="cs-section-sub" style="margin:0;">
+            The CSPM and GRC market is crowded — Vanta, Wiz, Prisma Cloud, and Todyl are all credible platforms. Here's an honest, side-by-side look at where CloudSignals+RiskOps fits and where it leads.
+          </p>
+          <div class="comp-note-card">
+            <p><strong>Note:</strong> Competitive data is based on publicly available documentation, pricing pages, and product reviews as of 2025. Contact us to discuss specific capability gaps for your use case.</p>
+          </div>
+        </div>
+
+        <div class="comp-table-wrap">
+          <table class="comp-table">
+            <thead>
+              <tr>
+                <th style="text-align:left;">Capability</th>
+                <th class="us">CloudSignals<br>+RiskOps™</th>
+                <th>Vanta</th>
+                <th>Wiz</th>
+                <th>Prisma Cloud<br>(Palo Alto)</th>
+                <th>Todyl</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="feat-col">Primary focus</td>
+                <td class="us" style="color:var(--text-muted);font-size:13px;">CSPM + GRC + AI RiskOps</td>
+                <td style="font-size:13px;color:var(--text-muted);">GRC / Compliance</td>
+                <td style="font-size:13px;color:var(--text-muted);">CSPM / CNAPP</td>
+                <td style="font-size:13px;color:var(--text-muted);">CNAPP (Enterprise)</td>
+                <td style="font-size:13px;color:var(--text-muted);">MSSP Bundle</td>
+              </tr>
+              <tr>
+                <td class="feat-col">Free tier available</td>
+                <td class="us"><span class="cwinner"><i class="fas fa-check"></i> Yes</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+              </tr>
+              <tr>
+                <td class="feat-col">Multi-cloud CSPM (AWS / Azure / GCP)</td>
+                <td class="us"><span class="ccheck">✓</span></td>
+                <td><span class="cpartial">Limited</span></td>
+                <td><span class="ccheck">✓</span></td>
+                <td><span class="ccheck">✓</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+              </tr>
+              <tr>
+                <td class="feat-col">Risk Register &amp; GRC workflows</td>
+                <td class="us"><span class="cwinner"><i class="fas fa-check"></i> Native</span></td>
+                <td><span class="ccheck">✓</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cpartial">Limited</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+              </tr>
+              <tr>
+                <td class="feat-col">TPRM (third-party risk)</td>
+                <td class="us"><span class="ccheck">✓</span></td>
+                <td><span class="ccheck">✓</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+              </tr>
+              <tr>
+                <td class="feat-col">Compliance automation (SOC 2, ISO, PCI, CMMC)</td>
+                <td class="us"><span class="ccheck">✓</span></td>
+                <td><span class="ccheck">✓</span></td>
+                <td><span class="cpartial">Limited</span></td>
+                <td><span class="ccheck">✓</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+              </tr>
+              <tr>
+                <td class="feat-col">AI GenAI Chat + risk narratives</td>
+                <td class="us"><span class="cwinner"><i class="fas fa-check"></i> Native</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+              </tr>
+              <tr>
+                <td class="feat-col">Agentic auto-remediation</td>
+                <td class="us"><span class="cwinner"><i class="fas fa-check"></i> AIRE mesh</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+              </tr>
+              <tr>
+                <td class="feat-col">White-label / MSP model</td>
+                <td class="us"><span class="cwinner"><i class="fas fa-check"></i> Built-in</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="ccheck">✓</span></td>
+              </tr>
+              <tr>
+                <td class="feat-col">Deployment options</td>
+                <td class="us" style="font-size:12.5px;color:var(--aivric-accent);">SaaS + Private + Hybrid</td>
+                <td style="font-size:12.5px;color:var(--text-muted);">SaaS only</td>
+                <td style="font-size:12.5px;color:var(--text-muted);">SaaS only</td>
+                <td style="font-size:12.5px;color:var(--text-muted);">SaaS + Cloud</td>
+                <td style="font-size:12.5px;color:var(--text-muted);">SaaS only</td>
+              </tr>
+              <tr>
+                <td class="feat-col">Mid-market pricing &amp; accessibility</td>
+                <td class="us"><span class="cwinner"><i class="fas fa-check"></i> Free tier + $499</span></td>
+                <td style="font-size:12.5px;color:var(--text-muted);">~$800+/mo</td>
+                <td style="font-size:12.5px;color:var(--text-muted);">Enterprise / Custom</td>
+                <td style="font-size:12.5px;color:var(--text-muted);">Enterprise / Custom</td>
+                <td style="font-size:12.5px;color:var(--text-muted);">Channel / Custom</td>
+              </tr>
+              <tr>
+                <td class="feat-col">Integrated offense / exposure testing</td>
+                <td class="us"><span class="cpartial">Roadmap (RogueAgent)</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+                <td><span class="cdash">&mdash;</span></td>
+              </tr>
+              <tr>
+                <td class="feat-col">Time to first scan result</td>
+                <td class="us"><span class="cwinner"><i class="fas fa-bolt"></i> &lt; 15 min</span></td>
+                <td style="font-size:12.5px;color:var(--text-muted);">Hours to days</td>
+                <td style="font-size:12.5px;color:var(--text-muted);">Minutes (setup)</td>
+                <td style="font-size:12.5px;color:var(--text-muted);">Days (PS needed)</td>
+                <td style="font-size:12.5px;color:var(--text-muted);">Channel managed</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size:12.5px;color:var(--text-faint);margin-top:12px;line-height:1.6;">
+          Data based on publicly available product documentation, pricing pages, and G2/Gartner Peer Insights reviews as of 2025. Competitive capabilities evolve rapidly — always conduct your own evaluation. <a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" style="color:var(--aivric-accent);">Schedule a live comparison demo &rarr;</a>
+        </p>
+      </div>
+
+      <!-- ===== FAQ ===== -->
+      <div id="faq" class="cs-section anchor">
+        <span class="cs-section-label">Procurement FAQ</span>
+        <h2 class="cs-section-title">Common procurement questions.</h2>
+        <p class="cs-section-sub">Answers to the questions security leaders, procurement teams, and GRC practitioners ask most often before purchasing CloudSignals+RiskOps.</p>
+
+        <div class="faq-grid">
+          <details>
+            <summary>Can I run a proof of concept before committing?</summary>
+            <p>Yes. The 14-day Growth Trial gives you the full Premium feature set. Stripe collects a payment method to activate the subscription trial, but you are not charged during the trial period. This includes unlimited cloud accounts, all compliance frameworks, Risk Register, TPRM, Vision AI Chat, and every integration. We recommend running the trial against a real cloud environment for the most representative evaluation.</p>
+          </details>
+          <details>
+            <summary>What cloud platforms does CloudSignals support?</summary>
+            <p>CloudSignals natively scans Amazon Web Services (AWS), Microsoft Azure, and Google Cloud Platform (GCP). Multi-account and multi-organization scanning is supported on all three. Additional cloud providers and SaaS connectors are on the roadmap.</p>
+          </details>
+          <details>
+            <summary>How is pricing structured for large cloud environments?</summary>
+            <p>The Free and Premium tiers are flat-rate. Enterprise and White-label pricing is scoped to your cloud footprint — based on number of cloud accounts, managed asset count, and deployment model. Contact our sales team for a tailored quote that reflects your actual environment size.</p>
+          </details>
+          <details>
+            <summary>Is my data stored in the United States?</summary>
+            <p>By default, all SaaS tenants are hosted in US-based cloud infrastructure. Enterprise and White-label customers can request EU or specific regional data residency. Customer-hosted deployment options are available for organizations that require full data sovereignty, with your team controlling the runtime environment entirely.</p>
+          </details>
+          <details>
+            <summary>Does CloudSignals support SOC 2 Type II and ISO 27001?</summary>
+            <p>Yes. CloudSignals+RiskOps includes pre-built control mappings for SOC 2 Type II, ISO 27001, PCI DSS, CMMC Level 2, HIPAA, and more. The platform continuously collects evidence against these frameworks and generates audit-ready reports. Your GRC team can export evidence packages directly to auditors without manual assembly.</p>
+          </details>
+          <details>
+            <summary>Can we run CloudSignals in our own cloud environment?</summary>
+            <p>Yes. Customer-hosted (BYOC/private cloud) deployment is available on the Enterprise and White-label tiers. You deploy the CloudSignals runtime in your own AWS, Azure, or GCP account. AiVRIC provides the application, your team controls the infrastructure, and no data leaves your environment.</p>
+          </details>
+          <details>
+            <summary>What's included for MSPs and MSSPs?</summary>
+            <p>The White-label Provider tier includes a multi-tenant MSP management console, provider and client branding profiles, customer-segmented runtime strategy, provider-scale TPRM workflows, and a dedicated partner enablement program. MSSPs can build fully branded CloudSignals+RiskOps service lines for their end clients without custom development work.</p>
+          </details>
+          <details>
+            <summary>What happens after my 14-day trial ends?</summary>
+            <p>At the end of the Growth Trial, your subscription converts to Premium monthly billing unless you cancel before the trial expires. Your data and configurations are preserved either way, and Stripe sends billing confirmation so you have a clear record of the subscription status.</p>
+          </details>
+        </div>
+      </div>
+
+      <!-- ===== BOTTOM CTA ===== -->
+      <div class="bottom-cta">
+        <h2>Start your security operations transformation.</h2>
+        <p>CloudSignals+RiskOps is available today. Start free in 15 minutes, or talk to our team to design a rollout plan that fits your security program, budget, and compliance timeline.</p>
+        <div class="bottom-cta-actions">
+          <button type="button" class="theme-btn-one" data-cloudsignals-free data-package-id="pkg-cloudsignals-free">Start free &mdash; no credit card</button>
+          <button type="button" class="theme-btn-two" data-cloudsignals-checkout data-package-id="pkg-cloudsignals-growth-trial" data-billing-interval="monthly">Begin 14-day trial</button>
+          <a class="tier-cta ghost" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" target="_blank" rel="noopener">Talk to sales</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <!-- ======================= END PAGE CONTENT ======================= -->
+
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="widget-section">
+      <div class="pattern-layer">
+        <div class="pattern-1" style="background-image:url(assets/images/shape/shape-20.avif);"></div>
+        <div class="pattern-2" style="background-image:url(assets/images/shape/shape-21.avif);"></div>
+      </div>
+      <div class="auto-container">
+        <div class="row clearfix">
+          <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+            <div class="footer-widget logo-widget">
+              <div class="widget-title"><h3>AiVRIC</h3></div>
+              <div class="text"><p>Autonomous Security, Compliance, and Risk Intelligence.</p></div>
+              <div class="subscribe-box">
+                <form action="contact.html" method="post">
+                  <div class="form-group">
+                    <input type="email" name="email" placeholder="Your email" required="">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+            <div class="footer-widget links-widget">
+              <div class="widget-title"><h3>CloudSignals</h3></div>
+              <div class="widget-content">
+                <ul class="links-list clearfix">
+                  <li><a href="cloudsignals-pricing.html">Pricing</a></li>
+                  <li><a href="cspm-cloudsignals.html">Product Overview</a></li>
+                  <li><a href="streamline-soc2.html">SOC 2 Automation</a></li>
+                  <li><a href="achieve-pci-dss.html">PCI DSS</a></li>
+                  <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
+                  <li><a href="issues-poams.html">Risk &amp; Issues</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+            <div class="footer-widget links-widget">
+              <div class="widget-title"><h3>Solutions</h3></div>
+              <div class="widget-content">
+                <ul class="links-list clearfix">
+                  <li><a href="cspm-cloudsignals.html">CloudSignals+ RiskOps&trade;</a></li>
+                  <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
+                  <li><a href="air-remediation.html">AIRE Agentic Mesh&trade;</a></li>
+                  <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
+                  <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+            <div class="footer-widget contact-widget">
+              <div class="widget-title"><h3>Contact</h3></div>
+              <div class="widget-content">
+                <ul class="info-list clearfix">
+                  <li><i class="fas fa-envelope"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                  <li><i class="fas fa-phone-alt"></i><a href="tel:+19543426637">+1 954 342 6637</a></li>
+                </ul>
+              </div>
+              <ul class="social-links-two clearfix">
+                <li><a href="https://x.com/aivric"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.facebook.com/61581937785235/"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://www.linkedin.com/company/aivric"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://www.instagram.com/aivrictechnologies/"><i class="fab fa-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="auto-container">
+        <div class="bottom-inner">
+          <div class="copyright"><p>&copy; 2025 <a href="index.html">AiVRIC</a>. All Rights Reserved.</p></div>
+          <ul class="footer-nav">
+            <li><a href="terms-of-use.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Release notification modal (used for Beta/Alpha sign-ups) -->
+  <div class="release-modal" id="release-modal">
+    <div class="release-modal__backdrop" data-release-close></div>
+    <div class="release-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="release-modal-title">
+      <button class="release-modal__close" type="button" data-release-close aria-label="Close">&times;</button>
+      <h3 class="release-modal__title" id="release-modal-title" data-release-title>Notify when released</h3>
+      <p class="release-modal__subtitle">Share your interest and we will alert you when this solution is ready.</p>
+      <form class="release-modal__form" data-release-form>
+        <input type="hidden" name="solution" data-release-solution>
+        <div class="release-modal__grid">
+          <div class="release-modal__field"><label for="r-name">Name</label><input id="r-name" name="name" type="text" placeholder="Your name" required></div>
+          <div class="release-modal__field"><label for="r-company">Company</label><input id="r-company" name="company" type="text" placeholder="Company name" required></div>
+          <div class="release-modal__field"><label for="r-email">Email</label><input id="r-email" name="email" type="email" placeholder="you@company.com" required></div>
+        </div>
+        <div class="release-modal__actions">
+          <button type="button" class="tier-cta ghost" data-release-close>Cancel</button>
+          <button type="submit" class="tier-cta">Notify me</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Pricing / contact sales modal -->
+  <div class="release-modal pricing-modal" id="pricing-modal">
+    <div class="release-modal__backdrop" data-pricing-close></div>
+    <div class="release-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="pricing-modal-title">
+      <button class="release-modal__close" type="button" data-pricing-close aria-label="Close">&times;</button>
+      <h3 class="release-modal__title" id="pricing-modal-title" data-pricing-title>Contact Sales</h3>
+      <p class="release-modal__subtitle" data-pricing-summary>Share your environment details and we'll build a tailored proposal.</p>
+      <form class="release-modal__form" data-pricing-form>
+        <input type="hidden" name="solution" data-pricing-solution>
+        <div class="release-modal__grid">
+          <div class="release-modal__field"><label for="p-name">Name</label><input id="p-name" name="name" type="text" placeholder="Your name" required></div>
+          <div class="release-modal__field"><label for="p-company">Company</label><input id="p-company" name="company" type="text" placeholder="Company name" required></div>
+          <div class="release-modal__field"><label for="p-email">Email</label><input id="p-email" name="email" type="email" placeholder="you@company.com" required></div>
+          <div class="release-modal__field"><label for="p-phone">Phone</label><input id="p-phone" name="phone" type="tel" placeholder="+1 (555) 123-4567"></div>
+        </div>
+        <div class="release-modal__interests">
+          <span>Deployment model</span>
+          <div class="release-modal__checks">
+            <label><input type="checkbox" name="deployment" value="SaaS"> SaaS</label>
+            <label><input type="checkbox" name="deployment" value="Private cloud"> Customer-hosted / Private cloud</label>
+            <label><input type="checkbox" name="deployment" value="Hybrid"> Hybrid</label>
+          </div>
+        </div>
+        <div class="release-modal__interests">
+          <span>Compliance needs</span>
+          <div class="release-modal__checks">
+            <label><input type="checkbox" name="compliance" value="SOC 2"> SOC 2</label>
+            <label><input type="checkbox" name="compliance" value="ISO 27001"> ISO 27001</label>
+            <label><input type="checkbox" name="compliance" value="PCI DSS"> PCI DSS</label>
+            <label><input type="checkbox" name="compliance" value="CMMC"> CMMC</label>
+            <label><input type="checkbox" name="compliance" value="HIPAA"> HIPAA</label>
+          </div>
+        </div>
+        <div class="release-modal__field"><label for="p-notes">Notes / goals</label><input id="p-notes" name="notes" type="text" placeholder="Cloud environment size, key requirements, timeline"></div>
+        <div class="release-modal__actions">
+          <button type="button" class="tier-cta ghost" data-pricing-close>Cancel</button>
+          <button type="submit" class="tier-cta">Send request</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="scroll-to-top">
+    <div><div class="scroll-top-inner">
+      <div class="scroll-bar"><div class="bar-inner"></div></div>
+      <div class="scroll-bar-text">Go To Top</div>
+    </div></div>
+  </div>
+
+</div>
+
+<!-- JS -->
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.js"></script>
+<script src="assets/js/wow.js"></script>
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/jquery.fancybox.js"></script>
+<script src="assets/js/appear.js"></script>
+<script src="assets/js/scrollbar.js"></script>
+<script src="assets/js/isotope.js"></script>
+<script src="assets/js/jquery.nice-select.min.js"></script>
+<script src="assets/js/parallax-scroll.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/theme-toggle.js"></script>
+<script src="assets/js/mega-hover.js"></script>
+<script src="assets/js/mega-tabs.js"></script>
+<script src="assets/js/release-modal.js"></script>
+<script src="assets/js/pricing-modal.js"></script>
+<script src="assets/js/stripe-checkout.js"></script>
+
+<script>
+  /* Wire [data-contact-sales] buttons to pricing modal */
+  document.addEventListener('DOMContentLoaded', function(){
+    document.querySelectorAll('[data-contact-sales]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var pkg = btn.dataset.packageId || '';
+        var modal = document.getElementById('pricing-modal');
+        if(modal){
+          var titleEl = modal.querySelector('[data-pricing-title]');
+          var solEl   = modal.querySelector('[data-pricing-solution]');
+          if(titleEl) titleEl.textContent = 'Contact Sales — ' + (pkg.replace('pkg-','').replace(/-/g,' '));
+          if(solEl)   solEl.value = pkg;
+          modal.classList.add('is-open');
+        }
+      });
+    });
+    document.querySelectorAll('[data-pricing-close]').forEach(function(el){
+      el.addEventListener('click', function(){
+        var modal = document.getElementById('pricing-modal');
+        if(modal) modal.classList.remove('is-open');
+      });
+    });
+  });
+</script>
+</body>
+</html>                <!-- main-footer -->
+        <footer class="main-footer gf-footer">
+
+          <div class="gf-top-rule"></div>
+
+          <div class="gf-body">
+            <div class="auto-container">
+              <div class="gf-grid">
+
+                <!-- Brand -->
+                <div class="gf-col">
+                  <a href="index.html" class="gf-logo-link">
+                    <img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" class="gf-logo">
+                  </a>
+                  <p class="gf-tagline">Autonomous Security, Compliance, and Risk Intelligence — hosted in your environment.</p>
+                  <form class="gf-subscribe" action="contact.html" method="post">
+                    <div class="gf-subscribe-row">
+                      <input type="email" name="email" placeholder="Work email address" required>
+                      <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                    <p class="gf-subscribe-note">No spam &mdash; platform updates only.</p>
+                  </form>
+                  <div class="gf-social">
+                    <a href="https://www.linkedin.com/company/aivric" class="gf-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/aivric" class="gf-social-link" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.facebook.com/61581937785235/" class="gf-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/aivrictechnologies/" class="gf-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                  </div>
+                </div>
+
+                <!-- Platform -->
+                <div class="gf-col">
+                  <div class="gf-col-title">Platform</div>
+                  <ul class="gf-links">
+                    <li><a href="services.html">Platform Overview</a></li>
+                    <li><a href="genai-chat.html">GenAI Chat</a></li>
+                    <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
+                    <li><a href="agentic-design.html">Agentic Design</a></li>
+                    <li><a href="efficient-compute.html">Efficient Compute</a></li>
+                    <li><a href="data-localization.html">Data Localization</a></li>
+                    <li><a href="ai-model-inspection.html">AI Model Inspection</a></li>
+                  </ul>
+                </div>
+
+                <!-- Solutions -->
+                <div class="gf-col">
+                  <div class="gf-col-title">Solutions</div>
+                  <ul class="gf-links">
+                    <li><a href="cspm-cloudsignals.html">CloudSignals+RiskOps&trade;</a></li>
+                    <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
+                    <li><a href="air-remediation.html">AIRE Agentic Mesh&trade;</a></li>
+                    <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
+                    <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
+                    <li><a href="aivric-vision-enterprise.html">Vision Enterprise</a></li>
+                    <li><a href="solutions-portal.html">All Products &rarr;</a></li>
+                  </ul>
+                </div>
+
+                <!-- Company + Contact -->
+                <div class="gf-col">
+                  <div class="gf-col-title">Company</div>
+                  <ul class="gf-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="why-aivric.html">Why AiVRIC</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="blog-portal.html">Blog</a></li>
+                    <li><a href="trust.html">Trust Center</a></li>
+                    <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Platform Guide</a></li>
+                  </ul>
+                  <div class="gf-contact-block">
+                    <a href="mailto:info@aivric.com" class="gf-contact-link"><i class="fas fa-envelope"></i>info@aivric.com</a>
+                    <a href="tel:+19543426637" class="gf-contact-link"><i class="fas fa-phone-alt"></i>+1 954 342 6637</a>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="gf-bottom">
+            <div class="auto-container">
+              <div class="gf-bottom-inner">
+                <p class="gf-copy">&copy; 2025 <a href="index.html">AiVRIC Technologies</a>. All Rights Reserved.</p>
+                <div class="gf-bottom-right">
+                  <span class="gf-trust-pill"><span class="gf-trust-dot"></span>SOC&nbsp;2 Ready</span>
+                  <nav class="gf-bottom-nav">
+                    <a href="terms-of-use.html">Terms of Service</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                  </nav>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </footer>E html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>CloudSignals+RiskOps™ Pricing | AiVRIC</title>
+  <meta name="description" content="Simple, transparent pricing for CloudSignals+RiskOps — the AI-native CSPM and risk operations platform. Start free, scale to enterprise. Compare us against Vanta, Wiz, Prisma, and Todyl.">
+
+  <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+
+  <link href="assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="assets/css/flaticon.css" rel="stylesheet">
+  <link href="assets/css/owl.css" rel="stylesheet">
+  <link href="assets/css/bootstrap.css" rel="stylesheet">
+  <link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+  <link href="assets/css/animate.css" rel="stylesheet">
+  <link href="assets/css/nice-select.css" rel="stylesheet">
+  <link href="assets/css/color.css" rel="stylesheet">
+  <link href="assets/css/elpath.css" rel="stylesheet">
+  <link href="assets/css/style.css?v=20250115" rel="stylesheet">
+  <link href="assets/css/responsive.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --text-strong:#f8fafc; --text-default:#e5e7eb; --text-muted:#cbd5e1;
+      --text-faint:#94a3b8; --text-accent:#7dd3fc;
+      --surface-0:#050814; --surface-1:rgba(255,255,255,0.06); --surface-2:rgba(255,255,255,0.10);
+      --border-subtle:rgba(148,163,184,0.28); --border-strong:rgba(148,163,184,0.5);
+      --aivric-accent:#00d1ff; --aivric-accent2:#2ee59d; --aivric-ink:#0b1220;
+      --aivric-panel:var(--surface-1); --aivric-panel2:var(--surface-2);
+      --aivric-line:var(--border-subtle); --aivric-text:var(--text-default);
+      --aivric-muted:var(--text-muted); --aivric-muted2:var(--text-faint);
+      --aivric-shadow:0 14px 40px rgba(0,0,0,0.28); --aivric-radius:18px;
+      --btn-bg:#00d1ff; --btn-bg-hover:#24ddff; --btn-bg-active:#00b8e6;
+      --btn-fg:#ffffff; --btn-fg-hover:#ffffff; --btn-fg-active:#e6f7ff;
+      --btn-border:rgba(0,209,255,0.6); --btn-border-hover:rgba(0,209,255,0.85);
+      --btn-shadow:0 12px 24px rgba(0,209,255,0.2); --btn-shadow-hover:0 14px 28px rgba(0,209,255,0.28);
+      --focus-ring:0 0 0 3px rgba(56,189,248,0.35);
+    }
+
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:
+        radial-gradient(1200px 900px at 70% -20%,rgba(0,209,255,0.22),transparent 55%),
+        radial-gradient(900px 700px at 10% 10%,rgba(46,113,229,0.14),transparent 60%),
+        linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%);
+      color:var(--text-default);
+    }
+    .main-header .header-lower,.sticky-header{
+      background:rgba(6,10,18,0.92); backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--border-subtle);
+    }
+    header.main-header .main-menu .navigation > li > a{ color:var(--text-default); }
+    header.main-header .main-menu .navigation > li > a:hover,
+    header.main-header .main-menu .navigation > li.current > a{
+      color:var(--text-accent); text-decoration:underline; text-underline-offset:4px;
+    }
+
+    /* ======= PAGE WRAP ======= */
+    .cs-page{ padding:110px 0 80px; position:relative; overflow:hidden; }
+    @media(max-width:992px){ .cs-page{ padding:90px 0 60px; } }
+
+    /* Breadcrumb */
+    .breadcrumb-row{
+      display:flex; align-items:center; gap:8px; margin-bottom:28px;
+      font-size:13px; color:var(--text-faint);
+    }
+    .breadcrumb-row a{ color:var(--text-faint); text-decoration:none; }
+    .breadcrumb-row a:hover{ color:var(--aivric-accent); }
+    .breadcrumb-row span{ color:var(--text-muted); }
+
+    /* ======= HERO ======= */
+    .cs-hero{ padding:10px 0 36px; }
+    .cs-hero-grid{
+      display:grid; grid-template-columns:1.3fr 0.7fr; gap:28px; align-items:start;
+    }
+    @media(max-width:992px){ .cs-hero-grid{ grid-template-columns:1fr; } }
+    .badge{
+      display:inline-flex; align-items:center; gap:10px; padding:8px 14px;
+      border-radius:999px; background:rgba(0,209,255,0.14); border:1px solid rgba(0,209,255,0.35);
+      color:var(--text-strong); font-size:13px; font-weight:600; letter-spacing:0.3px;
+      margin-bottom:16px;
+    }
+    .badge i{ color:var(--aivric-accent); }
+    .cs-hero-title{
+      font-family:Jost,Inter,sans-serif; font-size:50px; font-weight:800;
+      line-height:1.05; letter-spacing:-1px; color:var(--text-strong);
+      margin:0 0 14px;
+    }
+    @media(max-width:768px){ .cs-hero-title{ font-size:36px; } }
+    .cs-hero-sub{
+      font-size:17px; line-height:1.75; color:var(--text-muted);
+      max-width:60ch; margin:0 0 22px;
+    }
+    .cs-hero-actions{ display:flex; gap:12px; flex-wrap:wrap; }
+
+    /* Social proof bar */
+    .social-proof-bar{
+      margin:42px 0;
+      display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+    }
+    @media(max-width:992px){ .social-proof-bar{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:576px){ .social-proof-bar{ grid-template-columns:1fr 1fr; } }
+    .sp-card{
+      border-radius:14px; background:var(--surface-1); border:1px solid var(--border-subtle);
+      padding:16px 18px; box-shadow:var(--aivric-shadow);
+    }
+    .sp-number{
+      font-family:Jost,Inter,sans-serif; font-size:28px; font-weight:800;
+      color:var(--aivric-accent); letter-spacing:-0.5px; display:block;
+    }
+    .sp-label{ font-size:13px; color:var(--text-muted); margin-top:4px; line-height:1.4; }
+
+    /* ======= TIER BUTTONS (shared) ======= */
+    .tier-cta{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 18px; border-radius:999px;
+      background:var(--btn-bg); color:var(--btn-fg)!important;
+      border:1px solid var(--btn-border); font-weight:700; letter-spacing:0.01em;
+      text-shadow:0 1px 0 rgba(0,0,0,0.35); text-decoration:none;
+      position:relative; overflow:hidden; z-index:1;
+      transition:all 500ms ease; box-shadow:var(--btn-shadow);
+      cursor:pointer;
+    }
+    .tier-cta:before{
+      position:absolute; content:''; inset:0; z-index:-1;
+      transform:scale(0,0); background:#241E2F; transition:all 500ms ease;
+    }
+    .tier-cta:hover:before,.tier-cta:focus-visible:before{ transform:scale(1,1); }
+    .tier-cta:hover,.tier-cta:focus-visible{
+      background:var(--btn-bg-hover)!important; color:var(--btn-fg-hover)!important;
+      border-color:var(--btn-border-hover)!important; box-shadow:var(--btn-shadow-hover);
+      transform:translateY(-1px);
+    }
+    .tier-cta:active{
+      color:var(--btn-fg-active)!important; background:var(--btn-bg-active);
+      border-color:var(--btn-border-hover); box-shadow:none;
+    }
+    .tier-cta.secondary{
+      background:rgba(0,209,255,0.10); color:var(--text-strong)!important;
+      border:1px solid rgba(0,209,255,0.65); box-shadow:none;
+      text-shadow:0 1px 1px rgba(2,20,32,0.35);
+    }
+    .tier-cta.secondary:hover,.tier-cta.secondary:focus-visible{
+      background:var(--btn-bg-hover)!important; color:var(--btn-fg-hover)!important;
+      border-color:var(--btn-border-hover)!important; box-shadow:var(--btn-shadow-hover);
+      transform:translateY(-1px);
+    }
+    .tier-cta.ghost{
+      background:transparent; color:var(--text-strong)!important;
+      border:1px solid rgba(255,255,255,0.18); box-shadow:none; text-shadow:none;
+    }
+    .tier-cta.ghost:hover{ background:rgba(255,255,255,0.06)!important; }
+    .tier-cta.outline{
+      background:transparent; color:var(--aivric-accent)!important;
+      border:1px solid rgba(0,209,255,0.45); box-shadow:none; text-shadow:none;
+    }
+    .tier-cta.outline:hover{
+      background:rgba(0,209,255,0.1)!important; border-color:rgba(0,209,255,0.7)!important;
+      color:var(--aivric-accent)!important; transform:translateY(-1px);
+    }
+
+    /* Theme buttons */
+    .theme-btn-one,.theme-btn-two{
+      font-weight:700; letter-spacing:0.01em; text-shadow:0 1px 0 rgba(0,0,0,0.35);
+      border-radius:999px; transition:all 0.2s;
+    }
+    .theme-btn-one{
+      background:var(--btn-bg); color:var(--btn-fg)!important;
+      border:1px solid var(--btn-border); box-shadow:var(--btn-shadow);
+    }
+    .theme-btn-one:hover{
+      background:var(--btn-bg-hover); color:var(--btn-fg-hover)!important;
+      border-color:var(--btn-border-hover); box-shadow:var(--btn-shadow-hover);
+    }
+    .theme-btn-two{
+      background:rgba(0,209,255,0.10); color:var(--text-strong)!important;
+      border:1px solid rgba(0,209,255,0.65); box-shadow:none;
+      text-shadow:0 1px 1px rgba(2,20,32,0.35);
+    }
+    .theme-btn-two:hover{
+      background:var(--btn-bg-hover)!important; color:var(--btn-fg-hover)!important;
+      border-color:var(--btn-border-hover)!important; box-shadow:var(--btn-shadow-hover);
+      transform:translateY(-1px);
+    }
+
+    /* ======= SECTION COMMON ======= */
+    .cs-section{ padding:46px 0 0; }
+    .cs-section-label{
+      font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+      color:var(--aivric-accent); display:block; margin-bottom:8px;
+    }
+    .cs-section-title{
+      font-family:Jost,Inter,sans-serif; font-size:32px; font-weight:800;
+      color:var(--text-strong); margin:0 0 10px; letter-spacing:-0.4px; line-height:1.15;
+    }
+    .cs-section-sub{
+      font-size:15px; line-height:1.75; color:var(--text-muted); max-width:80ch; margin:0 0 28px;
+    }
+
+    /* ======= PRICING TIERS ======= */
+    .tiers-grid{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-bottom:12px;
+    }
+    .tiers-grid-wide{
+      display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:18px;
+    }
+    @media(max-width:1100px){ .tiers-grid{ grid-template-columns:1fr 1fr; } }
+    @media(max-width:768px){ .tiers-grid,.tiers-grid-wide{ grid-template-columns:1fr; } }
+
+    .tier-card{
+      border-radius:var(--aivric-radius); background:var(--aivric-panel);
+      border:1px solid var(--aivric-line); box-shadow:var(--aivric-shadow);
+      display:flex; flex-direction:column; overflow:hidden;
+      transition:border-color 0.2s,box-shadow 0.2s;
+    }
+    .tier-card:hover{ border-color:rgba(0,209,255,0.28); box-shadow:0 22px 56px rgba(0,0,0,0.32); }
+    .tier-card.highlight{
+      border-color:rgba(0,209,255,0.45);
+      box-shadow:0 20px 56px rgba(0,209,255,0.13),var(--aivric-shadow);
+    }
+    .tier-card.enterprise{ border-color:rgba(255,206,58,0.3); }
+    .tier-card.provider{ border-color:rgba(167,139,250,0.3); }
+
+    .tc-head{
+      padding:20px 20px 16px; border-bottom:1px solid rgba(255,255,255,0.08);
+      background:linear-gradient(180deg,rgba(255,255,255,0.05),rgba(255,255,255,0.02));
+    }
+    .tc-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:10px; margin-bottom:6px; }
+    .tc-name{
+      font-family:Jost,Inter,sans-serif; font-size:20px; font-weight:900;
+      color:var(--text-strong); margin:0;
+    }
+    .tc-pill{
+      font-size:11px; font-weight:900; padding:5px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.07);
+      color:var(--text-muted); white-space:nowrap;
+    }
+    .tc-pill.popular{
+      background:rgba(0,209,255,0.14); border-color:rgba(0,209,255,0.35); color:var(--aivric-accent);
+    }
+    .tc-pill.enterprise{ background:rgba(255,206,58,0.12); border-color:rgba(255,206,58,0.3); color:#ffd63a; }
+    .tc-pill.provider{ background:rgba(167,139,250,0.12); border-color:rgba(167,139,250,0.3); color:#a78bfa; }
+    .tc-desc{ font-size:13.5px; color:var(--text-muted); line-height:1.55; margin:0; }
+
+    .tc-price{ padding:14px 20px 10px; }
+    .tc-price-row{ display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
+    .tc-amount{
+      font-size:36px; font-weight:900; letter-spacing:-0.6px; color:var(--text-strong);
+    }
+    .tc-term{ color:var(--text-faint); font-size:13px; font-weight:700; }
+    .tc-price-note{ margin-top:6px; color:var(--text-faint); font-size:12.5px; line-height:1.5; }
+
+    .tc-features{ padding:10px 20px 16px; flex:1; }
+    .tc-features ul{ list-style:none; padding:0; margin:0; display:grid; gap:9px; }
+    .tc-features li{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:9px 12px; border-radius:12px;
+      border:1px solid rgba(255,255,255,0.07); background:rgba(255,255,255,0.03);
+    }
+    .tc-features li i{ color:var(--aivric-accent2); margin-top:2px; flex-shrink:0; }
+    .tc-features span{ color:var(--text-muted); font-size:13.5px; line-height:1.45; }
+
+    .tc-actions{ padding:0 20px 20px; }
+
+    /* ======= FEATURE MATRIX ======= */
+    .matrix-wrap{
+      border-radius:var(--aivric-radius); border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.04); box-shadow:var(--aivric-shadow);
+      overflow:hidden; overflow-x:auto;
+    }
+    .matrix-table{
+      width:100%; border-collapse:collapse; font-size:13.5px; min-width:680px;
+    }
+    .matrix-table th,.matrix-table td{
+      padding:12px 14px; border-bottom:1px solid rgba(255,255,255,0.07);
+      vertical-align:middle; color:var(--text-muted);
+    }
+    .matrix-table th{
+      color:var(--text-strong); font-weight:800; font-size:13px;
+      background:rgba(255,255,255,0.05); border-bottom:1px solid rgba(255,255,255,0.12);
+      white-space:nowrap;
+    }
+    .matrix-table th:first-child,.matrix-table td:first-child{
+      text-align:left; font-weight:600; color:var(--text-default); min-width:200px;
+    }
+    .matrix-table th:not(:first-child),.matrix-table td:not(:first-child){
+      text-align:center; min-width:100px;
+    }
+    .matrix-table tr:last-child td{ border-bottom:none; }
+    .matrix-table tr:hover td{ background:rgba(255,255,255,0.025); }
+    .matrix-table .group-row td{
+      background:rgba(0,209,255,0.05); border-bottom:1px solid rgba(0,209,255,0.12);
+      color:var(--aivric-accent); font-size:12px; font-weight:700;
+      text-transform:uppercase; letter-spacing:0.8px; padding:8px 14px;
+    }
+    .mcheck{ color:var(--aivric-accent2); font-size:15px; }
+    .mdash{ color:rgba(255,255,255,0.25); }
+    .mlimit{ color:#ffa600; font-size:12px; font-weight:700; }
+    .mhigh{ color:var(--aivric-accent); font-size:12px; font-weight:700; }
+
+    /* ======= COMPETITIVE COMPARISON ======= */
+    .comp-intro{
+      display:grid; grid-template-columns:1.4fr 0.6fr; gap:28px; align-items:center; margin-bottom:28px;
+    }
+    @media(max-width:992px){ .comp-intro{ grid-template-columns:1fr; } }
+    .comp-note-card{
+      border-radius:16px; background:rgba(0,209,255,0.06); border:1px solid rgba(0,209,255,0.2);
+      padding:18px 20px;
+    }
+    .comp-note-card p{ font-size:13.5px; color:var(--text-muted); line-height:1.65; margin:0; }
+    .comp-note-card strong{ color:var(--text-strong); }
+
+    .comp-table-wrap{
+      border-radius:var(--aivric-radius); border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.04); box-shadow:var(--aivric-shadow);
+      overflow:hidden; overflow-x:auto;
+    }
+    .comp-table{
+      width:100%; border-collapse:collapse; font-size:13.5px; min-width:700px;
+    }
+    .comp-table th,.comp-table td{
+      padding:13px 16px; border-bottom:1px solid rgba(255,255,255,0.07);
+      vertical-align:middle;
+    }
+    .comp-table th{
+      font-weight:800; font-size:13px; background:rgba(255,255,255,0.05);
+      border-bottom:1px solid rgba(255,255,255,0.12); white-space:nowrap; color:var(--text-strong);
+    }
+    .comp-table th.us{
+      background:rgba(0,209,255,0.10); border-color:rgba(0,209,255,0.25); color:var(--aivric-accent);
+    }
+    .comp-table td{ color:var(--text-muted); }
+    .comp-table td.us{
+      background:rgba(0,209,255,0.04); border-left:1px solid rgba(0,209,255,0.15);
+      border-right:1px solid rgba(0,209,255,0.15);
+    }
+    .comp-table td.feat-col{ color:var(--text-default); font-weight:600; min-width:200px; }
+    .comp-table tr:last-child td{ border-bottom:none; }
+    .comp-table tr:hover td{ background:rgba(255,255,255,0.025); }
+    .comp-table tr:hover td.us{ background:rgba(0,209,255,0.07); }
+    .ccheck{ color:var(--aivric-accent2); font-size:15px; }
+    .cdash{ color:rgba(255,255,255,0.25); }
+    .cpartial{ color:#ffa600; font-size:12.5px; font-weight:700; }
+    .cwinner{
+      display:inline-flex; align-items:center; gap:5px;
+      font-size:11px; font-weight:900; letter-spacing:0.3px; text-transform:uppercase;
+      color:var(--aivric-accent2); background:rgba(46,229,157,0.12);
+      border:1px solid rgba(46,229,157,0.3); padding:3px 10px; border-radius:999px;
+    }
+
+    /* ======= WHY CLOUDSIGNALS ======= */
+    .why-grid{
+      display:grid; grid-template-columns:repeat(3,1fr); gap:18px;
+    }
+    @media(max-width:992px){ .why-grid{ grid-template-columns:1fr 1fr; } }
+    @media(max-width:576px){ .why-grid{ grid-template-columns:1fr; } }
+    .why-card{
+      border-radius:16px; background:var(--surface-1); border:1px solid var(--border-subtle);
+      padding:22px; box-shadow:var(--aivric-shadow);
+    }
+    .why-icon{
+      width:44px; height:44px; border-radius:12px;
+      background:rgba(0,209,255,0.12); border:1px solid rgba(0,209,255,0.25);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--aivric-accent); font-size:18px; margin-bottom:14px;
+    }
+    .why-card h3{ font-size:16px; font-weight:700; color:var(--text-strong); margin:0 0 8px; }
+    .why-card p{ font-size:13.5px; color:var(--text-muted); line-height:1.65; margin:0; }
+
+    /* ======= ROI STRIP ======= */
+    .roi-strip{
+      margin:46px 0 0;
+      border-radius:var(--aivric-radius);
+      background:linear-gradient(90deg,rgba(0,89,255,0.12),rgba(0,209,255,0.07));
+      border:1px solid rgba(0,89,255,0.25); box-shadow:var(--aivric-shadow); padding:28px;
+    }
+    .roi-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; }
+    @media(max-width:768px){ .roi-grid{ grid-template-columns:1fr; } }
+    .roi-item{}
+    .roi-metric{
+      font-family:Jost,Inter,sans-serif; font-size:36px; font-weight:800;
+      color:var(--aivric-accent); letter-spacing:-0.8px; display:block; margin-bottom:4px;
+    }
+    .roi-label{ font-size:15px; font-weight:700; color:var(--text-strong); margin-bottom:4px; display:block; }
+    .roi-sub{ font-size:13px; color:var(--text-muted); line-height:1.5; }
+
+    /* ======= FAQ ======= */
+    .faq-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px; }
+    @media(max-width:992px){ .faq-grid{ grid-template-columns:1fr; } }
+    details{
+      border-radius:16px; border:1px solid rgba(255,255,255,0.10);
+      background:rgba(255,255,255,0.04); padding:16px; box-shadow:var(--aivric-shadow);
+    }
+    summary{
+      cursor:pointer; font-weight:700; font-size:14.5px; letter-spacing:0.1px;
+      color:var(--text-strong); list-style:none; user-select:none;
+    }
+    summary::-webkit-details-marker{ display:none; }
+    details[open] summary{ color:var(--aivric-accent); }
+    details p{
+      margin:12px 0 0; color:var(--text-muted); line-height:1.75; font-size:13.5px;
+    }
+    details a{ color:var(--aivric-accent); }
+
+    /* ======= BOTTOM CTA ======= */
+    .bottom-cta{
+      margin:48px 0 0; border-radius:var(--aivric-radius);
+      background:linear-gradient(135deg,rgba(0,209,255,0.10) 0%,rgba(46,229,157,0.06) 100%);
+      border:1px solid rgba(0,209,255,0.28); box-shadow:0 24px 60px rgba(0,209,255,0.10);
+      padding:40px 36px; text-align:center;
+    }
+    .bottom-cta h2{
+      font-family:Jost,Inter,sans-serif; font-size:36px; font-weight:800;
+      color:var(--text-strong); margin:0 0 12px; letter-spacing:-0.5px;
+    }
+    @media(max-width:768px){ .bottom-cta h2{ font-size:28px; } }
+    .bottom-cta p{ font-size:16px; color:var(--text-muted); line-height:1.7; max-width:62ch; margin:0 auto 24px; }
+    .bottom-cta-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+
+    /* ======= MODALS ======= */
+    .release-modal{
+      display:none; position:fixed; inset:0; z-index:9999; align-items:center; justify-content:center;
+    }
+    .release-modal.is-open{ display:flex; }
+    .release-modal__backdrop{
+      position:absolute; inset:0; background:rgba(5,8,20,0.75); backdrop-filter:blur(4px);
+    }
+    .release-modal__dialog{
+      position:relative; z-index:1; width:100%; max-width:480px; margin:16px;
+      background:#0b1220; border:1px solid rgba(255,255,255,0.12); border-radius:20px;
+      padding:28px; box-shadow:0 30px 80px rgba(0,0,0,0.6);
+    }
+    .release-modal__close{
+      position:absolute; top:16px; right:16px; background:none; border:none;
+      color:var(--text-faint); font-size:20px; cursor:pointer; line-height:1;
+    }
+    .release-modal__close:hover{ color:var(--text-strong); }
+    .release-modal__title{ font-size:20px; font-weight:800; color:var(--text-strong); margin:0 0 6px; }
+    .release-modal__subtitle{ font-size:14px; color:var(--text-muted); margin:0 0 20px; }
+    .release-modal__form{ display:grid; gap:14px; }
+    .release-modal__grid{ display:grid; gap:12px; }
+    .release-modal__field label{
+      display:block; font-size:12px; font-weight:700; text-transform:uppercase;
+      letter-spacing:0.5px; color:var(--text-faint); margin-bottom:5px;
+    }
+    .release-modal__field input,.release-modal__field textarea{
+      width:100%; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
+      border-radius:10px; padding:10px 14px; color:var(--text-strong);
+      font-size:14px; outline:none; font-family:inherit; transition:border-color 0.2s;
+    }
+    .release-modal__field input:focus{ border-color:rgba(0,209,255,0.45); }
+    .release-modal__interests span{
+      display:block; font-size:12px; font-weight:700; text-transform:uppercase;
+      letter-spacing:0.5px; color:var(--text-faint); margin-bottom:8px;
+    }
+    .release-modal__checks{ display:grid; gap:8px; }
+    .release-modal__checks label{
+      display:flex; align-items:center; gap:8px;
+      font-size:13.5px; color:var(--text-muted); cursor:pointer;
+    }
+    .release-modal__checks input[type="checkbox"]{
+      width:15px; height:15px; accent-color:var(--aivric-accent); flex-shrink:0;
+    }
+    .release-modal__actions{
+      display:flex; gap:10px; margin-top:4px; justify-content:flex-end;
+    }
+
+    /* Focus ring */
+    .tier-cta:focus-visible,.theme-btn-one:focus-visible,.theme-btn-two:focus-visible{
+      outline:2px solid var(--text-accent); outline-offset:3px; box-shadow:var(--focus-ring);
+    }
+    .anchor{ scroll-margin-top:120px; }
+  </style>
+  <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+<style id="gf-styles">
+/* === GLOBAL FOOTER === */
+.gf-footer{background:#050b17;position:relative;overflow:hidden;font-family:'Inter',sans-serif}
+/* subtle dot-grid */
+.gf-footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(0,209,255,.045) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+/* gradient glow top-line */
+.gf-top-rule{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,209,255,.55) 30%,rgba(46,229,157,.4) 70%,transparent 100%);position:relative;z-index:1}
+/* body */
+.gf-body{padding:72px 0 52px;position:relative;z-index:1}
+.gf-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:52px}
+@media(max-width:991px){.gf-grid{grid-template-columns:1fr 1fr;gap:36px 40px}}
+@media(max-width:599px){.gf-grid{grid-template-columns:1fr;gap:32px}}
+/* brand col */
+.gf-logo-link{display:inline-block;margin-bottom:14px}
+.gf-logo{height:34px;width:auto;display:block}
+.gf-tagline{font-size:13px;color:#4e637a;line-height:1.7;margin-bottom:22px;max-width:255px}
+/* email subscribe */
+.gf-subscribe-row{display:flex;gap:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:8px;overflow:hidden;margin-bottom:7px;transition:border-color .2s}
+.gf-subscribe-row:focus-within{border-color:rgba(0,209,255,.35)}
+.gf-subscribe-row input{flex:1;background:transparent;border:none;outline:none;padding:10px 14px;font-size:13px;color:#e2e8f0;font-family:'Inter',sans-serif}
+.gf-subscribe-row input::placeholder{color:#3d5268}
+.gf-subscribe-row button{background:#00d1ff;border:none;padding:10px 15px;color:#030a12;cursor:pointer;font-size:13px;transition:background .2s;flex-shrink:0}
+.gf-subscribe-row button:hover{background:#33daff}
+.gf-subscribe-note{font-size:11px;color:#3d5268;margin:0 0 22px}
+/* social */
+.gf-social{display:flex;gap:8px}
+.gf-social-link{width:33px;height:33px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#4e637a;font-size:13px;text-decoration:none;transition:all .2s}
+.gf-social-link:hover{background:rgba(0,209,255,.09);border-color:rgba(0,209,255,.28);color:#00d1ff}
+/* nav columns */
+.gf-col-title{font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#94a3b8;margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.06)}
+.gf-links{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:9px}
+.gf-links li a{font-size:13.5px;color:#4e637a;text-decoration:none;transition:color .18s;display:inline-block}
+.gf-links li a:hover{color:#cbd5e1}
+/* contact block */
+.gf-contact-block{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.gf-contact-link{display:flex;align-items:center;gap:8px;font-size:13px;color:#4e637a;text-decoration:none;transition:color .18s}
+.gf-contact-link i{color:#00d1ff;font-size:12px;width:14px;text-align:center;flex-shrink:0}
+.gf-contact-link:hover{color:#cbd5e1}
+/* bottom bar */
+.gf-bottom{border-top:1px solid rgba(255,255,255,.055);padding:16px 0;position:relative;z-index:1}
+.gf-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.gf-copy{font-size:12px;color:#3d5268;margin:0}
+.gf-copy a{color:#4e637a;text-decoration:none;transition:color .18s}
+.gf-copy a:hover{color:#94a3b8}
+.gf-bottom-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.gf-trust-pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#2ee59d;background:rgba(46,229,157,.07);border:1px solid rgba(46,229,157,.18);border-radius:100px;padding:4px 12px;letter-spacing:.3px}
+.gf-trust-dot{width:6px;height:6px;border-radius:50%;background:#2ee59d;box-shadow:0 0 6px #2ee59d;animation:gf-blink 2s ease-in-out infinite}
+@keyframes gf-blink{0%,100%{opacity:1}50%{opacity:.25}}
+.gf-bottom-nav{display:flex;gap:18px}
+.gf-bottom-nav a{font-size:12px;color:#3d5268;text-decoration:none;transition:color .18s}
+.gf-bottom-nav a:hover{color:#94a3b8}
+/* remove old footer pattern images */
+.gf-footer .pattern-layer{display:none!important}
+/* keep old .main-footer link colors from interfering */
+.gf-footer .links-list,.gf-footer .footer-widget,.gf-footer .widget-section,.gf-footer .footer-bottom{display:none!important}
+</style>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
