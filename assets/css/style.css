@@ -2767,8 +2767,9 @@ header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-tab {
 
 header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-tab.is-active,
 header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-tab:hover {
-  background: #d1d5db;
-  color: #111827;
+  background: rgba(0,209,255,.1);
+  color: #00d1ff;
+  box-shadow: inset 0 0 0 1px rgba(0,209,255,.22);
 }
 
 header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-panel {
@@ -2788,12 +2789,13 @@ header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-rail-sta
 header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-stack-card {
   background: #1a1a1a;
   border-radius: 14px;
-  padding: 16px 18px;
+  padding: 16px 18px 16px 15px;
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   text-align: left;
   border: 0;
+  border-left: 3px solid transparent;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
   min-height: 124px !important;
   height: 100% !important;
   display: flex;
@@ -2842,26 +2844,59 @@ header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-grid {
 }
 
 header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card {
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 8px 10px;
+  background: rgba(255,255,255,.03);
+  border-radius: 10px;
+  padding: 10px 12px;
   min-height: 0 !important;
   height: auto !important;
-  color: #0f172a;
-  box-shadow: inset 0 0 0 1px #e5e7eb;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #e2e8f0;
+  border: 1px solid rgba(255,255,255,.07);
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
   display: block;
+  text-decoration: none;
+}
+
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card:hover {
+  background: rgba(255,255,255,.06);
+  border-color: rgba(0,209,255,.2);
+  transform: translateY(-1px);
 }
 
 header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card strong {
   font-weight: 700;
-  color: #111827;
+  color: #f1f5f9;
+  display: block;
+  font-size: 13px;
+  margin-bottom: 3px;
 }
 
 header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card span {
-  font-size: 12.5px;
-  color: #6b7280;
+  font-size: 12px;
+  color: #64748b;
+  line-height: 1.4;
 }
+
+/* Suite & use-case color accents — stack card left rails */
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-stack-card[data-mega-target="defense"],
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-stack-card.is-active[data-mega-target="defense"] { border-left-color: #00d1ff; }
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-stack-card[data-mega-target="offense"],
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-stack-card.is-active[data-mega-target="offense"] { border-left-color: #fb923c; }
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-stack-card[data-mega-target="vision"],
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-stack-card.is-active[data-mega-target="vision"] { border-left-color: #ffd63a; }
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-stack-card[data-mega-target="compliance"],
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-stack-card.is-active[data-mega-target="compliance"] { border-left-color: #00d1ff; }
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-stack-card[data-mega-target="riskops"],
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-stack-card.is-active[data-mega-target="riskops"] { border-left-color: #2ee59d; }
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-stack-card[data-mega-target="productops"],
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-stack-card.is-active[data-mega-target="productops"] { border-left-color: #ffd63a; }
+
+/* Suite color on mega-card product/use-case names */
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card[data-mega-category="defense"] strong { color: #00d1ff; }
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card[data-mega-category="offense"] strong { color: #fb923c; }
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card[data-mega-category="vision"] strong { color: #ffd63a; }
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card[data-mega-category="compliance"] strong { color: #00d1ff; }
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card[data-mega-category="riskops"] strong { color: #2ee59d; }
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card[data-mega-category="productops"] strong { color: #ffd63a; }
 
 header.main-header .main-menu .navigation > li.platform-menu .platform-megamenu {
   position: absolute;

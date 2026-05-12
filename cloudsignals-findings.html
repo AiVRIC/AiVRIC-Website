@@ -4,18 +4,11 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
 <title>Findings & Risk Signals | Prioritized Risk Intelligence | AiVRIC</title>
 <meta name="description" content="CloudSignals+RiskOps™ Findings — prioritized risk signals with business context, deduplication, evidence capture, and SIEM export.">
-
-<!-- Fav Icon -->
 <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
-
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-<!-- Stylesheets -->
 <link href="assets/css/font-awesome-all.css" rel="stylesheet">
 <link href="assets/css/flaticon.css" rel="stylesheet">
 <link href="assets/css/owl.css" rel="stylesheet">
@@ -26,431 +19,154 @@
 <link href="assets/css/color.css" rel="stylesheet">
 <link href="assets/css/elpath.css" rel="stylesheet">
 <link href="assets/css/style.css?v=20250115" rel="stylesheet">
-<link href="assets/css/elements-css/page-title.css" rel="stylesheet">
-<link href="assets/css/elements-css/service.css" rel="stylesheet">
-<link href="assets/css/elements-css/about.css" rel="stylesheet">
-<link href="assets/css/elements-css/subscribe.css" rel="stylesheet">
 <link href="assets/css/responsive.css" rel="stylesheet">
-
-  <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
-
-  <style>
-    /* =========================================================
-       CloudSignals Product Page — Design System
-       Matches cloudsignals-pricing.html token set
-    ========================================================= */
-    :root{
-      --cs-cyan:#00d1ff; --cs-green:#2ee59d; --cs-gold:#ffd63a; --cs-purple:#a78bfa;
-      --cs-text-strong:#f8fafc; --cs-text:#e5e7eb; --cs-muted:#cbd5e1; --cs-faint:#94a3b8; --cs-accent:#7dd3fc;
-      --cs-surface-1:rgba(255,255,255,0.06); --cs-surface-2:rgba(255,255,255,0.10);
-      --cs-line:rgba(148,163,184,0.28); --cs-line-strong:rgba(148,163,184,0.5);
-      --cs-shadow:0 14px 40px rgba(0,0,0,0.28); --cs-radius:18px;
-      --cs-btn:#00d1ff; --cs-btn-hover:#24ddff; --cs-btn-active:#00b8e6;
-      --cs-btn-fg:#fff; --cs-btn-border:rgba(0,209,255,0.6);
-      --cs-btn-border-hover:rgba(0,209,255,0.85);
-      --cs-btn-shadow:0 12px 24px rgba(0,209,255,0.2);
-      --cs-btn-shadow-hover:0 14px 28px rgba(0,209,255,0.28);
-    }
-
-    body.portal-page{
-      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      background:
-        radial-gradient(1200px 900px at 70% -20%,rgba(0,209,255,0.20),transparent 55%),
-        radial-gradient(900px 700px at 10% 10%,rgba(46,113,229,0.13),transparent 60%),
-        linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%);
-      color:var(--cs-text);
-    }
-
-    /* ---- Shared button primitives ---- */
-    .cs-btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:8px;
-      padding:11px 22px; border-radius:999px; font-weight:700; font-size:14px;
-      letter-spacing:0.01em; text-decoration:none; cursor:pointer; transition:all 0.22s;
-      text-shadow:0 1px 0 rgba(0,0,0,0.3);
-    }
-    .cs-btn.primary{
-      background:var(--cs-btn); color:var(--cs-btn-fg)!important;
-      border:1px solid var(--cs-btn-border); box-shadow:var(--cs-btn-shadow);
-    }
-    .cs-btn.primary:hover{
-      background:var(--cs-btn-hover); border-color:var(--cs-btn-border-hover);
-      box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px);
-    }
-    .cs-btn.secondary{
-      background:rgba(0,209,255,0.10); color:var(--cs-text-strong)!important;
-      border:1px solid rgba(0,209,255,0.65); box-shadow:none;
-      text-shadow:0 1px 1px rgba(2,20,32,0.35);
-    }
-    .cs-btn.secondary:hover{
-      background:var(--cs-btn-hover)!important; color:#fff!important;
-      border-color:var(--cs-btn-border-hover)!important;
-      box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px);
-    }
-    .cs-btn.ghost{
-      background:transparent; color:var(--cs-text-strong)!important;
-      border:1px solid rgba(255,255,255,0.22); box-shadow:none; text-shadow:none;
-    }
-    .cs-btn.ghost:hover{
-      background:rgba(255,255,255,0.07)!important; transform:translateY(-1px);
-    }
-    .cs-btn[data-cloudsignals-free]{
-      background:var(--cs-btn); color:var(--cs-btn-fg)!important;
-      border:1px solid var(--cs-btn-border); box-shadow:var(--cs-btn-shadow);
-    }
-    .cs-btn[data-cloudsignals-free]:hover{
-      background:var(--cs-btn-hover); border-color:var(--cs-btn-border-hover);
-      box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px);
-    }
-
-    /* ---- Page wrapper ---- */
-    .cs-product-page{ padding:0; }
-
-    /* ---- Hero ---- */
-    .csp-hero{
-      padding:100px 0 56px;
-      position:relative; overflow:hidden;
-    }
-    @media(max-width:992px){ .csp-hero{ padding:80px 0 40px; } }
-    .csp-hero-grid{
-      display:grid; grid-template-columns:1.25fr 0.75fr; gap:32px; align-items:start;
-    }
-    @media(max-width:992px){ .csp-hero-grid{ grid-template-columns:1fr; } }
-
-    .csp-badge{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:7px 14px; border-radius:999px;
-      background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.35);
-      color:var(--cs-text-strong); font-size:12.5px; font-weight:600; letter-spacing:0.3px;
-      margin-bottom:16px;
-    }
-    .csp-badge i{ color:var(--cs-cyan); }
-    .csp-badge .avail-dot{
-      width:8px; height:8px; border-radius:50%; background:var(--cs-green);
-      box-shadow:0 0 6px rgba(46,229,157,0.7); flex-shrink:0;
-    }
-
-    .csp-title{
-      font-family:Jost,Inter,sans-serif; font-size:54px; font-weight:800;
-      line-height:1.03; letter-spacing:-1.2px; color:var(--cs-text-strong); margin:0 0 14px;
-    }
-    @media(max-width:768px){ .csp-title{ font-size:38px; } }
-    .csp-sub{
-      font-size:17px; line-height:1.75; color:var(--cs-muted); max-width:62ch; margin:0 0 24px;
-    }
-    .csp-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
-
-    /* Release band (inline) */
-    .csp-release-band{
-      display:flex; flex-wrap:wrap; gap:10px;
-    }
-    .csp-rb-item{
-      display:flex; align-items:center; gap:8px;
-      padding:8px 14px; border-radius:12px;
-      background:var(--cs-surface-1); border:1px solid var(--cs-line);
-    }
-    .csp-rb-label{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--cs-faint); }
-    .csp-rb-val{ font-size:13px; color:var(--cs-text); font-weight:600; }
-    .csp-rb-val.avail{
-      color:var(--cs-green);
-      display:flex; align-items:center; gap:6px;
-    }
-    .csp-rb-val.avail::before{
-      content:""; width:7px; height:7px; border-radius:50%;
-      background:var(--cs-green); box-shadow:0 0 5px rgba(46,229,157,0.6);
-    }
-
-    /* Hero sidebar */
-    .csp-hero-aside{
-      display:flex; flex-direction:column; gap:14px; padding-top:4px;
-    }
-    .csp-quick-card{
-      border-radius:16px; padding:18px 20px;
-      background:var(--cs-surface-1); border:1px solid var(--cs-line);
-      box-shadow:var(--cs-shadow);
-    }
-    .csp-quick-card h4{
-      font-size:13px; font-weight:700; color:var(--cs-text-strong); margin:0 0 12px;
-      text-transform:uppercase; letter-spacing:0.5px;
-    }
-    .csp-quick-list{ list-style:none; padding:0; margin:0; display:grid; gap:7px; }
-    .csp-quick-list li{
-      display:flex; gap:9px; align-items:flex-start;
-      font-size:13px; color:var(--cs-muted); line-height:1.45;
-    }
-    .csp-quick-list li i{ color:var(--cs-green); flex-shrink:0; margin-top:1px; font-size:11px; }
-    .csp-quick-link{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:12px 16px; border-radius:12px;
-      background:rgba(0,209,255,0.07); border:1px solid rgba(0,209,255,0.22);
-      text-decoration:none; transition:background 0.2s;
-    }
-    .csp-quick-link:hover{ background:rgba(0,209,255,0.12); }
-    .csp-quick-link span{ font-size:13.5px; font-weight:600; color:var(--cs-text-strong); }
-    .csp-quick-link i{ color:var(--cs-cyan); font-size:12px; }
-
-    /* ---- Shared section ---- */
-    .csp-section{ padding:52px 0 0; }
-    .csp-eyebrow{
-      display:block; font-size:12px; font-weight:700; letter-spacing:1.5px;
-      text-transform:uppercase; color:var(--cs-cyan); margin-bottom:8px;
-    }
-    .csp-section-title{
-      font-family:Jost,Inter,sans-serif; font-size:32px; font-weight:800;
-      color:var(--cs-text-strong); margin:0 0 10px; letter-spacing:-0.4px; line-height:1.15;
-    }
-    .csp-section-sub{
-      font-size:15px; line-height:1.75; color:var(--cs-muted); max-width:80ch; margin:0 0 28px;
-    }
-
-    /* ---- Module cards ---- */
-    .csp-modules-grid{
-      display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
-    }
-    @media(max-width:1100px){ .csp-modules-grid{ grid-template-columns:repeat(2,1fr); } }
-    @media(max-width:576px){ .csp-modules-grid{ grid-template-columns:1fr; } }
-    .csp-module-card{
-      border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line);
-      padding:22px; box-shadow:var(--cs-shadow);
-      display:flex; flex-direction:column; gap:12px;
-      transition:border-color 0.2s,box-shadow 0.2s;
-    }
-    .csp-module-card:hover{ border-color:rgba(0,209,255,0.3); box-shadow:0 20px 48px rgba(0,0,0,0.3); }
-    .csp-module-icon{
-      width:46px; height:46px; border-radius:13px;
-      display:flex; align-items:center; justify-content:center;
-      font-size:20px; flex-shrink:0;
-    }
-    .csp-module-icon.cyan{ background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.28); color:var(--cs-cyan); }
-    .csp-module-icon.green{ background:rgba(46,229,157,0.13); border:1px solid rgba(46,229,157,0.28); color:var(--cs-green); }
-    .csp-module-icon.gold{ background:rgba(255,214,58,0.13); border:1px solid rgba(255,214,58,0.28); color:var(--cs-gold); }
-    .csp-module-icon.purple{ background:rgba(167,139,250,0.13); border:1px solid rgba(167,139,250,0.28); color:var(--cs-purple); }
-    .csp-module-card h3{ font-size:16px; font-weight:700; color:var(--cs-text-strong); margin:0; }
-    .csp-module-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; flex:1; }
-    .csp-module-feats{ list-style:none; padding:0; margin:0; display:grid; gap:6px; }
-    .csp-module-feats li{
-      font-size:12.5px; color:var(--cs-muted); display:flex; gap:7px; align-items:flex-start;
-    }
-    .csp-module-feats li::before{ content:"→"; color:var(--cs-cyan); font-size:11px; flex-shrink:0; margin-top:1px; }
-
-    /* ---- Capabilities grid ---- */
-    .csp-cap-grid{
-      display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
-    }
-    @media(max-width:992px){ .csp-cap-grid{ grid-template-columns:repeat(2,1fr); } }
-    @media(max-width:576px){ .csp-cap-grid{ grid-template-columns:1fr; } }
-    .csp-cap{
-      border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line);
-      padding:20px; box-shadow:var(--cs-shadow);
-    }
-    .csp-cap-icon{
-      width:40px; height:40px; border-radius:11px;
-      background:rgba(0,209,255,0.11); border:1px solid rgba(0,209,255,0.24);
-      display:flex; align-items:center; justify-content:center;
-      color:var(--cs-cyan); font-size:16px; margin-bottom:12px;
-    }
-    .csp-cap h4{ font-size:15px; font-weight:700; color:var(--cs-text-strong); margin:0 0 6px; }
-    .csp-cap p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; }
-
-    /* ---- Scope strip (plan limits) ---- */
-    .csp-scope-strip{
-      border-radius:var(--cs-radius);
-      background:linear-gradient(90deg,rgba(0,89,255,0.11),rgba(0,209,255,0.06));
-      border:1px solid rgba(0,89,255,0.22); padding:26px 28px;
-      display:flex; flex-direction:column; gap:16px;
-    }
-    .csp-scope-header{ display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
-    .csp-scope-header h3{ font-family:Jost,Inter,sans-serif; font-size:20px; font-weight:700; color:var(--cs-text-strong); margin:0; }
-    .csp-scope-metrics{
-      display:grid; grid-template-columns:repeat(6,1fr); gap:14px;
-    }
-    @media(max-width:1100px){ .csp-scope-metrics{ grid-template-columns:repeat(3,1fr); } }
-    @media(max-width:576px){ .csp-scope-metrics{ grid-template-columns:repeat(2,1fr); } }
-    .csp-metric{
-      background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.09);
-      border-radius:14px; padding:14px 12px; text-align:center;
-    }
-    .csp-metric-val{
-      font-family:Jost,Inter,sans-serif; font-size:24px; font-weight:800;
-      color:var(--cs-cyan); letter-spacing:-0.5px; display:block; margin-bottom:4px;
-    }
-    .csp-metric-label{ font-size:12px; color:var(--cs-muted); line-height:1.4; }
-    .csp-scope-note{
-      font-size:13px; color:var(--cs-faint); line-height:1.6;
-    }
-    .csp-scope-note a{ color:var(--cs-cyan); }
-
-    /* ---- Compliance ---- */
-    .csp-fw-grid{
-      display:grid; grid-template-columns:repeat(2,1fr); gap:14px;
-    }
-    @media(max-width:768px){ .csp-fw-grid{ grid-template-columns:1fr; } }
-    .csp-fw-card{
-      border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line);
-      overflow:hidden; box-shadow:var(--cs-shadow);
-    }
-    .csp-fw-head{
-      display:flex; align-items:center; justify-content:space-between; gap:12px;
-      padding:16px 18px; cursor:pointer; user-select:none;
-    }
-    .csp-fw-head::-webkit-details-marker{ display:none; }
-    .csp-fw-head-left{ display:flex; align-items:center; gap:12px; }
-    .csp-fw-logo{
-      width:36px; height:36px; border-radius:10px;
-      background:rgba(0,209,255,0.11); border:1px solid rgba(0,209,255,0.24);
-      display:flex; align-items:center; justify-content:center;
-      color:var(--cs-cyan); font-size:14px; flex-shrink:0;
-    }
-    .csp-fw-name{ font-size:15px; font-weight:700; color:var(--cs-text-strong); }
-    .csp-fw-sub{ font-size:12.5px; color:var(--cs-muted); margin-top:2px; }
-    .csp-fw-chevron{ color:var(--cs-faint); font-size:12px; transition:transform 0.2s; flex-shrink:0; }
-    details[open] .csp-fw-chevron{ transform:rotate(90deg); }
-    .csp-fw-body{
-      padding:0 18px 16px;
-      border-top:1px solid var(--cs-line);
-      padding-top:14px;
-    }
-    .csp-fw-req{
-      background:rgba(0,209,255,0.06); border:1px solid rgba(0,209,255,0.18);
-      border-radius:10px; padding:10px 12px; margin-bottom:10px;
-      font-size:13px; color:var(--cs-muted); line-height:1.6;
-    }
-    .csp-fw-req strong{ color:var(--cs-cyan); }
-    .csp-fw-body ul{ padding-left:16px; margin:0; display:grid; gap:5px; }
-    .csp-fw-body li{ font-size:13.5px; color:var(--cs-muted); line-height:1.55; }
-
-    /* ---- Deployment options ---- */
-    .csp-deploy-grid{
-      display:grid; grid-template-columns:repeat(3,1fr); gap:16px;
-    }
-    @media(max-width:768px){ .csp-deploy-grid{ grid-template-columns:1fr; } }
-    .csp-deploy-card{
-      border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line);
-      padding:24px; box-shadow:var(--cs-shadow);
-    }
-    .csp-deploy-card.highlight{ border-color:rgba(0,209,255,0.35); }
-    .csp-deploy-icon{
-      width:44px; height:44px; border-radius:12px;
-      display:flex; align-items:center; justify-content:center;
-      font-size:18px; margin-bottom:14px;
-    }
-    .csp-deploy-card h3{ font-size:17px; font-weight:700; color:var(--cs-text-strong); margin:0 0 8px; }
-    .csp-deploy-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0 0 14px; }
-    .csp-deploy-tags{ display:flex; flex-wrap:wrap; gap:6px; }
-    .csp-tag{
-      padding:4px 11px; border-radius:999px;
-      background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12);
-      color:var(--cs-muted); font-size:12px; font-weight:600;
-    }
-
-    /* ---- Pricing preview ---- */
-    .csp-pricing-preview{
-      border-radius:var(--cs-radius);
-      background:linear-gradient(135deg,rgba(0,209,255,0.08) 0%,rgba(46,229,157,0.04) 100%);
-      border:1px solid rgba(0,209,255,0.25);
-      box-shadow:0 20px 56px rgba(0,209,255,0.08),var(--cs-shadow);
-      padding:32px;
-    }
-    .csp-pp-grid{
-      display:grid; grid-template-columns:1fr auto; gap:24px; align-items:center;
-    }
-    @media(max-width:768px){ .csp-pp-grid{ grid-template-columns:1fr; } }
-    .csp-pp-tiers{ display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
-    .csp-pp-tier{
-      padding:8px 16px; border-radius:12px;
-      background:var(--cs-surface-1); border:1px solid var(--cs-line);
-      display:flex; flex-direction:column; gap:2px; min-width:100px;
-    }
-    .csp-pp-tier.active{ border-color:rgba(0,209,255,0.38); background:rgba(0,209,255,0.07); }
-    .csp-pp-tier-name{ font-size:13px; font-weight:700; color:var(--cs-text-strong); }
-    .csp-pp-tier-price{ font-size:12px; color:var(--cs-muted); }
-    .csp-pp-aside{ display:flex; flex-direction:column; gap:10px; align-items:flex-end; }
-
-    /* ---- FAQ ---- */
-    .csp-faq-grid{
-      display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px;
-    }
-    @media(max-width:992px){ .csp-faq-grid{ grid-template-columns:1fr; } }
-    .csp-faq-item{
-      border-radius:16px; border:1px solid var(--cs-line);
-      background:var(--cs-surface-1); padding:16px; box-shadow:var(--cs-shadow);
-    }
-    .csp-faq-item summary{
-      cursor:pointer; font-weight:700; font-size:14.5px; color:var(--cs-text-strong);
-      list-style:none; user-select:none;
-    }
-    .csp-faq-item summary::-webkit-details-marker{ display:none; }
-    details[open] .csp-faq-item summary,
-    .csp-faq-item[open] summary{ color:var(--cs-cyan); }
-    .csp-faq-item p{
-      margin:10px 0 0; color:var(--cs-muted); font-size:13.5px; line-height:1.75;
-    }
-    .csp-faq-item a{ color:var(--cs-cyan); }
-
-    /* ---- Bottom CTA ---- */
-    .csp-bottom-cta{
-      margin:52px 0 60px;
-      border-radius:var(--cs-radius);
-      background:linear-gradient(135deg,rgba(0,209,255,0.09) 0%,rgba(46,229,157,0.05) 100%);
-      border:1px solid rgba(0,209,255,0.25);
-      box-shadow:0 24px 60px rgba(0,209,255,0.09);
-      padding:40px; text-align:center;
-    }
-    .csp-bottom-cta h2{
-      font-family:Jost,Inter,sans-serif; font-size:36px; font-weight:800;
-      color:var(--cs-text-strong); margin:0 0 12px; letter-spacing:-0.5px;
-    }
-    @media(max-width:768px){ .csp-bottom-cta h2{ font-size:26px; } }
-    .csp-bottom-cta p{
-      font-size:16px; color:var(--cs-muted); line-height:1.7;
-      max-width:60ch; margin:0 auto 24px;
-    }
-    .csp-bottom-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
-
-    /* ---- Divider ---- */
-    .csp-divider{
-      height:1px; background:linear-gradient(90deg,transparent,var(--cs-line),transparent);
-      margin:48px 0 0;
-    }
-
-    /* ---- Use case pills ---- */
-    .csp-usecase-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
-    .csp-usecase-pill{
-      display:inline-flex; align-items:center; gap:7px;
-      padding:9px 16px; border-radius:12px;
-      background:var(--cs-surface-1); border:1px solid var(--cs-line);
-      color:var(--cs-muted); font-size:13.5px; font-weight:600; text-decoration:none;
-      transition:border-color 0.2s,color 0.2s;
-    }
-    .csp-usecase-pill:hover{ border-color:rgba(0,209,255,0.35); color:var(--cs-cyan); }
-    .csp-usecase-pill i{ color:var(--cs-cyan); font-size:11px; }
-
-    /* ---- "Replaces" ---- */
-    .csp-replaces-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
-    .csp-replaces-pill{
-      display:inline-flex; align-items:center; gap:7px;
-      padding:7px 14px; border-radius:999px;
-      background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.10);
-      color:var(--cs-muted); font-size:13px; font-weight:600;
-    }
-    .csp-replaces-pill i{ color:var(--cs-green); font-size:11px; }
-  </style>
+<link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+<style id="cs-feat-styles">
+:root{
+  --cf-cyan:#00d1ff;--cf-green:#2ee59d;--cf-gold:#ffd63a;--cf-purple:#a78bfa;--cf-amber:#fb923c;
+  --cf-text:#f8fafc;--cf-body:#e5e7eb;--cf-muted:#cbd5e1;--cf-faint:#94a3b8;--cf-accent:#7dd3fc;
+  --cf-s1:rgba(255,255,255,.06);--cf-s2:rgba(255,255,255,.10);
+  --cf-line:rgba(148,163,184,.28);--cf-shadow:0 14px 40px rgba(0,0,0,.28);--cf-r:16px;
+}
+body.cf-page{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:radial-gradient(1200px 900px at 70% -20%,rgba(0,209,255,.18),transparent 55%),
+    radial-gradient(900px 700px at 10% 10%,rgba(46,113,229,.12),transparent 60%),
+    linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%);
+  color:var(--cf-body);
+}
+/* hero */
+.cf-hero{padding:100px 0 56px;position:relative;}
+@media(max-width:992px){.cf-hero{padding:80px 0 40px;}}
+.cf-hero-grid{display:grid;grid-template-columns:1.3fr 0.7fr;gap:36px;align-items:start;}
+@media(max-width:992px){.cf-hero-grid{grid-template-columns:1fr;}}
+.cf-breadcrumb{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--cf-faint);margin-bottom:20px;}
+.cf-breadcrumb a{color:var(--cf-faint);text-decoration:none;}
+.cf-breadcrumb a:hover{color:var(--cf-accent);}
+.cf-badge{
+  display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;
+  background:rgba(0,209,255,.10);border:1px solid rgba(0,209,255,.30);
+  color:var(--cf-text);font-size:12.5px;font-weight:600;letter-spacing:.3px;margin-bottom:18px;
+}
+.cf-dot{width:8px;height:8px;border-radius:50%;background:var(--cf-green);box-shadow:0 0 6px rgba(46,229,157,.7);flex-shrink:0;}
+.cf-title{
+  font-family:Jost,Inter,sans-serif;font-size:48px;font-weight:800;
+  line-height:1.06;letter-spacing:-1px;color:var(--cf-text);margin:0 0 8px;
+}
+@media(max-width:768px){.cf-title{font-size:34px;}}
+.cf-sub{font-size:18px;font-weight:700;margin:0 0 14px;}
+.cf-lead{font-size:16px;line-height:1.75;color:var(--cf-muted);max-width:62ch;margin:0 0 26px;}
+.cf-actions{display:flex;gap:12px;flex-wrap:wrap;}
+.cf-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:999px;
+  font-weight:700;font-size:14px;text-decoration:none;cursor:pointer;transition:all .22s;border:1px solid transparent;
+}
+.cf-btn.primary{background:#00d1ff;color:#fff!important;border-color:rgba(0,209,255,.6);box-shadow:0 10px 22px rgba(0,209,255,.2);}
+.cf-btn.primary:hover{background:#24ddff;transform:translateY(-1px);}
+.cf-btn.secondary{background:rgba(0,209,255,.10);color:var(--cf-text)!important;border-color:rgba(0,209,255,.55);}
+.cf-btn.secondary:hover{background:#00d1ff;color:#fff!important;transform:translateY(-1px);}
+.cf-btn.ghost{background:transparent;color:var(--cf-text)!important;border-color:rgba(255,255,255,.20);}
+.cf-btn.ghost:hover{background:rgba(255,255,255,.07);transform:translateY(-1px);}
+/* aside */
+.cf-aside{display:flex;flex-direction:column;gap:14px;padding-top:8px;}
+.cf-aside-card{border-radius:var(--cf-r);padding:20px;background:var(--cf-s1);border:1px solid var(--cf-line);box-shadow:var(--cf-shadow);}
+.cf-aside-card h4{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--cf-faint);margin:0 0 12px;}
+.cf-ql{list-style:none;padding:0;margin:0;display:grid;gap:8px;}
+.cf-ql li{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--cf-muted);line-height:1.45;}
+.cf-ql li i{color:var(--cf-green);flex-shrink:0;margin-top:2px;font-size:11px;}
+.cf-aside-link{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px;border-radius:12px;
+  background:rgba(0,209,255,.07);border:1px solid rgba(0,209,255,.22);
+  text-decoration:none;transition:background .2s;
+}
+.cf-aside-link:hover{background:rgba(0,209,255,.12);}
+.cf-aside-link span{font-size:13.5px;font-weight:600;color:var(--cf-text);}
+.cf-aside-link i{color:var(--cf-cyan);font-size:12px;}
+/* sections */
+.cf-section{padding:52px 0 0;}
+.cf-eyebrow{display:block;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--cf-cyan);margin-bottom:8px;}
+.cf-sec-title{font-family:Jost,Inter,sans-serif;font-size:32px;font-weight:800;color:var(--cf-text);margin:0 0 10px;letter-spacing:-.4px;line-height:1.15;}
+.cf-sec-sub{font-size:15px;line-height:1.75;color:var(--cf-muted);max-width:80ch;margin:0 0 28px;}
+/* caps grid */
+.cf-cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:992px){.cf-cap-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:576px){.cf-cap-grid{grid-template-columns:1fr;}}
+.cf-cap{
+  border-radius:var(--cf-r);background:var(--cf-s1);border:1px solid var(--cf-line);
+  padding:22px;box-shadow:var(--cf-shadow);transition:border-color .2s,box-shadow .2s;
+}
+.cf-cap:hover{border-color:rgba(0,209,255,.28);box-shadow:0 18px 44px rgba(0,0,0,.28);}
+.cf-cap-icon{
+  width:42px;height:42px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:17px;margin-bottom:14px;flex-shrink:0;
+}
+.cf-cap-icon.cyan{background:rgba(0,209,255,.13);border:1px solid rgba(0,209,255,.28);color:var(--cf-cyan);}
+.cf-cap-icon.green{background:rgba(46,229,157,.13);border:1px solid rgba(46,229,157,.28);color:var(--cf-green);}
+.cf-cap-icon.gold{background:rgba(255,214,58,.13);border:1px solid rgba(255,214,58,.28);color:var(--cf-gold);}
+.cf-cap-icon.purple{background:rgba(167,139,250,.13);border:1px solid rgba(167,139,250,.28);color:var(--cf-purple);}
+.cf-cap-icon.amber{background:rgba(251,146,60,.13);border:1px solid rgba(251,146,60,.28);color:var(--cf-amber);}
+.cf-cap h4{font-size:15px;font-weight:700;color:var(--cf-text);margin:0 0 7px;}
+.cf-cap p{font-size:13.5px;color:var(--cf-muted);line-height:1.65;margin:0;}
+/* steps */
+.cf-steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:8px;}
+@media(max-width:768px){.cf-steps-grid{grid-template-columns:1fr;}}
+.cf-step{border-radius:var(--cf-r);background:var(--cf-s1);border:1px solid var(--cf-line);padding:24px;box-shadow:var(--cf-shadow);}
+.cf-step-num{
+  width:36px;height:36px;border-radius:10px;
+  font-family:Jost,Inter,sans-serif;font-size:18px;font-weight:800;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,209,255,.12);border:1px solid rgba(0,209,255,.25);
+  color:var(--cf-cyan);margin-bottom:14px;
+}
+.cf-step h4{font-size:16px;font-weight:700;color:var(--cf-text);margin:0 0 8px;}
+.cf-step p{font-size:13.5px;color:var(--cf-muted);line-height:1.65;margin:0;}
+/* use case pills */
+.cf-uc-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
+.cf-uc-pill{
+  display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:12px;
+  background:var(--cf-s1);border:1px solid var(--cf-line);
+  color:var(--cf-muted);font-size:13px;font-weight:600;
+  transition:border-color .2s,color .2s;
+}
+.cf-uc-pill i{color:var(--cf-cyan);font-size:10px;}
+/* plan strip */
+.cf-plan-strip{
+  margin:52px 0 0;border-radius:var(--cf-r);
+  background:linear-gradient(90deg,rgba(0,89,255,.10),rgba(0,209,255,.05));
+  border:1px solid rgba(0,89,255,.20);padding:26px 28px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+}
+.cf-plan-strip h3{font-family:Jost,Inter,sans-serif;font-size:20px;font-weight:700;color:var(--cf-text);margin:0 0 6px;}
+.cf-plan-strip p{font-size:14px;color:var(--cf-muted);margin:0;line-height:1.6;}
+.cf-plan-ctas{display:flex;gap:12px;flex-wrap:wrap;}
+/* divider */
+.cf-divider{height:1px;background:linear-gradient(90deg,transparent,var(--cf-line),transparent);margin:52px 0 0;}
+/* bottom cta */
+.cf-bottom-cta{
+  margin:52px 0 72px;border-radius:var(--cf-r);
+  background:linear-gradient(135deg,rgba(0,209,255,.09),rgba(46,229,157,.05));
+  border:1px solid rgba(0,209,255,.25);box-shadow:0 24px 60px rgba(0,209,255,.08);
+  padding:44px;text-align:center;
+}
+.cf-bottom-cta h2{font-family:Jost,Inter,sans-serif;font-size:36px;font-weight:800;color:var(--cf-text);margin:0 0 12px;letter-spacing:-.5px;}
+@media(max-width:768px){.cf-bottom-cta h2{font-size:26px;}}
+.cf-bottom-cta p{font-size:16px;color:var(--cf-muted);line-height:1.7;max-width:60ch;margin:0 auto 24px;}
+.cf-cta-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+</style>
 <style id="gf-styles">
 /* === GLOBAL FOOTER === */
 .gf-footer{background:#050b17;position:relative;overflow:hidden;font-family:'Inter',sans-serif}
-/* subtle dot-grid */
 .gf-footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(0,209,255,.045) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
-/* gradient glow top-line */
 .gf-top-rule{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,209,255,.55) 30%,rgba(46,229,157,.4) 70%,transparent 100%);position:relative;z-index:1}
-/* body */
 .gf-body{padding:72px 0 52px;position:relative;z-index:1}
 .gf-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:52px}
 @media(max-width:991px){.gf-grid{grid-template-columns:1fr 1fr;gap:36px 40px}}
 @media(max-width:599px){.gf-grid{grid-template-columns:1fr;gap:32px}}
-/* brand col */
 .gf-logo-link{display:inline-block;margin-bottom:14px}
 .gf-logo{height:34px;width:auto;display:block}
 .gf-tagline{font-size:13px;color:#4e637a;line-height:1.7;margin-bottom:22px;max-width:255px}
-/* email subscribe */
 .gf-subscribe-row{display:flex;gap:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:8px;overflow:hidden;margin-bottom:7px;transition:border-color .2s}
 .gf-subscribe-row:focus-within{border-color:rgba(0,209,255,.35)}
 .gf-subscribe-row input{flex:1;background:transparent;border:none;outline:none;padding:10px 14px;font-size:13px;color:#e2e8f0;font-family:'Inter',sans-serif}
@@ -458,21 +174,17 @@
 .gf-subscribe-row button{background:#00d1ff;border:none;padding:10px 15px;color:#030a12;cursor:pointer;font-size:13px;transition:background .2s;flex-shrink:0}
 .gf-subscribe-row button:hover{background:#33daff}
 .gf-subscribe-note{font-size:11px;color:#3d5268;margin:0 0 22px}
-/* social */
 .gf-social{display:flex;gap:8px}
 .gf-social-link{width:33px;height:33px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#4e637a;font-size:13px;text-decoration:none;transition:all .2s}
 .gf-social-link:hover{background:rgba(0,209,255,.09);border-color:rgba(0,209,255,.28);color:#00d1ff}
-/* nav columns */
 .gf-col-title{font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#94a3b8;margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.06)}
 .gf-links{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:9px}
 .gf-links li a{font-size:13.5px;color:#4e637a;text-decoration:none;transition:color .18s;display:inline-block}
 .gf-links li a:hover{color:#cbd5e1}
-/* contact block */
 .gf-contact-block{display:flex;flex-direction:column;gap:9px;margin-top:4px}
 .gf-contact-link{display:flex;align-items:center;gap:8px;font-size:13px;color:#4e637a;text-decoration:none;transition:color .18s}
 .gf-contact-link i{color:#00d1ff;font-size:12px;width:14px;text-align:center;flex-shrink:0}
 .gf-contact-link:hover{color:#cbd5e1}
-/* bottom bar */
 .gf-bottom{border-top:1px solid rgba(255,255,255,.055);padding:16px 0;position:relative;z-index:1}
 .gf-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
 .gf-copy{font-size:12px;color:#3d5268;margin:0}
@@ -485,25 +197,12 @@
 .gf-bottom-nav{display:flex;gap:18px}
 .gf-bottom-nav a{font-size:12px;color:#3d5268;text-decoration:none;transition:color .18s}
 .gf-bottom-nav a:hover{color:#94a3b8}
-/* remove old footer pattern images */
 .gf-footer .pattern-layer{display:none!important}
-/* keep old .main-footer link colors from interfering */
 .gf-footer .links-list,.gf-footer .footer-widget,.gf-footer .widget-section,.gf-footer .footer-bottom{display:none!important}
 </style>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-EG2Q8GD30V');
-</script>
-
-
 <!-- page wrapper -->
-<body class="portal-page">
+<body class="cf-page">
 
     <div class="boxed_wrapper">
 
@@ -770,97 +469,169 @@
                 </div>
             </nav>
         </div><!-- End Mobile Menu -->
+        <div class="cf-outer">
 
-        <div class="cs-product-page">
-          <div class="csfp-page">
-            <section class="csfp-hero">
-              <div class="auto-container">
-                <div class="csfp-hero-inner">
-                  <div class="csfp-hero-copy">
-                    <nav aria-label="breadcrumb" class="csfp-breadcrumb">
-                      <a href="index.html">Home</a><span>/</span>
-                      <a href="cspm-cloudsignals.html">CloudSignals+RiskOps</a><span>/</span>
-                      <span>Findings &amp; Risk Signals</span>
-                    </nav>
-                    <div class="csfp-badge" style="border-color:#ffd63a33;background:#ffd63a11;">
-                      <span class="csfp-avail-dot" style="background:#ffd63a"></span>
-                      <span style="color:#ffd63a">Available in CloudSignals+RiskOps&trade;</span>
-                    </div>
-                    <h1 class="csfp-title">Every finding scored. Every risk prioritized.</h1>
-                    <p class="csfp-subtitle" style="color:#ffd63a">Findings &amp; Risk Signals</p>
-                    <p class="csfp-lead">Raw scanner output becomes actionable intelligence. CloudSignals normalizes findings from every integrated scanner, scores them by business impact, and routes them to the right team.</p>
-                    <div class="csfp-actions">
-                      <a href="cloudsignals-pricing.html" class="csfp-btn primary"><i class="fas fa-bolt"></i> View plans &amp; pricing</a>
-                      <a href="cspm-cloudsignals.html" class="csfp-btn secondary">Platform overview</a>
-                      <a href="request-demo.html" class="csfp-btn ghost">Request a demo</a>
-                    </div>
+          <!-- ── HERO ──────────────────────────────────────────────────── -->
+          <section class="cf-hero">
+            <div class="auto-container">
+              <div class="cf-hero-grid">
+
+                <div>
+                  <nav class="cf-breadcrumb">
+                    <a href="index.html">Home</a><span>/</span>
+                    <a href="cspm-cloudsignals.html">CloudSignals+RiskOps</a><span>/</span>
+                    <span>Findings & Risk Signals</span>
+                  </nav>
+                  <div class="cf-badge">
+                    <span class="cf-dot"></span>
+                    Available in CloudSignals+RiskOps&trade;
                   </div>
-                  <div class="csfp-hero-icon-wrap" style="color:#ffd63a"><i class="fas fa-exclamation-triangle"></i></div>
+                  <h1 class="cf-title">Every finding scored.<br>Every risk prioritized.</h1>
+                  <p class="cf-sub" style="color:#ffd63a">Findings & Risk Signals</p>
+                  <p class="cf-lead">Raw scanner output becomes actionable intelligence. CloudSignals normalizes findings from every integrated scanner, scores them by business impact, and routes them to the right team.</p>
+                  <div class="cf-actions">
+                    <a href="cloudsignals-pricing.html" class="cf-btn primary"><i class="fas fa-bolt"></i> View plans &amp; pricing</a>
+                    <a href="cspm-cloudsignals.html" class="cf-btn secondary">Platform overview</a>
+                    <a href="request-demo.html" class="cf-btn ghost">Request a demo</a>
+                  </div>
                 </div>
+
+                <div class="cf-aside">
+                  <div class="cf-aside-card">
+                    <h4>What you get</h4>
+                    <ul class="cf-ql">
+                  <li><i class="fas fa-check"></i>Business-context risk scoring</li>
+                  <li><i class="fas fa-check"></i>Cross-scanner deduplication</li>
+                  <li><i class="fas fa-check"></i>Raw evidence artifact capture</li>
+                  <li><i class="fas fa-check"></i>Structured triage & workflow</li>
+                  <li><i class="fas fa-check"></i>Full finding timeline</li>
+                  <li><i class="fas fa-check"></i>SIEM & ticketing export</li>
+                    </ul>
+                  </div>
+                  <a href="cloudsignals-pricing.html" class="cf-aside-link">
+                    <span>Compare plans &amp; pricing</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+
               </div>
-            </section>
-            <section class="csfp-section">
-              <div class="auto-container">
-                <h2 class="csfp-section-title">Key capabilities</h2>
-                <div class="csfp-cap-grid">
-              <div class="csfp-cap-card">
-                <div class="csfp-cap-icon" style="color:#ffd63a"><i class="fas fa-balance-scale"></i></div>
+            </div>
+          </section>
+
+          <!-- ── CAPABILITIES ───────────────────────────────────────────── -->
+          <section class="cf-section">
+            <div class="auto-container">
+              <span class="cf-eyebrow">Key capabilities</span>
+              <h2 class="cf-sec-title">Built for security teams that move fast.</h2>
+              <div class="cf-cap-grid">
+              <div class="cf-cap">
+                <div class="cf-cap-icon gold"><i class="fas fa-balance-scale"></i></div>
                 <h4>Business-Context Risk Scoring</h4>
                 <p>Score findings by severity, asset criticality, and exposure. A critical finding on a dev account scores differently than on a prod payment system.</p>
               </div>
-              <div class="csfp-cap-card">
-                <div class="csfp-cap-icon" style="color:#00d1ff"><i class="fas fa-compress-arrows-alt"></i></div>
+              <div class="cf-cap">
+                <div class="cf-cap-icon cyan"><i class="fas fa-compress-arrows-alt"></i></div>
                 <h4>Cross-Scanner Deduplication</h4>
                 <p>Merge findings from multiple integrations into canonical risk records. Stop triaging the same issue from six different sources.</p>
               </div>
-              <div class="csfp-cap-card">
-                <div class="csfp-cap-icon" style="color:#2ee59d"><i class="fas fa-file-invoice"></i></div>
+              <div class="cf-cap">
+                <div class="cf-cap-icon green"><i class="fas fa-file-invoice"></i></div>
                 <h4>Evidence Capture</h4>
                 <p>Every finding retains its raw evidence artifact — screenshot, API response, config snapshot. Auditors get reproducible proof, not just a count.</p>
               </div>
-              <div class="csfp-cap-card">
-                <div class="csfp-cap-icon" style="color:#a78bfa"><i class="fas fa-clipboard-check"></i></div>
-                <h4>Triage &amp; Workflow</h4>
+              <div class="cf-cap">
+                <div class="cf-cap-icon purple"><i class="fas fa-clipboard-check"></i></div>
+                <h4>Triage & Workflow</h4>
                 <p>Accept, assign, escalate, or defer findings through a structured triage workflow. Full decision audit trail for compliance.</p>
               </div>
-              <div class="csfp-cap-card">
-                <div class="csfp-cap-icon" style="color:#ffd63a"><i class="fas fa-history"></i></div>
+              <div class="cf-cap">
+                <div class="cf-cap-icon gold"><i class="fas fa-history"></i></div>
                 <h4>Finding Timeline</h4>
                 <p>Track how a finding was introduced, modified, and resolved over time. Link back to the commit, deployment, or config change that caused it.</p>
               </div>
-              <div class="csfp-cap-card">
-                <div class="csfp-cap-icon" style="color:#00d1ff"><i class="fas fa-share-alt"></i></div>
-                <h4>SIEM &amp; Ticketing Export</h4>
+              <div class="cf-cap">
+                <div class="cf-cap-icon cyan"><i class="fas fa-share-alt"></i></div>
+                <h4>SIEM & Ticketing Export</h4>
                 <p>Push findings to Splunk, Chronicle, Jira, ServiceNow, or any webhook. Structured JSON schema for clean downstream ingestion.</p>
               </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ── HOW IT WORKS ───────────────────────────────────────────── -->
+          <section class="cf-section">
+            <div class="auto-container">
+              <span class="cf-eyebrow">How it works</span>
+              <h2 class="cf-sec-title">Simple to start. Powerful at scale.</h2>
+              <div class="cf-steps-grid">
+              <div class="cf-step">
+                <div class="cf-step-num">01</div>
+                <h4>Findings normalize automatically</h4>
+                <p>Every scanner integration feeds into a canonical finding schema — deduplicated, scored, and enriched with asset context on arrival.</p>
+              </div>
+              <div class="cf-step">
+                <div class="cf-step-num">02</div>
+                <h4>Triage with context</h4>
+                <p>Open any finding to see its business-context score, evidence artifact, affected asset, and the compliance controls it impacts.</p>
+              </div>
+              <div class="cf-step">
+                <div class="cf-step-num">03</div>
+                <h4>Route and track to closure</h4>
+                <p>Assign findings to owners, set SLAs, and push to your ticketing system. Track every decision in the audit trail.</p>
+              </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ── USE CASES ─────────────────────────────────────────────── -->
+          <section class="cf-section">
+            <div class="auto-container">
+              <span class="cf-eyebrow">Common use cases</span>
+              <div class="cf-uc-row">
+              <span class="cf-uc-pill"><i class="fas fa-circle"></i>Posture drift monitoring</span>
+              <span class="cf-uc-pill"><i class="fas fa-circle"></i>Compliance evidence</span>
+              <span class="cf-uc-pill"><i class="fas fa-circle"></i>Incident investigation</span>
+              <span class="cf-uc-pill"><i class="fas fa-circle"></i>Risk prioritization</span>
+              <span class="cf-uc-pill"><i class="fas fa-circle"></i>Executive reporting</span>
+              <span class="cf-uc-pill"><i class="fas fa-circle"></i>Audit preparation</span>
+              </div>
+            </div>
+          </section>
+
+          <div class="cf-divider"></div>
+
+          <!-- ── PLAN STRIP ─────────────────────────────────────────────── -->
+          <div class="cf-section">
+            <div class="auto-container">
+              <div class="cf-plan-strip">
+                <div>
+                  <h3>Included in CloudSignals+RiskOps™</h3>
+                  <p>Findings & Risk Signals is available on all plans — Free, Growth, Premium, and Enterprise. Finding retention and daily scan limits scale with your tier.</p>
+                </div>
+                <div class="cf-plan-ctas">
+                  <a href="cloudsignals-pricing.html" class="cf-btn primary"><i class="fas fa-bolt"></i> Compare plans</a>
+                  <a href="cspm-cloudsignals.html" class="cf-btn ghost">Platform overview</a>
                 </div>
               </div>
-            </section>
-            <section class="csfp-section">
-              <div class="auto-container">
-                <div class="csfp-usecases">
-                  <span class="csfp-uc-label">Common use cases</span>
-                  <p class="csfp-uc-text">Posture drift monitoring &middot; Compliance evidence &middot; Incident investigation &middot; Risk prioritization &middot; Executive reporting</p>
-                </div>
-              </div>
-            </section>
-            <section class="csfp-section">
-              <div class="auto-container">
-                <div class="csfp-pricing-strip">
-                  <div>
-                    <h3>Included in CloudSignals+RiskOps&trade;</h3>
-                    <p>This feature is available on all CloudSignals+RiskOps&trade; plans &mdash; Free, Growth, Premium, and Enterprise. Compare limits and access tiers.</p>
-                  </div>
-                  <div class="csfp-strip-ctas">
-                    <a href="cloudsignals-pricing.html" class="csfp-btn primary"><i class="fas fa-bolt"></i> Compare plans</a>
-                    <a href="cspm-cloudsignals.html" class="csfp-btn ghost">Platform overview</a>
-                  </div>
-                </div>
-              </div>
-            </section>
+            </div>
           </div>
-        </div>
-        </div><!-- /cs-product-page -->                                <!-- main-footer -->
+
+          <!-- ── BOTTOM CTA ─────────────────────────────────────────────── -->
+          <div class="cf-section">
+            <div class="auto-container">
+              <div class="cf-bottom-cta">
+                <h2>Turn scanner noise into risk intelligence.</h2>
+                <p>Start free and connect your first cloud account in 15 minutes. No credit card required.</p>
+                <div class="cf-cta-actions">
+                  <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="cf-btn primary" data-cloudsignals-free data-package-id="pkg-cloudsignals-free"><i class="fas fa-rocket"></i> Start free &mdash; no credit card</a>
+                  <a href="request-demo.html" class="cf-btn ghost">Request a demo</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /cf-outer -->
+        <!-- main-footer -->
         <footer class="main-footer gf-footer">
 
           <div class="gf-top-rule"></div>
@@ -957,24 +728,16 @@
         </footer>
         <!-- main-footer end -->
 
-
         <!--Scroll to top-->
         <div class="scroll-to-top">
-            <div>
-                <div class="scroll-top-inner">
-                    <div class="scroll-bar">
-                        <div class="bar-inner"></div>
-                    </div>
-                    <div class="scroll-bar-text">Go To Top</div>
-                </div>
-            </div>
+            <div><div class="scroll-top-inner">
+                <div class="scroll-bar"><div class="bar-inner"></div></div>
+                <div class="scroll-bar-text">Go To Top</div>
+            </div></div>
         </div>
-        <!-- Scroll to top end -->
-        
+
     </div>
 
-
-    <!-- jequery plugins -->
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
@@ -987,97 +750,10 @@
     <script src="assets/js/isotope.js"></script>
     <script src="assets/js/jquery.nice-select.min.js"></script>
     <script src="assets/js/parallax-scroll.js"></script>
-
-    <!-- main-js -->
     <script src="assets/js/script.js"></script>
-
     <script src="assets/js/theme-toggle.js"></script>
     <script src="assets/js/mega-hover.js"></script>
     <script src="assets/js/mega-tabs.js"></script>
-
-    <script src="assets/js/blog-mega.js"></script>
-</body><!-- End of .page_wrapper -->
+    <script src="assets/js/stripe-checkout.js"></script>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
