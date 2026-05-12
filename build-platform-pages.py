@@ -1,38 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+#!/usr/bin/env python3
+"""Build platform pages: services.html (Fabric hub) + 6 sub-pages."""
+from pathlib import Path
+import re
 
-<title>Platform Fabric | AiVRIC</title>
+SITE = Path(r"C:\Projects\AiVRIC-Website")
+MOBILE_END_TAG = "<!-- End Mobile Menu -->"
+FOOTER_ANCHOR  = "        <!-- main-footer -->"
 
-<!-- Fav Icon -->
-<link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-<!-- Stylesheets -->
-<link href="assets/css/font-awesome-all.css" rel="stylesheet">
-<link href="assets/css/flaticon.css" rel="stylesheet">
-<link href="assets/css/owl.css" rel="stylesheet">
-<link href="assets/css/bootstrap.css" rel="stylesheet">
-<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
-<link href="assets/css/animate.css" rel="stylesheet">
-<link href="assets/css/nice-select.css" rel="stylesheet">
-<link href="assets/css/color.css" rel="stylesheet">
-<link href="assets/css/elpath.css" rel="stylesheet">
-<link href="assets/css/style.css?v=20250115" rel="stylesheet">
-<link href="assets/css/elements-css/page-title.css" rel="stylesheet">
-<link href="assets/css/elements-css/service.css" rel="stylesheet">
-<link href="assets/css/elements-css/about.css" rel="stylesheet">
-<link href="assets/css/elements-css/subscribe.css" rel="stylesheet">
-<link href="assets/css/responsive.css" rel="stylesheet">
-
-  <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
-<style id="plat-styles">
+PLAT_CSS = """<style id="plat-styles">
 :root{
   --plat-bg:#080f1c;--plat-bg2:#0d1829;--plat-bg3:#060d18;--plat-card:#0d1a2e;
   --plat-cyan:#00d1ff;--plat-green:#2ee59d;--plat-gold:#ffd63a;
@@ -215,295 +190,148 @@
 .plat-outcomes h3{font-size:16px;font-weight:700;color:var(--plat-green);margin-bottom:14px}
 .plat-outcomes ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
 .plat-outcomes ul li{font-size:14px;color:var(--plat-muted);display:flex;align-items:flex-start;gap:10px;line-height:1.55}
-.plat-outcomes ul li::before{content:'\2713';color:var(--plat-green);font-weight:700;flex-shrink:0;margin-top:1px}
+.plat-outcomes ul li::before{content:'\\2713';color:var(--plat-green);font-weight:700;flex-shrink:0;margin-top:1px}
 .plat-sub-cta-block{background:linear-gradient(135deg,rgba(0,209,255,.06),rgba(46,229,157,.04));border:1px solid rgba(0,209,255,.14);border-radius:16px;padding:30px;text-align:center}
 .plat-sub-cta-block h3{font-family:'Jost',sans-serif;font-size:19px;font-weight:800;color:#f0f8ff;margin-bottom:9px}
 .plat-sub-cta-block p{font-size:14px;color:var(--plat-muted);margin-bottom:18px}
-</style>
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-EG2Q8GD30V');
-</script>
+</style>"""
 
 
-<!-- page wrapper -->
-<body>
+# ── helpers ───────────────────────────────────────────────────────────────────
 
-    <div class="boxed_wrapper">
-        
-       <!-- preloader -->
-        <div class="loader-wrap">
-            <div class="preloader">
-                <div class="preloader-close">x</div>
-                <div id="handle-preloader" class="handle-preloader">
-                    <div class="animation-preloader">
-                        <div class="spinner"></div>
-                        <div class="txt-loading">
-                            <span data-text-preloader="A" class="letters-loading">
-                                A
-                            </span>
-                            <span data-text-preloader="I" class="letters-loading">
-                                I
-                            </span>
-                            <span data-text-preloader="V" class="letters-loading">
-                                V
-                            </span>
-                            <span data-text-preloader="r" class="letters-loading">
-                                r
-                            </span>
-                            <span data-text-preloader="i" class="letters-loading">
-                                i
-                            </span>
-                            <span data-text-preloader="c" class="letters-loading">
-                                c
-                            </span>
-                        </div>
-                    </div>  
-                </div>
+def build_page(filepath, new_body, title=None):
+    raw = filepath.read_text(encoding="utf-8", errors="replace")
+    mobile_end = raw.find(MOBILE_END_TAG)
+    assert mobile_end != -1, f"Mobile end tag not found in {filepath.name}"
+    bi = raw.find("\n", mobile_end) + 1
+    while bi < len(raw) and raw[bi] in (" ", "\n", "\r", "\t"):
+        bi += 1
+    bi = raw.rfind("\n", 0, bi) + 1
+    fi = raw.find(FOOTER_ANCHOR)
+    assert fi != -1, f"Footer anchor not found in {filepath.name}"
+    HEAD = raw[:bi]
+    TAIL = raw[fi:]
+    if title:
+        HEAD = re.sub(r'<title>[^<]*</title>', f'<title>{title}</title>', HEAD)
+    head_css = HEAD.replace('</head>', PLAT_CSS + '\n</head>', 1)
+    output = head_css + new_body + "\n" + TAIL
+    filepath.write_text(output, encoding="utf-8")
+    print(f"  OK  {filepath.name}")
+
+
+NAV_ITEMS = [
+    ("genai-chat.html",         "fa-comments",  "GenAI Chat"),
+    ("shared-data-layer.html",  "fa-database",  "Shared Data Layer"),
+    ("agentic-design.html",     "fa-robot",     "Agentic Design"),
+    ("efficient-compute.html",  "fa-microchip", "Efficient Compute"),
+    ("data-localization.html",  "fa-globe",     "Data Localization"),
+    ("ai-model-inspection.html","fa-search",    "AI Model Inspection"),
+]
+
+def sidebar(current_href):
+    lis = []
+    for href, icon, name in NAV_ITEMS:
+        cls = ' class="current"' if href == current_href else ''
+        lis.append(f'<li><a href="{href}"{cls}><i class="fas {icon}"></i>{name}</a></li>')
+    items_html = "\n            ".join(lis)
+    return f"""
+        <aside>
+          <div class="plat-sidebar-nav">
+            <div class="plat-sidebar-nav-title">Platform Capabilities</div>
+            <ul class="plat-sidebar-nav-list">
+            {items_html}
+            </ul>
+          </div>
+          <div class="plat-sidebar-cta">
+            <h4>See the Fabric in action</h4>
+            <p>Book a 30-minute walkthrough with the AiVRIC engineering team.</p>
+            <a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="plat-btn-sm"><i class="fas fa-calendar-alt"></i>Book a Demo</a>
+          </div>
+        </aside>"""
+
+
+def subpage_body(*, color, icon, title, hero_sub, intro_h2, intro_p, caps, steps, outcomes, current_href):
+    cap_items = ""
+    for cap_name, cap_desc in caps:
+        cap_items += f"""
+          <div class="plat-sub-cap-item">
+            <h4>{cap_name}</h4>
+            <p>{cap_desc}</p>
+          </div>"""
+
+    step_items = ""
+    for i, (s_title, s_desc) in enumerate(steps, 1):
+        step_items += f"""
+          <div class="plat-step">
+            <div class="plat-step-num">{i}</div>
+            <div class="plat-step-body">
+              <h5>{s_title}</h5>
+              <p>{s_desc}</p>
             </div>
-        </div>
-        <!-- preloader end -->
+          </div>"""
 
+    outcome_items = "\n".join(f"<li>{o}</li>" for o in outcomes)
 
-        <!-- main header -->
-        <header class="main-header">
-<div class="header-top-bar">
-    <div class="auto-container">
-        <div class="top-bar-inner">
-            <div class="top-bar-brand">AIVRIC TECHNOLOGIES</div>
-            <div class="top-bar-right">
-                <ul class="top-bar-links">
-                    <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-book-open"></i></span>Platform Guide</a></li>
-                    <li><a href="trust.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-shield-alt"></i></span>Trust Center</a></li>
-                </ul>
-                <span class="top-bar-separator">|</span>
-                <button class="theme-toggle" type="button" data-theme-toggle>Dark mode</button>
-                <ul class="top-bar-social">
-                    <li><a href="https://www.linkedin.com/company/aivric" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-                    <li><a href="https://x.com/aivric" aria-label="X"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="https://github.com" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-                </ul>
+    sb = sidebar(current_href)
+
+    return f"""
+        <section class="plat-sub-hero">
+          <div class="plat-hero-grid"></div>
+          <div class="plat-hero-scan"></div>
+          <div class="plat-hero-glow"></div>
+          <div class="plat-auto">
+            <div class="plat-crumb">
+              <a href="index.html">Home</a>
+              <span class="plat-crumb-sep">&#8250;</span>
+              <a href="services.html">Platform</a>
+              <span class="plat-crumb-sep">&#8250;</span>
+              <span class="plat-crumb-cur">{title}</span>
             </div>
-        </div>
-    </div>
-</div>
-    <!-- header-lower -->
-    <div class="header-lower">
-                <div class="auto-container">
-                    <div class="outer-box">
-                        <div class="logo-box">
-                            <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
-                        </div>
-                        <div class="menu-area clearfix">
-                            <!--Mobile Navigation Toggler-->
-                            <div class="mobile-nav-toggler">
-                                <i class="icon-bar"></i>
-                                <i class="icon-bar"></i>
-                                <i class="icon-bar"></i>
-                            </div>
-                            <nav class="main-menu navbar-expand-md navbar-light">
-    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-        <ul class="navigation clearfix">
-            <li class="dropdown platform-menu"><a href="services.html">Platform</a>
-                <div class="platform-megamenu">
-                    <div class="platform-grid">
-                        <a class="platform-card" href="genai-chat.html"><h4>GenAI Chat</h4><p>Fabric intelligence chat across every AiVRIC solution.</p><span>view more</span></a>
-                        <a class="platform-card" href="shared-data-layer.html"><h4>Shared Data Layer</h4><p>The Fabric data layer unifies telemetry and evidence.</p><span>view more</span></a>
-                        <a class="platform-card" href="agentic-design.html"><h4>Agentic Design</h4><p>Fabric agents coordinate actions across suites.</p><span>view more</span></a>
-                        <a class="platform-card" href="efficient-compute.html"><h4>Efficient Compute</h4><p>Fabric compute optimizes AI workloads end-to-end.</p><span>view more</span></a>
-                        <a class="platform-card" href="data-localization.html"><h4>Data Localization</h4><p>Fabric residency controls govern every dataset.</p><span>view more</span></a>
-                        <a class="platform-card" href="ai-model-inspection.html"><h4>AI Model Inspection</h4><p>Fabric inspection monitors AI models and risk.</p><span>view more</span></a>
-                    </div>
-                </div>
-            </li>
-            <li class="dropdown cs-product-menu"><a href="cspm-cloudsignals.html">CloudSignals+RiskOps</a>
-                <div class="cs-product-megamenu">
-                    <div class="cs-mega-hdr">
-                        <div class="cs-mega-hdr-info">
-                            <span class="cs-mega-status"><span class="cs-avail-dot"></span>Available Now</span>
-                            <h3>CloudSignals+RiskOps&trade;</h3>
-                            <p>AI-native cloud security posture, risk operations, and continuous compliance &mdash; in one platform.</p>
-                        </div>
-                        <a href="cloudsignals-pricing.html" class="cs-mega-pricing-cta">Compare plans &amp; pricing &rarr;</a>
-                    </div>
-                    <div class="cs-mega-body">
-                        <div class="cs-mega-col">
-                            <span class="cs-mega-col-label">Posture &amp; Discovery</span>
-                            <a class="cs-mega-feat-card" href="cloudsignals-cspm.html"><i class="fas fa-cloud"></i><div><strong>Multi-Cloud CSPM</strong><span>Scan AWS, Azure, GCP, and OCI posture in real time.</span></div></a>
-                            <a class="cs-mega-feat-card" href="cloudsignals-findings.html"><i class="fas fa-exclamation-triangle"></i><div><strong>Findings &amp; Risk Signals</strong><span>Prioritized risk signals with business-context scoring.</span></div></a>
-                        </div>
-                        <div class="cs-mega-col">
-                            <span class="cs-mega-col-label">Risk &amp; Compliance</span>
-                            <a class="cs-mega-feat-card" href="cloudsignals-risk-register.html"><i class="fas fa-clipboard-list"></i><div><strong>Risk Register &amp; RiskOps</strong><span>GRC-grade risk records, treatments, and portfolio exposure.</span></div></a>
-                            <a class="cs-mega-feat-card" href="cloudsignals-compliance.html"><i class="fas fa-shield-alt"></i><div><strong>Continuous Compliance</strong><span>SOC 2, ISO 27001, PCI-DSS, CMMC, HIPAA.</span></div></a>
-                            <a class="cs-mega-feat-card" href="cloudsignals-tprm.html"><i class="fas fa-handshake"></i><div><strong>Third-Party Risk (TPRM)</strong><span>Vendor assessments and ongoing monitoring.</span></div></a>
-                        </div>
-                        <div class="cs-mega-col">
-                            <span class="cs-mega-col-label">Intelligence</span>
-                            <a class="cs-mega-feat-card" href="cloudsignals-vision-ai.html"><i class="fas fa-brain"></i><div><strong>Vision AI &amp; Narratives</strong><span>GenAI risk summaries, AI chat, and model insights.</span></div></a>
-                            <a class="cs-mega-feat-card" href="ai-inspector.html"><i class="fas fa-satellite-dish"></i><div><strong>AI Signals&trade; Integration</strong><span>LLM telemetry as security-native compliance signals.</span></div></a>
-                        </div>
-                    </div>
-                    <div class="cs-mega-ftr">
-                        <a href="cspm-cloudsignals.html" class="cs-mega-ftr-link">Product overview &rarr;</a>
-                        <div class="cs-mega-ftr-ctas">
-                            <a href="cloudsignals-pricing.html" class="cs-mega-btn-primary">Compare plans &amp; pricing</a>
-                            <a href="request-demo.html" class="cs-mega-btn-ghost">Request a demo</a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="dropdown"><a href="#">Portfolio</a>
-                <div class="megamenu">
-                    <div class="mega-tabs" role="tablist">
-                        <button class="mega-tab is-active" type="button" data-mega-tab="solution" role="tab" aria-selected="true">By Solution</button>
-                        <button class="mega-tab" type="button" data-mega-tab="usecase" role="tab" aria-selected="false">By Use Case</button>
-                    </div>
-                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="solution" data-mega-active="defense" role="tabpanel">
-                        <div class="mega-rail mega-rail-stack">
-                            <button class="mega-stack-card is-active" type="button" data-mega-target="defense">
-                                <h4>Defense</h4>
-                                <p>A suite of solutions used to defend your organization from cyber threats.</p>
-                                <a class="mega-link" href="solutions-portal.html#defense">View all products -></a>
-                            </button>
-                            <button class="mega-stack-card" type="button" data-mega-target="offense">
-                                <h4>Offense</h4>
-                                <p>A suite that continuously simulates attacks across your digital ecosystem.</p>
-                                <a class="mega-link" href="solutions-portal.html#offense">View all products -></a>
-                            </button>
-                            <button class="mega-stack-card" type="button" data-mega-target="vision">
-                                <h4>Vision</h4>
-                                <p>Holistic context across the AiVRIC ecosystem and your environments.</p>
-                                <a class="mega-link" href="solutions-portal.html#vision">View all products -></a>
-                            </button>
-                        </div>
-                        <div class="mega-grid">
-                            <a class="mega-card" data-mega-category="defense" href="cspm-cloudsignals.html"><strong>CloudSignals+ RiskOps&trade;</strong><span>Scan all your cloud platform configs.</span></a>
-                            <a class="mega-card" data-mega-category="defense" href="ai-inspector.html"><strong>AI Signals&trade;</strong><span>LLM observability, evaluations, and prompt management for AI apps.</span></a>
-                            <a class="mega-card" data-mega-category="defense" href="air-remediation.html"><strong>AIRE Agentic Mesh&trade;</strong><span>Agentic role-based remediation agents.</span></a>
-                            <a class="mega-card" data-mega-category="offense" href="rogueagent.html"><strong>RogueAgent ASPM&trade;</strong><span>Analyze cloud posture using a risk lens.</span></a>
-                            <a class="mega-card" data-mega-category="vision" href="aivric-vision-professional.html"><strong>Vision AI Optics&trade;</strong><span>OpenAI-driven AI risk analysis and reporting.</span></a>
-                        </div>
-                    </div>
-                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="usecase" data-mega-active="compliance" role="tabpanel" hidden>
-                        <div class="mega-rail mega-rail-stack">
-                            <button class="mega-stack-card is-active" type="button" data-mega-target="compliance">
-                                <h4>Compliance</h4>
-                                <p>Framework-ready controls and audit automation.</p>
-                                <a class="mega-link" href="use-cases-portal.html#compliance">View all frameworks -></a>
-                            </button>
-                            <button class="mega-stack-card" type="button" data-mega-target="riskops">
-                                <h4>Risk Ops</h4>
-                                <p>Continuous risk operations and response alignment.</p>
-                                <a class="mega-link" href="use-cases-portal.html#riskops">View all programs -></a>
-                            </button>
-                            <button class="mega-stack-card" type="button" data-mega-target="productops">
-                                <h4>Product Ops</h4>
-                                <p>Security and compliance built into delivery workflows.</p>
-                                <a class="mega-link" href="use-cases-portal.html#productops">View all playbooks -></a>
-                            </button>
-                        </div>
-                        <div class="mega-grid">
-                            <a class="mega-card" data-mega-category="compliance" href="streamline-soc2.html"><strong>SOC 2 Type II</strong><span>Measure compliance against the SOC 2 Trust Service Principles.</span></a>
-                            <a class="mega-card" data-mega-category="compliance" href="achieve-pci-dss.html"><strong>PCI-DSS</strong><span>Continuous validation for PCI requirements and evidence.</span></a>
-                            <a class="mega-card" data-mega-category="compliance" href="cmmc-readiness.html"><strong>CMMC</strong><span>Readiness workflows for CMMC Level 2 assessments.</span></a>
-                            <a class="mega-card" data-mega-category="riskops" href="issues-poams.html"><strong>Issues and POA&Ms</strong><span>Track issues, milestones, and remediation plans.</span></a>
-                            <a class="mega-card" data-mega-category="riskops" href="security-exceptions.html"><strong>Security Exceptions</strong><span>Document approved exceptions with guardrails.</span></a>
-                            <a class="mega-card" data-mega-category="riskops" href="threat-analysis.html"><strong>Threat Analysis</strong><span>Surface high-impact risks across environments.</span></a>
-                            <a class="mega-card" data-mega-category="productops" href="use-case-github-security.html"><strong>DevSecOps</strong><span>Secure Github repos and delivery workflows.</span></a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="dropdown"><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Resources</a>
-                <ul>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="why-aivric.html">Why AiVRIC</a></li>
-                    <li><a href="blog-portal.html">Blog</a></li>
-                    <li><a href="why-aivric-exists.html">Why AiVRIC Exists</a></li>
-                    <li><a href="blog-future-of-cloud-security.html">Future of Cloud Security</a></li>
-                    <li><a href="blog-why-continuous-compliance-matters.html">Continuous Compliance</a></li>
-
-                </ul>
-            </li>
-        </ul>
-    </div>
-</nav>
-                        </div>
-                                                <ul class="menu-right-content">
-                            <li class="search-box-outer search-toggler">
-                                <i class="icon-4"></i>
-                            </li>
-                            <li class="btn-box">
-                                <a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-one">Request a Demo</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="plat-sub-hero-inner">
+              <div class="plat-sub-icon c-{color}"><i class="fas {icon}"></i></div>
+              <div class="plat-label"><i class="fas fa-layer-group"></i>AIVRIC PLATFORM FABRIC</div>
+              <h1 class="plat-sub-h1">{title}</h1>
+              <p class="plat-sub-hero-sub">{hero_sub}</p>
             </div>
+          </div>
+        </section>
 
-    <!--sticky Header-->
-    <div class="sticky-header">
-        <div class="auto-container">
-            <div class="outer-box">
-                <div class="logo-box">
-                    <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC Logo"></a></figure>
+        <section class="plat-sub-body">
+          <div class="plat-auto">
+            <div class="plat-sub-layout">
+              {sb}
+              <main>
+                <div class="plat-sub-intro">
+                  <h2>{intro_h2}</h2>
+                  <p>{intro_p}</p>
                 </div>
-                <div class="menu-area clearfix">
-                    <nav class="main-menu clearfix">
-                        <!--Keep This Empty / Menu will come through Javascript-->
-                    </nav>
+
+                <div class="plat-sub-caps-grid">{cap_items}
                 </div>
-                <ul class="menu-right-content">
-                    <li class="search-box-outer search-toggler">
-                        <i class="icon-4"></i>
-                    </li>
-                    <li class="btn-box">
-                        <a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="theme-btn-two">Request a Demo</a>
-                    </li>
-                </ul>
+
+                <div class="plat-how-title">How it works</div>
+                <div class="plat-steps">{step_items}
+                </div>
+
+                <div class="plat-outcomes">
+                  <h3>Outcomes you can expect</h3>
+                  <ul>{outcome_items}</ul>
+                </div>
+
+                <div class="plat-sub-cta-block">
+                  <h3>Ready to see {title} in action?</h3>
+                  <p>Join a live platform walkthrough and see the Fabric at work across your environment.</p>
+                  <a href="https://calendly.com/aivric-sales/aivric-walkthrough-demo" class="plat-btn-primary"><i class="fas fa-play-circle"></i>Request a Live Demo</a>
+                </div>
+              </main>
             </div>
-        </div>
-    </div>
-</header>
-<!-- main-header end -->
-        <!-- Mobile Menu  -->
-        <div class="mobile-menu">
-            <div class="menu-backdrop"></div>
-            <div class="close-btn" role="button" tabindex="0" aria-label="Close menu"><i class="fas fa-times"></i></div>
-            
-            <nav class="menu-box">
-                <div class="nav-logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" title=""></a></div>
-                <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
-                <div class="contact-info">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li>Wilmington, Delaware USA</li>
-                        <li><a href="tel:+8801682648101">+1 9543426637</a></li>
-                        <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
-                    </ul>
-                </div>
-                <div class="social-links">
-                    <ul class="clearfix">
-                        <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
-                        <li><a href="https://www.facebook.com/profile.php?id=61581937785235"><span class="fab fa-facebook-square"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
-                        <li><a href="https://www.instagram.com/aivrictechnologies/"><span class="fab fa-instagram"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div><!-- End Mobile Menu -->
+          </div>
+        </section>"""
 
 
+# ── HUB PAGE (services.html) ──────────────────────────────────────────────────
 
+HUB_BODY = """
         <section class="plat-hero">
           <div class="plat-hero-grid"></div>
           <div class="plat-hero-scan"></div>
@@ -705,212 +533,190 @@
               <a href="solutions-portal.html" class="plat-btn-ghost"><i class="fas fa-th-large"></i>Explore All Products</a>
             </div>
           </div>
-        </section>
-        <!-- main-footer -->
-        <footer class="main-footer">
-            <div class="widget-section">
-                <div class="pattern-layer">
-                    <div class="pattern-1" style="background-image: url(assets/images/shape/shape-20.avif);"></div>
-                    <div class="pattern-2" style="background-image: url(assets/images/shape/shape-21.avif);"></div>
-                </div>
-                <div class="auto-container">
-                    <div class="row clearfix">
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget logo-widget">
-                                <div class="widget-title">
-                                    <h3>AiVRIC</h3>
-                                </div>
-                                <div class="text">
-                                    <p>Autonomous Security, Compliance, and Risk Intelligence.</p>
-                                </div>
-                                <div class="subscribe-box">
-                                    <form action="contact.html" method="post">
-                                        <div class="form-group">
-                                            <input type="email" name="email" placeholder="Your email" required="">
-                                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget links-widget">
-                                <div class="widget-title">
-                                    <h3>Platform</h3>
-                                </div>
-                                <div class="widget-content">
-<ul class="links-list clearfix">
-    <li><a href="genai-chat.html">GenAI Chat</a></li>
-    <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
-    <li><a href="agentic-design.html">Agentic Design</a></li>
-    <li><a href="efficient-compute.html">Efficient Compute</a></li>
-    <li><a href="data-localization.html">Data Localization</a></li>
-    <li><a href="ai-model-inspection.html">AI Model Inspection</a></li>
-</ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget links-widget">
-                                <div class="widget-title">
-                                    <h3>Solutions</h3>
-                                </div>
-                                <div class="widget-content">
-<ul class="links-list clearfix">
-    <li><a href="cspm-cloudsignals.html">CloudSignals+ RiskOps&trade;</a></li>
-    <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
-    <li><a href="air-remediation.html">AIRE Agentic Mesh&trade; Remediation</a></li>
-    <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
-    <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
-    <li><a href="aivric-vision-enterprise.html">Vision Enterprise</a></li>
-</ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget contact-widget">
-                                <div class="widget-title">
-                                    <h3>Contact</h3>
-                                </div>
-                                <div class="widget-content">
-                                    <ul class="info-list clearfix">
-                                        <li><i class="fas fa-envelope"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
-                                        <li><i class="fas fa-phone-alt"></i><a href="tel:+19543426637">+1 954 342 6637</a></li>
-                                    </ul>
-                                </div>
-                                <ul class="social-links-two clearfix">
-                                    <li><a href="https://x.com/aivric"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="https://www.facebook.com/61581937785235/"><i class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="https://www.linkedin.com/company/aivric"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="https://www.instagram.com/aivrictechnologies/"><i class="fab fa-instagram"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="auto-container">
-                    <div class="bottom-inner">
-                        <div class="copyright">
-                            <p>&copy; 2025 <a href="index.html">AiVRIC</a>. All Rights Reserved.</p>
-                        </div>
-                        <ul class="footer-nav">
-                            <li><a href="terms-of-use.html">Terms of Service</a></li>
-                            <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- main-footer end -->
-
-
-        <!--Scroll to top-->
-        <div class="scroll-to-top">
-            <div>
-                <div class="scroll-top-inner">
-                    <div class="scroll-bar">
-                        <div class="bar-inner"></div>
-                    </div>
-                    <div class="scroll-bar-text">Go To Top</div>
-                </div>
-            </div>
-        </div>
-        <!-- Scroll to top end -->
-        
-    </div>
-
-    <!-- jequery plugins -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/wow.js"></script>
-    <script src="assets/js/validation.js"></script>
-    <script src="assets/js/jquery.fancybox.js"></script>
-    <script src="assets/js/appear.js"></script>
-    <script src="assets/js/scrollbar.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/jquery.nice-select.min.js"></script>
-    <script src="assets/js/parallax-scroll.js"></script>
-
-    <!-- main-js -->
-    <script src="assets/js/script.js"></script>
-
-    <script src="assets/js/theme-toggle.js"></script>
-    <script src="assets/js/mega-hover.js"></script>
-    <script src="assets/js/mega-tabs.js"></script>
-
-    <script src="assets/js/blog-mega.js"></script>
-</body><!-- End of .page_wrapper -->
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </section>"""
+
+
+# ── SUB-PAGE DATA ─────────────────────────────────────────────────────────────
+
+SUBPAGES = [
+    dict(
+        file="genai-chat.html",
+        title="GenAI Chat | AiVRIC Fabric",
+        color="cyan", icon="fa-comments",
+        display_title="GenAI Chat",
+        hero_sub="Secure, context-aware chat that turns telemetry, evidence, and assessments into clear answers — with citations — for analysts, executives, and auditors.",
+        intro_h2="AiVRIC Fabric GenAI Chat unifies risk, compliance, and AI signals into a single intelligent interface.",
+        intro_p="Security and compliance data lives across tools, dashboards, and teams. The Fabric GenAI Chat closes the gap by providing a single place to ask questions, verify evidence, and trigger actions without hunting across systems. Every response comes with verifiable source citations from the shared data layer.",
+        caps=[
+            ("Contextual Retrieval", "Retrieve verified evidence, controls, and telemetry with source citations pulled directly from the Fabric data layer."),
+            ("Role-Aware Responses", "Deliver tailored answers for analysts, auditors, and executives — each sees the level of detail they need."),
+            ("Actionable Prompts", "Launch investigations, create tasks, or trigger remediation workflows directly from a chat prompt."),
+            ("Conversation Memory", "Maintain ongoing investigation context so follow-up questions build on prior answers without repetition."),
+        ],
+        steps=[
+            ("Ingest & Index", "Telemetry, controls, and AI evaluation results are continuously ingested and indexed in the Fabric data layer."),
+            ("Tag & Map", "Policy tags, identity context, and evidence mappings are applied so every data point is safe to retrieve."),
+            ("Route & Respond", "Requests are routed to specialized Fabric agents for analysis, validation, and synthesized responses."),
+        ],
+        outcomes=[
+            "Reduce time to answer audit and executive questions from hours to minutes.",
+            "Improve analyst productivity by eliminating multi-tool pivots for a single answer.",
+            "Standardize security and compliance narratives across every team and stakeholder.",
+        ],
+        current_href="genai-chat.html",
+    ),
+    dict(
+        file="shared-data-layer.html",
+        title="Shared Data Layer | AiVRIC Fabric",
+        color="green", icon="fa-database",
+        display_title="Shared Data Layer",
+        hero_sub="One schema, one index, one truth — enabling every AiVRIC capability to query, correlate, and act on the same verified security and compliance data.",
+        intro_h2="The AiVRIC Fabric Shared Data Layer is the normalized backbone that eliminates data silos across every suite.",
+        intro_p="Without a shared data layer, security teams maintain separate stores for CSPM findings, GRC evidence, AI evaluation results, and incident data. The Fabric collapses these into one normalized index — so queries, correlations, and investigations work across all of them simultaneously.",
+        caps=[
+            ("Unified Ingestion", "Continuously collect findings, evidence, and telemetry from every AiVRIC suite and third-party integration into one pipeline."),
+            ("Evidence Normalization", "Apply a consistent schema to security findings, compliance controls, AI signals, and risk records for cross-suite querying."),
+            ("Cross-Suite Querying", "Run a single query that spans CSPM posture, GRC evidence, AI risk scores, and offense findings simultaneously."),
+            ("Real-Time Sync", "Changes in any suite propagate to the shared layer within seconds, keeping dashboards and agents operating on current data."),
+        ],
+        steps=[
+            ("Collect", "Findings, evidence, and telemetry stream into the Fabric ingestion pipeline from every connected suite and integration."),
+            ("Normalize & Tag", "Each record is mapped to the Fabric schema, tagged by policy, control framework, and identity context."),
+            ("Index & Serve", "Normalized records are indexed for low-latency retrieval by GenAI Chat, dashboards, agents, and export workflows."),
+        ],
+        outcomes=[
+            "Eliminate data silos that cause inconsistent findings across security and compliance tools.",
+            "Accelerate cross-suite investigations from hours to seconds with unified querying.",
+            "Ensure every evidence package, dashboard, and AI response draws from the same verified source.",
+        ],
+        current_href="shared-data-layer.html",
+    ),
+    dict(
+        file="agentic-design.html",
+        title="Agentic Design | AiVRIC Fabric",
+        color="purp", icon="fa-robot",
+        display_title="Agentic Design",
+        hero_sub="Policy-gated AIRE agents that orchestrate autonomous remediation and investigation across every suite — with full audit trails and human-in-the-loop controls.",
+        intro_h2="The AiVRIC Fabric Agentic Design layer powers autonomous agents that act with bounded authority across your entire security ecosystem.",
+        intro_p="AIRE (AI-driven Remediation Engine) agents coordinate actions across CloudSignals, AI Signals, RogueAgent, and Vision. Each agent operates within explicit policy boundaries, escalates when confidence is low, and generates a complete audit trail for every action taken — so you retain control while automation handles scale.",
+        caps=[
+            ("Multi-Agent Orchestration", "Coordinate specialized sub-agents across suites — CSPM, GRC, AI risk, and offense — to complete compound workflows autonomously."),
+            ("Policy-Gated Actions", "Every agent action is validated against defined policies before execution, preventing unauthorized changes in any environment."),
+            ("Audit Trail", "A tamper-evident log captures every agent decision, action, and outcome for compliance review and retrospective investigation."),
+            ("Human-in-the-Loop Controls", "Configure approval thresholds so high-impact actions pause for human review before proceeding — at any granularity."),
+        ],
+        steps=[
+            ("Receive Trigger", "An agent workflow is triggered by a finding, scheduled scan, chat prompt, or API call from a connected suite."),
+            ("Plan Actions", "The orchestrator agent evaluates available sub-agents and composes an action plan within the bounds of defined policies."),
+            ("Execute & Log", "Actions execute with real-time policy validation; every step is written to the audit log with timestamps and actor context."),
+        ],
+        outcomes=[
+            "Remediate misconfigurations and compliance gaps up to 10x faster than manual workflows.",
+            "Enforce consistent policy across thousands of resources without analyst overhead.",
+            "Produce a complete, board-ready audit trail for every automated action taken.",
+        ],
+        current_href="agentic-design.html",
+    ),
+    dict(
+        file="efficient-compute.html",
+        title="Efficient Compute | AiVRIC Fabric",
+        color="amber", icon="fa-microchip",
+        display_title="Efficient Compute",
+        hero_sub="Intelligent model routing and token optimization that maximize AI throughput while minimizing infrastructure cost across every workload in the Fabric.",
+        intro_h2="The AiVRIC Fabric Efficient Compute layer ensures every AI workload uses the right model at the right cost — automatically.",
+        intro_p="Not every AI request needs the most powerful model. The Fabric routes low-complexity queries to lightweight models, caches repeated patterns, and batches high-volume workloads — so your infrastructure scales efficiently without sacrificing response quality. Full cost visibility comes standard.",
+        caps=[
+            ("Intelligent Model Routing", "Classify each request by complexity and route it to the optimal model — balancing quality, latency, and cost automatically."),
+            ("Token Optimization", "Compress, cache, and deduplicate prompts and context windows to reduce token consumption across high-volume pipelines."),
+            ("Batch Processing", "Group compatible workloads into batches for asynchronous processing, reducing per-unit compute cost at scale."),
+            ("Cost Monitoring", "Track AI inference spend per suite, per tenant, and per workload type with real-time dashboards and budget alerts."),
+        ],
+        steps=[
+            ("Analyze Request", "Each incoming AI request is classified by type, urgency, and complexity before routing begins."),
+            ("Select Optimal Model", "The compute layer selects the best-fit model from the registered pool, applying caching and batching rules."),
+            ("Execute & Track", "The request executes with full telemetry; token usage, latency, and cost are written to the Fabric data layer."),
+        ],
+        outcomes=[
+            "Reduce AI inference costs by 40-60% through intelligent routing and caching without degrading quality.",
+            "Improve P95 response latency for high-volume evaluation and chat workloads.",
+            "Gain full visibility into AI spend across teams, suites, and cost centers.",
+        ],
+        current_href="efficient-compute.html",
+    ),
+    dict(
+        file="data-localization.html",
+        title="Data Localization | AiVRIC Fabric",
+        color="red", icon="fa-globe",
+        display_title="Data Localization",
+        hero_sub="Precise data residency controls that govern where data is stored, processed, and transmitted — meeting GDPR, ITAR, and sovereign cloud mandates.",
+        intro_h2="The AiVRIC Fabric Data Localization layer gives organizations exact control over the geographic and jurisdictional boundaries of every dataset.",
+        intro_p="Regulated industries, government customers, and multinational organizations face strict rules about where security data can reside and be processed. The Fabric enforces residency at the record level — not just at the infrastructure tier — so every finding, evidence package, and AI evaluation result stays within its mandated boundary.",
+        caps=[
+            ("Region Pinning", "Assign storage and processing regions to individual tenants, data types, or control frameworks with granular policy controls."),
+            ("Encryption Controls", "Enforce customer-managed encryption keys (CMEK) and bring-your-own-key (BYOK) policies per data classification tier."),
+            ("Residency Auditing", "Generate on-demand reports that prove every data record was stored and processed within its mandated geographic boundary."),
+            ("Cross-Border Governance", "Define policies that block cross-border data flows, with exception workflows for approved transfers and full logging."),
+        ],
+        steps=[
+            ("Tag by Policy", "Every record ingested into the Fabric is tagged with its applicable residency policy, control framework, and jurisdiction."),
+            ("Apply Constraints", "Storage routing, processing assignment, and access controls enforce the residency policy automatically at write time."),
+            ("Monitor & Report", "Continuous monitoring detects policy violations; on-demand residency reports provide audit-ready evidence of compliance."),
+        ],
+        outcomes=[
+            "Meet GDPR Article 46, ITAR, and sovereign cloud requirements with verifiable, auditable evidence.",
+            "Pass residency audits without manual data inventory — reports generate automatically from the Fabric.",
+            "Reduce breach liability by ensuring sensitive security data never leaves its mandated jurisdiction.",
+        ],
+        current_href="data-localization.html",
+    ),
+    dict(
+        file="ai-model-inspection.html",
+        title="AI Model Inspection | AiVRIC Fabric",
+        color="gold", icon="fa-search",
+        display_title="AI Model Inspection",
+        hero_sub="Continuous safety evaluations, bias detection, and hallucination monitoring across every AI model in use — with governance-ready evidence generated automatically.",
+        intro_h2="The AiVRIC Fabric AI Model Inspection layer continuously monitors every AI model for safety, bias, and hallucination risk.",
+        intro_p="As organizations deploy more AI models, the attack surface for unsafe outputs, biased decisions, and hallucinated facts grows. The Fabric runs continuous, repeatable evaluations against every registered model and feeds the results directly into GRC workflows, compliance evidence packages, and executive dashboards — so AI governance is an ongoing practice, not a quarterly audit.",
+        caps=[
+            ("Safety Evaluations", "Run repeatable red-team and safety test suites against registered models to detect unsafe outputs before they reach users."),
+            ("Bias Detection", "Evaluate models across demographic and domain dimensions to surface systematic bias in outputs and recommendations."),
+            ("Hallucination Monitoring", "Continuously measure hallucination rates in production against grounded truth datasets, with trend tracking and alerts."),
+            ("Risk Scoring", "Aggregate evaluation results into a model risk score that integrates directly into the GRC risk register and dashboard."),
+        ],
+        steps=[
+            ("Connect Models", "Register AI models — internal, third-party, or open-source — with the Fabric inspection pipeline via API or native integration."),
+            ("Run Evaluations", "Scheduled and on-demand evaluation suites execute against each model using standardized and custom test cases."),
+            ("Score & Export", "Results are scored, trended over time, and exported as governance-ready evidence mapped to AI policies and control frameworks."),
+        ],
+        outcomes=[
+            "Produce AI governance evidence for SOC 2, ISO 42001, and NIST AI RMF audits automatically.",
+            "Reduce hallucination-related incidents by detecting model drift before it impacts users.",
+            "Give boards and executives a continuously updated AI risk score with supporting evidence.",
+        ],
+        current_href="ai-model-inspection.html",
+    ),
+]
+
+
+# ── BUILD ─────────────────────────────────────────────────────────────────────
+
+print("Building platform pages...")
+
+build_page(SITE / "services.html", HUB_BODY, title="Platform Fabric | AiVRIC")
+
+for sp in SUBPAGES:
+    body = subpage_body(
+        color=sp["color"],
+        icon=sp["icon"],
+        title=sp["display_title"],
+        hero_sub=sp["hero_sub"],
+        intro_h2=sp["intro_h2"],
+        intro_p=sp["intro_p"],
+        caps=sp["caps"],
+        steps=sp["steps"],
+        outcomes=sp["outcomes"],
+        current_href=sp["current_href"],
+    )
+    build_page(SITE / sp["file"], body, title=sp["title"])
+
+print("Done — 7 pages built.")
