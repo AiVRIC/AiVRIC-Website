@@ -130,6 +130,26 @@
     .csp-notice-strip i{ color:var(--cs-faint); flex-shrink:0; margin-top:2px; }
     .csp-notice-strip p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; }
     .csp-notice-strip strong{ color:var(--cs-text-strong); }
+    /* Release modal */
+    .release-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center}
+    .release-modal.is-open{display:flex}
+    .release-modal__backdrop{position:absolute;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(4px)}
+    .release-modal__dialog{position:relative;z-index:1;background:#0f1b2e;border:1px solid rgba(148,163,184,.18);border-radius:18px;padding:32px;width:min(560px,92vw);max-height:90vh;overflow-y:auto}
+    .release-modal__close{position:absolute;top:14px;right:16px;background:none;border:none;color:#64748b;font-size:22px;cursor:pointer;line-height:1;padding:4px 8px}
+    .release-modal__close:hover{color:#f1f5f9}
+    .release-modal__title{font-size:20px;font-weight:700;color:#f1f5f9;margin:0 0 6px}
+    .release-modal__subtitle{font-size:14px;color:#64748b;margin:0 0 20px}
+    .release-modal__grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+    .release-modal__field{display:flex;flex-direction:column;gap:5px}
+    .release-modal__field:last-child{grid-column:1/-1}
+    .release-modal__field label{font-size:12px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.06em}
+    .release-modal__field input{background:#0c1525;border:1px solid rgba(148,163,184,.18);border-radius:8px;padding:9px 12px;color:#f1f5f9;font-size:14px;outline:none}
+    .release-modal__field input:focus{border-color:rgba(0,209,255,.45)}
+    .release-modal__interests{margin-bottom:20px}
+    .release-modal__interests label:first-child{font-size:12px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:8px}
+    .release-modal__checks{display:flex;flex-wrap:wrap;gap:8px}
+    .release-modal__checks label{display:flex;align-items:center;gap:6px;font-size:13px;color:#94a3b8;cursor:pointer}
+    .release-modal__actions{display:flex;gap:10px;justify-content:flex-end}
   </style>
 <style id="gf-styles">
 /* === GLOBAL FOOTER === */
