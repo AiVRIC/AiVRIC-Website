@@ -75,7 +75,7 @@ HP_CSS = """
 /* ═══════════════════════════════════════════════════════════════════════
    SECTION 1 — HERO
 ═══════════════════════════════════════════════════════════════════════ */
-.hp-hero{position:relative;min-height:100vh;background:var(--hp-bg);overflow:hidden;display:flex;align-items:center;padding:100px 0 60px}
+.hp-hero{position:relative;min-height:100vh;background:var(--hp-bg);overflow:hidden;display:flex;align-items:flex-start;padding:130px 0 80px}
 /* animated grid overlay */
 .hp-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(0,209,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,209,255,.035) 1px,transparent 1px);background-size:64px 64px;animation:hp-grid-pulse 9s ease-in-out infinite;pointer-events:none}
 @keyframes hp-grid-pulse{0%,100%{opacity:.3}50%{opacity:.8}}
@@ -150,12 +150,13 @@ HP_CSS = """
 /* ═══════════════════════════════════════════════════════════════════════
    SECTION 2 — TICKER
 ═══════════════════════════════════════════════════════════════════════ */
-.hp-ticker-wrap{background:rgba(0,209,255,.04);border-top:1px solid rgba(0,209,255,.1);border-bottom:1px solid rgba(0,209,255,.1);display:flex;align-items:center;height:38px;overflow:hidden}
-.hp-ticker-label{display:flex;align-items:center;gap:6px;padding:0 18px;font-size:10px;font-weight:800;letter-spacing:1.8px;color:var(--hp-green);background:rgba(0,0,0,.35);height:100%;border-right:1px solid rgba(0,209,255,.1);white-space:nowrap;flex-shrink:0;text-transform:uppercase}
-.hp-ticker-label i{animation:hp-blink 1.4s infinite;font-size:8px}
-.hp-ticker-outer{flex:1;overflow:hidden}
-.hp-ticker-track{display:flex;align-items:center;gap:20px;white-space:nowrap;animation:hp-tick 42s linear infinite;font-size:12px;color:var(--hp-muted)}
-.hp-t-sep{color:rgba(0,209,255,.4)}
+.hp-ticker-wrap{position:relative;background:#06101e;border-top:1px solid rgba(0,209,255,.2);border-bottom:1px solid rgba(0,209,255,.08);display:flex;align-items:center;height:42px;overflow:hidden}
+.hp-ticker-wrap::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,209,255,.7) 30%,rgba(46,229,157,.55) 70%,transparent 100%);pointer-events:none;z-index:1}
+.hp-ticker-label{display:flex;align-items:center;gap:7px;padding:0 22px;font-size:10px;font-weight:900;letter-spacing:2px;color:#030a12;background:var(--hp-green);height:100%;white-space:nowrap;flex-shrink:0;text-transform:uppercase}
+.hp-ticker-label i{font-size:7px;animation:hp-blink 1.2s infinite;color:#030a12}
+.hp-ticker-outer{flex:1;overflow:hidden;padding-left:10px}
+.hp-ticker-track{display:flex;align-items:center;gap:24px;white-space:nowrap;animation:hp-tick 42s linear infinite;font-size:12px;color:#8eacc5;letter-spacing:.15px}
+.hp-t-sep{color:rgba(0,209,255,.5);font-size:10px}
 @keyframes hp-tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ═══════════════════════════════════════════════════════════════════════
