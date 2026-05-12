@@ -30,6 +30,13 @@ assert foot_e != -1, "FOOT_END not found"
 NAV    = raw_t[nav_s : nav_e]
 FOOTER = raw_t[foot_s : foot_e]
 
+# ── Extract gf-styles CSS block from template ──────────────────────────────
+GF_STYLE_START = '<style id="gf-styles">'
+GF_STYLE_END   = "</style>"
+gf_s = raw_t.find(GF_STYLE_START)
+gf_e = raw_t.find(GF_STYLE_END, gf_s) + len(GF_STYLE_END)
+GF_STYLES = raw_t[gf_s : gf_e] if gf_s != -1 else ""
+
 # ── CSS ────────────────────────────────────────────────────────────────────
 CSS = """
 <style id="su-styles">
@@ -904,6 +911,7 @@ GTAG = """
 output = (
     HEAD
     + CSS
+    + "\n" + GF_STYLES
     + "\n</head>"
     + GTAG
     + '\n<body class="su-page">\n<div class="boxed_wrapper">\n'

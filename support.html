@@ -438,6 +438,51 @@ body.su-page {
 }
 </style>
 
+<style id="gf-styles">
+/* === GLOBAL FOOTER === */
+.gf-footer{background:#050b17;position:relative;overflow:hidden;font-family:'Inter',sans-serif}
+.gf-footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(0,209,255,.045) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+.gf-top-rule{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,209,255,.55) 30%,rgba(46,229,157,.4) 70%,transparent 100%);position:relative;z-index:1}
+.gf-body{padding:72px 0 52px;position:relative;z-index:1}
+.gf-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:52px}
+@media(max-width:991px){.gf-grid{grid-template-columns:1fr 1fr;gap:36px 40px}}
+@media(max-width:599px){.gf-grid{grid-template-columns:1fr;gap:32px}}
+.gf-logo-link{display:inline-block;margin-bottom:14px}
+.gf-logo{height:34px;width:auto;display:block}
+.gf-tagline{font-size:13px;color:#4e637a;line-height:1.7;margin-bottom:22px;max-width:255px}
+.gf-subscribe-row{display:flex;gap:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:8px;overflow:hidden;margin-bottom:7px;transition:border-color .2s}
+.gf-subscribe-row:focus-within{border-color:rgba(0,209,255,.35)}
+.gf-subscribe-row input{flex:1;background:transparent;border:none;outline:none;padding:10px 14px;font-size:13px;color:#e2e8f0;font-family:'Inter',sans-serif}
+.gf-subscribe-row input::placeholder{color:#3d5268}
+.gf-subscribe-row button{background:#00d1ff;border:none;padding:10px 15px;color:#030a12;cursor:pointer;font-size:13px;transition:background .2s;flex-shrink:0}
+.gf-subscribe-row button:hover{background:#33daff}
+.gf-subscribe-note{font-size:11px;color:#3d5268;margin:0 0 22px}
+.gf-social{display:flex;gap:8px}
+.gf-social-link{width:33px;height:33px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#4e637a;font-size:13px;text-decoration:none;transition:all .2s}
+.gf-social-link:hover{background:rgba(0,209,255,.09);border-color:rgba(0,209,255,.28);color:#00d1ff}
+.gf-col-title{font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#94a3b8;margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.06)}
+.gf-links{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:9px}
+.gf-links li a{font-size:13.5px;color:#4e637a;text-decoration:none;transition:color .18s;display:inline-block}
+.gf-links li a:hover{color:#cbd5e1}
+.gf-contact-block{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.gf-contact-link{display:flex;align-items:center;gap:8px;font-size:13px;color:#4e637a;text-decoration:none;transition:color .18s}
+.gf-contact-link i{color:#00d1ff;font-size:12px;width:14px;text-align:center;flex-shrink:0}
+.gf-contact-link:hover{color:#cbd5e1}
+.gf-bottom{border-top:1px solid rgba(255,255,255,.055);padding:16px 0;position:relative;z-index:1}
+.gf-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.gf-copy{font-size:12px;color:#3d5268;margin:0}
+.gf-copy a{color:#4e637a;text-decoration:none;transition:color .18s}
+.gf-copy a:hover{color:#94a3b8}
+.gf-bottom-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.gf-trust-pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#2ee59d;background:rgba(46,229,157,.07);border:1px solid rgba(46,229,157,.18);border-radius:100px;padding:4px 12px;letter-spacing:.3px}
+.gf-trust-dot{width:6px;height:6px;border-radius:50%;background:#2ee59d;box-shadow:0 0 6px #2ee59d;animation:gf-blink 2s ease-in-out infinite}
+@keyframes gf-blink{0%,100%{opacity:1}50%{opacity:.25}}
+.gf-bottom-nav{display:flex;gap:18px}
+.gf-bottom-nav a{font-size:12px;color:#3d5268;text-decoration:none;transition:color .18s}
+.gf-bottom-nav a:hover{color:#94a3b8}
+.gf-footer .pattern-layer{display:none!important}
+.gf-footer .links-list,.gf-footer .footer-widget,.gf-footer .widget-section,.gf-footer .footer-bottom{display:none!important}
+</style>
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
