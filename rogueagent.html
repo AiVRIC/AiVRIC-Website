@@ -148,8 +148,9 @@
     @media(max-width:992px){ .csp-deploy-grid{ grid-template-columns:1fr 1fr; } }
     @media(max-width:576px){ .csp-deploy-grid{ grid-template-columns:1fr; } }
     .csp-deploy-card{ border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line); padding:24px; box-shadow:var(--cs-shadow); display:flex; flex-direction:column; gap:10px; }
-    .csp-deploy-card h4{ font-size:16px; font-weight:700; color:var(--cs-text-strong); margin:0; display:flex; align-items:center; gap:9px; }
-    .csp-deploy-card h4 i{ font-size:15px; }
+    .csp-deploy-card.highlight{ border-color:rgba(46,229,157,0.35); background:rgba(46,229,157,0.06); }
+    .csp-deploy-icon{ width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0; }
+    .csp-deploy-card h3,.csp-deploy-card h4{ font-size:16px; font-weight:700; color:var(--cs-text-strong); margin:0; }
     .csp-deploy-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; flex:1; }
     .csp-bottom-cta{ margin:52px 0 60px; border-radius:var(--cs-radius); background:linear-gradient(135deg,rgba(0,209,255,0.09) 0%,rgba(46,229,157,0.05) 100%); border:1px solid rgba(0,209,255,0.25); padding:40px; text-align:center; }
     .csp-bottom-cta h2{ font-family:Jost,Inter,sans-serif; font-size:36px; font-weight:800; color:var(--cs-text-strong); margin:0 0 12px; letter-spacing:-0.5px; }
@@ -519,63 +520,103 @@
         <!-- RogueAgent ASPM product page -->
         <main class="cs-product-page">
 
-          <!-- ── NOTICE STRIP ── -->
-          <div class="csp-notice-strip beta">
-            <i class="fas fa-flask"></i>
-            <strong>Beta access is open.</strong> Join the beta programme — early access teams receive dedicated onboarding and direct engineering support.
-            <button type="button" class="csp-strip-cta js-release-modal" data-solution="RogueAgent ASPM™">Join beta</button>
-          </div>
-
           <!-- ── HERO ── -->
           <section class="csp-hero">
-            <div class="csp-hero-grid auto-container">
-              <div class="csp-hero-copy">
-                <div class="csp-badge beta">
-                  <span class="beta-dot"></span>Beta
+            <div class="auto-container">
+              <div class="csp-hero-grid">
+                <div>
+                  <nav aria-label="breadcrumb" style="margin-bottom:20px;">
+                    <ol style="list-style:none;padding:0;margin:0;display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--cs-faint);">
+                      <li><a href="index.html" style="color:var(--cs-faint);text-decoration:none;">Home</a></li>
+                      <li style="color:var(--cs-line-strong);">/</li>
+                      <li><a href="pricing.html" style="color:var(--cs-faint);text-decoration:none;">Solutions</a></li>
+                      <li style="color:var(--cs-line-strong);">/</li>
+                      <li style="color:var(--cs-cyan);">RogueAgent ASPM™</li>
+                    </ol>
+                  </nav>
+
+                  <div class="csp-badge">
+                    <span class="beta-dot"></span>
+                    Beta &nbsp;·&nbsp; Attack Surface &amp; Penetration Management
+                  </div>
+
+                  <h1 class="csp-title">Your enterprise attack surface.<br><span style="color:var(--cs-cyan);">Continuously mapped.</span></h1>
+
+                  <p class="csp-sub">RogueAgent ASPM™ automates external asset discovery, multi-mode reconnaissance, and vulnerability signal collection across cloud, web, and infrastructure targets — all in one workspace.</p>
+
+                  <div class="csp-notice-strip">
+                    <i class="fas fa-flask"></i>
+                    <p><strong>Beta access is open.</strong> Early access teams receive dedicated onboarding, direct engineering support, and locked-in beta pricing on GA release.</p>
+                  </div>
+
+                  <div class="csp-actions">
+                    <button type="button" class="cs-btn primary js-release-modal" data-solution="RogueAgent ASPM™">
+                      <i class="fas fa-flask"></i> Join the Beta
+                    </button>
+                    <a href="pricing.html" class="cs-btn secondary">View all AiVRIC solutions</a>
+                    <a href="request-demo.html" class="cs-btn ghost">Request a demo</a>
+                  </div>
+
+                  <div class="csp-release-band">
+                    <div class="csp-rb-item">
+                      <span class="csp-rb-label">Status</span>
+                      <span class="csp-rb-val beta">Beta</span>
+                    </div>
+                    <div class="csp-rb-item">
+                      <span class="csp-rb-label">Production releases</span>
+                      <span class="csp-rb-val">2 releases</span>
+                    </div>
+                    <div class="csp-rb-item">
+                      <span class="csp-rb-label">Last release</span>
+                      <span class="csp-rb-val">Nov 2025</span>
+                    </div>
+                    <div class="csp-rb-item">
+                      <span class="csp-rb-label">GA target</span>
+                      <span class="csp-rb-val">Q3 2026</span>
+                    </div>
+                  </div>
+
+                  <div style="margin-top:20px;">
+                    <span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--cs-faint);display:block;margin-bottom:10px;">Replaces</span>
+                    <div class="csp-replaces-row">
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Manual recon workflows</span>
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Disconnected scan tools</span>
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Point-in-time DAST</span>
+                      <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Spreadsheet evidence tracking</span>
+                    </div>
+                  </div>
                 </div>
-                <h1 class="csp-title">RogueAgent ASPM™</h1>
-                <p class="csp-subtitle">Your enterprise attack surface. Continuously mapped.</p>
-                <p class="csp-lead">Automate external asset discovery, multi-mode reconnaissance, and vulnerability signal collection across cloud, web, and infrastructure targets — all in one workspace.</p>
-                <div class="csp-actions">
-                  <button type="button" class="cs-btn primary js-release-modal" data-solution="RogueAgent ASPM™">
-                    <i class="fas fa-flask"></i> Join beta programme
-                  </button>
-                  <a href="pricing.html" class="cs-btn secondary">View pricing</a>
-                  <a href="request-demo.html" class="cs-btn ghost">Request a demo</a>
+
+                <div class="csp-hero-aside">
+                  <div class="csp-quick-card">
+                    <h4>Beta includes</h4>
+                    <ul class="csp-quick-list">
+                      <li><i class="fas fa-check-circle"></i>External asset &amp; subdomain discovery</li>
+                      <li><i class="fas fa-check-circle"></i>OSINT, DNS, port, and service fingerprinting</li>
+                      <li><i class="fas fa-check-circle"></i>Nmap, Nuclei, Subfinder, FFUF integrations</li>
+                      <li><i class="fas fa-check-circle"></i>Multi-workspace scope management</li>
+                      <li><i class="fas fa-check-circle"></i>Unified finding schema with CVSS context</li>
+                      <li><i class="fas fa-check-circle"></i>Scheduled &amp; triggered scan pipelines</li>
+                      <li><i class="fas fa-check-circle"></i>Audit-ready evidence export packages</li>
+                      <li><i class="fas fa-check-circle"></i>RBAC + SSO (SCIM provisioning)</li>
+                      <li><i class="fas fa-check-circle"></i>CloudSignals+RiskOps™ risk register sync</li>
+                    </ul>
+                  </div>
+                  <a href="pricing.html" class="csp-quick-link">
+                    <span>Compare all AiVRIC solutions</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+                  <a href="trust.html" class="csp-quick-link">
+                    <span>Trust Center &amp; security docs</span>
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
                 </div>
               </div>
-              <aside class="csp-hero-aside">
-                <div class="csp-quick-card">
-                  <div class="csp-rb-row">
-                    <span class="csp-rb-label">Status</span>
-                    <span class="csp-rb-val beta">Beta</span>
-                  </div>
-                  <div class="csp-rb-row">
-                    <span class="csp-rb-label">Scan targets</span>
-                    <span class="csp-rb-val">Cloud, Web, Infra</span>
-                  </div>
-                  <div class="csp-rb-row">
-                    <span class="csp-rb-label">Workspace model</span>
-                    <span class="csp-rb-val">Multi-target scopes</span>
-                  </div>
-                  <div class="csp-rb-row">
-                    <span class="csp-rb-label">Scanner integrations</span>
-                    <span class="csp-rb-val">Open-source + commercial</span>
-                  </div>
-                  <div class="csp-rb-row">
-                    <span class="csp-rb-label">Evidence output</span>
-                    <span class="csp-rb-val">Audit-ready exports</span>
-                  </div>
-                  <div class="csp-rb-row">
-                    <span class="csp-rb-label">Deployment</span>
-                    <span class="csp-rb-val">SaaS · Customer-hosted</span>
-                  </div>
-                </div>
-              </aside>
             </div>
           </section>
 
-          <div class="csp-divider auto-container"></div>
+          <div class="csp-divider"></div>
+
 <!-- ═══════════ VE: Threat Intel Map ═══════════ -->
 <section class="ve-threat-intel">
   <div class="auto-container" style="position:relative;">
@@ -608,209 +649,275 @@
 </section>
 <!-- ═══════════ END VE: Threat Intel Map ═══════════ -->
 
-          <!-- ── RELEASE BAND ── -->
-          <section class="csp-release-band auto-container">
-            <div class="csp-rb-row"><span class="csp-rb-label">Availability</span><span class="csp-rb-val beta">Beta</span></div>
-            <div class="csp-rb-row"><span class="csp-rb-label">Production releases</span><span class="csp-rb-val">2 releases</span></div>
-            <div class="csp-rb-row"><span class="csp-rb-label">Last release</span><span class="csp-rb-val">Nov 12 2025</span></div>
-            <div class="csp-rb-row"><span class="csp-rb-label">Next planned release</span><span class="csp-rb-val">Q2 2026</span></div>
-            <div class="csp-rb-row"><span class="csp-rb-label">GA target</span><span class="csp-rb-val">Q3 2026</span></div>
-          </section>
-
-          <div class="csp-divider auto-container"></div>
+          <div class="csp-divider"></div>
 
           <!-- ── MODULES ── -->
-          <section class="csp-section auto-container">
-            <h2 class="csp-section-title">Core modules</h2>
-            <div class="csp-modules-grid">
-              <div class="csp-module-card" style="--mod-accent:var(--cs-cyan)">
-                <div class="csp-mod-icon"><i class="fas fa-search-location"></i></div>
-                <h3>Asset Discovery</h3>
-                <p>Continuously enumerate hosts, subdomains, IP ranges, cloud assets, and exposed services across all registered target scopes.</p>
-              </div>
-              <div class="csp-module-card" style="--mod-accent:var(--cs-green)">
-                <div class="csp-mod-icon"><i class="fas fa-satellite-dish"></i></div>
-                <h3>Recon Automation</h3>
-                <p>Orchestrate multi-mode reconnaissance pipelines — OSINT, DNS brute-force, port scanning, and service fingerprinting — on demand or on schedule.</p>
-              </div>
-              <div class="csp-module-card" style="--mod-accent:var(--cs-gold)">
-                <div class="csp-mod-icon"><i class="fas fa-bug"></i></div>
-                <h3>Vulnerability Scanning</h3>
-                <p>Integrate leading open-source and commercial scanners. Normalise results into a unified finding schema with severity, CVSS, and asset context.</p>
-              </div>
-              <div class="csp-module-card" style="--mod-accent:var(--cs-purple)">
-                <div class="csp-mod-icon"><i class="fas fa-layer-group"></i></div>
-                <h3>Workspace Management</h3>
-                <p>Scope, segment, and manage assessment workspaces per client, business unit, or engagement. Export evidence packages for downstream reporting.</p>
+          <section class="csp-section">
+            <div class="auto-container">
+              <span class="csp-eyebrow">Platform Modules</span>
+              <h2 class="csp-section-title">Four modules. Full ASPM lifecycle.</h2>
+              <p class="csp-section-sub">RogueAgent covers discovery, reconnaissance, vulnerability scanning, and workspace management — in one unified platform.</p>
+              <div class="csp-modules-grid">
+                <div class="csp-module-card" style="--mod-accent:var(--cs-cyan)">
+                  <div class="csp-module-icon cyan"><i class="fas fa-search-location"></i></div>
+                  <h3>Asset Discovery</h3>
+                  <p>Continuously enumerate hosts, subdomains, IP ranges, cloud assets, and exposed services across all registered target scopes.</p>
+                  <ul class="csp-module-feats">
+                    <li>Subdomain brute-force &amp; enumeration</li>
+                    <li>Cloud asset inventory (AWS, Azure, GCP)</li>
+                    <li>Continuous delta tracking</li>
+                    <li>Scope-based workspace isolation</li>
+                  </ul>
+                </div>
+                <div class="csp-module-card" style="--mod-accent:var(--cs-green)">
+                  <div class="csp-module-icon green"><i class="fas fa-satellite-dish"></i></div>
+                  <h3>Recon Automation</h3>
+                  <p>Orchestrate multi-mode reconnaissance pipelines — OSINT, DNS brute-force, port scanning, and service fingerprinting — on demand or on schedule.</p>
+                  <ul class="csp-module-feats">
+                    <li>OSINT &amp; passive intel collection</li>
+                    <li>DNS enumeration &amp; zone walking</li>
+                    <li>Port scanning &amp; service fingerprinting</li>
+                    <li>Scheduled pipeline triggers</li>
+                  </ul>
+                </div>
+                <div class="csp-module-card" style="--mod-accent:var(--cs-gold)">
+                  <div class="csp-module-icon gold"><i class="fas fa-bug"></i></div>
+                  <h3>Vulnerability Scanning</h3>
+                  <p>Integrate leading open-source and commercial scanners. Normalise results into a unified finding schema with severity, CVSS, and asset context.</p>
+                  <ul class="csp-module-feats">
+                    <li>Nmap, Nuclei, Subfinder, FFUF</li>
+                    <li>Commercial scanner API connectors</li>
+                    <li>Unified CVSS-scored finding schema</li>
+                    <li>Deduplication &amp; triage workflows</li>
+                  </ul>
+                </div>
+                <div class="csp-module-card" style="--mod-accent:var(--cs-purple)">
+                  <div class="csp-module-icon purple"><i class="fas fa-layer-group"></i></div>
+                  <h3>Workspace Management</h3>
+                  <p>Scope, segment, and manage assessment workspaces per client, business unit, or engagement. Export evidence packages for downstream reporting.</p>
+                  <ul class="csp-module-feats">
+                    <li>Multi-target scope isolation</li>
+                    <li>Team &amp; role-based access (RBAC)</li>
+                    <li>Exportable evidence packages</li>
+                    <li>SIEM &amp; ticketing integrations</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </section>
 
-          <div class="csp-divider auto-container"></div>
+          <div class="csp-divider"></div>
 
           <!-- ── CAPABILITIES ── -->
-          <section class="csp-section auto-container">
-            <h2 class="csp-section-title">Key capabilities</h2>
-            <div class="csp-cap-grid">
-              <div class="csp-cap">
-                <i class="fas fa-globe csp-cap-icon" style="color:var(--cs-cyan)"></i>
-                <h4>Attack Surface Discovery</h4>
-                <p>Map your full external attack surface — hosts, subdomains, cloud endpoints, and shadow IT — with continuous delta tracking.</p>
-              </div>
-              <div class="csp-cap">
-                <i class="fas fa-robot csp-cap-icon" style="color:var(--cs-green)"></i>
-                <h4>Automated Recon Pipelines</h4>
-                <p>Chain recon modules into scheduled pipelines. Trigger on asset changes or run ad-hoc for penetration testing engagements.</p>
-              </div>
-              <div class="csp-cap">
-                <i class="fas fa-shield-alt csp-cap-icon" style="color:var(--cs-gold)"></i>
-                <h4>Web &amp; Service Scanning</h4>
-                <p>Assess HTTP/S services, open ports, TLS configurations, and exposed APIs using integrated scanner engines.</p>
-              </div>
-              <div class="csp-cap">
-                <i class="fas fa-file-export csp-cap-icon" style="color:var(--cs-purple)"></i>
-                <h4>Evidence &amp; Reporting</h4>
-                <p>Generate audit-ready reports and exportable evidence packages. Native connectors for SIEM, ticketing, and CI/CD pipelines.</p>
-              </div>
-              <div class="csp-cap">
-                <i class="fas fa-calendar-alt csp-cap-icon" style="color:var(--cs-cyan)"></i>
-                <h4>Scheduled &amp; Triggered Scans</h4>
-                <p>Run recurring scans on configurable cadences or trigger scans via API on new asset discovery or pipeline events.</p>
-              </div>
-              <div class="csp-cap">
-                <i class="fas fa-users-cog csp-cap-icon" style="color:var(--cs-green)"></i>
-                <h4>RBAC &amp; SSO</h4>
-                <p>Granular role-based access controls with SSO and SCIM provisioning. Scope access per workspace, team, or engagement.</p>
+          <section class="csp-section">
+            <div class="auto-container">
+              <h2 class="csp-section-title">Key capabilities</h2>
+              <div class="csp-cap-grid">
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-globe"></i></div>
+                  <h4>Attack Surface Discovery</h4>
+                  <p>Map your full external attack surface — hosts, subdomains, cloud endpoints, and shadow IT — with continuous delta tracking.</p>
+                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon" style="background:rgba(46,229,157,0.11);border-color:rgba(46,229,157,0.24);color:var(--cs-green);"><i class="fas fa-robot"></i></div>
+                  <h4>Automated Recon Pipelines</h4>
+                  <p>Chain recon modules into scheduled pipelines. Trigger on asset changes or run ad-hoc for penetration testing engagements.</p>
+                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon" style="background:rgba(255,214,58,0.11);border-color:rgba(255,214,58,0.24);color:var(--cs-gold);"><i class="fas fa-shield-alt"></i></div>
+                  <h4>Web &amp; Service Scanning</h4>
+                  <p>Assess HTTP/S services, open ports, TLS configurations, and exposed APIs using integrated scanner engines.</p>
+                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon" style="background:rgba(167,139,250,0.11);border-color:rgba(167,139,250,0.24);color:var(--cs-purple);"><i class="fas fa-file-export"></i></div>
+                  <h4>Evidence &amp; Reporting</h4>
+                  <p>Generate audit-ready reports and exportable evidence packages. Native connectors for SIEM, ticketing, and CI/CD pipelines.</p>
+                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon"><i class="fas fa-calendar-alt"></i></div>
+                  <h4>Scheduled &amp; Triggered Scans</h4>
+                  <p>Run recurring scans on configurable cadences or trigger scans via API on new asset discovery or pipeline events.</p>
+                </div>
+                <div class="csp-cap">
+                  <div class="csp-cap-icon" style="background:rgba(46,229,157,0.11);border-color:rgba(46,229,157,0.24);color:var(--cs-green);"><i class="fas fa-users-cog"></i></div>
+                  <h4>RBAC &amp; SSO</h4>
+                  <p>Granular role-based access controls with SSO and SCIM provisioning. Scope access per workspace, team, or engagement.</p>
+                </div>
               </div>
             </div>
           </section>
 
-          <div class="csp-divider auto-container"></div>
+          <div class="csp-divider"></div>
 
           <!-- ── COMPLIANCE ── -->
-          <section class="csp-section auto-container">
-            <h2 class="csp-section-title">Compliance frameworks</h2>
-            <p class="csp-section-sub">Mapped controls, evidence pipelines, and reporting for enterprise requirements.</p>
-            <div class="csp-fw-grid">
-              <details class="csp-fw-item">
-                <summary>SOC 2 (Security, Availability, Confidentiality)</summary>
-                <div class="csp-fw-body">
-                  <p><strong>Requirement:</strong> Continuous monitoring of security controls with retained audit evidence.</p>
-                  <ul>
-                    <li>Centralises control evidence and logs for auditors.</li>
-                    <li>Tracks remediation activity with approvals and timestamps.</li>
-                    <li>Produces executive-ready compliance exports.</li>
-                  </ul>
-                </div>
-              </details>
-              <details class="csp-fw-item">
-                <summary>ISO/IEC 27001 (Information Security Management)</summary>
-                <div class="csp-fw-body">
-                  <p><strong>Requirement:</strong> Establish risk treatment controls and demonstrate ongoing effectiveness.</p>
-                  <ul>
-                    <li>Maps findings to control objectives and risk registers.</li>
-                    <li>Documents remediation and verification workflows.</li>
-                    <li>Maintains evidence for continuous assurance reviews.</li>
-                  </ul>
-                </div>
-              </details>
-              <details class="csp-fw-item">
-                <summary>PCI-DSS v4.0 (Payment Card Security)</summary>
-                <div class="csp-fw-body">
-                  <p><strong>Requirement:</strong> Monitor systems, detect misconfigurations, and document remediation actions.</p>
-                  <ul>
-                    <li>Flags posture gaps and policy violations in real time.</li>
-                    <li>Produces assessor-ready reports.</li>
-                    <li>Tracks remediation with full accountability chain.</li>
-                  </ul>
-                </div>
-              </details>
-              <details class="csp-fw-item">
-                <summary>CMMC 2.0 (Federal Contractor Readiness)</summary>
-                <div class="csp-fw-body">
-                  <p><strong>Requirement:</strong> Implement security practices and maintain verifiable evidence of performance.</p>
-                  <ul>
-                    <li>Aligns controls to CMMC maturity level requirements.</li>
-                    <li>Maintains POA&amp;Ms and exception documentation.</li>
-                    <li>Supports evidence collection for third-party assessors.</li>
-                  </ul>
-                </div>
-              </details>
+          <section class="csp-section">
+            <div class="auto-container">
+              <h2 class="csp-section-title">Compliance frameworks</h2>
+              <p class="csp-section-sub">Mapped controls, evidence pipelines, and reporting for enterprise requirements.</p>
+              <div class="csp-fw-grid">
+                <details class="csp-fw-card">
+                  <summary class="csp-fw-head">
+                    <div class="csp-fw-head-left">
+                      <div class="csp-fw-logo"><i class="fas fa-certificate"></i></div>
+                      <div>
+                        <div class="csp-fw-name">SOC 2 (Security, Availability, Confidentiality)</div>
+                        <div class="csp-fw-sub">Trust Services Criteria for security operations</div>
+                      </div>
+                    </div>
+                    <i class="fas fa-chevron-right csp-fw-chevron"></i>
+                  </summary>
+                  <div class="csp-fw-body">
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Continuous monitoring of security controls with retained audit evidence.</div>
+                    <ul>
+                      <li>Centralises control evidence and logs for auditors.</li>
+                      <li>Tracks remediation activity with approvals and timestamps.</li>
+                      <li>Produces executive-ready compliance exports.</li>
+                    </ul>
+                  </div>
+                </details>
+                <details class="csp-fw-card">
+                  <summary class="csp-fw-head">
+                    <div class="csp-fw-head-left">
+                      <div class="csp-fw-logo"><i class="fas fa-globe"></i></div>
+                      <div>
+                        <div class="csp-fw-name">ISO/IEC 27001 (Information Security Management)</div>
+                        <div class="csp-fw-sub">International standard for ISMS controls</div>
+                      </div>
+                    </div>
+                    <i class="fas fa-chevron-right csp-fw-chevron"></i>
+                  </summary>
+                  <div class="csp-fw-body">
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Establish risk treatment controls and demonstrate ongoing effectiveness.</div>
+                    <ul>
+                      <li>Maps findings to control objectives and risk registers.</li>
+                      <li>Documents remediation and verification workflows.</li>
+                      <li>Maintains evidence for continuous assurance reviews.</li>
+                    </ul>
+                  </div>
+                </details>
+                <details class="csp-fw-card">
+                  <summary class="csp-fw-head">
+                    <div class="csp-fw-head-left">
+                      <div class="csp-fw-logo"><i class="fas fa-credit-card"></i></div>
+                      <div>
+                        <div class="csp-fw-name">PCI-DSS v4.0 (Payment Card Security)</div>
+                        <div class="csp-fw-sub">Payment card data environment controls</div>
+                      </div>
+                    </div>
+                    <i class="fas fa-chevron-right csp-fw-chevron"></i>
+                  </summary>
+                  <div class="csp-fw-body">
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Monitor systems, detect misconfigurations, and document remediation actions.</div>
+                    <ul>
+                      <li>Flags posture gaps and policy violations in real time.</li>
+                      <li>Produces assessor-ready reports.</li>
+                      <li>Tracks remediation with full accountability chain.</li>
+                    </ul>
+                  </div>
+                </details>
+                <details class="csp-fw-card">
+                  <summary class="csp-fw-head">
+                    <div class="csp-fw-head-left">
+                      <div class="csp-fw-logo"><i class="fas fa-flag"></i></div>
+                      <div>
+                        <div class="csp-fw-name">CMMC 2.0 (Federal Contractor Readiness)</div>
+                        <div class="csp-fw-sub">DoD cybersecurity maturity requirements</div>
+                      </div>
+                    </div>
+                    <i class="fas fa-chevron-right csp-fw-chevron"></i>
+                  </summary>
+                  <div class="csp-fw-body">
+                    <div class="csp-fw-req"><strong>Core requirement:</strong> Implement security practices and maintain verifiable evidence of performance.</div>
+                    <ul>
+                      <li>Aligns controls to CMMC maturity level requirements.</li>
+                      <li>Maintains POA&amp;Ms and exception documentation.</li>
+                      <li>Supports evidence collection for third-party assessors.</li>
+                    </ul>
+                  </div>
+                </details>
+              </div>
             </div>
           </section>
 
-          <div class="csp-divider auto-container"></div>
+          <div class="csp-divider"></div>
 
-          <!-- ── PRICING PREVIEW ── -->
-          <section class="csp-section auto-container">
-            <h2 class="csp-section-title">Pricing</h2>
-            <p class="csp-section-sub">RogueAgent ASPM™ is available as an add-on to CloudSignals+RiskOps™ or as part of an enterprise bundle. <a href="pricing.html" style="color:var(--cs-cyan)">View full pricing →</a></p>
-            <div class="csp-deploy-grid">
-              <div class="csp-deploy-card">
-                <h4><i class="fas fa-cloud" style="color:var(--cs-cyan)"></i> Beta Access</h4>
-                <p>Early access pricing for teams joining the beta programme. Dedicated onboarding and direct engineering support included.</p>
-                <button type="button" class="cs-btn primary js-release-modal" data-solution="RogueAgent ASPM™" style="margin-top:1rem">Join beta</button>
-              </div>
-              <div class="csp-deploy-card">
-                <h4><i class="fas fa-building" style="color:var(--cs-green)"></i> Enterprise Bundle</h4>
-                <p>Bundled with CloudSignals+RiskOps™, AI Signals™, and AIRE Agentic Mesh™ for a unified offensive + defensive security platform.</p>
-                <a href="pricing.html" class="cs-btn secondary" style="margin-top:1rem">Compare bundles</a>
-              </div>
-              <div class="csp-deploy-card">
-                <h4><i class="fas fa-server" style="color:var(--cs-gold)"></i> Customer-Hosted</h4>
-                <p>Deploy within your own cloud environment. Bring your own scanner integrations, data residency, and retention policies.</p>
-                <a href="request-demo.html" class="cs-btn ghost" style="margin-top:1rem">Talk to sales</a>
+          <!-- ── PRICING ── -->
+          <section class="csp-section">
+            <div class="auto-container">
+              <h2 class="csp-section-title">Pricing</h2>
+              <p class="csp-section-sub">RogueAgent ASPM™ is available as an add-on to CloudSignals+RiskOps™ or as part of an enterprise bundle. <a href="pricing.html" style="color:var(--cs-cyan);">View full pricing →</a></p>
+              <div class="csp-deploy-grid">
+                <div class="csp-deploy-card">
+                  <div class="csp-deploy-icon" style="background:rgba(0,209,255,0.13);border:1px solid rgba(0,209,255,0.28);color:var(--cs-cyan);"><i class="fas fa-flask"></i></div>
+                  <h3>Beta Access</h3>
+                  <p>Early access pricing for teams joining the beta programme. Dedicated onboarding and direct engineering support included.</p>
+                  <button type="button" class="cs-btn primary js-release-modal" data-solution="RogueAgent ASPM™">Join beta</button>
+                </div>
+                <div class="csp-deploy-card highlight">
+                  <div class="csp-deploy-icon" style="background:rgba(46,229,157,0.13);border:1px solid rgba(46,229,157,0.28);color:var(--cs-green);"><i class="fas fa-building"></i></div>
+                  <h3>Enterprise Bundle</h3>
+                  <p>Bundled with CloudSignals+RiskOps™, AI Signals™, and AIRE Agentic Mesh™ for a unified offensive + defensive security platform.</p>
+                  <a href="pricing.html" class="cs-btn secondary">Compare bundles</a>
+                </div>
+                <div class="csp-deploy-card">
+                  <div class="csp-deploy-icon" style="background:rgba(255,214,58,0.13);border:1px solid rgba(255,214,58,0.28);color:var(--cs-gold);"><i class="fas fa-server"></i></div>
+                  <h3>Customer-Hosted</h3>
+                  <p>Deploy within your own cloud environment. Bring your own scanner integrations, data residency, and retention policies.</p>
+                  <a href="request-demo.html" class="cs-btn ghost">Talk to sales</a>
+                </div>
               </div>
             </div>
           </section>
 
-          <div class="csp-divider auto-container"></div>
+          <div class="csp-divider"></div>
 
           <!-- ── FAQ ── -->
-          <section class="csp-section auto-container">
-            <h2 class="csp-section-title">Frequently asked questions</h2>
-            <div class="csp-faq-grid">
-              <details class="csp-faq-item">
-                <summary>What scanner integrations are supported?</summary>
-                <p>RogueAgent ASPM™ integrates with leading open-source engines (Nmap, Nuclei, Subfinder, FFUF) and commercial scanners via API. Custom integrations are supported via the plugin SDK.</p>
-              </details>
-              <details class="csp-faq-item">
-                <summary>Can I run scans on a schedule without manual triggers?</summary>
-                <p>Yes. You can configure recurring scan schedules per workspace — hourly, daily, or weekly — with configurable scope and notification on new findings or asset changes.</p>
-              </details>
-              <details class="csp-faq-item">
-                <summary>How does RogueAgent differ from a traditional DAST tool?</summary>
-                <p>RogueAgent is an ASPM (Attack Surface and Penetration Management) platform — it combines asset discovery, multi-mode recon, and vulnerability scanning in a single workspace, rather than targeting a single app at a point in time.</p>
-              </details>
-              <details class="csp-faq-item">
-                <summary>What evidence outputs are available for compliance teams?</summary>
-                <p>RogueAgent produces exportable evidence packages including scan manifests, finding timelines, remediation logs, and assessor-ready reports mapped to SOC 2, ISO 27001, PCI-DSS, and CMMC control requirements.</p>
-              </details>
-              <details class="csp-faq-item">
-                <summary>Does it integrate with CloudSignals+RiskOps™?</summary>
-                <p>Yes. RogueAgent findings flow into the CloudSignals+RiskOps™ risk register, enabling unified risk scoring, remediation routing, and consolidated executive reporting across your entire security programme.</p>
-              </details>
-              <details class="csp-faq-item">
-                <summary>When does RogueAgent reach general availability?</summary>
-                <p>GA is targeted for Q3 2026. Beta customers receive priority access, migration assistance, and locked-in beta pricing on GA release.</p>
-              </details>
+          <section class="csp-section">
+            <div class="auto-container">
+              <h2 class="csp-section-title">Frequently asked questions</h2>
+              <div class="csp-faq-grid">
+                <details class="csp-faq-item">
+                  <summary>What scanner integrations are supported?</summary>
+                  <p>RogueAgent ASPM™ integrates with leading open-source engines (Nmap, Nuclei, Subfinder, FFUF) and commercial scanners via API. Custom integrations are supported via the plugin SDK.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>Can I run scans on a schedule without manual triggers?</summary>
+                  <p>Yes. You can configure recurring scan schedules per workspace — hourly, daily, or weekly — with configurable scope and notification on new findings or asset changes.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>How does RogueAgent differ from a traditional DAST tool?</summary>
+                  <p>RogueAgent is an ASPM platform — it combines asset discovery, multi-mode recon, and vulnerability scanning in a single workspace, rather than targeting a single app at a point in time.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>What evidence outputs are available for compliance teams?</summary>
+                  <p>RogueAgent produces exportable evidence packages including scan manifests, finding timelines, remediation logs, and assessor-ready reports mapped to SOC 2, ISO 27001, PCI-DSS, and CMMC control requirements.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>Does it integrate with CloudSignals+RiskOps™?</summary>
+                  <p>Yes. RogueAgent findings flow into the CloudSignals+RiskOps™ risk register, enabling unified risk scoring, remediation routing, and consolidated executive reporting across your entire security programme.</p>
+                </details>
+                <details class="csp-faq-item">
+                  <summary>When does RogueAgent reach general availability?</summary>
+                  <p>GA is targeted for Q3 2026. Beta customers receive priority access, migration assistance, and locked-in beta pricing on GA release.</p>
+                </details>
+              </div>
             </div>
           </section>
-
-          <div class="csp-divider auto-container"></div>
 
           <!-- ── BOTTOM CTA ── -->
-          <section class="csp-bottom-cta auto-container">
-            <h2>Map your attack surface before attackers do.</h2>
-            <p>Join the RogueAgent ASPM™ beta. Early teams receive dedicated onboarding, direct engineering access, and locked-in beta pricing.</p>
-            <div class="csp-bottom-actions">
-              <button type="button" class="cs-btn primary js-release-modal" data-solution="RogueAgent ASPM™">
-                <i class="fas fa-flask"></i> Join beta programme
-              </button>
-              <a href="pricing.html" class="cs-btn secondary">View pricing</a>
-              <a href="request-demo.html" class="cs-btn ghost">Request a demo</a>
+          <div class="auto-container">
+            <div class="csp-bottom-cta">
+              <h2>Map your attack surface before attackers do.</h2>
+              <p>Join the RogueAgent ASPM™ beta. Early teams receive dedicated onboarding, direct engineering access, and locked-in beta pricing.</p>
+              <div class="csp-bottom-actions">
+                <button type="button" class="cs-btn primary js-release-modal" data-solution="RogueAgent ASPM™">
+                  <i class="fas fa-flask"></i> Join beta programme
+                </button>
+                <a href="pricing.html" class="cs-btn secondary">View pricing</a>
+                <a href="request-demo.html" class="cs-btn ghost">Request a demo</a>
+              </div>
             </div>
-          </section>
+          </div>
 
         </main>
                                         <!-- main-footer -->
