@@ -143,6 +143,14 @@
     details[open] .csp-faq-item summary{ color:var(--cs-cyan); }
     .csp-faq-item p{ margin:10px 0 0; color:var(--cs-muted); font-size:13.5px; line-height:1.75; }
     .csp-faq-item a{ color:var(--cs-cyan); }
+    .csp-rb-row{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:8px 14px; border-radius:12px; background:var(--cs-surface-1); border:1px solid var(--cs-line); }
+    .csp-deploy-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    @media(max-width:992px){ .csp-deploy-grid{ grid-template-columns:1fr 1fr; } }
+    @media(max-width:576px){ .csp-deploy-grid{ grid-template-columns:1fr; } }
+    .csp-deploy-card{ border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line); padding:24px; box-shadow:var(--cs-shadow); display:flex; flex-direction:column; gap:10px; }
+    .csp-deploy-card h4{ font-size:16px; font-weight:700; color:var(--cs-text-strong); margin:0; display:flex; align-items:center; gap:9px; }
+    .csp-deploy-card h4 i{ font-size:15px; }
+    .csp-deploy-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; flex:1; }
     .csp-bottom-cta{ margin:52px 0 60px; border-radius:var(--cs-radius); background:linear-gradient(135deg,rgba(0,209,255,0.09) 0%,rgba(46,229,157,0.05) 100%); border:1px solid rgba(0,209,255,0.25); padding:40px; text-align:center; }
     .csp-bottom-cta h2{ font-family:Jost,Inter,sans-serif; font-size:36px; font-weight:800; color:var(--cs-text-strong); margin:0 0 12px; letter-spacing:-0.5px; }
     @media(max-width:768px){ .csp-bottom-cta h2{ font-size:26px; } }
@@ -644,32 +652,32 @@
           <section class="csp-section auto-container">
             <h2 class="csp-section-title">Key capabilities</h2>
             <div class="csp-cap-grid">
-              <div class="csp-cap-card">
+              <div class="csp-cap">
                 <i class="fas fa-globe csp-cap-icon" style="color:var(--cs-cyan)"></i>
                 <h4>Attack Surface Discovery</h4>
                 <p>Map your full external attack surface — hosts, subdomains, cloud endpoints, and shadow IT — with continuous delta tracking.</p>
               </div>
-              <div class="csp-cap-card">
+              <div class="csp-cap">
                 <i class="fas fa-robot csp-cap-icon" style="color:var(--cs-green)"></i>
                 <h4>Automated Recon Pipelines</h4>
                 <p>Chain recon modules into scheduled pipelines. Trigger on asset changes or run ad-hoc for penetration testing engagements.</p>
               </div>
-              <div class="csp-cap-card">
+              <div class="csp-cap">
                 <i class="fas fa-shield-alt csp-cap-icon" style="color:var(--cs-gold)"></i>
                 <h4>Web &amp; Service Scanning</h4>
                 <p>Assess HTTP/S services, open ports, TLS configurations, and exposed APIs using integrated scanner engines.</p>
               </div>
-              <div class="csp-cap-card">
+              <div class="csp-cap">
                 <i class="fas fa-file-export csp-cap-icon" style="color:var(--cs-purple)"></i>
                 <h4>Evidence &amp; Reporting</h4>
                 <p>Generate audit-ready reports and exportable evidence packages. Native connectors for SIEM, ticketing, and CI/CD pipelines.</p>
               </div>
-              <div class="csp-cap-card">
+              <div class="csp-cap">
                 <i class="fas fa-calendar-alt csp-cap-icon" style="color:var(--cs-cyan)"></i>
                 <h4>Scheduled &amp; Triggered Scans</h4>
                 <p>Run recurring scans on configurable cadences or trigger scans via API on new asset discovery or pipeline events.</p>
               </div>
-              <div class="csp-cap-card">
+              <div class="csp-cap">
                 <i class="fas fa-users-cog csp-cap-icon" style="color:var(--cs-green)"></i>
                 <h4>RBAC &amp; SSO</h4>
                 <p>Granular role-based access controls with SSO and SCIM provisioning. Scope access per workspace, team, or engagement.</p>
