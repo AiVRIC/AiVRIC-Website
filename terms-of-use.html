@@ -1,51 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-    <title>Terms of Use | AiVRIC</title>
+<title>Terms of Use | AiVRIC</title>
+<meta name="description" content="AiVRIC Terms of Use — governing your access to and use of AiVRIC websites, products, and services including the cloud-security and compliance platform.">
 
-    <!-- Fav Icon -->
-    <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+<link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <!-- Stylesheets -->
-    <link href="assets/css/aivric-preloader.css" rel="stylesheet">
+<link href="assets/css/aivric-preloader.css" rel="stylesheet">
 <link href="assets/css/font-awesome-all.css" rel="stylesheet">
-    <link href="assets/css/flaticon.css" rel="stylesheet">
-    <link href="assets/css/owl.css" rel="stylesheet">
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
-    <link href="assets/css/animate.css" rel="stylesheet">
-    <link href="assets/css/nice-select.css" rel="stylesheet">
-    <link href="assets/css/color.css" rel="stylesheet">
-    <link href="assets/css/elpath.css" rel="stylesheet">
-    <link href="assets/css/style.css?v=20250115" rel="stylesheet">
-    <link href="assets/css/elements-css/page-title.css" rel="stylesheet">
-    <link href="assets/css/responsive.css" rel="stylesheet">
-  <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+<link href="assets/css/flaticon.css" rel="stylesheet">
+<link href="assets/css/owl.css" rel="stylesheet">
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="assets/css/animate.css" rel="stylesheet">
+<link href="assets/css/nice-select.css" rel="stylesheet">
+<link href="assets/css/color.css" rel="stylesheet">
+<link href="assets/css/elpath.css" rel="stylesheet">
+<link href="assets/css/style.css?v=20250115" rel="stylesheet">
+<link href="assets/css/elements-css/page-title.css" rel="stylesheet">
+<link href="assets/css/elements-css/service.css" rel="stylesheet">
+<link href="assets/css/elements-css/about.css" rel="stylesheet">
+<link href="assets/css/responsive.css" rel="stylesheet">
+<link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+
+<style>
+  :root{
+    --cs-cyan:#00d1ff; --cs-green:#2ee59d; --cs-gold:#ffd63a; --cs-purple:#a78bfa;
+    --cs-text-strong:#f8fafc; --cs-text:#e5e7eb; --cs-muted:#cbd5e1; --cs-faint:#94a3b8;
+    --cs-surface-1:rgba(255,255,255,0.06); --cs-line:rgba(148,163,184,0.28);
+    --cs-shadow:0 14px 40px rgba(0,0,0,0.28); --cs-radius:18px;
+  }
+  body.portal-page{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:radial-gradient(1200px 900px at 70% -20%,rgba(0,209,255,0.20),transparent 55%),
+               radial-gradient(900px 700px at 10% 10%,rgba(46,113,229,0.13),transparent 60%),
+               linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%);
+    color:var(--cs-text);
+  }
+
+  /* Legal page hero */
+  .legal-hero{ padding:90px 0 40px; }
+  @media(max-width:992px){ .legal-hero{ padding:70px 0 30px; } }
+  .legal-hero-eyebrow{ display:block; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--cs-cyan); margin-bottom:10px; }
+  .legal-hero-title{ font-family:Jost,Inter,sans-serif; font-size:44px; font-weight:800; line-height:1.05; letter-spacing:-0.8px; color:var(--cs-text-strong); margin:0 0 10px; }
+  @media(max-width:768px){ .legal-hero-title{ font-size:30px; } }
+  .legal-hero-meta{ font-size:14px; color:var(--cs-faint); }
+  .legal-hero-meta a{ color:var(--cs-faint); text-decoration:none; }
+  .legal-hero-meta a:hover{ color:var(--cs-muted); }
+  .legal-divider{ height:1px; background:linear-gradient(90deg,transparent,var(--cs-line),transparent); margin:0 0 40px; }
+
+  /* Two-column layout */
+  .legal-body-wrap{ padding:0 0 72px; }
+  .legal-layout{ display:grid; grid-template-columns:240px 1fr; gap:40px; align-items:start; }
+  @media(max-width:992px){ .legal-layout{ grid-template-columns:1fr; } }
+
+  /* Sidebar */
+  .legal-sidebar{ position:sticky; top:100px; }
+  @media(max-width:992px){ .legal-sidebar{ display:none; } }
+  .legal-nav-label{ font-size:10px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--cs-faint); margin-bottom:14px; display:block; }
+  .legal-nav-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:2px; }
+  .legal-nav-list li a{ display:block; padding:7px 12px; border-radius:8px; font-size:13px; color:var(--cs-faint); text-decoration:none; transition:background 0.18s, color 0.18s; line-height:1.4; }
+  .legal-nav-list li a:hover{ background:var(--cs-surface-1); color:var(--cs-text); }
+
+  /* Main content card */
+  .legal-card{ border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line); padding:40px 48px; box-shadow:var(--cs-shadow); }
+  @media(max-width:768px){ .legal-card{ padding:28px 24px; } }
+
+  /* Prose styles */
+  .legal-prose p{ font-size:15px; line-height:1.8; color:var(--cs-muted); margin:0 0 18px; }
+  .legal-prose h3{ font-family:Jost,Inter,sans-serif; font-size:22px; font-weight:800; color:var(--cs-text-strong); margin:36px 0 12px; padding-top:8px; border-top:1px solid var(--cs-line); }
+  .legal-prose h3:first-child{ margin-top:0; border-top:none; padding-top:0; }
+  .legal-prose ul{ padding-left:0; margin:0 0 18px; list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .legal-prose ul li{ font-size:14.5px; line-height:1.7; color:var(--cs-muted); display:flex; gap:10px; align-items:flex-start; }
+  .legal-prose ul li::before{ content:"→"; color:var(--cs-cyan); font-size:12px; flex-shrink:0; margin-top:3px; }
+  .legal-prose a{ color:var(--cs-cyan); text-decoration:none; }
+  .legal-prose a:hover{ text-decoration:underline; }
+  .legal-prose strong{ color:var(--cs-text-strong); font-weight:700; }
+  .legal-effective{ display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:10px; background:rgba(0,209,255,0.08); border:1px solid rgba(0,209,255,0.22); font-size:13px; color:var(--cs-cyan); font-weight:600; margin-bottom:28px; }
+  .legal-effective i{ font-size:12px; }
+</style>
+
 <style id="gf-styles">
-/* === GLOBAL FOOTER === */
 .gf-footer{background:#050b17;position:relative;overflow:hidden;font-family:'Inter',sans-serif}
-/* subtle dot-grid */
 .gf-footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(0,209,255,.045) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
-/* gradient glow top-line */
 .gf-top-rule{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,209,255,.55) 30%,rgba(46,229,157,.4) 70%,transparent 100%);position:relative;z-index:1}
-/* body */
 .gf-body{padding:72px 0 52px;position:relative;z-index:1}
 .gf-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:52px}
 @media(max-width:991px){.gf-grid{grid-template-columns:1fr 1fr;gap:36px 40px}}
 @media(max-width:599px){.gf-grid{grid-template-columns:1fr;gap:32px}}
-/* brand col */
 .gf-logo-link{display:inline-block;margin-bottom:14px}
 .gf-logo{height:34px;width:auto;display:block}
 .gf-tagline{font-size:13px;color:#4e637a;line-height:1.7;margin-bottom:22px;max-width:255px}
-/* email subscribe */
 .gf-subscribe-row{display:flex;gap:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:8px;overflow:hidden;margin-bottom:7px;transition:border-color .2s}
 .gf-subscribe-row:focus-within{border-color:rgba(0,209,255,.35)}
 .gf-subscribe-row input{flex:1;background:transparent;border:none;outline:none;padding:10px 14px;font-size:13px;color:#e2e8f0;font-family:'Inter',sans-serif}
@@ -53,21 +105,17 @@
 .gf-subscribe-row button{background:#00d1ff;border:none;padding:10px 15px;color:#030a12;cursor:pointer;font-size:13px;transition:background .2s;flex-shrink:0}
 .gf-subscribe-row button:hover{background:#33daff}
 .gf-subscribe-note{font-size:11px;color:#3d5268;margin:0 0 22px}
-/* social */
 .gf-social{display:flex;gap:8px}
 .gf-social-link{width:33px;height:33px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#4e637a;font-size:13px;text-decoration:none;transition:all .2s}
 .gf-social-link:hover{background:rgba(0,209,255,.09);border-color:rgba(0,209,255,.28);color:#00d1ff}
-/* nav columns */
 .gf-col-title{font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#94a3b8;margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.06)}
 .gf-links{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:9px}
 .gf-links li a{font-size:13.5px;color:#4e637a;text-decoration:none;transition:color .18s;display:inline-block}
 .gf-links li a:hover{color:#cbd5e1}
-/* contact block */
 .gf-contact-block{display:flex;flex-direction:column;gap:9px;margin-top:4px}
 .gf-contact-link{display:flex;align-items:center;gap:8px;font-size:13px;color:#4e637a;text-decoration:none;transition:color .18s}
 .gf-contact-link i{color:#00d1ff;font-size:12px;width:14px;text-align:center;flex-shrink:0}
 .gf-contact-link:hover{color:#cbd5e1}
-/* bottom bar */
 .gf-bottom{border-top:1px solid rgba(255,255,255,.055);padding:16px 0;position:relative;z-index:1}
 .gf-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
 .gf-copy{font-size:12px;color:#3d5268;margin:0}
@@ -80,82 +128,84 @@
 .gf-bottom-nav{display:flex;gap:18px}
 .gf-bottom-nav a{font-size:12px;color:#3d5268;text-decoration:none;transition:color .18s}
 .gf-bottom-nav a:hover{color:#94a3b8}
-/* remove old footer pattern images */
 .gf-footer .pattern-layer{display:none!important}
-/* keep old .main-footer link colors from interfering */
 .gf-footer .links-list,.gf-footer .footer-widget,.gf-footer .widget-section,.gf-footer .footer-bottom{display:none!important}
 </style>
+<link href="assets/css/visual-enhancements.css" rel="stylesheet">
 </head>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-EG2Q8GD30V');
 </script>
 
-<body>
+<body class="portal-page">
 <div class="boxed_wrapper">
 
-    <!-- Preloader -->
-    <div class="loader-wrap">
-        <div class="preloader">
-            <div class="preloader-close">x</div>
-            <div id="handle-preloader" class="handle-preloader">
-                <div class="animation-preloader">
-                    <div class="spinner"></div>
-                    <div class="txt-loading">
-                        <span data-text-preloader="A" class="letters-loading">A</span>
-                        <span data-text-preloader="I" class="letters-loading">I</span>
-                        <span data-text-preloader="V" class="letters-loading">V</span>
-                        <span data-text-preloader="r" class="letters-loading">r</span>
-                        <span data-text-preloader="i" class="letters-loading">i</span>
-                        <span data-text-preloader="c" class="letters-loading">c</span>
-                    </div>
-                </div>
+  <!-- preloader -->
+  <div id="apl-wrap">
+    <div class="apl-scan"></div>
+    <div class="apl-corner tl"></div>
+    <div class="apl-corner tr"></div>
+    <div class="apl-corner bl"></div>
+    <div class="apl-corner br"></div>
+    <div class="apl-center">
+      <div class="apl-logo-wrap">
+        <div class="apl-ring r1"></div>
+        <div class="apl-ring r2"></div>
+        <div class="apl-ring r3"></div>
+        <img class="apl-logo" src="assets/images/logo/aivric.svg" alt="AiVRIC">
+      </div>
+      <div class="apl-brand">AiVRIC</div>
+      <div class="apl-tagline">Security Intelligence Platform</div>
+      <div class="apl-progress-wrap">
+        <div class="apl-progress-fill" id="apl-fill"></div>
+      </div>
+      <div class="apl-status-row">
+        <span class="apl-status" id="apl-status">Initializing Signal Engine</span>
+        <span class="apl-pct" id="apl-pct">0%</span>
+      </div>
+    </div>
+  </div>
+  <!-- preloader end -->
+
+  <!-- main header -->
+  <header class="main-header">
+<div class="header-top-bar">
+    <div class="auto-container">
+        <div class="top-bar-inner">
+            <div class="top-bar-brand">AIVRIC TECHNOLOGIES</div>
+            <div class="top-bar-right">
+                <ul class="top-bar-links">
+                    <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-book-open"></i></span>Platform Guide</a></li>
+                    <li><a href="trust.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-shield-alt"></i></span>Trust Center</a></li>
+                </ul>
+                <ul class="top-bar-social">
+                    <li><a href="https://www.linkedin.com/company/aivric" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://x.com/aivric" aria-label="X"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://github.com" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+                </ul>
             </div>
         </div>
     </div>
-    <!-- End Preloader -->
-
-    <!-- Main Header -->
-    <header class="main-header header-style-two">
-        <div class="header-top">
-            <div class="auto-container">
-                <div class="top-inner">
-                    <div class="top-left">
-                        <ul class="info clearfix">
-                            <li><i class="icon-1"></i>Mon-Fri 8:00 am-6:00 pm</li>
-                            <li><i class="icon-2"></i><a href="tel:19543426637">+1-954-342-6637</a></li>
-                            <li><i class="icon-3"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
-                        </ul>
-                    </div>
-                    <div class="top-right">                        
-                        <ul class="social-links clearfix">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
+</div>
+    <div class="header-lower">
+        <div class="auto-container">
+            <div class="outer-box">
+                <div class="logo-box">
+                    <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
                 </div>
-            </div>
-        </div>
-
-        <div class="header-lower">
-            <div class="auto-container">
-                <div class="outer-box">
-                    <div class="logo-box">
-                        <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC Logo"></a></figure>
+                <div class="menu-area clearfix">
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
                     </div>
-                    <div class="menu-area clearfix">
-                        <div class="mobile-nav-toggler">
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
-                        </div>
-                        <nav class="main-menu navbar-expand-md navbar-light">
+                    <nav class="main-menu navbar-expand-md navbar-light">
     <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
         <ul class="navigation clearfix">
             <li class="dropdown platform-menu"><a href="services.html">Platform</a>
@@ -275,445 +325,366 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="why-aivric.html">Why AiVRIC</a></li>
                     <li><a href="blog-portal.html">Blog</a></li>
-
                 </ul>
             </li>
         </ul>
     </div>
 </nav>
-                    </div>
-                    <ul class="menu-right-content">
-                        <li class="search-box-outer search-toggler">
-                            <i class="icon-4"></i>
-                        </li>
-                        <li class="btn-box">
-                            <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-one">Launch for Free</a>
-                        </li>
-                    </ul>
                 </div>
-            </div>
-        </div>
-
-        <!-- Sticky Header -->
-        <div class="sticky-header">
-            <div class="auto-container">
-                <div class="outer-box">
-                    <div class="logo-box">
-                        <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
-                    </div>
-                    <div class="menu-area clearfix">
-                        <nav class="main-menu clearfix">
-                            <!-- menu injected by JS -->
-                        </nav>
-                    </div>
-                    <ul class="menu-right-content">
-                        <li class="search-box-outer search-toggler">
-                            <i class="icon-4"></i>
-                        </li>
-                        <li class="btn-box">
-                            <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-one">Launch for Free</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- End Main Header -->
-        <!-- Mobile Menu  -->
-        <div class="mobile-menu">
-            <div class="menu-backdrop"></div>
-            <div class="close-btn" role="button" tabindex="0" aria-label="Close menu"><i class="fas fa-times"></i></div>
-            
-            <nav class="menu-box">
-                <div class="nav-logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" title=""></a></div>
-                <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
-                <div class="contact-info">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li>Wilmington, Delaware USA</li>
-                        <li><a href="tel:+8801682648101">+1 9543426637</a></li>
-                        <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
-                    </ul>
-                </div>
-                <div class="social-links">
-                    <ul class="clearfix">
-                        <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
-                        <li><a href="https://www.facebook.com/profile.php?id=61581937785235"><span class="fab fa-facebook-square"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
-                        <li><a href="https://www.instagram.com/aivrictechnologies/"><span class="fab fa-instagram"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div><!-- End Mobile Menu -->
-
-    <!-- Page Title -->
-    <section class="page-title centred">
-        <div class="bg-layer" style="background-image: url(assets/images/background/page-title.avif);"></div>
-        <div class="auto-container">
-            <div class="content-box">
-                <h1>Terms of Use</h1>
-                <ul class="bread-crumb clearfix">
-                    <li><a href="index.html">Home</a></li>
-                    <li>Terms of Use</li>
+                <ul class="menu-right-content">
+                    <li class="search-box-outer search-toggler"><i class="icon-4"></i></li>
+                    <li class="btn-box">
+                        <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-one">Launch for Free</a>
+                    </li>
                 </ul>
             </div>
         </div>
-    </section>
-    <!-- End Page Title -->
-
-    <!-- Terms Section -->
-    <section class="about-style-three sec-pad">
-        <div class="auto-container">
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 content-column">
-                    <div class="content-box">
-                        <div class="sec-title mb_30">
-                            <span class="sub-title">Effective Date: January 1, 2025</span>
-                            <h2>AiVRIC Terms of Use</h2>
-                        </div>
-
-                        <p class="mb_20">
-                            These Terms of Use (the &ldquo;<strong>Terms</strong>&rdquo;) govern your access to and use of the websites, products, and services offered by AiVRIC (&ldquo;<strong>AiVRIC</strong>,&rdquo; &ldquo;<strong>we</strong>,&rdquo; &ldquo;<strong>us</strong>,&rdquo; or &ldquo;<strong>our</strong>&rdquo;), including the AiVRIC cloud-security and compliance platform (collectively, the &ldquo;<strong>Services</strong>&rdquo;).
-                        </p>
-
-                        <p class="mb_30">
-                            By accessing or using the Services, you agree to be bound by these Terms. If you are using the Services on behalf of an organization, you represent that you are authorized to accept these Terms on that organization&rsquo;s behalf. If you do not agree to these Terms, you must not access or use the Services.
-                        </p>
-
-                        <!-- 1. Eligibility -->
-                        <h3>1. Eligibility and Accounts</h3>
-                        <p class="mb_20">
-                            You may use the Services only if you are at least 18 years old (or the age of majority in your jurisdiction) and are capable of forming a binding contract with AiVRIC. Certain features may require you to create an account and provide accurate, current, and complete information.
-                        </p>
-                        <p class="mb_30">
-                            You are responsible for safeguarding your account credentials and for all activities that occur under your account. You agree to promptly notify us of any unauthorized access or suspected compromise of your account.
-                        </p>
-
-                        <!-- 2. Relationship with Other Agreements -->
-                        <h3>2. Relationship with Other Agreements</h3>
-                        <p class="mb_30">
-                            If you or your organization has executed a separate written agreement with AiVRIC (such as a Master Services Agreement, subscription order, or data-processing agreement), that agreement will govern to the extent it conflicts with these Terms. In all other cases, these Terms apply to your use of the Services.
-                        </p>
-
-                        <!-- 3. Use of the Services -->
-                        <h3>3. Use of the Services</h3>
-                        <p class="mb_10">
-                            Subject to your compliance with these Terms and any applicable order forms, AiVRIC grants you a limited, non-exclusive, non-transferable, and revocable right to:
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li>Access and use the Services for your internal business purposes; and</li>
-                            <li>Install and use any client components, connectors, or agents that AiVRIC makes available solely in connection with your authorized use of the Services.</li>
-                        </ul>
-                        <p class="mb_30">
-                            You must use the Services in accordance with all applicable laws, regulations, and industry standards, including those related to data protection and cybersecurity.
-                        </p>
-
-                        <!-- 4. Prohibited Activities -->
-                        <h3>4. Prohibited Activities</h3>
-                        <p class="mb_10">
-                            You agree not to:
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li>Use the Services in any manner that violates applicable law or infringes any third party&rsquo;s rights;</li>
-                            <li>Access or attempt to access the Services by any means other than the interfaces we provide;</li>
-                            <li>Reverse engineer, decompile, or otherwise attempt to derive the source code of the Services, except to the extent permitted by law;</li>
-                            <li>Interfere with or disrupt the integrity, performance, or security of the Services or the data contained therein;</li>
-                            <li>Use the Services to store or transmit malicious code, malware, or unauthorized scripts;</li>
-                            <li>Use the Services to perform or attempt to perform unauthorized or non-consensual testing against systems that you do not own or lack explicit permission to assess;</li>
-                            <li>Resell, sublicense, or otherwise make the Services available to third parties without our prior written consent; or</li>
-                            <li>Misrepresent your affiliation with AiVRIC or remove any proprietary notices from the Services.</li>
-                        </ul>
-
-                        <!-- 5. Customer Data -->
-                        <h3>5. Customer Data</h3>
-                        <p class="mb_20">
-                            &ldquo;<strong>Customer Data</strong>&rdquo; means any data, content, configurations, logs, or other information that you or your organization submit to the Services, including data collected from your cloud, on-premises, or hybrid environments.
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li>You retain ownership of all rights, title, and interest in and to Customer Data.</li>
-                            <li>You grant AiVRIC a worldwide, non-exclusive, royalty-free license to host, process, transmit, display, and otherwise use Customer Data as necessary to provide and improve the Services.</li>
-                            <li>You represent that you have obtained all necessary rights, consents, and authorizations to submit Customer Data to the Services and to allow AiVRIC to process Customer Data as described in these Terms and our Privacy Policy.</li>
-                        </ul>
-                        <p class="mb_30">
-                            We implement administrative, technical, and physical safeguards designed to protect Customer Data as described in our security documentation and Privacy Policy.
-                        </p>
-
-                        <!-- 6. Intellectual Property -->
-                        <h3>6. Intellectual Property</h3>
-                        <p class="mb_20">
-                            AiVRIC and its licensors retain all rights, title, and interest in and to the Services, including all software, user interfaces, algorithms, analytics, documentation, logos, trademarks, and other intellectual property, whether registered or unregistered.
-                        </p>
-                        <p class="mb_30">
-                            Except for the limited rights expressly granted in these Terms, no rights or licenses are granted to you by implication or otherwise. You may not use AiVRIC&rsquo;s name, logos, or trademarks without our prior written permission.
-                        </p>
-
-                        <!-- 7. Third-Party Services -->
-                        <h3>7. Third-Party Services and Integrations</h3>
-                        <p class="mb_30">
-                            The Services may interoperate with or include links to third-party products, services, or websites. We do not control and are not responsible for third-party offerings, and your use of them is subject to the applicable third-party terms and privacy policies. AiVRIC is not liable for any damage or loss arising from your use of such third-party services.
-                        </p>
-
-                        <!-- 8. Subscription, Fees, Trials -->
-                        <h3>8. Subscriptions, Fees, and Trials</h3>
-                        <p class="mb_20">
-                            Access to certain features of the Services may require a paid subscription or executed order form. Subscription terms, pricing, and billing details are specified in the applicable order or on the relevant pricing page and are incorporated into these Terms by reference.
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li>Unless otherwise agreed, subscription fees are billed in advance and are non-refundable except as expressly provided in these Terms or required by law.</li>
-                            <li>If you participate in a free trial, the trial will automatically terminate at the stated end date or when you convert to a paid subscription, whichever occurs first.</li>
-                            <li>You are responsible for all taxes, duties, or similar governmental assessments (excluding AiVRIC&rsquo;s income taxes) associated with your subscription.</li>
-                        </ul>
-                        <p class="mb_30">
-                            AiVRIC may suspend or terminate your access to the Services if you fail to pay applicable fees when due, after providing notice and an opportunity to cure where required by law or contract.
-                        </p>
-
-                        <!-- 9. Confidentiality -->
-                        <h3>9. Confidentiality</h3>
-                        <p class="mb_20">
-                            &ldquo;<strong>Confidential Information</strong>&rdquo; means non-public information that is disclosed by one party to the other in connection with the Services and is marked or reasonably understood to be confidential. Customer Data, product roadmaps, security documentation, and business plans are examples of Confidential Information.
-                        </p>
-                        <p class="mb_20">
-                            Each party agrees to:
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li>Use the other party&rsquo;s Confidential Information only as necessary to perform its obligations under these Terms; and</li>
-                            <li>Protect the other party&rsquo;s Confidential Information using at least the same degree of care it uses to protect its own confidential information, and no less than reasonable care.</li>
-                        </ul>
-                        <p class="mb_30">
-                            Confidential Information does not include information that (a) becomes publicly available through no fault of the receiving party; (b) was lawfully known to the receiving party prior to disclosure; (c) is independently developed without reference to the Confidential Information; or (d) is rightfully received from a third party without restriction. A party may disclose Confidential Information when required by law, provided it gives reasonable prior notice (where legally permitted) and cooperates with the disclosing party&rsquo;s efforts to seek protective measures.
-                        </p>
-
-                        <!-- 10. Privacy -->
-                        <h3>10. Privacy</h3>
-                        <p class="mb_30">
-                            Your use of the Services is also governed by the <a href="privacy-policy.html">AiVRIC Privacy Policy</a>, which describes how we collect, use, and protect personal information. By using the Services, you acknowledge that you have read and understood the Privacy Policy.
-                        </p>
-
-                        <!-- 11. Warranties -->
-                        <h3>11. Warranties and Disclaimers</h3>
-                        <p class="mb_20">
-                            To the extent permitted by law and except as expressly stated in a separate written agreement, the Services are provided on an &ldquo;AS IS&rdquo; and &ldquo;AS AVAILABLE&rdquo; basis.
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li>AiVRIC does not warrant that the Services will be uninterrupted, error-free, or completely secure.</li>
-                            <li>AiVRIC does not guarantee that the Services will detect every vulnerability, misconfiguration, or security issue, or that use of the Services will ensure compliance with any particular law, regulation, or standard.</li>
-                        </ul>
-                        <p class="mb_30">
-                            TO THE MAXIMUM EXTENT PERMITTED BY LAW, AIVRIC DISCLAIMS ALL EXPRESS, IMPLIED, STATUTORY, OR OTHER WARRANTIES, INCLUDING ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.
-                        </p>
-
-                        <!-- 12. Limitation of Liability -->
-                        <h3>12. Limitation of Liability</h3>
-                        <p class="mb_20">
-                            TO THE MAXIMUM EXTENT PERMITTED BY LAW, NEITHER AIVRIC NOR ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, OR LICENSORS WILL BE LIABLE FOR ANY:
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li>INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES; OR</li>
-                            <li>LOSS OF PROFITS, REVENUE, DATA, GOODWILL, OR BUSINESS INTERRUPTION,</li>
-                        </ul>
-                        <p class="mb_20">
-                            ARISING OUT OF OR RELATED TO THESE TERMS OR YOUR USE OF THE SERVICES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, AND EVEN IF A REMEDY FAILS OF ITS ESSENTIAL PURPOSE.
-                        </p>
-                        <p class="mb_30">
-                            TO THE MAXIMUM EXTENT PERMITTED BY LAW, AIVRIC&rsquo;S TOTAL AGGREGATE LIABILITY FOR ALL CLAIMS ARISING OUT OF OR RELATED TO THESE TERMS OR THE SERVICES WILL NOT EXCEED THE AMOUNT PAID BY YOU TO AIVRIC FOR THE SERVICES IN THE TWELVE (12) MONTHS PRECEDING THE EVENT GIVING RISE TO THE CLAIM. SOME JURISDICTIONS DO NOT ALLOW LIMITATIONS OF LIABILITY, SO SOME OF THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU.
-                        </p>
-
-                        <!-- 13. Indemnification -->
-                        <h3>13. Indemnification</h3>
-                        <p class="mb_20">
-                            To the extent permitted by law, you agree to indemnify, defend, and hold harmless AiVRIC and its affiliates, officers, directors, employees, and agents from and against any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys&rsquo; fees) arising out of or related to:
-                        </p>
-                        <ul class="list-style-one mb_30">
-                            <li>Your use of the Services in violation of these Terms or applicable law; or</li>
-                            <li>Customer Data or other content you submit to the Services, including any allegation that such data or content infringes or misappropriates the rights of a third party.</li>
-                        </ul>
-
-                        <!-- 14. Suspension and Termination -->
-                        <h3>14. Suspension and Termination</h3>
-                        <p class="mb_20">
-                            AiVRIC may suspend or restrict your access to the Services immediately if we reasonably believe:
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li>You have violated these Terms or applicable law;</li>
-                            <li>Your use of the Services poses a security risk or may disrupt the Services or other customers;</li>
-                            <li>Suspension is required to comply with legal obligations.</li>
-                        </ul>
-                        <p class="mb_20">
-                            Either party may terminate these Terms (and your access to the Services) upon written notice if the other party materially breaches these Terms and does not cure the breach within thirty (30) days of receiving written notice, or as otherwise provided in an applicable subscription agreement.
-                        </p>
-                        <p class="mb_30">
-                            Upon termination, your right to access the Services will cease, but the following sections will survive: Intellectual Property, Confidentiality, Privacy, Warranties and Disclaimers, Limitation of Liability, Indemnification, Governing Law and Dispute Resolution, and any other provisions that by their nature are intended to survive.
-                        </p>
-
-                        <!-- 15. Governing Law and Dispute Resolution -->
-                        <h3>15. Governing Law and Dispute Resolution</h3>
-                        <p class="mb_20">
-                            These Terms are governed by and construed in accordance with the laws of the State of Florida, United States, without regard to its conflict-of-law principles.
-                        </p>
-                        <p class="mb_20">
-                            Any dispute arising out of or relating to these Terms or the Services will be subject to the exclusive jurisdiction of the state and federal courts located in Broward County, Florida, and each party irrevocably submits to the personal jurisdiction of such courts. Nothing in this section limits either party&rsquo;s ability to seek injunctive or equitable relief in any court of competent jurisdiction.
-                        </p>
-                        <p class="mb_30">
-                            Where required by law, you may also have additional consumer-protection rights, which these Terms do not limit.
-                        </p>
-
-                        <!-- 16. Export and Compliance -->
-                        <h3>16. Export Control and Compliance</h3>
-                        <p class="mb_30">
-                            You agree to comply with all applicable export-control and trade-sanctions laws and regulations, including those of the United States and any other relevant jurisdictions. You may not use or access the Services if you are located in a jurisdiction subject to comprehensive U.S. sanctions or if you are a person or entity prohibited from receiving U.S. exports or services.
-                        </p>
-
-                        <!-- 17. Changes to the Services and Terms -->
-                        <h3>17. Changes to the Services and These Terms</h3>
-                        <p class="mb_20">
-                            We may update or modify the Services from time to time to improve functionality, enhance security, or address business or regulatory needs. We will use reasonable efforts to avoid materially degrading the core functionality of the Services during your active subscription term.
-                        </p>
-                        <p class="mb_30">
-                            We may also update these Terms from time to time. When we make material changes, we will update the &ldquo;Effective Date&rdquo; at the top of this page and, where appropriate, provide additional notice (such as by email or in-product message). Your continued use of the Services after such changes become effective constitutes your acceptance of the revised Terms.
-                        </p>
-
-                        <!-- 18. Miscellaneous -->
-                        <h3>18. Miscellaneous</h3>
-                        <ul class="list-style-one mb_30">
-                            <li><strong>Entire Agreement.</strong> These Terms, together with any applicable order forms or written agreements between you and AiVRIC, constitute the entire agreement between the parties regarding the Services and supersede all prior or contemporaneous agreements, proposals, or representations.</li>
-                            <li><strong>Assignment.</strong> You may not assign or transfer these Terms or your rights and obligations under them without AiVRIC&rsquo;s prior written consent. AiVRIC may assign these Terms in connection with a merger, acquisition, corporate reorganization, or sale of all or substantially all of its assets.</li>
-                            <li><strong>Severability.</strong> If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions will remain in full force and effect.</li>
-                            <li><strong>No Waiver.</strong> Our failure to enforce any right or provision of these Terms will not constitute a waiver of that right or provision.</li>
-                            <li><strong>Notices.</strong> Notices to AiVRIC must be sent in writing to the contact details below. We may provide notices to you via email, in-product notifications, or by posting to our website.</li>
-                        </ul>
-
-                        <!-- 19. Contact Us -->
-                        <h3>19. Contact Us</h3>
-                        <p class="mb_10">
-                            If you have any questions about these Terms or the Services, please contact us at:
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li><strong>Email:</strong> <a href="mailto:legal@aivric.com">legal@aivric.com</a></li>
-                            <li><strong>General Inquiries:</strong> <a href="mailto:info@aivric.com">info@aivric.com</a></li>
-                            <li><strong>Mailing Address:</strong> AiVRIC,Wilmington, Delaware 19802, United States</li>
-                        </ul>                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Terms Section -->
-
-                                    <!-- main-footer -->
-        <footer class="main-footer gf-footer">
-
-          <div class="gf-top-rule"></div>
-
-          <div class="gf-body">
-            <div class="auto-container">
-              <div class="gf-grid">
-
-                <!-- Brand -->
-                <div class="gf-col">
-                  <a href="index.html" class="gf-logo-link">
-                    <img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" class="gf-logo">
-                  </a>
-                  <p class="gf-tagline">Autonomous Security, Compliance, and Risk Intelligence — hosted in your environment.</p>
-                  <form class="gf-subscribe" action="contact.html" method="post">
-                    <div class="gf-subscribe-row">
-                      <input type="email" name="email" placeholder="Work email address" required>
-                      <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
-                    </div>
-                    <p class="gf-subscribe-note">No spam &mdash; platform updates only.</p>
-                  </form>
-                  <div class="gf-social">
-                    <a href="https://www.linkedin.com/company/aivric" class="gf-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://x.com/aivric" class="gf-social-link" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.facebook.com/61581937785235/" class="gf-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/aivrictechnologies/" class="gf-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                  </div>
-                </div>
-
-                <!-- Platform -->
-                <div class="gf-col">
-                  <div class="gf-col-title">Platform</div>
-                  <ul class="gf-links">
-                    <li><a href="services.html">Platform Overview</a></li>
-                    <li><a href="genai-chat.html">GenAI Chat</a></li>
-                    <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
-                    <li><a href="agentic-design.html">Agentic Design</a></li>
-                    <li><a href="efficient-compute.html">Efficient Compute</a></li>
-                    <li><a href="data-localization.html">Data Localization</a></li>
-                    <li><a href="ai-model-inspection.html">AI Model Inspection</a></li>
-                  </ul>
-                </div>
-
-                <!-- Solutions -->
-                <div class="gf-col">
-                  <div class="gf-col-title">Solutions</div>
-                  <ul class="gf-links">
-                    <li><a href="cspm-cloudsignals.html">CloudSignals+RiskOps&trade;</a></li>
-                    <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
-                    <li><a href="air-remediation.html">AIRE Agentic Mesh&trade;</a></li>
-                    <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
-                    <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
-                    <li><a href="aivric-vision-enterprise.html">Vision Enterprise</a></li>
-                    <li><a href="solutions-portal.html">All Products &rarr;</a></li>
-                  </ul>
-                </div>
-
-                <!-- Company + Contact -->
-                <div class="gf-col">
-                  <div class="gf-col-title">Company</div>
-                  <ul class="gf-links">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="why-aivric.html">Why AiVRIC</a></li>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="blog-portal.html">Blog</a></li>
-                    <li><a href="trust.html">Trust Center</a></li>
-                    <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Platform Guide</a></li>
-                  </ul>
-                  <div class="gf-contact-block">
-                    <a href="mailto:info@aivric.com" class="gf-contact-link"><i class="fas fa-envelope"></i>info@aivric.com</a>
-                    <a href="tel:+19543426637" class="gf-contact-link"><i class="fas fa-phone-alt"></i>+1 954 342 6637</a>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="gf-bottom">
-            <div class="auto-container">
-              <div class="gf-bottom-inner">
-                <p class="gf-copy">&copy; 2025 <a href="index.html">AiVRIC Technologies</a>. All Rights Reserved.</p>
-                <div class="gf-bottom-right">
-                  <span class="gf-trust-pill"><span class="gf-trust-dot"></span>SOC&nbsp;2 Ready</span>
-                  <nav class="gf-bottom-nav">
-                    <a href="terms-of-use.html">Terms of Service</a>
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </footer>
-        <!-- main-footer end -->
-
-
-        <!--Scroll to top-->
-        <div class="scroll-to-top">
-            <div>
-                <div class="scroll-top-inner">
-                    <div class="scroll-bar">
-                        <div class="bar-inner"></div>
-                    </div>
-                    <div class="scroll-bar-text">Go To Top</div>
-                </div>
-            </div>
-        </div>
-        <!-- Scroll to top end -->
-        
     </div>
 
-<!-- JS -->
+    <div class="sticky-header">
+        <div class="auto-container">
+            <div class="outer-box">
+                <div class="logo-box">
+                    <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC Logo"></a></figure>
+                </div>
+                <div class="menu-area clearfix">
+                    <nav class="main-menu clearfix"><!--Keep This Empty / Menu will come through Javascript--></nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="search-box-outer search-toggler"><i class="icon-4"></i></li>
+                    <li class="btn-box">
+                        <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-two">Launch for Free</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- main-header end -->
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="menu-backdrop"></div>
+    <div class="close-btn" role="button" tabindex="0" aria-label="Close menu"><i class="fas fa-times"></i></div>
+    <nav class="menu-box">
+      <div class="nav-logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" title=""></a></div>
+      <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+      <div class="contact-info">
+        <h4>Contact Info</h4>
+        <ul>
+          <li>Wilmington, Delaware USA</li>
+          <li><a href="tel:+19543426637">+1 9543426637</a></li>
+          <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+        </ul>
+      </div>
+      <div class="social-links">
+        <ul class="clearfix">
+          <li><a href="https://x.com/aivric"><span class="fab fa-twitter"></span></a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61581937785235"><span class="fab fa-facebook-square"></span></a></li>
+          <li><a href="https://www.instagram.com/aivrictechnologies/"><span class="fab fa-instagram"></span></a></li>
+          <li><a href="https://www.linkedin.com/company/aivric"><span class="fab fa-linkedin-in"></span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- End Mobile Menu -->
+
+
+  <!-- Terms of Use Page -->
+  <main>
+
+    <!-- Hero -->
+    <section class="legal-hero">
+      <div class="auto-container">
+        <nav aria-label="breadcrumb" style="margin-bottom:16px;">
+          <ol style="list-style:none;padding:0;margin:0;display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--cs-faint);">
+            <li><a href="index.html" style="color:var(--cs-faint);text-decoration:none;">Home</a></li>
+            <li style="color:var(--cs-line);">/</li>
+            <li style="color:var(--cs-cyan);">Terms of Use</li>
+          </ol>
+        </nav>
+        <span class="legal-hero-eyebrow">Legal</span>
+        <h1 class="legal-hero-title">Terms of Use</h1>
+        <p class="legal-hero-meta">Effective Date: January 1, 2025 &nbsp;&middot;&nbsp; Questions? <a href="mailto:legal@aivric.com">legal@aivric.com</a></p>
+      </div>
+    </section>
+
+    <div class="legal-divider"></div>
+
+    <!-- Content -->
+    <div class="legal-body-wrap">
+      <div class="auto-container">
+        <div class="legal-layout">
+
+          <!-- Sidebar nav -->
+          <aside class="legal-sidebar" aria-label="Section navigation">
+            <span class="legal-nav-label">In this document</span>
+            <ul class="legal-nav-list">
+              <li><a href="#eligibility">1. Eligibility &amp; Accounts</a></li>
+              <li><a href="#other-agreements">2. Other Agreements</a></li>
+              <li><a href="#use-of-services">3. Use of the Services</a></li>
+              <li><a href="#prohibited">4. Prohibited Activities</a></li>
+              <li><a href="#customer-data">5. Customer Data</a></li>
+              <li><a href="#intellectual-property">6. Intellectual Property</a></li>
+              <li><a href="#third-party-services">7. Third-Party Services</a></li>
+              <li><a href="#subscriptions">8. Subscriptions &amp; Fees</a></li>
+              <li><a href="#confidentiality">9. Confidentiality</a></li>
+              <li><a href="#privacy">10. Privacy</a></li>
+              <li><a href="#warranties">11. Warranties &amp; Disclaimers</a></li>
+              <li><a href="#limitation">12. Limitation of Liability</a></li>
+              <li><a href="#indemnification">13. Indemnification</a></li>
+              <li><a href="#suspension">14. Suspension &amp; Termination</a></li>
+              <li><a href="#governing-law">15. Governing Law</a></li>
+              <li><a href="#export">16. Export Control</a></li>
+              <li><a href="#changes">17. Changes to Terms</a></li>
+              <li><a href="#miscellaneous">18. Miscellaneous</a></li>
+              <li><a href="#contact">19. Contact Us</a></li>
+            </ul>
+          </aside>
+
+          <!-- Main content -->
+          <div class="legal-card">
+            <div class="legal-prose">
+
+              <div class="legal-effective"><i class="fas fa-calendar-check"></i>Effective Date: January 1, 2025</div>
+
+              <p>These Terms of Use (the &ldquo;<strong>Terms</strong>&rdquo;) govern your access to and use of the websites, products, and services offered by AiVRIC (&ldquo;<strong>AiVRIC</strong>,&rdquo; &ldquo;<strong>we</strong>,&rdquo; &ldquo;<strong>us</strong>,&rdquo; or &ldquo;<strong>our</strong>&rdquo;), including the AiVRIC cloud-security and compliance platform (collectively, the &ldquo;<strong>Services</strong>&rdquo;).</p>
+              <p>By accessing or using the Services, you agree to be bound by these Terms. If you are using the Services on behalf of an organization, you represent that you are authorized to accept these Terms on that organization&rsquo;s behalf. If you do not agree to these Terms, you must not access or use the Services.</p>
+
+              <h3 id="eligibility">1. Eligibility and Accounts</h3>
+              <p>You may use the Services only if you are at least 18 years old (or the age of majority in your jurisdiction) and are capable of forming a binding contract with AiVRIC. Certain features may require you to create an account and provide accurate, current, and complete information.</p>
+              <p>You are responsible for safeguarding your account credentials and for all activities that occur under your account. You agree to promptly notify us of any unauthorized access or suspected compromise of your account.</p>
+
+              <h3 id="other-agreements">2. Relationship with Other Agreements</h3>
+              <p>If you or your organization has executed a separate written agreement with AiVRIC (such as a Master Services Agreement, subscription order, or data-processing agreement), that agreement will govern to the extent it conflicts with these Terms. In all other cases, these Terms apply to your use of the Services.</p>
+
+              <h3 id="use-of-services">3. Use of the Services</h3>
+              <p>Subject to your compliance with these Terms and any applicable order forms, AiVRIC grants you a limited, non-exclusive, non-transferable, and revocable right to:</p>
+              <ul>
+                <li>Access and use the Services for your internal business purposes; and</li>
+                <li>Install and use any client components, connectors, or agents that AiVRIC makes available solely in connection with your authorized use of the Services.</li>
+              </ul>
+              <p>You must use the Services in accordance with all applicable laws, regulations, and industry standards, including those related to data protection and cybersecurity.</p>
+
+              <h3 id="prohibited">4. Prohibited Activities</h3>
+              <p>You agree not to:</p>
+              <ul>
+                <li>Use the Services in any manner that violates applicable law or infringes any third party&rsquo;s rights;</li>
+                <li>Access or attempt to access the Services by any means other than the interfaces we provide;</li>
+                <li>Reverse engineer, decompile, or otherwise attempt to derive the source code of the Services, except to the extent permitted by law;</li>
+                <li>Interfere with or disrupt the integrity, performance, or security of the Services or the data contained therein;</li>
+                <li>Use the Services to store or transmit malicious code, malware, or unauthorized scripts;</li>
+                <li>Use the Services to perform or attempt to perform unauthorized or non-consensual testing against systems that you do not own or lack explicit permission to assess;</li>
+                <li>Resell, sublicense, or otherwise make the Services available to third parties without our prior written consent; or</li>
+                <li>Misrepresent your affiliation with AiVRIC or remove any proprietary notices from the Services.</li>
+              </ul>
+
+              <h3 id="customer-data">5. Customer Data</h3>
+              <p>&ldquo;<strong>Customer Data</strong>&rdquo; means any data, content, configurations, logs, or other information that you or your organization submit to the Services, including data collected from your cloud, on-premises, or hybrid environments.</p>
+              <ul>
+                <li>You retain ownership of all rights, title, and interest in and to Customer Data.</li>
+                <li>You grant AiVRIC a worldwide, non-exclusive, royalty-free license to host, process, transmit, display, and otherwise use Customer Data as necessary to provide and improve the Services.</li>
+                <li>You represent that you have obtained all necessary rights, consents, and authorizations to submit Customer Data to the Services and to allow AiVRIC to process Customer Data as described in these Terms and our Privacy Policy.</li>
+              </ul>
+              <p>We implement administrative, technical, and physical safeguards designed to protect Customer Data as described in our security documentation and Privacy Policy.</p>
+
+              <h3 id="intellectual-property">6. Intellectual Property</h3>
+              <p>AiVRIC and its licensors retain all rights, title, and interest in and to the Services, including all software, user interfaces, algorithms, analytics, documentation, logos, trademarks, and other intellectual property, whether registered or unregistered.</p>
+              <p>Except for the limited rights expressly granted in these Terms, no rights or licenses are granted to you by implication or otherwise. You may not use AiVRIC&rsquo;s name, logos, or trademarks without our prior written permission.</p>
+
+              <h3 id="third-party-services">7. Third-Party Services and Integrations</h3>
+              <p>The Services may interoperate with or include links to third-party products, services, or websites. We do not control and are not responsible for third-party offerings, and your use of them is subject to the applicable third-party terms and privacy policies. AiVRIC is not liable for any damage or loss arising from your use of such third-party services.</p>
+
+              <h3 id="subscriptions">8. Subscriptions, Fees, and Trials</h3>
+              <p>Access to certain features of the Services may require a paid subscription or executed order form. Subscription terms, pricing, and billing details are specified in the applicable order or on the relevant pricing page and are incorporated into these Terms by reference.</p>
+              <ul>
+                <li>Unless otherwise agreed, subscription fees are billed in advance and are non-refundable except as expressly provided in these Terms or required by law.</li>
+                <li>If you participate in a free trial, the trial will automatically terminate at the stated end date or when you convert to a paid subscription, whichever occurs first.</li>
+                <li>You are responsible for all taxes, duties, or similar governmental assessments (excluding AiVRIC&rsquo;s income taxes) associated with your subscription.</li>
+              </ul>
+              <p>AiVRIC may suspend or terminate your access to the Services if you fail to pay applicable fees when due, after providing notice and an opportunity to cure where required by law or contract.</p>
+
+              <h3 id="confidentiality">9. Confidentiality</h3>
+              <p>&ldquo;<strong>Confidential Information</strong>&rdquo; means non-public information that is disclosed by one party to the other in connection with the Services and is marked or reasonably understood to be confidential. Customer Data, product roadmaps, security documentation, and business plans are examples of Confidential Information.</p>
+              <p>Each party agrees to:</p>
+              <ul>
+                <li>Use the other party&rsquo;s Confidential Information only as necessary to perform its obligations under these Terms; and</li>
+                <li>Protect the other party&rsquo;s Confidential Information using at least the same degree of care it uses to protect its own confidential information, and no less than reasonable care.</li>
+              </ul>
+              <p>Confidential Information does not include information that (a) becomes publicly available through no fault of the receiving party; (b) was lawfully known to the receiving party prior to disclosure; (c) is independently developed without reference to the Confidential Information; or (d) is rightfully received from a third party without restriction. A party may disclose Confidential Information when required by law, provided it gives reasonable prior notice (where legally permitted) and cooperates with the disclosing party&rsquo;s efforts to seek protective measures.</p>
+
+              <h3 id="privacy">10. Privacy</h3>
+              <p>Your use of the Services is also governed by the <a href="privacy-policy.html">AiVRIC Privacy Policy</a>, which describes how we collect, use, and protect personal information. By using the Services, you acknowledge that you have read and understood the Privacy Policy.</p>
+
+              <h3 id="warranties">11. Warranties and Disclaimers</h3>
+              <p>To the extent permitted by law and except as expressly stated in a separate written agreement, the Services are provided on an &ldquo;AS IS&rdquo; and &ldquo;AS AVAILABLE&rdquo; basis.</p>
+              <ul>
+                <li>AiVRIC does not warrant that the Services will be uninterrupted, error-free, or completely secure.</li>
+                <li>AiVRIC does not guarantee that the Services will detect every vulnerability, misconfiguration, or security issue, or that use of the Services will ensure compliance with any particular law, regulation, or standard.</li>
+              </ul>
+              <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, AIVRIC DISCLAIMS ALL EXPRESS, IMPLIED, STATUTORY, OR OTHER WARRANTIES, INCLUDING ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.</p>
+
+              <h3 id="limitation">12. Limitation of Liability</h3>
+              <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, NEITHER AIVRIC NOR ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, OR LICENSORS WILL BE LIABLE FOR ANY:</p>
+              <ul>
+                <li>INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES; OR</li>
+                <li>LOSS OF PROFITS, REVENUE, DATA, GOODWILL, OR BUSINESS INTERRUPTION,</li>
+              </ul>
+              <p>ARISING OUT OF OR RELATED TO THESE TERMS OR YOUR USE OF THE SERVICES, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, AND EVEN IF A REMEDY FAILS OF ITS ESSENTIAL PURPOSE.</p>
+              <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, AIVRIC&rsquo;S TOTAL AGGREGATE LIABILITY FOR ALL CLAIMS ARISING OUT OF OR RELATED TO THESE TERMS OR THE SERVICES WILL NOT EXCEED THE AMOUNT PAID BY YOU TO AIVRIC FOR THE SERVICES IN THE TWELVE (12) MONTHS PRECEDING THE EVENT GIVING RISE TO THE CLAIM. SOME JURISDICTIONS DO NOT ALLOW LIMITATIONS OF LIABILITY, SO SOME OF THE ABOVE LIMITATIONS MAY NOT APPLY TO YOU.</p>
+
+              <h3 id="indemnification">13. Indemnification</h3>
+              <p>To the extent permitted by law, you agree to indemnify, defend, and hold harmless AiVRIC and its affiliates, officers, directors, employees, and agents from and against any claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys&rsquo; fees) arising out of or related to:</p>
+              <ul>
+                <li>Your use of the Services in violation of these Terms or applicable law; or</li>
+                <li>Customer Data or other content you submit to the Services, including any allegation that such data or content infringes or misappropriates the rights of a third party.</li>
+              </ul>
+
+              <h3 id="suspension">14. Suspension and Termination</h3>
+              <p>AiVRIC may suspend or restrict your access to the Services immediately if we reasonably believe:</p>
+              <ul>
+                <li>You have violated these Terms or applicable law;</li>
+                <li>Your use of the Services poses a security risk or may disrupt the Services or other customers;</li>
+                <li>Suspension is required to comply with legal obligations.</li>
+              </ul>
+              <p>Either party may terminate these Terms (and your access to the Services) upon written notice if the other party materially breaches these Terms and does not cure the breach within thirty (30) days of receiving written notice, or as otherwise provided in an applicable subscription agreement.</p>
+              <p>Upon termination, your right to access the Services will cease, but the following sections will survive: Intellectual Property, Confidentiality, Privacy, Warranties and Disclaimers, Limitation of Liability, Indemnification, Governing Law and Dispute Resolution, and any other provisions that by their nature are intended to survive.</p>
+
+              <h3 id="governing-law">15. Governing Law and Dispute Resolution</h3>
+              <p>These Terms are governed by and construed in accordance with the laws of the State of Florida, United States, without regard to its conflict-of-law principles.</p>
+              <p>Any dispute arising out of or relating to these Terms or the Services will be subject to the exclusive jurisdiction of the state and federal courts located in Broward County, Florida, and each party irrevocably submits to the personal jurisdiction of such courts. Nothing in this section limits either party&rsquo;s ability to seek injunctive or equitable relief in any court of competent jurisdiction.</p>
+              <p>Where required by law, you may also have additional consumer-protection rights, which these Terms do not limit.</p>
+
+              <h3 id="export">16. Export Control and Compliance</h3>
+              <p>You agree to comply with all applicable export-control and trade-sanctions laws and regulations, including those of the United States and any other relevant jurisdictions. You may not use or access the Services if you are located in a jurisdiction subject to comprehensive U.S. sanctions or if you are a person or entity prohibited from receiving U.S. exports or services.</p>
+
+              <h3 id="changes">17. Changes to the Services and These Terms</h3>
+              <p>We may update or modify the Services from time to time to improve functionality, enhance security, or address business or regulatory needs. We will use reasonable efforts to avoid materially degrading the core functionality of the Services during your active subscription term.</p>
+              <p>We may also update these Terms from time to time. When we make material changes, we will update the &ldquo;Effective Date&rdquo; at the top of this page and, where appropriate, provide additional notice (such as by email or in-product message). Your continued use of the Services after such changes become effective constitutes your acceptance of the revised Terms.</p>
+
+              <h3 id="miscellaneous">18. Miscellaneous</h3>
+              <ul>
+                <li><strong>Entire Agreement.</strong> These Terms, together with any applicable order forms or written agreements between you and AiVRIC, constitute the entire agreement between the parties regarding the Services and supersede all prior or contemporaneous agreements, proposals, or representations.</li>
+                <li><strong>Assignment.</strong> You may not assign or transfer these Terms or your rights and obligations under them without AiVRIC&rsquo;s prior written consent. AiVRIC may assign these Terms in connection with a merger, acquisition, corporate reorganization, or sale of all or substantially all of its assets.</li>
+                <li><strong>Severability.</strong> If any provision of these Terms is found to be invalid or unenforceable, the remaining provisions will remain in full force and effect.</li>
+                <li><strong>No Waiver.</strong> Our failure to enforce any right or provision of these Terms will not constitute a waiver of that right or provision.</li>
+                <li><strong>Notices.</strong> Notices to AiVRIC must be sent in writing to the contact details below. We may provide notices to you via email, in-product notifications, or by posting to our website.</li>
+              </ul>
+
+              <h3 id="contact">19. Contact Us</h3>
+              <p>If you have any questions about these Terms or the Services, please contact us at:</p>
+              <ul>
+                <li><strong>Email:</strong> <a href="mailto:legal@aivric.com">legal@aivric.com</a></li>
+                <li><strong>General Inquiries:</strong> <a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                <li><strong>Mailing Address:</strong> AiVRIC, Wilmington, Delaware 19802, United States</li>
+              </ul>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- main-footer -->
+  <footer class="main-footer gf-footer">
+    <div class="gf-top-rule"></div>
+    <div class="gf-body">
+      <div class="auto-container">
+        <div class="gf-grid">
+          <div class="gf-col">
+            <a href="index.html" class="gf-logo-link">
+              <img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" class="gf-logo">
+            </a>
+            <p class="gf-tagline">Autonomous Security, Compliance, and Risk Intelligence &mdash; hosted in your environment.</p>
+            <form class="gf-subscribe" action="contact.html" method="post">
+              <div class="gf-subscribe-row">
+                <input type="email" name="email" placeholder="Work email address" required>
+                <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+              </div>
+              <p class="gf-subscribe-note">No spam &mdash; platform updates only.</p>
+            </form>
+            <div class="gf-social">
+              <a href="https://www.linkedin.com/company/aivric" class="gf-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://x.com/aivric" class="gf-social-link" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.facebook.com/61581937785235/" class="gf-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/aivrictechnologies/" class="gf-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="gf-col">
+            <div class="gf-col-title">Platform</div>
+            <ul class="gf-links">
+              <li><a href="services.html">Platform Overview</a></li>
+              <li><a href="genai-chat.html">GenAI Chat</a></li>
+              <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
+              <li><a href="agentic-design.html">Agentic Design</a></li>
+              <li><a href="efficient-compute.html">Efficient Compute</a></li>
+              <li><a href="data-localization.html">Data Localization</a></li>
+              <li><a href="ai-model-inspection.html">AI Model Inspection</a></li>
+            </ul>
+          </div>
+          <div class="gf-col">
+            <div class="gf-col-title">Solutions</div>
+            <ul class="gf-links">
+              <li><a href="cspm-cloudsignals.html">CloudSignals+RiskOps&trade;</a></li>
+              <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
+              <li><a href="air-remediation.html">AIRE Agentic Mesh&trade;</a></li>
+              <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
+              <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
+              <li><a href="aivric-vision-enterprise.html">Vision Enterprise</a></li>
+              <li><a href="solutions-portal.html">All Products &rarr;</a></li>
+            </ul>
+          </div>
+          <div class="gf-col">
+            <div class="gf-col-title">Company</div>
+            <ul class="gf-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="why-aivric.html">Why AiVRIC</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="blog-portal.html">Blog</a></li>
+              <li><a href="trust.html">Trust Center</a></li>
+              <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Platform Guide</a></li>
+            </ul>
+            <div class="gf-contact-block">
+              <a href="mailto:info@aivric.com" class="gf-contact-link"><i class="fas fa-envelope"></i>info@aivric.com</a>
+              <a href="tel:+19543426637" class="gf-contact-link"><i class="fas fa-phone-alt"></i>+1 954 342 6637</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gf-bottom">
+      <div class="auto-container">
+        <div class="gf-bottom-inner">
+          <p class="gf-copy">&copy; 2025 <a href="index.html">AiVRIC Technologies</a>. All Rights Reserved.</p>
+          <div class="gf-bottom-right">
+            <span class="gf-trust-pill"><span class="gf-trust-dot"></span>SOC&nbsp;2 Ready</span>
+            <nav class="gf-bottom-nav">
+              <a href="terms-of-use.html">Terms of Service</a>
+              <a href="privacy-policy.html">Privacy Policy</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- main-footer end -->
+
+  <!-- Scroll to top -->
+  <div class="scroll-to-top">
+    <div>
+      <div class="scroll-top-inner">
+        <div class="scroll-bar"><div class="bar-inner"></div></div>
+        <div class="scroll-bar-text">Go To Top</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <script src="assets/js/jquery.js"></script>
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
@@ -727,65 +698,10 @@
 <script src="assets/js/jquery.nice-select.min.js"></script>
 <script src="assets/js/parallax-scroll.js"></script>
 <script src="assets/js/aivric-preloader.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/mega-hover.js"></script>
-    <script src="assets/js/mega-tabs.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/mega-hover.js"></script>
+<script src="assets/js/mega-tabs.js"></script>
+<script src="assets/js/blog-mega.js"></script>
+<script src="assets/js/ve-init.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

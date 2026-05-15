@@ -5,16 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-<title>Solutions | AiVRIC</title>
+<title>Vision Enterprise | AiVRIC</title>
+<meta name="description" content="AiVRIC Vision Enterprise — multi-tenant governance, custom analytics, data localization, and executive reporting for enterprise security and compliance programs.">
 
-<!-- Fav Icon -->
 <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-<!-- Stylesheets -->
 <link href="assets/css/aivric-preloader.css" rel="stylesheet">
 <link href="assets/css/font-awesome-all.css" rel="stylesheet">
 <link href="assets/css/flaticon.css" rel="stylesheet">
@@ -31,25 +29,153 @@
 <link href="assets/css/elements-css/about.css" rel="stylesheet">
 <link href="assets/css/elements-css/subscribe.css" rel="stylesheet">
 <link href="assets/css/responsive.css" rel="stylesheet">
+<link href="assets/css/custom.css?v=20250115" rel="stylesheet">
 
-  <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+<style>
+  :root{
+    --cs-cyan:#00d1ff; --cs-green:#2ee59d; --cs-gold:#ffd63a; --cs-purple:#a78bfa;
+    --cs-text-strong:#f8fafc; --cs-text:#e5e7eb; --cs-muted:#cbd5e1; --cs-faint:#94a3b8;
+    --cs-surface-1:rgba(255,255,255,0.06); --cs-line:rgba(148,163,184,0.28);
+    --cs-shadow:0 14px 40px rgba(0,0,0,0.28); --cs-radius:18px;
+    --cs-btn:#00d1ff; --cs-btn-hover:#24ddff; --cs-btn-fg:#fff;
+    --cs-btn-border:rgba(0,209,255,0.6); --cs-btn-shadow:0 12px 24px rgba(0,209,255,0.2);
+    --cs-btn-shadow-hover:0 14px 28px rgba(0,209,255,0.28);
+  }
+  body.portal-page{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:radial-gradient(1200px 900px at 70% -20%,rgba(0,209,255,0.20),transparent 55%),
+               radial-gradient(900px 700px at 10% 10%,rgba(46,113,229,0.13),transparent 60%),
+               linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%);
+    color:var(--cs-text);
+  }
+  .cs-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 22px;border-radius:999px;font-weight:700;font-size:14px;letter-spacing:0.01em;text-decoration:none;cursor:pointer;transition:all 0.22s;border:none;}
+  .cs-btn.primary{background:var(--cs-btn);color:var(--cs-btn-fg)!important;border:1px solid var(--cs-btn-border);box-shadow:var(--cs-btn-shadow);}
+  .cs-btn.primary:hover{background:var(--cs-btn-hover);box-shadow:var(--cs-btn-shadow-hover);transform:translateY(-1px);}
+  .cs-btn.secondary{background:rgba(0,209,255,0.10);color:var(--cs-text-strong)!important;border:1px solid rgba(0,209,255,0.65);}
+  .cs-btn.secondary:hover{background:var(--cs-btn-hover)!important;color:#fff!important;transform:translateY(-1px);}
+  .cs-btn.ghost{background:transparent;color:var(--cs-text-strong)!important;border:1px solid rgba(255,255,255,0.22);}
+  .cs-btn.ghost:hover{background:rgba(255,255,255,0.07)!important;transform:translateY(-1px);}
+
+  .cs-product-page{ padding:0; }
+  .csp-hero{ padding:100px 0 56px; position:relative; overflow:hidden; }
+  @media(max-width:992px){ .csp-hero{ padding:80px 0 40px; } }
+  .csp-hero-grid{ display:grid; grid-template-columns:1.25fr 0.75fr; gap:32px; align-items:start; }
+  @media(max-width:992px){ .csp-hero-grid{ grid-template-columns:1fr; } }
+  .csp-badge{ display:inline-flex; align-items:center; gap:8px; padding:7px 14px; border-radius:999px; background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.35); color:var(--cs-text-strong); font-size:12.5px; font-weight:600; margin-bottom:16px; }
+  .csp-badge .soon-dot{ width:8px; height:8px; border-radius:50%; background:var(--cs-faint); flex-shrink:0; }
+  .csp-badge .gold-dot{ width:8px; height:8px; border-radius:50%; background:var(--cs-gold); box-shadow:0 0 6px rgba(255,214,58,0.7); flex-shrink:0; }
+  .csp-title{ font-family:Jost,Inter,sans-serif; font-size:54px; font-weight:800; line-height:1.03; letter-spacing:-1.2px; color:var(--cs-text-strong); margin:0 0 14px; }
+  @media(max-width:768px){ .csp-title{ font-size:38px; } }
+  .csp-sub{ font-size:17px; line-height:1.75; color:var(--cs-muted); max-width:62ch; margin:0 0 24px; }
+  .csp-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+  .csp-release-band{ display:flex; flex-wrap:wrap; gap:10px; }
+  .csp-rb-item{ display:flex; align-items:center; gap:8px; padding:8px 14px; border-radius:12px; background:var(--cs-surface-1); border:1px solid var(--cs-line); }
+  .csp-rb-label{ font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.5px; color:var(--cs-faint); }
+  .csp-rb-val{ font-size:13px; color:var(--cs-text); font-weight:600; }
+  .csp-rb-val.soon{ color:var(--cs-faint); }
+  .csp-rb-val.gold{ color:var(--cs-gold); }
+  .csp-hero-aside{ display:flex; flex-direction:column; gap:14px; padding-top:4px; }
+  .csp-quick-card{ border-radius:16px; padding:18px 20px; background:var(--cs-surface-1); border:1px solid var(--cs-line); box-shadow:var(--cs-shadow); }
+  .csp-quick-card h4{ font-size:13px; font-weight:700; color:var(--cs-text-strong); margin:0 0 12px; text-transform:uppercase; letter-spacing:0.5px; }
+  .csp-quick-list{ list-style:none; padding:0; margin:0; display:grid; gap:7px; }
+  .csp-quick-list li{ display:flex; gap:9px; align-items:flex-start; font-size:13px; color:var(--cs-muted); line-height:1.45; }
+  .csp-quick-list li i{ color:var(--cs-green); flex-shrink:0; margin-top:1px; font-size:11px; }
+  .csp-quick-link{ display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-radius:12px; background:rgba(0,209,255,0.07); border:1px solid rgba(0,209,255,0.22); text-decoration:none; transition:background 0.2s; }
+  .csp-quick-link:hover{ background:rgba(0,209,255,0.12); }
+  .csp-quick-link span{ font-size:13.5px; font-weight:600; color:var(--cs-text-strong); }
+  .csp-quick-link i{ color:var(--cs-cyan); font-size:12px; }
+  .csp-section{ padding:52px 0 0; }
+  .csp-eyebrow{ display:block; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--cs-cyan); margin-bottom:8px; }
+  .csp-section-title{ font-family:Jost,Inter,sans-serif; font-size:32px; font-weight:800; color:var(--cs-text-strong); margin:0 0 10px; letter-spacing:-0.4px; line-height:1.15; }
+  .csp-section-sub{ font-size:15px; line-height:1.75; color:var(--cs-muted); max-width:80ch; margin:0 0 28px; }
+  .csp-cap-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  @media(max-width:992px){ .csp-cap-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media(max-width:576px){ .csp-cap-grid{ grid-template-columns:1fr; } }
+  .csp-cap{ border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line); padding:20px; box-shadow:var(--cs-shadow); }
+  .csp-cap-icon{ width:40px; height:40px; border-radius:11px; background:rgba(0,209,255,0.11); border:1px solid rgba(0,209,255,0.24); display:flex; align-items:center; justify-content:center; color:var(--cs-cyan); font-size:16px; margin-bottom:12px; }
+  .csp-cap-icon.green{ background:rgba(46,229,157,0.11); border-color:rgba(46,229,157,0.24); color:var(--cs-green); }
+  .csp-cap-icon.gold{ background:rgba(255,214,58,0.11); border-color:rgba(255,214,58,0.24); color:var(--cs-gold); }
+  .csp-cap-icon.purple{ background:rgba(167,139,250,0.11); border-color:rgba(167,139,250,0.24); color:var(--cs-purple); }
+  .csp-cap h4{ font-size:15px; font-weight:700; color:var(--cs-text-strong); margin:0 0 6px; }
+  .csp-cap p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; }
+  .csp-modules-grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+  @media(max-width:992px){ .csp-modules-grid-3{ grid-template-columns:1fr 1fr; } }
+  @media(max-width:576px){ .csp-modules-grid-3{ grid-template-columns:1fr; } }
+  .csp-module-card{ border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line); padding:22px; box-shadow:var(--cs-shadow); display:flex; flex-direction:column; gap:12px; transition:border-color 0.2s,box-shadow 0.2s; }
+  .csp-module-card:hover{ border-color:rgba(0,209,255,0.3); }
+  .csp-module-icon{ width:46px; height:46px; border-radius:13px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+  .csp-module-icon.cyan{ background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.28); color:var(--cs-cyan); }
+  .csp-module-icon.green{ background:rgba(46,229,157,0.13); border:1px solid rgba(46,229,157,0.28); color:var(--cs-green); }
+  .csp-module-icon.gold{ background:rgba(255,214,58,0.13); border:1px solid rgba(255,214,58,0.28); color:var(--cs-gold); }
+  .csp-module-icon.purple{ background:rgba(167,139,250,0.13); border:1px solid rgba(167,139,250,0.28); color:var(--cs-purple); }
+  .csp-module-card h3{ font-size:16px; font-weight:700; color:var(--cs-text-strong); margin:0; }
+  .csp-module-card p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; flex:1; }
+  .csp-fw-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  @media(max-width:768px){ .csp-fw-grid{ grid-template-columns:1fr; } }
+  .csp-fw-item{ border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line); overflow:hidden; box-shadow:var(--cs-shadow); }
+  .csp-fw-item summary{ cursor:pointer; font-weight:700; font-size:14.5px; color:var(--cs-text-strong); list-style:none; user-select:none; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
+  .csp-fw-item summary::-webkit-details-marker{ display:none; }
+  .csp-fw-item summary::after{ content:"›"; color:var(--cs-faint); font-size:18px; transition:transform 0.2s; }
+  details[open].csp-fw-item summary::after{ transform:rotate(90deg); }
+  details[open].csp-fw-item summary{ color:var(--cs-cyan); border-bottom:1px solid var(--cs-line); }
+  .csp-fw-body{ padding:14px 18px 16px; border-top:1px solid var(--cs-line); }
+  .csp-fw-req{ background:rgba(0,209,255,0.06); border:1px solid rgba(0,209,255,0.18); border-radius:10px; padding:10px 12px; margin-bottom:10px; font-size:13px; color:var(--cs-muted); line-height:1.6; }
+  .csp-fw-req strong{ color:var(--cs-cyan); }
+  .csp-fw-body ul{ padding-left:16px; margin:0; display:grid; gap:5px; }
+  .csp-fw-body li{ font-size:13.5px; color:var(--cs-muted); line-height:1.55; }
+  .csp-faq-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:12px; }
+  @media(max-width:992px){ .csp-faq-grid{ grid-template-columns:1fr; } }
+  .csp-faq-item{ border-radius:16px; border:1px solid var(--cs-line); background:var(--cs-surface-1); padding:16px; box-shadow:var(--cs-shadow); }
+  .csp-faq-item summary{ cursor:pointer; font-weight:700; font-size:14.5px; color:var(--cs-text-strong); list-style:none; user-select:none; }
+  .csp-faq-item summary::-webkit-details-marker{ display:none; }
+  details[open] .csp-faq-item summary{ color:var(--cs-cyan); }
+  .csp-faq-item p{ margin:10px 0 0; color:var(--cs-muted); font-size:13.5px; line-height:1.75; }
+  .csp-faq-item a{ color:var(--cs-cyan); }
+  .csp-bottom-cta{ margin:52px 0 60px; border-radius:var(--cs-radius); background:linear-gradient(135deg,rgba(0,209,255,0.09) 0%,rgba(46,229,157,0.05) 100%); border:1px solid rgba(0,209,255,0.25); padding:40px; text-align:center; }
+  .csp-bottom-cta h2{ font-family:Jost,Inter,sans-serif; font-size:36px; font-weight:800; color:var(--cs-text-strong); margin:0 0 12px; letter-spacing:-0.5px; }
+  @media(max-width:768px){ .csp-bottom-cta h2{ font-size:26px; } }
+  .csp-bottom-cta p{ font-size:16px; color:var(--cs-muted); line-height:1.7; max-width:60ch; margin:0 auto 24px; }
+  .csp-bottom-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+  .csp-divider{ height:1px; background:linear-gradient(90deg,transparent,var(--cs-line),transparent); margin:48px 0 0; }
+  .csp-replaces-row{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+  .csp-replaces-pill{ display:inline-flex; align-items:center; gap:7px; padding:7px 14px; border-radius:999px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.10); color:var(--cs-muted); font-size:13px; font-weight:600; }
+  .csp-replaces-pill i{ color:var(--cs-green); font-size:11px; }
+  .csp-usecase-pills{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .csp-usecase-pill{ display:inline-flex; align-items:center; padding:7px 14px; border-radius:999px; background:rgba(167,139,250,0.08); border:1px solid rgba(167,139,250,0.22); color:var(--cs-purple); font-size:13px; font-weight:600; text-decoration:none; transition:background 0.18s; }
+  .csp-usecase-pill:hover{ background:rgba(167,139,250,0.16); }
+  /* Release modal */
+  .release-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center}
+  .release-modal.is-open{display:flex}
+  .release-modal__backdrop{position:absolute;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(4px)}
+  .release-modal__dialog{position:relative;z-index:1;background:#0f1b2e;border:1px solid rgba(148,163,184,.18);border-radius:18px;padding:32px;width:min(560px,92vw);max-height:90vh;overflow-y:auto}
+  .release-modal__close{position:absolute;top:14px;right:16px;background:none;border:none;color:#64748b;font-size:22px;cursor:pointer;line-height:1;padding:4px 8px}
+  .release-modal__close:hover{color:#f1f5f9}
+  .release-modal__title{font-size:20px;font-weight:700;color:#f1f5f9;margin:0 0 6px}
+  .release-modal__subtitle{font-size:14px;color:#64748b;margin:0 0 20px}
+  .release-modal__grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+  .release-modal__field{display:flex;flex-direction:column;gap:5px}
+  .release-modal__field:last-child{grid-column:1/-1}
+  .release-modal__field label{font-size:12px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.06em}
+  .release-modal__field input{background:#0c1525;border:1px solid rgba(148,163,184,.18);border-radius:8px;padding:9px 12px;color:#f1f5f9;font-size:14px;outline:none}
+  .release-modal__field input:focus{border-color:rgba(0,209,255,.45)}
+  .release-modal__interests{margin-bottom:20px}
+  .release-modal__interests label:first-child{font-size:12px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:8px}
+  .release-modal__checks{display:flex;flex-wrap:wrap;gap:8px}
+  .release-modal__checks label{display:flex;align-items:center;gap:6px;font-size:13px;color:#94a3b8;cursor:pointer}
+  .release-modal__actions{display:flex;gap:10px;justify-content:flex-end}
+</style>
+
 <style id="gf-styles">
-/* === GLOBAL FOOTER === */
 .gf-footer{background:#050b17;position:relative;overflow:hidden;font-family:'Inter',sans-serif}
-/* subtle dot-grid */
 .gf-footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(0,209,255,.045) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
-/* gradient glow top-line */
 .gf-top-rule{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,209,255,.55) 30%,rgba(46,229,157,.4) 70%,transparent 100%);position:relative;z-index:1}
-/* body */
 .gf-body{padding:72px 0 52px;position:relative;z-index:1}
 .gf-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:52px}
 @media(max-width:991px){.gf-grid{grid-template-columns:1fr 1fr;gap:36px 40px}}
 @media(max-width:599px){.gf-grid{grid-template-columns:1fr;gap:32px}}
-/* brand col */
 .gf-logo-link{display:inline-block;margin-bottom:14px}
 .gf-logo{height:34px;width:auto;display:block}
 .gf-tagline{font-size:13px;color:#4e637a;line-height:1.7;margin-bottom:22px;max-width:255px}
-/* email subscribe */
 .gf-subscribe-row{display:flex;gap:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:8px;overflow:hidden;margin-bottom:7px;transition:border-color .2s}
 .gf-subscribe-row:focus-within{border-color:rgba(0,209,255,.35)}
 .gf-subscribe-row input{flex:1;background:transparent;border:none;outline:none;padding:10px 14px;font-size:13px;color:#e2e8f0;font-family:'Inter',sans-serif}
@@ -57,21 +183,17 @@
 .gf-subscribe-row button{background:#00d1ff;border:none;padding:10px 15px;color:#030a12;cursor:pointer;font-size:13px;transition:background .2s;flex-shrink:0}
 .gf-subscribe-row button:hover{background:#33daff}
 .gf-subscribe-note{font-size:11px;color:#3d5268;margin:0 0 22px}
-/* social */
 .gf-social{display:flex;gap:8px}
 .gf-social-link{width:33px;height:33px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#4e637a;font-size:13px;text-decoration:none;transition:all .2s}
 .gf-social-link:hover{background:rgba(0,209,255,.09);border-color:rgba(0,209,255,.28);color:#00d1ff}
-/* nav columns */
 .gf-col-title{font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#94a3b8;margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.06)}
 .gf-links{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:9px}
 .gf-links li a{font-size:13.5px;color:#4e637a;text-decoration:none;transition:color .18s;display:inline-block}
 .gf-links li a:hover{color:#cbd5e1}
-/* contact block */
 .gf-contact-block{display:flex;flex-direction:column;gap:9px;margin-top:4px}
 .gf-contact-link{display:flex;align-items:center;gap:8px;font-size:13px;color:#4e637a;text-decoration:none;transition:color .18s}
 .gf-contact-link i{color:#00d1ff;font-size:12px;width:14px;text-align:center;flex-shrink:0}
 .gf-contact-link:hover{color:#cbd5e1}
-/* bottom bar */
 .gf-bottom{border-top:1px solid rgba(255,255,255,.055);padding:16px 0;position:relative;z-index:1}
 .gf-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
 .gf-copy{font-size:12px;color:#3d5268;margin:0}
@@ -84,60 +206,53 @@
 .gf-bottom-nav{display:flex;gap:18px}
 .gf-bottom-nav a{font-size:12px;color:#3d5268;text-decoration:none;transition:color .18s}
 .gf-bottom-nav a:hover{color:#94a3b8}
-/* remove old footer pattern images */
 .gf-footer .pattern-layer{display:none!important}
-/* keep old .main-footer link colors from interfering */
 .gf-footer .links-list,.gf-footer .footer-widget,.gf-footer .widget-section,.gf-footer .footer-bottom{display:none!important}
 </style>
+<link href="assets/css/visual-enhancements.css" rel="stylesheet">
 </head>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-EG2Q8GD30V');
 </script>
 
-
-<!-- page wrapper -->
 <body class="portal-page">
+<div class="boxed_wrapper">
 
-    <div class="boxed_wrapper">
+  <!-- preloader -->
+  <div id="apl-wrap">
+    <div class="apl-scan"></div>
+    <div class="apl-corner tl"></div>
+    <div class="apl-corner tr"></div>
+    <div class="apl-corner bl"></div>
+    <div class="apl-corner br"></div>
+    <div class="apl-center">
+      <div class="apl-logo-wrap">
+        <div class="apl-ring r1"></div>
+        <div class="apl-ring r2"></div>
+        <div class="apl-ring r3"></div>
+        <img class="apl-logo" src="assets/images/logo/aivric.svg" alt="AiVRIC">
+      </div>
+      <div class="apl-brand">AiVRIC</div>
+      <div class="apl-tagline">Security Intelligence Platform</div>
+      <div class="apl-progress-wrap">
+        <div class="apl-progress-fill" id="apl-fill"></div>
+      </div>
+      <div class="apl-status-row">
+        <span class="apl-status" id="apl-status">Initializing Signal Engine</span>
+        <span class="apl-pct" id="apl-pct">0%</span>
+      </div>
+    </div>
+  </div>
+  <!-- preloader end -->
 
-
-        
-               <!-- preloader -->
-        <div id="apl-wrap">
-          <div class="apl-scan"></div>
-          <div class="apl-corner tl"></div>
-          <div class="apl-corner tr"></div>
-          <div class="apl-corner bl"></div>
-          <div class="apl-corner br"></div>
-          <div class="apl-center">
-            <div class="apl-logo-wrap">
-              <div class="apl-ring r1"></div>
-              <div class="apl-ring r2"></div>
-              <div class="apl-ring r3"></div>
-              <img class="apl-logo" src="assets/images/logo/aivric.svg" alt="AiVRIC">
-            </div>
-            <div class="apl-brand">AiVRIC</div>
-            <div class="apl-tagline">Security Intelligence Platform</div>
-            <div class="apl-progress-wrap">
-              <div class="apl-progress-fill" id="apl-fill"></div>
-            </div>
-            <div class="apl-status-row">
-              <span class="apl-status" id="apl-status">Initializing Signal Engine</span>
-              <span class="apl-pct" id="apl-pct">0%</span>
-            </div>
-          </div>
-        </div>
-        <!-- preloader end -->
-
-
-        <!-- main header -->
-        <header class="main-header">
+  <!-- main header -->
+  <header class="main-header">
 <div class="header-top-bar">
     <div class="auto-container">
         <div class="top-bar-inner">
@@ -156,21 +271,19 @@
         </div>
     </div>
 </div>
-    <!-- header-lower -->
     <div class="header-lower">
-                <div class="auto-container">
-                    <div class="outer-box">
-                        <div class="logo-box">
-                            <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
-                        </div>
-                        <div class="menu-area clearfix">
-                            <!--Mobile Navigation Toggler-->
-                            <div class="mobile-nav-toggler">
-                                <i class="icon-bar"></i>
-                                <i class="icon-bar"></i>
-                                <i class="icon-bar"></i>
-                            </div>
-                            <nav class="main-menu navbar-expand-md navbar-light">
+        <div class="auto-container">
+            <div class="outer-box">
+                <div class="logo-box">
+                    <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
+                </div>
+                <div class="menu-area clearfix">
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                    </div>
+                    <nav class="main-menu navbar-expand-md navbar-light">
     <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
         <ul class="navigation clearfix">
             <li class="dropdown platform-menu"><a href="services.html">Platform</a>
@@ -290,26 +403,22 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="why-aivric.html">Why AiVRIC</a></li>
                     <li><a href="blog-portal.html">Blog</a></li>
-
                 </ul>
             </li>
         </ul>
     </div>
 </nav>
-                        </div>
-                                                <ul class="menu-right-content">
-                            <li class="search-box-outer search-toggler">
-                                <i class="icon-4"></i>
-                            </li>
-                            <li class="btn-box">
-                                <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-one">Launch for Free</a>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
+                <ul class="menu-right-content">
+                    <li class="search-box-outer search-toggler"><i class="icon-4"></i></li>
+                    <li class="btn-box">
+                        <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-one">Launch for Free</a>
+                    </li>
+                </ul>
             </div>
+        </div>
+    </div>
 
-    <!--sticky Header-->
     <div class="sticky-header">
         <div class="auto-container">
             <div class="outer-box">
@@ -317,14 +426,10 @@
                     <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC Logo"></a></figure>
                 </div>
                 <div class="menu-area clearfix">
-                    <nav class="main-menu clearfix">
-                        <!--Keep This Empty / Menu will come through Javascript-->
-                    </nav>
+                    <nav class="main-menu clearfix"><!--Keep This Empty / Menu will come through Javascript--></nav>
                 </div>
                 <ul class="menu-right-content">
-                    <li class="search-box-outer search-toggler">
-                        <i class="icon-4"></i>
-                    </li>
+                    <li class="search-box-outer search-toggler"><i class="icon-4"></i></li>
                     <li class="btn-box">
                         <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-two">Launch for Free</a>
                     </li>
@@ -332,512 +437,482 @@
             </div>
         </div>
     </div>
-</header>
-<!-- main-header end -->
-        <!-- Mobile Menu  -->
-        <div class="mobile-menu">
-            <div class="menu-backdrop"></div>
-            <div class="close-btn" role="button" tabindex="0" aria-label="Close menu"><i class="fas fa-times"></i></div>
-            
-            <nav class="menu-box">
-                <div class="nav-logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" title=""></a></div>
-                <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
-                <div class="contact-info">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li>Wilmington, Delaware USA</li>
-                        <li><a href="tel:+8801682648101">+1 9543426637</a></li>
-                        <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
-                    </ul>
-                </div>
-                <div class="social-links">
-                    <ul class="clearfix">
-                        <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
-                        <li><a href="https://www.facebook.com/profile.php?id=61581937785235"><span class="fab fa-facebook-square"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
-                        <li><a href="https://www.instagram.com/aivrictechnologies/"><span class="fab fa-instagram"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
-                    </ul>
-                </div>
+  </header>
+  <!-- main-header end -->
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="menu-backdrop"></div>
+    <div class="close-btn" role="button" tabindex="0" aria-label="Close menu"><i class="fas fa-times"></i></div>
+    <nav class="menu-box">
+      <div class="nav-logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" title=""></a></div>
+      <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+      <div class="contact-info">
+        <h4>Contact Info</h4>
+        <ul>
+          <li>Wilmington, Delaware USA</li>
+          <li><a href="tel:+19543426637">+1 9543426637</a></li>
+          <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+        </ul>
+      </div>
+      <div class="social-links">
+        <ul class="clearfix">
+          <li><a href="https://x.com/aivric"><span class="fab fa-twitter"></span></a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61581937785235"><span class="fab fa-facebook-square"></span></a></li>
+          <li><a href="https://www.instagram.com/aivrictechnologies/"><span class="fab fa-instagram"></span></a></li>
+          <li><a href="https://www.linkedin.com/company/aivric"><span class="fab fa-linkedin-in"></span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- End Mobile Menu -->
+
+
+  <!-- Vision Enterprise Product Page -->
+  <main class="cs-product-page">
+
+    <!-- HERO -->
+    <section class="csp-hero">
+      <div class="auto-container">
+        <div class="csp-hero-grid">
+          <div>
+            <nav aria-label="breadcrumb" style="margin-bottom:20px;">
+              <ol style="list-style:none;padding:0;margin:0;display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--cs-faint);">
+                <li><a href="index.html" style="color:var(--cs-faint);text-decoration:none;">Home</a></li>
+                <li style="color:var(--cs-line);">/</li>
+                <li><a href="solutions-portal.html" style="color:var(--cs-faint);text-decoration:none;">Solutions</a></li>
+                <li style="color:var(--cs-line);">/</li>
+                <li style="color:var(--cs-cyan);">Vision Enterprise</li>
+              </ol>
             </nav>
-        </div><!-- End Mobile Menu -->
 
-
-        <!-- page-title -->
-        <section class="page-title centred">
-            <div class="bg-layer" style="background-image: url(assets/images/banner/banner-4.avif);"></div>
-            <div class="auto-container">
-                <div class="content-box">
-                    <h1>AiVRIC Vision Enterprise</h1>
-                    <ul class="bread-crumb clearfix">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="solutions.html">Solutions</a></li>
-                        <li>Vision Enterprise</li>
-                    </ul>
-                </div>
+            <div class="csp-badge">
+              <span class="gold-dot"></span>
+              Coming Soon &nbsp;&middot;&nbsp; Vision Suite &mdash; Enterprise Intelligence
             </div>
-        </section>
-        <!-- page-title end -->
-        <section class="portal-release-band">
-            <div class="auto-container">
-                <div class="release-band">
-                    <div class="release-item">
-                        <span class="release-label">Availability</span>
-                        <span class="release-status status-coming">Coming Soon</span>
-                    </div>
-                    <div class="release-item">
-                        <span class="release-label">Production releases</span>
-                        <span class="release-value">No releases</span>
-                    </div>
-                    <div class="release-item">
-                        <span class="release-label">Last release</span>
-                        <span class="release-value">Pending release</span>
-                    </div>
-                    <div class="release-item">
-                        <span class="release-label">Next planned release</span>
-                        <span class="release-value">03/16/2026</span>
-                    </div>
-                </div>
+
+            <h1 class="csp-title">Enterprise governance<br><span style="color:var(--cs-gold);">at every scale.</span></h1>
+
+            <p class="csp-sub">AiVRIC Vision Enterprise delivers the multi-tenant governance layer for complex, multi-region security programs. Unified analytics, data localization controls, and executive reporting &mdash; across every business unit in your organization.</p>
+
+            <div class="csp-actions">
+              <button type="button" class="cs-btn primary js-release-modal" data-solution="AiVRIC Vision Enterprise">
+                <i class="fas fa-bell"></i> Notify When Released
+              </button>
+              <a href="solutions-portal.html#vision" class="cs-btn secondary">View all Vision solutions</a>
+              <a href="request-demo.html" class="cs-btn ghost">Request a demo</a>
             </div>
-        </section>
-        <section class="portal-detail p_relative sec-pad">
-            <div class="auto-container">
-                <div class="portal-hero">
-                    <h2>AiVRIC Vision Enterprise</h2>
-                    <p>Enterprise intelligence center with multi-tenant governance and advanced analytics.</p>
-                </div>
-                <div class="portal-detail-grid">
-                    <div class="portal-detail-box">
-                        <h4>What it delivers</h4>
-                        <ul class="list-style-one clearfix">
-                            <li>Global visibility across business units.</li>
-                                        <li>Custom analytics and reporting.</li>
-                                        <li>Data localization controls.</li>
-                        </ul>
-                    </div>
-<div class="portal-detail-box">
-                        <h4>Procurement highlights</h4>
-                        <ul class="list-style-one clearfix">
-                            <li>Multi-region data residency support.</li>
-                                        <li>Advanced reporting automation.</li>
-                                        <li>Custom dashboards and access control.</li>
-                        </ul>
-                    </div>
-<div class="portal-replaces">
-                        <h4>Replaces the following Enterprise Solutions</h4>
-                        <ul class="portal-pill-list">
-                        <li class="portal-pill"><i class="fas fa-check"></i>Multi-tool reporting stacks</li>
-                        <li class="portal-pill"><i class="fas fa-check"></i>Manual cross-suite rollups</li>
-                        <li class="portal-pill"><i class="fas fa-check"></i>Custom analytics pipelines</li>
-                        <li class="portal-pill"><i class="fas fa-check"></i>Disjointed executive dashboards</li>
-                        </ul>
-                    </div>
-                </div>
-                                <div class="portal-usecases">
-                    <h4>Meets the following use cases</h4>
-                    <ul class="portal-usecase-list">
-                        <li><a href="streamline-soc2.html">SOC 2 Type II</a></li>
-                        <li><a href="achieve-pci-dss.html">PCI-DSS</a></li>
-                        <li><a href="cmmc-readiness.html">CMMC Readiness</a></li>
-                        <li><a href="issues-poams.html">Issues and POA&Ms</a></li>
-                        <li><a href="threat-analysis.html">Threat Analysis</a></li>
-                        <li><a href="use-case-github-security.html">DevSecOps</a></li>
-                    </ul>
-                </div>
-                                <div class="portal-compliance">
-                    <div class="sec-title mb_30">
-                        <span class="sub-title">Security & Compliance</span>
-                        <h3>Security and compliance frameworks supported</h3>
-                    </div>
-                    <p class="portal-compliance-intro">Mapped controls, evidence, and reporting for enterprise requirements.</p>
-                    <details>
-                        <summary>SOC 2 (Security, Availability, Confidentiality)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Maintain continuous monitoring of security controls and retain audit evidence.
-                        </div>
-                        <ul>
-                            <li>Centralizes control evidence and logs for audits.</li>
-                            <li>Tracks remediation activity with approvals and timestamps.</li>
-                            <li>Provides executive-ready compliance reporting.</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>ISO/IEC 27001 (Information Security Management)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Establish risk treatment controls and demonstrate ongoing effectiveness.
-                        </div>
-                        <ul>
-                            <li>Maps findings to control objectives and risk registers.</li>
-                            <li>Documents remediation and verification workflows.</li>
-                            <li>Maintains evidence for continuous assurance.</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>PCI-DSS (Payment Card Security)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Monitor systems, detect misconfigurations, and document remediation actions.
-                        </div>
-                        <ul>
-                            <li>Flags posture gaps and policy violations in real time.</li>
-                            <li>Produces audit-ready reports for assessors.</li>
-                            <li>Tracks remediation with accountability.</li>
-                        </ul>
-                    </details>
-                    <details>
-                        <summary>CMMC (Federal Contractor Readiness)</summary>
-                        <div class="portal-req">
-                            <strong>Requirement:</strong> Implement security practices and keep verifiable evidence of performance.
-                        </div>
-                        <ul>
-                            <li>Aligns controls to maturity requirements.</li>
-                            <li>Maintains POA&Ms and exception documentation.</li>
-                            <li>Supports evidence collection for audits.</li>
-                        </ul>
-                    </details>
-                </div>
-                <div class="sec-title mb_30">
-                    <span class="sub-title">Key Capabilities</span>
-                    <h3>Capabilities aligned to enterprise requirements</h3>
-                </div>
-                <div class="portal-cap-grid">
-                                <div class="portal-cap">
-                                    <h5>Multi-tenant Governance</h5>
-                                    <p>Separate business units and data.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Custom Analytics</h5>
-                                    <p>Advanced reporting and insights.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Localization Controls</h5>
-                                    <p>Policy-based data residency.</p>
-                                </div>
-                                <div class="portal-cap">
-                                    <h5>Executive Reporting</h5>
-                                    <p>Board-ready intelligence.</p>
-                                </div>
-                </div>
-                <div class="content-four mt_40">
-                    <div class="sec-title mb_30">
-                        <span class="sub-title">Outcomes</span>
-                        <h3>Business outcomes you can expect</h3>
-                    </div>
-                    <div class="portal-outcomes-grid">
-                        <div class="portal-cap">
-                            <h5>Enterprise-wide risk alignment</h5>
-                            <p>Standardize reporting across business units.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Faster decision cycles</h5>
-                            <p>AI summaries translate signals into actions.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Executive-ready audit reporting</h5>
-                            <p>Consistent evidence packs for leadership reviews.</p>
-                        </div>
-                        <div class="portal-cap">
-                            <h5>Global governance visibility</h5>
-                            <p>Role-based insights by region and department.</p>
-                        </div>
-                    </div>
-                </div>
-                                <div class="content-four mt_40 portal-faq">
-                    <div class="sec-title mb_20">
-                        <span class="sub-title">Enterprise FAQs</span>
-                        <h3>Answers for security, compliance, and procurement teams</h3>
-                    </div>
-                    <div class="portal-faq-list">
-                        <details>
-                            <summary>Deployment models</summary>
-                            <p>SaaS, customer-hosted SaaS, or private deployment options with shared controls and audit artifacts. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Data residency &amp; retention</summary>
-                            <p>Regional data residency, configurable retention, and export/purge policies to meet governance needs. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Integrations (SIEM/SOAR, ticketing, CI/CD)</summary>
-                            <p>Native connectors and APIs for SIEM/SOAR, ticketing systems, and CI/CD workflows. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>SSO/SCIM &amp; RBAC</summary>
-                            <p>SSO and SCIM provisioning with granular RBAC for least-privilege access. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Evidence &amp; audit support</summary>
-                            <p>Evidence packages, control mappings, and audit-ready reporting for assessors. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                        <details>
-                            <summary>Support/SLA options</summary>
-                            <p>Business and enterprise tiers with response-time SLAs and escalation paths. <a href="trust.html">Review Trust Center</a>.</p>
-                        </details>
-                    </div>
-                </div>
-                <div class="mt_40 portal-actions">
-                    <a href="solutions-portal.html#vision" class="theme-btn-one">Back to Solutions</a>
-                    <button type="button" class="theme-btn-two ml_10 js-release-modal" data-solution="AiVRIC Vision Enterprise">Notify when released</button>
-                </div>
+
+            <div class="csp-release-band">
+              <div class="csp-rb-item">
+                <span class="csp-rb-label">Status</span>
+                <span class="csp-rb-val gold">Coming Soon</span>
+              </div>
+              <div class="csp-rb-item">
+                <span class="csp-rb-label">Production releases</span>
+                <span class="csp-rb-val soon">No releases yet</span>
+              </div>
+              <div class="csp-rb-item">
+                <span class="csp-rb-label">Next planned</span>
+                <span class="csp-rb-val">03/16/2026</span>
+              </div>
+              <div class="csp-rb-item">
+                <span class="csp-rb-label">GA target</span>
+                <span class="csp-rb-val">Q3 2026</span>
+              </div>
             </div>
-        </section>                                <!-- main-footer -->
-        <footer class="main-footer gf-footer">
 
-          <div class="gf-top-rule"></div>
-
-          <div class="gf-body">
-            <div class="auto-container">
-              <div class="gf-grid">
-
-                <!-- Brand -->
-                <div class="gf-col">
-                  <a href="index.html" class="gf-logo-link">
-                    <img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" class="gf-logo">
-                  </a>
-                  <p class="gf-tagline">Autonomous Security, Compliance, and Risk Intelligence — hosted in your environment.</p>
-                  <form class="gf-subscribe" action="contact.html" method="post">
-                    <div class="gf-subscribe-row">
-                      <input type="email" name="email" placeholder="Work email address" required>
-                      <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
-                    </div>
-                    <p class="gf-subscribe-note">No spam &mdash; platform updates only.</p>
-                  </form>
-                  <div class="gf-social">
-                    <a href="https://www.linkedin.com/company/aivric" class="gf-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://x.com/aivric" class="gf-social-link" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.facebook.com/61581937785235/" class="gf-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/aivrictechnologies/" class="gf-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                  </div>
-                </div>
-
-                <!-- Platform -->
-                <div class="gf-col">
-                  <div class="gf-col-title">Platform</div>
-                  <ul class="gf-links">
-                    <li><a href="services.html">Platform Overview</a></li>
-                    <li><a href="genai-chat.html">GenAI Chat</a></li>
-                    <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
-                    <li><a href="agentic-design.html">Agentic Design</a></li>
-                    <li><a href="efficient-compute.html">Efficient Compute</a></li>
-                    <li><a href="data-localization.html">Data Localization</a></li>
-                    <li><a href="ai-model-inspection.html">AI Model Inspection</a></li>
-                  </ul>
-                </div>
-
-                <!-- Solutions -->
-                <div class="gf-col">
-                  <div class="gf-col-title">Solutions</div>
-                  <ul class="gf-links">
-                    <li><a href="cspm-cloudsignals.html">CloudSignals+RiskOps&trade;</a></li>
-                    <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
-                    <li><a href="air-remediation.html">AIRE Agentic Mesh&trade;</a></li>
-                    <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
-                    <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
-                    <li><a href="aivric-vision-enterprise.html">Vision Enterprise</a></li>
-                    <li><a href="solutions-portal.html">All Products &rarr;</a></li>
-                  </ul>
-                </div>
-
-                <!-- Company + Contact -->
-                <div class="gf-col">
-                  <div class="gf-col-title">Company</div>
-                  <ul class="gf-links">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="why-aivric.html">Why AiVRIC</a></li>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="blog-portal.html">Blog</a></li>
-                    <li><a href="trust.html">Trust Center</a></li>
-                    <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Platform Guide</a></li>
-                  </ul>
-                  <div class="gf-contact-block">
-                    <a href="mailto:info@aivric.com" class="gf-contact-link"><i class="fas fa-envelope"></i>info@aivric.com</a>
-                    <a href="tel:+19543426637" class="gf-contact-link"><i class="fas fa-phone-alt"></i>+1 954 342 6637</a>
-                  </div>
-                </div>
-
+            <div style="margin-top:20px;">
+              <span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--cs-faint);display:block;margin-bottom:10px;">Replaces</span>
+              <div class="csp-replaces-row">
+                <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Multi-tool reporting stacks</span>
+                <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Manual cross-suite rollups</span>
+                <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Custom analytics pipelines</span>
+                <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Disjointed executive dashboards</span>
               </div>
             </div>
           </div>
 
-          <div class="gf-bottom">
-            <div class="auto-container">
-              <div class="gf-bottom-inner">
-                <p class="gf-copy">&copy; 2025 <a href="index.html">AiVRIC Technologies</a>. All Rights Reserved.</p>
-                <div class="gf-bottom-right">
-                  <span class="gf-trust-pill"><span class="gf-trust-dot"></span>SOC&nbsp;2 Ready</span>
-                  <nav class="gf-bottom-nav">
-                    <a href="terms-of-use.html">Terms of Service</a>
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                  </nav>
-                </div>
-              </div>
+          <div class="csp-hero-aside">
+            <div class="csp-quick-card">
+              <h4>Planned capabilities</h4>
+              <ul class="csp-quick-list">
+                <li><i class="fas fa-check-circle"></i>Multi-tenant governance across business units</li>
+                <li><i class="fas fa-check-circle"></i>Custom analytics and advanced reporting</li>
+                <li><i class="fas fa-check-circle"></i>Multi-region data residency controls</li>
+                <li><i class="fas fa-check-circle"></i>Executive reporting dashboards</li>
+                <li><i class="fas fa-check-circle"></i>Role-based insights by region and department</li>
+                <li><i class="fas fa-check-circle"></i>SOC 2, ISO 27001, PCI-DSS, CMMC evidence</li>
+                <li><i class="fas fa-check-circle"></i>SSO, SCIM provisioning, and granular RBAC</li>
+                <li><i class="fas fa-check-circle"></i>Audit-ready evidence packages</li>
+              </ul>
             </div>
+            <a href="aivric-vision-professional.html" class="csp-quick-link">
+              <span>Vision AI Optics&trade; &mdash; available now</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="trust.html" class="csp-quick-link">
+              <span>Trust Center &amp; security docs</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
           </div>
-
-        </footer>
-        <!-- main-footer end -->
-
-
-        <!--Scroll to top-->
-        <div class="scroll-to-top">
-            <div>
-                <div class="scroll-top-inner">
-                    <div class="scroll-bar">
-                        <div class="bar-inner"></div>
-                    </div>
-                    <div class="scroll-bar-text">Go To Top</div>
-                </div>
-            </div>
         </div>
-        <!-- Scroll to top end -->
-        
+      </div>
+    </section>
+
+    <div class="auto-container"><div class="csp-divider"></div></div>
+
+    <!-- CAPABILITIES -->
+    <section class="csp-section">
+      <div class="auto-container">
+        <span class="csp-eyebrow">Key Capabilities</span>
+        <h2 class="csp-section-title">Aligned to enterprise requirements</h2>
+        <p class="csp-section-sub">Four foundational capabilities that unify security intelligence and governance across complex multi-business-unit environments.</p>
+        <div class="csp-cap-grid">
+          <div class="csp-cap">
+            <div class="csp-cap-icon"><i class="fas fa-sitemap"></i></div>
+            <h4>Multi-tenant Governance</h4>
+            <p>Separate data, policies, and visibility by business unit. Independent compliance postures with centralized oversight and cross-tenant rollup reporting.</p>
+          </div>
+          <div class="csp-cap">
+            <div class="csp-cap-icon green"><i class="fas fa-chart-line"></i></div>
+            <h4>Custom Analytics</h4>
+            <p>Advanced reporting and business intelligence on top of your security and compliance data. Build dashboards that map to your organizational risk taxonomy.</p>
+          </div>
+          <div class="csp-cap">
+            <div class="csp-cap-icon gold"><i class="fas fa-globe"></i></div>
+            <h4>Localization Controls</h4>
+            <p>Policy-based data residency for multi-region deployments. Enforce data sovereignty requirements with configurable retention, export, and purge policies.</p>
+          </div>
+          <div class="csp-cap">
+            <div class="csp-cap-icon purple"><i class="fas fa-presentation"></i></div>
+            <h4>Executive Reporting</h4>
+            <p>Board-ready risk intelligence with AI-generated summaries, trend analysis, and audit-ready evidence packages formatted for leadership reviews.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="auto-container"><div class="csp-divider"></div></div>
+
+    <!-- OUTCOMES -->
+    <section class="csp-section">
+      <div class="auto-container">
+        <span class="csp-eyebrow">Business Outcomes</span>
+        <h2 class="csp-section-title">What you can expect</h2>
+        <p class="csp-section-sub">Vision Enterprise is designed to produce measurable improvements in how your organization manages, communicates, and acts on security and compliance risk.</p>
+        <div class="csp-modules-grid-3">
+          <div class="csp-module-card">
+            <div class="csp-module-icon cyan"><i class="fas fa-shield-alt"></i></div>
+            <h3>Enterprise-wide risk alignment</h3>
+            <p>Standardize risk posture reporting across all business units. Replace fragmented dashboards with a single pane of glass for leadership and board reporting.</p>
+          </div>
+          <div class="csp-module-card">
+            <div class="csp-module-icon green"><i class="fas fa-bolt"></i></div>
+            <h3>Faster decision cycles</h3>
+            <p>AI-generated summaries translate raw security signals into narrative intelligence that risk owners and executives can act on in minutes, not days.</p>
+          </div>
+          <div class="csp-module-card">
+            <div class="csp-module-icon gold"><i class="fas fa-file-alt"></i></div>
+            <h3>Executive-ready audit reporting</h3>
+            <p>Consistent, structured evidence packs for every compliance framework — formatted for auditors and leadership reviews with full traceability.</p>
+          </div>
+          <div class="csp-module-card">
+            <div class="csp-module-icon purple"><i class="fas fa-eye"></i></div>
+            <h3>Global governance visibility</h3>
+            <p>Role-based insights by region, department, and team. Every stakeholder sees exactly the level of detail they need — no more, no less.</p>
+          </div>
+          <div class="csp-module-card">
+            <div class="csp-module-icon cyan"><i class="fas fa-lock"></i></div>
+            <h3>Data sovereignty at scale</h3>
+            <p>Multi-region data residency enforcement with configurable policies for retention, export, and deletion — meeting your most demanding regulatory requirements.</p>
+          </div>
+          <div class="csp-module-card">
+            <div class="csp-module-icon green"><i class="fas fa-project-diagram"></i></div>
+            <h3>Seamless integration</h3>
+            <p>Native connectors to SIEM/SOAR, ticketing, CI/CD, and identity platforms. Vision Enterprise plugs into your existing enterprise ecosystem without rework.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="auto-container"><div class="csp-divider"></div></div>
+
+    <!-- COMPLIANCE FRAMEWORKS -->
+    <section class="csp-section">
+      <div class="auto-container">
+        <span class="csp-eyebrow">Security &amp; Compliance</span>
+        <h2 class="csp-section-title">Frameworks supported</h2>
+        <p class="csp-section-sub">Mapped controls, evidence, and reporting for the enterprise compliance requirements your organization faces most.</p>
+        <div class="csp-fw-grid">
+          <details class="csp-fw-item">
+            <summary>SOC 2 (Security, Availability, Confidentiality)</summary>
+            <div class="csp-fw-body">
+              <div class="csp-fw-req"><strong>Requirement:</strong> Maintain continuous monitoring of security controls and retain audit evidence.</div>
+              <ul>
+                <li>Centralizes control evidence and logs for auditors.</li>
+                <li>Tracks remediation activity with approvals and timestamps.</li>
+                <li>Provides executive-ready compliance reporting.</li>
+              </ul>
+            </div>
+          </details>
+          <details class="csp-fw-item">
+            <summary>ISO/IEC 27001 (Information Security Management)</summary>
+            <div class="csp-fw-body">
+              <div class="csp-fw-req"><strong>Requirement:</strong> Establish risk treatment controls and demonstrate ongoing effectiveness.</div>
+              <ul>
+                <li>Maps findings to control objectives and risk registers.</li>
+                <li>Documents remediation and verification workflows.</li>
+                <li>Maintains evidence for continuous assurance.</li>
+              </ul>
+            </div>
+          </details>
+          <details class="csp-fw-item">
+            <summary>PCI-DSS (Payment Card Security)</summary>
+            <div class="csp-fw-body">
+              <div class="csp-fw-req"><strong>Requirement:</strong> Monitor systems, detect misconfigurations, and document remediation actions.</div>
+              <ul>
+                <li>Flags posture gaps and policy violations in real time.</li>
+                <li>Produces audit-ready reports for assessors.</li>
+                <li>Tracks remediation with accountability.</li>
+              </ul>
+            </div>
+          </details>
+          <details class="csp-fw-item">
+            <summary>CMMC (Federal Contractor Readiness)</summary>
+            <div class="csp-fw-body">
+              <div class="csp-fw-req"><strong>Requirement:</strong> Implement security practices and keep verifiable evidence of performance.</div>
+              <ul>
+                <li>Aligns controls to maturity requirements.</li>
+                <li>Maintains POA&Ms and exception documentation.</li>
+                <li>Supports evidence collection for audits.</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+
+        <div style="margin-top:24px;">
+          <span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--cs-faint);display:block;margin-bottom:10px;">Supported use cases</span>
+          <div class="csp-usecase-pills">
+            <a href="streamline-soc2.html" class="csp-usecase-pill">SOC 2 Type II</a>
+            <a href="achieve-pci-dss.html" class="csp-usecase-pill">PCI-DSS</a>
+            <a href="cmmc-readiness.html" class="csp-usecase-pill">CMMC Readiness</a>
+            <a href="issues-poams.html" class="csp-usecase-pill">Issues and POA&amp;Ms</a>
+            <a href="threat-analysis.html" class="csp-usecase-pill">Threat Analysis</a>
+            <a href="use-case-github-security.html" class="csp-usecase-pill">DevSecOps</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="auto-container"><div class="csp-divider"></div></div>
+
+    <!-- FAQ -->
+    <section class="csp-section">
+      <div class="auto-container">
+        <span class="csp-eyebrow">Enterprise FAQs</span>
+        <h2 class="csp-section-title">Answers for security, compliance &amp; procurement teams</h2>
+        <p class="csp-section-sub">Common questions from enterprise buyers evaluating Vision Enterprise for their security program.</p>
+        <div class="csp-faq-grid">
+          <details class="csp-faq-item">
+            <summary>What deployment models are available?</summary>
+            <p>SaaS, customer-hosted SaaS, or private deployment options with shared controls and audit artifacts. <a href="trust.html">Review the Trust Center</a>.</p>
+          </details>
+          <details class="csp-faq-item">
+            <summary>How does data residency and retention work?</summary>
+            <p>Regional data residency, configurable retention, and export/purge policies to meet your governance requirements. <a href="trust.html">Review the Trust Center</a>.</p>
+          </details>
+          <details class="csp-faq-item">
+            <summary>What integrations are supported?</summary>
+            <p>Native connectors and APIs for SIEM/SOAR, ticketing systems (Jira, ServiceNow), and CI/CD workflows. <a href="trust.html">Review the Trust Center</a>.</p>
+          </details>
+          <details class="csp-faq-item">
+            <summary>Does it support SSO, SCIM, and RBAC?</summary>
+            <p>SSO and SCIM provisioning with granular RBAC for least-privilege access across business units. <a href="trust.html">Review the Trust Center</a>.</p>
+          </details>
+          <details class="csp-faq-item">
+            <summary>What evidence and audit support is included?</summary>
+            <p>Evidence packages, control mappings, and audit-ready reporting for assessors — formatted for SOC 2, ISO 27001, PCI-DSS, and CMMC. <a href="trust.html">Review the Trust Center</a>.</p>
+          </details>
+          <details class="csp-faq-item">
+            <summary>What are the support and SLA options?</summary>
+            <p>Business and enterprise support tiers with response-time SLAs, dedicated customer success, and escalation paths. <a href="trust.html">Review the Trust Center</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <div class="auto-container">
+      <div class="csp-bottom-cta">
+        <h2>Be first when Vision Enterprise ships.</h2>
+        <p>Join the early access list to get priority access, dedicated onboarding, and locked-in early-adopter pricing when Vision Enterprise reaches GA in Q3 2026.</p>
+        <div class="csp-bottom-actions">
+          <button type="button" class="cs-btn primary js-release-modal" data-solution="AiVRIC Vision Enterprise">
+            <i class="fas fa-bell"></i> Notify me at launch
+          </button>
+          <a href="solutions-portal.html#vision" class="cs-btn secondary">All Vision solutions</a>
+          <a href="request-demo.html" class="cs-btn ghost">Request a demo</a>
+        </div>
+      </div>
     </div>
 
+  </main>
 
-    <!-- jequery plugins -->
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/wow.js"></script>
-    <script src="assets/js/validation.js"></script>
-    <script src="assets/js/jquery.fancybox.js"></script>
-    <script src="assets/js/appear.js"></script>
-    <script src="assets/js/scrollbar.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/jquery.nice-select.min.js"></script>
-    <script src="assets/js/parallax-scroll.js"></script>
 
-    <!-- main-js -->
-    <script src="assets/js/aivric-preloader.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/mega-hover.js"></script>
-    <script src="assets/js/mega-tabs.js"></script>
-
-        <div class="release-modal" id="release-modal">
-            <div class="release-modal__backdrop" data-release-close></div>
-            <div class="release-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="release-modal-title">
-                <button class="release-modal__close" type="button" data-release-close aria-label="Close">&times;</button>
-                <h3 class="release-modal__title" id="release-modal-title" data-release-title>Notify when released</h3>
-                <p class="release-modal__subtitle">Share your interest and we will alert you when this solution is ready.</p>
-                <form class="release-modal__form" data-release-form>
-                    <input type="hidden" name="solution" data-release-solution>
-                    <div class="release-modal__grid">
-                        <div class="release-modal__field">
-                            <label for="release-name">Name</label>
-                            <input id="release-name" name="name" type="text" placeholder="Your name" required>
-                        </div>
-                        <div class="release-modal__field">
-                            <label for="release-company">Company</label>
-                            <input id="release-company" name="company" type="text" placeholder="Company name" required>
-                        </div>
-                        <div class="release-modal__field">
-                            <label for="release-email">Email</label>
-                            <input id="release-email" name="email" type="email" placeholder="you@company.com" required>
-                        </div>
-                    </div>
-                    <div class="release-modal__interests">
-                        <span>Key interests</span>
-                        <div class="release-modal__checks">
-                            <label><input type="checkbox" name="interest" value="Global visibility across business units"> Global visibility across business units</label>
-                            <label><input type="checkbox" name="interest" value="Custom analytics and reporting"> Custom analytics and reporting</label>
-                            <label><input type="checkbox" name="interest" value="Data localization controls"> Data localization controls</label>
-                        </div>
-                    </div>
-                    <div class="release-modal__actions">
-                        <button type="button" class="theme-btn-one" data-release-close>Cancel</button>
-                        <button type="submit" class="theme-btn-two">Notify me</button>
-                    </div>
-                </form>
+  <!-- main-footer -->
+  <footer class="main-footer gf-footer">
+    <div class="gf-top-rule"></div>
+    <div class="gf-body">
+      <div class="auto-container">
+        <div class="gf-grid">
+          <div class="gf-col">
+            <a href="index.html" class="gf-logo-link">
+              <img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" class="gf-logo">
+            </a>
+            <p class="gf-tagline">Autonomous Security, Compliance, and Risk Intelligence &mdash; hosted in your environment.</p>
+            <form class="gf-subscribe" action="contact.html" method="post">
+              <div class="gf-subscribe-row">
+                <input type="email" name="email" placeholder="Work email address" required>
+                <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+              </div>
+              <p class="gf-subscribe-note">No spam &mdash; platform updates only.</p>
+            </form>
+            <div class="gf-social">
+              <a href="https://www.linkedin.com/company/aivric" class="gf-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://x.com/aivric" class="gf-social-link" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.facebook.com/61581937785235/" class="gf-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/aivrictechnologies/" class="gf-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
+          </div>
+          <div class="gf-col">
+            <div class="gf-col-title">Platform</div>
+            <ul class="gf-links">
+              <li><a href="services.html">Platform Overview</a></li>
+              <li><a href="genai-chat.html">GenAI Chat</a></li>
+              <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
+              <li><a href="agentic-design.html">Agentic Design</a></li>
+              <li><a href="efficient-compute.html">Efficient Compute</a></li>
+              <li><a href="data-localization.html">Data Localization</a></li>
+              <li><a href="ai-model-inspection.html">AI Model Inspection</a></li>
+            </ul>
+          </div>
+          <div class="gf-col">
+            <div class="gf-col-title">Solutions</div>
+            <ul class="gf-links">
+              <li><a href="cspm-cloudsignals.html">CloudSignals+RiskOps&trade;</a></li>
+              <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
+              <li><a href="air-remediation.html">AIRE Agentic Mesh&trade;</a></li>
+              <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
+              <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
+              <li><a href="aivric-vision-enterprise.html" style="color:var(--cs-cyan)!important;font-weight:700;">Vision Enterprise</a></li>
+              <li><a href="solutions-portal.html">All Products &rarr;</a></li>
+            </ul>
+          </div>
+          <div class="gf-col">
+            <div class="gf-col-title">Company</div>
+            <ul class="gf-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="why-aivric.html">Why AiVRIC</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="blog-portal.html">Blog</a></li>
+              <li><a href="trust.html">Trust Center</a></li>
+              <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Platform Guide</a></li>
+            </ul>
+            <div class="gf-contact-block">
+              <a href="mailto:info@aivric.com" class="gf-contact-link"><i class="fas fa-envelope"></i>info@aivric.com</a>
+              <a href="tel:+19543426637" class="gf-contact-link"><i class="fas fa-phone-alt"></i>+1 954 342 6637</a>
+            </div>
+          </div>
         </div>
-    <script src="assets/js/release-modal.js"></script>
+      </div>
+    </div>
+    <div class="gf-bottom">
+      <div class="auto-container">
+        <div class="gf-bottom-inner">
+          <p class="gf-copy">&copy; 2025 <a href="index.html">AiVRIC Technologies</a>. All Rights Reserved.</p>
+          <div class="gf-bottom-right">
+            <span class="gf-trust-pill"><span class="gf-trust-dot"></span>SOC&nbsp;2 Ready</span>
+            <nav class="gf-bottom-nav">
+              <a href="terms-of-use.html">Terms of Service</a>
+              <a href="privacy-policy.html">Privacy Policy</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- main-footer end -->
 
-    <script src="assets/js/blog-mega.js"></script>
-</body><!-- End of .page_wrapper -->
+  <!-- Scroll to top -->
+  <div class="scroll-to-top">
+    <div>
+      <div class="scroll-top-inner">
+        <div class="scroll-bar"><div class="bar-inner"></div></div>
+        <div class="scroll-bar-text">Go To Top</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.js"></script>
+<script src="assets/js/wow.js"></script>
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/jquery.fancybox.js"></script>
+<script src="assets/js/appear.js"></script>
+<script src="assets/js/scrollbar.js"></script>
+<script src="assets/js/isotope.js"></script>
+<script src="assets/js/jquery.nice-select.min.js"></script>
+<script src="assets/js/parallax-scroll.js"></script>
+<script src="assets/js/aivric-preloader.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/mega-hover.js"></script>
+<script src="assets/js/mega-tabs.js"></script>
+
+  <div class="release-modal" id="release-modal">
+    <div class="release-modal__backdrop" data-release-close></div>
+    <div class="release-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="release-modal-title">
+      <button class="release-modal__close" type="button" data-release-close aria-label="Close">&times;</button>
+      <h3 class="release-modal__title" id="release-modal-title" data-release-title>Notify when released</h3>
+      <p class="release-modal__subtitle">Share your interest and we will alert you when this solution is ready.</p>
+      <form class="release-modal__form" data-release-form>
+        <input type="hidden" name="solution" data-release-solution>
+        <div class="release-modal__grid">
+          <div class="release-modal__field">
+            <label for="release-name">Name</label>
+            <input id="release-name" name="name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="release-modal__field">
+            <label for="release-company">Company</label>
+            <input id="release-company" name="company" type="text" placeholder="Company name" required>
+          </div>
+          <div class="release-modal__field">
+            <label for="release-email">Email</label>
+            <input id="release-email" name="email" type="email" placeholder="you@company.com" required>
+          </div>
+        </div>
+        <div class="release-modal__interests">
+          <span>Key interests</span>
+          <div class="release-modal__checks">
+            <label><input type="checkbox" name="interest" value="Global visibility across business units"> Global visibility across business units</label>
+            <label><input type="checkbox" name="interest" value="Custom analytics and reporting"> Custom analytics and reporting</label>
+            <label><input type="checkbox" name="interest" value="Data localization controls"> Data localization controls</label>
+          </div>
+        </div>
+        <div class="release-modal__actions">
+          <button type="button" class="theme-btn-one" data-release-close>Cancel</button>
+          <button type="submit" class="theme-btn-two">Notify me</button>
+        </div>
+      </form>
+    </div>
+  </div>
+<script src="assets/js/release-modal.js"></script>
+
+<script src="assets/js/blog-mega.js"></script>
+<script src="assets/js/ve-init.js"></script>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

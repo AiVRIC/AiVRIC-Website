@@ -1,51 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-    <title>Privacy Policy | AiVRIC</title>
+<title>Privacy Policy | AiVRIC</title>
+<meta name="description" content="AiVRIC Privacy Policy — how we collect, use, share, and protect personal information across our websites, products, and services.">
 
-    <!-- Fav Icon -->
-    <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+<link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <!-- Stylesheets (reuse existing site styles) -->
-    <link href="assets/css/aivric-preloader.css" rel="stylesheet">
+<link href="assets/css/aivric-preloader.css" rel="stylesheet">
 <link href="assets/css/font-awesome-all.css" rel="stylesheet">
-    <link href="assets/css/flaticon.css" rel="stylesheet">
-    <link href="assets/css/owl.css" rel="stylesheet">
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
-    <link href="assets/css/animate.css" rel="stylesheet">
-    <link href="assets/css/nice-select.css" rel="stylesheet">
-    <link href="assets/css/color.css" rel="stylesheet">
-    <link href="assets/css/elpath.css" rel="stylesheet">
-    <link href="assets/css/style.css?v=20250115" rel="stylesheet">
-    <link href="assets/css/elements-css/page-title.css" rel="stylesheet">
-    <link href="assets/css/responsive.css" rel="stylesheet">
-  <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+<link href="assets/css/flaticon.css" rel="stylesheet">
+<link href="assets/css/owl.css" rel="stylesheet">
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="assets/css/animate.css" rel="stylesheet">
+<link href="assets/css/nice-select.css" rel="stylesheet">
+<link href="assets/css/color.css" rel="stylesheet">
+<link href="assets/css/elpath.css" rel="stylesheet">
+<link href="assets/css/style.css?v=20250115" rel="stylesheet">
+<link href="assets/css/elements-css/page-title.css" rel="stylesheet">
+<link href="assets/css/elements-css/service.css" rel="stylesheet">
+<link href="assets/css/elements-css/about.css" rel="stylesheet">
+<link href="assets/css/responsive.css" rel="stylesheet">
+<link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+
+<style>
+  :root{
+    --cs-cyan:#00d1ff; --cs-green:#2ee59d; --cs-gold:#ffd63a; --cs-purple:#a78bfa;
+    --cs-text-strong:#f8fafc; --cs-text:#e5e7eb; --cs-muted:#cbd5e1; --cs-faint:#94a3b8;
+    --cs-surface-1:rgba(255,255,255,0.06); --cs-line:rgba(148,163,184,0.28);
+    --cs-shadow:0 14px 40px rgba(0,0,0,0.28); --cs-radius:18px;
+  }
+  body.portal-page{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:radial-gradient(1200px 900px at 70% -20%,rgba(0,209,255,0.20),transparent 55%),
+               radial-gradient(900px 700px at 10% 10%,rgba(46,113,229,0.13),transparent 60%),
+               linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%);
+    color:var(--cs-text);
+  }
+
+  /* Legal page hero */
+  .legal-hero{ padding:90px 0 40px; }
+  @media(max-width:992px){ .legal-hero{ padding:70px 0 30px; } }
+  .legal-hero-eyebrow{ display:block; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--cs-cyan); margin-bottom:10px; }
+  .legal-hero-title{ font-family:Jost,Inter,sans-serif; font-size:44px; font-weight:800; line-height:1.05; letter-spacing:-0.8px; color:var(--cs-text-strong); margin:0 0 10px; }
+  @media(max-width:768px){ .legal-hero-title{ font-size:30px; } }
+  .legal-hero-meta{ font-size:14px; color:var(--cs-faint); }
+  .legal-hero-meta a{ color:var(--cs-faint); text-decoration:none; }
+  .legal-hero-meta a:hover{ color:var(--cs-muted); }
+  .legal-divider{ height:1px; background:linear-gradient(90deg,transparent,var(--cs-line),transparent); margin:0 0 40px; }
+
+  /* Two-column layout */
+  .legal-body-wrap{ padding:0 0 72px; }
+  .legal-layout{ display:grid; grid-template-columns:240px 1fr; gap:40px; align-items:start; }
+  @media(max-width:992px){ .legal-layout{ grid-template-columns:1fr; } }
+
+  /* Sidebar */
+  .legal-sidebar{ position:sticky; top:100px; }
+  @media(max-width:992px){ .legal-sidebar{ display:none; } }
+  .legal-nav-label{ font-size:10px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--cs-faint); margin-bottom:14px; display:block; }
+  .legal-nav-list{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:2px; }
+  .legal-nav-list li a{ display:block; padding:7px 12px; border-radius:8px; font-size:13px; color:var(--cs-faint); text-decoration:none; transition:background 0.18s, color 0.18s; line-height:1.4; }
+  .legal-nav-list li a:hover{ background:var(--cs-surface-1); color:var(--cs-text); }
+  .legal-nav-divider{ height:1px; background:var(--cs-line); margin:8px 0; }
+
+  /* Main content card */
+  .legal-card{ border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line); padding:40px 48px; box-shadow:var(--cs-shadow); }
+  @media(max-width:768px){ .legal-card{ padding:28px 24px; } }
+
+  /* Prose styles */
+  .legal-prose p{ font-size:15px; line-height:1.8; color:var(--cs-muted); margin:0 0 18px; }
+  .legal-prose h3{ font-family:Jost,Inter,sans-serif; font-size:22px; font-weight:800; color:var(--cs-text-strong); margin:36px 0 12px; padding-top:8px; border-top:1px solid var(--cs-line); }
+  .legal-prose h3:first-child{ margin-top:0; border-top:none; padding-top:0; }
+  .legal-prose h4{ font-size:16px; font-weight:700; color:var(--cs-text); margin:20px 0 8px; }
+  .legal-prose ul{ padding-left:0; margin:0 0 18px; list-style:none; display:flex; flex-direction:column; gap:8px; }
+  .legal-prose ul li{ font-size:14.5px; line-height:1.7; color:var(--cs-muted); display:flex; gap:10px; align-items:flex-start; }
+  .legal-prose ul li::before{ content:"→"; color:var(--cs-cyan); font-size:12px; flex-shrink:0; margin-top:3px; }
+  .legal-prose a{ color:var(--cs-cyan); text-decoration:none; }
+  .legal-prose a:hover{ text-decoration:underline; }
+  .legal-prose strong{ color:var(--cs-text-strong); font-weight:700; }
+  .legal-effective{ display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:10px; background:rgba(0,209,255,0.08); border:1px solid rgba(0,209,255,0.22); font-size:13px; color:var(--cs-cyan); font-weight:600; margin-bottom:28px; }
+  .legal-effective i{ font-size:12px; }
+</style>
+
 <style id="gf-styles">
-/* === GLOBAL FOOTER === */
 .gf-footer{background:#050b17;position:relative;overflow:hidden;font-family:'Inter',sans-serif}
-/* subtle dot-grid */
 .gf-footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(0,209,255,.045) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
-/* gradient glow top-line */
 .gf-top-rule{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,209,255,.55) 30%,rgba(46,229,157,.4) 70%,transparent 100%);position:relative;z-index:1}
-/* body */
 .gf-body{padding:72px 0 52px;position:relative;z-index:1}
 .gf-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:52px}
 @media(max-width:991px){.gf-grid{grid-template-columns:1fr 1fr;gap:36px 40px}}
 @media(max-width:599px){.gf-grid{grid-template-columns:1fr;gap:32px}}
-/* brand col */
 .gf-logo-link{display:inline-block;margin-bottom:14px}
 .gf-logo{height:34px;width:auto;display:block}
 .gf-tagline{font-size:13px;color:#4e637a;line-height:1.7;margin-bottom:22px;max-width:255px}
-/* email subscribe */
 .gf-subscribe-row{display:flex;gap:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:8px;overflow:hidden;margin-bottom:7px;transition:border-color .2s}
 .gf-subscribe-row:focus-within{border-color:rgba(0,209,255,.35)}
 .gf-subscribe-row input{flex:1;background:transparent;border:none;outline:none;padding:10px 14px;font-size:13px;color:#e2e8f0;font-family:'Inter',sans-serif}
@@ -53,21 +107,17 @@
 .gf-subscribe-row button{background:#00d1ff;border:none;padding:10px 15px;color:#030a12;cursor:pointer;font-size:13px;transition:background .2s;flex-shrink:0}
 .gf-subscribe-row button:hover{background:#33daff}
 .gf-subscribe-note{font-size:11px;color:#3d5268;margin:0 0 22px}
-/* social */
 .gf-social{display:flex;gap:8px}
 .gf-social-link{width:33px;height:33px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#4e637a;font-size:13px;text-decoration:none;transition:all .2s}
 .gf-social-link:hover{background:rgba(0,209,255,.09);border-color:rgba(0,209,255,.28);color:#00d1ff}
-/* nav columns */
 .gf-col-title{font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#94a3b8;margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.06)}
 .gf-links{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:9px}
 .gf-links li a{font-size:13.5px;color:#4e637a;text-decoration:none;transition:color .18s;display:inline-block}
 .gf-links li a:hover{color:#cbd5e1}
-/* contact block */
 .gf-contact-block{display:flex;flex-direction:column;gap:9px;margin-top:4px}
 .gf-contact-link{display:flex;align-items:center;gap:8px;font-size:13px;color:#4e637a;text-decoration:none;transition:color .18s}
 .gf-contact-link i{color:#00d1ff;font-size:12px;width:14px;text-align:center;flex-shrink:0}
 .gf-contact-link:hover{color:#cbd5e1}
-/* bottom bar */
 .gf-bottom{border-top:1px solid rgba(255,255,255,.055);padding:16px 0;position:relative;z-index:1}
 .gf-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
 .gf-copy{font-size:12px;color:#3d5268;margin:0}
@@ -80,82 +130,84 @@
 .gf-bottom-nav{display:flex;gap:18px}
 .gf-bottom-nav a{font-size:12px;color:#3d5268;text-decoration:none;transition:color .18s}
 .gf-bottom-nav a:hover{color:#94a3b8}
-/* remove old footer pattern images */
 .gf-footer .pattern-layer{display:none!important}
-/* keep old .main-footer link colors from interfering */
 .gf-footer .links-list,.gf-footer .footer-widget,.gf-footer .widget-section,.gf-footer .footer-bottom{display:none!important}
 </style>
+<link href="assets/css/visual-enhancements.css" rel="stylesheet">
 </head>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-EG2Q8GD30V');
 </script>
 
-<body>
+<body class="portal-page">
 <div class="boxed_wrapper">
 
-    <!-- Preloader (optional – same as other pages) -->
-    <div class="loader-wrap">
-        <div class="preloader">
-            <div class="preloader-close">x</div>
-            <div id="handle-preloader" class="handle-preloader">
-                <div class="animation-preloader">
-                    <div class="spinner"></div>
-                    <div class="txt-loading">
-                        <span data-text-preloader="A" class="letters-loading">A</span>
-                        <span data-text-preloader="I" class="letters-loading">I</span>
-                        <span data-text-preloader="V" class="letters-loading">V</span>
-                        <span data-text-preloader="r" class="letters-loading">r</span>
-                        <span data-text-preloader="i" class="letters-loading">i</span>
-                        <span data-text-preloader="c" class="letters-loading">c</span>
-                    </div>
-                </div>
+  <!-- preloader -->
+  <div id="apl-wrap">
+    <div class="apl-scan"></div>
+    <div class="apl-corner tl"></div>
+    <div class="apl-corner tr"></div>
+    <div class="apl-corner bl"></div>
+    <div class="apl-corner br"></div>
+    <div class="apl-center">
+      <div class="apl-logo-wrap">
+        <div class="apl-ring r1"></div>
+        <div class="apl-ring r2"></div>
+        <div class="apl-ring r3"></div>
+        <img class="apl-logo" src="assets/images/logo/aivric.svg" alt="AiVRIC">
+      </div>
+      <div class="apl-brand">AiVRIC</div>
+      <div class="apl-tagline">Security Intelligence Platform</div>
+      <div class="apl-progress-wrap">
+        <div class="apl-progress-fill" id="apl-fill"></div>
+      </div>
+      <div class="apl-status-row">
+        <span class="apl-status" id="apl-status">Initializing Signal Engine</span>
+        <span class="apl-pct" id="apl-pct">0%</span>
+      </div>
+    </div>
+  </div>
+  <!-- preloader end -->
+
+  <!-- main header -->
+  <header class="main-header">
+<div class="header-top-bar">
+    <div class="auto-container">
+        <div class="top-bar-inner">
+            <div class="top-bar-brand">AIVRIC TECHNOLOGIES</div>
+            <div class="top-bar-right">
+                <ul class="top-bar-links">
+                    <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-book-open"></i></span>Platform Guide</a></li>
+                    <li><a href="trust.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-shield-alt"></i></span>Trust Center</a></li>
+                </ul>
+                <ul class="top-bar-social">
+                    <li><a href="https://www.linkedin.com/company/aivric" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://x.com/aivric" aria-label="X"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://github.com" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+                </ul>
             </div>
         </div>
     </div>
-    <!-- End Preloader -->
-
-    <!-- Main Header (copied from site so navigation is consistent) -->
-    <header class="main-header header-style-two">
-        <div class="header-top">
-            <div class="auto-container">
-                <div class="top-inner">
-                    <div class="top-left">
-                        <ul class="info clearfix">
-                            <li><i class="icon-1"></i>Mon-Fri 8:00 am-6:00 pm</li>
-                            <li><i class="icon-2"></i><a href="tel:19543426637">+1-954-342-6637</a></li>
-                            <li><i class="icon-3"></i><a href="mailto:info@aivric.com">info@aivric.com</a></li>
-                        </ul>
-                    </div>
-                    <div class="top-right">
-                        <ul class="social-links clearfix">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                        </ul>
-                    </div>
+</div>
+    <div class="header-lower">
+        <div class="auto-container">
+            <div class="outer-box">
+                <div class="logo-box">
+                    <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
                 </div>
-            </div>
-        </div>
-
-        <div class="header-lower">
-            <div class="auto-container">
-                <div class="outer-box">
-                    <div class="logo-box">
-                        <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC Logo"></a></figure>
+                <div class="menu-area clearfix">
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
                     </div>
-                    <div class="menu-area clearfix">
-                        <div class="mobile-nav-toggler">
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
-                        </div>
-                        <nav class="main-menu navbar-expand-md navbar-light">
+                    <nav class="main-menu navbar-expand-md navbar-light">
     <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
         <ul class="navigation clearfix">
             <li class="dropdown platform-menu"><a href="services.html">Platform</a>
@@ -275,431 +327,365 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="why-aivric.html">Why AiVRIC</a></li>
                     <li><a href="blog-portal.html">Blog</a></li>
-
                 </ul>
             </li>
         </ul>
     </div>
 </nav>
-                    </div>
-                    <ul class="menu-right-content">
-                        <li class="search-box-outer search-toggler">
-                            <i class="icon-4"></i>
-                        </li>
-                        <li class="btn-box">
-                            <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-one">Launch for Free</a>
-                        </li>
-                    </ul>
                 </div>
-            </div>
-        </div>
-
-        <!-- Sticky header -->
-        <div class="sticky-header">
-            <div class="auto-container">
-                <div class="outer-box">
-                    <div class="logo-box">
-                        <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
-                    </div>
-                    <div class="menu-area clearfix">
-                        <nav class="main-menu clearfix">
-                            <!-- Menu injected by JS -->
-                        </nav>
-                    </div>
-                    <ul class="menu-right-content">
-                        <li class="search-box-outer search-toggler">
-                            <i class="icon-4"></i>
-                        </li>
-                        <li class="btn-box">
-                            <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-one">Launch for Free</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- End Main Header -->
-        <!-- Mobile Menu  -->
-        <div class="mobile-menu">
-            <div class="menu-backdrop"></div>
-            <div class="close-btn" role="button" tabindex="0" aria-label="Close menu"><i class="fas fa-times"></i></div>
-            
-            <nav class="menu-box">
-                <div class="nav-logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" title=""></a></div>
-                <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
-                <div class="contact-info">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li>Wilmington, Delaware USA</li>
-                        <li><a href="tel:+8801682648101">+1 9543426637</a></li>
-                        <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
-                    </ul>
-                </div>
-                <div class="social-links">
-                    <ul class="clearfix">
-                        <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
-                        <li><a href="https://www.facebook.com/profile.php?id=61581937785235"><span class="fab fa-facebook-square"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
-                        <li><a href="https://www.instagram.com/aivrictechnologies/"><span class="fab fa-instagram"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div><!-- End Mobile Menu -->
-
-    <!-- Page Title -->
-    <section class="page-title centred">
-        <div class="bg-layer" style="background-image: url(assets/images/background/page-title.avif);"></div>
-        <div class="auto-container">
-            <div class="content-box">
-                <h1>Privacy Policy</h1>
-                <ul class="bread-crumb clearfix">
-                    <li><a href="index.html">Home</a></li>
-                    <li>Privacy Policy</li>
+                <ul class="menu-right-content">
+                    <li class="search-box-outer search-toggler"><i class="icon-4"></i></li>
+                    <li class="btn-box">
+                        <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-one">Launch for Free</a>
+                    </li>
                 </ul>
             </div>
         </div>
-    </section>
-    <!-- End Page Title -->
-
-    <!-- Privacy Policy Section -->
-    <section class="about-style-three sec-pad">
-        <div class="auto-container">
-            <div class="row clearfix">
-                <div class="col-lg-12 col-md-12 col-sm-12 content-column">
-                    <div class="content-box">
-                        <div class="sec-title mb_30">
-                            <span class="sub-title">Effective Date: January 1, 2025</span>
-                            <h2>AiVRIC Privacy Policy</h2>
-                        </div>
-
-                        <p class="mb_20">
-                            This Privacy Policy explains how AiVRIC (&ldquo;<strong>AiVRIC</strong>,&rdquo; &ldquo;<strong>we</strong>,&rdquo; &ldquo;<strong>us</strong>,&rdquo; or &ldquo;<strong>our</strong>&rdquo;) collects, uses, shares, and protects personal information in connection with our websites, products, and services, including the AiVRIC cloud-security platform (collectively, the &ldquo;<strong>Services</strong>&rdquo;).
-                        </p>
-
-                        <p class="mb_20">
-                            We are committed to protecting your privacy and handling your data in a transparent and secure manner. By accessing or using the Services, you acknowledge that you have read and understood this Privacy Policy.
-                        </p>
-
-                        <div class="mt_40"></div>
-
-                        <!-- 1. Who We Are -->
-                        <h3>1. Who We Are</h3>
-                        <p class="mb_20">
-                            AiVRIC is a security and compliance technology provider headquartered in Plantation, Florida (USA). We help organizations monitor security posture, manage compliance obligations, and automate remediation and reporting across cloud and hybrid environments.
-                        </p>
-
-                        <!-- 2. Scope of this Policy -->
-                        <h3>2. Scope of this Policy</h3>
-                        <p class="mb_20">
-                            This Privacy Policy applies to:
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li>The AiVRIC marketing websites, including <a href="https://www.aivric.com">www.aivric.com</a> and related pages;</li>
-                            <li>Customer accounts provisioned on the AiVRIC platform;</li>
-                            <li>Communications and interactions with our sales, support, and customer success teams;</li>
-                            <li>Any other online or offline interactions where this Privacy Policy is referenced or made available.</li>
-                        </ul>
-                        <p class="mb_30">
-                            This Privacy Policy does not apply to third-party products or services that may integrate with AiVRIC, nor to data that our customers ingest into AiVRIC from their own environments where they act as the data controller.
-                        </p>
-
-                        <!-- 3. Information We Collect -->
-                        <h3>3. Information We Collect</h3>
-                        <p class="mb_20">
-                            The information we collect depends on how you interact with AiVRIC and which Services you use. We may collect the following categories of information:
-                        </p>
-
-                        <h4 class="mt_20">3.1 Information You Provide to Us</h4>
-                        <ul class="list-style-one mb_20">
-                            <li><strong>Account and profile information</strong>, such as your name, job title, organization, business email address, phone number, password, and authentication details.</li>
-                            <li><strong>Contact and communication information</strong>, including messages you send to us via forms, email, chat, or support tickets.</li>
-                            <li><strong>Billing and payment information</strong>, such as billing contact details, subscription selections, and limited payment-related information (most payment details are processed directly by our payment service providers and not stored by AiVRIC).</li>
-                            <li><strong>Feedback and survey responses</strong> that you provide about the Services.</li>
-                        </ul>
-
-                        <h4 class="mt_20">3.2 Information Collected Automatically</h4>
-                        <p class="mb_10">
-                            When you visit our websites or use the Services, we may automatically collect:
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li><strong>Usage data</strong> (e.g., pages viewed, features used, clicks, referring URLs, access times, and session duration).</li>
-                            <li><strong>Device and technical data</strong> (e.g., IP address, browser type and version, operating system, device identifiers, and language settings).</li>
-                            <li><strong>Log data</strong> generated by our systems for security, performance, and troubleshooting purposes.</li>
-                        </ul>
-
-                        <h4 class="mt_20">3.3 Customer Environment &amp; Security Telemetry</h4>
-                        <p class="mb_20">
-                            When you connect your cloud or on-premises environments to AiVRIC, we may collect configuration data, metadata, security alerts, vulnerability scan results, and other technical information necessary to provide the Services. This information often relates to systems and accounts controlled by your organization rather than to individual end users.
-                        </p>
-
-                        <h4 class="mt_20">3.4 Information from Third Parties</h4>
-                        <p class="mb_30">
-                            We may receive information about you from third-party sources, such as business partners, conference and event providers, publicly available databases, and professional networking platforms, where permitted by applicable law.
-                        </p>
-
-                        <!-- 4. How We Use Information -->
-                        <h3>4. How We Use Your Information</h3>
-                        <p class="mb_20">
-                            We use the information we collect for the following purposes:
-                        </p>
-                        <ul class="list-style-one mb_30">
-                            <li><strong>Providing and operating the Services</strong>, including account creation, authentication, platform configuration, and feature delivery.</li>
-                            <li><strong>Improving and developing the Services</strong>, by analyzing usage trends, troubleshooting issues, enhancing user experience, and developing new capabilities.</li>
-                            <li><strong>Security and fraud prevention</strong>, including monitoring, detecting, and preventing unauthorized access, abuse, and malicious activity.</li>
-                            <li><strong>Customer support and communications</strong>, such as responding to inquiries, resolving issues, and sending important service notifications.</li>
-                            <li><strong>Legal and compliance obligations</strong>, including enforcing contracts, complying with regulatory requirements, and responding to lawful requests from public authorities.</li>
-                            <li><strong>Marketing and business development</strong>, such as sending information about AiVRIC features, events, promotions, and thought-leadership content, where permitted by applicable law and your communication preferences.</li>
-                        </ul>
-
-                        <!-- 5. Legal Bases (GDPR) -->
-                        <h3>5. Legal Bases for Processing (EEA/UK Only)</h3>
-                        <p class="mb_20">
-                            If you are located in the European Economic Area (EEA) or the United Kingdom (UK), our processing of your personal data is supported by the following legal bases:
-                        </p>
-                        <ul class="list-style-one mb_30">
-                            <li><strong>Performance of a contract</strong> – where processing is necessary to provide the Services you have requested or to fulfill our contractual obligations.</li>
-                            <li><strong>Legitimate interests</strong> – for example, to secure our Services, improve functionality, prevent abuse, or market similar products to existing customers, provided these interests are not overridden by your rights and interests.</li>
-                            <li><strong>Consent</strong> – where we rely on your consent, such as for certain types of marketing communications or cookies. You may withdraw your consent at any time.</li>
-                            <li><strong>Legal obligation</strong> – where processing is necessary to comply with laws or regulatory requirements.</li>
-                        </ul>
-
-                        <!-- 6. Cookies and Similar Technologies -->
-                        <h3>6. Cookies and Similar Technologies</h3>
-                        <p class="mb_20">
-                            We use cookies and similar technologies (such as web beacons and local storage) to provide and improve the Services, remember your preferences, and analyze how our websites are used.
-                        </p>
-                        <p class="mb_10">
-                            Cookies may be:
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li><strong>Essential</strong> – required for core functionality, such as secure login and session management.</li>
-                            <li><strong>Analytical / performance</strong> – to understand usage patterns, page performance, and user flows.</li>
-                            <li><strong>Functional</strong> – to remember preferences and enhance the user experience.</li>
-                            <li><strong>Marketing</strong> – to track engagement with campaigns and measure effectiveness of advertising, where applicable.</li>
-                        </ul>
-                        <p class="mb_30">
-                            You can manage cookie preferences through your browser settings or, where available, our cookie management tools. Disabling certain cookies may affect the functionality of the Services.
-                        </p>
-
-                        <!-- 7. How We Share Information -->
-                        <h3>7. How We Share Your Information</h3>
-                        <p class="mb_20">
-                            We do not sell personal information. We may share information in the following circumstances:
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li><strong>Service providers and subprocessors</strong> who perform services on our behalf, such as hosting, infrastructure, analytics, customer support, email delivery, and payment processing. These providers are bound by contractual obligations to safeguard personal data.</li>
-                            <li><strong>Business partners</strong> with whom we jointly offer products, services, or events, where appropriate and consistent with your choices.</li>
-                            <li><strong>Within our corporate group</strong>, to support global operations and consistent delivery of the Services.</li>
-                            <li><strong>Legal and regulatory disclosures</strong> when required to comply with applicable law, lawful requests, or to protect the rights, property, or safety of AiVRIC, our customers, or others.</li>
-                            <li><strong>Business transfers</strong> in connection with a merger, acquisition, financing, or sale of all or a portion of our business. We will take reasonable steps to ensure the successor entity honors this Privacy Policy or provides equivalent protections.</li>
-                        </ul>
-                        <p class="mb_30">
-                            We may share aggregated or de-identified information that does not reasonably identify any individual, for research, benchmarking, or statistical purposes.
-                        </p>
-
-                        <!-- 8. International Data Transfers -->
-                        <h3>8. International Data Transfers</h3>
-                        <p class="mb_30">
-                            AiVRIC is based in the United States and may process information in the U.S. and other countries that may have different data-protection laws than your country of residence. Where required, we implement appropriate safeguards, such as Standard Contractual Clauses or equivalent mechanisms, to protect personal data transferred from the EEA, UK, or other regions to the U.S. or other jurisdictions.
-                        </p>
-
-                        <!-- 9. Data Retention -->
-                        <h3>9. Data Retention</h3>
-                        <p class="mb_30">
-                            We retain personal information for as long as necessary to fulfill the purposes described in this Privacy Policy, including providing the Services, complying with legal obligations, resolving disputes, and enforcing our agreements. Retention periods may vary depending on the type of data, contractual requirements, and applicable law. When information is no longer required, we will delete, anonymize, or securely store it in accordance with our data-retention policies.
-                        </p>
-
-                        <!-- 10. Security -->
-                        <h3>10. Security</h3>
-                        <p class="mb_30">
-                            We implement technical and organizational measures designed to protect personal information against accidental or unlawful destruction, loss, alteration, unauthorized disclosure, or access. These measures may include encryption, access controls, logging, network protections, and regular testing of security controls. However, no system can be guaranteed to be completely secure, and you are responsible for maintaining the confidentiality of any account credentials and for promptly notifying us of any suspected unauthorized use of your account.
-                        </p>
-
-                        <!-- 11. Your Privacy Rights -->
-                        <h3>11. Your Privacy Rights</h3>
-                        <p class="mb_20">
-                            Depending on your location and applicable law, you may have certain rights in relation to your personal information, including:
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li>Right to access your personal information and obtain a copy.</li>
-                            <li>Right to request correction of inaccurate or incomplete data.</li>
-                            <li>Right to request deletion of your personal information, subject to legal and contractual restrictions.</li>
-                            <li>Right to object to or restrict certain processing activities.</li>
-                            <li>Right to withdraw consent where processing is based on consent.</li>
-                            <li>Right to data portability in certain circumstances.</li>
-                        </ul>
-                        <p class="mb_20">
-                            To exercise these rights, please contact us using the details in the <strong>Contact Us</strong> section below. We may need to verify your identity before responding to your request.
-                        </p>
-                        <p class="mb_30">
-                            If you are located in the EEA or UK, you also have the right to lodge a complaint with your local data protection authority. We encourage you to contact us first so we can address your concerns.
-                        </p>
-
-                        <!-- 12. Additional Information for California Residents -->
-                        <h3>12. Additional Information for California Residents</h3>
-                        <p class="mb_20">
-                            If you are a California resident, you may have additional rights under the California Consumer Privacy Act (&ldquo;<strong>CCPA</strong>&rdquo;) or its successors, including:
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li>Right to know the categories of personal information we collect, use, disclose, and, if applicable, sell or share.</li>
-                            <li>Right to request access to specific pieces of personal information.</li>
-                            <li>Right to request deletion of personal information, subject to exceptions.</li>
-                            <li>Right to opt out of the sale or sharing of personal information (AiVRIC does not sell personal information as that term is defined under the CCPA).</li>
-                            <li>Right to not be discriminated against for exercising any of your CCPA rights.</li>
-                        </ul>
-                        <p class="mb_30">
-                            You or your authorized agent can submit a request by contacting us at <a href="mailto:privacy@aivric.com">privacy@aivric.com</a> or using the other methods described in the <strong>Contact Us</strong> section.
-                        </p>
-
-                        <!-- 13. Third-Party Links and Services -->
-                        <h3>13. Third-Party Links and Services</h3>
-                        <p class="mb_30">
-                            The Services may include links to third-party websites, integrations, or services that are not operated by AiVRIC. This Privacy Policy does not apply to those third parties, and we are not responsible for their content, privacy practices, or services. We encourage you to review the privacy notices of any third-party services you use.
-                        </p>
-
-                        <!-- 14. Children’s Privacy -->
-                        <h3>14. Children’s Privacy</h3>
-                        <p class="mb_30">
-                            The Services are not directed to children under 16, and we do not knowingly collect personal information from children. If you believe that a child has provided personal information to us, please contact us so we can take appropriate steps to remove the information.
-                        </p>
-
-                        <!-- 15. Changes to this Privacy Policy -->
-                        <h3>15. Changes to this Privacy Policy</h3>
-                        <p class="mb_30">
-                            We may update this Privacy Policy from time to time to reflect changes in our practices, technologies, or legal requirements. When we make material changes, we will update the &ldquo;Effective Date&rdquo; at the top of this page and, where appropriate, provide additional notice (such as by email or in-product notification). We encourage you to review this Privacy Policy periodically to stay informed about how we protect your information.
-                        </p>
-
-                        <!-- 16. Contact Us -->
-                        <h3>16. Contact Us</h3>
-                        <p class="mb_10">
-                            If you have any questions about this Privacy Policy, our data-handling practices, or would like to exercise your privacy rights, please contact us at:
-                        </p>
-                        <ul class="list-style-one mb_20">
-                            <li><strong>Email:</strong> <a href="mailto:privacy@aivric.com">privacy@aivric.com</a></li>
-                            <li><strong>General Inquiries:</strong> <a href="mailto:info@aivric.com">info@aivric.com</a></li>
-                            <li><strong>Mailing Address:</strong> AiVRIC, Plantation, FL 33342, United States</li>
-                        </ul>                    
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- End Privacy Policy Section -->
-
-                                    <!-- main-footer -->
-        <footer class="main-footer gf-footer">
-
-          <div class="gf-top-rule"></div>
-
-          <div class="gf-body">
-            <div class="auto-container">
-              <div class="gf-grid">
-
-                <!-- Brand -->
-                <div class="gf-col">
-                  <a href="index.html" class="gf-logo-link">
-                    <img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" class="gf-logo">
-                  </a>
-                  <p class="gf-tagline">Autonomous Security, Compliance, and Risk Intelligence — hosted in your environment.</p>
-                  <form class="gf-subscribe" action="contact.html" method="post">
-                    <div class="gf-subscribe-row">
-                      <input type="email" name="email" placeholder="Work email address" required>
-                      <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
-                    </div>
-                    <p class="gf-subscribe-note">No spam &mdash; platform updates only.</p>
-                  </form>
-                  <div class="gf-social">
-                    <a href="https://www.linkedin.com/company/aivric" class="gf-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://x.com/aivric" class="gf-social-link" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.facebook.com/61581937785235/" class="gf-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/aivrictechnologies/" class="gf-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                  </div>
-                </div>
-
-                <!-- Platform -->
-                <div class="gf-col">
-                  <div class="gf-col-title">Platform</div>
-                  <ul class="gf-links">
-                    <li><a href="services.html">Platform Overview</a></li>
-                    <li><a href="genai-chat.html">GenAI Chat</a></li>
-                    <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
-                    <li><a href="agentic-design.html">Agentic Design</a></li>
-                    <li><a href="efficient-compute.html">Efficient Compute</a></li>
-                    <li><a href="data-localization.html">Data Localization</a></li>
-                    <li><a href="ai-model-inspection.html">AI Model Inspection</a></li>
-                  </ul>
-                </div>
-
-                <!-- Solutions -->
-                <div class="gf-col">
-                  <div class="gf-col-title">Solutions</div>
-                  <ul class="gf-links">
-                    <li><a href="cspm-cloudsignals.html">CloudSignals+RiskOps&trade;</a></li>
-                    <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
-                    <li><a href="air-remediation.html">AIRE Agentic Mesh&trade;</a></li>
-                    <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
-                    <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
-                    <li><a href="aivric-vision-enterprise.html">Vision Enterprise</a></li>
-                    <li><a href="solutions-portal.html">All Products &rarr;</a></li>
-                  </ul>
-                </div>
-
-                <!-- Company + Contact -->
-                <div class="gf-col">
-                  <div class="gf-col-title">Company</div>
-                  <ul class="gf-links">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="why-aivric.html">Why AiVRIC</a></li>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="blog-portal.html">Blog</a></li>
-                    <li><a href="trust.html">Trust Center</a></li>
-                    <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Platform Guide</a></li>
-                  </ul>
-                  <div class="gf-contact-block">
-                    <a href="mailto:info@aivric.com" class="gf-contact-link"><i class="fas fa-envelope"></i>info@aivric.com</a>
-                    <a href="tel:+19543426637" class="gf-contact-link"><i class="fas fa-phone-alt"></i>+1 954 342 6637</a>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="gf-bottom">
-            <div class="auto-container">
-              <div class="gf-bottom-inner">
-                <p class="gf-copy">&copy; 2025 <a href="index.html">AiVRIC Technologies</a>. All Rights Reserved.</p>
-                <div class="gf-bottom-right">
-                  <span class="gf-trust-pill"><span class="gf-trust-dot"></span>SOC&nbsp;2 Ready</span>
-                  <nav class="gf-bottom-nav">
-                    <a href="terms-of-use.html">Terms of Service</a>
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </footer>
-        <!-- main-footer end -->
-
-
-        <!--Scroll to top-->
-        <div class="scroll-to-top">
-            <div>
-                <div class="scroll-top-inner">
-                    <div class="scroll-bar">
-                        <div class="bar-inner"></div>
-                    </div>
-                    <div class="scroll-bar-text">Go To Top</div>
-                </div>
-            </div>
-        </div>
-        <!-- Scroll to top end -->
-        
     </div>
-<!-- JS Files (same as other pages) -->
+
+    <div class="sticky-header">
+        <div class="auto-container">
+            <div class="outer-box">
+                <div class="logo-box">
+                    <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC Logo"></a></figure>
+                </div>
+                <div class="menu-area clearfix">
+                    <nav class="main-menu clearfix"><!--Keep This Empty / Menu will come through Javascript--></nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="search-box-outer search-toggler"><i class="icon-4"></i></li>
+                    <li class="btn-box">
+                        <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-two">Launch for Free</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- main-header end -->
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="menu-backdrop"></div>
+    <div class="close-btn" role="button" tabindex="0" aria-label="Close menu"><i class="fas fa-times"></i></div>
+    <nav class="menu-box">
+      <div class="nav-logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" title=""></a></div>
+      <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+      <div class="contact-info">
+        <h4>Contact Info</h4>
+        <ul>
+          <li>Wilmington, Delaware USA</li>
+          <li><a href="tel:+19543426637">+1 9543426637</a></li>
+          <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+        </ul>
+      </div>
+      <div class="social-links">
+        <ul class="clearfix">
+          <li><a href="https://x.com/aivric"><span class="fab fa-twitter"></span></a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61581937785235"><span class="fab fa-facebook-square"></span></a></li>
+          <li><a href="https://www.instagram.com/aivrictechnologies/"><span class="fab fa-instagram"></span></a></li>
+          <li><a href="https://www.linkedin.com/company/aivric"><span class="fab fa-linkedin-in"></span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- End Mobile Menu -->
+
+
+  <!-- Privacy Policy Page -->
+  <main>
+
+    <!-- Hero -->
+    <section class="legal-hero">
+      <div class="auto-container">
+        <nav aria-label="breadcrumb" style="margin-bottom:16px;">
+          <ol style="list-style:none;padding:0;margin:0;display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--cs-faint);">
+            <li><a href="index.html" style="color:var(--cs-faint);text-decoration:none;">Home</a></li>
+            <li style="color:var(--cs-line);">/</li>
+            <li style="color:var(--cs-cyan);">Privacy Policy</li>
+          </ol>
+        </nav>
+        <span class="legal-hero-eyebrow">Legal</span>
+        <h1 class="legal-hero-title">Privacy Policy</h1>
+        <p class="legal-hero-meta">Effective Date: January 1, 2025 &nbsp;&middot;&nbsp; Questions? <a href="mailto:privacy@aivric.com">privacy@aivric.com</a></p>
+      </div>
+    </section>
+
+    <div class="legal-divider"></div>
+
+    <!-- Content -->
+    <div class="legal-body-wrap">
+      <div class="auto-container">
+        <div class="legal-layout">
+
+          <!-- Sidebar nav -->
+          <aside class="legal-sidebar" aria-label="Section navigation">
+            <span class="legal-nav-label">In this document</span>
+            <ul class="legal-nav-list">
+              <li><a href="#who-we-are">1. Who We Are</a></li>
+              <li><a href="#scope">2. Scope of this Policy</a></li>
+              <li><a href="#information-collected">3. Information We Collect</a></li>
+              <li><a href="#how-we-use">4. How We Use Your Information</a></li>
+              <li><a href="#legal-bases">5. Legal Bases (EEA/UK)</a></li>
+              <li><a href="#cookies">6. Cookies &amp; Technologies</a></li>
+              <li><a href="#how-we-share">7. How We Share Information</a></li>
+              <li><a href="#international-transfers">8. International Transfers</a></li>
+              <li><a href="#data-retention">9. Data Retention</a></li>
+              <li><a href="#security">10. Security</a></li>
+              <li><a href="#privacy-rights">11. Your Privacy Rights</a></li>
+              <li><a href="#california">12. California Residents</a></li>
+              <li><a href="#third-party-links">13. Third-Party Links</a></li>
+              <li><a href="#childrens-privacy">14. Children&rsquo;s Privacy</a></li>
+              <li><a href="#changes">15. Changes to this Policy</a></li>
+              <li><a href="#contact">16. Contact Us</a></li>
+            </ul>
+          </aside>
+
+          <!-- Main content -->
+          <div class="legal-card">
+            <div class="legal-prose">
+
+              <div class="legal-effective"><i class="fas fa-calendar-check"></i>Effective Date: January 1, 2025</div>
+
+              <p>This Privacy Policy explains how AiVRIC (&ldquo;<strong>AiVRIC</strong>,&rdquo; &ldquo;<strong>we</strong>,&rdquo; &ldquo;<strong>us</strong>,&rdquo; or &ldquo;<strong>our</strong>&rdquo;) collects, uses, shares, and protects personal information in connection with our websites, products, and services, including the AiVRIC cloud-security platform (collectively, the &ldquo;<strong>Services</strong>&rdquo;).</p>
+              <p>We are committed to protecting your privacy and handling your data in a transparent and secure manner. By accessing or using the Services, you acknowledge that you have read and understood this Privacy Policy.</p>
+
+              <h3 id="who-we-are">1. Who We Are</h3>
+              <p>AiVRIC is a security and compliance technology provider headquartered in Plantation, Florida (USA). We help organizations monitor security posture, manage compliance obligations, and automate remediation and reporting across cloud and hybrid environments.</p>
+
+              <h3 id="scope">2. Scope of this Policy</h3>
+              <p>This Privacy Policy applies to:</p>
+              <ul>
+                <li>The AiVRIC marketing websites, including <a href="https://www.aivric.com">www.aivric.com</a> and related pages;</li>
+                <li>Customer accounts provisioned on the AiVRIC platform;</li>
+                <li>Communications and interactions with our sales, support, and customer success teams;</li>
+                <li>Any other online or offline interactions where this Privacy Policy is referenced or made available.</li>
+              </ul>
+              <p>This Privacy Policy does not apply to third-party products or services that may integrate with AiVRIC, nor to data that our customers ingest into AiVRIC from their own environments where they act as the data controller.</p>
+
+              <h3 id="information-collected">3. Information We Collect</h3>
+              <p>The information we collect depends on how you interact with AiVRIC and which Services you use. We may collect the following categories of information:</p>
+
+              <h4>3.1 Information You Provide to Us</h4>
+              <ul>
+                <li><strong>Account and profile information</strong>, such as your name, job title, organization, business email address, phone number, password, and authentication details.</li>
+                <li><strong>Contact and communication information</strong>, including messages you send to us via forms, email, chat, or support tickets.</li>
+                <li><strong>Billing and payment information</strong>, such as billing contact details, subscription selections, and limited payment-related information (most payment details are processed directly by our payment service providers and not stored by AiVRIC).</li>
+                <li><strong>Feedback and survey responses</strong> that you provide about the Services.</li>
+              </ul>
+
+              <h4>3.2 Information Collected Automatically</h4>
+              <p>When you visit our websites or use the Services, we may automatically collect:</p>
+              <ul>
+                <li><strong>Usage data</strong> (e.g., pages viewed, features used, clicks, referring URLs, access times, and session duration).</li>
+                <li><strong>Device and technical data</strong> (e.g., IP address, browser type and version, operating system, device identifiers, and language settings).</li>
+                <li><strong>Log data</strong> generated by our systems for security, performance, and troubleshooting purposes.</li>
+              </ul>
+
+              <h4>3.3 Customer Environment &amp; Security Telemetry</h4>
+              <p>When you connect your cloud or on-premises environments to AiVRIC, we may collect configuration data, metadata, security alerts, vulnerability scan results, and other technical information necessary to provide the Services. This information often relates to systems and accounts controlled by your organization rather than to individual end users.</p>
+
+              <h4>3.4 Information from Third Parties</h4>
+              <p>We may receive information about you from third-party sources, such as business partners, conference and event providers, publicly available databases, and professional networking platforms, where permitted by applicable law.</p>
+
+              <h3 id="how-we-use">4. How We Use Your Information</h3>
+              <p>We use the information we collect for the following purposes:</p>
+              <ul>
+                <li><strong>Providing and operating the Services</strong>, including account creation, authentication, platform configuration, and feature delivery.</li>
+                <li><strong>Improving and developing the Services</strong>, by analyzing usage trends, troubleshooting issues, enhancing user experience, and developing new capabilities.</li>
+                <li><strong>Security and fraud prevention</strong>, including monitoring, detecting, and preventing unauthorized access, abuse, and malicious activity.</li>
+                <li><strong>Customer support and communications</strong>, such as responding to inquiries, resolving issues, and sending important service notifications.</li>
+                <li><strong>Legal and compliance obligations</strong>, including enforcing contracts, complying with regulatory requirements, and responding to lawful requests from public authorities.</li>
+                <li><strong>Marketing and business development</strong>, such as sending information about AiVRIC features, events, promotions, and thought-leadership content, where permitted by applicable law and your communication preferences.</li>
+              </ul>
+
+              <h3 id="legal-bases">5. Legal Bases for Processing (EEA/UK Only)</h3>
+              <p>If you are located in the European Economic Area (EEA) or the United Kingdom (UK), our processing of your personal data is supported by the following legal bases:</p>
+              <ul>
+                <li><strong>Performance of a contract</strong> &ndash; where processing is necessary to provide the Services you have requested or to fulfill our contractual obligations.</li>
+                <li><strong>Legitimate interests</strong> &ndash; for example, to secure our Services, improve functionality, prevent abuse, or market similar products to existing customers, provided these interests are not overridden by your rights and interests.</li>
+                <li><strong>Consent</strong> &ndash; where we rely on your consent, such as for certain types of marketing communications or cookies. You may withdraw your consent at any time.</li>
+                <li><strong>Legal obligation</strong> &ndash; where processing is necessary to comply with laws or regulatory requirements.</li>
+              </ul>
+
+              <h3 id="cookies">6. Cookies and Similar Technologies</h3>
+              <p>We use cookies and similar technologies (such as web beacons and local storage) to provide and improve the Services, remember your preferences, and analyze how our websites are used.</p>
+              <p>Cookies may be:</p>
+              <ul>
+                <li><strong>Essential</strong> &ndash; required for core functionality, such as secure login and session management.</li>
+                <li><strong>Analytical / performance</strong> &ndash; to understand usage patterns, page performance, and user flows.</li>
+                <li><strong>Functional</strong> &ndash; to remember preferences and enhance the user experience.</li>
+                <li><strong>Marketing</strong> &ndash; to track engagement with campaigns and measure effectiveness of advertising, where applicable.</li>
+              </ul>
+              <p>You can manage cookie preferences through your browser settings or, where available, our cookie management tools. Disabling certain cookies may affect the functionality of the Services.</p>
+
+              <h3 id="how-we-share">7. How We Share Your Information</h3>
+              <p>We do not sell personal information. We may share information in the following circumstances:</p>
+              <ul>
+                <li><strong>Service providers and subprocessors</strong> who perform services on our behalf, such as hosting, infrastructure, analytics, customer support, email delivery, and payment processing. These providers are bound by contractual obligations to safeguard personal data.</li>
+                <li><strong>Business partners</strong> with whom we jointly offer products, services, or events, where appropriate and consistent with your choices.</li>
+                <li><strong>Within our corporate group</strong>, to support global operations and consistent delivery of the Services.</li>
+                <li><strong>Legal and regulatory disclosures</strong> when required to comply with applicable law, lawful requests, or to protect the rights, property, or safety of AiVRIC, our customers, or others.</li>
+                <li><strong>Business transfers</strong> in connection with a merger, acquisition, financing, or sale of all or a portion of our business. We will take reasonable steps to ensure the successor entity honors this Privacy Policy or provides equivalent protections.</li>
+              </ul>
+              <p>We may share aggregated or de-identified information that does not reasonably identify any individual, for research, benchmarking, or statistical purposes.</p>
+
+              <h3 id="international-transfers">8. International Data Transfers</h3>
+              <p>AiVRIC is based in the United States and may process information in the U.S. and other countries that may have different data-protection laws than your country of residence. Where required, we implement appropriate safeguards, such as Standard Contractual Clauses or equivalent mechanisms, to protect personal data transferred from the EEA, UK, or other regions to the U.S. or other jurisdictions.</p>
+
+              <h3 id="data-retention">9. Data Retention</h3>
+              <p>We retain personal information for as long as necessary to fulfill the purposes described in this Privacy Policy, including providing the Services, complying with legal obligations, resolving disputes, and enforcing our agreements. Retention periods may vary depending on the type of data, contractual requirements, and applicable law. When information is no longer required, we will delete, anonymize, or securely store it in accordance with our data-retention policies.</p>
+
+              <h3 id="security">10. Security</h3>
+              <p>We implement technical and organizational measures designed to protect personal information against accidental or unlawful destruction, loss, alteration, unauthorized disclosure, or access. These measures may include encryption, access controls, logging, network protections, and regular testing of security controls. However, no system can be guaranteed to be completely secure, and you are responsible for maintaining the confidentiality of any account credentials and for promptly notifying us of any suspected unauthorized use of your account.</p>
+
+              <h3 id="privacy-rights">11. Your Privacy Rights</h3>
+              <p>Depending on your location and applicable law, you may have certain rights in relation to your personal information, including:</p>
+              <ul>
+                <li>Right to access your personal information and obtain a copy.</li>
+                <li>Right to request correction of inaccurate or incomplete data.</li>
+                <li>Right to request deletion of your personal information, subject to legal and contractual restrictions.</li>
+                <li>Right to object to or restrict certain processing activities.</li>
+                <li>Right to withdraw consent where processing is based on consent.</li>
+                <li>Right to data portability in certain circumstances.</li>
+              </ul>
+              <p>To exercise these rights, please contact us using the details in the <strong>Contact Us</strong> section below. We may need to verify your identity before responding to your request.</p>
+              <p>If you are located in the EEA or UK, you also have the right to lodge a complaint with your local data protection authority. We encourage you to contact us first so we can address your concerns.</p>
+
+              <h3 id="california">12. Additional Information for California Residents</h3>
+              <p>If you are a California resident, you may have additional rights under the California Consumer Privacy Act (&ldquo;<strong>CCPA</strong>&rdquo;) or its successors, including:</p>
+              <ul>
+                <li>Right to know the categories of personal information we collect, use, disclose, and, if applicable, sell or share.</li>
+                <li>Right to request access to specific pieces of personal information.</li>
+                <li>Right to request deletion of personal information, subject to exceptions.</li>
+                <li>Right to opt out of the sale or sharing of personal information (AiVRIC does not sell personal information as that term is defined under the CCPA).</li>
+                <li>Right to not be discriminated against for exercising any of your CCPA rights.</li>
+              </ul>
+              <p>You or your authorized agent can submit a request by contacting us at <a href="mailto:privacy@aivric.com">privacy@aivric.com</a> or using the other methods described in the <strong>Contact Us</strong> section.</p>
+
+              <h3 id="third-party-links">13. Third-Party Links and Services</h3>
+              <p>The Services may include links to third-party websites, integrations, or services that are not operated by AiVRIC. This Privacy Policy does not apply to those third parties, and we are not responsible for their content, privacy practices, or services. We encourage you to review the privacy notices of any third-party services you use.</p>
+
+              <h3 id="childrens-privacy">14. Children&rsquo;s Privacy</h3>
+              <p>The Services are not directed to children under 16, and we do not knowingly collect personal information from children. If you believe that a child has provided personal information to us, please contact us so we can take appropriate steps to remove the information.</p>
+
+              <h3 id="changes">15. Changes to this Privacy Policy</h3>
+              <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technologies, or legal requirements. When we make material changes, we will update the &ldquo;Effective Date&rdquo; at the top of this page and, where appropriate, provide additional notice (such as by email or in-product notification). We encourage you to review this Privacy Policy periodically to stay informed about how we protect your information.</p>
+
+              <h3 id="contact">16. Contact Us</h3>
+              <p>If you have any questions about this Privacy Policy, our data-handling practices, or would like to exercise your privacy rights, please contact us at:</p>
+              <ul>
+                <li><strong>Email:</strong> <a href="mailto:privacy@aivric.com">privacy@aivric.com</a></li>
+                <li><strong>General Inquiries:</strong> <a href="mailto:info@aivric.com">info@aivric.com</a></li>
+                <li><strong>Mailing Address:</strong> AiVRIC, Plantation, FL 33342, United States</li>
+              </ul>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- main-footer -->
+  <footer class="main-footer gf-footer">
+    <div class="gf-top-rule"></div>
+    <div class="gf-body">
+      <div class="auto-container">
+        <div class="gf-grid">
+          <div class="gf-col">
+            <a href="index.html" class="gf-logo-link">
+              <img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" class="gf-logo">
+            </a>
+            <p class="gf-tagline">Autonomous Security, Compliance, and Risk Intelligence &mdash; hosted in your environment.</p>
+            <form class="gf-subscribe" action="contact.html" method="post">
+              <div class="gf-subscribe-row">
+                <input type="email" name="email" placeholder="Work email address" required>
+                <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+              </div>
+              <p class="gf-subscribe-note">No spam &mdash; platform updates only.</p>
+            </form>
+            <div class="gf-social">
+              <a href="https://www.linkedin.com/company/aivric" class="gf-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://x.com/aivric" class="gf-social-link" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.facebook.com/61581937785235/" class="gf-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/aivrictechnologies/" class="gf-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="gf-col">
+            <div class="gf-col-title">Platform</div>
+            <ul class="gf-links">
+              <li><a href="services.html">Platform Overview</a></li>
+              <li><a href="genai-chat.html">GenAI Chat</a></li>
+              <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
+              <li><a href="agentic-design.html">Agentic Design</a></li>
+              <li><a href="efficient-compute.html">Efficient Compute</a></li>
+              <li><a href="data-localization.html">Data Localization</a></li>
+              <li><a href="ai-model-inspection.html">AI Model Inspection</a></li>
+            </ul>
+          </div>
+          <div class="gf-col">
+            <div class="gf-col-title">Solutions</div>
+            <ul class="gf-links">
+              <li><a href="cspm-cloudsignals.html">CloudSignals+RiskOps&trade;</a></li>
+              <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
+              <li><a href="air-remediation.html">AIRE Agentic Mesh&trade;</a></li>
+              <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
+              <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
+              <li><a href="aivric-vision-enterprise.html">Vision Enterprise</a></li>
+              <li><a href="solutions-portal.html">All Products &rarr;</a></li>
+            </ul>
+          </div>
+          <div class="gf-col">
+            <div class="gf-col-title">Company</div>
+            <ul class="gf-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="why-aivric.html">Why AiVRIC</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="blog-portal.html">Blog</a></li>
+              <li><a href="trust.html">Trust Center</a></li>
+              <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Platform Guide</a></li>
+            </ul>
+            <div class="gf-contact-block">
+              <a href="mailto:info@aivric.com" class="gf-contact-link"><i class="fas fa-envelope"></i>info@aivric.com</a>
+              <a href="tel:+19543426637" class="gf-contact-link"><i class="fas fa-phone-alt"></i>+1 954 342 6637</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gf-bottom">
+      <div class="auto-container">
+        <div class="gf-bottom-inner">
+          <p class="gf-copy">&copy; 2025 <a href="index.html">AiVRIC Technologies</a>. All Rights Reserved.</p>
+          <div class="gf-bottom-right">
+            <span class="gf-trust-pill"><span class="gf-trust-dot"></span>SOC&nbsp;2 Ready</span>
+            <nav class="gf-bottom-nav">
+              <a href="terms-of-use.html">Terms of Service</a>
+              <a href="privacy-policy.html">Privacy Policy</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- main-footer end -->
+
+  <!-- Scroll to top -->
+  <div class="scroll-to-top">
+    <div>
+      <div class="scroll-top-inner">
+        <div class="scroll-bar"><div class="bar-inner"></div></div>
+        <div class="scroll-bar-text">Go To Top</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <script src="assets/js/jquery.js"></script>
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
@@ -713,64 +699,10 @@
 <script src="assets/js/jquery.nice-select.min.js"></script>
 <script src="assets/js/parallax-scroll.js"></script>
 <script src="assets/js/aivric-preloader.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/mega-hover.js"></script>
-    <script src="assets/js/mega-tabs.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/mega-hover.js"></script>
+<script src="assets/js/mega-tabs.js"></script>
+<script src="assets/js/blog-mega.js"></script>
+<script src="assets/js/ve-init.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

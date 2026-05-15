@@ -1,222 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-    <title>Request a Demo - AiVRIC</title>
+<title>Request a Demo | AiVRIC</title>
+<meta name="description" content="Schedule a live walkthrough of AiVRIC — cloud security posture, compliance automation, AI signal governance, and more. Guided by a security architect.">
 
-    <!-- Fav Icon -->
-    <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+<link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <!-- Stylesheets -->
-    <link href="assets/css/aivric-preloader.css" rel="stylesheet">
+<link href="assets/css/aivric-preloader.css" rel="stylesheet">
 <link href="assets/css/font-awesome-all.css" rel="stylesheet">
-    <link href="assets/css/flaticon.css" rel="stylesheet">
-    <link href="assets/css/owl.css" rel="stylesheet">
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
-    <link href="assets/css/animate.css" rel="stylesheet">
-    <link href="assets/css/nice-select.css" rel="stylesheet">
-    <link href="assets/css/jquery-ui.css" rel="stylesheet">
-    <link href="assets/css/color.css" rel="stylesheet">
-    <link href="assets/css/elpath.css" rel="stylesheet">
-    <link href="assets/css/style.css?v=20250115" rel="stylesheet">
-    <link href="assets/css/elements-css/page-title.css" rel="stylesheet">
-    <link href="assets/css/elements-css/contact.css" rel="stylesheet">
-    <link href="assets/css/responsive.css" rel="stylesheet">
+<link href="assets/css/flaticon.css" rel="stylesheet">
+<link href="assets/css/owl.css" rel="stylesheet">
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="assets/css/animate.css" rel="stylesheet">
+<link href="assets/css/nice-select.css" rel="stylesheet">
+<link href="assets/css/color.css" rel="stylesheet">
+<link href="assets/css/elpath.css" rel="stylesheet">
+<link href="assets/css/style.css?v=20250115" rel="stylesheet">
+<link href="assets/css/elements-css/page-title.css" rel="stylesheet">
+<link href="assets/css/elements-css/service.css" rel="stylesheet">
+<link href="assets/css/elements-css/about.css" rel="stylesheet">
+<link href="assets/css/elements-css/subscribe.css" rel="stylesheet">
+<link href="assets/css/responsive.css" rel="stylesheet">
+<link href="assets/css/custom.css?v=20250115" rel="stylesheet">
 
-    <style>
-        /* Demo hero */
-        .demo-hero {
-            position: relative;
-            padding: 160px 0 80px;
-            background: radial-gradient(circle at top left, #1b8cff 0%, #020617 55%, #020817 100%);
-            color: #fff;
-            text-align: left;
-        }
-        .demo-hero .overlay {
-            position: absolute;
-            inset: 0;
-            opacity: 0.18;
-            background-image: url(assets/images/banner/banner-2.avif);
-            background-size: cover;
-            background-position: center;
-        }
-        .demo-hero .auto-container {
-            position: relative;
-            z-index: 2;
-        }
-        .demo-hero h1 {
-            font-size: 42px;
-            color: #ffffff;
-            line-height: 1.2;
-            margin-bottom: 18px;
-        }
-        .demo-hero p.lead {
-            max-width: 560px;
-            font-size: 16px;
-            color: #ffffff;
-            opacity: 0.9;
-        }
+<style>
+  :root{
+    --cs-cyan:#00d1ff; --cs-green:#2ee59d; --cs-gold:#ffd63a; --cs-purple:#a78bfa;
+    --cs-text-strong:#f8fafc; --cs-text:#e5e7eb; --cs-muted:#cbd5e1; --cs-faint:#94a3b8;
+    --cs-surface-1:rgba(255,255,255,0.06); --cs-line:rgba(148,163,184,0.28);
+    --cs-shadow:0 14px 40px rgba(0,0,0,0.28); --cs-radius:18px;
+    --cs-btn:#00d1ff; --cs-btn-hover:#24ddff; --cs-btn-fg:#fff;
+    --cs-btn-border:rgba(0,209,255,0.6); --cs-btn-shadow:0 12px 24px rgba(0,209,255,0.2);
+    --cs-btn-shadow-hover:0 14px 28px rgba(0,209,255,0.28);
+  }
+  body.portal-page{
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    background:radial-gradient(1200px 900px at 70% -20%,rgba(0,209,255,0.20),transparent 55%),
+               radial-gradient(900px 700px at 10% 10%,rgba(46,113,229,0.13),transparent 60%),
+               linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%);
+    color:var(--cs-text);
+  }
+  .cs-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 22px;border-radius:999px;font-weight:700;font-size:14px;letter-spacing:0.01em;text-decoration:none;cursor:pointer;transition:all 0.22s;border:none;}
+  .cs-btn.primary{background:var(--cs-btn);color:var(--cs-btn-fg)!important;border:1px solid var(--cs-btn-border);box-shadow:var(--cs-btn-shadow);}
+  .cs-btn.primary:hover{background:var(--cs-btn-hover);box-shadow:var(--cs-btn-shadow-hover);transform:translateY(-1px);}
+  .cs-btn.secondary{background:rgba(0,209,255,0.10);color:var(--cs-text-strong)!important;border:1px solid rgba(0,209,255,0.65);}
+  .cs-btn.secondary:hover{background:var(--cs-btn-hover)!important;color:#fff!important;transform:translateY(-1px);}
+  .cs-btn.ghost{background:transparent;color:var(--cs-text-strong)!important;border:1px solid rgba(255,255,255,0.22);}
+  .cs-btn.ghost:hover{background:rgba(255,255,255,0.07)!important;transform:translateY(-1px);}
 
-        /* Right-hand hero visual that fully covers its card */
-        .demo-hero-visual {
-            width: 100%;
-            height: 260px;
-            border-radius: 22px;
-            background-image: url(assets/images/background/page-title.avif);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            box-shadow: 0 22px 48px rgba(15,23,42,0.5);
-        }
-        @media (min-width: 1200px) {
-            .demo-hero-visual {
-                height: 320px;
-            }
-        }
+  /* Demo page layout */
+  .demo-page{ padding:0; }
+  .demo-hero{ padding:100px 0 80px; position:relative; }
+  @media(max-width:992px){ .demo-hero{ padding:80px 0 60px; } }
+  .demo-hero-grid{ display:grid; grid-template-columns:1.2fr 0.8fr; gap:48px; align-items:start; }
+  @media(max-width:992px){ .demo-hero-grid{ grid-template-columns:1fr; } }
 
-        /* Main section */
-        .demo-main {
-            padding: 60px 0 120px;
-        }
-        .demo-main .value-list {
-            margin-top: 18px;
-        }
-        .demo-main .value-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 10px;
-            font-size: 16px;
-        }
-        .demo-main .value-list i {
-            color: #22c55e;
-            margin-top: 3px;
-        }
+  .demo-eyebrow{ display:block; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--cs-cyan); margin-bottom:10px; }
+  .demo-title{ font-family:Jost,Inter,sans-serif; font-size:52px; font-weight:800; line-height:1.04; letter-spacing:-1.2px; color:var(--cs-text-strong); margin:0 0 16px; }
+  @media(max-width:768px){ .demo-title{ font-size:36px; } }
+  .demo-sub{ font-size:17px; line-height:1.75; color:var(--cs-muted); max-width:54ch; margin:0 0 32px; }
 
-        /* Salesforce form card */
-        .salesforce-web-to-lead {
-            background: #ffffff;
-            border-radius: 18px;
-            box-shadow: 0 28px 60px rgba(15, 23, 42, 0.25);
-            padding: 30px 30px 26px;
-        }
-        .salesforce-web-to-lead label {
-            font-size: 13px;
-            font-weight: 600;
-            color: #0f172a;
-            margin-bottom: 6px;
-        }
-        .salesforce-web-to-lead .form-control,
-        .salesforce-web-to-lead select {
-            border-radius: 10px;
-            border: 1px solid #e2e8f0;
-            font-size: 14px;
-            padding: 10px 12px;
-        }
-        .salesforce-web-to-lead .form-control:focus,
-        .salesforce-web-to-lead select:focus {
-            border-color: #1b8cff;
-            box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.3);
-            outline: none;
-        }
+  .demo-values{ display:flex; flex-direction:column; gap:14px; margin-bottom:36px; }
+  .demo-value-item{ display:flex; align-items:flex-start; gap:14px; padding:16px 18px; border-radius:14px; background:var(--cs-surface-1); border:1px solid var(--cs-line); }
+  .demo-value-icon{ width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0; margin-top:1px; }
+  .demo-value-icon.cyan{ background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.28); color:var(--cs-cyan); }
+  .demo-value-icon.green{ background:rgba(46,229,157,0.13); border:1px solid rgba(46,229,157,0.28); color:var(--cs-green); }
+  .demo-value-icon.gold{ background:rgba(255,214,58,0.13); border:1px solid rgba(255,214,58,0.28); color:var(--cs-gold); }
+  .demo-value-icon.purple{ background:rgba(167,139,250,0.13); border:1px solid rgba(167,139,250,0.28); color:var(--cs-purple); }
+  .demo-value-body h5{ font-size:15px; font-weight:700; color:var(--cs-text-strong); margin:0 0 4px; }
+  .demo-value-body p{ font-size:13.5px; color:var(--cs-muted); line-height:1.65; margin:0; }
 
-        /* Nice Select dropdown list scrollbars */
-        .nice-select {
-            width: 100%;
-        }
-        .nice-select .list {
-            max-height: 260px;
-            overflow-y: auto !important;
-            overflow-x: hidden;
-        }
-        .nice-select .list::-webkit-scrollbar {
-            width: 8px;
-        }
-        .nice-select .list::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        .nice-select .list::-webkit-scrollbar-thumb {
-            background: #cbd5f5;
-            border-radius: 4px;
-        }
-        .nice-select .list::-webkit-scrollbar-thumb:hover {
-            background: #9ca3af;
-        }
+  .demo-badges{ display:flex; flex-wrap:wrap; gap:10px; }
+  .demo-badge-pill{ display:inline-flex; align-items:center; gap:7px; padding:8px 14px; border-radius:999px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.10); color:var(--cs-muted); font-size:12.5px; font-weight:600; }
+  .demo-badge-pill i{ color:var(--cs-green); font-size:11px; }
 
-        /* Fallback: native select scrollbars if Nice Select isn't applied */
-        .salesforce-web-to-lead select {
-            max-height: 260px;
-            overflow-y: auto;
-            -webkit-appearance: auto !important;
-            -moz-appearance: auto !important;
-            appearance: auto !important;
-        }
-        .salesforce-web-to-lead select::-webkit-scrollbar {
-            width: 8px;
-        }
-        .salesforce-web-to-lead select::-webkit-scrollbar-track {
-            background: #f1f5f9;
-        }
-        .salesforce-web-to-lead select::-webkit-scrollbar-thumb {
-            background: #cbd5f5;
-            border-radius: 4px;
-        }
-        .salesforce-web-to-lead select::-webkit-scrollbar-thumb:hover {
-            background: #9ca3af;
-        }
+  .demo-calendly-card{ border-radius:var(--cs-radius); background:rgba(10,18,32,0.70); border:1px solid var(--cs-line); box-shadow:var(--cs-shadow); padding:24px; backdrop-filter:blur(12px); }
+  .demo-calendly-card .dcal-hdr{ margin-bottom:16px; }
+  .demo-calendly-card .dcal-title{ font-size:16px; font-weight:700; color:var(--cs-text-strong); margin:0 0 4px; }
+  .demo-calendly-card .dcal-sub{ font-size:13px; color:var(--cs-muted); margin:0; }
+  .demo-calendly-card .calendly-inline-widget{ border-radius:10px; overflow:hidden; }
 
-        .demo-badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 18px;
-        }
-        .demo-badge {
-            padding: 6px 10px;
-            border-radius: 999px;
-            border: 1px solid rgba(148, 163, 184, 0.65);
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            color: #e5e7eb;
-        }
+  .demo-trust-bar{ padding:40px 0 60px; }
+  .demo-trust-inner{ display:flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:24px; padding:20px 28px; border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line); }
+  .demo-trust-item{ display:flex; align-items:center; gap:8px; font-size:13px; color:var(--cs-muted); font-weight:600; }
+  .demo-trust-item i{ color:var(--cs-cyan); font-size:14px; }
+  .demo-trust-sep{ color:var(--cs-line); font-size:18px; }
+  @media(max-width:576px){ .demo-trust-sep{ display:none; } }
+</style>
 
-        /* Honeypot field (hidden from users, visible to bots) */
-        .hp-aivric {
-            position: absolute;
-            left: -9999px;
-            width: 1px;
-            height: 1px;
-            overflow: hidden;
-        }
-    </style>
-
-  <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
 <style id="gf-styles">
-/* === GLOBAL FOOTER === */
 .gf-footer{background:#050b17;position:relative;overflow:hidden;font-family:'Inter',sans-serif}
-/* subtle dot-grid */
 .gf-footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(0,209,255,.045) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
-/* gradient glow top-line */
 .gf-top-rule{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,209,255,.55) 30%,rgba(46,229,157,.4) 70%,transparent 100%);position:relative;z-index:1}
-/* body */
 .gf-body{padding:72px 0 52px;position:relative;z-index:1}
 .gf-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:52px}
 @media(max-width:991px){.gf-grid{grid-template-columns:1fr 1fr;gap:36px 40px}}
 @media(max-width:599px){.gf-grid{grid-template-columns:1fr;gap:32px}}
-/* brand col */
 .gf-logo-link{display:inline-block;margin-bottom:14px}
 .gf-logo{height:34px;width:auto;display:block}
 .gf-tagline{font-size:13px;color:#4e637a;line-height:1.7;margin-bottom:22px;max-width:255px}
-/* email subscribe */
 .gf-subscribe-row{display:flex;gap:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:8px;overflow:hidden;margin-bottom:7px;transition:border-color .2s}
 .gf-subscribe-row:focus-within{border-color:rgba(0,209,255,.35)}
 .gf-subscribe-row input{flex:1;background:transparent;border:none;outline:none;padding:10px 14px;font-size:13px;color:#e2e8f0;font-family:'Inter',sans-serif}
@@ -224,21 +114,17 @@
 .gf-subscribe-row button{background:#00d1ff;border:none;padding:10px 15px;color:#030a12;cursor:pointer;font-size:13px;transition:background .2s;flex-shrink:0}
 .gf-subscribe-row button:hover{background:#33daff}
 .gf-subscribe-note{font-size:11px;color:#3d5268;margin:0 0 22px}
-/* social */
 .gf-social{display:flex;gap:8px}
 .gf-social-link{width:33px;height:33px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#4e637a;font-size:13px;text-decoration:none;transition:all .2s}
 .gf-social-link:hover{background:rgba(0,209,255,.09);border-color:rgba(0,209,255,.28);color:#00d1ff}
-/* nav columns */
 .gf-col-title{font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#94a3b8;margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.06)}
 .gf-links{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:9px}
 .gf-links li a{font-size:13.5px;color:#4e637a;text-decoration:none;transition:color .18s;display:inline-block}
 .gf-links li a:hover{color:#cbd5e1}
-/* contact block */
 .gf-contact-block{display:flex;flex-direction:column;gap:9px;margin-top:4px}
 .gf-contact-link{display:flex;align-items:center;gap:8px;font-size:13px;color:#4e637a;text-decoration:none;transition:color .18s}
 .gf-contact-link i{color:#00d1ff;font-size:12px;width:14px;text-align:center;flex-shrink:0}
 .gf-contact-link:hover{color:#cbd5e1}
-/* bottom bar */
 .gf-bottom{border-top:1px solid rgba(255,255,255,.055);padding:16px 0;position:relative;z-index:1}
 .gf-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
 .gf-copy{font-size:12px;color:#3d5268;margin:0}
@@ -251,69 +137,84 @@
 .gf-bottom-nav{display:flex;gap:18px}
 .gf-bottom-nav a{font-size:12px;color:#3d5268;text-decoration:none;transition:color .18s}
 .gf-bottom-nav a:hover{color:#94a3b8}
-/* remove old footer pattern images */
 .gf-footer .pattern-layer{display:none!important}
-/* keep old .main-footer link colors from interfering */
 .gf-footer .links-list,.gf-footer .footer-widget,.gf-footer .widget-section,.gf-footer .footer-bottom{display:none!important}
 </style>
+<link href="assets/css/visual-enhancements.css" rel="stylesheet">
 </head>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-EG2Q8GD30V');
 </script>
 
-<body>
-
+<body class="portal-page">
 <div class="boxed_wrapper">
 
-            <!-- preloader -->
-        <div id="apl-wrap">
-          <div class="apl-scan"></div>
-          <div class="apl-corner tl"></div>
-          <div class="apl-corner tr"></div>
-          <div class="apl-corner bl"></div>
-          <div class="apl-corner br"></div>
-          <div class="apl-center">
-            <div class="apl-logo-wrap">
-              <div class="apl-ring r1"></div>
-              <div class="apl-ring r2"></div>
-              <div class="apl-ring r3"></div>
-              <img class="apl-logo" src="assets/images/logo/aivric.svg" alt="AiVRIC">
-            </div>
-            <div class="apl-brand">AiVRIC</div>
-            <div class="apl-tagline">Security Intelligence Platform</div>
-            <div class="apl-progress-wrap">
-              <div class="apl-progress-fill" id="apl-fill"></div>
-            </div>
-            <div class="apl-status-row">
-              <span class="apl-status" id="apl-status">Initializing Signal Engine</span>
-              <span class="apl-pct" id="apl-pct">0%</span>
-            </div>
-          </div>
-        </div>
-        <!-- preloader end -->
+  <!-- preloader -->
+  <div id="apl-wrap">
+    <div class="apl-scan"></div>
+    <div class="apl-corner tl"></div>
+    <div class="apl-corner tr"></div>
+    <div class="apl-corner bl"></div>
+    <div class="apl-corner br"></div>
+    <div class="apl-center">
+      <div class="apl-logo-wrap">
+        <div class="apl-ring r1"></div>
+        <div class="apl-ring r2"></div>
+        <div class="apl-ring r3"></div>
+        <img class="apl-logo" src="assets/images/logo/aivric.svg" alt="AiVRIC">
+      </div>
+      <div class="apl-brand">AiVRIC</div>
+      <div class="apl-tagline">Security Intelligence Platform</div>
+      <div class="apl-progress-wrap">
+        <div class="apl-progress-fill" id="apl-fill"></div>
+      </div>
+      <div class="apl-status-row">
+        <span class="apl-status" id="apl-status">Initializing Signal Engine</span>
+        <span class="apl-pct" id="apl-pct">0%</span>
+      </div>
+    </div>
+  </div>
+  <!-- preloader end -->
 
-    <!-- main header -->
-    <header class="main-header header-style-two">
-        <div class="header-lower">
-            <div class="auto-container">
-                <div class="outer-box">
-                    <div class="logo-box">
-                        <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC"></a></figure>
+  <!-- main header -->
+  <header class="main-header">
+<div class="header-top-bar">
+    <div class="auto-container">
+        <div class="top-bar-inner">
+            <div class="top-bar-brand">AIVRIC TECHNOLOGIES</div>
+            <div class="top-bar-right">
+                <ul class="top-bar-links">
+                    <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-book-open"></i></span>Platform Guide</a></li>
+                    <li><a href="trust.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-shield-alt"></i></span>Trust Center</a></li>
+                </ul>
+                <ul class="top-bar-social">
+                    <li><a href="https://www.linkedin.com/company/aivric" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                    <li><a href="https://x.com/aivric" aria-label="X"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="https://github.com" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="header-lower">
+        <div class="auto-container">
+            <div class="outer-box">
+                <div class="logo-box">
+                    <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
+                </div>
+                <div class="menu-area clearfix">
+                    <div class="mobile-nav-toggler">
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
+                        <i class="icon-bar"></i>
                     </div>
-                    <div class="menu-area clearfix">
-                        <!--Mobile Navigation Toggler-->
-                        <div class="mobile-nav-toggler">
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
-                            <i class="icon-bar"></i>
-                        </div>
-                        <nav class="main-menu navbar-expand-md navbar-light">
+                    <nav class="main-menu navbar-expand-md navbar-light">
     <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
         <ul class="navigation clearfix">
             <li class="dropdown platform-menu"><a href="services.html">Platform</a>
@@ -433,257 +334,263 @@
                     <li><a href="about.html">About Us</a></li>
                     <li><a href="why-aivric.html">Why AiVRIC</a></li>
                     <li><a href="blog-portal.html">Blog</a></li>
-
                 </ul>
             </li>
         </ul>
     </div>
 </nav>
-                    </div>
-                    <ul class="menu-right-content">
-                        <li class="search-box-outer search-toggler">
-                            <i class="icon-4"></i>
-                        </li>
-                        <li class="btn-box">
-                            <a href="request-demo.html" class="theme-btn-one">Request a Demo</a>
-                        </li>
-                    </ul>
                 </div>
+                <ul class="menu-right-content">
+                    <li class="search-box-outer search-toggler"><i class="icon-4"></i></li>
+                    <li class="btn-box">
+                        <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-one">Launch for Free</a>
+                    </li>
+                </ul>
             </div>
         </div>
-
-        <div class="sticky-header">
-            <div class="auto-container">
-                <div class="outer-box">
-                    <div class="logo-box">
-                        <figure class="logo">
-                            <a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC"></a>
-                        </figure>
-                    </div>
-                    <div class="menu-area clearfix">
-                        <nav class="main-menu clearfix"></nav>
-                    </div>
-                    <ul class="menu-right-content">
-                        <li class="search-box-outer search-toggler">
-                            <i class="icon-4"></i>
-                        </li>
-                        <li class="btn-box">
-                            <a href="request-demo.html" class="theme-btn-one">Request A Demo</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- header end -->
-        <!-- Mobile Menu  -->
-        <div class="mobile-menu">
-            <div class="menu-backdrop"></div>
-            <div class="close-btn" role="button" tabindex="0" aria-label="Close menu"><i class="fas fa-times"></i></div>
-            
-            <nav class="menu-box">
-                <div class="nav-logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" title=""></a></div>
-                <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
-                <div class="contact-info">
-                    <h4>Contact Info</h4>
-                    <ul>
-                        <li>Wilmington, Delaware USA</li>
-                        <li><a href="tel:+8801682648101">+1 9543426637</a></li>
-                        <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
-                    </ul>
-                </div>
-                <div class="social-links">
-                    <ul class="clearfix">
-                        <li><a href="index.html"><span class="fab fa-twitter"></span></a></li>
-                        <li><a href="https://www.facebook.com/profile.php?id=61581937785235"><span class="fab fa-facebook-square"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-pinterest-p"></span></a></li>
-                        <li><a href="https://www.instagram.com/aivrictechnologies/"><span class="fab fa-instagram"></span></a></li>
-                        <li><a href="index.html"><span class="fab fa-youtube"></span></a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div><!-- End Mobile Menu -->
-
-    <!-- Demo hero -->
-    <section class="demo-hero">
-        <div class="overlay"></div>
-        <div class="auto-container">
-            <div class="row clearfix align-items-center">
-                <div class="col-lg-7 col-md-12">
-                    <h1>See AiVRIC in Action</h1>
-                    <p class="lead">
-                        Request a live walkthrough of AiVRIC to see how AI-powered assessments, remediation guidance,
-                        and compliance automation can simplify your cloud security operations.
-                    </p>
-                    <div class="demo-badges">
-                        <span class="demo-badge">Mid-Market &amp; Enterprise Ready</span>
-                        <span class="demo-badge">Cloud Security &amp; Compliance</span>
-                        <span class="demo-badge">Guided by Experts</span>
-                    </div>
-                </div>
-                <div class="col-lg-5 d-none d-lg-block">
-                    <div class="demo-hero-visual"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Main content -->
-    <section class="demo-main">
-        <div class="auto-container">
-            <div class="row clearfix">
-                
-                    <h3>What you’ll get from your demo</h3>
-                    <p>
-                        Every organization’s cloud footprint is different. In your session, our team will focus on
-                        the controls, frameworks, and deployments that matter most to you.
-                    </p>
-                    <ul class="value-list">
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Live walkthrough of AiVRIC’s assessment engine, findings, and remediation workflow.</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Discussion of your current cloud platforms, frameworks, and audit priorities.</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Example reports, export options, and how AiVRIC fits into your existing toolchain.</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-check-circle"></i>
-                            <span>Time for Q&amp;A with our security and compliance experts.</span>
-                        </li>
-                    </ul>
-                    <p class="mt_20">
-                        Complete the form and we’ll follow up quickly to confirm a time that works for your team.
-                    </p>
-               
-
-                <!-- Calendly inline widget begin -->
-<div class="calendly-inline-widget" data-url="https://calendly.com/aivric-sales/aivric-walkthrough-demo?primary_color=00b8ff" style="min-width:320px;height:700px;"></div>
-<script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-<!-- Calendly inline widget end -->
-
-            </div>
-        </div>
-    </section>
-
-                                    <!-- main-footer -->
-        <footer class="main-footer gf-footer">
-
-          <div class="gf-top-rule"></div>
-
-          <div class="gf-body">
-            <div class="auto-container">
-              <div class="gf-grid">
-
-                <!-- Brand -->
-                <div class="gf-col">
-                  <a href="index.html" class="gf-logo-link">
-                    <img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" class="gf-logo">
-                  </a>
-                  <p class="gf-tagline">Autonomous Security, Compliance, and Risk Intelligence — hosted in your environment.</p>
-                  <form class="gf-subscribe" action="contact.html" method="post">
-                    <div class="gf-subscribe-row">
-                      <input type="email" name="email" placeholder="Work email address" required>
-                      <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
-                    </div>
-                    <p class="gf-subscribe-note">No spam &mdash; platform updates only.</p>
-                  </form>
-                  <div class="gf-social">
-                    <a href="https://www.linkedin.com/company/aivric" class="gf-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://x.com/aivric" class="gf-social-link" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.facebook.com/61581937785235/" class="gf-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/aivrictechnologies/" class="gf-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                  </div>
-                </div>
-
-                <!-- Platform -->
-                <div class="gf-col">
-                  <div class="gf-col-title">Platform</div>
-                  <ul class="gf-links">
-                    <li><a href="services.html">Platform Overview</a></li>
-                    <li><a href="genai-chat.html">GenAI Chat</a></li>
-                    <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
-                    <li><a href="agentic-design.html">Agentic Design</a></li>
-                    <li><a href="efficient-compute.html">Efficient Compute</a></li>
-                    <li><a href="data-localization.html">Data Localization</a></li>
-                    <li><a href="ai-model-inspection.html">AI Model Inspection</a></li>
-                  </ul>
-                </div>
-
-                <!-- Solutions -->
-                <div class="gf-col">
-                  <div class="gf-col-title">Solutions</div>
-                  <ul class="gf-links">
-                    <li><a href="cspm-cloudsignals.html">CloudSignals+RiskOps&trade;</a></li>
-                    <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
-                    <li><a href="air-remediation.html">AIRE Agentic Mesh&trade;</a></li>
-                    <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
-                    <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
-                    <li><a href="aivric-vision-enterprise.html">Vision Enterprise</a></li>
-                    <li><a href="solutions-portal.html">All Products &rarr;</a></li>
-                  </ul>
-                </div>
-
-                <!-- Company + Contact -->
-                <div class="gf-col">
-                  <div class="gf-col-title">Company</div>
-                  <ul class="gf-links">
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="why-aivric.html">Why AiVRIC</a></li>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="blog-portal.html">Blog</a></li>
-                    <li><a href="trust.html">Trust Center</a></li>
-                    <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Platform Guide</a></li>
-                  </ul>
-                  <div class="gf-contact-block">
-                    <a href="mailto:info@aivric.com" class="gf-contact-link"><i class="fas fa-envelope"></i>info@aivric.com</a>
-                    <a href="tel:+19543426637" class="gf-contact-link"><i class="fas fa-phone-alt"></i>+1 954 342 6637</a>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="gf-bottom">
-            <div class="auto-container">
-              <div class="gf-bottom-inner">
-                <p class="gf-copy">&copy; 2025 <a href="index.html">AiVRIC Technologies</a>. All Rights Reserved.</p>
-                <div class="gf-bottom-right">
-                  <span class="gf-trust-pill"><span class="gf-trust-dot"></span>SOC&nbsp;2 Ready</span>
-                  <nav class="gf-bottom-nav">
-                    <a href="terms-of-use.html">Terms of Service</a>
-                    <a href="privacy-policy.html">Privacy Policy</a>
-                  </nav>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </footer>
-        <!-- main-footer end -->
-
-
-        <!--Scroll to top-->
-        <div class="scroll-to-top">
-            <div>
-                <div class="scroll-top-inner">
-                    <div class="scroll-bar">
-                        <div class="bar-inner"></div>
-                    </div>
-                    <div class="scroll-bar-text">Go To Top</div>
-                </div>
-            </div>
-        </div>
-        <!-- Scroll to top end -->
-        
     </div>
 
-<!-- Scripts -->
+    <div class="sticky-header">
+        <div class="auto-container">
+            <div class="outer-box">
+                <div class="logo-box">
+                    <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC Logo"></a></figure>
+                </div>
+                <div class="menu-area clearfix">
+                    <nav class="main-menu clearfix"><!--Keep This Empty / Menu will come through Javascript--></nav>
+                </div>
+                <ul class="menu-right-content">
+                    <li class="search-box-outer search-toggler"><i class="icon-4"></i></li>
+                    <li class="btn-box">
+                        <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-two">Launch for Free</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- main-header end -->
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="menu-backdrop"></div>
+    <div class="close-btn" role="button" tabindex="0" aria-label="Close menu"><i class="fas fa-times"></i></div>
+    <nav class="menu-box">
+      <div class="nav-logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" title=""></a></div>
+      <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+      <div class="contact-info">
+        <h4>Contact Info</h4>
+        <ul>
+          <li>Wilmington, Delaware USA</li>
+          <li><a href="tel:+19543426637">+1 9543426637</a></li>
+          <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+        </ul>
+      </div>
+      <div class="social-links">
+        <ul class="clearfix">
+          <li><a href="https://x.com/aivric"><span class="fab fa-twitter"></span></a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61581937785235"><span class="fab fa-facebook-square"></span></a></li>
+          <li><a href="https://www.instagram.com/aivrictechnologies/"><span class="fab fa-instagram"></span></a></li>
+          <li><a href="https://www.linkedin.com/company/aivric"><span class="fab fa-linkedin-in"></span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <!-- End Mobile Menu -->
+
+
+  <!-- Demo Page -->
+  <main class="demo-page">
+    <section class="demo-hero">
+      <div class="auto-container">
+        <div class="demo-hero-grid">
+
+          <!-- Left: copy -->
+          <div>
+            <nav aria-label="breadcrumb" style="margin-bottom:20px;">
+              <ol style="list-style:none;padding:0;margin:0;display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--cs-faint);">
+                <li><a href="index.html" style="color:var(--cs-faint);text-decoration:none;">Home</a></li>
+                <li style="color:var(--cs-line);">/</li>
+                <li style="color:var(--cs-cyan);">Request a Demo</li>
+              </ol>
+            </nav>
+
+            <span class="demo-eyebrow">Schedule a Walkthrough</span>
+            <h1 class="demo-title">See AiVRIC<br><span style="color:var(--cs-cyan);">in Action</span></h1>
+            <p class="demo-sub">Get a live, guided walkthrough of AiVRIC tailored to your environment — cloud posture, compliance automation, AI signal governance, or attack surface management. Conducted by a security architect, not a sales script.</p>
+
+            <div class="demo-values">
+              <div class="demo-value-item">
+                <div class="demo-value-icon cyan"><i class="fas fa-building"></i></div>
+                <div class="demo-value-body">
+                  <h5>Mid-Market &amp; Enterprise Ready</h5>
+                  <p>Purpose-built for security teams managing cloud risk at scale. Supports multi-cloud, multi-region, and complex compliance programs.</p>
+                </div>
+              </div>
+              <div class="demo-value-item">
+                <div class="demo-value-icon green"><i class="fas fa-shield-alt"></i></div>
+                <div class="demo-value-body">
+                  <h5>Cloud Security &amp; Compliance</h5>
+                  <p>CSPM, continuous compliance, TPRM, AI signal observability, and agentic remediation &mdash; unified in one platform with a shared data layer.</p>
+                </div>
+              </div>
+              <div class="demo-value-item">
+                <div class="demo-value-icon gold"><i class="fas fa-user-check"></i></div>
+                <div class="demo-value-body">
+                  <h5>Guided by Security Architects</h5>
+                  <p>Every walkthrough is led by an AiVRIC security architect who understands your stack &mdash; not a pre-recorded product tour.</p>
+                </div>
+              </div>
+              <div class="demo-value-item">
+                <div class="demo-value-icon purple"><i class="fas fa-calendar-check"></i></div>
+                <div class="demo-value-body">
+                  <h5>Live Demo, No Commitment</h5>
+                  <p>See your specific use case live &mdash; risk scoring, compliance automation, or AI governance. Pick a time that works for your team.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="demo-badges">
+              <span class="demo-badge-pill"><i class="fas fa-check-circle"></i>Mid-Market &amp; Enterprise Ready</span>
+              <span class="demo-badge-pill"><i class="fas fa-check-circle"></i>Cloud Security &amp; Compliance</span>
+              <span class="demo-badge-pill"><i class="fas fa-check-circle"></i>Guided by Experts</span>
+            </div>
+          </div>
+
+          <!-- Right: Calendly widget -->
+          <div>
+            <div class="demo-calendly-card">
+              <div class="dcal-hdr">
+                <p class="dcal-title">Pick a time that works for you</p>
+                <p class="dcal-sub">30-minute guided walkthrough &mdash; tailored to your use case</p>
+              </div>
+              <!-- Calendly inline widget begin -->
+              <div class="calendly-inline-widget" data-url="https://calendly.com/aivric-sales/aivric-walkthrough-demo?primary_color=00b8ff" style="min-width:280px;height:680px;"></div>
+              <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+              <!-- Calendly inline widget end -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust bar -->
+    <div class="demo-trust-bar">
+      <div class="auto-container">
+        <div class="demo-trust-inner">
+          <div class="demo-trust-item"><i class="fas fa-lock"></i>SOC 2 Ready</div>
+          <span class="demo-trust-sep">·</span>
+          <div class="demo-trust-item"><i class="fas fa-cloud"></i>Multi-Cloud Support</div>
+          <span class="demo-trust-sep">·</span>
+          <div class="demo-trust-item"><i class="fas fa-shield-alt"></i>CMMC, PCI-DSS, ISO 27001, HIPAA</div>
+          <span class="demo-trust-sep">·</span>
+          <div class="demo-trust-item"><i class="fas fa-robot"></i>AI &amp; Agentic-Native</div>
+          <span class="demo-trust-sep">·</span>
+          <div class="demo-trust-item"><i class="fas fa-globe"></i>Hosted in Your Environment</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- main-footer -->
+  <footer class="main-footer gf-footer">
+    <div class="gf-top-rule"></div>
+    <div class="gf-body">
+      <div class="auto-container">
+        <div class="gf-grid">
+          <div class="gf-col">
+            <a href="index.html" class="gf-logo-link">
+              <img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" class="gf-logo">
+            </a>
+            <p class="gf-tagline">Autonomous Security, Compliance, and Risk Intelligence &mdash; hosted in your environment.</p>
+            <form class="gf-subscribe" action="contact.html" method="post">
+              <div class="gf-subscribe-row">
+                <input type="email" name="email" placeholder="Work email address" required>
+                <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+              </div>
+              <p class="gf-subscribe-note">No spam &mdash; platform updates only.</p>
+            </form>
+            <div class="gf-social">
+              <a href="https://www.linkedin.com/company/aivric" class="gf-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://x.com/aivric" class="gf-social-link" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.facebook.com/61581937785235/" class="gf-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/aivrictechnologies/" class="gf-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="gf-col">
+            <div class="gf-col-title">Platform</div>
+            <ul class="gf-links">
+              <li><a href="services.html">Platform Overview</a></li>
+              <li><a href="genai-chat.html">GenAI Chat</a></li>
+              <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
+              <li><a href="agentic-design.html">Agentic Design</a></li>
+              <li><a href="efficient-compute.html">Efficient Compute</a></li>
+              <li><a href="data-localization.html">Data Localization</a></li>
+              <li><a href="ai-model-inspection.html">AI Model Inspection</a></li>
+            </ul>
+          </div>
+          <div class="gf-col">
+            <div class="gf-col-title">Solutions</div>
+            <ul class="gf-links">
+              <li><a href="cspm-cloudsignals.html">CloudSignals+RiskOps&trade;</a></li>
+              <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
+              <li><a href="air-remediation.html">AIRE Agentic Mesh&trade;</a></li>
+              <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
+              <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
+              <li><a href="aivric-vision-enterprise.html">Vision Enterprise</a></li>
+              <li><a href="solutions-portal.html">All Products &rarr;</a></li>
+            </ul>
+          </div>
+          <div class="gf-col">
+            <div class="gf-col-title">Company</div>
+            <ul class="gf-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="why-aivric.html">Why AiVRIC</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="blog-portal.html">Blog</a></li>
+              <li><a href="trust.html">Trust Center</a></li>
+              <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Platform Guide</a></li>
+            </ul>
+            <div class="gf-contact-block">
+              <a href="mailto:info@aivric.com" class="gf-contact-link"><i class="fas fa-envelope"></i>info@aivric.com</a>
+              <a href="tel:+19543426637" class="gf-contact-link"><i class="fas fa-phone-alt"></i>+1 954 342 6637</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gf-bottom">
+      <div class="auto-container">
+        <div class="gf-bottom-inner">
+          <p class="gf-copy">&copy; 2025 <a href="index.html">AiVRIC Technologies</a>. All Rights Reserved.</p>
+          <div class="gf-bottom-right">
+            <span class="gf-trust-pill"><span class="gf-trust-dot"></span>SOC&nbsp;2 Ready</span>
+            <nav class="gf-bottom-nav">
+              <a href="terms-of-use.html">Terms of Service</a>
+              <a href="privacy-policy.html">Privacy Policy</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- main-footer end -->
+
+  <!-- Scroll to top -->
+  <div class="scroll-to-top">
+    <div>
+      <div class="scroll-top-inner">
+        <div class="scroll-bar"><div class="bar-inner"></div></div>
+        <div class="scroll-bar-text">Go To Top</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <script src="assets/js/jquery.js"></script>
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
@@ -696,84 +603,11 @@
 <script src="assets/js/isotope.js"></script>
 <script src="assets/js/jquery.nice-select.min.js"></script>
 <script src="assets/js/parallax-scroll.js"></script>
-<script src="assets/js/jquery-ui.js"></script>
-<script src="assets/js/jquery.bootstrap-touchspin.js"></script>
 <script src="assets/js/aivric-preloader.js"></script>
-    <script src="assets/js/script.js"></script>
-
-<script>
-    // Apply Nice Select to the Salesforce dropdowns if the plugin is loaded
-    jQuery(function ($) {
-        if ($.fn.niceSelect) {
-            $('#state_code, #country_code').niceSelect();
-        }
-
-        // Honeypot check – block submission if bot filled hidden field
-        $('#sf-webtolead').on('submit', function (e) {
-            var hp = $('#hp_aivric').val();
-            if (hp && hp.trim() !== '') {
-                e.preventDefault();
-                return false;
-            }
-        });
-    });
-</script>
-    <script src="assets/js/mega-hover.js"></script>
-    <script src="assets/js/mega-tabs.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/mega-hover.js"></script>
+<script src="assets/js/mega-tabs.js"></script>
+<script src="assets/js/blog-mega.js"></script>
+<script src="assets/js/ve-init.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
