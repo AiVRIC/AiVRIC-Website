@@ -117,6 +117,12 @@
     .csp-fw-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
     @media(max-width:768px){ .csp-fw-grid{ grid-template-columns:1fr; } }
     .csp-fw-card{ border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line); overflow:hidden; box-shadow:var(--cs-shadow); }
+    .csp-fw-item{ border-radius:16px; background:var(--cs-surface-1); border:1px solid var(--cs-line); overflow:hidden; box-shadow:var(--cs-shadow); }
+    .csp-fw-item summary{ cursor:pointer; font-weight:700; font-size:14.5px; color:var(--cs-text-strong); list-style:none; user-select:none; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; }
+    .csp-fw-item summary::-webkit-details-marker{ display:none; }
+    .csp-fw-item summary::after{ content:"›"; color:var(--cs-faint); font-size:18px; transition:transform 0.2s; }
+    details[open].csp-fw-item summary::after{ transform:rotate(90deg); }
+    details[open].csp-fw-item summary{ color:var(--cs-cyan); border-bottom:1px solid var(--cs-line); }
     .csp-fw-head{ display:flex; align-items:center; justify-content:space-between; gap:12px; padding:16px 18px; cursor:pointer; user-select:none; }
     .csp-fw-head-left{ display:flex; align-items:center; gap:12px; }
     .csp-fw-logo{ width:36px; height:36px; border-radius:10px; background:rgba(0,209,255,0.11); border:1px solid rgba(0,209,255,0.24); display:flex; align-items:center; justify-content:center; color:var(--cs-cyan); font-size:14px; flex-shrink:0; }
@@ -789,7 +795,7 @@
           <section class="csp-bottom-cta auto-container">
             <h2>Map your attack surface before attackers do.</h2>
             <p>Join the RogueAgent ASPM™ beta. Early teams receive dedicated onboarding, direct engineering access, and locked-in beta pricing.</p>
-            <div class="csp-actions">
+            <div class="csp-bottom-actions">
               <button type="button" class="cs-btn primary js-release-modal" data-solution="RogueAgent ASPM™">
                 <i class="fas fa-flask"></i> Join beta programme
               </button>
