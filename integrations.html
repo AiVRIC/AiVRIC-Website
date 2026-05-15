@@ -1,1309 +1,1410 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
-  <title>AiVRIC Integrations &amp; Ecosystem | Works With Wiz, Microsoft 365, Prisma, OneTrust &amp; More</title>
-  <meta name="description" content="AiVRIC integrates with cloud platforms, security tools, GRC systems, Microsoft 365, ITSM, SIEM, and AI automation environments. Connect your existing enterprise stack to a continuous risk intelligence and remediation layer.">
-  <meta name="keywords" content="AiVRIC integrations, cloud security integrations, Microsoft 365 risk operations, Wiz integration, Prisma Cloud integration, OneTrust integration, GRC automation, SIEM integration, MCP governance, agentic security">
+<title>AiVRIC Integrations &amp; Ecosystem | Wiz, Microsoft 365, Prisma Cloud, OneTrust &amp; More</title>
+<meta name="description" content="AiVRIC integrates with the platforms enterprises already own — cloud security, GRC, Microsoft 365, ITSM, SIEM, and AI automation — into a continuous risk intelligence and remediation layer.">
+<meta name="keywords" content="AiVRIC integrations, cloud security integrations, Microsoft 365 risk operations, Wiz integration, Prisma Cloud integration, OneTrust integration, GRC automation, SIEM integration, MCP governance, agentic security">
 
-  <!-- Fav Icon -->
-  <link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+<!-- Fav Icon -->
+<link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  <!-- Site Stylesheets -->
-  <link href="assets/css/aivric-preloader.css" rel="stylesheet">
-  <link href="assets/css/font-awesome-all.css" rel="stylesheet">
-  <link href="assets/css/flaticon.css" rel="stylesheet">
-  <link href="assets/css/bootstrap.css" rel="stylesheet">
-  <link href="assets/css/color.css" rel="stylesheet">
-  <link href="assets/css/style.css?v=20250115" rel="stylesheet">
-  <link href="assets/css/responsive.css" rel="stylesheet">
-  <link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+<!-- Stylesheets -->
+<link href="assets/css/aivric-preloader.css" rel="stylesheet">
+<link href="assets/css/font-awesome-all.css" rel="stylesheet">
+<link href="assets/css/flaticon.css" rel="stylesheet">
+<link href="assets/css/owl.css" rel="stylesheet">
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="assets/css/animate.css" rel="stylesheet">
+<link href="assets/css/nice-select.css" rel="stylesheet">
+<link href="assets/css/color.css" rel="stylesheet">
+<link href="assets/css/elpath.css" rel="stylesheet">
+<link href="assets/css/style.css?v=20250115" rel="stylesheet">
+<link href="assets/css/elements-css/page-title.css" rel="stylesheet">
+<link href="assets/css/elements-css/service.css" rel="stylesheet">
+<link href="assets/css/elements-css/about.css" rel="stylesheet">
+<link href="assets/css/elements-css/subscribe.css" rel="stylesheet">
+<link href="assets/css/responsive.css" rel="stylesheet">
+<link href="assets/css/custom.css?v=20250115" rel="stylesheet">
 
-  <style>
-    /* ── design tokens (light page) ─────────────────────── */
-    :root{
-      --ink:#0b1220; --text:#243043; --muted:#5b6b83; --line:#e7edf6;
-      --panel:#ffffff; --soft:#f6f9ff; --soft2:#fbfcff;
-      --shadow:0 16px 50px rgba(12,23,45,.10); --shadow2:0 10px 26px rgba(12,23,45,.08);
-      --radius:18px; --radius2:14px;
-      --accent:#10b2e8; --accent2:#19d4a3; --warn:#f59e0b;
-      --dk:#06101e; --dk2:#0d1829; --dk3:#060d18;
-      --cyan:#00d1ff; --green:#2ee59d; --gold:#ffd63a; --purp:#a78bfa; --red:#f87171;
-    }
-    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:#fff;color:var(--text)}
-    .boxed_wrapper,.bg-color-1,.bg-color-2{background:#fff!important}
+<style>
+/* =============================================================
+   AiVRIC Product Pages — Shared Design System (mirror rogueagent)
+============================================================= */
+:root{
+  --cs-cyan:#00d1ff; --cs-green:#2ee59d; --cs-gold:#ffd63a; --cs-purple:#a78bfa; --cs-red:#f87171;
+  --cs-text-strong:#f8fafc; --cs-text:#e5e7eb; --cs-muted:#cbd5e1; --cs-faint:#94a3b8;
+  --cs-surface-1:rgba(255,255,255,0.06); --cs-surface-2:rgba(255,255,255,0.04);
+  --cs-line:rgba(148,163,184,0.22); --cs-line-strong:rgba(148,163,184,0.45);
+  --cs-shadow:0 14px 40px rgba(0,0,0,0.28); --cs-radius:18px;
+  --cs-btn:#00d1ff; --cs-btn-hover:#24ddff; --cs-btn-fg:#fff;
+  --cs-btn-border:rgba(0,209,255,0.6); --cs-btn-shadow:0 12px 24px rgba(0,209,255,0.2);
+  --cs-btn-shadow-hover:0 14px 28px rgba(0,209,255,0.28);
+}
 
-    /* ── Hero ─────────────────────────────────────────────── */
-    .int-hero{position:relative;padding:92px 0 52px;overflow:hidden;background:linear-gradient(180deg,var(--soft2) 0%,#fff 60%);border-bottom:1px solid var(--line)}
-    .int-hero::before{content:"";position:absolute;inset:-180px -180px auto auto;width:580px;height:580px;background:radial-gradient(circle at 30% 30%,rgba(16,178,232,.18),rgba(25,212,163,.09),transparent 60%);pointer-events:none;border-radius:999px}
-    .int-hero::after{content:"";position:absolute;inset:auto auto -200px -180px;width:580px;height:580px;background:radial-gradient(circle,rgba(16,178,232,.09),transparent 62%);pointer-events:none;border-radius:999px}
-    .int-badge{display:inline-flex;align-items:center;gap:10px;padding:9px 14px;border-radius:999px;border:1px solid rgba(16,178,232,.25);background:rgba(16,178,232,.07);color:var(--ink);font-weight:800;font-size:13px}
-    .int-badge i{color:var(--accent)}
-    .int-h1{font-family:Jost,Inter,sans-serif;color:var(--ink);font-weight:900;letter-spacing:-.8px;font-size:46px;line-height:1.06;margin:16px 0 12px}
-    @media(max-width:768px){.int-h1{font-size:32px}}
-    .int-sub{color:var(--muted);line-height:1.75;font-size:16px;margin:0 0 20px;max-width:88ch}
-    .int-actions{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
-    .btn-clean{display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink);font-weight:800;font-size:13px;box-shadow:var(--shadow2);transition:.2s;text-decoration:none}
-    .btn-clean:hover{transform:translateY(-1px)}
-    .btn-clean.primary{border-color:rgba(16,178,232,.35);background:linear-gradient(90deg,rgba(16,178,232,.18),rgba(25,212,163,.14))}
-    .int-points{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
-    @media(max-width:768px){.int-points{grid-template-columns:1fr}}
-    .int-point{display:flex;gap:10px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;box-shadow:var(--shadow2)}
-    .int-point i{margin-top:2px;color:var(--accent2);flex-shrink:0}
-    .int-point span{color:var(--muted);font-size:14px;line-height:1.5}
+body.portal-page{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:radial-gradient(1200px 900px at 70% -20%,rgba(0,209,255,0.20),transparent 55%),
+             radial-gradient(900px 700px at 10% 10%,rgba(46,113,229,0.13),transparent 60%),
+             linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%);
+  color:var(--cs-text);
+}
 
-    /* ── Shared section helpers ───────────────────────────── */
-    .section{padding:60px 0}
-    .section-alt{padding:60px 0;background:var(--soft2)}
-    .section-dark{padding:72px 0;background:var(--dk);color:#e2e8f0}
-    .section-dark2{padding:72px 0;background:var(--dk2);color:#e2e8f0}
-    .section-title{font-family:Jost,Inter,sans-serif;color:var(--ink);font-weight:900;letter-spacing:-.3px;font-size:32px;margin:0 0 10px}
-    .section-title.light{color:#f0f8ff}
-    .section-title.centred{text-align:center}
-    .section-eyebrow{font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:10px;display:block}
-    .section-eyebrow.light{color:var(--cyan)}
-    .section-sub{color:var(--muted);line-height:1.75;font-size:15px;max-width:90ch;margin:0 0 28px}
-    .section-sub.light{color:#94a3b8}
-    .section-sub.centred{text-align:center;margin-left:auto;margin-right:auto}
+/* Buttons */
+.cs-btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:11px 22px; border-radius:999px; font-weight:700; font-size:14px; text-decoration:none; cursor:pointer; transition:all 0.22s; border:none; }
+.cs-btn.primary{ background:var(--cs-btn); color:var(--cs-btn-fg)!important; border:1px solid var(--cs-btn-border); box-shadow:var(--cs-btn-shadow); }
+.cs-btn.primary:hover{ background:var(--cs-btn-hover); box-shadow:var(--cs-btn-shadow-hover); transform:translateY(-1px); }
+.cs-btn.secondary{ background:rgba(0,209,255,0.10); color:var(--cs-text-strong)!important; border:1px solid rgba(0,209,255,0.65); }
+.cs-btn.secondary:hover{ background:var(--cs-btn-hover)!important; color:#fff!important; transform:translateY(-1px); }
+.cs-btn.ghost{ background:transparent; color:var(--cs-text-strong)!important; border:1px solid rgba(255,255,255,0.22); }
+.cs-btn.ghost:hover{ background:rgba(255,255,255,0.07)!important; transform:translateY(-1px); }
 
-    /* ── Category nav strip ───────────────────────────────── */
-    .cat-nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
-    .cat-pill{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--muted);font-size:13px;font-weight:600;text-decoration:none;box-shadow:var(--shadow2);transition:.18s;white-space:nowrap}
-    .cat-pill:hover{border-color:rgba(16,178,232,.4);color:var(--accent)}
-    .cat-pill i{font-size:12px;color:var(--accent)}
+/* Page shell */
+.cs-product-page{ padding:0; }
 
-    /* ── Category section header ──────────────────────────── */
-    .cat-hdr{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-    .cat-hdr-icon{width:38px;height:38px;border-radius:10px;background:rgba(16,178,232,.08);border:1px solid rgba(16,178,232,.2);display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--accent);flex-shrink:0}
-    .cat-hdr h3{font-family:Jost,Inter,sans-serif;font-size:20px;font-weight:800;color:var(--ink);margin:0}
-    .cat-hdr span{font-size:12.5px;color:var(--muted);margin-top:2px}
+/* Hero */
+.csp-hero{ padding:100px 0 56px; position:relative; overflow:hidden; }
+@media(max-width:992px){ .csp-hero{ padding:80px 0 40px; } }
+.csp-badge{ display:inline-flex; align-items:center; gap:8px; padding:7px 14px; border-radius:999px; background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.35); color:var(--cs-text-strong); font-size:12.5px; font-weight:600; margin-bottom:16px; }
+.csp-badge .live-dot{ width:8px; height:8px; border-radius:50%; background:var(--cs-cyan); box-shadow:0 0 6px rgba(0,209,255,0.7); flex-shrink:0; animation:int-blink 2s ease-in-out infinite; }
+@keyframes int-blink{0%,100%{opacity:1}50%{opacity:.3}}
+.csp-title{ font-family:Jost,Inter,sans-serif; font-size:54px; font-weight:800; line-height:1.03; letter-spacing:-1.2px; color:var(--cs-text-strong); margin:0 0 14px; }
+@media(max-width:768px){ .csp-title{ font-size:36px; } }
+.csp-sub{ font-size:17px; line-height:1.75; color:var(--cs-muted); max-width:68ch; margin:0 0 28px; }
+.csp-actions{ display:flex; gap:12px; flex-wrap:wrap; margin-bottom:36px; }
 
-    /* ── Integration card grid ────────────────────────────── */
-    .int-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:48px}
-    @media(max-width:1200px){.int-grid{grid-template-columns:repeat(3,1fr)}}
-    @media(max-width:900px){.int-grid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:540px){.int-grid{grid-template-columns:1fr}}
-    .int-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow2);padding:18px;display:flex;flex-direction:column;gap:10px;transition:border-color .2s,box-shadow .2s}
-    .int-card:hover{border-color:rgba(16,178,232,.3);box-shadow:0 18px 40px rgba(12,23,45,.13)}
-    .int-card-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
-    .int-logo{width:50px;height:50px;border-radius:13px;border:1px solid var(--line);background:linear-gradient(180deg,#fff,var(--soft));display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-    .int-tag{font-size:11.5px;font-weight:800;padding:5px 10px;border-radius:999px;background:rgba(16,178,232,.07);border:1px solid rgba(16,178,232,.18);color:var(--ink);white-space:nowrap}
-    .int-tag.green{background:rgba(25,212,163,.07);border-color:rgba(25,212,163,.22);color:#0d6f54}
-    .int-tag.purple{background:rgba(167,139,250,.08);border-color:rgba(167,139,250,.22);color:#5b35b8}
-    .int-tag.gold{background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.22);color:#92510a}
-    .int-tag.red{background:rgba(248,113,113,.07);border-color:rgba(248,113,113,.2);color:#9e2020}
-    .int-card h3{margin:0;color:var(--ink);font-weight:800;font-size:15.5px}
-    .int-card p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.65;flex:1}
-    .int-meta{margin-top:auto;padding-top:10px;border-top:1px dashed rgba(231,237,246,.9);display:flex;gap:10px;flex-wrap:wrap;color:var(--muted);font-size:12.5px}
-    .int-meta i{color:var(--accent)}
-    .int-status{font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:6px;white-space:nowrap}
-    .int-status.live{background:rgba(25,212,163,.1);color:#0d6f54;border:1px solid rgba(25,212,163,.25)}
-    .int-status.planned{background:rgba(245,158,11,.1);color:#92510a;border:1px solid rgba(245,158,11,.25)}
+/* Value points row */
+.int-points-row{ display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:4px; }
+@media(max-width:1100px){ .int-points-row{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:576px){ .int-points-row{ grid-template-columns:1fr; } }
+.int-vp{ border-radius:14px; background:var(--cs-surface-1); border:1px solid var(--cs-line); padding:16px 18px; display:flex; gap:12px; align-items:flex-start; }
+.int-vp-icon{ width:34px; height:34px; border-radius:9px; background:rgba(0,209,255,0.10); border:1px solid rgba(0,209,255,0.22); display:flex; align-items:center; justify-content:center; font-size:14px; color:var(--cs-cyan); flex-shrink:0; margin-top:1px; }
+.int-vp strong{ display:block; font-size:13.5px; font-weight:700; color:var(--cs-text-strong); margin-bottom:3px; }
+.int-vp span{ font-size:12.5px; color:var(--cs-faint); line-height:1.5; }
 
-    /* ── Coexistence cards ────────────────────────────────── */
-    .coex-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:28px}
-    @media(max-width:900px){.coex-grid{grid-template-columns:1fr}}
-    .coex-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:26px;display:flex;flex-direction:column;gap:16px}
-    .coex-hdr{display:flex;align-items:center;gap:14px}
-    .coex-logo{width:48px;height:48px;border-radius:13px;border:1px solid var(--line);background:var(--soft);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-    .coex-hdr-text h4{font-size:17px;font-weight:800;color:var(--ink);margin:0 0 3px}
-    .coex-hdr-text span{font-size:12.5px;color:var(--muted)}
-    .coex-body{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    @media(max-width:640px){.coex-body{grid-template-columns:1fr}}
-    .coex-col h5{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin:0 0 8px}
-    .coex-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
-    .coex-col li{font-size:13.5px;color:var(--text);line-height:1.5;display:flex;gap:7px;align-items:flex-start}
-    .coex-col li i{color:var(--accent2);flex-shrink:0;margin-top:2px;font-size:11px}
-    .coex-add h5{color:var(--accent)}
-    .coex-add li i{color:var(--accent)}
-    .coex-footer{border-top:1px solid var(--line);padding-top:14px;font-size:13.5px;color:var(--muted);line-height:1.65}
-    .coex-footer strong{color:var(--ink)}
+/* Sticky category nav */
+.int-cat-nav{ position:sticky; top:72px; z-index:100; background:rgba(6,10,18,0.92); backdrop-filter:blur(14px); border-bottom:1px solid var(--cs-line); padding:10px 0; }
+.int-cat-pills{ display:flex; flex-wrap:nowrap; gap:6px; overflow-x:auto; scrollbar-width:none; }
+.int-cat-pills::-webkit-scrollbar{ display:none; }
+.int-cat-pill{ display:inline-flex; align-items:center; gap:6px; padding:7px 14px; border-radius:999px; background:rgba(255,255,255,0.04); border:1px solid var(--cs-line); color:var(--cs-faint); font-size:12.5px; font-weight:600; text-decoration:none; white-space:nowrap; transition:all 0.18s; flex-shrink:0; }
+.int-cat-pill:hover, .int-cat-pill.active{ background:rgba(0,209,255,0.10); border-color:rgba(0,209,255,0.35); color:var(--cs-cyan); }
+.int-cat-pill i{ font-size:11px; }
 
-    /* ── M365 workflow section ────────────────────────────── */
-    .m365-flow{display:flex;flex-direction:column;gap:0;margin-top:28px;max-width:780px}
-    .m365-step{display:flex;gap:16px;align-items:flex-start;position:relative}
-    .m365-step::before{content:"";position:absolute;left:19px;top:46px;bottom:-8px;width:2px;background:linear-gradient(180deg,rgba(16,178,232,.3),rgba(16,178,232,.05));pointer-events:none}
-    .m365-step:last-child::before{display:none}
-    .m365-step-num{width:40px;height:40px;border-radius:50%;background:rgba(16,178,232,.1);border:2px solid rgba(16,178,232,.3);display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:var(--accent);flex-shrink:0;margin-top:2px}
-    .m365-step-body{padding-bottom:24px;flex:1}
-    .m365-step-body h4{font-size:16px;font-weight:800;color:var(--ink);margin:0 0 6px}
-    .m365-step-body p{font-size:13.5px;color:var(--muted);line-height:1.65;margin:0}
-    .m365-caps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-    @media(max-width:900px){.m365-caps{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:540px){.m365-caps{grid-template-columns:1fr}}
-    .m365-cap{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow2)}
-    .m365-cap-icon{width:38px;height:38px;border-radius:10px;background:rgba(0,120,212,.09);border:1px solid rgba(0,120,212,.22);display:flex;align-items:center;justify-content:center;font-size:15px;color:#0078d4}
-    .m365-cap h4{font-size:14.5px;font-weight:700;color:var(--ink);margin:0}
-    .m365-cap p{font-size:13px;color:var(--muted);line-height:1.65;margin:0}
+/* Section layout */
+.csp-section{ padding:64px 0 0; }
+.csp-section-lg{ padding:72px 0; }
+.csp-eyebrow{ display:block; font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--cs-cyan); margin-bottom:8px; }
+.csp-section-title{ font-family:Jost,Inter,sans-serif; font-size:32px; font-weight:800; color:var(--cs-text-strong); margin:0 0 10px; letter-spacing:-0.4px; line-height:1.15; }
+.csp-section-sub{ font-size:15px; line-height:1.75; color:var(--cs-muted); max-width:80ch; margin:0 0 28px; }
+.csp-divider{ height:1px; background:linear-gradient(90deg,transparent,var(--cs-line),transparent); margin:64px 0 0; }
 
-    /* ── Market architecture table (dark bg) ─────────────── */
-    .market-table-wrap{margin:28px 0 0;border:1px solid rgba(255,255,255,.09);border-radius:16px;overflow:hidden}
-    .market-table{width:100%;border-collapse:collapse;font-size:14px}
-    .market-table thead tr{background:rgba(0,209,255,.06);border-bottom:1px solid rgba(255,255,255,.1)}
-    .market-table th{padding:14px 18px;text-align:left;font-size:11px;font-weight:800;letter-spacing:1.2px;text-transform:uppercase;color:var(--cyan)}
-    .market-table tbody tr{border-bottom:1px solid rgba(255,255,255,.06);transition:background .15s}
-    .market-table tbody tr:last-child{border-bottom:none}
-    .market-table tbody tr:hover{background:rgba(255,255,255,.03)}
-    .market-table td{padding:14px 18px;vertical-align:top;color:#94a3b8;line-height:1.6}
-    .market-table td:first-child{color:#f0f8ff;font-weight:600;white-space:nowrap}
-    @media(max-width:768px){.market-table td:first-child{white-space:normal}.market-table td,.market-table th{padding:10px 12px;font-size:12.5px}}
+/* Section header row (icon + text) */
+.int-sec-hdr{ display:flex; align-items:center; gap:14px; margin-bottom:28px; padding-bottom:16px; border-bottom:1px solid var(--cs-line); }
+.int-sec-hdr-icon{ width:42px; height:42px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:17px; flex-shrink:0; }
+.int-sec-hdr-icon.cyan{ background:rgba(0,209,255,0.13); border:1px solid rgba(0,209,255,0.28); color:var(--cs-cyan); }
+.int-sec-hdr-icon.green{ background:rgba(46,229,157,0.13); border:1px solid rgba(46,229,157,0.28); color:var(--cs-green); }
+.int-sec-hdr-icon.gold{ background:rgba(255,214,58,0.13); border:1px solid rgba(255,214,58,0.28); color:var(--cs-gold); }
+.int-sec-hdr-icon.purple{ background:rgba(167,139,250,0.13); border:1px solid rgba(167,139,250,0.28); color:var(--cs-purple); }
+.int-sec-hdr-icon.blue{ background:rgba(77,163,255,0.13); border:1px solid rgba(77,163,255,0.28); color:#4da3ff; }
+.int-sec-hdr h2{ font-family:Jost,Inter,sans-serif; font-size:22px; font-weight:800; color:var(--cs-text-strong); margin:0 0 2px; }
+.int-sec-hdr p{ font-size:13px; color:var(--cs-faint); margin:0; }
 
-    /* ── Framework table ──────────────────────────────────── */
-    .table-wrap{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow2);overflow:hidden}
-    .table-head{padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--soft),#fff)}
-    .table-head strong{color:var(--ink);font-weight:900;letter-spacing:.2px;font-size:14px}
-    table{width:100%;border-collapse:collapse;font-size:13.5px}
-    th,td{padding:12px 14px;border-bottom:1px solid rgba(231,237,246,.75);vertical-align:top}
-    th{color:var(--ink);font-weight:900;background:rgba(246,249,255,.65)}
-    td{color:var(--muted)}
-    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;font-weight:900;font-size:12px;border:1px solid var(--line);color:var(--ink);background:#fff;white-space:nowrap}
-    .pill.current{border-color:rgba(25,212,163,.30);background:rgba(25,212,163,.10)}
-    .pill.planned{border-color:rgba(245,158,11,.35);background:rgba(245,158,11,.12)}
+/* Integration card grid */
+.int-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:0; }
+@media(max-width:1200px){ .int-grid{ grid-template-columns:repeat(3,1fr); } }
+@media(max-width:900px){ .int-grid{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:540px){ .int-grid{ grid-template-columns:1fr; } }
 
-    /* ── CTA block ───────────────────────────────────────── */
-    .int-cta{margin-top:24px;background:linear-gradient(90deg,rgba(16,178,232,.12),rgba(25,212,163,.1));border:1px solid rgba(16,178,232,.2);border-radius:var(--radius);box-shadow:var(--shadow2);padding:22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
-    .int-cta strong{font-family:Jost,Inter,sans-serif;color:var(--ink);font-weight:900;font-size:20px;letter-spacing:-.2px}
-    .int-cta span{display:block;color:var(--muted);margin-top:6px;max-width:80ch;line-height:1.65;font-size:13.5px}
-    .int-cta-btns{display:flex;gap:10px;flex-wrap:wrap}
-  </style>
+.int-card{ border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line); padding:20px; box-shadow:var(--cs-shadow); display:flex; flex-direction:column; gap:12px; transition:border-color 0.2s,box-shadow 0.2s; }
+.int-card:hover{ border-color:rgba(0,209,255,0.3); box-shadow:0 20px 50px rgba(0,0,0,0.35); }
+.int-card-top{ display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.int-logo{ width:46px; height:46px; border-radius:13px; background:rgba(255,255,255,0.06); border:1px solid var(--cs-line); display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+.int-card h4{ font-size:15px; font-weight:700; color:var(--cs-text-strong); margin:0; }
+.int-card p{ font-size:13px; color:var(--cs-muted); line-height:1.65; margin:0; flex:1; }
 
-  <style id="gf-styles">
-    .gf-footer{background:#050b17;position:relative;overflow:hidden;font-family:'Inter',sans-serif}
-    .gf-footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(0,209,255,.045) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
-    .gf-top-rule{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,209,255,.55) 30%,rgba(46,229,157,.4) 70%,transparent 100%);position:relative;z-index:1}
-    .gf-body{padding:72px 0 52px;position:relative;z-index:1}
-    .gf-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:52px}
-    @media(max-width:991px){.gf-grid{grid-template-columns:1fr 1fr;gap:36px 40px}}
-    @media(max-width:599px){.gf-grid{grid-template-columns:1fr;gap:32px}}
-    .gf-logo-link{display:inline-block;margin-bottom:14px}
-    .gf-logo{height:34px;width:auto;display:block}
-    .gf-tagline{font-size:13px;color:#4e637a;line-height:1.7;margin-bottom:22px;max-width:255px}
-    .gf-subscribe-row{display:flex;gap:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:8px;overflow:hidden;margin-bottom:7px;transition:border-color .2s}
-    .gf-subscribe-row:focus-within{border-color:rgba(0,209,255,.35)}
-    .gf-subscribe-row input{flex:1;background:transparent;border:none;outline:none;padding:10px 14px;font-size:13px;color:#e2e8f0;font-family:'Inter',sans-serif}
-    .gf-subscribe-row input::placeholder{color:#3d5268}
-    .gf-subscribe-row button{background:#00d1ff;border:none;padding:10px 15px;color:#030a12;cursor:pointer;font-size:13px;transition:background .2s;flex-shrink:0}
-    .gf-subscribe-row button:hover{background:#33daff}
-    .gf-subscribe-note{font-size:11px;color:#3d5268;margin:0 0 22px}
-    .gf-social{display:flex;gap:8px}
-    .gf-social-link{width:33px;height:33px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#4e637a;font-size:13px;text-decoration:none;transition:all .2s}
-    .gf-social-link:hover{background:rgba(0,209,255,.09);border-color:rgba(0,209,255,.28);color:#00d1ff}
-    .gf-col-title{font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#94a3b8;margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.06)}
-    .gf-links{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:9px}
-    .gf-links li a{font-size:13.5px;color:#4e637a;text-decoration:none;transition:color .18s;display:inline-block}
-    .gf-links li a:hover{color:#cbd5e1}
-    .gf-contact-block{display:flex;flex-direction:column;gap:9px;margin-top:4px}
-    .gf-contact-link{display:flex;align-items:center;gap:8px;font-size:13px;color:#4e637a;text-decoration:none;transition:color .18s}
-    .gf-contact-link i{color:#00d1ff;font-size:12px;width:14px;text-align:center;flex-shrink:0}
-    .gf-contact-link:hover{color:#cbd5e1}
-    .gf-bottom{border-top:1px solid rgba(255,255,255,.055);padding:16px 0;position:relative;z-index:1}
-    .gf-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
-    .gf-copy{font-size:12px;color:#3d5268;margin:0}
-    .gf-copy a{color:#4e637a;text-decoration:none;transition:color .18s}
-    .gf-copy a:hover{color:#94a3b8}
-    .gf-bottom-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-    .gf-trust-pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#2ee59d;background:rgba(46,229,157,.07);border:1px solid rgba(46,229,157,.18);border-radius:100px;padding:4px 12px;letter-spacing:.3px}
-    .gf-trust-dot{width:6px;height:6px;border-radius:50%;background:#2ee59d;box-shadow:0 0 6px #2ee59d;animation:gf-blink 2s ease-in-out infinite}
-    @keyframes gf-blink{0%,100%{opacity:1}50%{opacity:.25}}
-    .gf-bottom-nav{display:flex;gap:18px}
-    .gf-bottom-nav a{font-size:12px;color:#3d5268;text-decoration:none;transition:color .18s}
-    .gf-bottom-nav a:hover{color:#94a3b8}
-    .gf-footer .pattern-layer{display:none!important}
-    .gf-footer .links-list,.gf-footer .footer-widget,.gf-footer .widget-section,.gf-footer .footer-bottom{display:none!important}
-  </style>
+/* Status badges */
+.int-status{ font-size:10.5px; font-weight:800; padding:4px 9px; border-radius:999px; white-space:nowrap; }
+.int-status.live{ background:rgba(46,229,157,0.12); border:1px solid rgba(46,229,157,0.3); color:var(--cs-green); }
+.int-status.supported{ background:rgba(0,209,255,0.10); border:1px solid rgba(0,209,255,0.28); color:var(--cs-cyan); }
+.int-status.planned{ background:rgba(148,163,184,0.08); border:1px solid rgba(148,163,184,0.2); color:var(--cs-faint); }
+.int-status.beta{ background:rgba(255,214,58,0.10); border:1px solid rgba(255,214,58,0.28); color:var(--cs-gold); }
+
+/* 3-col variant */
+.int-grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+@media(max-width:992px){ .int-grid-3{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:540px){ .int-grid-3{ grid-template-columns:1fr; } }
+
+/* Dark band section */
+.int-dark-band{ background:rgba(255,255,255,0.025); border-top:1px solid var(--cs-line); border-bottom:1px solid var(--cs-line); padding:72px 0; margin-top:64px; }
+
+/* M365 workflow steps */
+.m365-flow{ display:grid; grid-template-columns:repeat(6,1fr); gap:0; position:relative; margin:32px 0; }
+@media(max-width:1100px){ .m365-flow{ grid-template-columns:repeat(3,1fr); gap:0; } }
+@media(max-width:576px){ .m365-flow{ grid-template-columns:1fr; } }
+.m365-step{ display:flex; flex-direction:column; align-items:center; text-align:center; padding:20px 12px; position:relative; }
+.m365-step:not(:last-child)::after{ content:"→"; position:absolute; right:-10px; top:30px; color:var(--cs-faint); font-size:18px; z-index:1; }
+@media(max-width:1100px){ .m365-step:nth-child(3)::after,.m365-step:last-child::after{ display:none; } }
+@media(max-width:576px){ .m365-step::after{ display:none!important; } }
+.m365-step-num{ width:36px; height:36px; border-radius:50%; background:rgba(0,120,212,0.15); border:1px solid rgba(0,120,212,0.35); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:800; color:#4da3ff; margin-bottom:10px; flex-shrink:0; }
+.m365-step h4{ font-size:13px; font-weight:700; color:var(--cs-text-strong); margin:0 0 4px; }
+.m365-step p{ font-size:12px; color:var(--cs-faint); line-height:1.5; margin:0; }
+
+/* M365 capabilities grid */
+.m365-cap-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+@media(max-width:992px){ .m365-cap-grid{ grid-template-columns:repeat(2,1fr); } }
+@media(max-width:540px){ .m365-cap-grid{ grid-template-columns:1fr; } }
+.m365-cap{ border-radius:16px; background:rgba(0,120,212,0.07); border:1px solid rgba(0,120,212,0.2); padding:20px; box-shadow:var(--cs-shadow); display:flex; flex-direction:column; gap:10px; transition:border-color 0.2s; }
+.m365-cap:hover{ border-color:rgba(77,163,255,0.35); }
+.m365-cap-icon{ width:38px; height:38px; border-radius:10px; background:rgba(0,120,212,0.14); border:1px solid rgba(0,120,212,0.28); display:flex; align-items:center; justify-content:center; color:#4da3ff; font-size:15px; }
+.m365-cap h4{ font-size:14.5px; font-weight:700; color:var(--cs-text-strong); margin:0; }
+.m365-cap p{ font-size:13px; color:var(--cs-muted); line-height:1.65; margin:0; }
+
+/* Competitive coexistence cards */
+.coex-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+@media(max-width:900px){ .coex-grid{ grid-template-columns:1fr; } }
+.coex-card{ border-radius:var(--cs-radius); background:var(--cs-surface-1); border:1px solid var(--cs-line); overflow:hidden; box-shadow:var(--cs-shadow); display:flex; flex-direction:column; }
+.coex-hdr{ padding:18px 22px 16px; border-bottom:1px solid var(--cs-line); display:flex; align-items:center; gap:14px; }
+.coex-logo-wrap{ display:flex; gap:8px; align-items:center; }
+.coex-logo{ width:36px; height:36px; border-radius:9px; background:rgba(255,255,255,0.06); border:1px solid var(--cs-line); display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0; }
+.coex-plus{ font-size:14px; color:var(--cs-faint); }
+.coex-name{ font-size:16px; font-weight:800; color:var(--cs-text-strong); }
+.coex-tagline{ font-size:12.5px; color:var(--cs-faint); margin-top:1px; }
+.coex-body{ display:grid; grid-template-columns:1fr 1fr; gap:0; flex:1; }
+.coex-col{ padding:18px 20px; }
+.coex-col:first-child{ border-right:1px solid var(--cs-line); }
+.coex-col-lbl{ font-size:10px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--cs-faint); margin-bottom:10px; }
+.coex-col ul{ list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:7px; }
+.coex-col li{ font-size:12.5px; color:var(--cs-muted); display:flex; gap:7px; align-items:flex-start; line-height:1.45; }
+.coex-col li i{ font-size:10px; flex-shrink:0; margin-top:2px; }
+.coex-col li i.fa-check{ color:var(--cs-faint); }
+.coex-col li i.fa-plus{ color:var(--cs-green); }
+.coex-ftr{ padding:14px 22px; border-top:1px solid var(--cs-line); background:rgba(0,209,255,0.03); }
+.coex-ftr p{ font-size:12.5px; color:var(--cs-muted); margin:0; line-height:1.6; }
+.coex-ftr strong{ color:var(--cs-cyan); }
+
+/* Market architecture table */
+.mkt-table-wrap{ overflow-x:auto; margin-top:28px; }
+.mkt-table{ width:100%; border-collapse:separate; border-spacing:0; border-radius:16px; overflow:hidden; background:var(--cs-surface-1); border:1px solid var(--cs-line); }
+.mkt-table th{ padding:12px 18px; font-size:10.5px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; color:var(--cs-faint); background:rgba(255,255,255,0.03); border-bottom:1px solid var(--cs-line); text-align:left; }
+.mkt-table td{ padding:14px 18px; font-size:13.5px; color:var(--cs-muted); border-bottom:1px solid rgba(148,163,184,0.1); vertical-align:top; }
+.mkt-table tr:last-child td{ border-bottom:none; }
+.mkt-table td:first-child{ font-weight:700; color:var(--cs-text-strong); }
+.mkt-table .mkt-role{ color:var(--cs-cyan); font-weight:600; }
+
+/* Compliance frameworks mini table */
+.fw-chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:20px; }
+.fw-chip{ display:inline-flex; align-items:center; gap:7px; padding:7px 14px; border-radius:999px; background:var(--cs-surface-1); border:1px solid var(--cs-line); font-size:12.5px; font-weight:600; color:var(--cs-muted); }
+.fw-chip i{ color:var(--cs-green); font-size:11px; }
+
+/* Bottom CTA */
+.csp-bottom-cta{ margin:64px 0 72px; border-radius:var(--cs-radius); background:linear-gradient(135deg,rgba(0,209,255,0.09) 0%,rgba(46,229,157,0.05) 100%); border:1px solid rgba(0,209,255,0.25); padding:48px; text-align:center; }
+.csp-bottom-cta h2{ font-family:Jost,Inter,sans-serif; font-size:36px; font-weight:800; color:var(--cs-text-strong); margin:0 0 12px; letter-spacing:-0.5px; }
+@media(max-width:768px){ .csp-bottom-cta h2{ font-size:26px; } }
+.csp-bottom-cta p{ font-size:16px; color:var(--cs-muted); line-height:1.7; max-width:60ch; margin:0 auto 28px; }
+.csp-bottom-actions{ display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+
+/* Release modal */
+.release-modal{display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center}
+.release-modal.is-open{display:flex}
+.release-modal__backdrop{position:absolute;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(4px)}
+.release-modal__dialog{position:relative;z-index:1;background:#0f1b2e;border:1px solid rgba(148,163,184,.18);border-radius:18px;padding:32px;width:min(560px,92vw);max-height:90vh;overflow-y:auto}
+.release-modal__close{position:absolute;top:14px;right:16px;background:none;border:none;color:#64748b;font-size:22px;cursor:pointer;line-height:1;padding:4px 8px}
+.release-modal__close:hover{color:#f1f5f9}
+.release-modal__title{font-size:20px;font-weight:700;color:#f1f5f9;margin:0 0 6px}
+.release-modal__subtitle{font-size:14px;color:#64748b;margin:0 0 20px}
+.release-modal__grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.release-modal__field{display:flex;flex-direction:column;gap:5px}
+.release-modal__field:last-child{grid-column:1/-1}
+.release-modal__field label{font-size:12px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.06em}
+.release-modal__field input{background:#0c1525;border:1px solid rgba(148,163,184,.18);border-radius:8px;padding:9px 12px;color:#f1f5f9;font-size:14px;outline:none}
+.release-modal__field input:focus{border-color:rgba(0,209,255,.45)}
+.release-modal__actions{display:flex;gap:10px;justify-content:flex-end}
+</style>
+
+<style id="gf-styles">
+/* === GLOBAL FOOTER === */
+.gf-footer{background:#050b17;position:relative;overflow:hidden;font-family:'Inter',sans-serif}
+.gf-footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(0,209,255,.045) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+.gf-top-rule{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,209,255,.55) 30%,rgba(46,229,157,.4) 70%,transparent 100%);position:relative;z-index:1}
+.gf-body{padding:72px 0 52px;position:relative;z-index:1}
+.gf-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:52px}
+@media(max-width:991px){.gf-grid{grid-template-columns:1fr 1fr;gap:36px 40px}}
+@media(max-width:599px){.gf-grid{grid-template-columns:1fr;gap:32px}}
+.gf-logo-link{display:inline-block;margin-bottom:14px}
+.gf-logo{height:34px;width:auto;display:block}
+.gf-tagline{font-size:13px;color:#4e637a;line-height:1.7;margin-bottom:22px;max-width:255px}
+.gf-subscribe-row{display:flex;gap:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:8px;overflow:hidden;margin-bottom:7px;transition:border-color .2s}
+.gf-subscribe-row:focus-within{border-color:rgba(0,209,255,.35)}
+.gf-subscribe-row input{flex:1;background:transparent;border:none;outline:none;padding:10px 14px;font-size:13px;color:#e2e8f0;font-family:'Inter',sans-serif}
+.gf-subscribe-row input::placeholder{color:#3d5268}
+.gf-subscribe-row button{background:#00d1ff;border:none;padding:10px 15px;color:#030a12;cursor:pointer;font-size:13px;transition:background .2s;flex-shrink:0}
+.gf-subscribe-row button:hover{background:#33daff}
+.gf-subscribe-note{font-size:11px;color:#3d5268;margin:0 0 22px}
+.gf-social{display:flex;gap:8px}
+.gf-social-link{width:33px;height:33px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#4e637a;font-size:13px;text-decoration:none;transition:all .2s}
+.gf-social-link:hover{background:rgba(0,209,255,.09);border-color:rgba(0,209,255,.28);color:#00d1ff}
+.gf-col-title{font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#94a3b8;margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.06)}
+.gf-links{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:9px}
+.gf-links li a{font-size:13.5px;color:#4e637a;text-decoration:none;transition:color .18s;display:inline-block}
+.gf-links li a:hover{color:#cbd5e1}
+.gf-contact-block{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.gf-contact-link{display:flex;align-items:center;gap:8px;font-size:13px;color:#4e637a;text-decoration:none;transition:color .18s}
+.gf-contact-link i{color:#00d1ff;font-size:12px;width:14px;text-align:center;flex-shrink:0}
+.gf-contact-link:hover{color:#cbd5e1}
+.gf-bottom{border-top:1px solid rgba(255,255,255,.055);padding:16px 0;position:relative;z-index:1}
+.gf-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.gf-copy{font-size:12px;color:#3d5268;margin:0}
+.gf-copy a{color:#4e637a;text-decoration:none;transition:color .18s}
+.gf-copy a:hover{color:#94a3b8}
+.gf-bottom-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.gf-trust-pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#2ee59d;background:rgba(46,229,157,.07);border:1px solid rgba(46,229,157,.18);border-radius:100px;padding:4px 12px;letter-spacing:.3px}
+.gf-trust-dot{width:6px;height:6px;border-radius:50%;background:#2ee59d;box-shadow:0 0 6px #2ee59d;animation:gf-blink 2s ease-in-out infinite}
+@keyframes gf-blink{0%,100%{opacity:1}50%{opacity:.25}}
+.gf-bottom-nav{display:flex;gap:18px}
+.gf-bottom-nav a{font-size:12px;color:#3d5268;text-decoration:none;transition:color .18s}
+.gf-bottom-nav a:hover{color:#94a3b8}
+.gf-footer .pattern-layer{display:none!important}
+.gf-footer .links-list,.gf-footer .footer-widget,.gf-footer .widget-section,.gf-footer .footer-bottom{display:none!important}
+</style>
+<link href="assets/css/visual-enhancements.css" rel="stylesheet">
 </head>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-EG2Q8GD30V');</script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EG2Q8GD30V');
+</script>
 
-<body>
+<body class="portal-page">
 <div class="boxed_wrapper">
 
-<!-- ═══ HEADER ═══════════════════════════════════════════════════════ -->
-<header class="main-header">
-  <div class="header-top-bar">
-    <div class="auto-container">
-      <div class="top-bar-inner">
-        <div class="top-bar-brand">AIVRIC TECHNOLOGIES</div>
-        <div class="top-bar-right">
-          <ul class="top-bar-links">
-            <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-book-open"></i></span>Platform Guide</a></li>
-            <li><a href="trust.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-shield-alt"></i></span>Trust Center</a></li>
-          </ul>
-          <ul class="top-bar-social">
-            <li><a href="https://www.linkedin.com/company/aivric" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
-            <li><a href="https://x.com/aivric" aria-label="X"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
-          </ul>
-        </div>
+  <!-- preloader -->
+  <div id="apl-wrap">
+    <div class="apl-scan"></div>
+    <div class="apl-corner tl"></div><div class="apl-corner tr"></div><div class="apl-corner bl"></div><div class="apl-corner br"></div>
+    <div class="apl-center">
+      <div class="apl-logo-wrap">
+        <div class="apl-ring r1"></div><div class="apl-ring r2"></div><div class="apl-ring r3"></div>
+        <img class="apl-logo" src="assets/images/logo/aivric.svg" alt="AiVRIC">
+      </div>
+      <div class="apl-brand">AiVRIC</div>
+      <div class="apl-tagline">Security Intelligence Platform</div>
+      <div class="apl-progress-wrap"><div class="apl-progress-fill" id="apl-fill"></div></div>
+      <div class="apl-status-row">
+        <span class="apl-status" id="apl-status">Initializing Signal Engine</span>
+        <span class="apl-pct" id="apl-pct">0%</span>
       </div>
     </div>
   </div>
-  <div class="header-lower">
-    <div class="auto-container">
-      <div class="outer-box">
-        <div class="logo-box">
-          <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC"></a></figure>
+  <!-- preloader end -->
+
+  <!-- main header -->
+  <header class="main-header">
+    <div class="header-top-bar">
+      <div class="auto-container">
+        <div class="top-bar-inner">
+          <div class="top-bar-brand">AIVRIC TECHNOLOGIES</div>
+          <div class="top-bar-right">
+            <ul class="top-bar-links">
+              <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-book-open"></i></span>Platform Guide</a></li>
+              <li><a href="trust.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-shield-alt"></i></span>Trust Center</a></li>
+            </ul>
+            <ul class="top-bar-social">
+              <li><a href="https://www.linkedin.com/company/aivric" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+              <li><a href="https://x.com/aivric" aria-label="X"><i class="fab fa-twitter"></i></a></li>
+              <li><a href="https://github.com" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+            </ul>
+          </div>
         </div>
-        <div class="menu-area clearfix">
-          <div class="mobile-nav-toggler"><i class="icon-bar"></i><i class="icon-bar"></i><i class="icon-bar"></i></div>
-          <nav class="main-menu navbar-expand-md navbar-light">
-            <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-              <ul class="navigation clearfix">
-                <li class="dropdown platform-menu"><a href="services.html">Platform</a>
-                  <div class="platform-megamenu">
-                    <div class="platform-grid">
-                      <a class="platform-card" href="genai-chat.html"><h4>GenAI Chat</h4><p>Fabric intelligence chat across every AiVRIC solution.</p><span>view more</span></a>
-                      <a class="platform-card" href="shared-data-layer.html"><h4>Shared Data Layer</h4><p>The Fabric data layer unifies telemetry and evidence.</p><span>view more</span></a>
-                      <a class="platform-card" href="agentic-design.html"><h4>Agentic Design</h4><p>Fabric agents coordinate actions across suites.</p><span>view more</span></a>
-                      <a class="platform-card" href="efficient-compute.html"><h4>Efficient Compute</h4><p>Fabric compute optimizes AI workloads end-to-end.</p><span>view more</span></a>
-                      <a class="platform-card" href="data-localization.html"><h4>Data Localization</h4><p>Fabric residency controls govern every dataset.</p><span>view more</span></a>
-                      <a class="platform-card" href="ai-model-inspection.html"><h4>AI Model Inspection</h4><p>Fabric inspection monitors AI models and risk.</p><span>view more</span></a>
-                    </div>
-                  </div>
-                </li>
-                <li class="dropdown cs-product-menu"><a href="cspm-cloudsignals.html">CloudSignals+RiskOps</a>
-                  <div class="cs-product-megamenu">
-                    <div class="cs-mega-hdr">
-                      <div class="cs-mega-hdr-info">
-                        <span class="cs-mega-status"><span class="cs-avail-dot"></span>Available Now</span>
-                        <h3>CloudSignals+RiskOps&trade;</h3>
-                        <p>AI-native cloud security posture, risk operations, and continuous compliance &mdash; in one platform.</p>
-                      </div>
-                      <a href="cloudsignals-pricing.html" class="cs-mega-pricing-cta">Compare plans &amp; pricing &rarr;</a>
-                    </div>
-                    <div class="cs-mega-body">
-                      <div class="cs-mega-col">
-                        <span class="cs-mega-col-label">Posture &amp; Discovery</span>
-                        <a class="cs-mega-feat-card" href="cloudsignals-cspm.html"><i class="fas fa-cloud"></i><div><strong>Multi-Cloud CSPM</strong><span>Scan AWS, Azure, GCP, and OCI posture in real time.</span></div></a>
-                        <a class="cs-mega-feat-card" href="cloudsignals-findings.html"><i class="fas fa-exclamation-triangle"></i><div><strong>Findings &amp; Risk Signals</strong><span>Prioritized risk signals with business-context scoring.</span></div></a>
-                      </div>
-                      <div class="cs-mega-col">
-                        <span class="cs-mega-col-label">Risk &amp; Compliance</span>
-                        <a class="cs-mega-feat-card" href="cloudsignals-risk-register.html"><i class="fas fa-clipboard-list"></i><div><strong>Risk Register &amp; RiskOps</strong><span>GRC-grade risk records, treatments, and portfolio exposure.</span></div></a>
-                        <a class="cs-mega-feat-card" href="cloudsignals-compliance.html"><i class="fas fa-shield-alt"></i><div><strong>Continuous Compliance</strong><span>SOC 2, ISO 27001, PCI-DSS, CMMC, HIPAA.</span></div></a>
-                        <a class="cs-mega-feat-card" href="cloudsignals-tprm.html"><i class="fas fa-handshake"></i><div><strong>Third-Party Risk (TPRM)</strong><span>Vendor assessments and ongoing monitoring.</span></div></a>
-                      </div>
-                      <div class="cs-mega-col">
-                        <span class="cs-mega-col-label">Intelligence</span>
-                        <a class="cs-mega-feat-card" href="cloudsignals-vision-ai.html"><i class="fas fa-brain"></i><div><strong>Vision AI &amp; Narratives</strong><span>GenAI risk summaries, AI chat, and model insights.</span></div></a>
-                        <a class="cs-mega-feat-card" href="ai-inspector.html"><i class="fas fa-satellite-dish"></i><div><strong>AI Signals&trade; Integration</strong><span>LLM telemetry as security-native compliance signals.</span></div></a>
-                      </div>
-                    </div>
-                    <div class="cs-mega-ftr">
-                      <a href="cspm-cloudsignals.html" class="cs-mega-ftr-link">Product overview &rarr;</a>
-                      <div class="cs-mega-ftr-ctas">
-                        <a href="cloudsignals-pricing.html" class="cs-mega-btn-primary">Compare plans &amp; pricing</a>
-                        <a href="request-demo.html" class="cs-mega-btn-ghost">Request a demo</a>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="dropdown"><a href="#">Portfolio</a>
-                  <div class="megamenu">
-                    <div class="mega-tabs" role="tablist">
-                      <button class="mega-tab is-active" type="button" data-mega-tab="solution" role="tab" aria-selected="true">By Solution</button>
-                      <button class="mega-tab" type="button" data-mega-tab="usecase" role="tab" aria-selected="false">By Use Case</button>
-                    </div>
-                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="solution" data-mega-active="defense" role="tabpanel">
-                      <div class="mega-rail mega-rail-stack">
-                        <button class="mega-stack-card is-active" type="button" data-mega-target="defense"><h4>Defense</h4><p>A suite of solutions used to defend your organization from cyber threats.</p><a class="mega-link" href="solutions-portal.html#defense">View all products -></a></button>
-                        <button class="mega-stack-card" type="button" data-mega-target="offense"><h4>Offense</h4><p>A suite that continuously simulates attacks across your digital ecosystem.</p><a class="mega-link" href="solutions-portal.html#offense">View all products -></a></button>
-                        <button class="mega-stack-card" type="button" data-mega-target="vision"><h4>Vision</h4><p>Holistic context across the AiVRIC ecosystem and your environments.</p><a class="mega-link" href="solutions-portal.html#vision">View all products -></a></button>
-                      </div>
-                      <div class="mega-grid">
-                        <a class="mega-card" data-mega-category="defense" href="cspm-cloudsignals.html"><strong>CloudSignals+ RiskOps&trade;</strong><span>Scan all your cloud platform configs.</span></a>
-                        <a class="mega-card" data-mega-category="defense" href="ai-inspector.html"><strong>AI Signals&trade;</strong><span>LLM observability, evaluations, and prompt management for AI apps.</span></a>
-                        <a class="mega-card" data-mega-category="defense" href="air-remediation.html"><strong>AIRE Agentic Mesh&trade;</strong><span>Agentic role-based remediation agents.</span></a>
-                        <a class="mega-card" data-mega-category="offense" href="rogueagent.html"><strong>RogueAgent ASPM&trade;</strong><span>Analyze cloud posture using a risk lens.</span></a>
-                        <a class="mega-card" data-mega-category="vision" href="aivric-vision-professional.html"><strong>Vision AI Optics&trade;</strong><span>OpenAI-driven AI risk analysis and reporting.</span></a>
-                      </div>
-                    </div>
-                    <div class="mega-panel mega-panel-static" data-mega-tabpanel="usecase" data-mega-active="compliance" role="tabpanel" hidden>
-                      <div class="mega-rail mega-rail-stack">
-                        <button class="mega-stack-card is-active" type="button" data-mega-target="compliance"><h4>Compliance</h4><p>Framework-ready controls and audit automation.</p><a class="mega-link" href="use-cases-portal.html#compliance">View all frameworks -></a></button>
-                        <button class="mega-stack-card" type="button" data-mega-target="riskops"><h4>Risk Ops</h4><p>Continuous risk operations and response alignment.</p><a class="mega-link" href="use-cases-portal.html#riskops">View all programs -></a></button>
-                        <button class="mega-stack-card" type="button" data-mega-target="productops"><h4>Product Ops</h4><p>Security and compliance built into delivery workflows.</p><a class="mega-link" href="use-cases-portal.html#productops">View all playbooks -></a></button>
-                      </div>
-                      <div class="mega-grid">
-                        <a class="mega-card" data-mega-category="compliance" href="streamline-soc2.html"><strong>SOC 2 Type II</strong><span>Measure compliance against the SOC 2 Trust Service Principles.</span></a>
-                        <a class="mega-card" data-mega-category="compliance" href="achieve-pci-dss.html"><strong>PCI-DSS</strong><span>Continuous validation for PCI requirements and evidence.</span></a>
-                        <a class="mega-card" data-mega-category="compliance" href="cmmc-readiness.html"><strong>CMMC</strong><span>Readiness workflows for CMMC Level 2 assessments.</span></a>
-                        <a class="mega-card" data-mega-category="riskops" href="issues-poams.html"><strong>Issues and POA&Ms</strong><span>Track issues, milestones, and remediation plans.</span></a>
-                        <a class="mega-card" data-mega-category="riskops" href="security-exceptions.html"><strong>Security Exceptions</strong><span>Document approved exceptions with guardrails.</span></a>
-                        <a class="mega-card" data-mega-category="riskops" href="threat-analysis.html"><strong>Threat Analysis</strong><span>Surface high-impact risks across environments.</span></a>
-                        <a class="mega-card" data-mega-category="productops" href="use-case-github-security.html"><strong>DevSecOps</strong><span>Secure Github repos and delivery workflows.</span></a>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li><a href="integrations.html" style="color:var(--accent,#10b2e8)!important;font-weight:700;">Integrations</a></li>
-                <li class="dropdown"><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Resources</a>
-                  <ul>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="why-aivric.html">Why AiVRIC</a></li>
-                    <li><a href="blog-portal.html">Blog</a></li>
-                  </ul>
-                </li>
-              </ul>
+      </div>
+    </div>
+    <div class="header-lower">
+      <div class="auto-container">
+        <div class="outer-box">
+          <div class="logo-box">
+            <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure>
+          </div>
+          <div class="menu-area clearfix">
+            <div class="mobile-nav-toggler">
+              <i class="icon-bar"></i><i class="icon-bar"></i><i class="icon-bar"></i>
             </div>
-          </nav>
+            <nav class="main-menu navbar-expand-md navbar-light">
+              <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+                <ul class="navigation clearfix">
+                  <li class="dropdown platform-menu"><a href="services.html">Platform</a>
+                    <div class="platform-megamenu">
+                      <div class="platform-grid">
+                        <a class="platform-card" href="genai-chat.html"><h4>GenAI Chat</h4><p>Fabric intelligence chat across every AiVRIC solution.</p><span>view more</span></a>
+                        <a class="platform-card" href="shared-data-layer.html"><h4>Shared Data Layer</h4><p>The Fabric data layer unifies telemetry and evidence.</p><span>view more</span></a>
+                        <a class="platform-card" href="agentic-design.html"><h4>Agentic Design</h4><p>Fabric agents coordinate actions across suites.</p><span>view more</span></a>
+                        <a class="platform-card" href="efficient-compute.html"><h4>Efficient Compute</h4><p>Fabric compute optimizes AI workloads end-to-end.</p><span>view more</span></a>
+                        <a class="platform-card" href="data-localization.html"><h4>Data Localization</h4><p>Fabric residency controls govern every dataset.</p><span>view more</span></a>
+                        <a class="platform-card" href="ai-model-inspection.html"><h4>AI Model Inspection</h4><p>Fabric inspection monitors AI models and risk.</p><span>view more</span></a>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="dropdown cs-product-menu"><a href="cspm-cloudsignals.html">CloudSignals+RiskOps</a>
+                    <div class="cs-product-megamenu">
+                      <div class="cs-mega-hdr">
+                        <div class="cs-mega-hdr-info">
+                          <span class="cs-mega-status"><span class="cs-avail-dot"></span>Available Now</span>
+                          <h3>CloudSignals+RiskOps&trade;</h3>
+                          <p>AI-native cloud security posture, risk operations, and continuous compliance &mdash; in one platform.</p>
+                        </div>
+                        <a href="cloudsignals-pricing.html" class="cs-mega-pricing-cta">Compare plans &amp; pricing &rarr;</a>
+                      </div>
+                      <div class="cs-mega-body">
+                        <div class="cs-mega-col">
+                          <span class="cs-mega-col-label">Posture &amp; Discovery</span>
+                          <a class="cs-mega-feat-card" href="cloudsignals-cspm.html"><i class="fas fa-cloud"></i><div><strong>Multi-Cloud CSPM</strong><span>Scan AWS, Azure, GCP, and OCI posture in real time.</span></div></a>
+                          <a class="cs-mega-feat-card" href="cloudsignals-findings.html"><i class="fas fa-exclamation-triangle"></i><div><strong>Findings &amp; Risk Signals</strong><span>Prioritized risk signals with business-context scoring.</span></div></a>
+                        </div>
+                        <div class="cs-mega-col">
+                          <span class="cs-mega-col-label">Risk &amp; Compliance</span>
+                          <a class="cs-mega-feat-card" href="cloudsignals-risk-register.html"><i class="fas fa-clipboard-list"></i><div><strong>Risk Register &amp; RiskOps</strong><span>GRC-grade risk records, treatments, and portfolio exposure.</span></div></a>
+                          <a class="cs-mega-feat-card" href="cloudsignals-compliance.html"><i class="fas fa-shield-alt"></i><div><strong>Continuous Compliance</strong><span>SOC 2, ISO 27001, PCI-DSS, CMMC, HIPAA.</span></div></a>
+                          <a class="cs-mega-feat-card" href="cloudsignals-tprm.html"><i class="fas fa-handshake"></i><div><strong>Third-Party Risk (TPRM)</strong><span>Vendor assessments and ongoing monitoring.</span></div></a>
+                        </div>
+                        <div class="cs-mega-col">
+                          <span class="cs-mega-col-label">Intelligence</span>
+                          <a class="cs-mega-feat-card" href="cloudsignals-vision-ai.html"><i class="fas fa-brain"></i><div><strong>Vision AI &amp; Narratives</strong><span>GenAI risk summaries, AI chat, and model insights.</span></div></a>
+                          <a class="cs-mega-feat-card" href="ai-inspector.html"><i class="fas fa-satellite-dish"></i><div><strong>AI Signals&trade; Integration</strong><span>LLM telemetry as security-native compliance signals.</span></div></a>
+                        </div>
+                      </div>
+                      <div class="cs-mega-ftr">
+                        <a href="cspm-cloudsignals.html" class="cs-mega-ftr-link">Product overview &rarr;</a>
+                        <div class="cs-mega-ftr-ctas">
+                          <a href="cloudsignals-pricing.html" class="cs-mega-btn-primary">Compare plans &amp; pricing</a>
+                          <a href="request-demo.html" class="cs-mega-btn-ghost">Request a demo</a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="dropdown"><a href="#">Portfolio</a>
+                    <div class="megamenu">
+                      <div class="mega-tabs" role="tablist">
+                        <button class="mega-tab is-active" type="button" data-mega-tab="solution" role="tab" aria-selected="true">By Solution</button>
+                        <button class="mega-tab" type="button" data-mega-tab="usecase" role="tab" aria-selected="false">By Use Case</button>
+                      </div>
+                      <div class="mega-panel mega-panel-static" data-mega-tabpanel="solution" data-mega-active="defense" role="tabpanel">
+                        <div class="mega-rail mega-rail-stack">
+                          <button class="mega-stack-card is-active" type="button" data-mega-target="defense"><h4>Defense</h4><p>A suite of solutions used to defend your organization from cyber threats.</p><a class="mega-link" href="solutions-portal.html#defense">View all products -></a></button>
+                          <button class="mega-stack-card" type="button" data-mega-target="offense"><h4>Offense</h4><p>A suite that continuously simulates attacks across your digital ecosystem.</p><a class="mega-link" href="solutions-portal.html#offense">View all products -></a></button>
+                          <button class="mega-stack-card" type="button" data-mega-target="vision"><h4>Vision</h4><p>Holistic context across the AiVRIC ecosystem and your environments.</p><a class="mega-link" href="solutions-portal.html#vision">View all products -></a></button>
+                        </div>
+                        <div class="mega-grid">
+                          <a class="mega-card" data-mega-category="defense" href="cspm-cloudsignals.html"><strong>CloudSignals+ RiskOps&trade;</strong><span>Scan all your cloud platform configs.</span></a>
+                          <a class="mega-card" data-mega-category="defense" href="ai-inspector.html"><strong>AI Signals&trade;</strong><span>LLM observability, evaluations, and prompt management for AI apps.</span></a>
+                          <a class="mega-card" data-mega-category="defense" href="air-remediation.html"><strong>AIRE Agentic Mesh&trade;</strong><span>Agentic role-based remediation agents.</span></a>
+                          <a class="mega-card" data-mega-category="offense" href="rogueagent.html"><strong>RogueAgent ASPM&trade;</strong><span>Analyze cloud posture using a risk lens.</span></a>
+                          <a class="mega-card" data-mega-category="vision" href="aivric-vision-professional.html"><strong>Vision AI Optics&trade;</strong><span>OpenAI-driven AI risk analysis and reporting.</span></a>
+                        </div>
+                      </div>
+                      <div class="mega-panel mega-panel-static" data-mega-tabpanel="usecase" data-mega-active="compliance" role="tabpanel" hidden>
+                        <div class="mega-rail mega-rail-stack">
+                          <button class="mega-stack-card is-active" type="button" data-mega-target="compliance"><h4>Compliance</h4><p>Framework-ready controls and audit automation.</p><a class="mega-link" href="use-cases-portal.html#compliance">View all frameworks -></a></button>
+                          <button class="mega-stack-card" type="button" data-mega-target="riskops"><h4>Risk Ops</h4><p>Continuous risk operations and response alignment.</p><a class="mega-link" href="use-cases-portal.html#riskops">View all programs -></a></button>
+                          <button class="mega-stack-card" type="button" data-mega-target="productops"><h4>Product Ops</h4><p>Security and compliance built into delivery workflows.</p><a class="mega-link" href="use-cases-portal.html#productops">View all playbooks -></a></button>
+                        </div>
+                        <div class="mega-grid">
+                          <a class="mega-card" data-mega-category="compliance" href="streamline-soc2.html"><strong>SOC 2 Type II</strong><span>Measure compliance against the SOC 2 Trust Service Principles.</span></a>
+                          <a class="mega-card" data-mega-category="compliance" href="achieve-pci-dss.html"><strong>PCI-DSS</strong><span>Continuous validation for PCI requirements and evidence.</span></a>
+                          <a class="mega-card" data-mega-category="compliance" href="cmmc-readiness.html"><strong>CMMC</strong><span>Readiness workflows for CMMC Level 2 assessments.</span></a>
+                          <a class="mega-card" data-mega-category="riskops" href="issues-poams.html"><strong>Issues and POA&Ms</strong><span>Track issues, milestones, and remediation plans.</span></a>
+                          <a class="mega-card" data-mega-category="riskops" href="security-exceptions.html"><strong>Security Exceptions</strong><span>Document approved exceptions with guardrails.</span></a>
+                          <a class="mega-card" data-mega-category="riskops" href="threat-analysis.html"><strong>Threat Analysis</strong><span>Surface high-impact risks across environments.</span></a>
+                          <a class="mega-card" data-mega-category="productops" href="use-case-github-security.html"><strong>DevSecOps</strong><span>Secure Github repos and delivery workflows.</span></a>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li><a href="integrations.html" style="color:var(--cs-cyan)!important;font-weight:700;">Integrations</a></li>
+                  <li class="dropdown"><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Resources</a>
+                    <ul>
+                      <li><a href="pricing.html">Pricing</a></li>
+                      <li><a href="about.html">About Us</a></li>
+                      <li><a href="why-aivric.html">Why AiVRIC</a></li>
+                      <li><a href="blog-portal.html">Blog</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+          <ul class="menu-right-content">
+            <li class="search-box-outer search-toggler"><i class="icon-4"></i></li>
+            <li class="btn-box"><a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-one">Launch for Free</a></li>
+          </ul>
         </div>
-        <ul class="menu-right-content">
-          <li class="search-box-outer search-toggler"><i class="icon-4"></i></li>
-          <li class="btn-box"><a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-one">Launch for Free</a></li>
-        </ul>
       </div>
     </div>
-  </div>
-  <div class="sticky-header">
-    <div class="auto-container">
-      <div class="outer-box">
-        <div class="logo-box"><figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC Logo"></a></figure></div>
-        <div class="menu-area clearfix"><nav class="main-menu clearfix"><!--Menu via JS--></nav></div>
-        <ul class="menu-right-content">
-          <li class="search-box-outer search-toggler"><i class="icon-4"></i></li>
-          <li class="btn-box"><a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-two">Launch for Free</a></li>
-        </ul>
+
+    <!--sticky Header-->
+    <div class="sticky-header">
+      <div class="auto-container">
+        <div class="outer-box">
+          <div class="logo-box">
+            <figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC Logo"></a></figure>
+          </div>
+          <div class="menu-area clearfix">
+            <nav class="main-menu clearfix"><!--Keep This Empty / Menu will come through Javascript--></nav>
+          </div>
+          <ul class="menu-right-content">
+            <li class="search-box-outer search-toggler"><i class="icon-4"></i></li>
+            <li class="btn-box"><a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="theme-btn-two">Launch for Free</a></li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
+  <!-- main-header end -->
 
-<!-- Mobile Menu -->
-<div class="mobile-menu">
-  <div class="menu-backdrop"></div>
-  <div class="close-btn" role="button" tabindex="0" aria-label="Close menu"><i class="fas fa-times"></i></div>
-  <nav class="menu-box">
-    <div class="nav-logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" title=""></a></div>
-    <div class="menu-outer"><!--Menu via JS--></div>
-    <div class="contact-info">
-      <h4>Contact Info</h4>
-      <ul><li>Wilmington, Delaware USA</li><li><a href="tel:+19543426637">+1 9543426637</a></li><li><a href="mailto:info@aivric.com">info@aivric.com</a></li></ul>
-    </div>
-    <div class="social-links">
-      <ul class="clearfix">
-        <li><a href="https://x.com/aivric"><span class="fab fa-twitter"></span></a></li>
-        <li><a href="https://www.facebook.com/profile.php?id=61581937785235"><span class="fab fa-facebook-square"></span></a></li>
-        <li><a href="https://www.instagram.com/aivrictechnologies/"><span class="fab fa-instagram"></span></a></li>
-      </ul>
-    </div>
-  </nav>
-</div>
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <div class="menu-backdrop"></div>
+    <div class="close-btn" role="button" tabindex="0" aria-label="Close menu"><i class="fas fa-times"></i></div>
+    <nav class="menu-box">
+      <div class="nav-logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" title=""></a></div>
+      <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+      <div class="contact-info">
+        <h4>Contact Info</h4>
+        <ul>
+          <li>Wilmington, Delaware USA</li>
+          <li><a href="tel:+19543426637">+1 9543426637</a></li>
+          <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+        </ul>
+      </div>
+      <div class="social-links">
+        <ul class="clearfix">
+          <li><a href="https://x.com/aivric"><span class="fab fa-twitter"></span></a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=61581937785235"><span class="fab fa-facebook-square"></span></a></li>
+          <li><a href="https://www.instagram.com/aivrictechnologies/"><span class="fab fa-instagram"></span></a></li>
+          <li><a href="https://www.linkedin.com/company/aivric"><span class="fab fa-linkedin"></span></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div><!-- End Mobile Menu -->
 
-<!-- ═══ HERO ══════════════════════════════════════════════════════════ -->
-<section class="int-hero">
-  <div class="auto-container">
-    <div class="int-badge"><i class="fas fa-plug"></i> Integrations &amp; Ecosystem Compatibility</div>
-    <h1 class="int-h1">AiVRIC works with the platforms<br>enterprises already own.</h1>
-    <p class="int-sub">AiVRIC is designed as an operational intelligence layer, not a rip-and-replace platform. It integrates with your existing cloud providers, security tools, GRC systems, Microsoft 365 environment, ITSM workflows, SIEM infrastructure, and AI automation stack — amplifying their value and connecting their signals into governed decisions and audit-ready evidence.</p>
-    <div class="int-actions">
-      <a class="btn-clean primary" href="#ecosystem"><i class="fas fa-layer-group"></i> Browse Ecosystem</a>
-      <a class="btn-clean" href="#m365"><i class="fab fa-microsoft"></i> Microsoft 365 Integration</a>
-      <a class="btn-clean" href="#coexistence"><i class="fas fa-handshake"></i> Competitive Coexistence</a>
-      <a class="btn-clean" href="request-demo.html"><i class="fas fa-calendar-check"></i> Request a Demo</a>
-    </div>
-    <div class="int-points">
-      <div class="int-point"><i class="fas fa-check-circle"></i><span><strong>Amplify existing investments:</strong> extend Wiz, Prisma, Defender, and OneTrust with operational intelligence without replacing them.</span></div>
-      <div class="int-point"><i class="fas fa-check-circle"></i><span><strong>Microsoft 365 as a risk workspace:</strong> route approvals through Teams, store evidence in SharePoint, report in Power BI.</span></div>
-      <div class="int-point"><i class="fas fa-check-circle"></i><span><strong>Land and expand:</strong> start with cloud posture or GRC and expand across the full enterprise risk intelligence stack.</span></div>
-      <div class="int-point"><i class="fas fa-check-circle"></i><span><strong>Govern agentic automation:</strong> MCP trust boundaries, AI activity lineage, and deterministic policy gates for every workflow.</span></div>
-    </div>
-  </div>
-</section>
 
-<!-- ═══ ECOSYSTEM INTEGRATIONS ═══════════════════════════════════════ -->
-<section id="ecosystem" class="section">
-  <div class="auto-container">
-    <span class="section-eyebrow">Ecosystem Coverage</span>
-    <h2 class="section-title">Integrations by category</h2>
-    <p class="section-sub">AiVRIC supports integrations across cloud platforms, security tools, GRC systems, Microsoft 365, AI and MCP environments, DevOps, ITSM, SIEM, analytics, and collaboration. Integration types range from active data connectors to signal ingestion to workflow routing and evidence delivery.</p>
+  <main class="cs-product-page">
 
-    <nav class="cat-nav" aria-label="Integration categories">
-      <a href="#cloud" class="cat-pill"><i class="fas fa-cloud"></i> Cloud Platforms</a>
-      <a href="#security" class="cat-pill"><i class="fas fa-shield-alt"></i> Security Platforms</a>
-      <a href="#grc" class="cat-pill"><i class="fas fa-clipboard-list"></i> GRC Platforms</a>
-      <a href="#m365" class="cat-pill"><i class="fab fa-microsoft"></i> Microsoft Ecosystem</a>
-      <a href="#ai-mcp" class="cat-pill"><i class="fas fa-robot"></i> AI &amp; MCP</a>
-      <a href="#devops" class="cat-pill"><i class="fas fa-code-branch"></i> DevOps &amp; ITSM</a>
-      <a href="#siem" class="cat-pill"><i class="fas fa-wave-square"></i> SIEM / SOAR</a>
-      <a href="#data" class="cat-pill"><i class="fas fa-chart-bar"></i> Data &amp; BI</a>
-      <a href="#collab" class="cat-pill"><i class="fas fa-comments"></i> Collaboration</a>
+    <!-- ═══════════════════════ HERO ═══════════════════════ -->
+    <section class="csp-hero" id="top">
+      <div class="auto-container">
+
+        <nav aria-label="breadcrumb" style="margin-bottom:20px;">
+          <ol style="list-style:none;padding:0;margin:0;display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--cs-faint);">
+            <li><a href="index.html" style="color:var(--cs-faint);text-decoration:none;">Home</a></li>
+            <li style="color:var(--cs-line-strong);">/</li>
+            <li style="color:var(--cs-cyan);">Integrations &amp; Ecosystem</li>
+          </ol>
+        </nav>
+
+        <div class="csp-badge">
+          <span class="live-dot"></span>
+          Integration-First Platform &nbsp;&middot;&nbsp; Works With Your Existing Stack
+        </div>
+
+        <h1 class="csp-title" style="max-width:820px;">AiVRIC works with the<br><span style="color:var(--cs-cyan);">platforms you already own.</span></h1>
+
+        <p class="csp-sub">Connect your cloud security, GRC, Microsoft 365, ITSM, SIEM, and AI tooling into a single continuous risk intelligence and remediation layer — without replacing what's already working.</p>
+
+        <div class="csp-actions">
+          <a href="cspm-cloudsignals.html" class="cs-btn primary"><i class="fas fa-play"></i> See CloudSignals+RiskOps</a>
+          <a href="request-demo.html" class="cs-btn secondary"><i class="fas fa-calendar-alt"></i> Request a Demo</a>
+          <a href="#coexistence" class="cs-btn ghost"><i class="fas fa-puzzle-piece"></i> How We Coexist</a>
+        </div>
+
+        <div class="int-points-row">
+          <div class="int-vp">
+            <div class="int-vp-icon"><i class="fas fa-puzzle-piece"></i></div>
+            <div><strong>Additive, not disruptive</strong><span>Amplifies Wiz, Prisma Cloud, and OneTrust — doesn't replace them.</span></div>
+          </div>
+          <div class="int-vp">
+            <div class="int-vp-icon" style="background:rgba(46,229,157,.10);border-color:rgba(46,229,157,.22);color:var(--cs-green);"><i class="fab fa-microsoft"></i></div>
+            <div><strong>Microsoft 365 native</strong><span>Risk findings surface directly in Teams, SharePoint, and Power BI.</span></div>
+          </div>
+          <div class="int-vp">
+            <div class="int-vp-icon" style="background:rgba(255,214,58,.10);border-color:rgba(255,214,58,.22);color:var(--cs-gold);"><i class="fas fa-robot"></i></div>
+            <div><strong>Agentic &amp; MCP-ready</strong><span>AI agents with deterministic policy gates and HITL approvals.</span></div>
+          </div>
+          <div class="int-vp">
+            <div class="int-vp-icon" style="background:rgba(167,139,250,.10);border-color:rgba(167,139,250,.22);color:var(--cs-purple);"><i class="fas fa-shield-alt"></i></div>
+            <div><strong>350+ cloud checks</strong><span>AWS, Azure, GCP, OCI — continuous posture across all providers.</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ CATEGORY NAV ═══════════════════════ -->
+    <nav class="int-cat-nav" aria-label="Integration categories">
+      <div class="auto-container">
+        <div class="int-cat-pills">
+          <a href="#cloud" class="int-cat-pill"><i class="fas fa-cloud"></i> Cloud Infrastructure</a>
+          <a href="#security" class="int-cat-pill"><i class="fas fa-shield-alt"></i> Security Platforms</a>
+          <a href="#grc" class="int-cat-pill"><i class="fas fa-clipboard-list"></i> GRC &amp; Compliance</a>
+          <a href="#m365" class="int-cat-pill active"><i class="fab fa-microsoft"></i> Microsoft 365</a>
+          <a href="#ai-mcp" class="int-cat-pill"><i class="fas fa-robot"></i> AI &amp; Agentic</a>
+          <a href="#devops" class="int-cat-pill"><i class="fas fa-code-branch"></i> DevOps &amp; ITSM</a>
+          <a href="#siem" class="int-cat-pill"><i class="fas fa-satellite-dish"></i> SIEM &amp; Analytics</a>
+          <a href="#coexistence" class="int-cat-pill"><i class="fas fa-puzzle-piece"></i> Coexistence</a>
+          <a href="#frameworks" class="int-cat-pill"><i class="fas fa-file-alt"></i> Frameworks</a>
+        </div>
+      </div>
     </nav>
 
-    <!-- ── Cloud Platforms ── -->
-    <div id="cloud">
-      <div class="cat-hdr">
-        <div class="cat-hdr-icon"><i class="fas fa-cloud"></i></div>
-        <div><h3>Cloud Platforms</h3><span>Continuous posture scanning, identity review, and compliance evidence across major cloud providers</span></div>
-      </div>
-      <div class="int-grid">
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#f90;font-size:22px;"><i class="fab fa-aws"></i></div>
-            <span class="int-tag">Cloud</span>
-          </div>
-          <h3>Amazon Web Services</h3>
-          <p>Assess cloud security posture, identity and access controls, and configuration drift across AWS accounts, regions, and organizations with 200+ native checks.</p>
-          <div class="int-meta"><span><i class="fas fa-bolt"></i> Scheduled scans</span><span><i class="fas fa-file-export"></i> Evidence export</span><span class="int-status live">Live</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#0078d4;font-size:22px;"><i class="fab fa-microsoft"></i></div>
-            <span class="int-tag">Cloud</span>
-          </div>
-          <h3>Microsoft Azure</h3>
-          <p>Evaluate Azure subscriptions, identity configurations, and platform security controls to maintain a hardened cloud baseline with continuous drift detection.</p>
-          <div class="int-meta"><span><i class="fas fa-user-shield"></i> IAM insights</span><span><i class="fas fa-chart-line"></i> Trends</span><span class="int-status live">Live</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#4285f4;font-size:20px;"><i class="fab fa-google"></i></div>
-            <span class="int-tag">Cloud</span>
-          </div>
-          <h3>Google Cloud (GCP)</h3>
-          <p>Continuously validate cloud configuration, policy alignment, and risk exposure across GCP projects, folders, and organizations.</p>
-          <div class="int-meta"><span><i class="fas fa-project-diagram"></i> Project coverage</span><span><i class="fas fa-clipboard-check"></i> Compliance overlays</span><span class="int-status live">Live</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#c74634;font-size:18px;"><i class="fas fa-cloud"></i></div>
-            <span class="int-tag">Cloud</span>
-          </div>
-          <h3>Oracle Cloud (OCI)</h3>
-          <p>Extend posture management to Oracle Cloud Infrastructure with native configuration checks and compliance framework alignment.</p>
-          <div class="int-meta"><span><i class="fas fa-server"></i> Posture checks</span><span><i class="fas fa-shield-alt"></i> Hardening</span><span class="int-status live">Live</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#326ce5;font-size:20px;"><i class="fas fa-cubes"></i></div>
-            <span class="int-tag">Cloud-native</span>
-          </div>
-          <h3>Kubernetes</h3>
-          <p>Improve workload security and cluster hardening with policy checks aligned to cloud-native security baselines and Kubernetes RBAC governance.</p>
-          <div class="int-meta"><span><i class="fas fa-cubes"></i> Cluster posture</span><span><i class="fas fa-shield-alt"></i> Hardening guidance</span><span class="int-status live">Live</span></div>
-        </div>
-      </div>
-    </div>
 
-    <!-- ── Security Platforms ── -->
-    <div id="security">
-      <div class="cat-hdr">
-        <div class="cat-hdr-icon" style="background:rgba(248,113,113,.08);border-color:rgba(248,113,113,.2);color:#c0392b;"><i class="fas fa-shield-alt"></i></div>
-        <div><h3>Security Platforms</h3><span>Ingest and operationalize findings from existing security tooling into governed workflows and evidence pipelines</span></div>
+    <!-- ═══════════════════════ CLOUD INFRASTRUCTURE ═══════════════════════ -->
+    <section class="csp-section" id="cloud">
+      <div class="auto-container">
+        <div class="int-sec-hdr">
+          <div class="int-sec-hdr-icon cyan"><i class="fas fa-cloud"></i></div>
+          <div>
+            <h2>Cloud Infrastructure</h2>
+            <p>Native connectors across all major cloud providers — continuous posture scanning from day one.</p>
+          </div>
+        </div>
+        <div class="int-grid">
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#f90;font-size:22px;"><i class="fab fa-aws"></i></div>
+              <span class="int-status live">Live</span>
+            </div>
+            <h4>Amazon Web Services</h4>
+            <p>Scan IAM, S3, EC2, RDS, Lambda, and 200+ services. Auto-discovers accounts via Organizations.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#0078d4;font-size:20px;"><i class="fab fa-microsoft"></i></div>
+              <span class="int-status live">Live</span>
+            </div>
+            <h4>Microsoft Azure</h4>
+            <p>Subscriptions, resource groups, RBAC, network configs, Key Vault, and Entra ID posture.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#4285f4;font-size:20px;"><i class="fab fa-google"></i></div>
+              <span class="int-status live">Live</span>
+            </div>
+            <h4>Google Cloud Platform</h4>
+            <p>GKE, Compute Engine, Cloud Storage, IAM, and VPC scanning across projects and folders.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#f80000;font-size:18px;"><i class="fas fa-database"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>Oracle Cloud (OCI)</h4>
+            <p>Compartments, VCN, storage, identity policies, and security list assessments.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#326ce5;font-size:20px;"><i class="fas fa-dharmachakra"></i></div>
+              <span class="int-status live">Live</span>
+            </div>
+            <h4>Kubernetes</h4>
+            <p>RBAC misconfigs, pod security policies, exposed dashboards, and workload privilege escalation paths.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#2496ed;font-size:20px;"><i class="fab fa-docker"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>Container Registries</h4>
+            <p>ACR, ECR, GCR — image metadata and misconfiguration signals ingested alongside posture data.</p>
+          </div>
+        </div>
       </div>
-      <div class="int-grid">
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#6366f1;font-size:20px;"><i class="fas fa-eye"></i></div>
-            <span class="int-tag red">Security</span>
-          </div>
-          <h3>Wiz</h3>
-          <p>Ingest Wiz cloud security findings and vulnerability signals into AiVRIC's RiskOps layer. Connect cloud risk to governance workflows, remediation ownership, and audit evidence &mdash; without replacing Wiz.</p>
-          <div class="int-meta"><span><i class="fas fa-download"></i> Finding ingestion</span><span><i class="fas fa-route"></i> Remediation routing</span><span class="int-status planned">Planned</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#e05c00;font-size:18px;"><i class="fas fa-fire-alt"></i></div>
-            <span class="int-tag red">Security</span>
-          </div>
-          <h3>Prisma Cloud (Palo Alto)</h3>
-          <p>Connect Prisma Cloud CSPM and workload protection findings to AiVRIC's risk register. Normalize multi-cloud findings into unified risk scoring and compliance evidence.</p>
-          <div class="int-meta"><span><i class="fas fa-exchange-alt"></i> Signal normalization</span><span><i class="fas fa-file-alt"></i> Evidence packaging</span><span class="int-status planned">Planned</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#0078d4;font-size:20px;"><i class="fas fa-shield-virus"></i></div>
-            <span class="int-tag red">Security</span>
-          </div>
-          <h3>Microsoft Defender for Cloud</h3>
-          <p>Extend Defender findings with AiVRIC's RiskOps governance layer. Route security recommendations to remediation owners, track SLAs, and generate compliance evidence automatically.</p>
-          <div class="int-meta"><span><i class="fas fa-tasks"></i> Recommendation routing</span><span><i class="fas fa-clock"></i> SLA tracking</span><span class="int-status live">Supported</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#0078d4;font-size:18px;"><i class="fas fa-satellite-dish"></i></div>
-            <span class="int-tag red">Security</span>
-          </div>
-          <h3>Microsoft Sentinel</h3>
-          <p>Feed AiVRIC posture and compliance signals into Sentinel for SOC visibility. Surface governance context alongside threat detection data for unified security operations.</p>
-          <div class="int-meta"><span><i class="fas fa-bell"></i> Alert alignment</span><span><i class="fas fa-chart-pie"></i> SOC reporting</span><span class="int-status live">Supported</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#0f4c96;font-size:20px;"><i class="fas fa-search"></i></div>
-            <span class="int-tag red">SIEM</span>
-          </div>
-          <h3>Microsoft Purview</h3>
-          <p>Connect AiVRIC data governance workflows with Microsoft Purview for unified data classification, compliance reporting, and information protection across the M365 estate.</p>
-          <div class="int-meta"><span><i class="fas fa-database"></i> Data governance</span><span><i class="fas fa-tag"></i> Classification</span><span class="int-status planned">Planned</span></div>
-        </div>
-      </div>
-    </div>
+    </section>
 
-    <!-- ── GRC Platforms ── -->
-    <div id="grc">
-      <div class="cat-hdr">
-        <div class="cat-hdr-icon" style="background:rgba(167,139,250,.09);border-color:rgba(167,139,250,.22);color:#7c3aed;"><i class="fas fa-clipboard-list"></i></div>
-        <div><h3>GRC Platforms</h3><span>Layer continuous RiskOps and evidence automation on existing GRC investments — no replacement required</span></div>
-      </div>
-      <div class="int-grid">
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#7c3aed;font-size:20px;"><i class="fas fa-balance-scale"></i></div>
-            <span class="int-tag purple">GRC</span>
-          </div>
-          <h3>OneTrust</h3>
-          <p>Layer AiVRIC continuous RiskOps on top of OneTrust GRC. Automate evidence collection, surface continuous compliance gaps, and feed structured risk data back into OneTrust workflows without a full migration.</p>
-          <div class="int-meta"><span><i class="fas fa-sync"></i> Continuous evidence</span><span><i class="fas fa-link"></i> Bi-directional sync</span><span class="int-status planned">Planned</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#0e7d25;font-size:20px;"><i class="fas fa-cog"></i></div>
-            <span class="int-tag purple">GRC / ITSM</span>
-          </div>
-          <h3>ServiceNow GRC</h3>
-          <p>Integrate AiVRIC risk signals with ServiceNow GRC module. Route findings to risk owners, update control evidence, and trigger remediation workflows within existing ServiceNow processes.</p>
-          <div class="int-meta"><span><i class="fas fa-route"></i> Risk routing</span><span><i class="fas fa-clipboard-check"></i> Control updates</span><span class="int-status planned">Planned</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#5b6b83;font-size:20px;"><i class="fas fa-table"></i></div>
-            <span class="int-tag purple">GRC</span>
-          </div>
-          <h3>Manual Evidence &amp; Spreadsheets</h3>
-          <p>Replace or augment spreadsheet-based evidence collection. AiVRIC automates control evidence generation, reducing manual prep time and improving audit trail quality.</p>
-          <div class="int-meta"><span><i class="fas fa-file-export"></i> Automated exports</span><span><i class="fas fa-check-double"></i> Audit-ready format</span><span class="int-status live">Live</span></div>
-        </div>
-      </div>
-    </div>
+    <div class="csp-divider"></div>
 
-    <!-- ── Microsoft Ecosystem ── -->
-    <div id="m365">
-      <div class="cat-hdr">
-        <div class="cat-hdr-icon" style="background:rgba(0,120,212,.09);border-color:rgba(0,120,212,.22);color:#0078d4;"><i class="fab fa-microsoft"></i></div>
-        <div><h3>Microsoft Ecosystem</h3><span>Turn Microsoft 365 into a continuous risk operations workspace for governance, evidence, and executive reporting</span></div>
+    <!-- ═══════════════════════ SECURITY PLATFORMS ═══════════════════════ -->
+    <section class="csp-section" id="security">
+      <div class="auto-container">
+        <div class="int-sec-hdr">
+          <div class="int-sec-hdr-icon green"><i class="fas fa-shield-alt"></i></div>
+          <div>
+            <h2>Security Platforms</h2>
+            <p>AiVRIC enriches findings from your existing security tools rather than replacing them.</p>
+          </div>
+        </div>
+        <div class="int-grid">
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#2ee59d;font-size:20px;"><i class="fas fa-eye"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>Wiz</h4>
+            <p>Ingest Wiz findings and issues into AiVRIC's risk register for GRC-layer enrichment, evidence mapping, and executive reporting.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#00a1e0;font-size:18px;"><i class="fas fa-cloud-upload-alt"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>Prisma Cloud</h4>
+            <p>Pull Prisma alerts and vulnerabilities into continuous compliance workflows and risk-ranked remediation queues.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#0078d4;font-size:20px;"><i class="fas fa-shield-virus"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>Microsoft Defender for Cloud</h4>
+            <p>Layer AiVRIC's compliance and risk framework on top of Defender findings to close the GRC gap.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#00b4d8;font-size:18px;"><i class="fas fa-search"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>Microsoft Sentinel</h4>
+            <p>Bi-directional signal flow: AiVRIC risk events to Sentinel, Sentinel alerts to AiVRIC risk register.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#0f62fe;font-size:18px;"><i class="fas fa-lock"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>Microsoft Purview</h4>
+            <p>Data classification and sensitivity labels from Purview inform AiVRIC data-risk posture and compliance scoring.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#a78bfa;font-size:18px;"><i class="fas fa-network-wired"></i></div>
+              <span class="int-status planned">Planned</span>
+            </div>
+            <h4>CrowdStrike Falcon</h4>
+            <p>Endpoint posture signals from Falcon to enrich cloud risk context and attack-path analysis.</p>
+          </div>
+        </div>
       </div>
-      <div class="int-grid">
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#6264a7;font-size:20px;"><i class="fas fa-comments"></i></div>
-            <span class="int-tag">Microsoft 365</span>
-          </div>
-          <h3>Microsoft Teams</h3>
-          <p>Route risk summaries, finding alerts, and remediation approvals directly into Teams channels and chats. Use Teams as the human-in-the-loop interface for AiVRIC agentic workflows.</p>
-          <div class="int-meta"><span><i class="fas fa-bell"></i> Alerts &amp; approvals</span><span><i class="fas fa-robot"></i> Agent callbacks</span><span class="int-status planned">Planned</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#0078d4;font-size:20px;"><i class="fas fa-folder-open"></i></div>
-            <span class="int-tag">Microsoft 365</span>
-          </div>
-          <h3>SharePoint</h3>
-          <p>Store AiVRIC-generated evidence packages, compliance exports, and audit reports directly in SharePoint libraries with structured metadata for auditor access and retention policies.</p>
-          <div class="int-meta"><span><i class="fas fa-archive"></i> Evidence storage</span><span><i class="fas fa-tags"></i> Metadata tagging</span><span class="int-status planned">Planned</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#f2c811;font-size:20px;"><i class="fas fa-chart-bar"></i></div>
-            <span class="int-tag">Microsoft 365</span>
-          </div>
-          <h3>Power BI</h3>
-          <p>Build tenant-specific executive risk dashboards using AiVRIC risk data in Power BI. Deliver board-ready compliance posture, trend analysis, and risk scoring to leadership without custom reporting effort.</p>
-          <div class="int-meta"><span><i class="fas fa-tachometer-alt"></i> Risk dashboards</span><span><i class="fas fa-chart-line"></i> Trend reporting</span><span class="int-status planned">Planned</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#0078d4;font-size:19px;"><i class="fas fa-search"></i></div>
-            <span class="int-tag">Microsoft 365</span>
-          </div>
-          <h3>Microsoft Purview</h3>
-          <p>Align AiVRIC compliance workflows with Purview data classification and information protection. Surface data governance gaps alongside cloud posture signals in a unified view.</p>
-          <div class="int-meta"><span><i class="fas fa-tag"></i> Data classification</span><span><i class="fas fa-lock"></i> Info protection</span><span class="int-status planned">Planned</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#0078d4;font-size:19px;"><i class="fas fa-id-card"></i></div>
-            <span class="int-tag">Identity</span>
-          </div>
-          <h3>Microsoft Entra ID</h3>
-          <p>Improve identity governance with Entra ID posture insights aligned to cloud security and compliance requirements. Support access reviews, least-privilege analysis, and conditional access reporting.</p>
-          <div class="int-meta"><span><i class="fas fa-id-badge"></i> Identity posture</span><span><i class="fas fa-user-lock"></i> Access reviews</span><span class="int-status live">Supported</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#00bcf2;font-size:18px;"><i class="fas fa-shield-alt"></i></div>
-            <span class="int-tag red">Security</span>
-          </div>
-          <h3>Microsoft Defender (M365)</h3>
-          <p>Ingest Microsoft Defender for M365 endpoint and identity signals into AiVRIC's risk register for unified posture scoring, remediation routing, and compliance evidence generation.</p>
-          <div class="int-meta"><span><i class="fas fa-desktop"></i> Endpoint signals</span><span><i class="fas fa-user-shield"></i> Identity risk</span><span class="int-status live">Supported</span></div>
-        </div>
-      </div>
-    </div>
+    </section>
 
-    <!-- ── AI & MCP ── -->
-    <div id="ai-mcp">
-      <div class="cat-hdr">
-        <div class="cat-hdr-icon" style="background:rgba(255,214,58,.09);border-color:rgba(255,214,58,.22);color:#b45309;"><i class="fas fa-robot"></i></div>
-        <div><h3>AI &amp; MCP Ecosystem</h3><span>Governance layer for GenAI workflows, MCP servers, and agentic automation environments</span></div>
-      </div>
-      <div class="int-grid">
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#d97706;font-size:20px;"><i class="fas fa-satellite-dish"></i></div>
-            <span class="int-tag gold">AI Governance</span>
-          </div>
-          <h3>AI Signals&trade; (LLM Telemetry)</h3>
-          <p>AiVRIC's native AI observability layer captures LLM traces, evaluation scores, prompt versions, and model call metadata across any OpenAI-compatible or Anthropic-based AI application.</p>
-          <div class="int-meta"><span><i class="fas fa-wave-square"></i> Traces &amp; evals</span><span><i class="fas fa-history"></i> Activity lineage</span><span class="int-status live">Live</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#7c3aed;font-size:20px;"><i class="fas fa-network-wired"></i></div>
-            <span class="int-tag gold">AI Governance</span>
-          </div>
-          <h3>MCP Protocol Support</h3>
-          <p>Define and enforce trust boundaries for Model Context Protocol servers. Govern what data, tools, and systems MCP-connected agents can access and act on within your enterprise environment.</p>
-          <div class="int-meta"><span><i class="fas fa-lock"></i> Trust perimeters</span><span><i class="fas fa-clipboard-check"></i> Policy enforcement</span><span class="int-status live">Live</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#10b981;font-size:20px;"><i class="fas fa-user-check"></i></div>
-            <span class="int-tag gold">AI Governance</span>
-          </div>
-          <h3>Human-in-the-Loop Gates</h3>
-          <p>Route high-risk agentic actions to human reviewers before execution. Approval workflows integrate with Teams, ServiceNow, and the AiVRIC portal — with full decision audit trail.</p>
-          <div class="int-meta"><span><i class="fas fa-check-double"></i> Approval workflows</span><span><i class="fas fa-history"></i> Decision audit</span><span class="int-status live">Live</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#f59e0b;font-size:20px;"><i class="fas fa-cogs"></i></div>
-            <span class="int-tag gold">AI Governance</span>
-          </div>
-          <h3>OpenAI-Compatible Endpoints</h3>
-          <p>Instrument any application using OpenAI-compatible API patterns with AI Signals&trade; for trace capture, prompt governance, evaluation scoring, and model risk monitoring.</p>
-          <div class="int-meta"><span><i class="fas fa-plug"></i> API instrumentation</span><span><i class="fas fa-tachometer-alt"></i> Model risk scoring</span><span class="int-status live">Supported</span></div>
-        </div>
-      </div>
-    </div>
+    <div class="csp-divider"></div>
 
-    <!-- ── DevOps & ITSM ── -->
-    <div id="devops">
-      <div class="cat-hdr">
-        <div class="cat-hdr-icon" style="background:rgba(25,212,163,.08);border-color:rgba(25,212,163,.2);color:#0d9e74;"><i class="fas fa-code-branch"></i></div>
-        <div><h3>DevOps &amp; ITSM</h3><span>Route remediation actions and track closure through existing engineering and service management workflows</span></div>
-      </div>
-      <div class="int-grid">
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#0052cc;font-size:20px;"><i class="fab fa-jira"></i></div>
-            <span class="int-tag green">ITSM</span>
+    <!-- ═══════════════════════ GRC & COMPLIANCE ═══════════════════════ -->
+    <section class="csp-section" id="grc">
+      <div class="auto-container">
+        <div class="int-sec-hdr">
+          <div class="int-sec-hdr-icon gold"><i class="fas fa-clipboard-list"></i></div>
+          <div>
+            <h2>GRC &amp; Compliance</h2>
+            <p>Connect AiVRIC's continuous compliance engine to the GRC tools your teams already manage.</p>
           </div>
-          <h3>Jira</h3>
-          <p>Push prioritized remediation tasks into existing engineering workflows with control mapping, severity context, and compliance framework attribution for full traceability.</p>
-          <div class="int-meta"><span><i class="fas fa-exclamation-triangle"></i> Priority routing</span><span><i class="fas fa-map"></i> Control mapping</span><span class="int-status live">Supported</span></div>
         </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#0e7d25;font-size:20px;"><i class="fas fa-cog"></i></div>
-            <span class="int-tag green">ITSM</span>
+        <div class="int-grid">
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#00a651;font-size:20px;"><i class="fas fa-balance-scale"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>OneTrust</h4>
+            <p>Sync AiVRIC risk register items and compliance evidence to OneTrust GRC records. Avoid duplicate data entry across platforms.</p>
           </div>
-          <h3>ServiceNow</h3>
-          <p>Operationalize risk remediation with standard change, incident, and request workflows in ServiceNow. Maintain full audit trail from finding discovery to verified closure.</p>
-          <div class="int-meta"><span><i class="fas fa-retweet"></i> Workflow routing</span><span><i class="fas fa-clipboard-list"></i> Audit trail</span><span class="int-status live">Supported</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#24292e;font-size:20px;"><i class="fab fa-github"></i></div>
-            <span class="int-tag green">DevOps</span>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#81b5a1;font-size:20px;"><i class="fas fa-cogs"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>ServiceNow GRC</h4>
+            <p>Push findings and treatment actions to ServiceNow GRC workflows. Two-way status sync keeps both platforms aligned.</p>
           </div>
-          <h3>GitHub</h3>
-          <p>Strengthen SDLC security with repository posture insights, workflow alignment, and security governance visibility across organizations and pipelines.</p>
-          <div class="int-meta"><span><i class="fas fa-code-branch"></i> Repo governance</span><span><i class="fas fa-lock"></i> Security posture</span><span class="int-status live">Supported</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#fc6d26;font-size:20px;"><i class="fab fa-gitlab"></i></div>
-            <span class="int-tag green">DevOps</span>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#ffd63a;font-size:18px;"><i class="fas fa-file-excel"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>Manual Evidence &amp; Spreadsheets</h4>
+            <p>Import legacy spreadsheet-based control libraries and evidence via CSV. AiVRIC normalizes them into structured risk records.</p>
           </div>
-          <h3>GitLab</h3>
-          <p>Enable continuous governance by aligning security checks and policy expectations to your GitLab pipeline delivery model and CI/CD workflows.</p>
-          <div class="int-meta"><span><i class="fas fa-sync"></i> Continuous workflows</span><span><i class="fas fa-file-alt"></i> Evidence outputs</span><span class="int-status live">Supported</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#0078d4;font-size:20px;"><i class="fas fa-project-diagram"></i></div>
-            <span class="int-tag green">DevOps</span>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#e8443a;font-size:20px;"><i class="fas fa-tasks"></i></div>
+              <span class="int-status planned">Planned</span>
+            </div>
+            <h4>Vanta / Drata</h4>
+            <p>Forward AiVRIC automated evidence into compliance automation platforms to accelerate SOC 2 and ISO 27001 readiness.</p>
           </div>
-          <h3>Azure DevOps</h3>
-          <p>Connect security findings to delivery workstreams for improved traceability from risk discovery to remediation closure within Azure DevOps pipelines and boards.</p>
-          <div class="int-meta"><span><i class="fas fa-tasks"></i> Work item tracking</span><span><i class="fas fa-link"></i> Traceability</span><span class="int-status live">Supported</span></div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- ── SIEM / SOAR ── -->
-    <div id="siem">
-      <div class="cat-hdr">
-        <div class="cat-hdr-icon" style="background:rgba(248,113,113,.08);border-color:rgba(248,113,113,.2);color:#c0392b;"><i class="fas fa-wave-square"></i></div>
-        <div><h3>SIEM / SOAR</h3><span>Feed posture and governance signals into your security operations and analytics infrastructure</span></div>
-      </div>
-      <div class="int-grid">
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#65a30d;font-size:19px;"><i class="fas fa-search"></i></div>
-            <span class="int-tag red">SIEM</span>
-          </div>
-          <h3>Splunk</h3>
-          <p>Stream AiVRIC posture signals, findings, and compliance events into Splunk for SOC visibility, threat correlation, investigation support, and automated reporting.</p>
-          <div class="int-meta"><span><i class="fas fa-wave-square"></i> Signal streaming</span><span><i class="fas fa-search"></i> SOC investigations</span><span class="int-status live">Supported</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#0078d4;font-size:20px;"><i class="fas fa-satellite-dish"></i></div>
-            <span class="int-tag red">SIEM</span>
-          </div>
-          <h3>Microsoft Sentinel</h3>
-          <p>Enrich Sentinel with AiVRIC posture and control-alignment insights for unified SOC reporting, triage context, and compliance governance visibility.</p>
-          <div class="int-meta"><span><i class="fas fa-bell"></i> Alert enrichment</span><span><i class="fas fa-chart-pie"></i> Compliance reporting</span><span class="int-status live">Supported</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#774aa4;font-size:20px;"><i class="fas fa-broadcast-tower"></i></div>
-            <span class="int-tag red">SIEM</span>
-          </div>
-          <h3>Datadog</h3>
-          <p>Export AiVRIC risk signals and posture events to Datadog for cloud observability, compliance monitoring overlays, and operations team visibility.</p>
-          <div class="int-meta"><span><i class="fas fa-tachometer-alt"></i> Observability</span><span><i class="fas fa-clipboard-check"></i> Compliance overlays</span><span class="int-status planned">Planned</span></div>
-        </div>
-      </div>
-    </div>
 
-    <!-- ── Data & BI ── -->
-    <div id="data">
-      <div class="cat-hdr">
-        <div class="cat-hdr-icon" style="background:rgba(245,158,11,.08);border-color:rgba(245,158,11,.22);color:#b45309;"><i class="fas fa-chart-bar"></i></div>
-        <div><h3>Data &amp; Business Intelligence</h3><span>Deliver executive risk intelligence through your existing BI and analytics infrastructure</span></div>
-      </div>
-      <div class="int-grid">
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#f2c811;font-size:20px;"><i class="fas fa-chart-bar"></i></div>
-            <span class="int-tag gold">BI</span>
-          </div>
-          <h3>Microsoft Power BI</h3>
-          <p>Build tenant-specific risk dashboards in Power BI using AiVRIC data exports. Deliver board-ready compliance posture, risk trend analysis, and control coverage to leadership without bespoke reporting build-out.</p>
-          <div class="int-meta"><span><i class="fas fa-tachometer-alt"></i> Executive dashboards</span><span><i class="fas fa-chart-line"></i> Trend reporting</span><span class="int-status planned">Planned</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#e8762c;font-size:20px;"><i class="fas fa-chart-pie"></i></div>
-            <span class="int-tag gold">BI</span>
-          </div>
-          <h3>Tableau</h3>
-          <p>Export structured AiVRIC risk and compliance datasets to Tableau for custom visualization, trend analysis, and cross-functional reporting programs.</p>
-          <div class="int-meta"><span><i class="fas fa-download"></i> Data exports</span><span><i class="fas fa-eye"></i> Custom visualization</span><span class="int-status planned">Planned</span></div>
-        </div>
-      </div>
-    </div>
+    <!-- ═══════════════════════ MICROSOFT 365 ═══════════════════════ -->
+    <div class="int-dark-band" id="m365">
+      <div class="auto-container">
 
-    <!-- ── Messaging & Collaboration ── -->
-    <div id="collab">
-      <div class="cat-hdr">
-        <div class="cat-hdr-icon" style="background:rgba(16,178,232,.08);border-color:rgba(16,178,232,.2);color:var(--accent);"><i class="fas fa-comments"></i></div>
-        <div><h3>Messaging &amp; Collaboration</h3><span>Deliver risk notifications, approval requests, and executive updates through the collaboration tools teams already use</span></div>
-      </div>
-      <div class="int-grid">
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#6264a7;font-size:20px;"><i class="fas fa-comments"></i></div>
-            <span class="int-tag">Collaboration</span>
+        <div class="int-sec-hdr" style="border-bottom-color:rgba(77,163,255,0.2);">
+          <div class="int-sec-hdr-icon blue"><i class="fab fa-microsoft"></i></div>
+          <div>
+            <h2>Microsoft 365 Workspace</h2>
+            <p>Risk intelligence delivered where your teams already work — Teams, SharePoint, Power BI, and Entra ID.</p>
           </div>
-          <h3>Microsoft Teams</h3>
-          <p>Deliver risk summaries, remediation approvals, and compliance alerts into Teams channels. Use Teams as the collaboration surface for human-in-the-loop governance workflows in AIRE agents.</p>
-          <div class="int-meta"><span><i class="fas fa-bell"></i> Risk alerts</span><span><i class="fas fa-check-double"></i> Approval workflows</span><span class="int-status planned">Planned</span></div>
         </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#4a154b;font-size:20px;"><i class="fab fa-slack"></i></div>
-            <span class="int-tag">Collaboration</span>
-          </div>
-          <h3>Slack</h3>
-          <p>Send finding alerts, remediation assignments, and risk digest summaries to Slack channels and direct messages. Trigger AiVRIC workflows via slash commands or bot interactions.</p>
-          <div class="int-meta"><span><i class="fas fa-bolt"></i> Alerts</span><span><i class="fas fa-robot"></i> Bot workflows</span><span class="int-status planned">Planned</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#ea4335;font-size:20px;"><i class="fas fa-envelope"></i></div>
-            <span class="int-tag">Collaboration</span>
-          </div>
-          <h3>Email &amp; Webhooks</h3>
-          <p>Deliver executive risk summaries, finding digests, compliance status updates, and remediation assignment notifications via email. Webhook support enables custom workflow integrations.</p>
-          <div class="int-meta"><span><i class="fas fa-paper-plane"></i> Digests</span><span><i class="fas fa-link"></i> Webhooks</span><span class="int-status live">Live</span></div>
-        </div>
-        <div class="int-card">
-          <div class="int-card-top">
-            <div class="int-logo" style="color:#5865f2;font-size:20px;"><i class="fab fa-discord"></i></div>
-            <span class="int-tag">Collaboration</span>
-          </div>
-          <h3>Okta SSO</h3>
-          <p>Support modern access patterns for AiVRIC itself with Okta SAML/OIDC SSO, group-based RBAC provisioning, and MFA enforcement for all user access to the platform.</p>
-          <div class="int-meta"><span><i class="fas fa-key"></i> SSO / SAML</span><span><i class="fas fa-users-cog"></i> Group RBAC</span><span class="int-status live">Supported</span></div>
-        </div>
-      </div>
-    </div>
 
-    <!-- CTA banner -->
-    <div class="int-cta">
-      <div>
-        <strong>Need an integration that isn&rsquo;t listed?</strong>
-        <span>AiVRIC prioritizes new connectors based on customer demand and deployment model. Share your tooling stack and target frameworks &mdash; we&rsquo;ll propose the fastest path to value from your existing investments.</span>
-      </div>
-      <div class="int-cta-btns">
-        <a class="btn-clean primary" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo"><i class="fas fa-calendar-check"></i> Request a Demo</a>
-        <a class="btn-clean" href="contact.html"><i class="fas fa-envelope"></i> Contact Sales</a>
-      </div>
-    </div>
-  </div>
-</section>
+        <span class="csp-eyebrow">How it works</span>
+        <p class="csp-section-sub" style="margin-bottom:8px;">AiVRIC surfaces risk findings directly inside the M365 workspace — no context switching required.</p>
 
-<!-- ═══ MICROSOFT 365 SECTION ══════════════════════════════════════════ -->
-<section id="m365-workspace" class="section-alt">
-  <div class="auto-container">
-    <span class="section-eyebrow">Microsoft 365 Integration</span>
-    <h2 class="section-title">Turn Microsoft 365 into a risk operations workspace.</h2>
-    <p class="section-sub">Most enterprise security and compliance teams already use Microsoft 365. AiVRIC is designed to work alongside it &mdash; routing risk workflows into Teams, storing evidence in SharePoint, delivering executive intelligence through Power BI, and governing identities via Purview and Entra. No new collaboration tools required.</p>
-
-    <!-- Workflow -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;">
-      <div>
-        <h3 style="font-family:Jost,Inter,sans-serif;font-size:20px;font-weight:800;color:var(--ink);margin:0 0 20px;">End-to-end M365 risk workflow</h3>
         <div class="m365-flow">
           <div class="m365-step">
             <div class="m365-step-num">1</div>
-            <div class="m365-step-body">
-              <h4>Cloud Finding Detected</h4>
-              <p>AiVRIC CloudSignals+RiskOps&trade; identifies a misconfiguration or compliance gap across AWS, Azure, or GCP in real time.</p>
-            </div>
+            <h4>Cloud Finding</h4>
+            <p>AiVRIC scans and identifies a risk finding or compliance gap</p>
           </div>
           <div class="m365-step">
             <div class="m365-step-num">2</div>
-            <div class="m365-step-body">
-              <h4>AI Risk Summary Generated</h4>
-              <p>AiVRIC Vision AI creates a plain-language executive risk summary with severity context, remediation guidance, and control mapping.</p>
-            </div>
+            <h4>AI Summary</h4>
+            <p>Vision AI generates a plain-language risk narrative for business context</p>
           </div>
           <div class="m365-step">
             <div class="m365-step-num">3</div>
-            <div class="m365-step-body">
-              <h4>Teams Review &amp; Approval</h4>
-              <p>The risk summary and proposed remediation action are routed to the responsible team via Microsoft Teams for human review and approval.</p>
-            </div>
+            <h4>Teams Review</h4>
+            <p>Adaptive card delivered to the responsible team's Teams channel</p>
           </div>
           <div class="m365-step">
             <div class="m365-step-num">4</div>
-            <div class="m365-step-body">
-              <h4>SharePoint Evidence Package</h4>
-              <p>Upon approval, AiVRIC auto-generates a structured evidence package and stores it in the designated SharePoint library with audit metadata.</p>
-            </div>
+            <h4>SharePoint Evidence</h4>
+            <p>Supporting evidence automatically stored in SharePoint audit folders</p>
           </div>
           <div class="m365-step">
             <div class="m365-step-num">5</div>
-            <div class="m365-step-body">
-              <h4>Power BI Executive Dashboard</h4>
-              <p>Risk posture, compliance trends, and remediation progress are reflected in real time on the executive Power BI dashboard without manual data entry.</p>
-            </div>
+            <h4>Power BI Dashboard</h4>
+            <p>Risk posture and compliance metrics updated in real time</p>
           </div>
           <div class="m365-step">
             <div class="m365-step-num">6</div>
-            <div class="m365-step-body">
-              <h4>Remediation Tracked to Closure</h4>
-              <p>The remediation action is tracked in ServiceNow or Jira with closure verified by AiVRIC — automatically updating the compliance record and evidence package.</p>
-            </div>
+            <h4>Remediation Tracked</h4>
+            <p>Treatment status synced back to AiVRIC risk register and Planner</p>
           </div>
         </div>
-      </div>
-      <div>
-        <h3 style="font-family:Jost,Inter,sans-serif;font-size:20px;font-weight:800;color:var(--ink);margin:0 0 20px;">What each M365 tool does in AiVRIC</h3>
-        <div class="m365-caps">
+
+        <div class="m365-cap-grid">
           <div class="m365-cap">
-            <div class="m365-cap-icon"><i class="fas fa-comments"></i></div>
-            <h4>Teams</h4>
-            <p>Human-in-the-loop approvals, risk alert delivery, and AIRE agent callbacks for governed agentic actions.</p>
+            <div class="m365-cap-icon"><i class="fab fa-microsoft" style="color:#2196f3;"></i></div>
+            <h4>Microsoft Teams</h4>
+            <p>Risk alerts, compliance status updates, and HITL approval workflows delivered as adaptive cards directly in Teams channels.</p>
+            <span class="int-status supported" style="align-self:flex-start;">Supported</span>
           </div>
           <div class="m365-cap">
-            <div class="m365-cap-icon"><i class="fas fa-folder-open"></i></div>
-            <h4>SharePoint</h4>
-            <p>Structured evidence storage with retention policy alignment for compliance, audit, and regulator access.</p>
+            <div class="m365-cap-icon"><i class="fas fa-folder-open" style="color:#0078d4;"></i></div>
+            <h4>SharePoint Online</h4>
+            <p>Automated evidence upload to structured SharePoint libraries. Auditors access AI-curated artifact packages without back-and-forth.</p>
+            <span class="int-status supported" style="align-self:flex-start;">Supported</span>
           </div>
           <div class="m365-cap">
-            <div class="m365-cap-icon"><i class="fas fa-chart-bar"></i></div>
+            <div class="m365-cap-icon"><i class="fas fa-chart-bar" style="color:#f2c811;"></i></div>
             <h4>Power BI</h4>
-            <p>Board-ready risk dashboards and compliance trend reporting delivered to leadership without manual build.</p>
+            <p>Pre-built Power BI datasets expose AiVRIC risk scores, compliance posture, and finding trends for executive-ready dashboards.</p>
+            <span class="int-status supported" style="align-self:flex-start;">Supported</span>
           </div>
           <div class="m365-cap">
-            <div class="m365-cap-icon"><i class="fas fa-search"></i></div>
-            <h4>Purview</h4>
-            <p>Data governance and classification alignment alongside cloud posture findings in a unified compliance view.</p>
+            <div class="m365-cap-icon"><i class="fas fa-lock" style="color:#0f62fe;"></i></div>
+            <h4>Microsoft Purview</h4>
+            <p>Data sensitivity classifications feed AiVRIC's data risk scoring. Sensitive resource findings are weighted higher in compliance posture.</p>
+            <span class="int-status supported" style="align-self:flex-start;">Supported</span>
           </div>
           <div class="m365-cap">
-            <div class="m365-cap-icon"><i class="fas fa-id-card"></i></div>
-            <h4>Entra ID</h4>
-            <p>Identity posture and access review support aligned to cloud security baselines and compliance requirements.</p>
+            <div class="m365-cap-icon"><i class="fas fa-users-cog" style="color:#0078d4;"></i></div>
+            <h4>Entra ID (Azure AD)</h4>
+            <p>RBAC posture scanning, privileged identity assessments, and over-permissioned service principals surfaced in AiVRIC CloudSignals.</p>
+            <span class="int-status live" style="align-self:flex-start;">Live</span>
           </div>
           <div class="m365-cap">
-            <div class="m365-cap-icon"><i class="fas fa-shield-virus"></i></div>
-            <h4>Defender</h4>
-            <p>Endpoint and identity security signals ingested into AiVRIC risk register for unified governance scoring.</p>
+            <div class="m365-cap-icon"><i class="fas fa-shield-virus" style="color:#0078d4;"></i></div>
+            <h4>Defender for M365</h4>
+            <p>Email, endpoint, and identity threat signals from Defender enrich AiVRIC risk posture and inform GRC control effectiveness scoring.</p>
+            <span class="int-status supported" style="align-self:flex-start;">Supported</span>
           </div>
         </div>
+
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ═══ COMPETITIVE COEXISTENCE ══════════════════════════════════════ -->
-<section id="coexistence" class="section">
-  <div class="auto-container">
-    <span class="section-eyebrow">Competitive Coexistence</span>
-    <h2 class="section-title">AiVRIC works alongside the tools you already use.</h2>
-    <p class="section-sub">AiVRIC does not require enterprises to replace their existing security, GRC, or governance platforms. It adds the operational intelligence and continuous governance layer that makes those investments more actionable, connected, and audit-ready.</p>
-    <div class="coex-grid">
 
-      <!-- Wiz -->
-      <div id="wiz" class="coex-card">
-        <div class="coex-hdr">
-          <div class="coex-logo" style="color:#6366f1;font-size:22px;"><i class="fas fa-eye"></i></div>
-          <div class="coex-hdr-text">
-            <h4>AiVRIC + Wiz</h4>
-            <span>Cloud Security &rarr; Governed Risk Operations</span>
+    <!-- ═══════════════════════ AI & AGENTIC ═══════════════════════ -->
+    <section class="csp-section" id="ai-mcp">
+      <div class="auto-container">
+        <div class="int-sec-hdr">
+          <div class="int-sec-hdr-icon gold"><i class="fas fa-robot"></i></div>
+          <div>
+            <h2>AI &amp; Agentic Governance</h2>
+            <p>LLM telemetry, MCP trust boundaries, and HITL approval gates built into the platform.</p>
           </div>
         </div>
-        <div class="coex-body">
-          <div class="coex-col">
-            <h5>What Wiz does well</h5>
-            <ul>
-              <li><i class="fas fa-check-circle"></i> Agentless cloud posture scanning across multi-cloud</li>
-              <li><i class="fas fa-check-circle"></i> Security graph for risk prioritization</li>
-              <li><i class="fas fa-check-circle"></i> Container and workload vulnerability detection</li>
-              <li><i class="fas fa-check-circle"></i> Developer-friendly findings surfacing</li>
-            </ul>
-          </div>
-          <div class="coex-col coex-add">
-            <h5>What AiVRIC adds</h5>
-            <ul>
-              <li><i class="fas fa-plus-circle"></i> RiskOps governance layer for Wiz findings</li>
-              <li><i class="fas fa-plus-circle"></i> Remediation ownership assignment and SLA tracking</li>
-              <li><i class="fas fa-plus-circle"></i> Compliance framework mapping and evidence generation</li>
-              <li><i class="fas fa-plus-circle"></i> Executive risk reporting and board-ready dashboards</li>
-            </ul>
-          </div>
-        </div>
-        <div class="coex-footer"><strong>Enterprise value:</strong> Wiz surfaces the risk. AiVRIC operationalizes it &mdash; connecting cloud findings to governance workflows, remediation ownership, evidence packages, and executive reporting without replacing Wiz.</div>
-      </div>
-
-      <!-- Prisma Cloud -->
-      <div id="prisma" class="coex-card">
-        <div class="coex-hdr">
-          <div class="coex-logo" style="color:#e05c00;font-size:22px;"><i class="fas fa-fire-alt"></i></div>
-          <div class="coex-hdr-text">
-            <h4>AiVRIC + Prisma Cloud</h4>
-            <span>Palo Alto Networks CSPM &rarr; Continuous RiskOps</span>
-          </div>
-        </div>
-        <div class="coex-body">
-          <div class="coex-col">
-            <h5>What Prisma Cloud does well</h5>
-            <ul>
-              <li><i class="fas fa-check-circle"></i> Comprehensive CNAPP and CSPM coverage</li>
-              <li><i class="fas fa-check-circle"></i> Code-to-cloud security posture visibility</li>
-              <li><i class="fas fa-check-circle"></i> Identity threat detection and exposure management</li>
-              <li><i class="fas fa-check-circle"></i> Deep Palo Alto threat intelligence integration</li>
-            </ul>
-          </div>
-          <div class="coex-col coex-add">
-            <h5>What AiVRIC adds</h5>
-            <ul>
-              <li><i class="fas fa-plus-circle"></i> Normalizes Prisma findings into unified risk records</li>
-              <li><i class="fas fa-plus-circle"></i> Continuous compliance evidence from posture data</li>
-              <li><i class="fas fa-plus-circle"></i> ITSM routing to Jira and ServiceNow with context</li>
-              <li><i class="fas fa-plus-circle"></i> M365 integration for approval and reporting workflows</li>
-            </ul>
-          </div>
-        </div>
-        <div class="coex-footer"><strong>Enterprise value:</strong> Prisma provides the cloud security coverage. AiVRIC converts those signals into governed risk records, continuous compliance evidence, and operationalized remediation workflows across the enterprise.</div>
-      </div>
-
-      <!-- OneTrust -->
-      <div id="onetrust" class="coex-card">
-        <div class="coex-hdr">
-          <div class="coex-logo" style="color:#7c3aed;font-size:22px;"><i class="fas fa-balance-scale"></i></div>
-          <div class="coex-hdr-text">
-            <h4>AiVRIC + OneTrust</h4>
-            <span>GRC Platform &rarr; Continuous Risk Automation</span>
-          </div>
-        </div>
-        <div class="coex-body">
-          <div class="coex-col">
-            <h5>What OneTrust does well</h5>
-            <ul>
-              <li><i class="fas fa-check-circle"></i> Comprehensive GRC and privacy management</li>
-              <li><i class="fas fa-check-circle"></i> Control framework library and risk register</li>
-              <li><i class="fas fa-check-circle"></i> Third-party risk and vendor assessment workflows</li>
-              <li><i class="fas fa-check-circle"></i> Consent management and data subject rights</li>
-            </ul>
-          </div>
-          <div class="coex-col coex-add">
-            <h5>What AiVRIC adds</h5>
-            <ul>
-              <li><i class="fas fa-plus-circle"></i> Continuous cloud posture evidence for GRC controls</li>
-              <li><i class="fas fa-plus-circle"></i> Automated evidence feeds into OneTrust risk records</li>
-              <li><i class="fas fa-plus-circle"></i> Real-time compliance gap detection vs. point-in-time</li>
-              <li><i class="fas fa-plus-circle"></i> Agentic remediation workflows for discovered gaps</li>
-            </ul>
-          </div>
-        </div>
-        <div class="coex-footer"><strong>Enterprise value:</strong> OneTrust manages the GRC program and framework. AiVRIC provides the continuous, automated evidence stream that keeps OneTrust records current and reduces manual control validation cycles.</div>
-      </div>
-
-      <!-- Microsoft 365 -->
-      <div id="m365-coex" class="coex-card">
-        <div class="coex-hdr">
-          <div class="coex-logo" style="color:#0078d4;font-size:22px;"><i class="fab fa-microsoft"></i></div>
-          <div class="coex-hdr-text">
-            <h4>AiVRIC + Microsoft 365</h4>
-            <span>Productivity Stack &rarr; Risk Operations Workspace</span>
-          </div>
-        </div>
-        <div class="coex-body">
-          <div class="coex-col">
-            <h5>What Microsoft 365 does well</h5>
-            <ul>
-              <li><i class="fas fa-check-circle"></i> Enterprise collaboration (Teams, SharePoint, Email)</li>
-              <li><i class="fas fa-check-circle"></i> Identity and access management (Entra ID)</li>
-              <li><i class="fas fa-check-circle"></i> Data governance and compliance (Purview)</li>
-              <li><i class="fas fa-check-circle"></i> Analytics and BI (Power BI)</li>
-            </ul>
-          </div>
-          <div class="coex-col coex-add">
-            <h5>What AiVRIC adds</h5>
-            <ul>
-              <li><i class="fas fa-plus-circle"></i> Continuous cloud risk intelligence feeding into M365</li>
-              <li><i class="fas fa-plus-circle"></i> Teams as the approval surface for governed agent actions</li>
-              <li><i class="fas fa-plus-circle"></i> SharePoint as the structured evidence repository</li>
-              <li><i class="fas fa-plus-circle"></i> Power BI as the executive risk and compliance dashboard</li>
-            </ul>
-          </div>
-        </div>
-        <div class="coex-footer"><strong>Enterprise value:</strong> Microsoft 365 is the collaboration and productivity infrastructure most enterprises already pay for. AiVRIC makes it a live risk operations workspace by routing security decisions, evidence, and executive reporting through tools teams already use daily.</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══ MARKET ARCHITECTURE ════════════════════════════════════════════ -->
-<section id="architecture" class="section-dark">
-  <div class="auto-container">
-    <span class="section-eyebrow light">Market Positioning</span>
-    <h2 class="section-title light">Where AiVRIC fits in your enterprise stack.</h2>
-    <p class="section-sub light centred" style="max-width:72ch;">AiVRIC is the operational intelligence layer that connects your existing enterprise tools into governed risk decisions, continuous compliance evidence, and executive reporting — without requiring any single platform to be replaced.</p>
-    <div class="market-table-wrap">
-      <table class="market-table">
-        <thead>
-          <tr>
-            <th>Enterprise Layer</th>
-            <th>Existing Market Tools</th>
-            <th>AiVRIC Role</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Cloud Security</strong></td>
-            <td>Wiz, Prisma Cloud, Defender for Cloud</td>
-            <td>Signal ingestion, risk normalization, and remediation orchestration across all cloud security findings</td>
-          </tr>
-          <tr>
-            <td><strong>GRC &amp; Compliance</strong></td>
-            <td>OneTrust, spreadsheets, manual evidence workflows</td>
-            <td>Continuous RiskOps, automated evidence capture, and framework-mapped control reporting</td>
-          </tr>
-          <tr>
-            <td><strong>AI Governance</strong></td>
-            <td>Fragmented GenAI pilots, no unified policy layer</td>
-            <td>AI telemetry via AI Signals&trade;, MCP policy gates, agentic oversight, and deterministic controls</td>
-          </tr>
-          <tr>
-            <td><strong>Collaboration</strong></td>
-            <td>Microsoft Teams, Slack, Email</td>
-            <td>Guided risk workflows, human approval routing for AIRE agents, and executive risk summaries</td>
-          </tr>
-          <tr>
-            <td><strong>ITSM &amp; DevOps</strong></td>
-            <td>Jira, ServiceNow, GitHub, Azure DevOps</td>
-            <td>Remediation action routing, SLA tracking, closure verification with evidence</td>
-          </tr>
-          <tr>
-            <td><strong>Analytics &amp; Reporting</strong></td>
-            <td>Power BI, Tableau, custom dashboards</td>
-            <td>Executive risk intelligence feeds, compliance trend reporting, and board-ready posture summaries</td>
-          </tr>
-          <tr>
-            <td><strong>Identity</strong></td>
-            <td>Microsoft Entra ID, Okta</td>
-            <td>Identity posture insights, access review support, and SSO / SCIM provisioning for AiVRIC</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ COMPLIANCE FRAMEWORKS ═════════════════════════════════════════ -->
-<section id="frameworks" class="section" style="padding-top:0;">
-  <div class="auto-container">
-    <span class="section-eyebrow">Compliance Coverage</span>
-    <h2 class="section-title">Supported compliance &amp; security frameworks</h2>
-    <p class="section-sub">AiVRIC produces control mapping outputs, evidence packages, and compliance posture reports for the following frameworks. Where an update is in progress, the target release date is listed.</p>
-    <div class="table-wrap">
-      <div class="table-head">
-        <strong>Framework coverage matrix</strong>
-        <span style="color:var(--muted);font-size:12.5px;">Dates in &ldquo;Update by&rdquo; are roadmap targets</span>
-      </div>
-      <table aria-label="AiVRIC supported compliance and security frameworks">
-        <thead>
-          <tr><th style="width:28%;">Framework / Benchmark</th><th style="width:16%;">Version</th><th style="width:18%;">Status</th><th>Notes</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>PCI DSS</strong></td><td>4.0</td><td><span class="pill current"><i class="fas fa-check-circle"></i> Current</span></td><td>Compliance mapping and reporting outputs to support readiness and audit preparation.</td></tr>
-          <tr><td><strong>ISO/IEC 27001</strong></td><td>2022</td><td><span class="pill current"><i class="fas fa-check-circle"></i> Current</span></td><td>Control alignment support for ISO 27001:2022 with audit-ready evidence orientation.</td></tr>
-          <tr><td><strong>NIST Cybersecurity Framework</strong></td><td>CSF 2.0</td><td><span class="pill current"><i class="fas fa-check-circle"></i> Current</span></td><td>Program-level alignment and reporting for posture and improvement planning.</td></tr>
-          <tr><td><strong>SOC 2</strong></td><td>Trust Services Criteria (TSC)</td><td><span class="pill current"><i class="fas fa-check-circle"></i> Supported</span></td><td>SOC 2 readiness outputs aligned to TSC; final interpretation depends on auditor scope and system boundaries.</td></tr>
-          <tr><td><strong>CIS AWS Benchmark</strong></td><td>v5.0</td><td><span class="pill current"><i class="fas fa-check-circle"></i> Supported</span></td><td>AWS benchmark-aligned checks for hardened configuration posture and governance reporting.</td></tr>
-          <tr><td><strong>CIS Azure Benchmark</strong></td><td>v4.0</td><td><span class="pill planned"><i class="fas fa-clock"></i> Update planned</span><span style="display:block;color:var(--muted);font-size:12.5px;margin-top:6px;">Update target: <strong>2026-03-31</strong></span></td><td>If a newer benchmark revision is required, AiVRIC will align the next release and publish a change log.</td></tr>
-          <tr><td><strong>CIS Microsoft 365 Benchmark</strong></td><td>v4.0</td><td><span class="pill planned"><i class="fas fa-clock"></i> Update planned</span><span style="display:block;color:var(--muted);font-size:12.5px;margin-top:6px;">Update target: <strong>2026-06-30</strong></span></td><td>Use for baseline hardening, identity alignment, and compliance evidence orientation.</td></tr>
-          <tr><td><strong>CIS OCI Benchmark</strong></td><td>v3.0</td><td><span class="pill planned"><i class="fas fa-clock"></i> Update planned</span><span style="display:block;color:var(--muted);font-size:12.5px;margin-top:6px;">Update target: <strong>2026-06-30</strong></span></td><td>Roadmap coverage for customers standardizing across additional cloud providers.</td></tr>
-          <tr><td><strong>HIPAA</strong></td><td>Security Rule (45 CFR Part 164)</td><td><span class="pill current"><i class="fas fa-check-circle"></i> Supported</span></td><td>Readiness mapping for safeguards; final scope depends on covered entity / business associate context.</td></tr>
-          <tr><td><strong>CMMC 2.0</strong></td><td>Level 1 &amp; Level 2</td><td><span class="pill current"><i class="fas fa-check-circle"></i> Supported</span></td><td>Maturity-level aligned controls and evidence support for DoD contractor readiness assessments.</td></tr>
-          <tr><td><strong>FedRAMP</strong></td><td>20x (KSI Low)</td><td><span class="pill planned"><i class="fas fa-clock"></i> In progress</span><span style="display:block;color:var(--muted);font-size:12.5px;margin-top:6px;">Update target: <strong>2026-09-30</strong></span></td><td>For public sector alignment, AiVRIC can provide structured outputs while the overlay finalizes in your program plan.</td></tr>
-          <tr><td><strong>NIST AI RMF</strong></td><td>1.0</td><td><span class="pill planned"><i class="fas fa-clock"></i> Roadmap</span><span style="display:block;color:var(--muted);font-size:12.5px;margin-top:6px;">Update target: <strong>2026-12-31</strong></span></td><td>AI risk management framework alignment for organizations operationalizing AI systems at scale.</td></tr>
-          <tr><td><strong>MITRE ATLAS</strong></td><td>Current public release</td><td><span class="pill planned"><i class="fas fa-clock"></i> Roadmap</span><span style="display:block;color:var(--muted);font-size:12.5px;margin-top:6px;">Update target: <strong>2026-12-31</strong></span></td><td>Supports AI security governance and risk orientation for organizations operationalizing AI systems.</td></tr>
-          <tr><td><strong>OWASP LLM Top 10</strong></td><td>Current public release</td><td><span class="pill planned"><i class="fas fa-clock"></i> Roadmap</span><span style="display:block;color:var(--muted);font-size:12.5px;margin-top:6px;">Update target: <strong>2026-12-31</strong></span></td><td>Used for AI application risk modeling and control coverage planning.</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="int-cta" style="margin-top:24px;">
-      <div>
-        <strong>Ready to explore the operational intelligence layer?</strong>
-        <span>See how AiVRIC connects to your existing cloud, security, GRC, and Microsoft 365 infrastructure in a live walkthrough tailored to your environment.</span>
-      </div>
-      <div class="int-cta-btns">
-        <a class="btn-clean primary" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo"><i class="fas fa-calendar-check"></i> Book a Demo</a>
-        <a class="btn-clean" href="cspm-cloudsignals.html"><i class="fas fa-arrow-right"></i> Explore CloudSignals</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ GLOBAL FOOTER ══════════════════════════════════════════════════ -->
-<footer class="main-footer gf-footer">
-  <div class="gf-top-rule"></div>
-  <div class="gf-body">
-    <div class="auto-container">
-      <div class="gf-grid">
-        <div class="gf-col">
-          <a href="index.html" class="gf-logo-link"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" class="gf-logo"></a>
-          <p class="gf-tagline">Operational intelligence for continuous security, compliance, risk, and AI governance.</p>
-          <form class="gf-subscribe" action="contact.html" method="post">
-            <div class="gf-subscribe-row">
-              <input type="email" name="email" placeholder="Work email address" required>
-              <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+        <div class="int-grid-3">
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:var(--cs-cyan);font-size:20px;"><i class="fas fa-satellite-dish"></i></div>
+              <span class="int-status live">Live</span>
             </div>
-            <p class="gf-subscribe-note">No spam &mdash; platform updates only.</p>
-          </form>
-          <div class="gf-social">
-            <a href="https://www.linkedin.com/company/aivric" class="gf-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://x.com/aivric" class="gf-social-link" aria-label="X"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.facebook.com/61581937785235/" class="gf-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/aivrictechnologies/" class="gf-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <h4>AI Signals&trade;</h4>
+            <p>Capture LLM call telemetry, prompt versions, latency, and token costs as structured security signals inside AiVRIC.</p>
           </div>
-        </div>
-        <div class="gf-col">
-          <div class="gf-col-title">Platform</div>
-          <ul class="gf-links">
-            <li><a href="services.html">Platform Overview</a></li>
-            <li><a href="genai-chat.html">GenAI Chat</a></li>
-            <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
-            <li><a href="agentic-design.html">Agentic Design</a></li>
-            <li><a href="efficient-compute.html">Efficient Compute</a></li>
-            <li><a href="data-localization.html">Data Localization</a></li>
-          </ul>
-        </div>
-        <div class="gf-col">
-          <div class="gf-col-title">Solutions</div>
-          <ul class="gf-links">
-            <li><a href="cspm-cloudsignals.html">CloudSignals+RiskOps&trade;</a></li>
-            <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
-            <li><a href="air-remediation.html">AIRE Agentic Mesh&trade;</a></li>
-            <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
-            <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
-            <li><a href="integrations.html">Integrations</a></li>
-          </ul>
-        </div>
-        <div class="gf-col">
-          <div class="gf-col-title">Company</div>
-          <ul class="gf-links">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="why-aivric.html">Why AiVRIC</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="blog-portal.html">Blog</a></li>
-            <li><a href="trust.html">Trust Center</a></li>
-            <li><a href="request-demo.html">Request a Demo</a></li>
-          </ul>
-          <div class="gf-contact-block">
-            <a href="mailto:info@aivric.com" class="gf-contact-link"><i class="fas fa-envelope"></i> info@aivric.com</a>
-            <a href="tel:+19543426637" class="gf-contact-link"><i class="fas fa-phone"></i> +1 954 342 6637</a>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:var(--cs-gold);font-size:20px;"><i class="fas fa-plug"></i></div>
+              <span class="int-status beta">Beta</span>
+            </div>
+            <h4>MCP Protocol</h4>
+            <p>Model Context Protocol trust boundary enforcement. Define which agent actions require approval before execution.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:var(--cs-green);font-size:20px;"><i class="fas fa-user-check"></i></div>
+              <span class="int-status beta">Beta</span>
+            </div>
+            <h4>HITL Approval Gates</h4>
+            <p>Human-in-the-loop controls pause agentic remediations for review. Integrated with Teams and email workflows.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:var(--cs-purple);font-size:20px;"><i class="fas fa-code"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>OpenAI-Compatible Endpoints</h4>
+            <p>Any LLM exposing an OpenAI-compatible API can send telemetry to AI Signals for observability and governance.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:var(--cs-cyan);font-size:18px;"><i class="fas fa-brain"></i></div>
+              <span class="int-status live">Live</span>
+            </div>
+            <h4>Langfuse</h4>
+            <p>Native Langfuse integration for LLM trace ingestion, evaluation scores, and prompt version tracking inside AI Signals&trade;.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:var(--cs-green);font-size:18px;"><i class="fas fa-project-diagram"></i></div>
+              <span class="int-status beta">Beta</span>
+            </div>
+            <h4>AIRE Agentic Mesh&trade;</h4>
+            <p>Role-based agentic remediation with deterministic policy gates. Agents execute scoped actions only within approved boundaries.</p>
           </div>
         </div>
       </div>
+    </section>
+
+    <div class="csp-divider"></div>
+
+    <!-- ═══════════════════════ DEVOPS & ITSM ═══════════════════════ -->
+    <section class="csp-section" id="devops">
+      <div class="auto-container">
+        <div class="int-sec-hdr">
+          <div class="int-sec-hdr-icon cyan"><i class="fas fa-code-branch"></i></div>
+          <div>
+            <h2>DevOps &amp; ITSM</h2>
+            <p>Findings flow directly into the ticketing and workflow systems your engineering teams use daily.</p>
+          </div>
+        </div>
+        <div class="int-grid">
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#0052cc;font-size:20px;"><i class="fab fa-jira"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>Jira</h4>
+            <p>Auto-create and update Jira issues from AiVRIC findings. Two-way status sync closes the loop on remediation.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#81b5a1;font-size:20px;"><i class="fas fa-ticket-alt"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>ServiceNow ITSM</h4>
+            <p>Push risk-ranked findings to ServiceNow as incidents or change requests with priority set by AiVRIC risk score.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#f05032;font-size:20px;"><i class="fab fa-github"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>GitHub</h4>
+            <p>Scan GitHub repository configurations, secret exposure, and branch protection policies as part of cloud posture.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#fc6d26;font-size:20px;"><i class="fab fa-gitlab"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>GitLab</h4>
+            <p>GitLab project settings, CI/CD pipeline configs, and access controls evaluated against security benchmarks.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#0078d4;font-size:20px;"><i class="fab fa-microsoft"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>Azure DevOps</h4>
+            <p>Pipeline security, service connection permissions, and repo access policies assessed via AiVRIC CloudSignals.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#f59e0b;font-size:18px;"><i class="fas fa-fire"></i></div>
+              <span class="int-status planned">Planned</span>
+            </div>
+            <h4>PagerDuty</h4>
+            <p>Route critical-severity AiVRIC findings to PagerDuty escalation policies for on-call response workflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="csp-divider"></div>
+
+    <!-- ═══════════════════════ SIEM & ANALYTICS ═══════════════════════ -->
+    <section class="csp-section" id="siem">
+      <div class="auto-container">
+        <div class="int-sec-hdr">
+          <div class="int-sec-hdr-icon purple"><i class="fas fa-satellite-dish"></i></div>
+          <div>
+            <h2>SIEM &amp; Analytics</h2>
+            <p>Pipe AiVRIC risk signals into your data lake and SIEM for unified threat and compliance correlation.</p>
+          </div>
+        </div>
+        <div class="int-grid-3">
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#f7941d;font-size:20px;"><i class="fas fa-chart-line"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>Splunk</h4>
+            <p>Forward AiVRIC findings as structured JSON events to Splunk. Pre-built dashboards for risk posture and compliance trending.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#00b4d8;font-size:20px;"><i class="fas fa-eye"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>Microsoft Sentinel</h4>
+            <p>Native connector for AiVRIC risk events. Sentinel analytic rules can trigger on high-severity posture changes.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#632ca6;font-size:20px;"><i class="fas fa-dog"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>Datadog</h4>
+            <p>AiVRIC metrics and events to Datadog monitors. Compliance posture appears alongside application performance data.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#f2c811;font-size:20px;"><i class="fas fa-chart-bar"></i></div>
+              <span class="int-status supported">Supported</span>
+            </div>
+            <h4>Power BI</h4>
+            <p>AiVRIC risk datasets consumed directly in Power BI for executive-ready dashboards and board-level reporting.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#e97627;font-size:20px;"><i class="fas fa-table"></i></div>
+              <span class="int-status planned">Planned</span>
+            </div>
+            <h4>Tableau</h4>
+            <p>Publish AiVRIC compliance and risk datasets to Tableau for advanced analytics and custom enterprise visualizations.</p>
+          </div>
+          <div class="int-card">
+            <div class="int-card-top">
+              <div class="int-logo" style="color:#00adef;font-size:20px;"><i class="fas fa-warehouse"></i></div>
+              <span class="int-status planned">Planned</span>
+            </div>
+            <h4>Generic Webhook &amp; SIEM</h4>
+            <p>Standard webhook output lets any SIEM or data platform receive AiVRIC events in real time with configurable payloads.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════ COMPETITIVE COEXISTENCE ═══════════════════════ -->
+    <div class="int-dark-band" id="coexistence">
+      <div class="auto-container">
+
+        <span class="csp-eyebrow">Competitive Coexistence</span>
+        <h2 class="csp-section-title">AiVRIC adds what other platforms don't replace.</h2>
+        <p class="csp-section-sub">These are the tools enterprises already run. AiVRIC is the operational intelligence layer that connects them — not another vendor asking you to rip them out.</p>
+
+        <div class="coex-grid">
+
+          <!-- Wiz -->
+          <div class="coex-card">
+            <div class="coex-hdr">
+              <div class="coex-logo-wrap">
+                <div class="coex-logo" style="color:var(--cs-green);"><i class="fas fa-eye"></i></div>
+                <span class="coex-plus">+</span>
+                <div class="coex-logo" style="color:var(--cs-cyan);"><i class="fas fa-satellite-dish"></i></div>
+              </div>
+              <div>
+                <div class="coex-name">AiVRIC + Wiz</div>
+                <div class="coex-tagline">Cloud posture &amp; intelligence, unified</div>
+              </div>
+            </div>
+            <div class="coex-body">
+              <div class="coex-col">
+                <div class="coex-col-lbl">Wiz does well</div>
+                <ul>
+                  <li><i class="fas fa-check"></i>Graph-based attack path analysis</li>
+                  <li><i class="fas fa-check"></i>Agentless workload scanning</li>
+                  <li><i class="fas fa-check"></i>Toxic combo risk detection</li>
+                </ul>
+              </div>
+              <div class="coex-col">
+                <div class="coex-col-lbl">AiVRIC adds</div>
+                <ul>
+                  <li><i class="fas fa-plus"></i>GRC-grade risk register &amp; treatment tracking</li>
+                  <li><i class="fas fa-plus"></i>Compliance framework mapping (SOC 2, ISO 27001)</li>
+                  <li><i class="fas fa-plus"></i>Evidence automation &amp; audit package generation</li>
+                  <li><i class="fas fa-plus"></i>Teams &amp; SharePoint risk delivery</li>
+                </ul>
+              </div>
+            </div>
+            <div class="coex-ftr">
+              <p><strong>Bottom line:</strong> Wiz finds it — AiVRIC governs it. Feed Wiz findings into AiVRIC's risk register for compliance tracking and executive reporting without rebuilding your security stack.</p>
+            </div>
+          </div>
+
+          <!-- Prisma Cloud -->
+          <div class="coex-card">
+            <div class="coex-hdr">
+              <div class="coex-logo-wrap">
+                <div class="coex-logo" style="color:#00a1e0;"><i class="fas fa-cloud-upload-alt"></i></div>
+                <span class="coex-plus">+</span>
+                <div class="coex-logo" style="color:var(--cs-cyan);"><i class="fas fa-satellite-dish"></i></div>
+              </div>
+              <div>
+                <div class="coex-name">AiVRIC + Prisma Cloud</div>
+                <div class="coex-tagline">CNAPP posture &amp; GRC operations</div>
+              </div>
+            </div>
+            <div class="coex-body">
+              <div class="coex-col">
+                <div class="coex-col-lbl">Prisma does well</div>
+                <ul>
+                  <li><i class="fas fa-check"></i>CNAPP with deep AWS/Azure/GCP breadth</li>
+                  <li><i class="fas fa-check"></i>KSPM and container security</li>
+                  <li><i class="fas fa-check"></i>CI/CD pipeline security scanning</li>
+                </ul>
+              </div>
+              <div class="coex-col">
+                <div class="coex-col-lbl">AiVRIC adds</div>
+                <ul>
+                  <li><i class="fas fa-plus"></i>Business-context risk scoring and prioritization</li>
+                  <li><i class="fas fa-plus"></i>Continuous compliance with evidence collection</li>
+                  <li><i class="fas fa-plus"></i>Agentic remediation with HITL gates</li>
+                  <li><i class="fas fa-plus"></i>Board-ready reporting via Power BI</li>
+                </ul>
+              </div>
+            </div>
+            <div class="coex-ftr">
+              <p><strong>Bottom line:</strong> Prisma detects cloud threats deeply — AiVRIC translates them into risk governance. The combination closes the gap between security operations and compliance programs.</p>
+            </div>
+          </div>
+
+          <!-- OneTrust -->
+          <div class="coex-card">
+            <div class="coex-hdr">
+              <div class="coex-logo-wrap">
+                <div class="coex-logo" style="color:#00a651;"><i class="fas fa-balance-scale"></i></div>
+                <span class="coex-plus">+</span>
+                <div class="coex-logo" style="color:var(--cs-cyan);"><i class="fas fa-satellite-dish"></i></div>
+              </div>
+              <div>
+                <div class="coex-name">AiVRIC + OneTrust</div>
+                <div class="coex-tagline">GRC automation &amp; continuous posture</div>
+              </div>
+            </div>
+            <div class="coex-body">
+              <div class="coex-col">
+                <div class="coex-col-lbl">OneTrust does well</div>
+                <ul>
+                  <li><i class="fas fa-check"></i>Privacy and data governance workflows</li>
+                  <li><i class="fas fa-check"></i>Vendor risk and third-party assessments</li>
+                  <li><i class="fas fa-check"></i>Policy and consent management</li>
+                </ul>
+              </div>
+              <div class="coex-col">
+                <div class="coex-col-lbl">AiVRIC adds</div>
+                <ul>
+                  <li><i class="fas fa-plus"></i>Real-time cloud posture signals to GRC records</li>
+                  <li><i class="fas fa-plus"></i>Automated technical evidence for control testing</li>
+                  <li><i class="fas fa-plus"></i>Continuous compliance — not point-in-time snapshots</li>
+                  <li><i class="fas fa-plus"></i>Risk signals from AI systems via AI Signals&trade;</li>
+                </ul>
+              </div>
+            </div>
+            <div class="coex-ftr">
+              <p><strong>Bottom line:</strong> OneTrust manages the governance process — AiVRIC provides the continuous technical evidence that feeds it. Together they eliminate the manual evidence gap in GRC programs.</p>
+            </div>
+          </div>
+
+          <!-- Microsoft 365 -->
+          <div class="coex-card">
+            <div class="coex-hdr">
+              <div class="coex-logo-wrap">
+                <div class="coex-logo" style="color:#0078d4;"><i class="fab fa-microsoft"></i></div>
+                <span class="coex-plus">+</span>
+                <div class="coex-logo" style="color:var(--cs-cyan);"><i class="fas fa-satellite-dish"></i></div>
+              </div>
+              <div>
+                <div class="coex-name">AiVRIC + Microsoft 365</div>
+                <div class="coex-tagline">Risk intelligence in the M365 workspace</div>
+              </div>
+            </div>
+            <div class="coex-body">
+              <div class="coex-col">
+                <div class="coex-col-lbl">M365 does well</div>
+                <ul>
+                  <li><i class="fas fa-check"></i>Collaboration via Teams, SharePoint, and Outlook</li>
+                  <li><i class="fas fa-check"></i>Identity and access via Entra ID</li>
+                  <li><i class="fas fa-check"></i>BI and data visualization via Power BI</li>
+                </ul>
+              </div>
+              <div class="coex-col">
+                <div class="coex-col-lbl">AiVRIC adds</div>
+                <ul>
+                  <li><i class="fas fa-plus"></i>Risk alerts in Teams without leaving the workspace</li>
+                  <li><i class="fas fa-plus"></i>Audit evidence automatically organized in SharePoint</li>
+                  <li><i class="fas fa-plus"></i>Live compliance dashboards in Power BI</li>
+                  <li><i class="fas fa-plus"></i>Entra ID posture scanning and privilege analysis</li>
+                </ul>
+              </div>
+            </div>
+            <div class="coex-ftr">
+              <p><strong>Bottom line:</strong> M365 is where enterprises collaborate — AiVRIC brings the risk intelligence into that workflow rather than asking teams to log into yet another security portal.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="gf-bottom">
+
+
+    <!-- ═══════════════════════ MARKET ARCHITECTURE ═══════════════════════ -->
+    <section class="csp-section" id="architecture">
+      <div class="auto-container">
+        <span class="csp-eyebrow">Market Architecture</span>
+        <h2 class="csp-section-title">Where AiVRIC fits in the enterprise stack.</h2>
+        <p class="csp-section-sub">AiVRIC is not replacing the tools enterprises already use. It is the operational intelligence layer that connects them.</p>
+        <div class="mkt-table-wrap">
+          <table class="mkt-table">
+            <thead>
+              <tr>
+                <th>Enterprise Layer</th>
+                <th>Existing Tools</th>
+                <th>AiVRIC Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cloud Security Posture</td>
+                <td>Wiz, Prisma Cloud, Defender for Cloud</td>
+                <td class="mkt-role">Aggregates findings → GRC risk register → compliance evidence</td>
+              </tr>
+              <tr>
+                <td>GRC &amp; Compliance</td>
+                <td>OneTrust, ServiceNow GRC, manual spreadsheets</td>
+                <td class="mkt-role">Replaces manual evidence collection with continuous automated ingestion</td>
+              </tr>
+              <tr>
+                <td>AI Governance</td>
+                <td>No dedicated tooling in most enterprises</td>
+                <td class="mkt-role">AI Signals™ captures LLM telemetry as compliance-ready security signals</td>
+              </tr>
+              <tr>
+                <td>Collaboration</td>
+                <td>Microsoft Teams, SharePoint, Slack</td>
+                <td class="mkt-role">Delivers risk alerts and evidence packages natively into existing workspaces</td>
+              </tr>
+              <tr>
+                <td>ITSM &amp; DevOps</td>
+                <td>Jira, ServiceNow, GitHub, Azure DevOps</td>
+                <td class="mkt-role">Routes findings to remediation workflows with risk-ranked priority</td>
+              </tr>
+              <tr>
+                <td>Analytics &amp; SIEM</td>
+                <td>Splunk, Sentinel, Datadog, Power BI</td>
+                <td class="mkt-role">Publishes structured risk events for unified threat and compliance correlation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════ COMPLIANCE FRAMEWORKS ═══════════════════════ -->
+    <section class="csp-section" id="frameworks" style="padding-bottom:0;">
+      <div class="auto-container">
+        <span class="csp-eyebrow">Compliance Frameworks</span>
+        <h2 class="csp-section-title">20+ frameworks mapped out of the box.</h2>
+        <p class="csp-section-sub">AiVRIC CloudSignals maps cloud posture findings to the frameworks your auditors actually care about — no manual mapping required.</p>
+        <div class="fw-chips">
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>SOC 2 Type II</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>ISO 27001</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>PCI-DSS v4</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>HIPAA</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>CMMC Level 2</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>NIST CSF 2.0</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>NIST SP 800-53</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>FedRAMP</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>CIS Benchmarks</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>AWS Well-Architected</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>Azure Security Benchmark</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>GCP Security Foundations</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>GDPR (Technical Controls)</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>CCPA</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>ENS</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>MITRE ATT&amp;CK</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>RBI</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>KISA</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>FFIEC</span>
+          <span class="fw-chip"><i class="fas fa-check-circle"></i>Cyber Essentials</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ═══════════════════════ BOTTOM CTA ═══════════════════════ -->
     <div class="auto-container">
-      <div class="gf-bottom-inner">
-        <p class="gf-copy">&copy; 2025 <a href="index.html">AiVRIC Technologies</a>. All Rights Reserved.</p>
-        <div class="gf-bottom-right">
-          <span class="gf-trust-pill"><span class="gf-trust-dot"></span>SOC&nbsp;2 Ready</span>
-          <nav class="gf-bottom-nav">
-            <a href="terms-of-use.html">Terms of Service</a>
-            <a href="privacy-policy.html">Privacy Policy</a>
-          </nav>
+      <div class="csp-bottom-cta">
+        <h2>Ready to connect your existing stack?</h2>
+        <p>AiVRIC works with the platforms you already own. Start with cloud posture or GRC and expand as you need.</p>
+        <div class="csp-bottom-actions">
+          <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=integrations_page" class="cs-btn primary"><i class="fas fa-play"></i> Start Free</a>
+          <a href="request-demo.html" class="cs-btn secondary"><i class="fas fa-calendar-alt"></i> Request a Demo</a>
+          <a href="cspm-cloudsignals.html" class="cs-btn ghost">Explore CloudSignals+RiskOps</a>
         </div>
       </div>
     </div>
+
+  </main>
+
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="main-footer gf-footer">
+    <div class="gf-top-rule"></div>
+    <div class="gf-body">
+      <div class="auto-container">
+        <div class="gf-grid">
+          <div class="gf-col">
+            <a href="index.html" class="gf-logo-link"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" class="gf-logo"></a>
+            <p class="gf-tagline">Autonomous Security, Compliance, and Risk Intelligence — hosted in your environment.</p>
+            <form class="gf-subscribe" action="contact.html" method="post">
+              <div class="gf-subscribe-row">
+                <input type="email" name="email" placeholder="Work email address" required>
+                <button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+              </div>
+              <p class="gf-subscribe-note">No spam &mdash; platform updates only.</p>
+            </form>
+            <div class="gf-social">
+              <a href="https://www.linkedin.com/company/aivric" class="gf-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="https://x.com/aivric" class="gf-social-link" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.facebook.com/61581937785235/" class="gf-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/aivrictechnologies/" class="gf-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+          <div class="gf-col">
+            <div class="gf-col-title">Platform</div>
+            <ul class="gf-links">
+              <li><a href="services.html">Platform Overview</a></li>
+              <li><a href="genai-chat.html">GenAI Chat</a></li>
+              <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
+              <li><a href="agentic-design.html">Agentic Design</a></li>
+              <li><a href="efficient-compute.html">Efficient Compute</a></li>
+              <li><a href="data-localization.html">Data Localization</a></li>
+              <li><a href="ai-model-inspection.html">AI Model Inspection</a></li>
+            </ul>
+          </div>
+          <div class="gf-col">
+            <div class="gf-col-title">Solutions</div>
+            <ul class="gf-links">
+              <li><a href="cspm-cloudsignals.html">CloudSignals+RiskOps&trade;</a></li>
+              <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
+              <li><a href="air-remediation.html">AIRE Agentic Mesh&trade;</a></li>
+              <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
+              <li><a href="aivric-vision-professional.html">Vision AI Optics&trade;</a></li>
+              <li><a href="integrations.html">Integrations</a></li>
+              <li><a href="solutions-portal.html">All Products &rarr;</a></li>
+            </ul>
+          </div>
+          <div class="gf-col">
+            <div class="gf-col-title">Company</div>
+            <ul class="gf-links">
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="why-aivric.html">Why AiVRIC</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="blog-portal.html">Blog</a></li>
+              <li><a href="trust.html">Trust Center</a></li>
+              <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Platform Guide</a></li>
+            </ul>
+            <div class="gf-contact-block">
+              <a href="mailto:info@aivric.com" class="gf-contact-link"><i class="fas fa-envelope"></i>info@aivric.com</a>
+              <a href="tel:+19543426637" class="gf-contact-link"><i class="fas fa-phone-alt"></i>+1 954 342 6637</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="gf-bottom">
+      <div class="auto-container">
+        <div class="gf-bottom-inner">
+          <p class="gf-copy">&copy; 2025 <a href="index.html">AiVRIC Technologies</a>. All Rights Reserved.</p>
+          <div class="gf-bottom-right">
+            <span class="gf-trust-pill"><span class="gf-trust-dot"></span>SOC&nbsp;2 Ready</span>
+            <nav class="gf-bottom-nav">
+              <a href="terms-of-use.html">Terms of Service</a>
+              <a href="privacy-policy.html">Privacy Policy</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- main-footer end -->
+
+  <!--Scroll to top-->
+  <div class="scroll-to-top">
+    <div><div class="scroll-top-inner">
+      <div class="scroll-bar"><div class="bar-inner"></div></div>
+      <div class="scroll-bar-text">Go To Top</div>
+    </div></div>
   </div>
-</footer>
 
 </div><!-- .boxed_wrapper -->
+
 
 <!-- Scripts -->
 <script src="assets/js/jquery.js"></script>
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.js"></script>
+<script src="assets/js/wow.js"></script>
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/jquery.fancybox.js"></script>
+<script src="assets/js/appear.js"></script>
+<script src="assets/js/scrollbar.js"></script>
+<script src="assets/js/isotope.js"></script>
 <script src="assets/js/jquery.nice-select.min.js"></script>
+<script src="assets/js/parallax-scroll.js"></script>
 <script src="assets/js/aivric-preloader.js"></script>
 <script src="assets/js/script.js"></script>
 <script src="assets/js/mega-hover.js"></script>
 <script src="assets/js/mega-tabs.js"></script>
+<script src="assets/js/blog-mega.js"></script>
+<script src="assets/js/ve-init.js"></script>
+
 </body>
 </html>
