@@ -317,7 +317,8 @@ body.ba-page{background:var(--ba-bg);color:var(--ba-text);font-family:'Inter',sy
                 <div class="megamenu">
                     <div class="mega-tabs" role="tablist">
                         <button class="mega-tab is-active" type="button" data-mega-tab="solution" role="tab" aria-selected="true">By Solution</button>
-                        <button class="mega-tab" type="button" data-mega-tab="usecase" role="tab" aria-selected="false">By Use Case</button>
+                        <button class="mega-tab" type="button" data-mega-tab="usecase" role="tab" aria-selected="false">Standard Use Cases</button>
+                    <button class="mega-tab" type="button" data-mega-tab="otherusecase" role="tab" aria-selected="false">Other Use Cases</button>
                     </div>
                     <div class="mega-panel mega-panel-static" data-mega-tabpanel="solution" data-mega-active="defense" role="tabpanel">
                         <div class="mega-rail mega-rail-stack">
@@ -373,6 +374,16 @@ body.ba-page{background:var(--ba-bg);color:var(--ba-text);font-family:'Inter',sy
                             <a class="mega-card" data-mega-category="productops" href="../../use-case-github-security.html"><strong>DevSecOps</strong><span>Secure Github repos and delivery workflows.</span></a>
                         </div>
                     </div>
+                  <div class="mega-panel mega-panel-static" data-mega-tabpanel="otherusecase" role="tabpanel" hidden>
+                    <div class="mega-rail mega-rail-stack">
+                      <button class="mega-stack-card is-active" type="button" data-mega-target="industry"><h4>Industry Verticals</h4><p>Tailored use cases for specialized industries and firm types.</p></button>
+                      <button class="mega-stack-card" type="button" data-mega-target="partners"><h4>Partner Programs</h4><p>Purpose-built for MSPs, MSSPs, and partner-led delivery.</p></button>
+                    </div>
+                    <div class="mega-grid">
+                      <a class="mega-card" data-mega-category="industry" href="../../cloudsignals-private-equity.html"><strong>Private Equity &amp; Holdings</strong><span>Portfolio-wide cloud risk and compliance for PE firms, family offices, and holding companies.</span></a>
+                      <a class="mega-card" data-mega-category="partners" href="../../cloudsignals-msp.html"><strong>Managed Service Providers</strong><span>Multi-tenant GRC and cloud security for MSPs and MSSPs to deliver as a managed service.</span></a>
+                    </div>
+                  </div>
                 </div>
             </li>
             <li class="dropdown"><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Resources</a>
