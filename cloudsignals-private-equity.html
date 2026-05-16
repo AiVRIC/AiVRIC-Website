@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<title>CloudSignals+RiskOps™ for Private Equity &amp; Holdings | GRC &amp; Cloud Security | AiVRIC</title>
+<meta name="description" content="AiVRIC CloudSignals+RiskOps™ — monitor every portfolio company's cloud security posture, run compliance programs, and deliver board-ready risk reporting from one unified workspace. Built for PE firms, holding companies, family offices, and VC portfolios.">
+<link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="assets/css/aivric-preloader.css" rel="stylesheet">
+<link href="assets/css/font-awesome-all.css" rel="stylesheet">
+<link href="assets/css/flaticon.css" rel="stylesheet">
+<link href="assets/css/owl.css" rel="stylesheet">
+<link href="assets/css/bootstrap.css" rel="stylesheet">
+<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
+<link href="assets/css/animate.css" rel="stylesheet">
+<link href="assets/css/nice-select.css" rel="stylesheet">
+<link href="assets/css/color.css" rel="stylesheet">
+<link href="assets/css/elpath.css" rel="stylesheet">
+<link href="assets/css/style.css?v=20250115" rel="stylesheet">
+<link href="assets/css/elements-css/page-title.css" rel="stylesheet">
+<link href="assets/css/elements-css/service.css" rel="stylesheet">
+<link href="assets/css/elements-css/about.css" rel="stylesheet">
+<link href="assets/css/elements-css/subscribe.css" rel="stylesheet">
+<link href="assets/css/responsive.css" rel="stylesheet">
+<link href="assets/css/custom.css?v=20250115" rel="stylesheet">
+<style>
+:root{
+  --cs-cyan:#00d1ff;--cs-green:#2ee59d;--cs-gold:#ffd63a;--cs-purple:#a78bfa;
+  --cs-text-strong:#f8fafc;--cs-text:#e5e7eb;--cs-muted:#cbd5e1;--cs-faint:#94a3b8;
+  --cs-surface-1:rgba(255,255,255,0.06);--cs-line:rgba(148,163,184,0.28);
+  --cs-shadow:0 14px 40px rgba(0,0,0,0.28);--cs-radius:18px;
+  --cs-btn:#00d1ff;--cs-btn-hover:#24ddff;--cs-btn-fg:#fff;
+  --cs-btn-border:rgba(0,209,255,0.6);--cs-btn-border-hover:rgba(0,209,255,0.85);
+  --cs-btn-shadow:0 12px 24px rgba(0,209,255,0.2);--cs-btn-shadow-hover:0 14px 28px rgba(0,209,255,0.28);
+  --cs-line-strong:rgba(148,163,184,0.5);
+}
+body.portal-page{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  background:radial-gradient(1200px 900px at 70% -20%,rgba(0,209,255,0.20),transparent 55%),
+    radial-gradient(900px 700px at 10% 10%,rgba(46,113,229,0.13),transparent 60%),
+    linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%);
+  color:var(--cs-text);
+}
+.cs-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 22px;border-radius:999px;font-weight:700;font-size:14px;letter-spacing:0.01em;text-decoration:none;cursor:pointer;transition:all 0.22s;text-shadow:0 1px 0 rgba(0,0,0,0.3);}
+.cs-btn.primary{background:var(--cs-btn);color:var(--cs-btn-fg)!important;border:1px solid var(--cs-btn-border);box-shadow:var(--cs-btn-shadow);}
+.cs-btn.primary:hover{background:var(--cs-btn-hover);border-color:var(--cs-btn-border-hover);box-shadow:var(--cs-btn-shadow-hover);transform:translateY(-1px);}
+.cs-btn.secondary{background:rgba(0,209,255,0.10);color:var(--cs-text-strong)!important;border:1px solid rgba(0,209,255,0.65);}
+.cs-btn.secondary:hover{background:var(--cs-btn-hover)!important;color:#fff!important;border-color:var(--cs-btn-border-hover)!important;box-shadow:var(--cs-btn-shadow-hover);transform:translateY(-1px);}
+.cs-btn.ghost{background:transparent;color:var(--cs-text-strong)!important;border:1px solid rgba(255,255,255,0.22);text-shadow:none;}
+.cs-btn.ghost:hover{background:rgba(255,255,255,0.07)!important;transform:translateY(-1px);}
+.cs-product-page{padding:0;}
+.csp-hero{padding:100px 0 56px;position:relative;overflow:hidden;}
+@media(max-width:992px){.csp-hero{padding:80px 0 40px;}}
+.csp-hero-grid{display:grid;grid-template-columns:1.25fr 0.75fr;gap:32px;align-items:start;}
+@media(max-width:992px){.csp-hero-grid{grid-template-columns:1fr;}}
+.csp-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:rgba(0,209,255,0.13);border:1px solid rgba(0,209,255,0.35);color:var(--cs-text-strong);font-size:12.5px;font-weight:600;letter-spacing:0.3px;margin-bottom:16px;}
+.csp-badge i{color:var(--cs-cyan);}
+.csp-title{font-family:Jost,Inter,sans-serif;font-size:54px;font-weight:800;line-height:1.03;letter-spacing:-1.2px;color:var(--cs-text-strong);margin:0 0 14px;}
+@media(max-width:768px){.csp-title{font-size:38px;}}
+.csp-sub{font-size:17px;line-height:1.75;color:var(--cs-muted);max-width:62ch;margin:0 0 24px;}
+.csp-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px;}
+.csp-release-band{display:flex;flex-wrap:wrap;gap:10px;}
+.csp-rb-item{display:flex;align-items:center;gap:8px;padding:8px 14px;border-radius:12px;background:var(--cs-surface-1);border:1px solid var(--cs-line);}
+.csp-rb-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--cs-faint);}
+.csp-rb-val{font-size:13px;color:var(--cs-text);font-weight:600;}
+.csp-rb-val.avail{color:var(--cs-green);display:flex;align-items:center;gap:6px;}
+.csp-rb-val.avail::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--cs-green);box-shadow:0 0 5px rgba(46,229,157,0.6);}
+.csp-hero-aside{display:flex;flex-direction:column;gap:14px;padding-top:4px;}
+.csp-quick-card{border-radius:16px;padding:18px 20px;background:var(--cs-surface-1);border:1px solid var(--cs-line);box-shadow:var(--cs-shadow);}
+.csp-quick-card h4{font-size:13px;font-weight:700;color:var(--cs-text-strong);margin:0 0 12px;text-transform:uppercase;letter-spacing:0.5px;}
+.csp-quick-list{list-style:none;padding:0;margin:0;display:grid;gap:7px;}
+.csp-quick-list li{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--cs-muted);line-height:1.45;}
+.csp-quick-list li i{color:var(--cs-green);flex-shrink:0;margin-top:1px;font-size:11px;}
+.csp-quick-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-radius:12px;background:rgba(0,209,255,0.07);border:1px solid rgba(0,209,255,0.22);text-decoration:none;transition:background 0.2s;}
+.csp-quick-link:hover{background:rgba(0,209,255,0.12);}
+.csp-quick-link span{font-size:13.5px;font-weight:600;color:var(--cs-text-strong);}
+.csp-quick-link i{color:var(--cs-cyan);font-size:12px;}
+.csp-section{padding:52px 0 0;}
+.csp-eyebrow{display:block;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--cs-cyan);margin-bottom:8px;}
+.csp-section-title{font-family:Jost,Inter,sans-serif;font-size:32px;font-weight:800;color:var(--cs-text-strong);margin:0 0 10px;letter-spacing:-0.4px;line-height:1.15;}
+.csp-section-sub{font-size:15px;line-height:1.75;color:var(--cs-muted);max-width:80ch;margin:0 0 28px;}
+.csp-cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+@media(max-width:1100px){.csp-cap-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:576px){.csp-cap-grid{grid-template-columns:1fr;}}
+.csp-cap{border-radius:16px;background:var(--cs-surface-1);border:1px solid var(--cs-line);padding:20px;box-shadow:var(--cs-shadow);}
+.csp-cap-icon{width:40px;height:40px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:12px;}
+.csp-cap h4{font-size:15px;font-weight:700;color:var(--cs-text-strong);margin:0 0 6px;}
+.csp-cap p{font-size:13.5px;color:var(--cs-muted);line-height:1.65;margin:0;}
+.csp-modules-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+@media(max-width:992px){.csp-modules-grid-3{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:576px){.csp-modules-grid-3{grid-template-columns:1fr;}}
+.csp-module-card{border-radius:var(--cs-radius);background:var(--cs-surface-1);border:1px solid var(--cs-line);padding:22px;box-shadow:var(--cs-shadow);display:flex;flex-direction:column;gap:12px;transition:border-color 0.2s,box-shadow 0.2s;}
+.csp-module-card:hover{border-color:rgba(0,209,255,0.3);box-shadow:0 20px 48px rgba(0,0,0,0.3);}
+.csp-module-icon{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.csp-module-icon.cyan{background:rgba(0,209,255,0.13);border:1px solid rgba(0,209,255,0.28);color:var(--cs-cyan);}
+.csp-module-icon.green{background:rgba(46,229,157,0.13);border:1px solid rgba(46,229,157,0.28);color:var(--cs-green);}
+.csp-module-icon.gold{background:rgba(255,214,58,0.13);border:1px solid rgba(255,214,58,0.28);color:var(--cs-gold);}
+.csp-module-icon.purple{background:rgba(167,139,250,0.13);border:1px solid rgba(167,139,250,0.28);color:var(--cs-purple);}
+.csp-module-card h3{font-size:16px;font-weight:700;color:var(--cs-text-strong);margin:0;}
+.csp-module-card p{font-size:13.5px;color:var(--cs-muted);line-height:1.65;margin:0;flex:1;}
+.csp-module-feats{list-style:none;padding:0;margin:0;display:grid;gap:6px;}
+.csp-module-feats li{font-size:12.5px;color:var(--cs-muted);display:flex;gap:7px;align-items:flex-start;}
+.csp-module-feats li::before{content:"→";color:var(--cs-cyan);font-size:11px;flex-shrink:0;margin-top:1px;}
+.csp-fw-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+@media(max-width:768px){.csp-fw-grid{grid-template-columns:1fr;}}
+.csp-fw-card{border-radius:16px;background:var(--cs-surface-1);border:1px solid var(--cs-line);overflow:hidden;box-shadow:var(--cs-shadow);}
+.csp-fw-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;cursor:pointer;user-select:none;}
+.csp-fw-head::-webkit-details-marker{display:none;}
+.csp-fw-head-left{display:flex;align-items:center;gap:12px;}
+.csp-fw-logo{width:36px;height:36px;border-radius:10px;background:rgba(0,209,255,0.11);border:1px solid rgba(0,209,255,0.24);display:flex;align-items:center;justify-content:center;color:var(--cs-cyan);font-size:14px;flex-shrink:0;}
+.csp-fw-name{font-size:15px;font-weight:700;color:var(--cs-text-strong);}
+.csp-fw-sub{font-size:12.5px;color:var(--cs-muted);margin-top:2px;}
+.csp-fw-chevron{color:var(--cs-faint);font-size:12px;transition:transform 0.2s;flex-shrink:0;}
+details[open] .csp-fw-chevron{transform:rotate(90deg);}
+.csp-fw-body{padding:14px 18px 16px;border-top:1px solid var(--cs-line);}
+.csp-fw-req{background:rgba(0,209,255,0.06);border:1px solid rgba(0,209,255,0.18);border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:13px;color:var(--cs-muted);line-height:1.6;}
+.csp-fw-req strong{color:var(--cs-cyan);}
+.csp-fw-body ul{padding-left:16px;margin:0;display:grid;gap:5px;}
+.csp-fw-body li{font-size:13.5px;color:var(--cs-muted);line-height:1.55;}
+.csp-faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px;}
+@media(max-width:992px){.csp-faq-grid{grid-template-columns:1fr;}}
+.csp-faq-item{border-radius:16px;border:1px solid var(--cs-line);background:var(--cs-surface-1);padding:16px;box-shadow:var(--cs-shadow);}
+.csp-faq-item summary{cursor:pointer;font-weight:700;font-size:14.5px;color:var(--cs-text-strong);list-style:none;user-select:none;}
+.csp-faq-item summary::-webkit-details-marker{display:none;}
+details[open] .csp-faq-item summary{color:var(--cs-cyan);}
+.csp-faq-item p{margin:10px 0 0;color:var(--cs-muted);font-size:13.5px;line-height:1.75;}
+.csp-faq-item a{color:var(--cs-cyan);}
+.csp-bottom-cta{margin:52px 0 60px;border-radius:var(--cs-radius);background:linear-gradient(135deg,rgba(0,209,255,0.09) 0%,rgba(46,229,157,0.05) 100%);border:1px solid rgba(0,209,255,0.25);box-shadow:0 24px 60px rgba(0,209,255,0.09);padding:40px;text-align:center;}
+.csp-bottom-cta h2{font-family:Jost,Inter,sans-serif;font-size:36px;font-weight:800;color:var(--cs-text-strong);margin:0 0 12px;letter-spacing:-0.5px;}
+@media(max-width:768px){.csp-bottom-cta h2{font-size:26px;}}
+.csp-bottom-cta p{font-size:16px;color:var(--cs-muted);line-height:1.7;max-width:60ch;margin:0 auto 24px;}
+.csp-bottom-actions{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;}
+.csp-divider{height:1px;background:linear-gradient(90deg,transparent,var(--cs-line),transparent);margin:48px 0 0;}
+.csp-replaces-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+.csp-replaces-pill{display:inline-flex;align-items:center;gap:7px;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.10);color:var(--cs-muted);font-size:13px;font-weight:600;}
+.csp-replaces-pill i{color:var(--cs-green);font-size:11px;}
+.csp-usecase-pill{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:12px;background:var(--cs-surface-1);border:1px solid var(--cs-line);color:var(--cs-muted);font-size:13.5px;font-weight:600;text-decoration:none;}
+.csp-usecase-pill i{color:var(--cs-cyan);font-size:11px;}
+.csp-usecase-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
+</style>
+<style id="gf-styles">
+.gf-footer{background:#050b17;position:relative;overflow:hidden;font-family:'Inter',sans-serif}
+.gf-footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(0,209,255,.045) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
+.gf-top-rule{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,209,255,.55) 30%,rgba(46,229,157,.4) 70%,transparent 100%);position:relative;z-index:1}
+.gf-body{padding:72px 0 52px;position:relative;z-index:1}
+.gf-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:52px}
+@media(max-width:991px){.gf-grid{grid-template-columns:1fr 1fr;gap:36px 40px}}
+@media(max-width:599px){.gf-grid{grid-template-columns:1fr;gap:32px}}
+.gf-logo-link{display:inline-block;margin-bottom:14px}.gf-logo{height:34px;width:auto;display:block}
+.gf-tagline{font-size:13px;color:#4e637a;line-height:1.7;margin-bottom:22px;max-width:255px}
+.gf-subscribe-row{display:flex;gap:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:8px;overflow:hidden;margin-bottom:7px;transition:border-color .2s}
+.gf-subscribe-row:focus-within{border-color:rgba(0,209,255,.35)}
+.gf-subscribe-row input{flex:1;background:transparent;border:none;outline:none;padding:10px 14px;font-size:13px;color:#e2e8f0;font-family:'Inter',sans-serif}
+.gf-subscribe-row input::placeholder{color:#3d5268}
+.gf-subscribe-row button{background:#00d1ff;border:none;padding:10px 15px;color:#030a12;cursor:pointer;font-size:13px;transition:background .2s;flex-shrink:0}
+.gf-subscribe-row button:hover{background:#33daff}
+.gf-subscribe-note{font-size:11px;color:#3d5268;margin:0 0 22px}
+.gf-social{display:flex;gap:8px}
+.gf-social-link{width:33px;height:33px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#4e637a;font-size:13px;text-decoration:none;transition:all .2s}
+.gf-social-link:hover{background:rgba(0,209,255,.09);border-color:rgba(0,209,255,.28);color:#00d1ff}
+.gf-col-title{font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#94a3b8;margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.06)}
+.gf-links{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:9px}
+.gf-links li a{font-size:13.5px;color:#4e637a;text-decoration:none;transition:color .18s;display:inline-block}
+.gf-links li a:hover{color:#cbd5e1}
+.gf-contact-block{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.gf-contact-link{display:flex;align-items:center;gap:8px;font-size:13px;color:#4e637a;text-decoration:none;transition:color .18s}
+.gf-contact-link i{color:#00d1ff;font-size:12px;width:14px;text-align:center;flex-shrink:0}
+.gf-contact-link:hover{color:#cbd5e1}
+.gf-bottom{border-top:1px solid rgba(255,255,255,.055);padding:16px 0;position:relative;z-index:1}
+.gf-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.gf-copy{font-size:12px;color:#3d5268;margin:0}
+.gf-copy a{color:#4e637a;text-decoration:none;transition:color .18s}
+.gf-copy a:hover{color:#94a3b8}
+.gf-bottom-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.gf-trust-pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#2ee59d;background:rgba(46,229,157,.07);border:1px solid rgba(46,229,157,.18);border-radius:100px;padding:4px 12px;letter-spacing:.3px}
+.gf-trust-dot{width:6px;height:6px;border-radius:50%;background:#2ee59d;box-shadow:0 0 6px #2ee59d;animation:gf-blink 2s ease-in-out infinite}
+@keyframes gf-blink{0%,100%{opacity:1}50%{opacity:.25}}
+.gf-bottom-nav{display:flex;gap:18px}
+.gf-bottom-nav a{font-size:12px;color:#3d5268;text-decoration:none;transition:color .18s}
+.gf-bottom-nav a:hover{color:#94a3b8}
+.gf-footer .pattern-layer{display:none!important}
+.gf-footer .links-list,.gf-footer .footer-widget,.gf-footer .widget-section,.gf-footer .footer-bottom{display:none!important}
+</style>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EG2Q8GD30V');</script>
+
+<body class="portal-page">
+<div class="boxed_wrapper">
+
+  <div id="apl-wrap">
+    <div class="apl-scan"></div>
+    <div class="apl-corner tl"></div><div class="apl-corner tr"></div>
+    <div class="apl-corner bl"></div><div class="apl-corner br"></div>
+    <div class="apl-center">
+      <div class="apl-logo-wrap">
+        <div class="apl-ring r1"></div><div class="apl-ring r2"></div><div class="apl-ring r3"></div>
+        <img class="apl-logo" src="assets/images/logo/aivric.svg" alt="AiVRIC">
+      </div>
+      <div class="apl-brand">AiVRIC</div>
+      <div class="apl-tagline">Security Intelligence Platform</div>
+      <div class="apl-progress-wrap"><div class="apl-progress-fill" id="apl-fill"></div></div>
+      <div class="apl-status-row">
+        <span class="apl-status" id="apl-status">Initializing Signal Engine</span>
+        <span class="apl-pct" id="apl-pct">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="main-header">
+    <div class="header-top-bar"><div class="auto-container"><div class="top-bar-inner">
+      <div class="top-bar-brand">AIVRIC TECHNOLOGIES</div>
+      <div class="top-bar-right">
+        <ul class="top-bar-links">
+          <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-book-open"></i></span>Platform Guide</a></li>
+          <li><a href="trust.html"><span class="top-bar-icon accent-cyan"><i class="fas fa-shield-alt"></i></span>Trust Center</a></li>
+        </ul>
+        <ul class="top-bar-social">
+          <li><a href="https://www.linkedin.com/company/aivric" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+          <li><a href="https://x.com/aivric" aria-label="X"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="https://github.com" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </div></div></div>
+    <div class="header-lower"><div class="auto-container"><div class="outer-box">
+      <div class="logo-box"><figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt=""></a></figure></div>
+      <div class="menu-area clearfix">
+        <div class="mobile-nav-toggler"><i class="icon-bar"></i><i class="icon-bar"></i><i class="icon-bar"></i></div>
+        <nav class="main-menu navbar-expand-md navbar-light">
+          <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+            <ul class="navigation clearfix">
+              <li class="dropdown platform-menu"><a href="services.html">Platform</a>
+                <div class="platform-megamenu"><div class="platform-grid">
+                  <a class="platform-card" href="genai-chat.html"><h4>GenAI Chat</h4><p>Fabric intelligence chat across every AiVRIC solution.</p><span>view more</span></a>
+                  <a class="platform-card" href="shared-data-layer.html"><h4>Shared Data Layer</h4><p>The Fabric data layer unifies telemetry and evidence.</p><span>view more</span></a>
+                  <a class="platform-card" href="agentic-design.html"><h4>Agentic Design</h4><p>Fabric agents coordinate actions across suites.</p><span>view more</span></a>
+                  <a class="platform-card" href="efficient-compute.html"><h4>Efficient Compute</h4><p>Fabric compute optimizes AI workloads end-to-end.</p><span>view more</span></a>
+                  <a class="platform-card" href="data-localization.html"><h4>Data Localization</h4><p>Fabric residency controls govern every dataset.</p><span>view more</span></a>
+                  <a class="platform-card" href="ai-model-inspection.html"><h4>AI Model Inspection</h4><p>Fabric inspection monitors AI models and risk.</p><span>view more</span></a>
+                </div></div>
+              </li>
+              <li class="dropdown cs-product-menu"><a href="cspm-cloudsignals.html">CloudSignals+RiskOps</a>
+                <div class="cs-product-megamenu">
+                  <div class="cs-mega-hdr">
+                    <div class="cs-mega-hdr-info">
+                      <span class="cs-mega-status"><span class="cs-avail-dot"></span>Available Now</span>
+                      <h3>CloudSignals+RiskOps&trade;</h3>
+                      <p>AI-native cloud security posture, risk operations, and continuous compliance &mdash; in one platform.</p>
+                    </div>
+                    <a href="cloudsignals-pricing.html" class="cs-mega-pricing-cta">Compare plans &amp; pricing &rarr;</a>
+                  </div>
+                  <div class="cs-mega-body">
+                    <div class="cs-mega-col">
+                      <span class="cs-mega-col-label">Posture &amp; Discovery</span>
+                      <a class="cs-mega-feat-card" href="cloudsignals-cspm.html"><i class="fas fa-cloud"></i><div><strong>Multi-Cloud CSPM</strong><span>Scan AWS, Azure, GCP, and OCI posture in real time.</span></div></a>
+                      <a class="cs-mega-feat-card" href="cloudsignals-findings.html"><i class="fas fa-exclamation-triangle"></i><div><strong>Findings &amp; Risk Signals</strong><span>Prioritized risk signals with business-context scoring.</span></div></a>
+                    </div>
+                    <div class="cs-mega-col">
+                      <span class="cs-mega-col-label">Risk &amp; Compliance</span>
+                      <a class="cs-mega-feat-card" href="cloudsignals-risk-register.html"><i class="fas fa-clipboard-list"></i><div><strong>Risk Register &amp; RiskOps</strong><span>GRC-grade risk records, treatments, and portfolio exposure.</span></div></a>
+                      <a class="cs-mega-feat-card" href="cloudsignals-compliance.html"><i class="fas fa-shield-alt"></i><div><strong>Continuous Compliance</strong><span>SOC 2, ISO 27001, PCI-DSS, CMMC, HIPAA.</span></div></a>
+                      <a class="cs-mega-feat-card" href="cloudsignals-tprm.html"><i class="fas fa-handshake"></i><div><strong>Third-Party Risk (TPRM)</strong><span>Vendor assessments and ongoing monitoring.</span></div></a>
+                    </div>
+                    <div class="cs-mega-col">
+                      <span class="cs-mega-col-label">Intelligence</span>
+                      <a class="cs-mega-feat-card" href="cloudsignals-vision-ai.html"><i class="fas fa-brain"></i><div><strong>Vision AI &amp; Narratives</strong><span>GenAI risk summaries, AI chat, and model insights.</span></div></a>
+                      <a class="cs-mega-feat-card" href="ai-inspector.html"><i class="fas fa-satellite-dish"></i><div><strong>AI Signals&trade; Integration</strong><span>LLM telemetry as security-native compliance signals.</span></div></a>
+                    </div>
+                  </div>
+                  <div class="cs-mega-ftr">
+                    <a href="cspm-cloudsignals.html" class="cs-mega-ftr-link">Product overview &rarr;</a>
+                    <div class="cs-mega-ftr-ctas">
+                      <a href="cloudsignals-pricing.html" class="cs-mega-btn-primary">Compare plans &amp; pricing</a>
+                      <a href="request-demo.html" class="cs-mega-btn-ghost">Request a demo</a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="dropdown"><a href="#">Portfolio</a>
+                <div class="megamenu">
+                  <div class="mega-tabs" role="tablist">
+                    <button class="mega-tab is-active" type="button" data-mega-tab="solution" role="tab" aria-selected="true">By Solution</button>
+                    <button class="mega-tab" type="button" data-mega-tab="usecase" role="tab" aria-selected="false">By Use Case</button>
+                  </div>
+                  <div class="mega-panel mega-panel-static" data-mega-tabpanel="solution" data-mega-active="defense" role="tabpanel">
+                    <div class="mega-rail mega-rail-stack">
+                      <button class="mega-stack-card is-active" type="button" data-mega-target="defense"><h4>Defense</h4><p>A suite of solutions used to defend your organization from cyber threats.</p><a class="mega-link" href="solutions-portal.html#defense">View all products -></a></button>
+                      <button class="mega-stack-card" type="button" data-mega-target="offense"><h4>Offense</h4><p>A suite that continuously simulates attacks across your digital ecosystem.</p><a class="mega-link" href="solutions-portal.html#offense">View all products -></a></button>
+                      <button class="mega-stack-card" type="button" data-mega-target="vision"><h4>Vision</h4><p>Holistic context across the AiVRIC ecosystem and your environments.</p><a class="mega-link" href="solutions-portal.html#vision">View all products -></a></button>
+                    </div>
+                    <div class="mega-grid">
+                      <a class="mega-card" data-mega-category="defense" href="cspm-cloudsignals.html"><strong>CloudSignals+ RiskOps&trade;</strong><span>Scan all your cloud platform configs.</span></a>
+                      <a class="mega-card" data-mega-category="defense" href="ai-inspector.html"><strong>AI Signals&trade;</strong><span>LLM observability, evaluations, and prompt management for AI apps.</span></a>
+                      <a class="mega-card" data-mega-category="defense" href="air-remediation.html"><strong>AIRE Agentic Mesh&trade;</strong><span>Agentic role-based remediation agents.</span></a>
+                      <a class="mega-card" data-mega-category="offense" href="rogueagent.html"><strong>RogueAgent ASPM&trade;</strong><span>Analyze cloud posture using a risk lens.</span></a>
+                      <a class="mega-card" data-mega-category="vision" href="aivric-vision-professional.html"><strong>Vision AI Optics&trade;</strong><span>OpenAI-driven AI risk analysis and reporting.</span></a>
+                    </div>
+                  </div>
+                  <div class="mega-panel mega-panel-static" data-mega-tabpanel="usecase" data-mega-active="compliance" role="tabpanel" hidden>
+                    <div class="mega-rail mega-rail-stack">
+                      <button class="mega-stack-card is-active" type="button" data-mega-target="compliance"><h4>Compliance</h4><p>Framework-ready controls and audit automation.</p><a class="mega-link" href="use-cases-portal.html#compliance">View all frameworks -></a></button>
+                      <button class="mega-stack-card" type="button" data-mega-target="riskops"><h4>Risk Ops</h4><p>Continuous risk operations and response alignment.</p><a class="mega-link" href="use-cases-portal.html#riskops">View all programs -></a></button>
+                      <button class="mega-stack-card" type="button" data-mega-target="productops"><h4>Product Ops</h4><p>Security and compliance built into delivery workflows.</p><a class="mega-link" href="use-cases-portal.html#productops">View all playbooks -></a></button>
+                    </div>
+                    <div class="mega-grid">
+                      <a class="mega-card" data-mega-category="compliance" href="streamline-soc2.html"><strong>SOC 2 Type II</strong><span>Measure compliance against the SOC 2 Trust Service Principles.</span></a>
+                      <a class="mega-card" data-mega-category="compliance" href="achieve-pci-dss.html"><strong>PCI-DSS</strong><span>Continuous validation for PCI requirements and evidence.</span></a>
+                      <a class="mega-card" data-mega-category="compliance" href="cmmc-readiness.html"><strong>CMMC</strong><span>Readiness workflows for CMMC Level 2 assessments.</span></a>
+                      <a class="mega-card" data-mega-category="riskops" href="issues-poams.html"><strong>Issues and POA&amp;Ms</strong><span>Track issues, milestones, and remediation plans.</span></a>
+                      <a class="mega-card" data-mega-category="riskops" href="security-exceptions.html"><strong>Security Exceptions</strong><span>Document approved exceptions with guardrails.</span></a>
+                      <a class="mega-card" data-mega-category="riskops" href="threat-analysis.html"><strong>Threat Analysis</strong><span>Surface high-impact risks across environments.</span></a>
+                      <a class="mega-card" data-mega-category="productops" href="use-case-github-security.html"><strong>DevSecOps</strong><span>Secure Github repos and delivery workflows.</span></a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="dropdown"><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Resources</a>
+                <ul>
+                  <li><a href="pricing.html">Pricing</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="why-aivric.html">Why AiVRIC</a></li>
+                  <li><a href="blog-portal.html">Blog</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <ul class="menu-right-content">
+        <li class="search-box-outer search-toggler"><i class="icon-4"></i></li>
+        <li class="btn-box"><a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=pe_landing" class="theme-btn-one">Launch for Free</a></li>
+      </ul>
+    </div></div></div>
+    <div class="sticky-header"><div class="auto-container"><div class="outer-box">
+      <div class="logo-box"><figure class="logo"><a href="index.html"><img src="assets/images/logo/aivric.svg" alt="AiVRIC Logo"></a></figure></div>
+      <div class="menu-area clearfix"><nav class="main-menu clearfix"></nav></div>
+      <ul class="menu-right-content">
+        <li class="search-box-outer search-toggler"><i class="icon-4"></i></li>
+        <li class="btn-box"><a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=pe_landing" class="theme-btn-two">Launch for Free</a></li>
+      </ul>
+    </div></div></div>
+  </header>
+
+  <div class="mobile-menu">
+    <div class="menu-backdrop"></div>
+    <div class="close-btn" role="button" tabindex="0" aria-label="Close menu"><i class="fas fa-times"></i></div>
+    <nav class="menu-box">
+      <div class="nav-logo"><a href="index.html"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" title=""></a></div>
+      <div class="menu-outer"></div>
+      <div class="contact-info"><h4>Contact Info</h4><ul>
+        <li>Wilmington, Delaware USA</li>
+        <li><a href="tel:+19543426637">+1 954 342 6637</a></li>
+        <li><a href="mailto:info@aivric.com">info@aivric.com</a></li>
+      </ul></div>
+    </nav>
+  </div>
+
+  <!-- ============================================================
+       CLOUDSIGNALS+RISKOPS FOR PRIVATE EQUITY & HOLDINGS
+  ============================================================ -->
+  <div class="cs-product-page">
+
+    <!-- HERO -->
+    <section class="csp-hero">
+      <div class="auto-container">
+        <div class="csp-hero-grid">
+          <div>
+            <nav aria-label="breadcrumb" style="margin-bottom:20px;">
+              <ol style="list-style:none;padding:0;margin:0;display:flex;gap:8px;align-items:center;font-size:12.5px;color:var(--cs-faint);">
+                <li><a href="index.html" style="color:var(--cs-faint);text-decoration:none;">Home</a></li>
+                <li style="color:var(--cs-line-strong);">/</li>
+                <li><a href="cspm-cloudsignals.html" style="color:var(--cs-faint);text-decoration:none;">CloudSignals+RiskOps&trade;</a></li>
+                <li style="color:var(--cs-line-strong);">/</li>
+                <li style="color:var(--cs-cyan);">Private Equity &amp; Holdings</li>
+              </ol>
+            </nav>
+
+            <div class="csp-badge"><i class="fas fa-briefcase"></i>Use Case &nbsp;&middot;&nbsp; Private Equity &amp; Multi-Entity Organizations</div>
+
+            <h1 class="csp-title">One platform for every portfolio company's cloud risk<br><span style="color:var(--cs-cyan);">and compliance.</span></h1>
+
+            <p class="csp-sub">CloudSignals+RiskOps&trade; gives PE firms, holding companies, family offices, and VC portfolios a single workspace to monitor security posture, run compliance programs, and deliver board-ready risk reporting — across every entity you own.</p>
+
+            <div class="csp-actions">
+              <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=pe_landing" class="cs-btn primary"><i class="fas fa-rocket"></i>&nbsp;Start free &mdash; connect your first entity</a>
+              <a href="request-demo.html" class="cs-btn ghost">Request a portfolio demo</a>
+            </div>
+
+            <div class="csp-release-band">
+              <div class="csp-rb-item"><span class="csp-rb-label">Status</span><span class="csp-rb-val avail">Available</span></div>
+              <div class="csp-rb-item"><span class="csp-rb-label">Multi-entity</span><span class="csp-rb-val">Unlimited portfolio companies</span></div>
+              <div class="csp-rb-item"><span class="csp-rb-label">Frameworks</span><span class="csp-rb-val">20+ per entity</span></div>
+              <div class="csp-rb-item"><span class="csp-rb-label">Deployment</span><span class="csp-rb-val">SaaS &middot; Self-hosted &middot; Air-gapped</span></div>
+            </div>
+
+            <div style="margin-top:20px;">
+              <span style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;color:var(--cs-faint);display:block;margin-bottom:10px;">Replaces</span>
+              <div class="csp-replaces-row">
+                <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Point-in-time security reviews</span>
+                <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Spreadsheet due diligence</span>
+                <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Per-company compliance silos</span>
+                <span class="csp-replaces-pill"><i class="fas fa-check-circle"></i>Manual board risk reporting</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="csp-hero-aside">
+            <div class="csp-quick-card">
+              <h4>Purpose-built for multi-entity orgs</h4>
+              <ul class="csp-quick-list">
+                <li><i class="fas fa-check-circle"></i>One login — every portfolio company</li>
+                <li><i class="fas fa-check-circle"></i>Strict per-entity data isolation</li>
+                <li><i class="fas fa-check-circle"></i>Portfolio-level risk roll-up view</li>
+                <li><i class="fas fa-check-circle"></i>Pre-acquisition risk assessment in hours</li>
+                <li><i class="fas fa-check-circle"></i>Day-1 post-acquisition security baseline</li>
+                <li><i class="fas fa-check-circle"></i>Board &amp; LP risk reports, auto-generated</li>
+                <li><i class="fas fa-check-circle"></i>20+ compliance frameworks per entity</li>
+                <li><i class="fas fa-check-circle"></i>Agentic remediation — no manual tickets</li>
+              </ul>
+            </div>
+            <a href="cloudsignals-pricing.html" class="csp-quick-link"><span>Compare all plans &amp; pricing</span><i class="fas fa-arrow-right"></i></a>
+            <a href="request-demo.html" class="csp-quick-link"><span>Talk to a PE specialist</span><i class="fas fa-arrow-right"></i></a>
+            <div class="csp-quick-card" style="padding-top:14px;">
+              <h4>Also ideal for</h4>
+              <div class="csp-usecase-row" style="margin-top:0;">
+                <span class="csp-usecase-pill" style="cursor:default;"><i class="fas fa-check"></i>Family Offices</span>
+                <span class="csp-usecase-pill" style="cursor:default;"><i class="fas fa-check"></i>VC Portfolios</span>
+                <span class="csp-usecase-pill" style="cursor:default;"><i class="fas fa-check"></i>Holding Cos.</span>
+                <span class="csp-usecase-pill" style="cursor:default;"><i class="fas fa-check"></i>Infra Funds</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="csp-divider"></div>
+
+    <!-- CAPABILITIES -->
+    <section class="csp-section">
+      <div class="auto-container">
+        <span class="csp-eyebrow">Core Capabilities</span>
+        <h2 class="csp-section-title">Security and compliance across every entity you own.</h2>
+        <p class="csp-section-sub">Four capabilities that give investment organizations an always-current picture of cloud risk and compliance — at portfolio level and per entity.</p>
+        <div class="csp-cap-grid">
+          <div class="csp-cap">
+            <div class="csp-cap-icon" style="background:rgba(0,209,255,0.11);border:1px solid rgba(0,209,255,0.24);color:var(--cs-cyan);"><i class="fas fa-sitemap"></i></div>
+            <h4>Portfolio-Wide Visibility</h4>
+            <p>One dashboard shows every portfolio company's cloud posture, open risk items, and compliance status — updated continuously, not quarterly.</p>
+          </div>
+          <div class="csp-cap">
+            <div class="csp-cap-icon" style="background:rgba(46,229,157,0.11);border:1px solid rgba(46,229,157,0.24);color:var(--cs-green);"><i class="fas fa-search-dollar"></i></div>
+            <h4>Due Diligence Automation</h4>
+            <p>Connect an acquisition target's cloud accounts and get a scored security risk report in hours — not the weeks a traditional tech due diligence engagement takes.</p>
+          </div>
+          <div class="csp-cap">
+            <div class="csp-cap-icon" style="background:rgba(255,214,58,0.11);border:1px solid rgba(255,214,58,0.24);color:var(--cs-gold);"><i class="fas fa-check-double"></i></div>
+            <h4>Compliance at Scale</h4>
+            <p>Map every entity to the frameworks they need — SOC 2, ISO 27001, PCI-DSS, CMMC, HIPAA, NIST CSF — simultaneously and automatically, with evidence captured continuously.</p>
+          </div>
+          <div class="csp-cap">
+            <div class="csp-cap-icon" style="background:rgba(167,139,250,0.11);border:1px solid rgba(167,139,250,0.24);color:var(--cs-purple);"><i class="fas fa-chart-pie"></i></div>
+            <h4>Board-Ready Reporting</h4>
+            <p>Executive-grade risk reports and LP updates generated automatically — entity-level detail or rolled-up portfolio view, always reflecting the current state.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="csp-divider"></div>
+
+    <!-- PLATFORM MODULES -->
+    <section class="csp-section">
+      <div class="auto-container">
+        <span class="csp-eyebrow">Platform Capabilities</span>
+        <h2 class="csp-section-title">Every workflow a multi-entity org actually needs.</h2>
+        <p class="csp-section-sub">CloudSignals+RiskOps&trade; covers the full portfolio lifecycle — from pre-deal risk assessment through ongoing operations to exit preparation — in one platform.</p>
+        <div class="csp-modules-grid-3">
+          <div class="csp-module-card">
+            <div class="csp-module-icon cyan"><i class="fas fa-layer-group"></i></div>
+            <h3>Multi-Entity Workspace</h3>
+            <p>One login manages unlimited portfolio companies. Each entity has isolated data and its own compliance posture — visible individually or aggregated to portfolio level.</p>
+            <ul class="csp-module-feats">
+              <li>Entity-level access controls &amp; RBAC</li>
+              <li>Portfolio roll-up risk dashboard</li>
+              <li>Consolidated or per-entity reporting</li>
+              <li>Onboard new acquisitions in &lt;15 minutes</li>
+            </ul>
+          </div>
+          <div class="csp-module-card">
+            <div class="csp-module-icon green"><i class="fas fa-search-dollar"></i></div>
+            <h3>Acquisition Risk Assessment</h3>
+            <p>Connect target cloud accounts via read-only IAM roles. CloudSignals runs 500+ checks and surfaces scored, prioritized findings before you close the deal.</p>
+            <ul class="csp-module-feats">
+              <li>Pre-acquisition cloud security audit</li>
+              <li>Risk scoring by severity &amp; business impact</li>
+              <li>Day-1 remediation priority list</li>
+              <li>Compliance gap analysis per framework</li>
+            </ul>
+          </div>
+          <div class="csp-module-card">
+            <div class="csp-module-icon gold"><i class="fas fa-shield-alt"></i></div>
+            <h3>Continuous Compliance Management</h3>
+            <p>Map every portfolio company to its required frameworks. Controls are validated continuously — evidence captured automatically and audit-ready at any time.</p>
+            <ul class="csp-module-feats">
+              <li>SOC 2, ISO 27001, CMMC, PCI-DSS and more</li>
+              <li>Automated evidence collection &amp; export</li>
+              <li>Framework mapping per entity</li>
+              <li>Real-time control gap tracking</li>
+            </ul>
+          </div>
+          <div class="csp-module-card">
+            <div class="csp-module-icon purple"><i class="fas fa-clipboard-list"></i></div>
+            <h3>Risk Register per Entity</h3>
+            <p>Every finding auto-generates a risk record with owner assignment, severity scoring, treatment tracking, and financial impact quantification — per company and portfolio-wide.</p>
+            <ul class="csp-module-feats">
+              <li>Auto-populated risk records from scan findings</li>
+              <li>Treatment workflow &amp; approvals</li>
+              <li>Financial exposure quantification</li>
+              <li>Risk trend reporting over time</li>
+            </ul>
+          </div>
+          <div class="csp-module-card">
+            <div class="csp-module-icon cyan"><i class="fas fa-chart-bar"></i></div>
+            <h3>Executive &amp; Board Reporting</h3>
+            <p>GenAI-powered risk narratives translate technical findings into plain-language executive summaries. Generate per-entity or portfolio-level reports for board packs and LP updates.</p>
+            <ul class="csp-module-feats">
+              <li>GenAI plain-language risk narratives</li>
+              <li>Portfolio-level risk roll-up</li>
+              <li>Exportable PDF board packs</li>
+              <li>Scheduled automated report delivery</li>
+            </ul>
+          </div>
+          <div class="csp-module-card">
+            <div class="csp-module-icon green"><i class="fas fa-robot"></i></div>
+            <h3>Agentic Remediation (AIRE)</h3>
+            <p>AIRE Agentic Mesh&trade; autonomously remediates findings, routes tasks to the right owners at each portfolio company, and closes compliance gaps without manual coordination.</p>
+            <ul class="csp-module-feats">
+              <li>Autonomous fix actions per entity</li>
+              <li>Evidence captured on every action</li>
+              <li>Jira, Slack &amp; webhook integration</li>
+              <li>Remediation audit trail per company</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="csp-divider"></div>
+
+    <!-- USE CASE WORKFLOWS -->
+    <section class="csp-section">
+      <div class="auto-container">
+        <span class="csp-eyebrow">Use Case Workflows</span>
+        <h2 class="csp-section-title">From deal sourcing to exit — every phase covered.</h2>
+        <p class="csp-section-sub">CloudSignals+RiskOps&trade; maps to the actual operating model of investment organizations at every stage of the portfolio lifecycle.</p>
+        <div class="csp-fw-grid">
+
+          <details class="csp-fw-card">
+            <summary class="csp-fw-head">
+              <div class="csp-fw-head-left">
+                <div class="csp-fw-logo"><i class="fas fa-search"></i></div>
+                <div><div class="csp-fw-name">Pre-Acquisition Tech Due Diligence</div><div class="csp-fw-sub">Identify security risk before signing the deal</div></div>
+              </div>
+              <i class="fas fa-chevron-right csp-fw-chevron"></i>
+            </summary>
+            <div class="csp-fw-body">
+              <div class="csp-fw-req"><strong>The challenge:</strong> Traditional security due diligence takes weeks and relies on questionnaires that miss live cloud misconfigurations. By the time findings are in, the deal is often already closed.</div>
+              <ul>
+                <li>Connect target's AWS, Azure, or GCP accounts via temporary read-only IAM roles</li>
+                <li>Run 500+ automated CSPM checks across all cloud environments in minutes</li>
+                <li>Receive a prioritized, scored risk report with business-impact context</li>
+                <li>Identify compliance gaps against frameworks the target claims to meet</li>
+                <li>Surface third-party vendor risk through automated TPRM assessments</li>
+                <li>Generate a deal-ready security risk brief for investment committee review</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="csp-fw-card">
+            <summary class="csp-fw-head">
+              <div class="csp-fw-head-left">
+                <div class="csp-fw-logo"><i class="fas fa-flag-checkered"></i></div>
+                <div><div class="csp-fw-name">Day-1 Post-Acquisition Security Baseline</div><div class="csp-fw-sub">Establish security standards from day one</div></div>
+              </div>
+              <i class="fas fa-chevron-right csp-fw-chevron"></i>
+            </summary>
+            <div class="csp-fw-body">
+              <div class="csp-fw-req"><strong>The challenge:</strong> Newly acquired companies often have inconsistent security practices, unknown cloud configurations, and compliance gaps that create immediate liability for the acquiring entity.</div>
+              <ul>
+                <li>Onboard newly acquired company in under 15 minutes via agentless connector</li>
+                <li>Establish a baseline posture snapshot for before/after tracking</li>
+                <li>Assign a risk register with prioritized remediation backlog to the operating team</li>
+                <li>Map cloud environments to the portfolio's standard compliance frameworks</li>
+                <li>Configure AIRE agents to autonomously close critical gaps</li>
+                <li>Generate a 30/60/90-day security normalization plan automatically</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="csp-fw-card">
+            <summary class="csp-fw-head">
+              <div class="csp-fw-head-left">
+                <div class="csp-fw-logo"><i class="fas fa-sync-alt"></i></div>
+                <div><div class="csp-fw-name">Ongoing Portfolio Compliance Monitoring</div><div class="csp-fw-sub">Continuous compliance across every entity</div></div>
+              </div>
+              <i class="fas fa-chevron-right csp-fw-chevron"></i>
+            </summary>
+            <div class="csp-fw-body">
+              <div class="csp-fw-req"><strong>The challenge:</strong> Maintaining consistent compliance posture across 5–30 portfolio companies — each with different cloud environments, engineering teams, and framework requirements — is operationally overwhelming.</div>
+              <ul>
+                <li>Continuous automated scanning across all portfolio companies 24/7</li>
+                <li>Per-entity compliance dashboards with framework-level control status</li>
+                <li>Portfolio roll-up view showing aggregate risk and compliance health</li>
+                <li>Automated evidence collection and audit-ready export per entity</li>
+                <li>Drift detection — alerts when any entity falls below compliance thresholds</li>
+                <li>Quarterly compliance attestation reports generated automatically</li>
+              </ul>
+            </div>
+          </details>
+
+          <details class="csp-fw-card">
+            <summary class="csp-fw-head">
+              <div class="csp-fw-head-left">
+                <div class="csp-fw-logo"><i class="fas fa-door-open"></i></div>
+                <div><div class="csp-fw-name">Exit Readiness &amp; Pre-IPO Preparation</div><div class="csp-fw-sub">Clean security posture commands a premium</div></div>
+              </div>
+              <i class="fas fa-chevron-right csp-fw-chevron"></i>
+            </summary>
+            <div class="csp-fw-body">
+              <div class="csp-fw-req"><strong>The challenge:</strong> Acquirers and underwriters scrutinize cybersecurity posture intensely. Security liabilities discovered during exit due diligence reduce valuations or kill deals entirely.</div>
+              <ul>
+                <li>Run a buyer-perspective security assessment on exiting companies</li>
+                <li>Generate a full compliance evidence pack for ISO 27001, PCI-DSS, or CMMC</li>
+                <li>Produce a security maturity narrative for the CIM and investor data room</li>
+                <li>Remediate outstanding findings before the sale process begins</li>
+                <li>Track security posture improvement over the hold period with trend data</li>
+                <li>SEC cybersecurity disclosure readiness reporting for public exit paths</li>
+              </ul>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="csp-divider"></div>
+
+    <!-- FAQ -->
+    <section class="csp-section">
+      <div class="auto-container">
+        <span class="csp-eyebrow">Questions</span>
+        <h2 class="csp-section-title">Frequently asked by PE &amp; investment teams.</h2>
+        <div class="csp-faq-grid">
+
+          <details class="csp-faq-item">
+            <summary>Can we manage 20+ portfolio companies from a single login?</summary>
+            <p>Yes. CloudSignals+RiskOps&trade; supports unlimited entities in one workspace. Each portfolio company has its own isolated data environment, visible individually or aggregated in a portfolio roll-up. Your investment team gets one login; operating teams at each company get role-scoped access to only their entity.</p>
+          </details>
+
+          <details class="csp-faq-item">
+            <summary>How does pricing work across a portfolio?</summary>
+            <p>Pricing is based on the number of cloud accounts connected, not the number of companies. Enterprise and portfolio plans include volume tiers designed for multi-entity organizations. <a href="cloudsignals-pricing.html">View pricing</a> or <a href="request-demo.html">speak with our PE team</a> for a custom quote.</p>
+          </details>
+
+          <details class="csp-faq-item">
+            <summary>Can portfolio companies see each other's data?</summary>
+            <p>No. Each entity is strictly isolated at the data layer. Portfolio company teams can only see their own environment. Only users with portfolio-level permissions — your investment team — can access the consolidated view or cross-entity reporting.</p>
+          </details>
+
+          <details class="csp-faq-item">
+            <summary>How quickly can we onboard a newly acquired company?</summary>
+            <p>Agentless connectors for AWS, Azure, and GCP take under 15 minutes to configure using read-only IAM roles — no agents, no changes to the target environment. A baseline risk report and compliance gap analysis are available within the first hour.</p>
+          </details>
+
+          <details class="csp-faq-item">
+            <summary>Can we generate per-entity reports for board packages and LP updates?</summary>
+            <p>Yes. CloudSignals generates both per-entity and portfolio-level risk reports with GenAI-powered plain-language narratives. Reports can be exported as PDFs, scheduled for automated delivery, and customized to your reporting cadence and branding.</p>
+          </details>
+
+          <details class="csp-faq-item">
+            <summary>What cloud environments are covered?</summary>
+            <p>CloudSignals covers AWS, Microsoft Azure, Google Cloud Platform (GCP), and Oracle Cloud Infrastructure (OCI). Multi-cloud environments within a single portfolio company are consolidated into one posture view for that entity.</p>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA -->
+    <div class="auto-container">
+      <div class="csp-bottom-cta">
+        <h2>Connect your first portfolio company<br><span style="color:var(--cs-cyan);">in under 15 minutes. Free.</span></h2>
+        <p>No commitment. No credit card. Start with one entity and scale to your full portfolio as you grow. Enterprise and portfolio-level plans available — contact us for a custom quote.</p>
+        <div class="csp-bottom-actions">
+          <a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=pe_landing_cta" class="cs-btn primary"><i class="fas fa-rocket"></i>&nbsp;Start free today</a>
+          <a href="request-demo.html" class="cs-btn secondary">Request a portfolio walkthrough</a>
+          <a href="cloudsignals-pricing.html" class="cs-btn ghost">View enterprise pricing</a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /.cs-product-page -->
+
+  <footer class="main-footer gf-footer">
+    <div class="gf-top-rule"></div>
+    <div class="gf-body"><div class="auto-container"><div class="gf-grid">
+      <div class="gf-col">
+        <a href="index.html" class="gf-logo-link"><img src="assets/images/logo/Aivric-logo-footer-1.avif" alt="AiVRIC" class="gf-logo"></a>
+        <p class="gf-tagline">Autonomous Security, Compliance, and Risk Intelligence — SaaS, self-hosted, or air-gapped.</p>
+        <form class="gf-subscribe" action="contact.html" method="post">
+          <div class="gf-subscribe-row"><input type="email" name="email" placeholder="Work email address" required><button type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button></div>
+          <p class="gf-subscribe-note">No spam &mdash; platform updates only.</p>
+        </form>
+        <div class="gf-social">
+          <a href="https://www.linkedin.com/company/aivric" class="gf-social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://x.com/aivric" class="gf-social-link" aria-label="X / Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.facebook.com/61581937785235/" class="gf-social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/aivrictechnologies/" class="gf-social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="gf-col">
+        <div class="gf-col-title">Platform</div>
+        <ul class="gf-links">
+          <li><a href="services.html">Platform Overview</a></li>
+          <li><a href="genai-chat.html">GenAI Chat</a></li>
+          <li><a href="shared-data-layer.html">Shared Data Layer</a></li>
+          <li><a href="agentic-design.html">Agentic Design</a></li>
+          <li><a href="efficient-compute.html">Efficient Compute</a></li>
+          <li><a href="data-localization.html">Data Localization</a></li>
+        </ul>
+      </div>
+      <div class="gf-col">
+        <div class="gf-col-title">Solutions</div>
+        <ul class="gf-links">
+          <li><a href="cspm-cloudsignals.html">CloudSignals+RiskOps&trade;</a></li>
+          <li><a href="ai-inspector.html">AI Signals&trade;</a></li>
+          <li><a href="air-remediation.html">AIRE Agentic Mesh&trade;</a></li>
+          <li><a href="rogueagent.html">RogueAgent ASPM&trade;</a></li>
+          <li><a href="aivric-vision-enterprise.html">Vision Enterprise</a></li>
+          <li><a href="solutions-portal.html">All Products &rarr;</a></li>
+        </ul>
+      </div>
+      <div class="gf-col">
+        <div class="gf-col-title">Company</div>
+        <ul class="gf-links">
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="why-aivric.html">Why AiVRIC</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="blog-portal.html">Blog</a></li>
+          <li><a href="trust.html">Trust Center</a></li>
+          <li><a href="https://aivric.com/AiVRIC-UserGuide/index.html">Platform Guide</a></li>
+        </ul>
+        <div class="gf-contact-block">
+          <a href="mailto:info@aivric.com" class="gf-contact-link"><i class="fas fa-envelope"></i>info@aivric.com</a>
+          <a href="tel:+19543426637" class="gf-contact-link"><i class="fas fa-phone-alt"></i>+1 954 342 6637</a>
+        </div>
+      </div>
+    </div></div></div>
+    <div class="gf-bottom"><div class="auto-container"><div class="gf-bottom-inner">
+      <p class="gf-copy">&copy; 2025 <a href="index.html">AiVRIC Technologies</a>. All Rights Reserved.</p>
+      <div class="gf-bottom-right">
+        <span class="gf-trust-pill"><span class="gf-trust-dot"></span>ISO&nbsp;27001&#8209;Aligned</span>
+        <nav class="gf-bottom-nav">
+          <a href="terms-of-use.html">Terms of Service</a>
+          <a href="privacy-policy.html">Privacy Policy</a>
+        </nav>
+      </div>
+    </div></div></div>
+  </footer>
+
+  <div class="scroll-to-top"><div><div class="scroll-top-inner">
+    <div class="scroll-bar"><div class="bar-inner"></div></div>
+    <div class="scroll-bar-text">Go To Top</div>
+  </div></div></div>
+
+</div>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/popper.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.js"></script>
+<script src="assets/js/wow.js"></script>
+<script src="assets/js/validation.js"></script>
+<script src="assets/js/jquery.fancybox.js"></script>
+<script src="assets/js/appear.js"></script>
+<script src="assets/js/scrollbar.js"></script>
+<script src="assets/js/isotope.js"></script>
+<script src="assets/js/jquery.nice-select.min.js"></script>
+<script src="assets/js/parallax-scroll.js"></script>
+<script src="assets/js/aivric-preloader.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/mega-hover.js"></script>
+<script src="assets/js/mega-tabs.js"></script>
+<script src="assets/js/blog-mega.js"></script>
+</body>
+</html>
