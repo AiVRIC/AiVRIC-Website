@@ -42,3 +42,112 @@ header.main-header .main-menu .navigation > li.current > a {
   text-underline-offset: 5px !important;
   text-decoration-thickness: 2px !important;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   Mobile megamenu — responsive overrides for the Portfolio tab-panel nav
+   Active at ≤1200px where the hamburger menu replaces the desktop nav.
+   Desktop styles (scoped under header.main-header .main-menu) are untouched.
+══════════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 1200px) {
+
+  /* Tab strip: wrap pills, smaller type */
+  .mobile-menu .megamenu .mega-tabs {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 4px 0 12px 0;
+  }
+
+  .mobile-menu .megamenu .mega-tab {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.10);
+    color: #94a3b8;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 11px;
+    border-radius: 999px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .2s, color .2s, border-color .2s;
+  }
+
+  .mobile-menu .megamenu .mega-tab.is-active,
+  .mobile-menu .megamenu .mega-tab:focus,
+  .mobile-menu .megamenu .mega-tab:hover {
+    background: rgba(0,209,255,.12);
+    color: #00d1ff;
+    border-color: rgba(0,209,255,.3);
+  }
+
+  /* Panel: collapse side-by-side grid to vertical stack */
+  .mobile-menu .megamenu .mega-panel {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px;
+  }
+
+  /* Category rail: compact horizontal chips, scrollable */
+  .mobile-menu .megamenu .mega-rail-stack {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .mobile-menu .megamenu .mega-stack-card {
+    min-height: 0 !important;
+    height: auto !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    padding: 7px 13px;
+    border-radius: 8px;
+    width: auto;
+    flex: 0 0 auto;
+  }
+
+  /* Hide description + link in rail chips — just show the category name */
+  .mobile-menu .megamenu .mega-stack-card p,
+  .mobile-menu .megamenu .mega-stack-card .mega-link {
+    display: none;
+  }
+
+  .mobile-menu .megamenu .mega-stack-card h4 {
+    font-size: 12.5px;
+    margin: 0;
+    letter-spacing: .02em;
+  }
+
+  /* Product/use-case cards: 2-column grid */
+  .mobile-menu .megamenu .mega-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px;
+  }
+
+  .mobile-menu .megamenu .mega-card {
+    padding: 9px 11px;
+  }
+
+  .mobile-menu .megamenu .mega-card strong {
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+
+  .mobile-menu .megamenu .mega-card span {
+    font-size: 11.5px;
+    color: #475569;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+/* Extra-small phones: single-column product grid */
+@media (max-width: 480px) {
+  .mobile-menu .megamenu .mega-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

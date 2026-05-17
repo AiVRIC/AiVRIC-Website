@@ -15,12 +15,10 @@
 
     cards.forEach(function(card){
       var target = card.getAttribute('data-mega-target');
-      card.addEventListener('mouseenter', function(){
-        setActive(target);
-      });
-      card.addEventListener('focus', function(){
-        setActive(target);
-      });
+      // mouseenter handles desktop hover; click handles touch/keyboard activation
+      card.addEventListener('mouseenter', function(){ setActive(target); });
+      card.addEventListener('focus',      function(){ setActive(target); });
+      card.addEventListener('click',      function(){ setActive(target); });
     });
 
     setActive(panel.getAttribute('data-mega-active') || cards[0].getAttribute('data-mega-target'));
