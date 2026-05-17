@@ -84,7 +84,76 @@
 			});
 		}
 		initMobileDropdowns();
-		
+
+		// Convert desktop megamenu HTML into clean mobile link lists.
+		// Runs once on page load; initMobileDropdowns() re-runs safely (containers preserved).
+		var mobileMenusBuilt = false;
+		function buildMobileMegaMenus() {
+			if (mobileMenusBuilt) { return; }
+			mobileMenusBuilt = true;
+
+			// ── Platform ──────────────────────────────────────────────────────
+			var $pm = $('.mobile-menu .platform-megamenu');
+			if ($pm.length) {
+				var pmHtml = '<ul class="mobile-sub-nav">';
+				$pm.find('.platform-card').each(function() {
+					pmHtml += '<li><a href="' + ($(this).attr('href') || '#') + '">' + $(this).find('h4').text() + '</a></li>';
+				});
+				$pm.html(pmHtml + '</ul>');
+			}
+
+			// ── CloudSignals+RiskOps ─────────────────────────────────────────
+			var $cs = $('.mobile-menu .cs-product-megamenu');
+			if ($cs.length) {
+				var csHtml = '<ul class="mobile-sub-nav">';
+				$cs.find('.cs-mega-col').each(function() {
+					var lbl = $(this).find('.cs-mega-col-label').text();
+					if (lbl) { csHtml += '<li class="msn-section">' + lbl + '</li>'; }
+					$(this).find('.cs-mega-feat-card').each(function() {
+						csHtml += '<li><a href="' + ($(this).attr('href') || '#') + '">' + $(this).find('strong').text() + '</a></li>';
+					});
+				});
+				csHtml += '<li class="msn-ctas">'
+					+ '<a href="cloudsignals-pricing.html" class="msn-btn-primary">Compare plans &amp; pricing</a>'
+					+ '<a href="request-demo.html" class="msn-btn-ghost">Request a demo</a>'
+					+ '</li></ul>';
+				$cs.html(csHtml);
+			}
+
+			// ── Portfolio (tabbed megamenu) ────────────────────────────────────
+			var $mm = $('.mobile-menu .megamenu');
+			if ($mm.length) {
+				var mmHtml = '<ul class="mobile-sub-nav">';
+				var spLinks = '';
+				$mm.find('[data-mega-tabpanel="solution"] .mega-card').each(function() {
+					spLinks += '<li><a href="' + ($(this).attr('href') || '#') + '">' + $(this).find('strong').text() + '</a></li>';
+				});
+				if (spLinks) { mmHtml += '<li class="msn-section">Products</li>' + spLinks + '<li class="msn-view-all"><a href="solutions-portal.html">View all solutions &rarr;</a></li>'; }
+				var ucLinks = '';
+				$mm.find('[data-mega-tabpanel="usecase"] .mega-card').each(function() {
+					ucLinks += '<li><a href="' + ($(this).attr('href') || '#') + '">' + $(this).find('strong').text() + '</a></li>';
+				});
+				if (ucLinks) { mmHtml += '<li class="msn-section">Use Cases</li>' + ucLinks; }
+				var ouLinks = '';
+				$mm.find('[data-mega-tabpanel="otherusecase"] .mega-card').each(function() {
+					ouLinks += '<li><a href="' + ($(this).attr('href') || '#') + '">' + $(this).find('strong').text() + '</a></li>';
+				});
+				if (ouLinks) { mmHtml += '<li class="msn-section">Industry &amp; Partners</li>' + ouLinks; }
+				$mm.html(mmHtml + '</ul>');
+			}
+
+			// ── Launch For Free CTA below logo ───────────────────────────────
+			if (!$('.mobile-menu .msn-launch-cta').length) {
+				$('.mobile-menu .nav-logo').after(
+					'<div class="msn-launch-cta">'
+					+ '<a href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=aivric_website" class="msn-launch-btn">'
+					+ '<i class="fas fa-rocket"></i> Launch For Free'
+					+ '</a></div>'
+				);
+			}
+		}
+		buildMobileMegaMenus();
+
 		//Dropdown Button
 		$('.mobile-menu .dropdown-btn').off('click').on('click', function() {
 			var $btn = $(this);
