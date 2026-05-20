@@ -1,307 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>AiVRIC Platform Guide | CloudSignals+ Release Notes — May 2026.1</title>
+  <link rel="canonical" href="https://aivric.com/AiVRIC-UserGuide/cloudsignals_release_notes_May2026.1">
+  <meta name="description" content="May 2026.1 production release for CloudSignals+ RiskOps Platform — 7 modules updated across Vision AI, TrustSignals, RiskOps, Microsoft 365, Managed Entities, and Navigation.">
+  <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="../assets/css/aivric-preloader.css" rel="stylesheet">
+  <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="../assets/css/bootstrap.css" rel="stylesheet">
+  <link href="userguide.css?v=3" rel="stylesheet">
 
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: var(--font-sans); }
-  .cs-wrap { max-width: 860px; margin: 0 auto; padding: 0 0 3rem; }
-  .cs-topbar { background: #0a0f1e; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0; }
-  .cs-logo { display: flex; align-items: center; gap: 10px; }
-  .cs-logo-mark { width: 30px; height: 30px; background: linear-gradient(135deg, #00c6a2, #0072f5); border-radius: 7px; display: flex; align-items: center; justify-content: center; }
-  .cs-logo-mark span { color: #fff; font-weight: 700; font-size: 13px; letter-spacing: -0.5px; }
-  .cs-logo-text { color: #fff; font-size: 15px; font-weight: 500; letter-spacing: 0.3px; }
-  .cs-logo-text em { color: #00c6a2; font-style: normal; }
-  .cs-nav { display: flex; gap: 1.5rem; }
-  .cs-nav a { color: rgba(255,255,255,0.6); font-size: 13px; text-decoration: none; }
-  .cs-nav a:hover { color: #fff; }
+  <style>
+    /* ── Release-notes-specific additions ────────────────────────────── */
 
-  .cs-hero { background: #0a0f1e; padding: 3rem 2rem 2.5rem; border-bottom: 1px solid rgba(0,198,162,0.2); }
-  .cs-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(0,198,162,0.12); border: 1px solid rgba(0,198,162,0.3); color: #00c6a2; font-size: 12px; padding: 4px 12px; border-radius: 20px; margin-bottom: 1rem; }
-  .cs-badge i { font-size: 13px; }
-  .cs-hero h1 { color: #fff; font-size: 32px; font-weight: 500; line-height: 1.25; margin-bottom: 0.75rem; }
-  .cs-hero h1 em { color: #00c6a2; font-style: normal; }
-  .cs-hero p { color: rgba(255,255,255,0.6); font-size: 15px; line-height: 1.7; max-width: 620px; }
-  .cs-hero-meta { display: flex; gap: 2rem; margin-top: 1.5rem; }
-  .cs-hero-meta span { color: rgba(255,255,255,0.45); font-size: 13px; display: flex; align-items: center; gap: 6px; }
-  .cs-hero-meta i { font-size: 14px; color: #00c6a2; }
+    /* Announcement banner */
+    .rn-announce {
+      background: linear-gradient(90deg, rgba(0,209,255,.08) 0%, rgba(46,229,157,.07) 50%, rgba(0,209,255,.05) 100%);
+      border-bottom: 1px solid rgba(0,209,255,.15);
+      padding: 10px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--ug-muted-2);
+      position: relative;
+      overflow: hidden;
+    }
+    .rn-announce::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(0,209,255,.05), transparent);
+      animation: rn-shimmer 3s ease-in-out infinite;
+    }
+    @keyframes rn-shimmer {
+      0%,100% { transform: translateX(-100%); }
+      50%      { transform: translateX(100%);  }
+    }
+    .rn-live-dot {
+      display: inline-block;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--ug-green);
+      margin-right: 6px;
+      vertical-align: middle;
+      animation: rn-pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes rn-pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .4; transform: scale(.7); }
+    }
 
-  .cs-modules { padding: 2rem; }
-  .cs-section { margin-bottom: 2rem; border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; background: var(--color-background-primary); }
-  .cs-section-header { padding: 1rem 1.25rem; display: flex; align-items: center; gap: 12px; border-bottom: 0.5px solid var(--color-border-tertiary); }
-  .cs-icon-wrap { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .cs-icon-wrap.teal { background: #e1f5ee; }
-  .cs-icon-wrap.teal i { color: #0f6e56; font-size: 18px; }
-  .cs-icon-wrap.blue { background: #e6f1fb; }
-  .cs-icon-wrap.blue i { color: #185fa5; font-size: 18px; }
-  .cs-icon-wrap.purple { background: #eeedfe; }
-  .cs-icon-wrap.purple i { color: #534ab7; font-size: 18px; }
-  .cs-icon-wrap.amber { background: #faeeda; }
-  .cs-icon-wrap.amber i { color: #854f0b; font-size: 18px; }
-  .cs-icon-wrap.coral { background: #faece7; }
-  .cs-icon-wrap.coral i { color: #993c1d; font-size: 18px; }
-  .cs-icon-wrap.gray { background: var(--color-background-secondary); }
-  .cs-icon-wrap.gray i { color: var(--color-text-secondary); font-size: 18px; }
-  .cs-section-title { font-size: 15px; font-weight: 500; color: var(--color-text-primary); }
-  .cs-section-subtitle { font-size: 12px; color: var(--color-text-secondary); margin-top: 1px; }
-  .cs-items { padding: 0 1.25rem; }
-  .cs-item { padding: 0.85rem 0; border-bottom: 0.5px solid var(--color-border-tertiary); display: flex; gap: 12px; align-items: flex-start; }
-  .cs-item:last-child { border-bottom: none; }
-  .cs-item-type { flex-shrink: 0; display: flex; align-items: center; gap: 4px; font-size: 11px; font-weight: 500; padding: 2px 8px; border-radius: 20px; margin-top: 2px; }
-  .cs-item-type.new { background: #e1f5ee; color: #0f6e56; }
-  .cs-item-type.improved { background: #e6f1fb; color: #185fa5; }
-  .cs-item-type.fixed { background: #faeeda; color: #854f0b; }
-  .cs-item-body { flex: 1; }
-  .cs-item-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 3px; }
-  .cs-item-desc { font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+    /* Hero — release stats strip */
+    .rn-hero {
+      background: var(--ug-surface);
+      border: 1px solid var(--ug-border);
+      border-radius: var(--ug-radius-lg);
+      padding: 28px 28px 24px;
+      margin: 24px 0 32px;
+      position: relative;
+      overflow: hidden;
+    }
+    .rn-hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(0,209,255,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .rn-hero-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .rn-hero-title {
+      font-family: "Jost", "Inter", sans-serif;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -.4px;
+      color: var(--ug-text);
+      line-height: 1.2;
+      margin: 8px 0 6px;
+    }
+    .rn-hero-sub {
+      font-size: 14px;
+      color: var(--ug-muted-2);
+      max-width: 58ch;
+      line-height: 1.65;
+    }
+    .rn-version {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 16px;
+      background: rgba(167,139,250,.1);
+      border: 1px solid rgba(167,139,250,.3);
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--ug-purple);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .rn-stats {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .rn-stat {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 14px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--ug-border);
+      border-radius: 999px;
+      font-size: 12.5px;
+      color: var(--ug-muted-2);
+    }
+    .rn-stat i { font-size: 11px; color: var(--ug-cyan); }
+    .rn-stat strong { color: var(--ug-text); font-weight: 700; }
 
-  .cs-footer { margin: 0 2rem; padding: 1.25rem; background: var(--color-background-secondary); border-radius: var(--border-radius-lg); display: flex; align-items: center; justify-content: space-between; }
-  .cs-footer p { font-size: 13px; color: var(--color-text-secondary); }
-  .cs-footer a { color: #0f6e56; text-decoration: none; font-size: 13px; font-weight: 500; }
-</style>
+    /* Module cards */
+    .rn-module {
+      border: 1px solid var(--ug-border);
+      border-radius: var(--ug-radius);
+      overflow: hidden;
+      margin-bottom: 20px;
+      transition: border-color .18s;
+    }
+    .rn-module:hover { border-color: var(--ug-border-2); }
 
-<div class="cs-wrap">
-  <h2 class="sr-only">CloudSignals+ RiskOps release notes for the current platform update</h2>
+    .rn-module-hd {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,.025);
+      border-bottom: 1px solid var(--ug-border);
+      cursor: pointer;
+      user-select: none;
+    }
+    .rn-module-hd:hover { background: rgba(255,255,255,.04); }
 
-  <div class="cs-topbar">
-    <div class="cs-logo">
-      <div class="cs-logo-mark"><span>CS</span></div>
-      <span class="cs-logo-text">CloudSignals<em>+</em> RiskOps</span>
+    .rn-mod-icon {
+      width: 38px; height: 38px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .rn-mod-icon.cyan   { background: rgba(0,209,255,.12);   color: var(--ug-cyan);   border: 1px solid rgba(0,209,255,.2);   }
+    .rn-mod-icon.purple { background: rgba(167,139,250,.12); color: var(--ug-purple); border: 1px solid rgba(167,139,250,.2); }
+    .rn-mod-icon.green  { background: rgba(46,229,157,.12);  color: var(--ug-green);  border: 1px solid rgba(46,229,157,.2);  }
+    .rn-mod-icon.blue   { background: rgba(96,165,250,.12);  color: #60a5fa;          border: 1px solid rgba(96,165,250,.2);  }
+    .rn-mod-icon.amber  { background: rgba(255,214,58,.1);   color: var(--ug-amber);  border: 1px solid rgba(255,214,58,.18); }
+    .rn-mod-icon.gray   { background: rgba(148,163,184,.08); color: var(--ug-muted-2); border: 1px solid var(--ug-border);    }
+
+    .rn-mod-meta { flex: 1; min-width: 0; }
+    .rn-mod-name {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--ug-text);
+      margin-bottom: 2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .rn-mod-tag {
+      font-size: 9.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+    .rn-mod-tag.cyan   { background: rgba(0,209,255,.1);   color: var(--ug-cyan);   border: 1px solid rgba(0,209,255,.2);   }
+    .rn-mod-tag.purple { background: rgba(167,139,250,.1); color: var(--ug-purple); border: 1px solid rgba(167,139,250,.2); }
+    .rn-mod-tag.green  { background: rgba(46,229,157,.1);  color: var(--ug-green);  border: 1px solid rgba(46,229,157,.2);  }
+    .rn-mod-tag.blue   { background: rgba(96,165,250,.1);  color: #60a5fa;          border: 1px solid rgba(96,165,250,.2);  }
+    .rn-mod-tag.amber  { background: rgba(255,214,58,.08); color: var(--ug-amber);  border: 1px solid rgba(255,214,58,.18); }
+    .rn-mod-tag.gray   { background: rgba(148,163,184,.07); color: var(--ug-muted-2); border: 1px solid var(--ug-border);   }
+
+    .rn-mod-sub { font-size: 12px; color: var(--ug-muted); }
+
+    .rn-mod-count {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .rn-mod-n {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ug-muted-2);
+      padding: 3px 10px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--ug-border);
+      border-radius: 999px;
+    }
+    .rn-chevron {
+      font-size: 11px;
+      color: var(--ug-muted);
+      transition: transform .22s;
+    }
+    .rn-module.open .rn-chevron { transform: rotate(180deg); }
+
+    /* Change items */
+    .rn-items {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s cubic-bezier(0.16,1,.3,1);
+    }
+    .rn-module.open .rn-items { max-height: 1200px; }
+
+    .rn-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      padding: 13px 18px;
+      border-bottom: 1px solid var(--ug-border);
+      transition: background .12s;
+    }
+    .rn-item:last-child { border-bottom: none; }
+    .rn-item:hover { background: rgba(255,255,255,.02); }
+
+    /* Change type badges */
+    .rn-type {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      margin-top: 1px;
+      white-space: nowrap;
+    }
+    .rn-type.new         { background: rgba(46,229,157,.1);  color: var(--ug-green);  border: 1px solid rgba(46,229,157,.22);  }
+    .rn-type.improved    { background: rgba(0,209,255,.09);  color: var(--ug-cyan);   border: 1px solid rgba(0,209,255,.2);    }
+    .rn-type.fixed       { background: rgba(255,214,58,.08); color: var(--ug-amber);  border: 1px solid rgba(255,214,58,.2);   }
+    .rn-type.redesigned  { background: rgba(167,139,250,.1); color: var(--ug-purple); border: 1px solid rgba(167,139,250,.22); }
+    .rn-type.performance { background: rgba(251,146,60,.08); color: var(--ug-orange); border: 1px solid rgba(251,146,60,.2);   }
+
+    .rn-item-body { flex: 1; min-width: 0; }
+    .rn-item-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--ug-text);
+      margin-bottom: 3px;
+      line-height: 1.4;
+    }
+    .rn-item-desc {
+      font-size: 12.5px;
+      color: var(--ug-muted-2);
+      line-height: 1.6;
+    }
+
+    /* Highlights grid */
+    .rn-highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 12px;
+      margin: 14px 0 28px;
+    }
+    .rn-hl {
+      background: var(--ug-surface);
+      border: 1px solid var(--ug-border);
+      border-radius: var(--ug-radius);
+      padding: 18px 18px 16px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .18s, transform .18s;
+    }
+    .rn-hl:hover { border-color: var(--ug-border-2); transform: translateY(-2px); }
+    .rn-hl::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--rn-hl-color, var(--ug-cyan)), transparent);
+      opacity: .5;
+    }
+    .rn-hl-icon {
+      width: 36px; height: 36px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+    .rn-hl h4 {
+      font-size: 13.5px !important;
+      font-weight: 700 !important;
+      color: var(--ug-text) !important;
+      text-transform: none !important;
+      letter-spacing: 0 !important;
+      margin: 0 0 5px !important;
+    }
+    .rn-hl p {
+      font-size: 12.5px !important;
+      color: var(--ug-muted-2) !important;
+      line-height: 1.55 !important;
+      margin: 0 !important;
+    }
+
+    /* Summary table */
+    .rn-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      border: 1px solid var(--ug-border);
+      border-radius: var(--ug-radius);
+      overflow: hidden;
+    }
+    .rn-table thead tr { background: var(--ug-surface-2); }
+    .rn-table th {
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--ug-muted);
+      border-bottom: 1px solid var(--ug-border);
+    }
+    .rn-table tbody tr { border-bottom: 1px solid var(--ug-border); transition: background .1s; }
+    .rn-table tbody tr:last-child { border-bottom: none; }
+    .rn-table tbody tr:hover { background: rgba(255,255,255,.02); }
+    .rn-table td {
+      padding: 11px 14px;
+      vertical-align: middle;
+      color: var(--ug-muted-2);
+    }
+    .rn-table td:first-child { color: var(--ug-text); font-weight: 600; }
+    .rn-dot-cell { display: flex; align-items: center; gap: 9px; }
+    .rn-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .rn-tags { display: flex; gap: 4px; flex-wrap: wrap; }
+  </style>
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-EG2Q8GD30V');
+</script>
+
+<body data-page="release-notes">
+
+  <!-- Announcement bar -->
+  <div class="rn-announce">
+    <span class="rn-live-dot"></span>
+    <strong style="color:var(--ug-text);">May 2026.1</strong> is now live in production for all CloudSignals+ subscribers.&nbsp;
+    <a href="#highlights" style="color:var(--ug-cyan);font-weight:600;">See what's new &rarr;</a>
+  </div>
+
+  <header class="guide-header">
+    <div class="bar">
+      <a class="brand" href="index.html">
+        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC">
+        <span class="brand-sep"></span>
+        <span class="brand-sub">Platform Guide</span>
+      </a>
+      <div class="top-links">
+        <a href="../index.html">AiVRIC.com</a>
+        <a href="../trust.html">Trust Center</a>
+        <a href="../support.html">Support</a>
+        <a href="insider-early-access.html" class="ug-cta">Insider Access</a>
+      </div>
+      <div class="guide-search">
+        <i class="fas fa-search" aria-hidden="true"></i>
+        <input id="guide-search-input" type="search" placeholder="Search the Platform Guide…" aria-label="Search the AiVRIC Platform Guide">
+        <span class="ug-kbd">⌘K</span>
+        <div class="search-results" id="guide-search-results"></div>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" onclick="document.getElementById('sidebar').classList.toggle('open')">Menu</button>
     </div>
-    <nav class="cs-nav">
-      <a href="#">Platform</a>
-      <a href="#">Trust</a>
-      <a href="#">API</a>
-      <a href="#">Support</a>
+  </header>
+
+  <div class="guide-shell">
+
+    <!-- Left sidebar -->
+    <aside class="guide-sidebar" id="sidebar">
+      <div class="nav-section">
+        <p class="nav-label">Quick Start</p>
+        <a class="nav-link" href="index.html">Overview</a>
+        <a class="nav-link" href="getting-started.html">Getting Started</a>
+        <a class="nav-link" href="platform-overview.html">Platform Overview</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">CloudSignals+RiskOps</p>
+        <a class="nav-link" href="cloudsignals-riskops.html">Module Overview</a>
+        <a class="nav-link active" href="cloudsignals_release_notes_May2026.1.html">Release Notes — May 2026.1</a>
+        <a class="nav-link" href="connectors.html">Connectors</a>
+        <a class="nav-link" href="integrations.html">Integrations</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Assurance</p>
+        <a class="nav-link" href="security-trust.html">Security &amp; Trust</a>
+        <a class="nav-link" href="ai-governance.html">AI Governance</a>
+        <a class="nav-link" href="compliance.html">Compliance Overview</a>
+        <a class="nav-link" href="faq.html">FAQ &amp; Support</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Security Policies</p>
+        <a class="nav-link" href="cloud-security.html">Cloud Security</a>
+        <a class="nav-link" href="network-security.html">Network Security</a>
+        <a class="nav-link" href="endpoint-security.html">Endpoint Security</a>
+        <a class="nav-link" href="identification-authorization-control.html">Identity &amp; Access Control</a>
+        <a class="nav-link" href="data-classification-handling.html">Data Classification</a>
+        <a class="nav-link" href="data-privacy.html">Data Privacy</a>
+        <a class="nav-link" href="incident-response-operations.html">Incident Response</a>
+        <a class="nav-link" href="threat-management.html">Threat Management</a>
+        <a class="nav-link" href="vulnerability-patch-management.html">Vuln &amp; Patch Mgmt</a>
+        <a class="nav-link" href="security-operations.html">Security Operations</a>
+        <a class="nav-link" href="risk-assessment.html">Risk Assessment</a>
+        <a class="nav-link" href="third-party-management.html">Third-Party Mgmt</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Platform Policies</p>
+        <a class="nav-link" href="ai-autonomous-technologies.html">AI &amp; Autonomous Tech</a>
+        <a class="nav-link" href="secure-engineering-architecture.html">Secure Engineering</a>
+        <a class="nav-link" href="web-security.html">Web Security</a>
+        <a class="nav-link" href="asset-management.html">Asset Management</a>
+        <a class="nav-link" href="cryptographic-operations.html">Cryptographic Ops</a>
+        <a class="nav-link" href="information-assurance.html">Information Assurance</a>
+        <a class="nav-link" href="acceptable-use-policy.html">Acceptable Use</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">Operations</p>
+        <a class="nav-link" href="business-continuity-disaster-recovery.html">Business Continuity &amp; DR</a>
+        <a class="nav-link" href="capacity-performance-management.html">Capacity Management</a>
+        <a class="nav-link" href="maintenance.html">Maintenance</a>
+        <a class="nav-link" href="security-awareness-training.html">Security Awareness</a>
+        <a class="nav-link" href="mobile-device-management.html">Mobile Device Mgmt</a>
+        <a class="nav-link" href="physical-environmental-security.html">Physical Security</a>
+        <a class="nav-link" href="human-resources-security.html">HR Security</a>
+        <a class="nav-link" href="project-resource-management.html">Project Management</a>
+        <a class="nav-link" href="technology-development-acquisition.html">Tech Dev &amp; Acquisition</a>
+        <a class="nav-link" href="security-privacy-governance.html">Privacy &amp; Governance</a>
+      </div>
+      <div class="nav-section">
+        <p class="nav-label">More</p>
+        <a class="nav-link" href="insider-early-access.html">Insider Early Access</a>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="guide-content" id="main-content">
+
+      <span class="badge">CloudSignals+ RiskOps&#8482;</span>
+      <span class="badge purple" style="margin-left:6px;">Release Notes</span>
+
+      <h1>What's new in CloudSignals+</h1>
+      <p>The May 2026.1 release strengthens enterprise readiness across seven modules — with a focus on reliability, richer workflows, and a cleaner experience throughout the platform.</p>
+
+      <!-- Release hero card -->
+      <div class="rn-hero">
+        <div class="rn-hero-top">
+          <div>
+            <span class="rn-version"><i class="fas fa-tag"></i> v May 2026.1</span>
+            <div class="rn-hero-title">May 2026.1 — Production Release</div>
+            <div class="rn-hero-sub">Enterprise readiness across Vision AI, TrustSignals, RiskOps &amp; Request Hub, Microsoft 365, Managed Entities, Third-Party Risk, and Navigation. All updates are backward-compatible and deployed automatically.</div>
+          </div>
+          <span class="ug-status live">All Systems Operational</span>
+        </div>
+        <div class="rn-stats">
+          <div class="rn-stat"><i class="fas fa-calendar-day"></i> Release: <strong>May 2026</strong></div>
+          <div class="rn-stat"><i class="fas fa-layer-group"></i> <strong>7</strong> modules updated</div>
+          <div class="rn-stat"><i class="fas fa-list-check"></i> <strong>18</strong> improvements</div>
+          <div class="rn-stat"><i class="fas fa-wrench"></i> <strong>4</strong> bug fixes</div>
+          <div class="rn-stat"><i class="fas fa-sparkles"></i> <strong>3</strong> new features</div>
+        </div>
+      </div>
+
+      <div class="callout success">
+        <strong>No action required.</strong> This release contains no breaking changes, schema migrations, or configuration changes. All updates are applied automatically to your CloudSignals+ environment.
+      </div>
+
+
+      <!-- ════════════════════════════════════════════════════
+           HIGHLIGHTS
+           ════════════════════════════════════════════════════ -->
+      <h2 id="highlights">Release highlights</h2>
+      <p>The three most impactful changes in this release.</p>
+
+      <div class="rn-highlights">
+        <div class="rn-hl" style="--rn-hl-color:var(--ug-cyan)">
+          <div class="rn-hl-icon" style="background:rgba(0,209,255,.1);color:var(--ug-cyan);border:1px solid rgba(0,209,255,.2)">
+            <i class="fas fa-eye"></i>
+          </div>
+          <span class="badge" style="margin-bottom:8px;display:inline-flex;">Redesigned</span>
+          <h4>Vision AI Enterprise Workspace</h4>
+          <p>Full workspace overhaul with purpose-built light and dark mode styling, mode-specific image variants, and expanded platform knowledge for Vision Chat.</p>
+        </div>
+        <div class="rn-hl" style="--rn-hl-color:var(--ug-purple)">
+          <div class="rn-hl-icon" style="background:rgba(167,139,250,.1);color:var(--ug-purple);border:1px solid rgba(167,139,250,.2)">
+            <i class="fas fa-certificate"></i>
+          </div>
+          <span class="badge purple" style="margin-bottom:8px;display:inline-flex;">New</span>
+          <h4>TrustSignals Branded Portals</h4>
+          <p>Custom branding, Managed Entity context, badges, and structured artifact request capture (SOC 2, certs, questionnaires) per portal profile.</p>
+        </div>
+        <div class="rn-hl" style="--rn-hl-color:var(--ug-green)">
+          <div class="rn-hl-icon" style="background:rgba(46,229,157,.1);color:var(--ug-green);border:1px solid rgba(46,229,157,.2)">
+            <i class="fas fa-diagram-project"></i>
+          </div>
+          <span class="badge green" style="margin-bottom:8px;display:inline-flex;">New</span>
+          <h4>RiskOps Request Workflows</h4>
+          <p>End-to-end vendor assessment and approval workflows with external portal access, a dedicated "My Work" queue, and improved catalog reliability.</p>
+        </div>
+      </div>
+
+
+      <!-- ════════════════════════════════════════════════════
+           MODULE UPDATES
+           ════════════════════════════════════════════════════ -->
+      <h2 id="modules">Module updates</h2>
+      <p>Click any module to expand the full list of changes.</p>
+
+      <!-- Vision AI -->
+      <div id="vision" class="rn-module open">
+        <div class="rn-module-hd" onclick="toggleModule(this)">
+          <div class="rn-mod-icon cyan"><i class="fas fa-eye"></i></div>
+          <div class="rn-mod-meta">
+            <div class="rn-mod-name">
+              Vision AI
+              <span class="rn-mod-tag cyan">AI Core</span>
+            </div>
+            <div class="rn-mod-sub">Workspace UI · Platform Knowledge · Image Assets</div>
+          </div>
+          <div class="rn-mod-count">
+            <span class="rn-mod-n">4 changes</span>
+            <i class="fas fa-chevron-down rn-chevron"></i>
+          </div>
+        </div>
+        <div class="rn-items">
+          <div class="rn-item">
+            <span class="rn-type redesigned"><i class="fas fa-paintbrush"></i> Redesigned</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">Enterprise workspace UI across all four Vision screens</div>
+              <div class="rn-item-desc">Light and dark mode now render with separate, purpose-built stylesheets — eliminating the visual compromises of a single shared theme and ensuring consistent contrast and spacing in both modes.</div>
+            </div>
+          </div>
+          <div class="rn-item">
+            <span class="rn-type new"><i class="fas fa-sparkles"></i> New</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">Expanded CloudSignals platform knowledge in Vision Chat</div>
+              <div class="rn-item-desc">Vision Chat now understands your full CloudSignals+ environment — assets, findings, scans, compliance, RiskOps, Request Hub, TrustSignals, managed entities, integrations, M365, and commercial context — with permission-scoped access and redaction built in.</div>
+            </div>
+          </div>
+          <div class="rn-item">
+            <span class="rn-type new"><i class="fas fa-sparkles"></i> New</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">Mode-specific visual assets for AI CISO, Model Insights, and Prompt Vault</div>
+              <div class="rn-item-desc">The AI CISO hero, Model Insights orb, and Prompt Vault orb now ship with light and dark image variants for a polished, intentional appearance in both themes.</div>
+            </div>
+          </div>
+          <div class="rn-item">
+            <span class="rn-type fixed"><i class="fas fa-wrench"></i> Fixed</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">Reliable hero image loading and prompt pill overflow</div>
+              <div class="rn-item-desc">The Vision Chat hero image now loads consistently, and long prompt labels no longer bleed outside pill borders on narrower viewports.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TrustSignals -->
+      <div id="trustsignals" class="rn-module open">
+        <div class="rn-module-hd" onclick="toggleModule(this)">
+          <div class="rn-mod-icon purple"><i class="fas fa-shield-halved"></i></div>
+          <div class="rn-mod-meta">
+            <div class="rn-mod-name">
+              TrustSignals
+              <span class="rn-mod-tag purple">Compliance</span>
+            </div>
+            <div class="rn-mod-sub">Branded Portals · Artifact Requests · Entity Profiles · Stability</div>
+          </div>
+          <div class="rn-mod-count">
+            <span class="rn-mod-n">4 changes</span>
+            <i class="fas fa-chevron-down rn-chevron"></i>
+          </div>
+        </div>
+        <div class="rn-items">
+          <div class="rn-item">
+            <span class="rn-type new"><i class="fas fa-sparkles"></i> New</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">Richer customer-facing trust portals</div>
+              <div class="rn-item-desc">Portals now support custom branding, Managed Entity context, badges and certificates, and structured access request handling end-to-end — giving customers a polished, on-brand trust experience.</div>
+            </div>
+          </div>
+          <div class="rn-item">
+            <span class="rn-type new"><i class="fas fa-sparkles"></i> New</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">Structured artifact request capture</div>
+              <div class="rn-item-desc">Portal visitors can now formally request SOC 2 reports, bridge letters, certifications, questionnaires, or custom deliverables directly through the portal — with workflow routing and a complete audit trail.</div>
+            </div>
+          </div>
+          <div class="rn-item">
+            <span class="rn-type new"><i class="fas fa-sparkles"></i> New</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">Separate TrustSignals portal profile per Managed Entity</div>
+              <div class="rn-item-desc">Maintain independent portal content, branding settings, and access permissions for each Managed Entity — useful for multi-entity or subsidiary-level trust operations.</div>
+            </div>
+          </div>
+          <div class="rn-item">
+            <span class="rn-type performance"><i class="fas fa-gauge-high"></i> Performance</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">App-wide TrustSignals loading and stability</div>
+              <div class="rn-item-desc">Resolved app-wide slowdowns, branding tab errors, missing Managed Entity options, and backend warning noise that was causing observable performance degradation across the module.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RiskOps -->
+      <div id="riskops" class="rn-module open">
+        <div class="rn-module-hd" onclick="toggleModule(this)">
+          <div class="rn-mod-icon green"><i class="fas fa-diagram-project"></i></div>
+          <div class="rn-mod-meta">
+            <div class="rn-mod-name">
+              RiskOps &amp; Request Hub
+              <span class="rn-mod-tag green">Workflows</span>
+            </div>
+            <div class="rn-mod-sub">Vendor Assessments · External Portal · My Work Queue · Reliability</div>
+          </div>
+          <div class="rn-mod-count">
+            <span class="rn-mod-n">4 changes</span>
+            <i class="fas fa-chevron-down rn-chevron"></i>
+          </div>
+        </div>
+        <div class="rn-items">
+          <div class="rn-item">
+            <span class="rn-type new"><i class="fas fa-sparkles"></i> New</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">Request engagement workflows for vendor assessments and approvals</div>
+              <div class="rn-item-desc">Full request intake and lifecycle support for vendor assessments, questionnaires, risk assessments, evidence requests, approvals, and deliverable tracking — all configurable via the Request Hub console.</div>
+            </div>
+          </div>
+          <div class="rn-item">
+            <span class="rn-type new"><i class="fas fa-sparkles"></i> New</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">External Request Hub portal for customers and partners</div>
+              <div class="rn-item-desc">External users and customers can now access request workflows through dedicated portal routes — including invitation handling, catalog browsing, and request submission — without an internal platform account.</div>
+            </div>
+          </div>
+          <div class="rn-item">
+            <span class="rn-type new"><i class="fas fa-sparkles"></i> New</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">"My Work" queue for assigned tasks</div>
+              <div class="rn-item-desc">A personal task queue aggregates all items assigned to the current user — risk assessments, review requests, and open action items — in a unified, prioritized view to keep cross-functional work visible.</div>
+            </div>
+          </div>
+          <div class="rn-item">
+            <span class="rn-type fixed"><i class="fas fa-wrench"></i> Fixed</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">Page load failures and catalog action reliability</div>
+              <div class="rn-item-desc">Page load failures and catalog action fragility resolved; all actions now route through the GRC API layer consistently, eliminating the intermittent blank-state renders on initial load.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Microsoft 365 -->
+      <div id="m365" class="rn-module open">
+        <div class="rn-module-hd" onclick="toggleModule(this)">
+          <div class="rn-mod-icon blue"><i class="fab fa-microsoft"></i></div>
+          <div class="rn-mod-meta">
+            <div class="rn-mod-name">
+              Microsoft 365 &amp; Distribution
+              <span class="rn-mod-tag blue">Publishing</span>
+            </div>
+            <div class="rn-mod-sub">Enterprise Publishing Destinations · Error Handling</div>
+          </div>
+          <div class="rn-mod-count">
+            <span class="rn-mod-n">2 changes</span>
+            <i class="fas fa-chevron-down rn-chevron"></i>
+          </div>
+        </div>
+        <div class="rn-items">
+          <div class="rn-item">
+            <span class="rn-type new"><i class="fas fa-sparkles"></i> New</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">Microsoft 365 as enterprise publishing destination</div>
+              <div class="rn-item-desc">Configure M365 as an enterprise publishing destination for intelligence reports and operational outputs, with tenant-scoped settings, SharePoint and Teams delivery support, and validation feedback in the UI.</div>
+            </div>
+          </div>
+          <div class="rn-item">
+            <span class="rn-type improved"><i class="fas fa-arrow-up"></i> Improved</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">Publishing UX stability and error handling</div>
+              <div class="rn-item-desc">The distribution backend and publish modal are more stable, with clearer status feedback, better error surfacing, and automatic retry with configurable backoff for failed distribution jobs.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Managed Entities -->
+      <div id="entities" class="rn-module open">
+        <div class="rn-module-hd" onclick="toggleModule(this)">
+          <div class="rn-mod-icon amber"><i class="fas fa-building"></i></div>
+          <div class="rn-mod-meta">
+            <div class="rn-mod-name">
+              Managed Entities &amp; Third-Party Risk
+              <span class="rn-mod-tag amber">Risk</span>
+            </div>
+            <div class="rn-mod-sub">Entity Records · Edit Forms · Risk Register · Workflow Modernization</div>
+          </div>
+          <div class="rn-mod-count">
+            <span class="rn-mod-n">3 changes</span>
+            <i class="fas fa-chevron-down rn-chevron"></i>
+          </div>
+        </div>
+        <div class="rn-items">
+          <div class="rn-item">
+            <span class="rn-type improved"><i class="fas fa-arrow-up"></i> Improved</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">Managed Entity pages and edit forms</div>
+              <div class="rn-item-desc">Entity lists and edit screens are more reliable, with hardened backend views, inline validation, autosave behavior, and clearer visual differentiation between read-only and editable fields across the GRC register.</div>
+            </div>
+          </div>
+          <div class="rn-item">
+            <span class="rn-type redesigned"><i class="fas fa-paintbrush"></i> Redesigned</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">Modernized third-party risk records</div>
+              <div class="rn-item-desc">Third-party records now carry richer operational context — contract status, last assessment date, open findings count, and inherent risk tier — surfaced at the top of each entity page, with an improved register and detail view.</div>
+            </div>
+          </div>
+          <div class="rn-item">
+            <span class="rn-type fixed"><i class="fas fa-wrench"></i> Fixed</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">Risk Register, Business Processes &amp; Quantification stability</div>
+              <div class="rn-item-desc">Shared reference data handling consolidated across affected RiskOps pages, reducing load failures, fixing a pagination issue that caused duplicate entries after sorting or filtering large datasets, and improving API response consistency.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div id="navigation" class="rn-module open">
+        <div class="rn-module-hd" onclick="toggleModule(this)">
+          <div class="rn-mod-icon gray"><i class="fas fa-compass"></i></div>
+          <div class="rn-mod-meta">
+            <div class="rn-mod-name">
+              Navigation &amp; Platform Reliability
+              <span class="rn-mod-tag gray">UX</span>
+            </div>
+            <div class="rn-mod-sub">Sidebar Reorganization · Module Discovery · Deployment</div>
+          </div>
+          <div class="rn-mod-count">
+            <span class="rn-mod-n">3 changes</span>
+            <i class="fas fa-chevron-down rn-chevron"></i>
+          </div>
+        </div>
+        <div class="rn-items">
+          <div class="rn-item">
+            <span class="rn-type improved"><i class="fas fa-arrow-up"></i> Improved</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">RiskOps sidebar reorganized for workflow discovery</div>
+              <div class="rn-item-desc">Related RiskOps workflows are now grouped by task-based workflow clusters rather than module names, making multi-step assessment and vendor management flows faster to locate.</div>
+            </div>
+          </div>
+          <div class="rn-item">
+            <span class="rn-type improved"><i class="fas fa-arrow-up"></i> Improved</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">TrustSignals repositioned under Compliance</div>
+              <div class="rn-item-desc">TrustSignals is now where users expect it — nested inside the Compliance module — creating a cleaner hierarchy for audit and trust workflows without navigation duplication.</div>
+            </div>
+          </div>
+          <div class="rn-item">
+            <span class="rn-type fixed"><i class="fas fa-wrench"></i> Fixed</span>
+            <div class="rn-item-body">
+              <div class="rn-item-title">Deployment and GitOps pipeline reliability</div>
+              <div class="rn-item-desc">ArgoCD/GitOps behavior, image verification, and deployment guardrails tightened for more consistent dev rollout cycles and faster time-to-deploy across all CloudSignals+ environments.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ════════════════════════════════════════════════════
+           CHANGE SUMMARY TABLE
+           ════════════════════════════════════════════════════ -->
+      <h2 id="summary">Change summary</h2>
+      <p>All changes in this release at a glance.</p>
+
+      <div class="callout success">
+        <strong>Zero breaking changes.</strong> No API changes, schema migrations, or subscriber-side configuration steps required. All updates are backward-compatible.
+      </div>
+
+      <table class="rn-table">
+        <thead>
+          <tr>
+            <th>Module</th>
+            <th>Changes</th>
+            <th>Count</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="rn-dot-cell"><span class="rn-dot" style="background:var(--ug-cyan)"></span>Vision AI</div></td>
+            <td>
+              <div class="rn-tags">
+                <span class="badge purple">Redesigned</span>
+                <span class="badge green">New ×2</span>
+                <span class="badge amber">Fixed</span>
+              </div>
+            </td>
+            <td><strong>4</strong></td>
+            <td><span class="ug-status live">Deployed</span></td>
+          </tr>
+          <tr>
+            <td><div class="rn-dot-cell"><span class="rn-dot" style="background:var(--ug-purple)"></span>TrustSignals</div></td>
+            <td>
+              <div class="rn-tags">
+                <span class="badge green">New ×3</span>
+                <span class="badge amber">Performance</span>
+              </div>
+            </td>
+            <td><strong>4</strong></td>
+            <td><span class="ug-status live">Deployed</span></td>
+          </tr>
+          <tr>
+            <td><div class="rn-dot-cell"><span class="rn-dot" style="background:var(--ug-green)"></span>RiskOps &amp; Request Hub</div></td>
+            <td>
+              <div class="rn-tags">
+                <span class="badge green">New ×3</span>
+                <span class="badge amber">Fixed</span>
+              </div>
+            </td>
+            <td><strong>4</strong></td>
+            <td><span class="ug-status live">Deployed</span></td>
+          </tr>
+          <tr>
+            <td><div class="rn-dot-cell"><span class="rn-dot" style="background:#60a5fa"></span>Microsoft 365 &amp; Distribution</div></td>
+            <td>
+              <div class="rn-tags">
+                <span class="badge green">New</span>
+                <span class="badge">Improved</span>
+              </div>
+            </td>
+            <td><strong>2</strong></td>
+            <td><span class="ug-status live">Deployed</span></td>
+          </tr>
+          <tr>
+            <td><div class="rn-dot-cell"><span class="rn-dot" style="background:var(--ug-amber)"></span>Managed Entities &amp; Third-Party Risk</div></td>
+            <td>
+              <div class="rn-tags">
+                <span class="badge">Improved</span>
+                <span class="badge purple">Redesigned</span>
+                <span class="badge amber">Fixed</span>
+              </div>
+            </td>
+            <td><strong>3</strong></td>
+            <td><span class="ug-status live">Deployed</span></td>
+          </tr>
+          <tr>
+            <td><div class="rn-dot-cell"><span class="rn-dot" style="background:var(--ug-muted)"></span>Navigation &amp; Platform Reliability</div></td>
+            <td>
+              <div class="rn-tags">
+                <span class="badge">Improved ×2</span>
+                <span class="badge amber">Fixed</span>
+              </div>
+            </td>
+            <td><strong>3</strong></td>
+            <td><span class="ug-status live">Deployed</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <!-- ════════════════════════════════════════════════════
+           SUPPORT
+           ════════════════════════════════════════════════════ -->
+      <h2 id="support">Questions or feedback</h2>
+      <p>Reach your AiVRIC customer success team for a personalized walkthrough of any changes in this release, or to request early access to features currently in beta.</p>
+
+      <div class="guide-grid">
+        <div class="guide-card">
+          <h3><i class="fas fa-headset" style="color:var(--ug-cyan);margin-right:7px;"></i> Platform Support</h3>
+          <p>Open a ticket or chat with your dedicated customer success manager for hands-on guidance.</p>
+          <a href="../support.html">Contact support &rarr;</a>
+        </div>
+        <div class="guide-card">
+          <h3><i class="fas fa-book-open" style="color:var(--ug-purple);margin-right:7px;"></i> Full Documentation</h3>
+          <p>Explore module guides, API references, connector setup, and governance documentation.</p>
+          <a href="index.html">Browse the guide &rarr;</a>
+        </div>
+        <div class="guide-card">
+          <h3><i class="fas fa-clock-rotate-left" style="color:var(--ug-green);margin-right:7px;"></i> Previous Releases</h3>
+          <p>Review past release notes to understand the full changelog history for CloudSignals+.</p>
+          <a href="cloudsignals-riskops.html">Module overview &rarr;</a>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Right TOC -->
+    <nav class="guide-toc" aria-label="On this page">
+      <span class="toc-title">On this page</span>
+      <div class="toc-links">
+        <a href="#highlights">Release highlights</a>
+        <a href="#modules">Module updates</a>
+        <a href="#vision">&nbsp;&nbsp;Vision AI</a>
+        <a href="#trustsignals">&nbsp;&nbsp;TrustSignals</a>
+        <a href="#riskops">&nbsp;&nbsp;RiskOps &amp; Request Hub</a>
+        <a href="#m365">&nbsp;&nbsp;Microsoft 365</a>
+        <a href="#entities">&nbsp;&nbsp;Managed Entities</a>
+        <a href="#navigation">&nbsp;&nbsp;Navigation</a>
+        <a href="#summary">Change summary</a>
+        <a href="#support">Support</a>
+      </div>
     </nav>
-  </div>
 
-  <div class="cs-hero">
-    <div class="cs-badge"><i class="ti ti-rocket" aria-hidden="true"></i> Platform Release</div>
-    <h1>What's new in <em>CloudSignals+</em></h1>
-    <p>This release strengthens enterprise-readiness across TrustSignals, RiskOps, Request Hub, Microsoft 365, Managed Entities, Third-Party Risk, and Vision AI — with a focus on reliability, richer workflows, and a cleaner experience throughout.</p>
-    <div class="cs-hero-meta">
-      <span><i class="ti ti-calendar" aria-hidden="true"></i> May 2026</span>
-      <span><i class="ti ti-layers-difference" aria-hidden="true"></i> 7 modules updated</span>
-      <span><i class="ti ti-shield-check" aria-hidden="true"></i> AiVRIC Technologies</span>
-    </div>
-  </div>
+  </div><!-- /guide-shell -->
 
-  <div class="cs-modules">
 
-    <div class="cs-section">
-      <div class="cs-section-header">
-        <div class="cs-icon-wrap purple"><i class="ti ti-brain" aria-hidden="true"></i></div>
-        <div>
-          <div class="cs-section-title">Vision AI</div>
-          <div class="cs-section-subtitle">AI-assisted analysis & knowledge layer</div>
-        </div>
-      </div>
-      <div class="cs-items">
-        <div class="cs-item">
-          <span class="cs-item-type improved">Improved</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">Enterprise workspace UI across all four Vision screens</div>
-            <div class="cs-item-desc">Light and dark mode now render with separate, purpose-built styling — eliminating the visual compromises of a single shared stylesheet.</div>
-          </div>
-        </div>
-        <div class="cs-item">
-          <span class="cs-item-type new">New</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">Expanded CloudSignals platform knowledge</div>
-            <div class="cs-item-desc">Vision Chat now understands your full CloudSignals environment — assets, findings, scans, compliance, RiskOps, Request Hub, TrustSignals, managed entities, integrations, M365, and commercial context — with permission-scoped access and redaction built in.</div>
-          </div>
-        </div>
-        <div class="cs-item">
-          <span class="cs-item-type new">New</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">Light/dark image asset variants</div>
-            <div class="cs-item-desc">The AI CISO hero, Model Insights orb, and Prompt Vault orb now use mode-specific visual assets for a polished appearance in both themes.</div>
-          </div>
-        </div>
-        <div class="cs-item">
-          <span class="cs-item-type fixed">Fixed</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">Reliable Vision hero image loading & prompt pill overflow</div>
-            <div class="cs-item-desc">The upper-right Vision Chat hero image loads consistently, and long prompt labels no longer bleed outside pill borders.</div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <script>
+    /* Module accordion */
+    function toggleModule(hd) {
+      hd.closest('.rn-module').classList.toggle('open');
+    }
 
-    <div class="cs-section">
-      <div class="cs-section-header">
-        <div class="cs-icon-wrap teal"><i class="ti ti-shield-check" aria-hidden="true"></i></div>
-        <div>
-          <div class="cs-section-title">TrustSignals</div>
-          <div class="cs-section-subtitle">Customer-facing trust portals & artifact workflows</div>
-        </div>
-      </div>
-      <div class="cs-items">
-        <div class="cs-item">
-          <span class="cs-item-type new">New</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">Richer customer-facing trust portals</div>
-            <div class="cs-item-desc">Portals now support custom branding, Managed Entity context, badges and certificates, and structured access request handling end-to-end.</div>
-          </div>
-        </div>
-        <div class="cs-item">
-          <span class="cs-item-type new">New</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">Structured artifact request capture</div>
-            <div class="cs-item-desc">Portal visitors can now formally request SOC 2 reports, bridge letters, certifications, questionnaires, or custom deliverables directly through the portal.</div>
-          </div>
-        </div>
-        <div class="cs-item">
-          <span class="cs-item-type new">New</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">Per-Managed Entity TrustSignals profiles</div>
-            <div class="cs-item-desc">Maintain separate TrustSignals portal content for each Managed Entity — useful for multi-entity or subsidiary-level trust operations.</div>
-          </div>
-        </div>
-        <div class="cs-item">
-          <span class="cs-item-type fixed">Fixed</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">TrustSignals loading & stability</div>
-            <div class="cs-item-desc">Resolved app-wide slowdowns, branding tab errors, missing Managed Entity options, and backend warning noise.</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    /* Active TOC link on scroll */
+    const tocLinks = document.querySelectorAll('.toc-links a');
+    const headings = document.querySelectorAll('[id]');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = e.target.getAttribute('id');
+          tocLinks.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+          });
+        }
+      });
+    }, { rootMargin: '-10% 0px -70% 0px', threshold: 0 });
+    headings.forEach(h => io.observe(h));
 
-    <div class="cs-section">
-      <div class="cs-section-header">
-        <div class="cs-icon-wrap blue"><i class="ti ti-clipboard-list" aria-hidden="true"></i></div>
-        <div>
-          <div class="cs-section-title">RiskOps & Request Hub</div>
-          <div class="cs-section-subtitle">Risk intake, engagement, and work queue</div>
-        </div>
-      </div>
-      <div class="cs-items">
-        <div class="cs-item">
-          <span class="cs-item-type new">New</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">Request engagement workflows</div>
-            <div class="cs-item-desc">Full request intake and lifecycle support for vendor assessments, questionnaires, risk assessments, evidence requests, approvals, and deliverable tracking.</div>
-          </div>
-        </div>
-        <div class="cs-item">
-          <span class="cs-item-type new">New</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">External Request Hub portal</div>
-            <div class="cs-item-desc">External users and customers can now access request workflows through dedicated portal routes, including invitation handling, catalog browsing, and request submission.</div>
-          </div>
-        </div>
-        <div class="cs-item">
-          <span class="cs-item-type new">New</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">My Work queue</div>
-            <div class="cs-item-desc">Users now have a dedicated view for assigned RiskOps work and pending action items, keeping cross-functional work visible in one place.</div>
-          </div>
-        </div>
-        <div class="cs-item">
-          <span class="cs-item-type fixed">Fixed</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">Request Hub page load & catalog reliability</div>
-            <div class="cs-item-desc">Page load failures and catalog action fragility resolved; all actions now route through the GRC API layer consistently.</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    /* Search (inherits from userguide.css existing JS if present) */
+  </script>
 
-    <div class="cs-section">
-      <div class="cs-section-header">
-        <div class="cs-icon-wrap amber"><i class="ti ti-brand-windows" aria-hidden="true"></i></div>
-        <div>
-          <div class="cs-section-title">Microsoft 365 & Distribution</div>
-          <div class="cs-section-subtitle">Enterprise publishing destinations</div>
-        </div>
-      </div>
-      <div class="cs-items">
-        <div class="cs-item">
-          <span class="cs-item-type new">New</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">Microsoft 365 destination management</div>
-            <div class="cs-item-desc">Configure M365 as an enterprise publishing destination for intelligence reports and operational outputs, with tenant-scoped settings and validation feedback.</div>
-          </div>
-        </div>
-        <div class="cs-item">
-          <span class="cs-item-type improved">Improved</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">Publishing UX improvements</div>
-            <div class="cs-item-desc">The distribution backend and publish modal are more stable, with clearer status feedback and better error handling across related modules.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cs-section">
-      <div class="cs-section-header">
-        <div class="cs-icon-wrap coral"><i class="ti ti-building-skyscraper" aria-hidden="true"></i></div>
-        <div>
-          <div class="cs-section-title">Managed Entities, GRC & Third-Party Risk</div>
-          <div class="cs-section-subtitle">Entity management, risk register, and vendor risk</div>
-        </div>
-      </div>
-      <div class="cs-items">
-        <div class="cs-item">
-          <span class="cs-item-type improved">Improved</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">Managed Entity pages and edit forms</div>
-            <div class="cs-item-desc">Entity lists and edit screens are more reliable, with hardened backend views, GRC register actions, and the Managed Entity wizard flow.</div>
-          </div>
-        </div>
-        <div class="cs-item">
-          <span class="cs-item-type improved">Improved</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">Third-Party Risk workflow modernization</div>
-            <div class="cs-item-desc">Third-party records now carry richer operational context, including data access information and improved register and detail page experiences.</div>
-          </div>
-        </div>
-        <div class="cs-item">
-          <span class="cs-item-type improved">Improved</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">Risk Register, Business Processes & Quantification stability</div>
-            <div class="cs-item-desc">Shared reference data handling was consolidated across affected RiskOps pages, reducing load failures and improving API response consistency.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="cs-section">
-      <div class="cs-section-header">
-        <div class="cs-icon-wrap gray"><i class="ti ti-layout-sidebar" aria-hidden="true"></i></div>
-        <div>
-          <div class="cs-section-title">Navigation & Platform Reliability</div>
-          <div class="cs-section-subtitle">Sidebar, routing, and deployment improvements</div>
-        </div>
-      </div>
-      <div class="cs-items">
-        <div class="cs-item">
-          <span class="cs-item-type improved">Improved</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">RiskOps sidebar organization</div>
-            <div class="cs-item-desc">Related RiskOps workflows are now grouped in the sidebar so they're faster to find, with updated menu entries and navigation tests.</div>
-          </div>
-        </div>
-        <div class="cs-item">
-          <span class="cs-item-type improved">Improved</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">TrustSignals moved under Compliance</div>
-            <div class="cs-item-desc">TrustSignals is now where users expect it — inside Compliance and assurance workflows — reducing navigation duplication.</div>
-          </div>
-        </div>
-        <div class="cs-item">
-          <span class="cs-item-type fixed">Fixed</span>
-          <div class="cs-item-body">
-            <div class="cs-item-title">Deployment & GitOps pipeline reliability</div>
-            <div class="cs-item-desc">ArgoCD/GitOps behavior, image verification, and deployment guardrails have been tightened for more consistent dev rollout cycles.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="cs-footer">
-    <p>Questions or feedback? Reach your AiVRIC customer success team.</p>
-    <a href="#">View documentation <i class="ti ti-arrow-right" aria-hidden="true" style="font-size:13px; vertical-align:-1px;"></i></a>
-  </div>
-</div>
+</body>
+</html>
