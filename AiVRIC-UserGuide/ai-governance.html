@@ -182,6 +182,28 @@
         <strong>Tip:</strong> Start with monitor mode for new guardrails, then enforce after review with the owning team. Capture deviations as exceptions with end dates.
       </div>
     
+      <!-- CloudSignals in practice -->
+      <section class="guide-section" id="cloudsignals-in-practice" style="scroll-margin-top:80px;">
+        <div class="callout primary" style="margin-bottom:16px;">
+          <strong>CloudSignals+RiskOps in practice —</strong> AiVRIC's Vision module enforces this AI governance policy through continuous monitoring, AI-native intelligence briefing, and configurable model controls. The AI Provider Configuration lets administrators define and govern which AI models are active, at what parameters, and for which users.
+        </div>
+        
+      <div class="ug-figure-row">
+        <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+        <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#a78bfa;"></i> Vision — intelligence-brief</span>
+        <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+        <img src="../academy/screenshots/vision-intelligence-brief.png" alt="AI Security Intelligence Brief with ThreatScore, failed findings, critical assets summary and operational section navigation" loading="lazy">
+        <figcaption class="ug-figcaption"><strong>AI Security Intelligence Brief</strong> — AI-generated executive report synthesizing security posture, threat coverage, and governance priorities from live scan data.</figcaption>
+      </figure>
+        <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+        <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#a78bfa;"></i> Vision — AI config</span>
+        <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+        <img src="../academy/screenshots/vision-config-page.png" alt="AI Provider Configuration showing active runtime, configuration mode, Vision Settings, and model provider fields" loading="lazy">
+        <figcaption class="ug-figcaption"><strong>AI Provider Configuration</strong> — administrators define AI runtime settings: provider, model, temperature, and scope. Separate configurations govern Vision Chat, Prompt Vault, GRC AI, and RiskOps AI independently.</figcaption>
+      </figure>
+      </div>
+      </section>
+    
     </main>
 
     <aside class="guide-toc">
@@ -250,6 +272,41 @@
           resultsBox.classList.remove('open');
       });
     })();
+  </script>
+  
+  <!-- Lightbox -->
+  <div class="ug-lightbox" id="ug-lightbox" onclick="if(event.target===this)closeUgLightbox()" role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
+    <button class="ug-lb-close" onclick="closeUgLightbox()" aria-label="Close">&times;</button>
+    <img src="" alt="">
+    <div class="ug-lb-caption"></div>
+  </div>
+
+  <script>
+  function openUgLightbox(figure) {
+    var img = figure.querySelector('img');
+    var cap = figure.querySelector('.ug-figcaption, .ug-video-caption');
+    var lb  = document.getElementById('ug-lightbox');
+    if (!lb || !img) return;
+    lb.querySelector('img').src = img.src;
+    lb.querySelector('img').alt = img.alt;
+    var lbCap = lb.querySelector('.ug-lb-caption');
+    if (lbCap) lbCap.textContent = cap ? cap.textContent.replace('↑','').trim() : '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeUgLightbox() {
+    var lb = document.getElementById('ug-lightbox');
+    if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeUgLightbox(); });
+  (function(){
+    var obs = ('IntersectionObserver' in window) && new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('ug-visible'); obs.unobserve(e.target); } });
+    }, { rootMargin:'0px 0px -50px 0px', threshold:0.04 });
+    document.querySelectorAll('.ug-figure, .ug-figure-row, .ug-video-wrap').forEach(function(el){
+      if(obs) obs.observe(el); else el.classList.add('ug-visible');
+    });
+  })();
   </script>
   <script src="../assets/js/support-form.js"></script>
 </body>

@@ -503,9 +503,25 @@
         <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
           <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /risks</span>
           <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
-          <img src="screenshots/risk-governance-overview.png" alt="Risk Governance Command Center showing open decisions count, treatment plans, Risk Fabric visualization, and Governance Intelligence panel with top risk items" loading="lazy">
-          <figcaption class="acad-caption"><strong>Risk Governance Command Center</strong> — open decisions, treatment plans, the Risk Fabric flow diagram, and AI-surfaced governance priorities. Risk pressure score and recommended next action are shown on the right.</figcaption>
+          <img src="screenshots/riskops-command-center.png" alt="Risk Governance Command Center with open decisions count, threat coverage, treatment plans, Risk Fabric visualization, and AI Governance Intelligence panel" loading="lazy">
+          <figcaption class="acad-caption"><strong>Risk Governance Command Center</strong> — 20,813 open decisions, threat coverage, treatment plans, and the Risk Fabric flow diagram connecting threats through assets to governance decisions. Governance Intelligence surfaces the highest-pressure items on the right.</figcaption>
         </figure>
+
+        <!-- Side-by-side: Business Processes + Scenarios -->
+        <div class="acad-figure-row">
+          <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+            <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /risks/business-processes</span>
+            <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+            <img src="screenshots/riskops-business-processes.png" alt="Business Impact Inventory showing business process workspace with BIA process records, managed entity linkage, and ownership columns" loading="lazy">
+            <figcaption class="acad-caption"><strong>Business Impact Inventory</strong> — each business process record has an ID, name, managed entity, owner, and criticality. The process workspace is where you confirm which assets support each process and where risk impact gets anchored.</figcaption>
+          </figure>
+          <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+            <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /risks/scenarios</span>
+            <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+            <img src="screenshots/riskops-scenarios.png" alt="Scenario Intelligence Studio with scenario library, cloud storage exposure and privileged identity misuse template cards, and scenario quality evaluation panel" loading="lazy">
+            <figcaption class="acad-caption"><strong>Scenario Intelligence</strong> — reusable risk scenarios built from templates link threat events to business impact. Each scenario card shows likelihood, impact, and whether it meets quality standards before publishing to the risk register.</figcaption>
+          </figure>
+        </div>
 
         <div class="callout success">
           <strong>Mapping doesn't have to be perfect to be valuable.</strong> Start by identifying your three to five most critical business processes — the ones where a security incident would cause regulatory liability, revenue loss, or material customer harm. Map findings there first. You can expand coverage iteratively.
@@ -841,6 +857,22 @@
           </div>
         </div>
 
+        <!-- Screenshots: My Work queue + Security Exceptions -->
+        <div class="acad-figure-row">
+          <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+            <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /risks/my-work</span>
+            <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+            <img src="screenshots/riskops-my-work.png" alt="My Work execution queue showing 16 assigned items, 0 overdue, active risk tasks with owner assignments and priority levels" loading="lazy">
+            <figcaption class="acad-caption"><strong>My Work</strong> — the personalized execution queue shows every pending risk decision, treatment approval, and remediation task assigned to you. This is the daily starting point for the governance closure phase.</figcaption>
+          </figure>
+          <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+            <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /projects/exceptions</span>
+            <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+            <img src="screenshots/projects-exceptions.png" alt="Exceptions and Risks page showing security exception requests table with business unit, type, risk tier, status, and approval columns" loading="lazy">
+            <figcaption class="acad-caption"><strong>Exceptions &amp; Risks</strong> — formal security exception requests are tracked with business unit, type, risk tier, and approval status. Every accepted risk requires a documented decision before the governance loop is closed.</figcaption>
+          </figure>
+        </div>
+
         <div class="quiz-block" id="quiz-phase5">
           <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
           <div class="quiz-question">A large pending decisions queue is almost always caused by which of the following?</div>
@@ -933,6 +965,22 @@
           <img src="screenshots/portfolio-exposure.png" alt="Portfolio exposure view showing aggregated financial risk exposure across business processes and managed entities with trend data" loading="lazy">
           <figcaption class="acad-caption"><strong>Portfolio exposure</strong> — the aggregate financial view of unmitigated open risk. As treatment plans are approved and remediations close, this number should trend down over successive reporting periods.</figcaption>
         </figure>
+
+        <!-- Screenshots: Quantification Studio + SLA Command Center -->
+        <div class="acad-figure-row">
+          <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+            <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /risks/quantification</span>
+            <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+            <img src="screenshots/riskops-quantification.png" alt="Quantification Studio showing Scenario Intelligence workspace with risk records, financial exposure values, probability distribution, and Risk Intelligence panel showing portfolio exposure of $950,060" loading="lazy">
+            <figcaption class="acad-caption"><strong>Quantification Studio</strong> — converts technical risk records into financial exposure estimates. The portfolio exposure roll-up ($950,060 in this example) gives executives and boards a business-language view of unmitigated risk.</figcaption>
+          </figure>
+          <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+            <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /projects/sla</span>
+            <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+            <img src="screenshots/projects-sla.png" alt="SLA Command Center showing operational playbook with Critical Firewall Response, Cloud Misconfiguration Default, SOC 2 Audit Finding, AI Governance Exception items and automation readiness panel" loading="lazy">
+            <figcaption class="acad-caption"><strong>SLA Command Center</strong> — launch policy-driven response playbooks for recurring risk types. Each playbook defines SLAs, escalation paths, and automation steps — turning the governance cadence into a repeatable operational process.</figcaption>
+          </figure>
+        </div>
 
         <h3>What to do next</h3>
         <div class="acad-grid">

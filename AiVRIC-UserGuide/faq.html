@@ -197,6 +197,33 @@
           </form>
         </div>
       </div>
+      <!-- External resources -->
+      <section class="guide-section" id="resources" style="scroll-margin-top:80px;">
+        <h2 style="font-size:18px;font-weight:700;color:var(--ug-text);margin:32px 0 12px;padding-top:32px;border-top:1px solid var(--ug-border);">Additional resources</h2>
+        
+      <div class="ug-figure-row">
+        <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+        <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> API — cloudsignals.aivric.com/api/v1/docs</span>
+        <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+        <img src="../academy/screenshots/api-docs.png" alt="CloudSignals API documentation showing REST API endpoints, token authentication, request/response schema, and code samples" loading="lazy">
+        <figcaption class="ug-figcaption"><strong>REST API Reference</strong> — full programmatic access to findings, policies, scans, workspaces, and connector status. Interactive documentation at <a href="https://cloudsignals.aivric.com/api/v1/docs" target="_blank">cloudsignals.aivric.com/api/v1/docs</a>.</figcaption>
+      </figure>
+        <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+        <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> docs.aivric.com</span>
+        <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+        <img src="../academy/screenshots/docs-site.png" alt="AiVRIC Platform Knowledge Base showing CloudSignals, AISignals, OTSignals, WorldSignals, RogueAgent, and AIRE Agentic Mesh sections" loading="lazy">
+        <figcaption class="ug-figcaption"><strong>Knowledge Base</strong> — the AiVRIC platform knowledge base at <a href="https://docs.aivric.com" target="_blank">docs.aivric.com</a> covers CloudSignals+RiskOps workflows, providers, RiskOps, integrations, and automation.</figcaption>
+      </figure>
+      </div>
+        
+      <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+        <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> aivric.com/support.html</span>
+        <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+        <img src="../academy/screenshots/support-page.png" alt="AiVRIC support page showing Platform Guide, Submit a Ticket, Email Support, and Book a Session options with system status indicators" loading="lazy">
+        <figcaption class="ug-figcaption"><strong>Support</strong> — the AiVRIC support center at <a href="https://aivric.com/support.html" target="_blank">aivric.com/support.html</a> provides the Platform Guide, ticket submission, email support, and guided setup session booking — all with live system status.</figcaption>
+      </figure>
+      </section>
+    
     </main>
 
     <aside class="guide-toc">
@@ -270,6 +297,41 @@
           resultsBox.classList.remove('open');
       });
     })();
+  </script>
+  
+  <!-- Lightbox -->
+  <div class="ug-lightbox" id="ug-lightbox" onclick="if(event.target===this)closeUgLightbox()" role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
+    <button class="ug-lb-close" onclick="closeUgLightbox()" aria-label="Close">&times;</button>
+    <img src="" alt="">
+    <div class="ug-lb-caption"></div>
+  </div>
+
+  <script>
+  function openUgLightbox(figure) {
+    var img = figure.querySelector('img');
+    var cap = figure.querySelector('.ug-figcaption, .ug-video-caption');
+    var lb  = document.getElementById('ug-lightbox');
+    if (!lb || !img) return;
+    lb.querySelector('img').src = img.src;
+    lb.querySelector('img').alt = img.alt;
+    var lbCap = lb.querySelector('.ug-lb-caption');
+    if (lbCap) lbCap.textContent = cap ? cap.textContent.replace('↑','').trim() : '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeUgLightbox() {
+    var lb = document.getElementById('ug-lightbox');
+    if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeUgLightbox(); });
+  (function(){
+    var obs = ('IntersectionObserver' in window) && new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('ug-visible'); obs.unobserve(e.target); } });
+    }, { rootMargin:'0px 0px -50px 0px', threshold:0.04 });
+    document.querySelectorAll('.ug-figure, .ug-figure-row, .ug-video-wrap').forEach(function(el){
+      if(obs) obs.observe(el); else el.classList.add('ug-visible');
+    });
+  })();
   </script>
   <script src="../assets/js/support-form.js"></script>
 </body>
