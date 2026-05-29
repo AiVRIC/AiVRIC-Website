@@ -177,6 +177,30 @@
       </div>
     </section>
       
+      <!-- CloudSignals in practice -->
+      <section class="guide-section" id="cloudsignals-in-practice" style="scroll-margin-top:80px;">
+        <div class="callout primary" style="margin-bottom:16px;">
+          <strong>CloudSignals+RiskOps in practice —</strong> AiVRIC CloudSignals+RiskOps operationalizes risk assessment as a continuous process. The Risk Governance Command Center aggregates findings into a scored risk register, tracks treatment plans, and surfaces open decisions — replacing the annual spreadsheet with a live, always-current risk posture.
+        </div>
+        
+      <div class="ug-figure-row">
+        
+      <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+        <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> CloudSignals — /risks</span>
+        <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+        <img src="../academy/screenshots/risk-governance-overview.png" alt="Risk Governance Command Center showing open decisions, treatment plans, Risk Fabric visualization, and AI governance recommendations" loading="lazy">
+        <figcaption class="ug-figcaption"><strong>Risk Governance Command Center</strong> — open decisions, treatment plans, and AI-surfaced risk priorities replace the periodic risk register review with a continuously updated posture view.</figcaption>
+      </figure>
+        
+      <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+        <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> CloudSignals — /risks/register</span>
+        <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+        <img src="../academy/screenshots/risk-register.png" alt="Risk Register showing formal risk records with likelihood, impact, treatment status, and linked findings" loading="lazy">
+        <figcaption class="ug-figcaption"><strong>Risk Register</strong> — formal risk records with severity, likelihood, treatment decision, and linked findings maintained automatically as scans run.</figcaption>
+      </figure>
+      </div>
+      </section>
+    
     </main>
 
     <aside class="guide-toc">
@@ -245,6 +269,41 @@
           resultsBox.classList.remove('open');
       });
     })();
+  </script>
+  
+  <!-- Lightbox -->
+  <div class="ug-lightbox" id="ug-lightbox" onclick="if(event.target===this)closeUgLightbox()" role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
+    <button class="ug-lb-close" onclick="closeUgLightbox()" aria-label="Close">&times;</button>
+    <img src="" alt="">
+    <div class="ug-lb-caption"></div>
+  </div>
+
+  <script>
+  function openUgLightbox(figure) {
+    var img = figure.querySelector('img');
+    var cap = figure.querySelector('.ug-figcaption, .ug-video-caption');
+    var lb  = document.getElementById('ug-lightbox');
+    if (!lb || !img) return;
+    lb.querySelector('img').src = img.src;
+    lb.querySelector('img').alt = img.alt;
+    var lbCap = lb.querySelector('.ug-lb-caption');
+    if (lbCap) lbCap.textContent = cap ? cap.textContent.replace('↑','').trim() : '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeUgLightbox() {
+    var lb = document.getElementById('ug-lightbox');
+    if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeUgLightbox(); });
+  (function(){
+    var obs = ('IntersectionObserver' in window) && new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('ug-visible'); obs.unobserve(e.target); } });
+    }, { rootMargin:'0px 0px -50px 0px', threshold:0.04 });
+    document.querySelectorAll('.ug-figure, .ug-figure-row, .ug-video-wrap').forEach(function(el){
+      if(obs) obs.observe(el); else el.classList.add('ug-visible');
+    });
+  })();
   </script>
   <script src="../assets/js/support-form.js"></script>
 </body>

@@ -177,6 +177,20 @@
       </div>
     </section>
       
+      <!-- CloudSignals in practice -->
+      <section class="guide-section" id="cloudsignals-in-practice" style="scroll-margin-top:80px;">
+        <div class="callout primary" style="margin-bottom:16px;">
+          <strong>CloudSignals+RiskOps in practice —</strong> AiVRIC CloudSignals+RiskOps provides the continuous visibility layer that powers security operations. The Command Center aggregates posture signals across all connected providers into a single operational view — updated every 24 hours and on-demand after significant changes.
+        </div>
+        
+      <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+        <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> CloudSignals — Overview</span>
+        <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+        <img src="../academy/screenshots/overview-dashboard.png" alt="CloudSignals Command Center showing threat score, findings by severity, threat map, and posture control plane stats" loading="lazy">
+        <figcaption class="ug-figcaption"><strong>Security operations command center</strong> — threat score, live finding counts by severity, threat map, and posture control plane panels give security operations teams a continuous, single-pane view of the environment without manual aggregation.</figcaption>
+      </figure>
+      </section>
+    
     </main>
 
     <aside class="guide-toc">
@@ -245,6 +259,41 @@
           resultsBox.classList.remove('open');
       });
     })();
+  </script>
+  
+  <!-- Lightbox -->
+  <div class="ug-lightbox" id="ug-lightbox" onclick="if(event.target===this)closeUgLightbox()" role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
+    <button class="ug-lb-close" onclick="closeUgLightbox()" aria-label="Close">&times;</button>
+    <img src="" alt="">
+    <div class="ug-lb-caption"></div>
+  </div>
+
+  <script>
+  function openUgLightbox(figure) {
+    var img = figure.querySelector('img');
+    var cap = figure.querySelector('.ug-figcaption, .ug-video-caption');
+    var lb  = document.getElementById('ug-lightbox');
+    if (!lb || !img) return;
+    lb.querySelector('img').src = img.src;
+    lb.querySelector('img').alt = img.alt;
+    var lbCap = lb.querySelector('.ug-lb-caption');
+    if (lbCap) lbCap.textContent = cap ? cap.textContent.replace('↑','').trim() : '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeUgLightbox() {
+    var lb = document.getElementById('ug-lightbox');
+    if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeUgLightbox(); });
+  (function(){
+    var obs = ('IntersectionObserver' in window) && new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('ug-visible'); obs.unobserve(e.target); } });
+    }, { rootMargin:'0px 0px -50px 0px', threshold:0.04 });
+    document.querySelectorAll('.ug-figure, .ug-figure-row, .ug-video-wrap').forEach(function(el){
+      if(obs) obs.observe(el); else el.classList.add('ug-visible');
+    });
+  })();
   </script>
   <script src="../assets/js/support-form.js"></script>
 </body>

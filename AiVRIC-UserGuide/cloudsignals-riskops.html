@@ -160,6 +160,22 @@
         </div>
       </div>
 
+      <!-- Screenshots: Overview dashboard + Findings (what the platform delivers) -->
+      <div class="ug-figure-row">
+        <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+          <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> Overview</span>
+          <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+          <img src="../academy/screenshots/overview-dashboard.png" alt="CloudSignals Command Center showing posture threat score, findings breakdown, threat map, and posture control plane stats" loading="lazy">
+          <figcaption class="ug-figcaption"><strong>Command Center</strong> — threat score, live finding counts by severity, and the threat map after telemetry is ingested from connected providers.</figcaption>
+        </figure>
+        <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+          <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /findings</span>
+          <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+          <img src="../academy/screenshots/findings-critical-high.png" alt="Findings list with Critical and High severity filter showing AI-grouped root cause analysis across related findings" loading="lazy">
+          <figcaption class="ug-figcaption"><strong>Findings</strong> — AI groups related control failures by root cause pattern so you treat systemic issues, not isolated alerts.</figcaption>
+        </figure>
+      </div>
+
       <h2 id="providers">Supported providers</h2>
       <p>CloudSignals+RiskOps supports the following cloud and SaaS providers. Click any to jump to the connector setup guide.</p>
       <div class="provider-grid">
@@ -192,6 +208,14 @@
         </tbody>
       </table>
 
+      <!-- Screenshot: Compliance overview -->
+      <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+        <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /compliance</span>
+        <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+        <img src="../academy/screenshots/compliance-overview.png" alt="CloudSignals Compliance overview showing framework control status, pass/fail counts, and evidence readiness across mapped frameworks" loading="lazy">
+        <figcaption class="ug-figcaption"><strong>Compliance dashboard</strong> — real-time control status across mapped frameworks with pass/fail counts and evidence bundles ready for assessors.</figcaption>
+      </figure>
+
       <h2 id="scanning">Scan scheduling</h2>
       <div class="guide-grid">
         <div class="guide-card">
@@ -222,6 +246,14 @@
         </ul>
       </div>
 
+      <!-- Screenshot: Scans list -->
+      <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+        <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /scans</span>
+        <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+        <img src="../academy/screenshots/scans-list.png" alt="CloudSignals Scans page showing scan history with provider, status, duration, and findings count per scan run" loading="lazy">
+        <figcaption class="ug-figcaption"><strong>Scan history</strong> — every audit run logged with provider, status, duration, and finding delta. Trigger on-demand scans after remediation or infrastructure changes without waiting for the next scheduled cycle.</figcaption>
+      </figure>
+
       <h2 id="analytics">Analytics &amp; dashboards</h2>
       <div class="guide-grid">
         <div class="guide-card">
@@ -240,6 +272,22 @@
           <h3>Scheduled reports</h3>
           <p>Generate weekly or monthly executive summaries. Schedule delivery to email or Slack/Teams with a single-click from the Reports panel.</p>
         </div>
+      </div>
+
+      <!-- Screenshots: Risk governance + Treatments (analytics outcomes) -->
+      <div class="ug-figure-row">
+        <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+          <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /risks</span>
+          <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+          <img src="../academy/screenshots/risk-governance-overview.png" alt="Risk Governance Command Center showing open decisions count, treatment plans, Risk Fabric flow, and Governance Intelligence panel" loading="lazy">
+          <figcaption class="ug-figcaption"><strong>Risk Governance Command Center</strong> — aggregate risk view with open decisions, treatment plans, risk fabric, and AI-surfaced governance priorities for executive reporting.</figcaption>
+        </figure>
+        <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+          <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /risks/treatments</span>
+          <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+          <img src="../academy/screenshots/treatments-list.png" alt="Treatment Execution Workspace showing active treatment plans with IDs, types, owners, due dates, and status" loading="lazy">
+          <figcaption class="ug-figcaption"><strong>Treatment Execution Workspace</strong> — AI-driven remediation is attached to each finding and tracked through the full governance lifecycle here.</figcaption>
+        </figure>
       </div>
 
       <h2 id="alerts">Alerts &amp; notifications</h2>
@@ -378,6 +426,41 @@
           resultsBox.classList.remove('open');
       });
     })();
+  </script>
+  
+  <!-- Lightbox -->
+  <div class="ug-lightbox" id="ug-lightbox" onclick="if(event.target===this)closeUgLightbox()" role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
+    <button class="ug-lb-close" onclick="closeUgLightbox()" aria-label="Close">&times;</button>
+    <img src="" alt="">
+    <div class="ug-lb-caption"></div>
+  </div>
+
+  <script>
+  function openUgLightbox(figure) {
+    var img = figure.querySelector('img');
+    var cap = figure.querySelector('.ug-figcaption, .ug-video-caption');
+    var lb  = document.getElementById('ug-lightbox');
+    if (!lb || !img) return;
+    lb.querySelector('img').src = img.src;
+    lb.querySelector('img').alt = img.alt;
+    var lbCap = lb.querySelector('.ug-lb-caption');
+    if (lbCap) lbCap.textContent = cap ? cap.textContent.replace('↑','').trim() : '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeUgLightbox() {
+    var lb = document.getElementById('ug-lightbox');
+    if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeUgLightbox(); });
+  (function(){
+    var obs = ('IntersectionObserver' in window) && new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('ug-visible'); obs.unobserve(e.target); } });
+    }, { rootMargin:'0px 0px -50px 0px', threshold:0.04 });
+    document.querySelectorAll('.ug-figure, .ug-figure-row, .ug-video-wrap').forEach(function(el){
+      if(obs) obs.observe(el); else el.classList.add('ug-visible');
+    });
+  })();
   </script>
   <script src="../assets/js/support-form.js"></script>
 </body>

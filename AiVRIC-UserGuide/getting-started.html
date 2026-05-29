@@ -163,6 +163,14 @@
         </div>
       </div>
 
+      <!-- Screenshot: Overview dashboard — what users see after launch -->
+      <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+        <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> CloudSignals &mdash; Overview</span>
+        <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+        <img src="../academy/screenshots/overview-dashboard.png" alt="CloudSignals Command Center dashboard showing posture threat score, active findings breakdown, threat map, and control plane activity" loading="lazy">
+        <figcaption class="ug-figcaption"><strong>Your command center after onboarding</strong> — threat score, live findings by severity, threat map, and posture control plane are all populated once your first connector is active and a scan completes.</figcaption>
+      </figure>
+
       <h2 id="connect">Connect your environment</h2>
       <p>All connectors are powered by <strong>CloudSignals+RiskOps&trade;</strong> — AiVRIC's continuous posture monitoring engine. Every connected provider is audited automatically on a 24-hour cycle.</p>
       <table class="table">
@@ -179,6 +187,22 @@
           <tr><td>Jira / ServiceNow</td><td>Send findings to owners and track remediation bidirectionally.</td><td>Connect via OAuth; map severity to ticket priority.</td></tr>
         </tbody>
       </table>
+      <!-- Screenshots: Assets inventory + Scans list (what you see after connecting) -->
+      <div class="ug-figure-row">
+        <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+          <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /assets</span>
+          <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+          <img src="../academy/screenshots/assets-dashboard.png" alt="CloudSignals All Assets view showing 319 discovered resources with sync status, ownership coverage, and criticality filters" loading="lazy">
+          <figcaption class="ug-figcaption"><strong>Asset inventory</strong> populates automatically after the first scan — every discovered resource is listed with ownership, criticality, and last-sync status.</figcaption>
+        </figure>
+        <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+          <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /scans</span>
+          <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+          <img src="../academy/screenshots/scans-list.png" alt="CloudSignals Scans page showing scan history with provider, status, duration, and findings count per scan" loading="lazy">
+          <figcaption class="ug-figcaption"><strong>Scan history</strong> — every audit run is logged with provider, status, duration, and finding counts. On-demand scans run alongside the 24-hour scheduled cadence.</figcaption>
+        </figure>
+      </div>
+
       <div class="callout primary">
         <strong>Full connector guides</strong> — step-by-step instructions and authentication details for every provider — are on the <a href="connectors.html">Connectors page</a>.
       </div>
@@ -293,6 +317,41 @@
           resultsBox.classList.remove('open');
       });
     })();
+  </script>
+  
+  <!-- Lightbox -->
+  <div class="ug-lightbox" id="ug-lightbox" onclick="if(event.target===this)closeUgLightbox()" role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
+    <button class="ug-lb-close" onclick="closeUgLightbox()" aria-label="Close">&times;</button>
+    <img src="" alt="">
+    <div class="ug-lb-caption"></div>
+  </div>
+
+  <script>
+  function openUgLightbox(figure) {
+    var img = figure.querySelector('img');
+    var cap = figure.querySelector('.ug-figcaption, .ug-video-caption');
+    var lb  = document.getElementById('ug-lightbox');
+    if (!lb || !img) return;
+    lb.querySelector('img').src = img.src;
+    lb.querySelector('img').alt = img.alt;
+    var lbCap = lb.querySelector('.ug-lb-caption');
+    if (lbCap) lbCap.textContent = cap ? cap.textContent.replace('↑','').trim() : '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeUgLightbox() {
+    var lb = document.getElementById('ug-lightbox');
+    if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeUgLightbox(); });
+  (function(){
+    var obs = ('IntersectionObserver' in window) && new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('ug-visible'); obs.unobserve(e.target); } });
+    }, { rootMargin:'0px 0px -50px 0px', threshold:0.04 });
+    document.querySelectorAll('.ug-figure, .ug-figure-row, .ug-video-wrap').forEach(function(el){
+      if(obs) obs.observe(el); else el.classList.add('ug-visible');
+    });
+  })();
   </script>
   <script src="../assets/js/support-form.js"></script>
 </body>

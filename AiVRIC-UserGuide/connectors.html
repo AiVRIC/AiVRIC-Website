@@ -117,6 +117,22 @@
       <h1>Connectors</h1>
       <p>Connect your cloud accounts, SaaS platforms, and developer tooling to AiVRIC CloudSignals+RiskOps&#8482;. Each connector uses read-only credentials — AiVRIC never requires write access for monitoring. Once connected, an automated audit runs every <strong>24 hours</strong> to detect misconfigurations and posture drift.</p>
 
+      <!-- Screenshots: What you see after connectors are active -->
+      <div class="ug-figure-row">
+        <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+          <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> Result — /assets</span>
+          <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+          <img src="../academy/screenshots/assets-dashboard.png" alt="Asset inventory showing 319 resources discovered across connected cloud providers after initial scan" loading="lazy">
+          <figcaption class="ug-figcaption"><strong>After connecting:</strong> your asset inventory populates automatically from the first scan — resources, ownership, and criticality all visible without manual import.</figcaption>
+        </figure>
+        <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+          <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> Result — /findings</span>
+          <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+          <img src="../academy/screenshots/findings-critical-high.png" alt="Findings list showing Critical and High severity misconfigurations discovered across connected providers" loading="lazy">
+          <figcaption class="ug-figcaption"><strong>After connecting:</strong> control failures surface immediately, grouped by root cause, with severity, remediation guidance, and compliance mapping already applied.</figcaption>
+        </figure>
+      </div>
+
       <div class="provider-jump" aria-label="Jump to connector">
         <a href="#aws">AWS</a>
         <a href="#azure">Azure</a>
@@ -186,6 +202,14 @@
           </div>
         </div>
       </div>
+
+      <!-- Screenshot: Scan history (visible after first successful connection) -->
+      <figure class="ug-figure" onclick="openUgLightbox(this)" title="Click to expand">
+        <span class="ug-fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /scans — after connecting</span>
+        <span class="ug-fig-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+        <img src="../academy/screenshots/scans-list.png" alt="Scans list showing completed scan runs with provider name, status, duration, and finding counts after AWS connector is active" loading="lazy">
+        <figcaption class="ug-figcaption"><strong>Scan history</strong> — once your first connector is active, scans run on the 24-hour schedule and appear here with provider, status, duration, and per-severity finding counts. Use <strong>Run Scan</strong> for an immediate re-check after credential changes.</figcaption>
+      </figure>
 
       <!-- ──────────────── AZURE ──────────────── -->
       <div class="connector-section" id="azure">
@@ -819,6 +843,41 @@
           resultsBox.classList.remove('open');
       });
     })();
+  </script>
+  
+  <!-- Lightbox -->
+  <div class="ug-lightbox" id="ug-lightbox" onclick="if(event.target===this)closeUgLightbox()" role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
+    <button class="ug-lb-close" onclick="closeUgLightbox()" aria-label="Close">&times;</button>
+    <img src="" alt="">
+    <div class="ug-lb-caption"></div>
+  </div>
+
+  <script>
+  function openUgLightbox(figure) {
+    var img = figure.querySelector('img');
+    var cap = figure.querySelector('.ug-figcaption, .ug-video-caption');
+    var lb  = document.getElementById('ug-lightbox');
+    if (!lb || !img) return;
+    lb.querySelector('img').src = img.src;
+    lb.querySelector('img').alt = img.alt;
+    var lbCap = lb.querySelector('.ug-lb-caption');
+    if (lbCap) lbCap.textContent = cap ? cap.textContent.replace('↑','').trim() : '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeUgLightbox() {
+    var lb = document.getElementById('ug-lightbox');
+    if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeUgLightbox(); });
+  (function(){
+    var obs = ('IntersectionObserver' in window) && new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('ug-visible'); obs.unobserve(e.target); } });
+    }, { rootMargin:'0px 0px -50px 0px', threshold:0.04 });
+    document.querySelectorAll('.ug-figure, .ug-figure-row, .ug-video-wrap').forEach(function(el){
+      if(obs) obs.observe(el); else el.classList.add('ug-visible');
+    });
+  })();
   </script>
   <script src="../assets/js/support-form.js"></script>
 </body>
