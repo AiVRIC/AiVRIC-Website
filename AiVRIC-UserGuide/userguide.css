@@ -1182,6 +1182,13 @@ a.tag:hover {
    ══════════════════════════════════════════════════════════════════════ */
 
 .ug-figure {
+  /* ⚠ Must be width:100% — images are 1440px natural; without this the
+     container expands to image width and overflows the content column. */
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  display: block;
   margin: 28px 0 32px;
   border-radius: var(--ug-radius-lg);
   overflow: hidden;
@@ -1206,6 +1213,7 @@ a.tag:hover {
 .ug-figure img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
   border-radius: 0 0 var(--ug-radius-lg) var(--ug-radius-lg);
 }
@@ -1248,8 +1256,19 @@ a.tag:hover {
   grid-template-columns: 1fr 1fr;
   gap: 14px;
   margin: 28px 0 32px;
+  /* Prevent the grid itself from overflowing the content column */
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
-.ug-figure-row .ug-figure { margin: 0; }
+.ug-figure-row .ug-figure {
+  margin: 0;
+  /* Grid items must have min-width:0 to compress below natural image width */
+  min-width: 0;
+  width: 100%;
+}
 
 /* Scroll-reveal */
 .ug-figure, .ug-figure-row, .ug-video-wrap {
@@ -1264,6 +1283,11 @@ a.tag:hover {
 
 /* Video / motion clip */
 .ug-video-wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  display: block;
   margin: 28px 0 32px;
   border-radius: var(--ug-radius-lg); overflow: hidden;
   border: 1px solid var(--ug-border); background: #050a13;

@@ -1172,6 +1172,12 @@ a.tag:hover {
 /* ── Figure container ────────────────────────────────────────────────── */
 
 .acad-figure {
+  /* width:100% prevents 1440px images expanding the container beyond the column */
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  display: block;
   margin: 28px 0 32px;
   border-radius: var(--ug-radius-lg);
   overflow: hidden;
@@ -1201,6 +1207,7 @@ a.tag:hover {
 .acad-figure img {
   display: block;
   width: 100%;
+  max-width: 100%;
   height: auto;
   border-radius: 0 0 var(--ug-radius-lg) var(--ug-radius-lg);
 }
@@ -1273,8 +1280,17 @@ figcaption.acad-caption strong { color: var(--ug-text-2); font-weight: 600; }
   grid-template-columns: 1fr 1fr;
   gap: 14px;
   margin: 28px 0 32px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 }
-.acad-figure-row .acad-figure { margin: 0; }
+.acad-figure-row .acad-figure {
+  margin: 0;
+  min-width: 0;  /* Required: grid items must compress below natural image width */
+  width: 100%;
+}
 
 /* Wide (full bleed to content width) — default */
 /* Narrow (clipped to sidebar width, float right on wide screens) */
@@ -1286,6 +1302,11 @@ figcaption.acad-caption strong { color: var(--ug-text-2); font-weight: 600; }
 /* ── Motion / video clips ────────────────────────────────────────────── */
 
 .acad-video-wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  display: block;
   margin: 28px 0 32px;
   border-radius: var(--ug-radius-lg);
   overflow: hidden;
@@ -1455,6 +1476,9 @@ figcaption.acad-caption--video::before {
   .acad-nav-toggle { display: flex; }
   .acad-featured-course { grid-template-columns: 1fr; }
   .acad-fc-visual { display: none; }
+  /* Side-by-side screenshots stack on narrow screens */
+  .acad-figure-row { grid-template-columns: 1fr !important; }
+  .acad-figure-row .acad-figure:nth-child(2) { transition-delay: 0s; }
 }
 @media (max-width: 600px) {
   .acad-content { padding: 20px 16px 40px; }
