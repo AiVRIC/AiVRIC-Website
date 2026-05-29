@@ -225,6 +225,14 @@
         </div>
       </div>
 
+      <!-- Screenshot: Live CloudSignals platform overview -->
+      <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand" style="opacity:1;transform:none;">
+        <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> CloudSignals+RiskOps &mdash; Live app</span>
+        <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+        <img src="screenshots/overview-dashboard.png" alt="CloudSignals Command Center dashboard showing posture threat score, active findings by severity, threat map with global signal coverage, and control plane activity panels" loading="lazy">
+        <figcaption class="acad-caption"><strong>CloudSignals+RiskOps</strong> — the platform this training program teaches. Every course in the CRPM program maps to a specific workflow visible from this command center: assets, findings, risk governance, treatments, and governance closure.</figcaption>
+      </figure>
+
       <div class="callout primary">
         <strong>How to use this guide:</strong> Program managers and training leads should read this document first. Individual learners should go directly to the <a href="#paths">Learning Paths</a> section to find their recommended course sequence, then start with the first course in their path.
       </div>
@@ -524,5 +532,33 @@
     <span>&copy; 2025 AiVRIC Technologies &mdash; <a href="../privacy-policy.html">Privacy</a> &middot; <a href="../AiVRIC-UserGuide/acceptable-use-policy.html">Acceptable Use</a></span>
     <span class="tag">Academy v1 &middot; CRPM Program Guide</span>
   </footer>
+
+  <div class="acad-lightbox" id="acad-lightbox" onclick="if(event.target===this)closeLightbox()" role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
+    <button class="acad-lightbox-close" onclick="closeLightbox()" aria-label="Close lightbox">&times;</button>
+    <img src="" alt="">
+    <div class="acad-lightbox-caption"></div>
+  </div>
+
+  <script>
+  function openLightbox(figure) {
+    var img = figure.querySelector('img');
+    var cap = figure.querySelector('figcaption');
+    var lb  = document.getElementById('acad-lightbox');
+    if (!lb || !img) return;
+    lb.querySelector('img').src = img.src;
+    lb.querySelector('img').alt = img.alt;
+    var lbCap = lb.querySelector('.acad-lightbox-caption');
+    if (lbCap) lbCap.textContent = cap ? cap.textContent.replace('↑','').trim() : '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    var lb = document.getElementById('acad-lightbox');
+    if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+  // Make the one figure immediately visible (doc page, no scroll-reveal needed)
+  document.querySelectorAll('.acad-figure').forEach(function(el){ el.classList.add('visible'); });
+  </script>
 </body>
 </html>

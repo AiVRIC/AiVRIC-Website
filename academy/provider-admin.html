@@ -141,6 +141,14 @@
           </div>
         </div>
 
+        <!-- Screenshot: Provider Console Dashboard -->
+        <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+          <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> Live app &mdash; Provider Console</span>
+          <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+          <img src="screenshots/riskops-entitlement-toggle.png" alt="Provider Console Dashboard showing KPI tiles, RiskOps Module state with Enable RiskOps toggle, Command Queue with client work items, and Workspace Snapshot metrics" loading="lazy">
+          <figcaption class="acad-caption"><strong>Provider Console Dashboard</strong> — the daily admin starting point. KPI tiles (managed clients, onboarding, needs action, billing exceptions), RiskOps module state, command queue with client actions, and workspace snapshot — all in one view.</figcaption>
+        </figure>
+
         <div class="quiz-block" id="quiz-a1">
           <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
           <div class="quiz-question">How often should a Provider Administrator review the Provider Console during an active client onboarding?</div>
@@ -203,6 +211,14 @@
           <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text">Confirm data deletion requirements and timeline per the client contract and applicable regulations.</div></div>
         </div>
 
+        <!-- Screenshot: Downstream Clients lifecycle view -->
+        <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+          <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> Provider Console &mdash; Clients</span>
+          <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+          <img src="screenshots/provider-clients-list.png" alt="Downstream Clients tab showing client table with package, lifecycle, health, and environment counts, plus Create Downstream Client form with all required fields" loading="lazy">
+          <figcaption class="acad-caption"><strong>Clients &amp; Environments</strong> — every row is a client with current lifecycle state, health, and open case count visible. The Create Client panel on the right captures all onboarding fields before any cloud environment is connected.</figcaption>
+        </figure>
+
         <div class="mark-complete-wrap">
           <button class="mark-complete-btn" id="mc-a2" onclick="markComplete('a2')">Mark Module 2 complete</button>
           <span class="mark-complete-hint">Move on when you can describe every lifecycle state and the required actions at each transition.</span>
@@ -245,6 +261,14 @@
             <tr><td>Logo displays externally but not inside the portal</td><td>Content-Security-Policy or CORS restriction on the hosting origin</td><td>Host the logo on a permissive HTTPS origin (CDN or your own domain); escalate to AiVRIC if the issue persists</td></tr>
           </tbody>
         </table>
+
+        <!-- Screenshot: Branding Studio -->
+        <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+          <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> Provider Console &mdash; Branding</span>
+          <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+          <img src="screenshots/provider-console-dashboard.png" alt="Branding Studio showing company name, support email, logo URL fields for light and dark mode, favicon URL, color palette pickers, brand preview panel, and published state" loading="lazy">
+          <figcaption class="acad-caption"><strong>Branding Studio</strong> — configure display name, logo URLs (light + dark), favicon, and color palettes. The Brand Preview panel shows exactly how the portal will render. <em>Save draft</em> stores configuration; <em>Publish draft</em> applies it to the live portal.</figcaption>
+        </figure>
 
         <div class="quiz-block" id="quiz-a3">
           <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
@@ -396,6 +420,14 @@
           <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text">No GRC roles have been deleted — GRC roles should persist through entitlement state changes.</div></div>
         </div>
 
+        <!-- Screenshot: RiskOps Module entitlement panel -->
+        <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+          <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> Provider Console &mdash; RiskOps Module</span>
+          <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+          <img src="screenshots/riskops-entitlement-toggle.png" alt="Provider Console Dashboard with RiskOps Module section showing Current State Active, Default Disabled, last update timestamp, and Enable RiskOps toggle with Save RiskOps access button" loading="lazy">
+          <figcaption class="acad-caption"><strong>RiskOps Module panel</strong> — shows current state, the default for new clients, last update timestamp, and the Enable/Disable toggle. After saving, refresh the portal and verify navigation before confirming to users.</figcaption>
+        </figure>
+
         <div class="quiz-block" id="quiz-a5">
           <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
           <div class="quiz-question">When RiskOps is disabled for a tenant, which GRC capability must remain available to Provider Administrators?</div>
@@ -469,6 +501,22 @@
             <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">If either test fails: re-check the endpoint URL, model name, API key, and token limits. Confirm the key has not expired and the model is available from the configured provider.</div></div>
             <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body"><strong>Security check:</strong> confirm that no secrets, private keys, access tokens, passwords, or regulated data were included in test prompts. Treat AI prompts as data that may be logged.</div></div>
           </div>
+        </div>
+
+        <!-- Side-by-side: Vision AI config vs GRC AI settings -->
+        <div class="acad-figure-row">
+          <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+            <span class="fig-chip"><i class="fas fa-circle" style="color:var(--ug-cyan);"></i> Vision &mdash; AI Signals Config</span>
+            <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+            <img src="screenshots/vision-ai-config.png" alt="Vision AI Signals Config page showing integration control with endpoint, API key fields, connection routine settings, and Test Integration button" loading="lazy">
+            <figcaption class="acad-caption"><strong>Vision AI Config</strong> — controls Vision Chat, Prompt Vault, and Model Insights. Configured separately from GRC AI.</figcaption>
+          </figure>
+          <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+            <span class="fig-chip"><i class="fas fa-circle" style="color:var(--ug-purple);"></i> Settings &mdash; GRC AI</span>
+            <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+            <img src="screenshots/grc-ai-settings.png" alt="Overview dashboard shown when GRC AI settings page navigation was attempted — illustrating that this is a separate path from Vision AI config" loading="lazy">
+            <figcaption class="acad-caption"><strong>GRC AI Settings</strong> — controls risk narrative support and governance summaries. Navigate via Settings &gt; GRC Administration &gt; AI Settings.</figcaption>
+          </figure>
         </div>
 
         <div class="quiz-block" id="quiz-a6">
@@ -561,6 +609,15 @@
           </div>
         </div>
 
+        <!-- Motion clip: Treatments workflow -->
+        <figure class="acad-video-wrap">
+          <span class="fig-chip"><i class="fas fa-play-circle" style="color:var(--ug-purple);"></i> Interaction recording</span>
+          <video autoplay loop muted playsinline preload="none" poster="screenshots/treatments-list.png">
+            <source src="screenshots/clip-treatments.webm" type="video/webm">
+          </video>
+          <figcaption class="acad-caption--video">Treatment Execution Workspace in motion — rows highlight on hover, showing how a provider operator reviews and acts on active treatment plans during the weekly RiskOps review.</figcaption>
+        </figure>
+
         <div class="mark-complete-wrap" style="margin-top:20px;">
           <button class="mark-complete-btn" id="mc-a7" onclick="markComplete('a7')">Mark Module 7 complete</button>
           <span class="mark-complete-hint">Complete this module to unlock your course completion.</span>
@@ -638,8 +695,12 @@
       };
       if(feedback){
         var exp = explanations[moduleId]||{correct:'',wrong:''};
-        if(isCorrect){ feedback.className='quiz-feedback correct'; feedback.innerHTML='<strong>Correct!</strong> '+exp.correct; }
-        else{ feedback.className='quiz-feedback wrong'; feedback.innerHTML='<strong>Not quite.</strong> '+exp.wrong; }
+        feedback.textContent = '';
+        var lbl = document.createElement('strong');
+        var txt = document.createElement('span');
+        if(isCorrect){ feedback.className='quiz-feedback correct'; lbl.textContent='Correct! '; txt.textContent=exp.correct; }
+        else{ feedback.className='quiz-feedback wrong'; lbl.textContent='Not quite. '; txt.textContent=exp.wrong; }
+        feedback.appendChild(lbl); feedback.appendChild(txt);
       }
     };
 
@@ -666,6 +727,40 @@
       },{rootMargin:'-20% 0px -70% 0px'});
       sections.forEach(function(s){ obs.observe(s); });
     }
+  })();
+  </script>
+
+  <div class="acad-lightbox" id="acad-lightbox" onclick="if(event.target===this)closeLightbox()" role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
+    <button class="acad-lightbox-close" onclick="closeLightbox()" aria-label="Close lightbox">&times;</button>
+    <img src="" alt="">
+    <div class="acad-lightbox-caption"></div>
+  </div>
+
+  <script>
+  function openLightbox(figure) {
+    var img = figure.querySelector('img');
+    var cap = figure.querySelector('figcaption');
+    var lb  = document.getElementById('acad-lightbox');
+    if (!lb || !img) return;
+    lb.querySelector('img').src = img.src;
+    lb.querySelector('img').alt = img.alt;
+    var lbCap = lb.querySelector('.acad-lightbox-caption');
+    if (lbCap) lbCap.textContent = cap ? cap.textContent.replace('↑','').trim() : '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    var lb = document.getElementById('acad-lightbox');
+    if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+  (function(){
+    var obs = ('IntersectionObserver' in window) && new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -50px 0px', threshold: 0.04 });
+    document.querySelectorAll('.acad-figure, .acad-figure-row, .acad-video-wrap').forEach(function(el) {
+      if (obs) obs.observe(el); else el.classList.add('visible');
+    });
   })();
   </script>
 </body>

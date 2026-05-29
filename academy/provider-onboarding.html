@@ -148,6 +148,14 @@
           </tbody>
         </table>
 
+        <!-- Screenshot: Provider Console navigation showing roles in context -->
+        <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+          <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> Live app &mdash; Provider Console</span>
+          <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+          <img src="screenshots/riskops-entitlement-toggle.png" alt="Provider Console Dashboard showing KPI tiles for managed clients, onboarding count, needs action count, the RiskOps Module entitlement section, Command Queue, and Workspace Snapshot" loading="lazy">
+          <figcaption class="acad-caption"><strong>Provider Console Dashboard</strong> — the primary workspace for provider admins. KPI tiles, RiskOps module state, command queue, and workspace snapshot are all visible from this single view.</figcaption>
+        </figure>
+
         <div class="callout warn">
           <strong>Provider Admin is not a default operational role.</strong> Admins manage the platform, not day-to-day findings. Avoid using Admin accounts for routine scan and findings work — use an Operator account. This keeps the blast radius of a misconfiguration small and the audit trail clean.
         </div>
@@ -292,6 +300,14 @@
           </div>
         </div>
 
+        <!-- Screenshot: Branding Studio configuration -->
+        <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+          <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> Provider Console &mdash; Branding</span>
+          <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+          <img src="screenshots/provider-console-dashboard.png" alt="Provider Console Branding Studio showing logo URL fields, light and dark palette configuration, brand preview panel, and published state indicator" loading="lazy">
+          <figcaption class="acad-caption"><strong>Branding Studio</strong> — configure logo URLs, palette colors, and support email. The Brand Preview panel on the right shows how the portal will render before you publish.</figcaption>
+        </figure>
+
         <div class="quiz-block" id="quiz-m3">
           <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
           <div class="quiz-question">After updating branding settings, what must you do for the changes to become visible to users in the portal?</div>
@@ -364,6 +380,14 @@
             <p style="font-size:13px;color:var(--ug-muted-2);margin:0;">Package or service tier, reporting cadence, compliance frameworks in scope, special handling requirements.</p>
           </div>
         </div>
+
+        <!-- Screenshot: Clients & Environments with Create form -->
+        <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+          <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> Provider Console &mdash; Clients</span>
+          <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+          <img src="screenshots/provider-clients-list.png" alt="Provider Console Downstream Clients tab showing client table with package, lifecycle state, health status, and a Create Downstream Client form panel on the right with all required fields" loading="lazy">
+          <figcaption class="acad-caption"><strong>Downstream Clients</strong> — the client table shows package, lifecycle state, health, and action. The Create Client form on the right collects legal name, package, support tier, lifecycle, and billing status — all required before connecting a cloud environment.</figcaption>
+        </figure>
 
         <div class="quiz-block" id="quiz-m4">
           <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
@@ -441,6 +465,22 @@
           <li><strong>Separate urgent fixes from maturity improvements</strong> — Critical/High findings needing immediate action should be clearly differentiated from Medium/Low hygiene items.</li>
           <li><strong>Validate before presenting</strong> — confirm findings are genuine and applicable before putting them in a client review.</li>
         </ul>
+
+        <!-- Screenshot + clip: Findings in provider context -->
+        <div class="acad-figure-row">
+          <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+            <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /findings</span>
+            <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+            <img src="screenshots/findings-critical-high.png" alt="Findings list with Critical and High severity filter active, showing AI analysis groupings and individual finding rows" loading="lazy">
+            <figcaption class="acad-caption"><strong>Findings — triage starting point.</strong> Filter Critical+High first. Each grouping shows the AI-identified root cause pattern across related findings.</figcaption>
+          </figure>
+          <figure class="acad-figure" onclick="openLightbox(this)" title="Click to expand">
+            <span class="fig-chip"><i class="fas fa-circle" style="color:#2ee59d;"></i> /risks/treatments</span>
+            <span class="fig-expand-hint"><i class="fas fa-expand-alt"></i> Expand</span>
+            <img src="screenshots/treatments-list.png" alt="Treatment Execution Workspace showing active treatment plans with RMR IDs, treatment types, owners, and status" loading="lazy">
+            <figcaption class="acad-caption"><strong>Treatment plans</strong> — where triaged findings become formal risk commitments with owners, types, and due dates visible to governance approvers.</figcaption>
+          </figure>
+        </div>
 
         <div class="quiz-block" id="quiz-m5">
           <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
@@ -608,8 +648,12 @@
       };
       if(feedback){
         var exp = explanations[moduleId] || {correct:'',wrong:''};
-        if(isCorrect){ feedback.className='quiz-feedback correct'; feedback.innerHTML='<strong>Correct!</strong> '+exp.correct; }
-        else { feedback.className='quiz-feedback wrong'; feedback.innerHTML='<strong>Not quite.</strong> '+exp.wrong; }
+        feedback.textContent = '';
+        var lbl = document.createElement('strong');
+        var txt = document.createElement('span');
+        if(isCorrect){ feedback.className='quiz-feedback correct'; lbl.textContent='Correct! '; txt.textContent=exp.correct; }
+        else { feedback.className='quiz-feedback wrong'; lbl.textContent='Not quite. '; txt.textContent=exp.wrong; }
+        feedback.appendChild(lbl); feedback.appendChild(txt);
       }
     };
 
@@ -638,6 +682,40 @@
       },{rootMargin:'-20% 0px -70% 0px'});
       sections.forEach(function(s){ obs.observe(s); });
     }
+  })();
+  </script>
+
+  <div class="acad-lightbox" id="acad-lightbox" onclick="if(event.target===this)closeLightbox()" role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
+    <button class="acad-lightbox-close" onclick="closeLightbox()" aria-label="Close lightbox">&times;</button>
+    <img src="" alt="">
+    <div class="acad-lightbox-caption"></div>
+  </div>
+
+  <script>
+  function openLightbox(figure) {
+    var img = figure.querySelector('img');
+    var cap = figure.querySelector('figcaption');
+    var lb  = document.getElementById('acad-lightbox');
+    if (!lb || !img) return;
+    lb.querySelector('img').src = img.src;
+    lb.querySelector('img').alt = img.alt;
+    var lbCap = lb.querySelector('.acad-lightbox-caption');
+    if (lbCap) lbCap.textContent = cap ? cap.textContent.replace('↑','').trim() : '';
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    var lb = document.getElementById('acad-lightbox');
+    if (lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+  }
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+  (function(){
+    var obs = ('IntersectionObserver' in window) && new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -50px 0px', threshold: 0.04 });
+    document.querySelectorAll('.acad-figure, .acad-figure-row, .acad-video-wrap').forEach(function(el) {
+      if (obs) obs.observe(el); else el.classList.add('visible');
+    });
   })();
   </script>
 </body>
