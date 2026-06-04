@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>Asset Governance | AiVRIC Academy</title>
+  <link rel="canonical" href="https://academy.aivric.com/asset-governance.html">
+  <meta name="description" content="Turn asset inventory into business-context security governance using CloudSignals Surface, asset classification, and risk relationships. AiVRIC Academy practitioner course.">
+  <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
+  <link href="academy.css" rel="stylesheet">
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-EG2Q8GD30V');</script>
+<body>
+  <header class="acad-header">
+    <div class="bar">
+      <a class="acad-brand" href="index.html">
+        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC">
+        <span class="acad-brand-sep"></span>
+        <span class="acad-brand-sub">Academy</span>
+      </a>
+      <div class="acad-header-spacer"></div>
+      <div class="acad-top-links">
+        <a href="index.html">All Courses</a>
+        <a href="../AiVRIC-UserGuide/index.html">Platform Guide</a>
+        <a href="../support.html">Support</a>
+        <a href="../AiVRIC-UserGuide/insider-early-access.html" class="acad-cta">Insider Access</a>
+      </div>
+      <button class="acad-nav-toggle" type="button" aria-label="Toggle navigation" onclick="document.getElementById('acad-sidebar').classList.toggle('open')">Menu</button>
+    </div>
+  </header>
+
+  <div style="background:var(--ug-surface-2);border-bottom:1px solid var(--ug-border);">
+    <div class="acad-progress-bar-wrap">
+      <span class="acad-progress-label">Course progress</span>
+      <div class="acad-progress-track"><div class="acad-progress-fill" id="progress-fill" style="width:0%"></div></div>
+      <span class="acad-progress-pct" id="progress-pct">0%</span>
+    </div>
+  </div>
+
+  <div class="acad-shell">
+    <aside class="acad-sidebar" id="acad-sidebar">
+      <span class="acad-sidebar-title">Asset Governance</span>
+      <div class="acad-module-list" id="module-list">
+        <a class="acad-module-item active" href="#overview" data-module="overview" onclick="setActive(this)">
+          <div class="acad-mod-icon">&#9656;</div>
+          <div class="acad-mod-body"><span class="acad-mod-label">Overview</span><span class="acad-mod-sub">Course introduction</span></div>
+        </a>
+        <a class="acad-module-item" href="#mod1" data-module="mod1" onclick="setActive(this)">
+          <div class="acad-mod-icon">1</div>
+          <div class="acad-mod-body"><span class="acad-mod-label">Asset Governance Concepts</span><span class="acad-mod-sub">Ownership, criticality, crown jewels</span></div>
+        </a>
+        <a class="acad-module-item" href="#mod2" data-module="mod2" onclick="setActive(this)">
+          <div class="acad-mod-icon">2</div>
+          <div class="acad-mod-body"><span class="acad-mod-label">Surface Navigation</span><span class="acad-mod-sub">Asset dashboard, views, filters</span></div>
+        </a>
+        <a class="acad-module-item" href="#mod3" data-module="mod3" onclick="setActive(this)">
+          <div class="acad-mod-icon">3</div>
+          <div class="acad-mod-body"><span class="acad-mod-label">Classification &amp; Managed Entities</span><span class="acad-mod-sub">Data sensitivity, managed entity model</span></div>
+        </a>
+        <a class="acad-module-item" href="#mod4" data-module="mod4" onclick="setActive(this)">
+          <div class="acad-mod-icon">4</div>
+          <div class="acad-mod-body"><span class="acad-mod-label">Asset-to-Finding-to-Risk</span><span class="acad-mod-sub">Risk chain and prioritization</span></div>
+        </a>
+        <a class="acad-module-item" href="#mod5" data-module="mod5" onclick="setActive(this)">
+          <div class="acad-mod-icon">5</div>
+          <div class="acad-mod-body"><span class="acad-mod-label">Third-Party &amp; Vendor Exposure</span><span class="acad-mod-sub">External dependencies and risk</span></div>
+        </a>
+        <a class="acad-module-item" href="#mod6" data-module="mod6" onclick="setActive(this)">
+          <div class="acad-mod-icon">6</div>
+          <div class="acad-mod-body"><span class="acad-mod-label">Reporting &amp; Cadence</span><span class="acad-mod-sub">Asset governance reviews</span></div>
+        </a>
+        <a class="acad-module-item" href="#certification" data-module="certification" onclick="setActive(this)">
+          <div class="acad-mod-icon">&#9670;</div>
+          <div class="acad-mod-body"><span class="acad-mod-label">Certification</span><span class="acad-mod-sub">Exam format &amp; objectives</span></div>
+        </a>
+      </div>
+      <div class="acad-sidebar-sep"></div>
+      <a class="acad-sidebar-link" href="index.html"><i class="fas fa-th"></i> All Courses</a>
+      <a class="acad-sidebar-link" href="governance.html"><i class="fas fa-arrow-left"></i> Prev: Governance</a>
+      <a class="acad-sidebar-link" href="../support.html"><i class="fas fa-life-ring"></i> Support</a>
+    </aside>
+
+    <main class="acad-content" id="main-content">
+
+      <section id="overview" style="scroll-margin-top:80px;">
+        <span class="badge" style="background:rgba(6,182,212,.15);color:var(--ug-cyan);"><i class="fas fa-boxes"></i> Practitioner Course &bull; Governance Leader Path</span>
+        <h1 style="margin-top:10px;">Asset Governance</h1>
+        <p style="font-size:16px;color:var(--ug-text-2);line-height:1.75;max-width:72ch;">Turn asset inventory into business-context security governance. This course teaches how to use CloudSignals Surface to classify assets by criticality and data sensitivity, map them to business processes and managed entities, and operationalize an asset governance review cadence that directly drives risk prioritization.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:14px 0 28px;">
+          <span style="font-size:13px;color:var(--ug-muted-2);display:flex;align-items:center;gap:5px;"><i class="fas fa-clock"></i> ~2.5 hours</span>
+          <span style="font-size:13px;color:var(--ug-muted-2);display:flex;align-items:center;gap:5px;"><i class="fas fa-layer-group"></i> 6 modules + knowledge checks</span>
+          <span style="font-size:13px;color:var(--ug-muted-2);display:flex;align-items:center;gap:5px;"><i class="fas fa-signal"></i> Practitioner</span>
+          <span style="font-size:13px;color:var(--ug-muted-2);display:flex;align-items:center;gap:5px;"><i class="fas fa-certificate" style="color:var(--ug-cyan)"></i> Certification eligible</span>
+        </div>
+
+        <div class="callout primary">
+          <strong>Before you begin:</strong> You'll need access to the <strong>Assets</strong> section in your CloudSignals tenant. Navigate to <strong>Surface &gt; Assets</strong>. If you don't have at least one connected cloud provider with completed scans, the asset inventory will be empty — see the Connector Setup guide to connect your first provider.
+        </div>
+      </section>
+
+
+      <section id="mod1" class="phase-block" style="scroll-margin-top:80px;">
+        <div class="phase-header">
+          <div class="phase-num">1</div>
+          <div class="phase-head-body">
+            <h2>Asset Governance Concepts</h2>
+            <p class="phase-subtitle">What assets are, why they matter, and the governance attributes that make them actionable.</p>
+          </div>
+        </div>
+
+        <h3>Assets as governance anchors</h3>
+        <p>In CloudSignals, an asset is any cloud resource discovered by a connected provider — virtual machines, storage buckets, databases, IAM roles, Kubernetes workloads, network interfaces, and managed services. Assets are the physical and logical substrates that your business depends on. Without an accurate, classified, and owned asset inventory, everything downstream — findings, risks, compliance, and treatment decisions — lacks the business context required to be actionable.</p>
+        <p>Asset governance is the practice of assigning and maintaining four key attributes for every asset: <strong>ownership</strong> (who is responsible for this resource), <strong>criticality</strong> (how important it is to business operations), <strong>data sensitivity</strong> (what type of data it handles), and <strong>managed entity</strong> (which business unit or product it supports). These attributes are what transform a raw cloud resource into a governed business asset.</p>
+
+        <h3>Crown jewels: your highest-priority governance targets</h3>
+        <p><strong>Crown jewels</strong> are the assets whose compromise would cause the most severe business impact — typically assets that combine high criticality, sensitive data handling, and direct support of revenue-generating or regulated business processes. Identifying crown jewels focuses governance effort: if you can only do one thing today, it should be ensuring your crown jewels are owned, classified, and have their findings triaged.</p>
+
+        <div class="action-checklist" id="checklist-mod1">
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Define asset governance attributes:</strong> Confirm your organization has defined what "critical," "high," "medium," and "low" mean for asset criticality — document the criteria before applying classifications.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Identify your crown jewels:</strong> List the five to ten assets in your environment whose compromise would cause the highest business impact. These are your governance priority tier.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Confirm ownership coverage intent:</strong> Set a target percentage for owned assets (e.g., 100% of critical assets owned within 30 days) and track against it.</div></div>
+        </div>
+
+        <div class="quiz-block" id="quiz-mod1">
+          <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
+          <div class="quiz-question">Which combination of attributes typically designates a "crown jewel" asset?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this,'mod1')"><div class="quiz-radio"></div><div class="quiz-opt-text">High discovery frequency, many linked findings, and recent scan timestamps.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod1')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">High criticality designation, sensitive data handling, and direct support of high-impact business processes.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod1')"><div class="quiz-radio"></div><div class="quiz-opt-text">Production environment tag, cloud provider = AWS, and more than 10 open findings.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod1')"><div class="quiz-radio"></div><div class="quiz-opt-text">Assets with the most treatment plans and the longest MTTR in the portfolio.</div></div>
+          </div>
+          <button class="quiz-btn" onclick="checkAnswer('mod1')" disabled>Check Answer</button>
+          <div class="quiz-feedback" id="feedback-mod1"></div>
+        </div>
+
+        <div class="mark-complete-wrap">
+          <button class="mark-complete-btn" id="mc-mod1" onclick="markComplete('mod1')">Mark Module 1 complete</button>
+          <span class="mark-complete-hint">Move on when you've defined your criticality criteria and identified your crown jewels.</span>
+        </div>
+      </section>
+
+
+      <section id="mod2" class="phase-block" style="scroll-margin-top:80px;">
+        <div class="phase-header">
+          <div class="phase-num green">2</div>
+          <div class="phase-head-body">
+            <h2>CloudSignals Surface Navigation</h2>
+            <p class="phase-subtitle">Using the asset dashboard, all-assets view, critical and inactive asset filters.</p>
+          </div>
+        </div>
+
+        <h3>The Surface module</h3>
+        <p>CloudSignals Surface is the asset governance hub. It organizes your discovered assets into purpose-built views: the <strong>Asset Dashboard</strong> shows a fleet-level summary with coverage metrics and key indicators. <strong>All Assets</strong> is the full inventory with filter and sort controls. <strong>Critical Assets</strong> surfaces assets with high or critical designations. <strong>Inactive Assets</strong> identifies resources that haven't been accessed recently — candidates for decommission or scope reduction.</p>
+        <p>The <strong>Cloud Resources</strong> view groups assets by provider and account, making it easy to identify coverage gaps by cloud footprint. If an account appears in your billing dashboard but not in Surface, you have a connector scope gap — findings from that account are invisible to you.</p>
+
+        <div class="in-platform">
+          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Navigate Surface and classify a critical asset</div>
+          <div class="in-platform-steps">
+            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Surface &gt; Asset Dashboard</strong>. Review the total asset count, ownership coverage percentage, and unscanned asset count. These are your fleet-level governance health metrics.</div></div>
+            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">Click <strong>All Assets</strong>. Sort by "Findings" (descending) to see which assets have the most open control failures. These are your triage priority assets regardless of classification.</div></div>
+            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Open the <strong>Critical Assets</strong> view. Confirm the assets listed match your crown jewel list. If critical assets appear here that weren't on your list, investigate — they may have been auto-classified based on tags.</div></div>
+            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">Click into an asset from your crown jewel list. In the asset detail, set or confirm: <strong>Criticality</strong> (Critical/High/Medium/Low), <strong>Data Sensitivity</strong> (PII/PHI/Confidential/Internal/Public), and <strong>Managed Entity</strong> (the business unit that owns this resource).</div></div>
+            <div class="ip-step"><div class="ip-step-num">5</div><div class="ip-step-body">Navigate to <strong>Inactive Assets</strong>. Review the list and identify any assets that should be decommissioned. Inactive assets that remain active in your environment represent unnecessary attack surface and ongoing scan costs.</div></div>
+          </div>
+        </div>
+
+        <div class="action-checklist" id="checklist-mod2">
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Review Asset Dashboard metrics:</strong> Record current ownership coverage %, unscanned asset count, and total asset count as your baseline.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Classify your crown jewels:</strong> For each crown jewel asset, confirm criticality, data sensitivity, and managed entity are set in the platform.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Act on inactive assets:</strong> Create decommission tickets for any inactive assets that should no longer be in-scope. Reducing unnecessary assets reduces your attack surface and governance burden.</div></div>
+        </div>
+
+        <div class="quiz-block" id="quiz-mod2">
+          <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
+          <div class="quiz-question">An account appears in your cloud billing dashboard but not in CloudSignals Surface. What does this indicate?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this,'mod2')"><div class="quiz-radio"></div><div class="quiz-opt-text">The account has no resources deployed and was auto-excluded from the asset inventory.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod2')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">There is a connector scope gap — the account hasn't been connected to CloudSignals, so its assets and findings are invisible to the platform.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod2')"><div class="quiz-radio"></div><div class="quiz-opt-text">The account is marked as Inactive and was removed from the active asset inventory automatically.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod2')"><div class="quiz-radio"></div><div class="quiz-opt-text">The account's assets have no findings, so they are not shown in Surface to reduce noise.</div></div>
+          </div>
+          <button class="quiz-btn" onclick="checkAnswer('mod2')" disabled>Check Answer</button>
+          <div class="quiz-feedback" id="feedback-mod2"></div>
+        </div>
+
+        <div class="mark-complete-wrap">
+          <button class="mark-complete-btn" id="mc-mod2" onclick="markComplete('mod2')">Mark Module 2 complete</button>
+          <span class="mark-complete-hint">Move on when you've classified your crown jewels and confirmed your connector scope covers all active accounts.</span>
+        </div>
+      </section>
+
+
+      <section id="mod3" class="phase-block" style="scroll-margin-top:80px;">
+        <div class="phase-header">
+          <div class="phase-num amber">3</div>
+          <div class="phase-head-body">
+            <h2>Asset Classification &amp; Managed Entities</h2>
+            <p class="phase-subtitle">Structuring ownership and data context so risk can be attributed correctly.</p>
+          </div>
+        </div>
+
+        <h3>The managed entity model</h3>
+        <p>A <strong>managed entity</strong> in CloudSignals is a logical business grouping — a team, product, environment, or business unit — that assets and findings are attributed to. Managed entities are what enable multi-team governance: different teams can own different slices of the asset inventory, and risk reporting rolls up to the managed entity level so team leads see their exposure, not the entire organization's.</p>
+        <p>Without managed entities, all assets and findings are effectively in a single pile with no business attribution. The risk score becomes a single number nobody owns. With managed entities, each team has a risk score, a findings count, and a treatment backlog they are accountable for — which is the operational structure required for risk governance to function.</p>
+
+        <h3>Data sensitivity classification</h3>
+        <p>Data sensitivity determines how much regulatory and reputational exposure a breach of that asset would create. The classification tiers typically are: <strong>PII</strong> (personal identifiable information subject to GDPR/CCPA), <strong>PHI</strong> (protected health information subject to HIPAA), <strong>Confidential</strong> (sensitive business data, intellectual property), <strong>Internal</strong> (non-public but not individually regulated), and <strong>Public</strong> (no data sensitivity concern). Assets handling PII or PHI should be treated as crown jewels by default.</p>
+
+        <div class="in-platform">
+          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Review and assign managed entities</div>
+          <div class="in-platform-steps">
+            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Settings &gt; Managed Entities</strong>. Review existing managed entities. Confirm they map to your actual organizational structure (teams, products, environments).</div></div>
+            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">If managed entities are missing for key teams, create them now. Each managed entity should have a name, a description of scope, and a named owner.</div></div>
+            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Return to <strong>Surface &gt; All Assets</strong>. Filter for assets with no managed entity assigned. These are your ownership gaps — every asset without a managed entity contributes to mapping gap risk pressure.</div></div>
+            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">For each unassigned asset, click into the asset detail and assign the appropriate managed entity and data sensitivity classification. Prioritize assets with open Critical or High findings first.</div></div>
+          </div>
+        </div>
+
+        <div class="action-checklist" id="checklist-mod3">
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Audit managed entity coverage:</strong> Count how many assets have no managed entity assigned. Set a target to reach zero unassigned critical assets within 2 weeks.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Apply data sensitivity classifications:</strong> For every asset handling PII or PHI, confirm the classification is set and aligns with your data inventory records.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Confirm managed entity owners:</strong> Each managed entity should have a named owner who receives risk notifications for that entity's assets.</div></div>
+        </div>
+
+        <div class="quiz-block" id="quiz-mod3">
+          <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
+          <div class="quiz-question">Why does an asset with no managed entity assignment inflate the overall risk pressure score?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this,'mod3')"><div class="quiz-radio"></div><div class="quiz-opt-text">The platform applies a penalty multiplier to unmanaged assets, increasing their individual finding severity levels.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod3')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">Unowned assets create mapping gaps — findings on those assets can't be attributed to an accountable owner, so the platform treats them as unmanaged exposure, which directly increases risk pressure.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod3')"><div class="quiz-radio"></div><div class="quiz-opt-text">Assets without managed entities are scanned more frequently, generating more findings per unit time.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod3')"><div class="quiz-radio"></div><div class="quiz-opt-text">The risk pressure formula counts unmanaged entity assignments as Critical-severity findings.</div></div>
+          </div>
+          <button class="quiz-btn" onclick="checkAnswer('mod3')" disabled>Check Answer</button>
+          <div class="quiz-feedback" id="feedback-mod3"></div>
+        </div>
+
+        <div class="mark-complete-wrap">
+          <button class="mark-complete-btn" id="mc-mod3" onclick="markComplete('mod3')">Mark Module 3 complete</button>
+          <span class="mark-complete-hint">Move on when critical assets have managed entities assigned and data sensitivity classifications set.</span>
+        </div>
+      </section>
+
+
+      <section id="mod4" class="phase-block" style="scroll-margin-top:80px;">
+        <div class="phase-header">
+          <div class="phase-num purple">4</div>
+          <div class="phase-head-body">
+            <h2>Asset-to-Finding-to-Risk Relationships</h2>
+            <p class="phase-subtitle">Understanding how asset context transforms a raw finding into a prioritized risk decision.</p>
+          </div>
+        </div>
+
+        <h3>How asset context shapes risk priority</h3>
+        <p>The same control failure on two different assets can represent very different levels of risk. An S3 bucket with public read access is a Critical finding — but if that bucket contains only static marketing images with no sensitive data, the business risk is low. If the same misconfiguration exists on a bucket holding customer export files with PII, the business risk is severe. Asset classification is what enables this distinction.</p>
+        <p>In CloudSignals, when a finding is generated, it inherits the asset's <strong>criticality</strong> and <strong>data sensitivity</strong> as risk context. The finding is then surfaced differently in the findings queue based on this inherited context — a High finding on a Critical, PII-handling asset rises to the top of the triage queue above a Critical finding on a dev environment with no sensitive data.</p>
+
+        <div class="in-platform">
+          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Investigate asset-linked findings and connect to RiskOps</div>
+          <div class="in-platform-steps">
+            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Surface &gt; Critical Assets</strong>. Click into one of your crown jewel assets.</div></div>
+            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">In the asset detail, open the <strong>Findings</strong> tab. This shows all open control failures on this specific asset. Review the finding count and severity distribution.</div></div>
+            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Click into the highest-severity finding. Review: the failing control, the remediation guidance, and the suggested treatment. Note how the asset's data sensitivity and criticality are shown as risk context alongside the finding.</div></div>
+            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">From the finding, click <strong>Create treatment plan</strong>. The asset's managed entity and owner are pre-populated — the treatment plan will be assigned to the right team immediately.</div></div>
+            <div class="ip-step"><div class="ip-step-num">5</div><div class="ip-step-body">Return to the asset detail and open the <strong>Risk Register</strong> tab. Confirm that the risks associated with this asset reflect its criticality and business process exposure.</div></div>
+          </div>
+        </div>
+
+        <div class="action-checklist" id="checklist-mod4">
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Review findings on crown jewels:</strong> Open each crown jewel asset and review its findings. Any Critical or High finding on a crown jewel should have a treatment plan or accepted risk within 24 hours of triage.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Connect asset exposure to RiskOps:</strong> For at least one crown jewel finding, create a treatment plan and confirm the managed entity owner is assigned.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Build a crown jewel review checklist:</strong> Create a repeatable checklist for reviewing each crown jewel: findings count, treatment status, data sensitivity current, ownership confirmed.</div></div>
+        </div>
+
+        <div class="quiz-block" id="quiz-mod4">
+          <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
+          <div class="quiz-question">How does asset criticality affect finding prioritization in CloudSignals?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this,'mod4')"><div class="quiz-radio"></div><div class="quiz-opt-text">Critical assets are scanned on a shorter cycle, so their findings appear in the queue sooner than findings on lower-criticality assets.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod4')"><div class="quiz-radio"></div><div class="quiz-opt-text">Asset criticality determines the SLA timer for treatment plans — Critical asset findings have shorter SLAs automatically.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod4')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">Findings inherit the asset's criticality and data sensitivity as risk context, which causes them to surface higher in the triage queue relative to identical findings on lower-criticality assets.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod4')"><div class="quiz-radio"></div><div class="quiz-opt-text">Critical assets have their findings automatically escalated to the CISO without requiring manual triage.</div></div>
+          </div>
+          <button class="quiz-btn" onclick="checkAnswer('mod4')" disabled>Check Answer</button>
+          <div class="quiz-feedback" id="feedback-mod4"></div>
+        </div>
+
+        <div class="mark-complete-wrap">
+          <button class="mark-complete-btn" id="mc-mod4" onclick="markComplete('mod4')">Mark Module 4 complete</button>
+          <span class="mark-complete-hint">Move on when you've reviewed findings on at least one crown jewel and created a treatment plan for a high-priority finding.</span>
+        </div>
+      </section>
+
+
+      <section id="mod5" class="phase-block" style="scroll-margin-top:80px;">
+        <div class="phase-header">
+          <div class="phase-num orange">5</div>
+          <div class="phase-head-body">
+            <h2>Third-Party &amp; Vendor Exposure</h2>
+            <p class="phase-subtitle">Identifying where external dependencies create governance risk through your asset inventory.</p>
+          </div>
+        </div>
+
+        <h3>How third-party risk surfaces through assets</h3>
+        <p>Third-party and vendor risk is often invisible until an incident occurs — because the exposure lives in a connector, dependency, or integration that isn't treated as a first-class asset. In CloudSignals, third-party risk surfaces when assets are tagged or categorized as vendor-managed, when cloud resources are associated with third-party service accounts, or when findings on your assets indicate vulnerabilities in vendor-supplied components.</p>
+        <p>The most common manifestation is <strong>vendor-managed cloud resources</strong>: storage accounts, IAM roles, or compute resources provisioned by a vendor on your behalf, running in your cloud environment. These resources appear in your asset inventory and accumulate findings — but the remediation path runs through the vendor, not your engineering team. This creates a unique governance challenge: you own the risk but not the control.</p>
+
+        <h3>Managing vendor-controlled assets</h3>
+        <p>For assets where the remediation path runs through a vendor, the standard treatment approach is <strong>Mitigate</strong>: document the vendor relationship, describe the compensating controls you've implemented (network segmentation, access restrictions, monitoring), set a remediation target date tied to the vendor's patch or configuration timeline, and escalate via your vendor management process. Use the asset notes field to record the vendor contact and contract reference so any reviewer can understand the remediation constraint.</p>
+
+        <div class="in-platform">
+          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Identify vendor-associated assets and assess exposure</div>
+          <div class="in-platform-steps">
+            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Surface &gt; All Assets</strong>. Filter by tag or owner to find assets tagged with third-party or vendor labels. If no tags exist, filter by managed entity for any entity named after a vendor or integration.</div></div>
+            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">Review the findings on vendor-associated assets. For each High or Critical finding, check whether your team controls the remediation path. If not, note this in the finding's context field.</div></div>
+            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">For vendor-controlled findings you can't directly remediate, create a <strong>Mitigate treatment plan</strong>. Document: the vendor relationship, the compensating control in place, and the expected remediation timeline from the vendor.</div></div>
+            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">If your organization has formal third-party risk assessments, cross-reference the findings here against your third-party risk register to confirm coverage alignment.</div></div>
+          </div>
+        </div>
+
+        <div class="action-checklist" id="checklist-mod5">
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Tag vendor-associated assets:</strong> Apply a "vendor-managed" or equivalent tag to all assets where the remediation path runs through a third party.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Create Mitigate plans for vendor-controlled gaps:</strong> For each Critical or High finding on a vendor-managed asset, document the compensating control and vendor remediation timeline.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Cross-reference with third-party risk:</strong> Confirm your third-party risk register reflects the findings currently open on vendor-associated assets.</div></div>
+        </div>
+
+        <div class="quiz-block" id="quiz-mod5">
+          <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
+          <div class="quiz-question">When a Critical finding exists on a vendor-managed asset where your team cannot directly implement the fix, what is the most appropriate treatment approach?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this,'mod5')"><div class="quiz-radio"></div><div class="quiz-opt-text">Accept the risk with a permanent exception — vendor-controlled findings cannot be governed through normal processes.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod5')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">Mitigate — document the vendor relationship, implement compensating controls where possible, and set a remediation target date tied to the vendor's expected fix timeline.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod5')"><div class="quiz-radio"></div><div class="quiz-opt-text">Remediate — even vendor-managed assets require your team to take direct remediation action through the vendor's admin portal.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod5')"><div class="quiz-radio"></div><div class="quiz-opt-text">Defer triage until the vendor confirms the fix date, as findings without a clear remediation path cannot be dispositioned.</div></div>
+          </div>
+          <button class="quiz-btn" onclick="checkAnswer('mod5')" disabled>Check Answer</button>
+          <div class="quiz-feedback" id="feedback-mod5"></div>
+        </div>
+
+        <div class="mark-complete-wrap">
+          <button class="mark-complete-btn" id="mc-mod5" onclick="markComplete('mod5')">Mark Module 5 complete</button>
+          <span class="mark-complete-hint">Move on when vendor-associated assets are tagged and treatment plans exist for their highest-severity findings.</span>
+        </div>
+      </section>
+
+
+      <section id="mod6" class="phase-block" style="scroll-margin-top:80px;">
+        <div class="phase-header">
+          <div class="phase-num" style="background:rgba(6,182,212,.2);color:var(--ug-cyan);">6</div>
+          <div class="phase-head-body">
+            <h2>Asset Governance Reporting &amp; Cadence</h2>
+            <p class="phase-subtitle">Making asset governance a repeatable operational process, not a one-time exercise.</p>
+          </div>
+        </div>
+
+        <h3>The asset governance review cadence</h3>
+        <p>Asset governance is not a set-and-forget activity. The cloud environment changes continuously — new resources are provisioned, ownership changes, data classification requirements evolve. Without a structured review cadence, your asset inventory drifts from reality and your governance decisions are based on stale context.</p>
+        <p>A practical asset governance cadence has three levels: <strong>Weekly</strong> — review new assets discovered since the last scan and assign ownership before they accumulate findings. <strong>Monthly</strong> — review the inactive asset list and confirm decommission decisions. <strong>Quarterly</strong> — full crown jewel review: confirm criticality, data sensitivity, ownership, and treatment status for each crown jewel.</p>
+
+        <div class="in-platform">
+          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Build an asset governance review checklist and report</div>
+          <div class="in-platform-steps">
+            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Surface &gt; Asset Dashboard</strong>. Export the current asset summary — this is your governance baseline record for the review period.</div></div>
+            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">Filter <strong>All Assets</strong> by "Created: last 7 days" to see newly discovered assets. Assign ownership to any unowned new assets before the weekly cadence closes.</div></div>
+            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Navigate to <strong>Reports &gt; Asset Governance</strong>. Generate a report showing ownership coverage trend, new asset count, and classification completeness over the last 30 days. This is the report you share at the monthly governance review.</div></div>
+            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">Review the <strong>Critical Assets</strong> view for the quarterly check: confirm every critical asset has a current owner, data sensitivity classification, and at least one completed governance action in the last quarter.</div></div>
+          </div>
+        </div>
+
+        <div class="action-checklist" id="checklist-mod6">
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Schedule recurring asset reviews:</strong> Block weekly (new assets), monthly (inactive review), and quarterly (crown jewel review) on team calendars.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Generate a governance baseline report:</strong> Export the asset governance summary and distribute to managed entity owners as the starting point for accountability tracking.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Define ownership SLA:</strong> Set a formal rule — e.g., all newly discovered assets must be assigned an owner and managed entity within 5 business days of discovery.</div></div>
+        </div>
+
+        <div class="quiz-block" id="quiz-mod6">
+          <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
+          <div class="quiz-question">What is the primary governance output of a quarterly crown jewel review?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectOption(this,'mod6')"><div class="quiz-radio"></div><div class="quiz-opt-text">An updated list of all assets sorted by finding count and remediation velocity.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod6')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">A documented record confirming each crown jewel's current classification, ownership, and treatment status — serving as both cadence evidence and audit artifact.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod6')"><div class="quiz-radio"></div><div class="quiz-opt-text">A decommission list of all inactive assets identified during the review period.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod6')"><div class="quiz-radio"></div><div class="quiz-opt-text">A connector scope audit confirming all cloud accounts are covered in the current scan configuration.</div></div>
+          </div>
+          <button class="quiz-btn" onclick="checkAnswer('mod6')" disabled>Check Answer</button>
+          <div class="quiz-feedback" id="feedback-mod6"></div>
+        </div>
+
+        <div class="mark-complete-wrap">
+          <button class="mark-complete-btn" id="mc-mod6" onclick="markComplete('mod6')">Mark Module 6 complete</button>
+          <span class="mark-complete-hint">Move on when you've scheduled recurring reviews and generated an asset governance baseline report.</span>
+        </div>
+      </section>
+
+
+      <section id="certification" style="scroll-margin-top:80px;">
+        <h2>Certification: AiVRIC CloudSignals Asset Governance Practitioner</h2>
+        <p>Completing all six modules makes you eligible for the Asset Governance Practitioner certification exam.</p>
+        <table class="acad-table">
+          <thead><tr><th>Exam component</th><th>Format</th><th>Passing requirement</th></tr></thead>
+          <tbody>
+            <tr><td>Knowledge questions</td><td>40 multiple-choice questions across all 6 modules</td><td>80% (32/40 correct)</td></tr>
+            <tr><td>Scenario questions</td><td>5 scenarios requiring asset governance reasoning</td><td>Included in 80% overall</td></tr>
+            <tr><td>Practical lab</td><td>Classify a critical asset, investigate linked findings, connect to RiskOps treatment</td><td>Submit screenshot + rationale + recommendation</td></tr>
+          </tbody>
+        </table>
+
+        <div class="acad-cert-block" id="cert-block">
+          <div class="acad-cert-icon">&#127941;</div>
+          <div class="acad-cert-title">Course complete!</div>
+          <div class="acad-cert-sub">You've completed Asset Governance. Your asset inventory is now a business-context governance tool.</div>
+          <a href="index.html" class="acad-cert-btn"><i class="fas fa-th"></i> Explore more courses</a>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <footer class="acad-footer">
+    <span>&copy; 2025 AiVRIC Technologies &mdash; <a href="../privacy-policy.html">Privacy</a> &middot; <a href="../AiVRIC-UserGuide/acceptable-use-policy.html">Acceptable Use</a></span>
+    <span class="tag">Academy v2 &middot; Asset Governance</span>
+  </footer>
+
+  <script>
+  (function () {
+    var STORAGE_KEY = 'aivric_assetgov_v1';
+    var MODULES = ['mod1','mod2','mod3','mod4','mod5','mod6'];
+    function loadState() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e) { return {}; } }
+    function saveState(s) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch(e) {} }
+    var state = loadState();
+    function updateProgress() {
+      var done = MODULES.filter(function(m){ return state[m] && state[m].complete; }).length;
+      var pct = Math.round((done / MODULES.length) * 100);
+      var fill = document.getElementById('progress-fill'); var pctEl = document.getElementById('progress-pct');
+      if (fill) fill.style.width = pct + '%'; if (pctEl) pctEl.textContent = pct + '%';
+      if (pct === 100) { var cert = document.getElementById('cert-block'); if (cert) cert.classList.add('show'); }
+    }
+    window.setActive = function(el) { document.querySelectorAll('.acad-module-item').forEach(function(i){ i.classList.remove('active'); }); el.classList.add('active'); };
+    window.markComplete = function(moduleId) {
+      if (!state[moduleId]) state[moduleId] = {}; state[moduleId].complete = true; saveState(state);
+      var btn = document.getElementById('mc-' + moduleId); if (btn) { btn.textContent = 'Module complete ✓'; btn.classList.add('done'); btn.disabled = true; }
+      var sideItem = document.querySelector('[data-module="' + moduleId + '"]');
+      if (sideItem) { sideItem.classList.add('completed'); var icon = sideItem.querySelector('.acad-mod-icon'); if (icon) icon.textContent = '✓'; }
+      updateProgress();
+    };
+    window.selectOption = function(el, moduleId) {
+      var block = document.getElementById('quiz-' + moduleId); if (!block || block.dataset.answered === 'true') return;
+      block.querySelectorAll('.quiz-option').forEach(function(o){ o.classList.remove('selected'); }); el.classList.add('selected');
+      var btn = block.querySelector('.quiz-btn'); if (btn) btn.disabled = false;
+    };
+    window.checkAnswer = function(moduleId) {
+      var block = document.getElementById('quiz-' + moduleId); if (!block || block.dataset.answered === 'true') return;
+      var selected = block.querySelector('.quiz-option.selected'); if (!selected) return;
+      block.dataset.answered = 'true'; var btn = block.querySelector('.quiz-btn'); if (btn) btn.disabled = true;
+      var isCorrect = selected.querySelector('[data-correct="true"]') !== null;
+      var feedback = document.getElementById('feedback-' + moduleId);
+      block.querySelectorAll('.quiz-option').forEach(function(o) { if (o.querySelector('[data-correct="true"]')) o.classList.add('correct'); else if (o === selected && !isCorrect) o.classList.add('wrong'); });
+      if (feedback) {
+        var expl = {mod1:{correct:'Correct. Crown jewels combine high criticality, sensitive data handling, and support of high-impact processes.',wrong:'Crown jewels are defined by business impact criteria — criticality, data sensitivity, and business process linkage — not operational metrics like findings count.'},mod2:{correct:'Correct. A missing account in Surface means the connector scope doesn\'t cover it — all its assets and findings are invisible.',wrong:'Accounts with no resources still appear in Surface as empty. Missing accounts indicate a connector scope gap, not resource absence.'},mod3:{correct:'Correct. Assets without managed entities create mapping gaps. The platform treats them as unmanaged exposure, inflating risk pressure.',wrong:'The mapping gap mechanism is the cause of pressure inflation — unowned assets can\'t be attributed to an accountable owner, creating unmanaged exposure in the risk score.'},mod4:{correct:'Correct. Asset criticality and data sensitivity are inherited as risk context by linked findings, affecting their position in the triage queue.',wrong:'Asset criticality shapes prioritization through context inheritance, not scan frequency or automated escalation.'},mod5:{correct:'Correct. Mitigate is appropriate when you can\'t directly remediate — document the vendor constraint, apply compensating controls, and set a vendor-linked remediation target.',wrong:'Permanent acceptance is inappropriate for Critical findings. Mitigate is the right approach: compensating controls + vendor-linked timeline.'},mod6:{correct:'Correct. The quarterly review produces a documented governance record confirming classification, ownership, and treatment status for each crown jewel.',wrong:'The quarterly review\'s primary output is governance documentation confirming crown jewel state — not decommission lists or connector audits (those have their own cadences).'}};
+        feedback.textContent = ''; var label = document.createElement('strong'); var msg = document.createElement('span');
+        if (isCorrect) { feedback.className = 'quiz-feedback correct'; label.textContent = 'Correct! '; msg.textContent = (expl[moduleId]||{correct:''}).correct; }
+        else { feedback.className = 'quiz-feedback wrong'; label.textContent = 'Not quite. '; msg.textContent = (expl[moduleId]||{wrong:''}).wrong; }
+        feedback.appendChild(label); feedback.appendChild(msg);
+      }
+      if (!state[moduleId]) state[moduleId] = {}; state[moduleId].quizCorrect = isCorrect; saveState(state);
+    };
+    window.toggleAction = function(el) { el.classList.toggle('checked'); };
+    MODULES.forEach(function(m) {
+      if (state[m] && state[m].complete) {
+        var btn = document.getElementById('mc-' + m); if (btn) { btn.textContent = 'Module complete ✓'; btn.classList.add('done'); btn.disabled = true; }
+        var sideItem = document.querySelector('[data-module="' + m + '"]');
+        if (sideItem) { sideItem.classList.add('completed'); var icon = sideItem.querySelector('.acad-mod-icon'); if (icon) icon.textContent = '✓'; }
+      }
+    });
+    updateProgress();
+    var sections = document.querySelectorAll('section[id], .phase-block[id]');
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function(entries) { entries.forEach(function(entry) { if (entry.isIntersecting) { var id = entry.target.id; var link = document.querySelector('[data-module="' + id + '"]'); if (link) { document.querySelectorAll('.acad-module-item').forEach(function(i){ i.classList.remove('active'); }); link.classList.add('active'); } } }); }, { rootMargin: '-20% 0px -70% 0px' });
+      sections.forEach(function(s){ observer.observe(s); });
+    }
+  })();
+  </script>
+  <div class="acad-lightbox" id="acad-lightbox" onclick="if(event.target===this)closeLightbox()" role="dialog" aria-modal="true">
+    <button class="acad-lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img src="" alt=""><div class="acad-lightbox-caption"></div>
+  </div>
+  <script>
+  function openLightbox(f){var i=f.querySelector('img');var c=f.querySelector('figcaption');var lb=document.getElementById('acad-lightbox');if(!lb||!i)return;lb.querySelector('img').src=i.src;lb.querySelector('img').alt=i.alt;var lc=lb.querySelector('.acad-lightbox-caption');if(lc)lc.textContent=c?c.textContent:'';lb.classList.add('open');document.body.style.overflow='hidden';}
+  function closeLightbox(){var lb=document.getElementById('acad-lightbox');if(lb){lb.classList.remove('open');document.body.style.overflow='';}}
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
+  </script>
+</body>
+</html>
