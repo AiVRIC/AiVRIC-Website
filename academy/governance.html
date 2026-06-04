@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <title>Security &amp; Privacy Governance | AiVRIC Academy</title>
   <link rel="canonical" href="https://academy.aivric.com/governance.html">
-  <meta name="description" content="Build a governance operating model using CloudSignals UCB, privacy readiness, evidence lineage, and RiskOps execution. AiVRIC Academy practitioner course.">
+  <meta name="description" content="Design, operate, and explain a security and privacy governance program using CloudSignals+RiskOps. UCB, Framework Explorer, Privacy Explorer, Evidence Fabric, Vision. AiVRIC Academy.">
   <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="../assets/css/font-awesome-all.css" rel="stylesheet">
@@ -17,11 +17,7 @@
 <body>
   <header class="acad-header">
     <div class="bar">
-      <a class="acad-brand" href="index.html">
-        <img src="../assets/images/logo/aivric.svg" alt="AiVRIC">
-        <span class="acad-brand-sep"></span>
-        <span class="acad-brand-sub">Academy</span>
-      </a>
+      <a class="acad-brand" href="index.html"><img src="../assets/images/logo/aivric.svg" alt="AiVRIC"><span class="acad-brand-sep"></span><span class="acad-brand-sub">Academy</span></a>
       <div class="acad-header-spacer"></div>
       <div class="acad-top-links">
         <a href="index.html">All Courses</a>
@@ -47,35 +43,35 @@
       <div class="acad-module-list" id="module-list">
         <a class="acad-module-item active" href="#overview" data-module="overview" onclick="setActive(this)">
           <div class="acad-mod-icon">&#9656;</div>
-          <div class="acad-mod-body"><span class="acad-mod-label">Overview</span><span class="acad-mod-sub">Course introduction</span></div>
+          <div class="acad-mod-body"><span class="acad-mod-label">Overview</span><span class="acad-mod-sub">Audience, outcomes, platform areas</span></div>
         </a>
         <a class="acad-module-item" href="#mod1" data-module="mod1" onclick="setActive(this)">
           <div class="acad-mod-icon">1</div>
-          <div class="acad-mod-body"><span class="acad-mod-label">Governance Operating Model</span><span class="acad-mod-sub">Policies, controls, risks, evidence</span></div>
+          <div class="acad-mod-body"><span class="acad-mod-label">Governance Operating Model</span><span class="acad-mod-sub">Control intelligence and assurance</span></div>
         </a>
         <a class="acad-module-item" href="#mod2" data-module="mod2" onclick="setActive(this)">
           <div class="acad-mod-icon">2</div>
-          <div class="acad-mod-body"><span class="acad-mod-label">Unified Control Baseline</span><span class="acad-mod-sub">UCB domains, principles, mappings</span></div>
+          <div class="acad-mod-body"><span class="acad-mod-label">Unified Control Baseline</span><span class="acad-mod-sub">UCB objects and source boundaries</span></div>
         </a>
         <a class="acad-module-item" href="#mod3" data-module="mod3" onclick="setActive(this)">
           <div class="acad-mod-icon">3</div>
-          <div class="acad-mod-body"><span class="acad-mod-label">Privacy Governance</span><span class="acad-mod-sub">ISO 27701, GDPR, CCPA, HIPAA</span></div>
+          <div class="acad-mod-body"><span class="acad-mod-label">Framework &amp; Source Governance</span><span class="acad-mod-sub">Framework Explorer, Source Registry</span></div>
         </a>
         <a class="acad-module-item" href="#mod4" data-module="mod4" onclick="setActive(this)">
           <div class="acad-mod-icon">4</div>
-          <div class="acad-mod-body"><span class="acad-mod-label">Evidence Governance</span><span class="acad-mod-sub">Provenance, freshness, trust level</span></div>
+          <div class="acad-mod-body"><span class="acad-mod-label">Privacy Governance</span><span class="acad-mod-sub">Privacy Explorer, obligations lifecycle</span></div>
         </a>
         <a class="acad-module-item" href="#mod5" data-module="mod5" onclick="setActive(this)">
           <div class="acad-mod-icon">5</div>
-          <div class="acad-mod-body"><span class="acad-mod-label">Risk-to-Control Traceability</span><span class="acad-mod-sub">Control failure, residual risk, exceptions</span></div>
+          <div class="acad-mod-body"><span class="acad-mod-label">Evidence &amp; Risk Traceability</span><span class="acad-mod-sub">Evidence Fabric, Risk Mapping</span></div>
         </a>
         <a class="acad-module-item" href="#mod6" data-module="mod6" onclick="setActive(this)">
           <div class="acad-mod-icon">6</div>
-          <div class="acad-mod-body"><span class="acad-mod-label">AI-Assisted Governance</span><span class="acad-mod-sub">Vision, assumptions, human validation</span></div>
+          <div class="acad-mod-body"><span class="acad-mod-label">AI-Assisted Governance</span><span class="acad-mod-sub">Vision, human validation</span></div>
         </a>
         <a class="acad-module-item" href="#certification" data-module="certification" onclick="setActive(this)">
           <div class="acad-mod-icon">&#9670;</div>
-          <div class="acad-mod-body"><span class="acad-mod-label">Certification</span><span class="acad-mod-sub">Exam format &amp; objectives</span></div>
+          <div class="acad-mod-body"><span class="acad-mod-label">Certification &amp; Capstone</span><span class="acad-mod-sub">Exam blueprint and scenario</span></div>
         </a>
       </div>
       <div class="acad-sidebar-sep"></div>
@@ -86,40 +82,60 @@
 
     <main class="acad-content" id="main-content">
 
+      <!-- OVERVIEW -->
       <section id="overview" style="scroll-margin-top:80px;">
-        <span class="badge" style="background:rgba(139,92,246,.15);color:#a78bfa;"><i class="fas fa-landmark"></i> Practitioner Course &bull; Governance Leader Path</span>
+        <span class="badge" style="background:rgba(139,92,246,.15);color:#a78bfa;"><i class="fas fa-landmark"></i> AiVRIC Security &amp; Privacy Governance Foundations &bull; Practitioner</span>
         <h1 style="margin-top:10px;">Security &amp; Privacy Governance</h1>
-        <p style="font-size:16px;color:var(--ug-text-2);line-height:1.75;max-width:72ch;">Build a governance operating model using the Unified Control Baseline, privacy readiness workflows, evidence lineage, and RiskOps execution. This course teaches how CloudSignals+RiskOps makes governance continuous — connecting policy commitments to control evidence, risk accountability, and audit readiness in a single operational chain.</p>
+        <p style="font-size:16px;color:var(--ug-text-2);line-height:1.75;max-width:72ch;">Security and privacy governance is the operating model that connects executive obligations, regulatory drivers, internal controls, evidence, risk decisions, privacy obligations, and assurance reporting. In CloudSignals+RiskOps, governance is anchored by the Unified Control Baseline — an internal control intelligence layer that allows organizations to maintain one control baseline while mapping to many frameworks, laws, regulations, customer obligations, and audit expectations.</p>
 
-        <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:14px 0 28px;">
-          <span style="font-size:13px;color:var(--ug-muted-2);display:flex;align-items:center;gap:5px;"><i class="fas fa-clock"></i> ~3 hours</span>
-          <span style="font-size:13px;color:var(--ug-muted-2);display:flex;align-items:center;gap:5px;"><i class="fas fa-layer-group"></i> 6 modules + knowledge checks</span>
-          <span style="font-size:13px;color:var(--ug-muted-2);display:flex;align-items:center;gap:5px;"><i class="fas fa-signal"></i> Practitioner</span>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:14px 0 24px;">
+          <span style="font-size:13px;color:var(--ug-muted-2);display:flex;align-items:center;gap:5px;"><i class="fas fa-clock"></i> Topic course: ~90 min &bull; Certification path: 5–7 hrs</span>
+          <span style="font-size:13px;color:var(--ug-muted-2);display:flex;align-items:center;gap:5px;"><i class="fas fa-layer-group"></i> 6 modules + capstone</span>
+          <span style="font-size:13px;color:var(--ug-muted-2);display:flex;align-items:center;gap:5px;"><i class="fas fa-signal"></i> Intermediate</span>
           <span style="font-size:13px;color:var(--ug-muted-2);display:flex;align-items:center;gap:5px;"><i class="fas fa-certificate" style="color:var(--ug-purple)"></i> Certification eligible</span>
         </div>
 
-        <h2 style="margin-top:0;padding-top:0;border-top:none;">What you will be able to do</h2>
-        <div class="acad-grid">
-          <div class="acad-card">
-            <h3><i class="fas fa-layer-group" style="color:var(--ug-purple);margin-right:6px;"></i>Explain UCB as source of truth</h3>
-            <p>Describe how the Unified Control Baseline works as a vendor-neutral anchor that maps simultaneously to multiple compliance frameworks.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-bottom:24px;">
+          <div class="acad-card" style="padding:16px 18px;">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--ug-purple);margin-bottom:10px;"><i class="fas fa-users" style="margin-right:5px;"></i>Who this course is for</div>
+            <ul style="margin:0;padding-left:18px;font-size:13px;color:var(--ug-text-2);line-height:1.9;">
+              <li>Security governance leaders</li>
+              <li>Compliance managers</li>
+              <li>Privacy officers and DPOs</li>
+              <li>GRC analysts</li>
+              <li>Internal auditors</li>
+              <li>MSP governance operators</li>
+              <li>Risk leaders responsible for executive reporting</li>
+            </ul>
           </div>
-          <div class="acad-card">
-            <h3><i class="fas fa-search" style="color:var(--ug-cyan);margin-right:6px;"></i>Distinguish scanner metadata from governance</h3>
-            <p>Articulate the boundary between what a scanner can detect and what requires human-reviewed evidence to establish compliance confidence.</p>
-          </div>
-          <div class="acad-card">
-            <h3><i class="fas fa-file-certificate" style="color:var(--ug-green);margin-right:6px;"></i>Interpret evidence readiness &amp; drift</h3>
-            <p>Use the Evidence Fabric and Assurance Calendar to identify stale evidence, gaps in privacy readiness, and exceptions that need re-evaluation.</p>
-          </div>
-          <div class="acad-card">
-            <h3><i class="fas fa-user-shield" style="color:var(--ug-amber);margin-right:6px;"></i>Validate AI governance outputs</h3>
-            <p>Apply the human-validation requirement to AI-assisted governance outputs — knowing when to accept, challenge, or request additional evidence.</p>
+          <div class="acad-card" style="padding:16px 18px;">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.7px;color:var(--ug-purple);margin-bottom:10px;"><i class="fas fa-check-circle" style="margin-right:5px;"></i>Prerequisites</div>
+            <ul style="margin:0;padding-left:18px;font-size:13px;color:var(--ug-text-2);line-height:1.9;">
+              <li>Basic familiarity with security controls and compliance frameworks</li>
+              <li>Basic understanding of privacy obligations (GDPR, CCPA/CPRA, HIPAA, or ISO 27701)</li>
+              <li>Access to a CloudSignals+RiskOps tenant with Governance &amp; Assurance enabled</li>
+            </ul>
           </div>
         </div>
 
-        <div class="callout primary">
-          <strong>Before you begin:</strong> You'll get the most from this course if you have access to the Governance &amp; Assurance module in CloudSignals. Navigate to <strong>Governance &amp; Assurance</strong> in the main navigation. If UCB or the Framework Explorer isn't visible, contact your platform administrator to confirm your role has GRC access.
+        <h2 style="margin-top:0;padding-top:0;border-top:none;">What you will be able to do</h2>
+        <ol style="font-size:14px;color:var(--ug-text-2);line-height:2;padding-left:20px;">
+          <li>Explain the difference between a framework checklist and a unified internal control baseline.</li>
+          <li>Describe how UCB domains, principles, controls, mappings, evidence, risks, and assessment objectives relate.</li>
+          <li>Navigate Governance &amp; Assurance workspaces to review baseline, control, domain, framework, privacy, and reporting data.</li>
+          <li>Explain why Prowler scanner mappings remain metadata and not governance source of truth.</li>
+          <li>Interpret ISO 27701, GDPR, CCPA/CPRA, and HIPAA Privacy readiness from UCB mappings and tenant assurance state.</li>
+          <li>Evaluate evidence lineage, evidence freshness, and assurance status.</li>
+          <li>Use Vision to generate advisory governance narratives while preserving human validation.</li>
+          <li>Produce a security and privacy governance executive brief.</li>
+        </ol>
+
+        <div class="callout primary" style="margin-top:16px;">
+          <strong>Platform areas used in this course:</strong> Governance &amp; Assurance, UCB Overview, Internal Baseline, Program Builder, Control Library, Domain Explorer, Framework Explorer, Source Registry, Privacy Explorer, Assessment Objectives, Evidence Fabric, Risk Mapping, Reports, Vision. Navigate to <strong>Governance &amp; Assurance</strong> in the main navigation to begin.
+        </div>
+
+        <div class="callout warn" style="margin-top:12px;">
+          <strong>AI advisory statement:</strong> Vision and other AI-assisted CloudSignals+RiskOps workflows are advisory. AI can summarize evidence, explain controls, identify possible gaps, draft narratives, and recommend next actions — but AI does not independently certify compliance. Human validation, source attribution, and evidence review remain required for all governance outputs.
         </div>
       </section>
 
@@ -130,52 +146,42 @@
           <div class="phase-num">1</div>
           <div class="phase-head-body">
             <h2>Governance Operating Model</h2>
-            <p class="phase-subtitle">The organizational framework that makes governance continuous rather than periodic.</p>
+            <p class="phase-subtitle">15 min &bull; Governance &amp; Assurance Overview &bull; Explain control intelligence and assurance operating model</p>
           </div>
         </div>
 
-        <h3>What the governance operating model is</h3>
-        <p>A governance operating model is the organizational structure that links your <strong>policy commitments</strong> to the <strong>operational controls</strong> that fulfill them, the <strong>evidence</strong> that proves those controls work, and the <strong>risk accountability</strong> that owns the gaps. Without a model, governance becomes reactive — audits happen, findings emerge, and remediation is disconnected from policy intent.</p>
-        <p>In CloudSignals, the governance operating model has five components that form a chain: Policies define what the organization commits to. Controls describe how those commitments are implemented. Risks represent what could prevent fulfillment. Evidence proves controls are operating. Accountability assigns ownership of each element to a named individual or team.</p>
+        <h3>From box-checking to a control intelligence operating model</h3>
+        <p>Security and privacy governance is not the act of checking boxes against a framework. A mature governance program defines what the organization believes, what it must do, who owns it, how it proves it, how often it tests it, and how it responds when reality drifts away from the intended state.</p>
+        <p>In CloudSignals+RiskOps, this model is represented as a <strong>control intelligence graph</strong>. Each element has a defined role: <strong>Domains</strong> explain the governance area (Identity, Data Protection, Infrastructure, etc.). <strong>Principles</strong> explain why the controls exist. <strong>Controls</strong> define the expected behavior. <strong>Assessment Objectives</strong> define how assurance is tested. <strong>Evidence Requirements</strong> define what proof is expected. <strong>Risks</strong> define what exposure exists when the control fails. <strong>Reports</strong> communicate readiness, gaps, and executive impact.</p>
 
-        <table class="acad-table">
-          <thead><tr><th>Component</th><th>What it answers</th><th>Where in CloudSignals</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Policies</strong></td><td>What are we committed to?</td><td>Governance &amp; Assurance / UCB Policy Library</td></tr>
-            <tr><td><strong>Controls</strong></td><td>How are we implementing commitments?</td><td>UCB Control Catalog, Framework Explorer</td></tr>
-            <tr><td><strong>Risks</strong></td><td>What could prevent fulfillment?</td><td>RiskOps / Risk Register</td></tr>
-            <tr><td><strong>Evidence</strong></td><td>How do we know controls work?</td><td>Evidence Fabric, Assessment Objectives</td></tr>
-            <tr><td><strong>Accountability</strong></td><td>Who owns each element?</td><td>Asset owners, managed entities, control owners</td></tr>
-          </tbody>
-        </table>
-
-        <h3>Why this matters operationally</h3>
-        <p>Governance programs fail at two predictable points. First: controls are documented but not verified — the policy exists, the procedure exists, but no evidence confirms the control actually runs. Second: accountability is diffuse — everyone is responsible for a control, which means no one is. The governance operating model forces both problems into the open by requiring evidence and named accountability for every control.</p>
+        <div class="callout primary">
+          <strong>The key organizational shift:</strong> Your organization should not operate one checklist for ISO 27001, another for SOC 2, another for HIPAA, another for GDPR, and another for PCI DSS. Instead, maintain one internal control baseline mapped to many obligations. This is what the UCB enables — and it is the foundation of everything in this course.
+        </div>
 
         <div class="in-platform">
-          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Orient to the Governance module</div>
+          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Orient to Governance &amp; Assurance</div>
           <div class="in-platform-steps">
-            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Governance &amp; Assurance</strong> in the main navigation. This is the hub for UCB, the Framework Explorer, and the Evidence Fabric.</div></div>
-            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">Review the top-level dashboard. Note the summary metrics: control coverage, evidence freshness distribution, and open exceptions. These are your governance health indicators.</div></div>
-            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Navigate to the <strong>Policy Library</strong>. Identify which policies are active and which have no linked controls. Policies without linked controls are commitment gaps — governance cannot be demonstrated for them.</div></div>
-            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">For each active policy, confirm a named <strong>control owner</strong> is assigned. If the owner field is blank, flag it for assignment before the next governance review cycle.</div></div>
+            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Governance &amp; Assurance</strong> in the main navigation. Review the Overview dashboard: control coverage percentage, evidence freshness distribution, open exceptions, and drift risk indicators.</div></div>
+            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">Open <strong>Domain Explorer</strong>. Select a domain (e.g., Identity &amp; Access Management). Review the domain's principles and how they explain the governance intent for that area.</div></div>
+            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Open the <strong>Policy Library</strong>. Identify which policies are active and which have no linked controls. Policies without linked controls represent commitment gaps the governance program cannot currently demonstrate.</div></div>
+            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">Note the overall governance health metrics: control coverage, residual risk indicators, and exception count. These are your starting baseline for this course.</div></div>
           </div>
         </div>
 
         <div class="action-checklist" id="checklist-mod1">
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Map your governance chain:</strong> List your active policies and confirm each has at least one linked control in UCB.</div></div>
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Identify accountability gaps:</strong> Find controls with no named owner and assign responsibility before beginning evidence collection.</div></div>
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Record baseline governance health:</strong> Note your current control coverage percentage and open exception count as a starting baseline.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Identify your primary governance obligations:</strong> List the compliance frameworks, regulations, and customer obligations driving your governance program. These will anchor your UCB work in Module 2.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Document accountability gaps:</strong> In the Policy Library, find policies with no named owner or no linked controls. These are commitment gaps to resolve before evidence collection is meaningful.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Record your governance baseline:</strong> Note control coverage %, open exception count, and drift risk count as your starting metrics for this course.</div></div>
         </div>
 
         <div class="quiz-block" id="quiz-mod1">
           <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
-          <div class="quiz-question">In the governance operating model, what is the relationship between a policy and a control?</div>
+          <div class="quiz-question">What is the primary purpose of an internal control baseline in CloudSignals+RiskOps?</div>
           <div class="quiz-options">
-            <div class="quiz-option" onclick="selectOption(this,'mod1')"><div class="quiz-radio"></div><div class="quiz-opt-text">A policy is a technical configuration; a control is the procedural description of that configuration.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod1')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">A policy defines what the organization commits to; a control describes how that commitment is implemented and verified.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod1')"><div class="quiz-radio"></div><div class="quiz-opt-text">Policies and controls are interchangeable terms — both refer to documented security requirements.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod1')"><div class="quiz-radio"></div><div class="quiz-opt-text">A policy is evidence that a control exists; a control is the risk register entry tied to that evidence.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod1')"><div class="quiz-radio"></div><div class="quiz-opt-text">To generate a separate compliance checklist for each framework the organization must satisfy.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod1')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">To maintain one authoritative control baseline mapped to many frameworks, regulations, and obligations — eliminating duplicate programs and providing a single governance source of truth.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod1')"><div class="quiz-radio"></div><div class="quiz-opt-text">To serve as a replacement for compliance frameworks, allowing organizations to operate without framework references.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod1')"><div class="quiz-radio"></div><div class="quiz-opt-text">To score scanner findings against controls and auto-generate compliance status without human input.</div></div>
           </div>
           <button class="quiz-btn" onclick="checkAnswer('mod1')" disabled>Check Answer</button>
           <div class="quiz-feedback" id="feedback-mod1"></div>
@@ -183,7 +189,7 @@
 
         <div class="mark-complete-wrap">
           <button class="mark-complete-btn" id="mc-mod1" onclick="markComplete('mod1')">Mark Module 1 complete</button>
-          <span class="mark-complete-hint">Move on when you've reviewed your active policies and identified any accountability gaps.</span>
+          <span class="mark-complete-hint">Move on when you've reviewed the Governance &amp; Assurance overview and identified your primary obligations.</span>
         </div>
       </section>
 
@@ -194,46 +200,42 @@
           <div class="phase-num green">2</div>
           <div class="phase-head-body">
             <h2>Unified Control Baseline</h2>
-            <p class="phase-subtitle">The vendor-neutral control catalog that maps your posture to any framework.</p>
+            <p class="phase-subtitle">20 min &bull; UCB Overview, Control Library &bull; Describe UCB objects and source-of-truth boundaries</p>
           </div>
         </div>
 
-        <h3>What the UCB is</h3>
-        <p>The <strong>Unified Control Baseline (UCB)</strong> is AiVRIC's vendor-neutral control catalog — a structured set of security and privacy controls organized by domain and principle, each mapped to authoritative sources including ISO 27001, SOC 2, PCI DSS, NIST CSF, NIST 800-53, HIPAA Security, and others. The UCB is the source of truth for what "good" looks like in your environment, independent of which compliance framework you're reporting against.</p>
-        <p>This means you define controls once in the UCB and map them to multiple frameworks simultaneously. When an assessor asks for your ISO 27001 control evidence, and separately your SOC 2 CC controls, you draw from the same evidence set — you don't maintain parallel programs.</p>
+        <h3>What the UCB stores</h3>
+        <p>The Unified Control Baseline is the governance source of truth in AiVRIC CloudSignals+RiskOps. It is built from source-attributed ontology data and stores: domains, principles, authoritative sources, canonical controls, framework mappings, privacy principles, assessment objectives, evidence requirements, risk scenarios, tenant baselines, assurance signals, evidence artifacts, AI recommendations, and reports.</p>
+        <p>The UCB is organized in a three-level hierarchy. <strong>Domains</strong> are the major security and privacy areas. <strong>Principles</strong> are the governing intent within a domain — the "why" that makes controls non-negotiable. <strong>Controls</strong> are the specific, testable requirements that implement each principle. Each control can map to multiple authoritative sources across different frameworks simultaneously.</p>
 
-        <h3>UCB structure: domains, principles, and controls</h3>
-        <p>UCB controls are organized in a three-level hierarchy. <strong>Domains</strong> are the major security areas (e.g., Identity &amp; Access Management, Data Protection, Infrastructure Security, Incident Response). <strong>Principles</strong> are the governing intent within a domain (e.g., "Authenticate all users before granting access"). <strong>Controls</strong> are the specific, testable requirements that implement each principle (e.g., "MFA is enforced for all privileged accounts").</p>
+        <h3>The most important architectural rule: scanner findings are not the UCB source of truth</h3>
+        <p>Prowler scanner findings can <em>support</em> evidence — but <strong>Prowler findings do not define compliance status</strong>. Scanner metadata is an input to the governance layer, not the authority. This protects the governance program from scanner-specific assumptions and allows CloudSignals+RiskOps to support multi-framework assurance without locking into any single scanner's opinion of what "compliant" means.</p>
+        <p>When a scanner finding passes a check, it is an evidence signal. When an assessor asks whether you comply with a specific framework control, the answer must come from the UCB — your internal baseline with source-attributed mappings, human-reviewed evidence, and Assessment Objective results — not from a scanner score.</p>
 
         <div class="in-platform">
-          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Explore UCB and generate an Internal Baseline</div>
+          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Explore the UCB and generate an Internal Baseline</div>
           <div class="in-platform-steps">
-            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Governance &amp; Assurance &gt; Unified Control Baseline</strong>. You'll see the full domain list. Each domain shows your current coverage percentage.</div></div>
-            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">Click into <strong>Identity &amp; Access Management</strong>. Review the principles under that domain and the controls beneath each principle. Note which controls have evidence linked versus which are unverified.</div></div>
-            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Open the <strong>Framework Explorer</strong>. Select ISO 27001 and review which UCB controls map to each Annex A control. This is how you translate posture data into framework-language for auditors.</div></div>
-            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">To generate an <strong>Internal Baseline</strong>, go to <strong>Reports &gt; Governance Baseline</strong> and select your current UCB snapshot. This creates a timestamped record of your control state — useful as a baseline for the next assessment period.</div></div>
-            <div class="ip-step"><div class="ip-step-num">5</div><div class="ip-step-body">Note any domains with coverage below 50%. These represent areas where the platform has controls defined but evidence has not been linked — your highest-priority governance gap areas.</div></div>
+            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Governance &amp; Assurance &gt; UCB Overview</strong>. Review the domain list and current coverage percentages. Domains with coverage below 50% are your highest-priority governance gaps.</div></div>
+            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">Open the <strong>Control Library</strong>. Select a control in a domain relevant to your work. Review: the control's authoritative source mappings, its Assessment Objectives, its evidence requirements, and its current assurance state.</div></div>
+            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Navigate to <strong>Internal Baseline</strong>. Review the tenant baseline snapshot — this is the point-in-time record of your control states. If no baseline has been generated, create one now. This becomes your governance starting point.</div></div>
+            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">Navigate to <strong>Program Builder</strong>. Review which frameworks and obligations are included in your governance program. Confirm your primary compliance obligations are represented.</div></div>
           </div>
-        </div>
-
-        <div class="callout warn">
-          <strong>Framework scores are not the same as governance compliance.</strong> The Framework Explorer shows how your scanner metadata maps to framework controls — but scanner metadata alone cannot demonstrate compliance. Evidence of implementation and effectiveness is what makes a control "compliant." The UCB requires both.
         </div>
 
         <div class="action-checklist" id="checklist-mod2">
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Identify your lowest-coverage UCB domains:</strong> List the three domains with the fewest linked evidence artifacts.</div></div>
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Generate an Internal Baseline:</strong> Create a timestamped baseline from your current UCB state. This becomes your governance starting point.</div></div>
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Map to your primary framework:</strong> In the Framework Explorer, identify which framework is most relevant to your compliance obligations and review your mapped posture.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Identify your three lowest-coverage UCB domains:</strong> These are your governance architecture debt — areas where controls exist in the UCB but evidence has not been linked.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Generate an Internal Baseline:</strong> Create a timestamped UCB snapshot. This is your governance anchor point for audit periods and trend comparison.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Locate a scanner-sourced evidence signal:</strong> Find one control where a Prowler finding contributes as evidence. Confirm the UCB control — not the scanner score — remains the governance authority.</div></div>
         </div>
 
         <div class="quiz-block" id="quiz-mod2">
           <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
-          <div class="quiz-question">What is the primary advantage of the UCB over maintaining separate programs for each compliance framework?</div>
+          <div class="quiz-question">Why should scanner findings not define framework compliance status in CloudSignals+RiskOps?</div>
           <div class="quiz-options">
-            <div class="quiz-option" onclick="selectOption(this,'mod2')"><div class="quiz-radio"></div><div class="quiz-opt-text">The UCB automatically generates compliance reports for any framework without requiring manual evidence collection.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod2')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">Controls are defined once in the UCB and map to multiple frameworks simultaneously — eliminating duplicate evidence programs for ISO 27001, SOC 2, PCI DSS, and others.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod2')"><div class="quiz-radio"></div><div class="quiz-opt-text">The UCB replaces the need for external compliance frameworks by providing a single AiVRIC-certified standard.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod2')"><div class="quiz-radio"></div><div class="quiz-opt-text">UCB scores are directly accepted by all major certifying bodies as audit evidence without additional documentation.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod2')"><div class="quiz-radio"></div><div class="quiz-opt-text">Scanner findings are always outdated — they take too long to generate to be relevant for real-time compliance.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod2')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">Scanner findings are metadata inputs that can support evidence — but the UCB, with its source-attributed mappings and human-reviewed evidence, remains the governance source of truth. Allowing scanner scores to define compliance locks governance into scanner-specific assumptions and undermines multi-framework assurance.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod2')"><div class="quiz-radio"></div><div class="quiz-opt-text">Scanner findings are not trusted by auditors and must be re-derived manually for every audit engagement.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod2')"><div class="quiz-radio"></div><div class="quiz-opt-text">Scanner findings only cover cloud infrastructure, so they cannot address the full scope of any compliance framework.</div></div>
           </div>
           <button class="quiz-btn" onclick="checkAnswer('mod2')" disabled>Check Answer</button>
           <div class="quiz-feedback" id="feedback-mod2"></div>
@@ -251,52 +253,43 @@
         <div class="phase-header">
           <div class="phase-num amber">3</div>
           <div class="phase-head-body">
-            <h2>Privacy Governance</h2>
-            <p class="phase-subtitle">Extend the governance model to cover personal data obligations across ISO 27701, GDPR, CCPA/CPRA, and HIPAA.</p>
+            <h2>Framework &amp; Source Governance</h2>
+            <p class="phase-subtitle">20 min &bull; Framework Explorer, Source Registry &bull; Interpret source-attributed framework mappings</p>
           </div>
         </div>
 
-        <h3>Privacy as a governance domain</h3>
-        <p>Privacy governance applies the same operating model as security governance — policies, controls, evidence, accountability — but specifically to personal data handling obligations. The key difference is that privacy obligations are externally defined by regulation (GDPR, CCPA/CPRA, HIPAA) and standards (ISO 27701), and the consequences of non-compliance include regulatory fines, litigation, and reputational damage that directly affect business continuity.</p>
-        <p>In CloudSignals, the <strong>Privacy Explorer</strong> surfaces applicable privacy controls from UCB, grouped by regulation and data type, and shows your readiness state — not just whether controls are documented, but whether evidence confirms they operate as required.</p>
+        <h3>Framework Explorer: one control, many authoritative sources</h3>
+        <p>Framework Explorer helps you understand how one UCB control can support many authoritative sources. When a governance analyst opens Framework Explorer and selects ISO 27001 Annex A, they see which UCB controls map to each ISO control — with the source attribution that confirms the mapping is based on the standard itself, not a vendor's interpretation. The same UCB control may simultaneously satisfy SOC 2 CC6.1, PCI DSS Requirement 7, and NIST CSF PR.AC-4.</p>
+        <p>The output of Framework Explorer is not a certification statement. It is a <strong>source-attributed governance view</strong> that supports readiness analysis and audit preparation. Use it to answer: Which frameworks are represented? Which control domains have the most coverage? Which mappings are source-attributed? Which references are grouped by framework family? Which controls have weak or missing mappings? Which mappings need human review?</p>
 
-        <table class="acad-table">
-          <thead><tr><th>Framework</th><th>Scope</th><th>Key UCB domains</th></tr></thead>
-          <tbody>
-            <tr><td><strong>ISO 27701</strong></td><td>Privacy information management system extending ISO 27001</td><td>Data Protection, Access Control, Incident Management</td></tr>
-            <tr><td><strong>GDPR</strong></td><td>EU/UK personal data of EU/UK residents</td><td>Data Protection, Consent Management, Subject Rights</td></tr>
-            <tr><td><strong>CCPA/CPRA</strong></td><td>California consumer personal information</td><td>Data Inventory, Consumer Rights, Vendor Management</td></tr>
-            <tr><td><strong>HIPAA Privacy</strong></td><td>US protected health information (PHI)</td><td>PHI Access, Minimum Necessary, Breach Notification</td></tr>
-          </tbody>
-        </table>
-
-        <h3>Privacy readiness vs. privacy compliance</h3>
-        <p><strong>Privacy readiness</strong> measures whether your organization can demonstrate evidence of controls for applicable privacy obligations — not just whether controls are documented. A policy that says "we encrypt PHI in transit" is not readiness; a configuration export and a scan result confirming encryption is enabled on every PHI-handling endpoint is readiness. The Privacy Explorer scores readiness on this basis.</p>
+        <h3>Source Registry: the provenance layer behind framework mappings</h3>
+        <p>The <strong>Source Registry</strong> is the authoritative record of where each framework mapping came from — the specific standard version, publication date, and control reference. It is what transforms a mapping from "we think this control satisfies ISO 27001 A.9.4.1" to "this mapping is attributed to ISO/IEC 27001:2022 Clause A.9.4.1 as of [date], imported [date]." This provenance is what auditors need to verify that mappings are legitimate, not vendor opinion.</p>
 
         <div class="in-platform">
-          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Explore Privacy Explorer and assess readiness gaps</div>
+          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Review Framework Explorer and Source Registry</div>
           <div class="in-platform-steps">
-            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Governance &amp; Assurance &gt; Privacy Explorer</strong>. Select the regulation most relevant to your organization (start with GDPR or HIPAA if applicable).</div></div>
-            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">Review the readiness dashboard for your selected regulation. The readiness percentage reflects how many applicable controls have linked evidence versus how many are unverified.</div></div>
-            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Drill into controls marked <strong>Not Ready</strong> or <strong>Insufficient Evidence</strong>. For each, review what evidence type is expected (configuration export, scan result, attestation, log sample) and whether that evidence exists in the platform.</div></div>
-            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">Export the privacy readiness report for your selected regulation. This is the artifact you share with privacy counsel, your DPO, or an assessor to demonstrate your current posture.</div></div>
+            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Governance &amp; Assurance &gt; Framework Explorer</strong>. Select your primary compliance framework (ISO 27001, SOC 2, PCI DSS, or NIST CSF).</div></div>
+            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">Review your posture by control domain. Which domains have the most failing controls? Which controls map to multiple framework requirements simultaneously?</div></div>
+            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Click into a control with weak or missing mappings. Review the source attribution — is the mapping based on the authoritative standard or is it marked as needing human review?</div></div>
+            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">Navigate to <strong>Governance &amp; Assurance &gt; Source Registry</strong>. Review the list of imported framework sources, their versions, and import dates. Confirm your primary framework's source version is current.</div></div>
+            <div class="ip-step"><div class="ip-step-num">5</div><div class="ip-step-body">Select a second framework and compare coverage with the first. Controls that satisfy both frameworks simultaneously are your highest-efficiency governance investments.</div></div>
           </div>
         </div>
 
         <div class="action-checklist" id="checklist-mod3">
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Identify applicable privacy regulations:</strong> Confirm which of GDPR, CCPA/CPRA, HIPAA, and ISO 27701 apply to your organization based on data types and geographies.</div></div>
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Review Privacy Explorer readiness:</strong> For each applicable regulation, note your readiness percentage and the top three "Not Ready" controls.</div></div>
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Create evidence collection tasks:</strong> For each "Not Ready" control, create a RiskOps task or treatment plan to collect the missing evidence within the next review cycle.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Review framework posture for your primary obligation:</strong> Note the overall posture percentage and the three control categories with lowest coverage.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Identify controls satisfying multiple frameworks:</strong> Find at least three UCB controls that satisfy two or more of your relevant frameworks simultaneously. These are high-value governance investments.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Confirm source version currency:</strong> In the Source Registry, verify your primary framework source is the current published version. Stale source versions reduce mapping reliability.</div></div>
         </div>
 
         <div class="quiz-block" id="quiz-mod3">
           <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
-          <div class="quiz-question">In the Privacy Explorer, what does a control marked "Not Ready" mean?</div>
+          <div class="quiz-question">What does the Framework Explorer output represent in the context of governance and compliance?</div>
           <div class="quiz-options">
-            <div class="quiz-option" onclick="selectOption(this,'mod3')"><div class="quiz-radio"></div><div class="quiz-opt-text">The control is not applicable to the selected privacy regulation.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod3')"><div class="quiz-radio"></div><div class="quiz-opt-text">The control has been documented in policy but has not been technically implemented in the cloud environment.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod3')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">The control lacks sufficient evidence to demonstrate it operates as required — documentation may exist, but verified evidence does not.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod3')"><div class="quiz-radio"></div><div class="quiz-opt-text">The control has been formally excepted and does not need to be addressed in the current assessment period.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod3')"><div class="quiz-radio"></div><div class="quiz-opt-text">A certification statement confirming the tenant meets the requirements of the selected compliance framework.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod3')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">A source-attributed governance view showing how UCB controls map to framework requirements — used for readiness analysis and audit preparation, not as a compliance certification.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod3')"><div class="quiz-radio"></div><div class="quiz-opt-text">A scanner-derived compliance score that replaces the need for human-reviewed evidence in audit engagements.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod3')"><div class="quiz-radio"></div><div class="quiz-opt-text">A legal opinion from AiVRIC confirming the controls satisfy applicable regulations in the tenant's jurisdiction.</div></div>
           </div>
           <button class="quiz-btn" onclick="checkAnswer('mod3')" disabled>Check Answer</button>
           <div class="quiz-feedback" id="feedback-mod3"></div>
@@ -304,7 +297,7 @@
 
         <div class="mark-complete-wrap">
           <button class="mark-complete-btn" id="mc-mod3" onclick="markComplete('mod3')">Mark Module 3 complete</button>
-          <span class="mark-complete-hint">Move on when you've reviewed your privacy readiness for each applicable regulation.</span>
+          <span class="mark-complete-hint">Move on when you've reviewed Framework Explorer for your primary framework and confirmed Source Registry currency.</span>
         </div>
       </section>
 
@@ -314,47 +307,54 @@
         <div class="phase-header">
           <div class="phase-num purple">4</div>
           <div class="phase-head-body">
-            <h2>Evidence Governance</h2>
-            <p class="phase-subtitle">The provenance, freshness, and trust chain that makes evidence audit-ready.</p>
+            <h2>Privacy Governance</h2>
+            <p class="phase-subtitle">25 min &bull; Privacy Explorer, Reports &bull; Review privacy readiness and obligations lifecycle</p>
           </div>
         </div>
 
-        <h3>What evidence governance is</h3>
-        <p>Evidence governance is the discipline of managing proof that controls operate as designed. It is not enough to collect evidence once — evidence has a lifecycle. It was collected at a point in time, from a specific source, by a specific method. It can become stale. It can be revoked. It can conflict with other evidence. Without governance, an evidence collection becomes a pile of files with unclear provenance and unknown freshness.</p>
-        <p>The <strong>Evidence Fabric</strong> in CloudSignals gives every evidence artifact four properties: <strong>provenance</strong> (where it came from and how it was collected), <strong>freshness</strong> (how recent it is relative to the control's assessment cycle), <strong>trust level</strong> (automated/scanner data vs. human-reviewed attestation), and <strong>reviewer linkage</strong> (who validated it and when).</p>
+        <h3>Privacy as a governance lifecycle, not a technical control set</h3>
+        <p>Privacy governance uses UCB privacy principles and framework mappings to support ISO 27701, GDPR, CCPA/CPRA, HIPAA Privacy, and related obligations. CloudSignals+RiskOps does not treat privacy as a purely technical control set. Many privacy obligations require documentary evidence, manual attestation, workflow records, and policy review — none of which a scanner can produce.</p>
+        <p>Learners should understand privacy as a lifecycle with distinct obligation types at each stage:</p>
+        <ul>
+          <li><strong>Lawful basis and consent:</strong> documented basis for processing, consent records, withdrawal mechanisms</li>
+          <li><strong>Purpose limitation:</strong> documented purpose statements, data flow records</li>
+          <li><strong>Data minimization:</strong> data inventory, retention reviews, collection justifications</li>
+          <li><strong>Retention and deletion:</strong> retention schedules, deletion confirmation records</li>
+          <li><strong>Subject rights:</strong> request handling workflows, response timelines, access/erasure/portability records</li>
+          <li><strong>Transfer governance:</strong> transfer mechanisms, Standard Contractual Clauses, adequacy decisions</li>
+          <li><strong>Processor and vendor governance:</strong> DPAs, vendor assessments, sub-processor records</li>
+          <li><strong>Privacy incident evidence:</strong> breach notification records, DPA communications, risk assessments</li>
+          <li><strong>DPIA and privacy-by-design workflows:</strong> impact assessments, design decisions, architectural reviews</li>
+        </ul>
 
-        <h3>Evidence freshness and assurance drift</h3>
-        <p>Every UCB control has an assessment cadence — quarterly, annually, or per-change. When evidence exceeds that window, its freshness degrades. The platform marks it as stale and reduces the control's <strong>confidence score</strong>. When enough controls degrade, overall assurance drifts below your target confidence level — a state called <strong>assurance drift</strong>. The Assurance Calendar surfaces controls approaching or past their review window so you can proactively collect new evidence before drift occurs.</p>
-
-        <div class="callout success">
-          <strong>The reviewer workflow is your audit trail.</strong> When a human reviewer validates evidence and attests to its accuracy, that attestation — with timestamp and reviewer identity — becomes part of the evidence chain. This is what distinguishes governance-grade evidence from a raw configuration export.
-        </div>
+        <h3>Privacy readiness vs. privacy compliance</h3>
+        <p><strong>Privacy readiness</strong> means you can demonstrate evidence of controls for applicable obligations. Having a privacy policy posted on your website is not readiness. Having documented lawful basis records, DSAR response procedures with timestamps, and vendor DPAs for all processors — and evidence that these exist and operate — is readiness. The Privacy Explorer scores readiness on this evidenced basis.</p>
 
         <div class="in-platform">
-          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Link evidence to a control and review readiness</div>
+          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Lab: Review Privacy Readiness</div>
           <div class="in-platform-steps">
-            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Governance &amp; Assurance &gt; Evidence Fabric</strong>. Review the evidence inventory — note the freshness distribution (fresh, aging, stale) across your controls.</div></div>
-            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">Select a control with stale evidence. Click <strong>Add Evidence</strong> and upload or link the appropriate artifact (configuration export, scan result, screenshot, attestation, policy document).</div></div>
-            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Set the evidence <strong>type</strong> (automated/scanner vs. manual/attestation) and assign a <strong>reviewer</strong>. The reviewer receives a notification to validate the artifact before it counts toward confidence score.</div></div>
-            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">After the reviewer validates, note the control's confidence score update. Compare the "before" and "after" confidence to understand how a single evidence artifact moves the dial.</div></div>
-            <div class="ip-step"><div class="ip-step-num">5</div><div class="ip-step-body">Open the <strong>Assurance Calendar</strong>. Review which controls have upcoming review windows in the next 30 days. Schedule collection tasks for any controls within 2 weeks of their review deadline.</div></div>
+            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Governance &amp; Assurance &gt; Privacy Explorer</strong>. Identify the privacy principles related to consent, minimization, retention, and subject rights for your applicable regulations.</div></div>
+            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">Select your primary privacy regulation (ISO 27701 or GDPR). Review the readiness percentage and drill into controls marked <em>Not Ready</em> or <em>Insufficient Evidence</em>.</div></div>
+            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Open <strong>Framework Explorer</strong> and locate privacy-related authoritative sources. Review the evidence expectations for each privacy-mapped control.</div></div>
+            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">For each <em>Not Ready</em> control, note whether the gap is a missing documentary artifact (policy, record, attestation) or a technical control. Document the gap type — this determines the collection method.</div></div>
+            <div class="ip-step"><div class="ip-step-num">5</div><div class="ip-step-body">Draft readiness language for one regulation that includes assumptions and evidence gaps. This is how a privacy readiness note should be written — not as a compliance claim.</div></div>
           </div>
         </div>
 
         <div class="action-checklist" id="checklist-mod4">
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Audit stale evidence:</strong> Identify all controls with stale or aging evidence and create collection tasks for each.</div></div>
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Link at least one piece of new evidence:</strong> Upload or link an evidence artifact to a control, assign a reviewer, and observe the confidence score change.</div></div>
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Review the Assurance Calendar:</strong> Identify controls with review windows in the next 30 days and schedule collection tasks.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Identify applicable privacy regulations:</strong> Confirm which of GDPR, CCPA/CPRA, HIPAA Privacy, and ISO 27701 apply based on your data types and geographies.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Review Privacy Explorer readiness:</strong> For each applicable regulation, note your readiness percentage and the top three <em>Not Ready</em> controls.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Create evidence collection tasks:</strong> For each <em>Not Ready</em> control requiring manual or documentary evidence, create a collection task with an owner and target date.</div></div>
         </div>
 
         <div class="quiz-block" id="quiz-mod4">
           <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
-          <div class="quiz-question">What does "assurance drift" mean in the context of evidence governance?</div>
+          <div class="quiz-question">A healthcare SaaS organization uses Privacy Explorer and sees HIPAA Privacy readiness at 45%. Which of the following best explains what this score means?</div>
           <div class="quiz-options">
-            <div class="quiz-option" onclick="selectOption(this,'mod4')"><div class="quiz-radio"></div><div class="quiz-opt-text">A control has been flagged as an exception and its evidence requirements have been formally waived.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod4')"><div class="quiz-radio"></div><div class="quiz-opt-text">The organization's risk appetite has changed, making previously acceptable evidence insufficient.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod4')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">Enough controls have stale or missing evidence that overall assurance confidence has degraded below the target threshold — a state that requires proactive evidence collection to correct.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod4')"><div class="quiz-radio"></div><div class="quiz-opt-text">A compliance framework has been updated and existing evidence no longer maps correctly to the new control requirements.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod4')"><div class="quiz-radio"></div><div class="quiz-opt-text">The organization is 45% compliant with HIPAA Privacy and must reach 100% before it can legally operate as a HIPAA-covered entity.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod4')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">45% of the HIPAA Privacy-mapped UCB controls have sufficient evidence demonstrating they operate as required. The remaining 55% lack adequate evidence — which may include documentary artifacts like Notice of Privacy Practices, workforce training records, or DSAR procedures.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod4')"><div class="quiz-radio"></div><div class="quiz-opt-text">The scanner has evaluated 45% of cloud resources for HIPAA-relevant misconfigurations, with 55% not yet scanned.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod4')"><div class="quiz-radio"></div><div class="quiz-opt-text">45% of PHI is encrypted and protected; 55% remains unprotected and requires immediate remediation.</div></div>
           </div>
           <button class="quiz-btn" onclick="checkAnswer('mod4')" disabled>Check Answer</button>
           <div class="quiz-feedback" id="feedback-mod4"></div>
@@ -362,7 +362,7 @@
 
         <div class="mark-complete-wrap">
           <button class="mark-complete-btn" id="mc-mod4" onclick="markComplete('mod4')">Mark Module 4 complete</button>
-          <span class="mark-complete-hint">Move on when you've linked evidence to a control, assigned a reviewer, and reviewed the Assurance Calendar.</span>
+          <span class="mark-complete-hint">Move on when you've reviewed Privacy Explorer and documented your top three readiness gaps per applicable regulation.</span>
         </div>
       </section>
 
@@ -372,43 +372,57 @@
         <div class="phase-header">
           <div class="phase-num orange">5</div>
           <div class="phase-head-body">
-            <h2>Risk-to-Control Traceability</h2>
-            <p class="phase-subtitle">Follow the chain from control failure through residual risk to exception governance.</p>
+            <h2>Evidence &amp; Risk Traceability</h2>
+            <p class="phase-subtitle">25 min &bull; Evidence Fabric, Risk Mapping &bull; Connect control failure, evidence, and risk exposure</p>
           </div>
         </div>
 
-        <h3>The traceability chain</h3>
-        <p>Risk-to-control traceability means every risk in your register can be traced to a specific control failure, and every control failure can be traced forward to a governance decision. Without this chain, you can have a risk register that grows indefinitely — risks accumulate but never close because no one can confirm whether the underlying control failure has been addressed.</p>
-        <p>In CloudSignals, the chain works as follows: a scanner evaluates a resource against a UCB control and creates a <strong>finding</strong> when the control fails. The finding represents a gap between your policy commitment and your actual state. That gap — if not remediated — becomes <strong>residual risk</strong>: the risk that remains after your current controls are applied. RiskOps treatment decisions (remediate, mitigate, accept) determine how that residual risk is governed.</p>
+        <h3>Evidence as reusable governance objects</h3>
+        <p>Evidence should be reusable. A single policy, screenshot, log export, architecture diagram, vendor attestation, or ticket can satisfy multiple controls and frameworks — if it has the right provenance, freshness, trust level, validation status, and reviewer metadata. The Evidence Fabric in CloudSignals+RiskOps turns isolated artifacts into reusable assurance objects that persist across assessment periods, frameworks, and audit engagements.</p>
 
-        <h3>Exceptions: when residual risk is formally accepted</h3>
-        <p>An <strong>exception</strong> is a formal acknowledgment that a specific control will not meet its requirement within a defined period, and that the associated residual risk is within policy-acceptable bounds. Exceptions require: a named owner, a business justification, a risk statement, a compensating control (if any), and an expiry date. They are not permanent — every exception must be reviewed at or before its expiry date.</p>
-        <p>Exceptions that are renewed repeatedly without a remediation plan represent a governance failure. The platform tracks exception age and renewal history, which auditors will scrutinize. A risk accepted three years running with no remediation progress is not a risk management decision — it's an unaddressed liability.</p>
+        <p>Good evidence has eight metadata properties that make it audit-ready:</p>
+        <table class="acad-table">
+          <thead><tr><th>Property</th><th>What it answers</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Source</strong></td><td>Which system or person produced the artifact?</td></tr>
+            <tr><td><strong>Provenance</strong></td><td>How was it collected — automated scan, manual export, attestation?</td></tr>
+            <tr><td><strong>Timestamp</strong></td><td>When was it collected?</td></tr>
+            <tr><td><strong>Freshness</strong></td><td>Is it within the control's assessment cycle window?</td></tr>
+            <tr><td><strong>Trust level</strong></td><td>Automated (consistent) vs. manual/attestation (context-dependent)?</td></tr>
+            <tr><td><strong>Reviewer</strong></td><td>Who validated it?</td></tr>
+            <tr><td><strong>Validation status</strong></td><td>Has a named reviewer attested to its accuracy?</td></tr>
+            <tr><td><strong>Mapped controls / AOs</strong></td><td>Which controls and Assessment Objectives does it satisfy?</td></tr>
+          </tbody>
+        </table>
+
+        <h3>Risk traceability: why evidence and risk are inseparable</h3>
+        <p>Risk traceability explains why evidence matters operationally. If a control fails, the organization should know: what risk exists, what business process or asset is affected, what remediation is planned, and whether an exception or compensating control is acceptable. Without this chain, risk management is reactive — findings accumulate without governance context, and the AO cannot make a defensible residual risk decision.</p>
+        <p>In CloudSignals+RiskOps, <strong>Risk Mapping</strong> connects control failures to the risk register. When a control has degraded evidence, its linked risks surface in the risk register with updated residual risk assessments. This is the governance chain: control → evidence → assurance confidence → residual risk → treatment decision.</p>
 
         <div class="in-platform">
-          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Trace a finding to its residual risk and exception state</div>
+          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Link evidence to a control and trace risk exposure</div>
           <div class="in-platform-steps">
-            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Findings</strong> and filter by a specific UCB domain (e.g., Identity &amp; Access Management). Select a High or Critical finding.</div></div>
-            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">In the finding detail, click <strong>View linked control</strong> to open the UCB control that failed. Note the control's current confidence score — the finding is directly contributing to this degradation.</div></div>
-            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Return to the finding. Click <strong>View linked risk</strong> (if a risk register entry exists) or <strong>Create risk</strong> to promote the finding to the risk register with a residual risk assessment.</div></div>
-            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">Navigate to <strong>Projects &gt; Exceptions</strong>. Review existing security exceptions — note their age, expiry dates, and whether a compensating control is documented. Any exceptions approaching expiry need owner review.</div></div>
+            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Governance &amp; Assurance &gt; Evidence Fabric</strong>. Sort by Freshness to identify the most stale artifacts. These are your assurance drift risks.</div></div>
+            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">Select a stale artifact and review its eight metadata properties. Note which are missing or degraded. Upload or link a refreshed artifact and assign a reviewer.</div></div>
+            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Navigate to <strong>Governance &amp; Assurance &gt; Risk Mapping</strong>. Review which controls have linked risk register entries. Select a control with high residual risk and trace the chain: control failure → evidence gap → residual risk → treatment status.</div></div>
+            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">For a control with stale evidence, observe whether its linked risks have escalated residual risk scores. Refreshing evidence directly reduces residual risk — this is the governance feedback loop.</div></div>
           </div>
         </div>
 
         <div class="action-checklist" id="checklist-mod5">
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Trace a finding to its UCB control:</strong> Select a High finding and navigate to its parent control. Document the relationship between the finding severity and control confidence.</div></div>
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Review exceptions for expiry:</strong> Audit exceptions expiring within 60 days. For each, confirm the owner is aware and a renewal or remediation decision is pending.</div></div>
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Identify repeatedly-renewed exceptions:</strong> Flag any exceptions in their third renewal cycle or beyond. These require escalation — repeated acceptance without remediation progress is not defensible governance.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Identify stale evidence:</strong> List all evidence artifacts older than your assessment cycle. Create refresh tasks with owners and deadlines.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Link evidence to multiple controls:</strong> Find one artifact (e.g., an access review record) that satisfies multiple controls. Link it to all relevant controls and Assessment Objectives.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Trace a control failure to risk exposure:</strong> In Risk Mapping, identify one control whose failure has created an open risk register entry. Confirm the risk entry has an owner and treatment plan.</div></div>
         </div>
 
         <div class="quiz-block" id="quiz-mod5">
           <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
-          <div class="quiz-question">What must be true for a security exception to be considered valid governance evidence?</div>
+          <div class="quiz-question">What is the difference between a UCB control and an Assessment Objective?</div>
           <div class="quiz-options">
-            <div class="quiz-option" onclick="selectOption(this,'mod5')"><div class="quiz-radio"></div><div class="quiz-opt-text">It must be approved by the CISO and reviewed annually.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod5')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">It must have a named owner, a business justification, a risk statement, an expiry date, and — where applicable — a documented compensating control.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod5')"><div class="quiz-radio"></div><div class="quiz-opt-text">It must be linked to a finding that has been verified as low severity.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod5')"><div class="quiz-radio"></div><div class="quiz-opt-text">It must be renewed every 90 days regardless of the residual risk level.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod5')"><div class="quiz-radio"></div><div class="quiz-opt-text">Controls are defined by auditors during assessments; Assessment Objectives are defined by the organization before assessments.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod5')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">A control defines the expected behavior or requirement; an Assessment Objective (AO) is a specific, testable assertion about how that control is implemented and can be verified — one control may have multiple AOs, each requiring different evidence.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod5')"><div class="quiz-radio"></div><div class="quiz-opt-text">Controls map to frameworks; Assessment Objectives map to risk scenarios. They serve entirely different purposes and are not connected.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod5')"><div class="quiz-radio"></div><div class="quiz-opt-text">Controls and Assessment Objectives are interchangeable terms in CloudSignals+RiskOps — both refer to testable governance requirements.</div></div>
           </div>
           <button class="quiz-btn" onclick="checkAnswer('mod5')" disabled>Check Answer</button>
           <div class="quiz-feedback" id="feedback-mod5"></div>
@@ -416,7 +430,7 @@
 
         <div class="mark-complete-wrap">
           <button class="mark-complete-btn" id="mc-mod5" onclick="markComplete('mod5')">Mark Module 5 complete</button>
-          <span class="mark-complete-hint">Move on when you've traced at least one finding to its UCB control and reviewed your exceptions for upcoming expiry.</span>
+          <span class="mark-complete-hint">Move on when you've linked evidence to controls and traced at least one control failure to its risk register entry.</span>
         </div>
       </section>
 
@@ -427,46 +441,43 @@
           <div class="phase-num" style="background:rgba(139,92,246,.2);color:#a78bfa;">6</div>
           <div class="phase-head-body">
             <h2>AI-Assisted Governance</h2>
-            <p class="phase-subtitle">Use Vision and GRC AI as governance accelerators — with mandatory human validation.</p>
+            <p class="phase-subtitle">15 min &bull; Vision, Reports &bull; Use AI safely for explanations, narratives, and executive reporting</p>
           </div>
         </div>
 
-        <h3>Two AI systems, two roles</h3>
-        <p>CloudSignals provides two distinct AI capabilities for governance work. <strong>Vision AI</strong> is a security analysis engine that examines findings, asset states, and posture signals to surface patterns, prioritize risks, and generate investigation narratives. <strong>GRC AI</strong> is a governance-specific assistant that helps draft control assessments, identify evidence gaps, and generate assurance briefs from your UCB state.</p>
-        <p>Both are <strong>advisory tools</strong> — they accelerate governance work, they do not replace human judgment. Every AI output that becomes part of your governance record must include: the assumptions the model used, a confidence indicator, and a named human reviewer who attested to the output before it was accepted.</p>
-
-        <h3>The human validation requirement</h3>
-        <p>The reason AI outputs require human validation in governance contexts is accountability. If a control is assessed as "effective" based on an AI-generated analysis that turns out to be incorrect, the accountability question becomes: who reviewed and accepted that output? Without a named validator, there is no accountable party — and no defensible governance record. The platform enforces this by requiring a reviewer attestation before an AI-generated assessment can be promoted to evidence status.</p>
+        <h3>What Vision can and cannot do in governance</h3>
+        <p>Vision can explain controls, summarize evidence, identify gaps, draft POA&amp;Ms, generate audit narratives, and prepare executive reports. However, <strong>Vision should not certify compliance</strong>. It is an advisory tool — it accelerates governance work without replacing the human judgment and accountability that makes governance defensible.</p>
+        <p>A good AI governance workflow in CloudSignals+RiskOps stores these elements alongside every AI-generated output: <strong>assumptions</strong> (what data did the model use?), <strong>linked evidence</strong> (which artifacts support the output?), <strong>linked controls</strong> (which UCB controls are referenced?), <strong>linked risks</strong> (which risk register entries are relevant?), <strong>rationale</strong> (why did the model reach this conclusion?), <strong>confidence</strong> (how certain is the output?), and a <strong>human validation recommendation</strong> (what must a reviewer verify before accepting this output?).</p>
 
         <div class="callout warn">
-          <strong>AI-generated answers are advisory only.</strong> When using GRC AI or Vision to analyze a control gap or generate a risk narrative, treat the output as a first draft requiring your expert review — not a final answer. Check the model's stated assumptions, verify cited findings exist and are current, and attest to accuracy before committing the output to your governance record.
+          <strong>Required for all AI-generated governance outputs:</strong> Before any Vision output becomes a governance record, a named human reviewer must attest to its accuracy. The attestation — with reviewer identity and timestamp — is what makes the output defensible to an auditor. An unattested AI output is not evidence.
         </div>
 
         <div class="in-platform">
-          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Generate and validate an AI-assisted assurance brief</div>
+          <div class="in-platform-label"><i class="fas fa-mouse-pointer"></i> In the platform — Lab: Produce an executive governance brief using Vision</div>
           <div class="in-platform-steps">
-            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Vision</strong> in the main navigation. Click <strong>Ask Vision</strong> and enter a governance question — for example: "What are the top three control gaps in our Identity &amp; Access Management domain?"</div></div>
-            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">Review Vision's response. Note the assumptions panel — which findings, assets, and evidence artifacts was the analysis based on? Verify that the cited artifacts are current and accurately described.</div></div>
-            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Navigate to <strong>Governance &amp; Assurance &gt; GRC AI</strong>. Request an <strong>Executive Assurance Brief</strong> for a specific UCB domain. Review the drafted brief for accuracy.</div></div>
-            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">Edit the brief where needed — correct any inaccuracies, add context the model didn't have, and fill in the <strong>Reviewer attestation</strong> field before saving. This attestation is your evidence that the output was human-validated.</div></div>
-            <div class="ip-step"><div class="ip-step-num">5</div><div class="ip-step-body">Export the validated brief. This is now a governance artifact — suitable for sharing with leadership, an auditor, or the Authorizing Official as an assurance summary.</div></div>
+            <div class="ip-step"><div class="ip-step-num">1</div><div class="ip-step-body">Navigate to <strong>Governance &amp; Assurance</strong>. Review the UCB Overview metrics, Control Drift indicators, and Evidence Fabric summary. This is the context Vision will use for your brief.</div></div>
+            <div class="ip-step"><div class="ip-step-num">2</div><div class="ip-step-body">Navigate to <strong>Vision</strong>. Click <strong>Ask Vision</strong> and request an executive assurance brief: "Draft a governance executive brief covering our top control coverage gaps, evidence freshness issues, and three recommended next actions."</div></div>
+            <div class="ip-step"><div class="ip-step-num">3</div><div class="ip-step-body">Review the Vision output. Check the assumptions panel: which UCB data, evidence artifacts, and risk entries did Vision reference? Verify they are current and accurately described.</div></div>
+            <div class="ip-step"><div class="ip-step-num">4</div><div class="ip-step-body">Edit the brief: correct any inaccuracies, add source references, include evidence gaps that Vision missed, and ensure the language is appropriately scoped (readiness, not compliance certification).</div></div>
+            <div class="ip-step"><div class="ip-step-num">5</div><div class="ip-step-body">Add your <strong>reviewer attestation</strong>. Save the validated brief to the Evidence Fabric linked to the relevant UCB domain. This is now a governance artifact suitable for distribution to the AO or executive leadership.</div></div>
           </div>
         </div>
 
         <div class="action-checklist" id="checklist-mod6">
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Generate a Vision analysis:</strong> Ask Vision a governance question and review the assumptions panel to assess output reliability.</div></div>
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Draft and validate an assurance brief:</strong> Use GRC AI to generate a brief, review it for accuracy, and add your reviewer attestation before saving.</div></div>
-          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Document your AI governance rule:</strong> Write a one-paragraph team policy on when AI outputs require review before use as evidence — share it with your GRC team.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Generate a Vision governance narrative:</strong> Ask Vision to explain one control gap or produce one executive brief. Review the assumptions panel before accepting any part of the output.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Validate and attest the output:</strong> Edit the Vision output for accuracy, add source references, and record your reviewer attestation before saving it as a governance artifact.</div></div>
+          <div class="action-item" onclick="toggleAction(this)"><div class="action-cb"></div><div class="action-text"><strong>Document your AI governance rule:</strong> Write a one-paragraph team policy on when AI outputs require human review before use as evidence or reporting. Distribute to your GRC team.</div></div>
         </div>
 
         <div class="quiz-block" id="quiz-mod6">
           <div class="quiz-label"><i class="fas fa-question-circle"></i> Knowledge Check</div>
-          <div class="quiz-question">What makes an AI-generated governance output acceptable as audit evidence in CloudSignals?</div>
+          <div class="quiz-question">What must be included with AI-assisted governance recommendations before they can be used as governance evidence?</div>
           <div class="quiz-options">
-            <div class="quiz-option" onclick="selectOption(this,'mod6')"><div class="quiz-radio"></div><div class="quiz-opt-text">It was generated by a certified AI model version and has a confidence score above 85%.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod6')"><div class="quiz-radio"></div><div class="quiz-opt-text">The AI output was reviewed by at least two team members and stored in the evidence repository.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod6')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">A named human reviewer has attested to the output's accuracy, assumptions have been reviewed, and the attestation is recorded as part of the evidence artifact.</div></div>
-            <div class="quiz-option" onclick="selectOption(this,'mod6')"><div class="quiz-radio"></div><div class="quiz-opt-text">The output was generated from scanner data rather than manual input, making it inherently more reliable for audit purposes.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod6')"><div class="quiz-radio"></div><div class="quiz-opt-text">The AI model's version number and a confidence score above 80% — these alone establish sufficient reliability for governance use.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod6')"><div class="quiz-radio"></div><div class="quiz-opt-text" data-correct="true">Assumptions the model used, linked evidence and control references, rationale, confidence indicator, and a named human reviewer's attestation confirming accuracy — without these, AI output is not a defensible governance record.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod6')"><div class="quiz-radio"></div><div class="quiz-opt-text">Review by at least two GRC team members and storage in the company document management system for version control.</div></div>
+            <div class="quiz-option" onclick="selectOption(this,'mod6')"><div class="quiz-radio"></div><div class="quiz-opt-text">Legal review confirming the AI narrative does not constitute legal advice or regulatory compliance claims.</div></div>
           </div>
           <button class="quiz-btn" onclick="checkAnswer('mod6')" disabled>Check Answer</button>
           <div class="quiz-feedback" id="feedback-mod6"></div>
@@ -474,7 +485,7 @@
 
         <div class="mark-complete-wrap">
           <button class="mark-complete-btn" id="mc-mod6" onclick="markComplete('mod6')">Mark Module 6 complete</button>
-          <span class="mark-complete-hint">Move on when you've generated and validated at least one AI-assisted governance output.</span>
+          <span class="mark-complete-hint">Move on when you've produced and attested a Vision governance narrative.</span>
         </div>
       </section>
 
@@ -482,25 +493,37 @@
       <!-- CERTIFICATION -->
       <section id="certification" style="scroll-margin-top:80px;">
         <h2>Certification: AiVRIC CloudSignals Security &amp; Privacy Governance Practitioner</h2>
-        <p>Completing all six modules makes you eligible for the Security &amp; Privacy Governance Practitioner certification exam.</p>
+        <p>Completing all six modules makes you eligible for the practitioner certification exam.</p>
 
-        <table class="acad-table">
-          <thead><tr><th>Exam component</th><th>Format</th><th>Passing requirement</th></tr></thead>
+        <table class="acad-table" style="margin-bottom:20px;">
+          <thead><tr><th>Exam domain</th><th>Weight</th></tr></thead>
           <tbody>
-            <tr><td>Knowledge questions</td><td>40 multiple-choice questions drawn from all 6 modules</td><td>80% (32/40 correct)</td></tr>
-            <tr><td>Scenario questions</td><td>5 scenario-based questions requiring multi-step reasoning</td><td>Included in 80% overall</td></tr>
-            <tr><td>Practical platform lab</td><td>Timed 30-minute lab: generate a baseline, link evidence to a control, identify privacy readiness gap, produce an assurance brief</td><td>Submit screenshot + rationale + remediation recommendation</td></tr>
+            <tr><td>Governance operating model</td><td>20%</td></tr>
+            <tr><td>UCB object model and source boundaries</td><td>25%</td></tr>
+            <tr><td>Framework and privacy readiness</td><td>20%</td></tr>
+            <tr><td>Evidence and risk traceability</td><td>20%</td></tr>
+            <tr><td>AI-assisted governance controls</td><td>15%</td></tr>
           </tbody>
         </table>
 
+        <h3>Capstone practical scenario</h3>
+        <p style="color:var(--ug-text-2);">A healthcare SaaS tenant must prepare for ISO 27701 readiness while also addressing GDPR and HIPAA Privacy obligations. The tenant has cloud findings, incomplete evidence, stale policies, and several control exceptions. Your task:</p>
+        <ol style="color:var(--ug-text-2);font-size:14px;line-height:2;">
+          <li>Review relevant UCB domains and privacy principles.</li>
+          <li>Identify required and recommended controls.</li>
+          <li>Identify evidence gaps — distinguishing technical gaps from documentary gaps.</li>
+          <li>Explain how findings become evidence signals without defining compliance.</li>
+          <li>Draft an executive readiness summary using Vision, with your reviewer attestation.</li>
+        </ol>
+
         <div class="callout primary">
-          <strong>Certification rule:</strong> AI-generated answers on the practical lab are advisory only. Your submitted evidence must include a human-validated rationale. Submissions that rely solely on AI output without reviewer attestation will be returned for rework.
+          <strong>Passing criteria:</strong> Correctly preserves UCB as source of truth. Includes source attribution and evidence lineage. Identifies privacy-specific manual evidence. Does not claim certification or legal compliance. Provides risk-based next actions. Includes AI disclaimer on all Vision-generated content.
         </div>
 
         <div class="acad-cert-block" id="cert-block">
           <div class="acad-cert-icon">&#127941;</div>
           <div class="acad-cert-title">Course complete!</div>
-          <div class="acad-cert-sub">You've completed Security &amp; Privacy Governance. You're now ready to sit the practitioner certification exam.</div>
+          <div class="acad-cert-sub">You've completed Security &amp; Privacy Governance. You're ready to sit the practitioner certification exam.</div>
           <a href="information-assurance.html" class="acad-cert-btn"><i class="fas fa-arrow-right"></i> Next: Information Assurance</a>
         </div>
       </section>
@@ -520,62 +543,50 @@
     function loadState() { try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); } catch(e) { return {}; } }
     function saveState(s) { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(s)); } catch(e) {} }
     var state = loadState();
-
     function updateProgress() {
       var done = MODULES.filter(function(m){ return state[m] && state[m].complete; }).length;
       var pct = Math.round((done / MODULES.length) * 100);
-      var fill = document.getElementById('progress-fill');
-      var pctEl = document.getElementById('progress-pct');
-      if (fill) fill.style.width = pct + '%';
-      if (pctEl) pctEl.textContent = pct + '%';
+      var fill = document.getElementById('progress-fill'); var pctEl = document.getElementById('progress-pct');
+      if (fill) fill.style.width = pct + '%'; if (pctEl) pctEl.textContent = pct + '%';
       if (pct === 100) { var cert = document.getElementById('cert-block'); if (cert) cert.classList.add('show'); }
     }
-
     window.setActive = function(el) { document.querySelectorAll('.acad-module-item').forEach(function(i){ i.classList.remove('active'); }); el.classList.add('active'); };
-
     window.markComplete = function(moduleId) {
-      if (!state[moduleId]) state[moduleId] = {};
-      state[moduleId].complete = true; saveState(state);
-      var btn = document.getElementById('mc-' + moduleId);
-      if (btn) { btn.textContent = 'Module complete ✓'; btn.classList.add('done'); btn.disabled = true; }
+      if (!state[moduleId]) state[moduleId] = {}; state[moduleId].complete = true; saveState(state);
+      var btn = document.getElementById('mc-' + moduleId); if (btn) { btn.textContent = 'Module complete ✓'; btn.classList.add('done'); btn.disabled = true; }
       var sideItem = document.querySelector('[data-module="' + moduleId + '"]');
       if (sideItem) { sideItem.classList.add('completed'); var icon = sideItem.querySelector('.acad-mod-icon'); if (icon) icon.textContent = '✓'; }
       updateProgress();
     };
-
     window.selectOption = function(el, moduleId) {
-      var block = document.getElementById('quiz-' + moduleId);
-      if (!block || block.dataset.answered === 'true') return;
-      block.querySelectorAll('.quiz-option').forEach(function(o){ o.classList.remove('selected'); });
-      el.classList.add('selected');
+      var block = document.getElementById('quiz-' + moduleId); if (!block || block.dataset.answered === 'true') return;
+      block.querySelectorAll('.quiz-option').forEach(function(o){ o.classList.remove('selected'); }); el.classList.add('selected');
       var btn = block.querySelector('.quiz-btn'); if (btn) btn.disabled = false;
     };
-
     window.checkAnswer = function(moduleId) {
-      var block = document.getElementById('quiz-' + moduleId);
-      if (!block || block.dataset.answered === 'true') return;
+      var block = document.getElementById('quiz-' + moduleId); if (!block || block.dataset.answered === 'true') return;
       var selected = block.querySelector('.quiz-option.selected'); if (!selected) return;
-      block.dataset.answered = 'true';
-      var btn = block.querySelector('.quiz-btn'); if (btn) btn.disabled = true;
+      block.dataset.answered = 'true'; var btn = block.querySelector('.quiz-btn'); if (btn) btn.disabled = true;
       var isCorrect = selected.querySelector('[data-correct="true"]') !== null;
       var feedback = document.getElementById('feedback-' + moduleId);
-      block.querySelectorAll('.quiz-option').forEach(function(o) {
-        if (o.querySelector('[data-correct="true"]')) o.classList.add('correct');
-        else if (o === selected && !isCorrect) o.classList.add('wrong');
-      });
+      block.querySelectorAll('.quiz-option').forEach(function(o) { if (o.querySelector('[data-correct="true"]')) o.classList.add('correct'); else if (o === selected && !isCorrect) o.classList.add('wrong'); });
       if (feedback) {
-        feedback.textContent = '';
-        var label = document.createElement('strong'); var msg = document.createElement('span');
-        var expl = { mod1:{correct:'Correct. Policies define commitments; controls define implementation. The governance chain links both through evidence and accountability.',wrong:'Policies and controls are distinct. A policy is a commitment statement; a control is the implementation mechanism that fulfills it and generates verifiable evidence.'},mod2:{correct:'Correct. The UCB is a single control catalog that maps to multiple frameworks simultaneously — eliminating the need for parallel programs.',wrong:'The UCB does not auto-generate compliance reports or replace external frameworks. Its value is in eliminating duplicate programs through a shared control-to-framework mapping.'},mod3:{correct:'Correct. "Not Ready" means evidence is absent or insufficient — not that the control is undocumented. Privacy readiness requires demonstrated evidence, not just policy.',wrong:'"Not Ready" specifically means the control lacks sufficient evidence. It is distinct from "Not Applicable" (irrelevant) or "Excepted" (formally accepted as a gap).'},mod4:{correct:'Correct. Assurance drift is the degradation of overall confidence as enough controls accumulate stale or missing evidence — requiring proactive collection to restore.',wrong:'Assurance drift is about evidence freshness degradation across multiple controls reducing overall confidence — not about framework changes or individual exceptions.'},mod5:{correct:'Correct. A valid exception requires a named owner, justification, risk statement, expiry date, and any applicable compensating control. All must be present for audit validity.',wrong:'CISO approval and low severity are not the defining requirements. Valid exceptions require complete documentation: owner, justification, risk statement, expiry, and compensating control.'},mod6:{correct:'Correct. Human reviewer attestation is what makes AI output acceptable as evidence. Confidence scores alone are insufficient — accountability requires a named human validator.',wrong:'Model version, peer review count, and data source type do not substitute for named human attestation. The accountability requirement is the defining standard.'} };
-        if (isCorrect) { feedback.className = 'quiz-feedback correct'; label.textContent = 'Correct! '; msg.textContent = (expl[moduleId] || {correct:''}).correct; }
-        else { feedback.className = 'quiz-feedback wrong'; label.textContent = 'Not quite. '; msg.textContent = (expl[moduleId] || {wrong:''}).wrong; }
+        var expl = {
+          mod1:{correct:'Correct. The UCB\'s core value is maintaining one control baseline mapped to many obligations — eliminating parallel programs for each framework.',wrong:'The UCB is not a per-framework checklist generator, a scanner scoring engine, or a framework replacement. Its value is one baseline mapped to many obligations simultaneously.'},
+          mod2:{correct:'Correct. Scanner findings are metadata inputs that support evidence, but the UCB with its source-attributed mappings and human-reviewed evidence remains the authoritative governance source of truth.',wrong:'The timing and scope of scanner findings don\'t explain the boundary. The governance architecture reason is that scanners produce configuration metadata — compliance authority comes from source-attributed UCB records and human-reviewed evidence.'},
+          mod3:{correct:'Correct. Framework Explorer produces a source-attributed governance view for readiness analysis — not a certification statement or legal opinion.',wrong:'Framework Explorer is not a certification tool, a scanner compliance score, or a legal opinion. It is a readiness analysis view based on source-attributed UCB control mappings.'},
+          mod4:{correct:'Correct. A Privacy Explorer readiness score reflects the percentage of mapped controls with sufficient evidence — not a legal compliance determination or scanner coverage percentage.',wrong:'Privacy readiness scores are evidence-based, not legally binding compliance determinations. They reflect evidenced control states, not scan coverage or data protection percentages.'},
+          mod5:{correct:'Correct. A control defines the expected behavior; Assessment Objectives (AOs) are the granular, testable assertions about how that control is implemented — one control can have many AOs.',wrong:'Controls and AOs have a parent-child relationship. Controls define what; AOs define how to verify it. They are not interchangeable, not defined by auditors, and not disconnected from each other.'},
+          mod6:{correct:'Correct. All seven elements — assumptions, linked evidence, linked controls, linked risks, rationale, confidence, and human attestation — are required for an AI output to be a defensible governance record.',wrong:'Version numbers and confidence scores alone don\'t create accountability. The defining requirement is named human reviewer attestation with the full context of what was reviewed.'}
+        };
+        feedback.textContent = ''; var label = document.createElement('strong'); var msg = document.createElement('span');
+        if (isCorrect) { feedback.className = 'quiz-feedback correct'; label.textContent = 'Correct! '; msg.textContent = (expl[moduleId]||{correct:''}).correct; }
+        else { feedback.className = 'quiz-feedback wrong'; label.textContent = 'Not quite. '; msg.textContent = (expl[moduleId]||{wrong:''}).wrong; }
         feedback.appendChild(label); feedback.appendChild(msg);
       }
       if (!state[moduleId]) state[moduleId] = {}; state[moduleId].quizCorrect = isCorrect; saveState(state);
     };
-
     window.toggleAction = function(el) { el.classList.toggle('checked'); };
-
     MODULES.forEach(function(m) {
       if (state[m] && state[m].complete) {
         var btn = document.getElementById('mc-' + m); if (btn) { btn.textContent = 'Module complete ✓'; btn.classList.add('done'); btn.disabled = true; }
@@ -584,25 +595,17 @@
       }
     });
     updateProgress();
-
     var sections = document.querySelectorAll('section[id], .phase-block[id]');
     if ('IntersectionObserver' in window) {
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) { if (entry.isIntersecting) { var id = entry.target.id; var link = document.querySelector('[data-module="' + id + '"]'); if (link) { document.querySelectorAll('.acad-module-item').forEach(function(i){ i.classList.remove('active'); }); link.classList.add('active'); } } });
-      }, { rootMargin: '-20% 0px -70% 0px' });
+      var observer = new IntersectionObserver(function(entries) { entries.forEach(function(entry) { if (entry.isIntersecting) { var id = entry.target.id; var link = document.querySelector('[data-module="' + id + '"]'); if (link) { document.querySelectorAll('.acad-module-item').forEach(function(i){ i.classList.remove('active'); }); link.classList.add('active'); } } }); }, { rootMargin: '-20% 0px -70% 0px' });
       sections.forEach(function(s){ observer.observe(s); });
     }
   })();
   </script>
-
-  <div class="acad-lightbox" id="acad-lightbox" onclick="if(event.target===this)closeLightbox()" role="dialog" aria-modal="true" aria-label="Enlarged screenshot">
-    <button class="acad-lightbox-close" onclick="closeLightbox()" aria-label="Close lightbox">&times;</button>
+  <div class="acad-lightbox" id="acad-lightbox" onclick="if(event.target===this)closeLightbox()" role="dialog" aria-modal="true">
+    <button class="acad-lightbox-close" onclick="closeLightbox()">&times;</button>
     <img src="" alt=""><div class="acad-lightbox-caption"></div>
   </div>
-  <script>
-  function openLightbox(figure) { var img=figure.querySelector('img'); var cap=figure.querySelector('figcaption'); var lb=document.getElementById('acad-lightbox'); if(!lb||!img)return; lb.querySelector('img').src=img.src; lb.querySelector('img').alt=img.alt; var lbCap=lb.querySelector('.acad-lightbox-caption'); if(lbCap)lbCap.textContent=cap?cap.textContent.replace('↑','').trim():''; lb.classList.add('open'); document.body.style.overflow='hidden'; }
-  function closeLightbox() { var lb=document.getElementById('acad-lightbox'); if(lb){lb.classList.remove('open');document.body.style.overflow='';} }
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape')closeLightbox(); });
-  </script>
+  <script>function openLightbox(f){var i=f.querySelector('img');var lb=document.getElementById('acad-lightbox');if(!lb||!i)return;lb.querySelector('img').src=i.src;lb.classList.add('open');document.body.style.overflow='hidden';}function closeLightbox(){var lb=document.getElementById('acad-lightbox');if(lb){lb.classList.remove('open');document.body.style.overflow='';}}document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});</script>
 </body>
 </html>
