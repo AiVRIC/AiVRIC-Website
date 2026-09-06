@@ -106,6 +106,11 @@
               "type": "image",
               "src": "../academy/screenshots/portfolio-exposure.png",
               "caption": "Portfolio exposure"
+            },
+            {
+              "type": "image",
+              "src": "../academy/screenshots/risk-register.png",
+              "caption": "Risk register"
             }
           ],
           "links": [
@@ -143,6 +148,11 @@
               "type": "image",
               "src": "../academy/screenshots/grc-ai-settings.png",
               "caption": "AI provider settings: scoped model, key, and temperature per workflow"
+            },
+            {
+              "type": "image",
+              "src": "../academy/screenshots/vision-ai-config.png",
+              "caption": "AI model configuration and telemetry settings"
             }
           ],
           "links": [
@@ -256,6 +266,11 @@
               "type": "image",
               "src": "../assets/images/app/Findings-dashboard-RiskPlot.jpg",
               "caption": "Risk plot"
+            },
+            {
+              "type": "image",
+              "src": "../academy/screenshots/vision-chat.png",
+              "caption": "Your AI CISO and risk advisor"
             }
           ],
           "links": [
@@ -320,6 +335,11 @@
               "type": "image",
               "src": "../academy/screenshots/integration-hub.png",
               "caption": "Integration hub feeding the Fabric"
+            },
+            {
+              "type": "image",
+              "src": "../academy/screenshots/vision-config-page.png",
+              "caption": "AI provider configuration for the Fabric"
             }
           ],
           "links": [
@@ -371,6 +391,21 @@
               "type": "image",
               "src": "../assets/images/brand/Threat-Signals-1.png",
               "caption": "External exposure map (concept render)"
+            },
+            {
+              "type": "image",
+              "src": "../academy/screenshots/findings-critical-high.png",
+              "caption": "Critical and high findings across the attack surface"
+            },
+            {
+              "type": "image",
+              "src": "../academy/screenshots/assets-dashboard.png",
+              "caption": "Asset inventory and command strip"
+            },
+            {
+              "type": "image",
+              "src": "../academy/screenshots/scans-list.png",
+              "caption": "Scan operations"
             }
           ],
           "links": [
@@ -398,7 +433,18 @@
             "Executive-ready attack reports",
             "Findings flow directly to AIRE for remediation"
           ],
-          "media": [],
+          "media": [
+            {
+              "type": "image",
+              "src": "../academy/screenshots/riskops-scenarios.png",
+              "caption": "Scenario Intelligence Studio: threat and impact scenarios (CloudSignals+RiskOps)"
+            },
+            {
+              "type": "image",
+              "src": "../assets/images/app/Threat-Score.jpg",
+              "caption": "Threat score and check findings (CloudSignals+RiskOps)"
+            }
+          ],
           "links": [
             {
               "label": "Red teaming",
@@ -419,7 +465,18 @@
             "Supply chain risk signals",
             "Early-warning alerts routed to your SIEM"
           ],
-          "media": [],
+          "media": [
+            {
+              "type": "image",
+              "src": "../academy/screenshots/assets-list.png",
+              "caption": "Asset inventory across environments"
+            },
+            {
+              "type": "image",
+              "src": "../assets/images/app/Findings-dashboard-RiskPipeline.jpg",
+              "caption": "Risk pipeline by source (CloudSignals+RiskOps)"
+            }
+          ],
           "links": [
             {
               "label": "Digital risk",
@@ -533,6 +590,11 @@
               "type": "image",
               "src": "../academy/screenshots/portfolio-exposure.png",
               "caption": "Portfolio exposure for the board"
+            },
+            {
+              "type": "image",
+              "src": "../academy/screenshots/riskops-command-center.png",
+              "caption": "Risk Governance Command Center"
             }
           ],
           "links": [
@@ -560,7 +622,18 @@
             "90-day action plan mapped to AiVRIC capabilities",
             "Optional continuation into CloudSignals+RiskOps"
           ],
-          "media": [],
+          "media": [
+            {
+              "type": "image",
+              "src": "../academy/screenshots/vision-intelligence-brief.png",
+              "caption": "AI Security Intelligence Brief: the executive readout"
+            },
+            {
+              "type": "image",
+              "src": "../academy/screenshots/riskops-quantification.png",
+              "caption": "Quantification Studio: monetary signal behind each priority"
+            }
+          ],
           "links": [
             {
               "label": "Start with the Snapshot",
@@ -608,6 +681,11 @@
               "type": "image",
               "src": "../academy/screenshots/integration-hub.png",
               "caption": "Integration Hub: SIEM, ticketing, notifications, and storage exports feeding the Fabric"
+            },
+            {
+              "type": "image",
+              "src": "../academy/screenshots/integration-m365.png",
+              "caption": "Microsoft 365 integration"
             }
           ],
           "links": [

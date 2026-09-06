@@ -47,6 +47,7 @@ experience/
   media/cloudsignals/        compressed walkthrough clip + poster (the 42 MB original is in ../assets/videos)
   media/film/                intro film + poster
   tools/hotspot-tool.html    click-to-get-coordinates helper (dev only)
+  tools/apply-site-links.py  wires the top bar, mega-menu, footer, and suite-page links across the site (idempotent)
   tools/reference/           original concept infographic
   tools/render-prompts/      prompts used to generate the scene renders
 ```
@@ -55,7 +56,14 @@ experience/
 
 - `index.html` top bar: an "Explore the floor" link next to Platform Guide / Academy / Trust Center.
 - `index.html` "Platform in Action" section: a "Walk the operations floor" CTA in the `ve-cta-row`.
-- Other pages share the same header markup; add the top-bar link there when the experience is ready for prime time.
+- Every page with the shared header: "Inside AiVRIC" in the top bar, an "Inside AiVRIC" card in the Portfolio
+  mega-menu (By Solution tab), and an "Inside AiVRIC" link in the footer Company column.
+- Deep links on the suite pages: `defense-suite.html` → `#/room/defense`, `offense-suite.html` → `#/room/offense`,
+  `vision-suite.html` → `#/room/vision`, `air-remediation.html` → `#/room/aire-bridge`, plus `solutions-portal.html`.
+- The related CSS is appended at the bottom of `assets/css/style.css` (`mega-card-experience`, `portal-floor-link`,
+  `sp-floor-link`), and `style.css?v=` was bumped to `20260906` so browsers pick it up.
+- All of this is applied by `tools/apply-site-links.py`. It is idempotent: run it from the repo root after adding a
+  new page (or after regenerating the shared header) and it inserts only what is missing.
 - Deep links work anywhere in marketing or sales emails, for example
   `https://aivric.com/experience/#/station/rogueagent` opens straight into the Offense room with RogueAgent selected.
 - `?skipintro=1` skips the opening film. The film is also skipped automatically after the first visit in a session.
@@ -77,7 +85,7 @@ Everything is in `content/experience.json`.
    { "type": "image", "src": "../academy/screenshots/exposure-map.png", "caption": "External exposure map" }
    { "type": "video", "src": "media/rogueagent/demo.mp4", "poster": "media/rogueagent/demo-poster.jpg", "caption": "Recon pipeline demo" }
    ```
-   The first item is shown largest in the panel. Empty `media` arrays render a styled "Add screenshot or video" slot.
+   The first item is shown largest in the panel. Stations with an empty `media` array simply omit the gallery.
 
 ### Station fields
 

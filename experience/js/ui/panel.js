@@ -37,8 +37,6 @@ function renderStation(room, s) {
       : `<img src="${esc(m.src)}" alt="${esc(m.caption)}" loading="lazy">`;
     return `<button class="thumb" type="button" data-i="${i}" aria-label="${esc(m.caption || (m.type === 'video' ? 'Play video' : 'Open image'))}">${inner}${m.caption ? `<span class="cap">${esc(m.caption)}</span>` : ''}</button>`;
   });
-  const slots = Math.max(0, (media.length === 0 ? 2 : (media.length % 2)) );
-  for (let i = 0; i < slots; i++) thumbs.push(`<div class="empty"><span><b>+</b>Add screenshot or video<br><small>media/${esc(s.id)}/ · see README</small></span></div>`);
 
   const ctas = (s.links || []).map((l) =>
     `<a class="btn ${l.primary ? 'primary' : 'outline'}" href="${esc(l.href)}" target="_blank" rel="noopener">${esc(l.label)}
@@ -50,7 +48,7 @@ function renderStation(room, s) {
     <div class="meta"><span class="badge ${esc(s.status)}">${esc(STATUS_LABEL[s.status] || s.status)}</span><span>${esc(s.suite || '')}</span></div>
     <h2>${esc(s.headline)}</h2>
     <p class="summary">${esc(s.summary)}</p>
-    <div class="gallery">${thumbs.join('')}</div>
+    ${thumbs.length ? `<div class="gallery">${thumbs.join('')}</div>` : ''}
     ${s.capabilities?.length ? `<h3>Capabilities</h3><ul class="caps">${s.capabilities.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>` : ''}
     <div class="ctas">${ctas}</div>`;
 

@@ -3374,3 +3374,24 @@ header.main-header .main-menu .navigation > li.cs-product-menu .cs-product-megam
   border-color: #00d1ff;
   color: #00d1ff !important;
 }
+
+/* ── Inside AiVRIC experience links (added 2026-09) ── */
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card.mega-card-experience {
+  background: linear-gradient(135deg, rgba(255,214,58,.10), rgba(167,139,250,.12));
+  border-color: rgba(255,214,58,.28);
+}
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card.mega-card-experience:hover {
+  border-color: rgba(255,214,58,.6);
+  background: linear-gradient(135deg, rgba(255,214,58,.16), rgba(167,139,250,.18));
+}
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card.mega-card-experience strong { color: #ffd63a; }
+header.main-header .main-menu .navigation > li.dropdown .megamenu .mega-card.mega-card-experience span { color: #cbd5e1; }
+.portal-hero .portal-floor-link, .sp-hero .sp-floor-link {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; padding: 10px 18px; border-radius: 999px;
+  border: 1px solid rgba(255,214,58,.35); color: #ffd63a; font-weight: 600; font-size: 14px; text-decoration: none;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.sp-hero .sp-floor-link { margin-top: 22px; }
+.sp-hero .sp-floor-link:hover { background: rgba(255,214,58,.1); border-color: #ffd63a; transform: translateY(-1px); color: #ffd63a; }
+.portal-hero .portal-floor-link { background: #0b1220; border-color: #0b1220; color: #ffd63a; margin: 14px 0 12px; }
+.portal-hero .portal-floor-link:hover { background: #1e293b; border-color: #1e293b; color: #ffd63a; transform: translateY(-1px); }
