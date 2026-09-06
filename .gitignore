@@ -18,3 +18,5 @@ Thumbs.db
 *~
 
 gif/
+# Raw (non de-identified) AI Signals captures - never commit
+experience/media/ai-signals/_originals/

@@ -145,14 +145,70 @@
           ],
           "media": [
             {
-              "type": "image",
-              "src": "../academy/screenshots/grc-ai-settings.png",
-              "caption": "AI provider settings: scoped model, key, and temperature per workflow"
+              "type": "video",
+              "src": "media/ai-signals/ai-signals-clickthrough.mp4",
+              "poster": "media/ai-signals/command-center.png",
+              "caption": "AI Signals click-through: Command Center to red teaming, tracing, and governance (90 s)"
             },
             {
               "type": "image",
-              "src": "../academy/screenshots/vision-ai-config.png",
-              "caption": "AI model configuration and telemetry settings"
+              "src": "media/ai-signals/command-center.png",
+              "caption": "AI Trust Command Center: one trust index across six AI domains"
+            },
+            {
+              "type": "image",
+              "src": "media/ai-signals/security-reports.png",
+              "caption": "OWASP LLM Top 10 evidence reports and framework coverage"
+            },
+            {
+              "type": "image",
+              "src": "media/ai-signals/red-teaming.png",
+              "caption": "Red teaming: safe-mode campaigns and readiness"
+            },
+            {
+              "type": "image",
+              "src": "media/ai-signals/red-teaming-scenarios.png",
+              "caption": "Scenario packs: prompt injection, jailbreak, exfiltration, tool abuse"
+            },
+            {
+              "type": "image",
+              "src": "media/ai-signals/model-security.png",
+              "caption": "Model security posture and inventory"
+            },
+            {
+              "type": "image",
+              "src": "media/ai-signals/mcp-security.png",
+              "caption": "MCP security: server inventory, policy coverage, threat posture"
+            },
+            {
+              "type": "image",
+              "src": "media/ai-signals/ai-operations.png",
+              "caption": "AI Operations Center: requests, latency, error rate, token usage"
+            },
+            {
+              "type": "image",
+              "src": "media/ai-signals/tracing.png",
+              "caption": "Tracing: sessions, spans, and model calls"
+            },
+            {
+              "type": "image",
+              "src": "media/ai-signals/observability-trace.png",
+              "caption": "Trace detail with input, output, and metadata"
+            },
+            {
+              "type": "image",
+              "src": "media/ai-signals/finops.png",
+              "caption": "AI FinancialOps: spend trend, cost efficiency, spend by model"
+            },
+            {
+              "type": "image",
+              "src": "media/ai-signals/governance-hub.png",
+              "caption": "AI Governance Hub: governance score, open risks, policy violations, controls"
+            },
+            {
+              "type": "image",
+              "src": "media/ai-signals/assets.png",
+              "caption": "AI Assets Inventory: agents, models, prompts, datasets, MCP servers"
             }
           ],
           "links": [
