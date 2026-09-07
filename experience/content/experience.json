@@ -73,8 +73,8 @@
           "media": [
             {
               "type": "image",
-              "src": "../academy/screenshots/overview-dashboard.png",
-              "caption": "Overview dashboard: posture, findings, and compliance in one view"
+              "src": "media/cloudsignals/posture-command.png",
+              "caption": "Posture Command: multi-cloud exposure, findings, and coverage in one view"
             },
             {
               "type": "video",
@@ -84,18 +84,58 @@
             },
             {
               "type": "image",
-              "src": "../academy/screenshots/findings-list.png",
-              "caption": "Prioritized findings"
+              "src": "media/cloudsignals/remediation-plan.png",
+              "caption": "Remediation plan for a control gap, ready for AIRE"
             },
             {
               "type": "image",
-              "src": "../academy/screenshots/finding-detail.png",
-              "caption": "Finding detail with framework mapping"
+              "src": "media/cloudsignals/scan-findings.png",
+              "caption": "Cloud scan findings, prioritized by severity and business context"
             },
             {
               "type": "image",
-              "src": "../academy/screenshots/compliance-overview.png",
-              "caption": "Compliance overview across frameworks"
+              "src": "media/cloudsignals/finding-detail.png",
+              "caption": "Finding detail with affected resources and framework mapping"
+            },
+            {
+              "type": "image",
+              "src": "media/cloudsignals/compliance-dashboard.png",
+              "caption": "Cyber-compliance dashboard: control plane across frameworks"
+            },
+            {
+              "type": "image",
+              "src": "media/cloudsignals/compliance-posture.png",
+              "caption": "Compliance posture by framework and control family"
+            },
+            {
+              "type": "image",
+              "src": "media/cloudsignals/risk-governance.png",
+              "caption": "Risk Governance Command Center"
+            },
+            {
+              "type": "image",
+              "src": "media/cloudsignals/portfolio-analytics.png",
+              "caption": "Portfolio analytics: exposure engine and coverage maturity"
+            },
+            {
+              "type": "image",
+              "src": "media/cloudsignals/scenario-library.png",
+              "caption": "Scenario Intelligence Studio: risk scenario library"
+            },
+            {
+              "type": "image",
+              "src": "media/cloudsignals/project-center.png",
+              "caption": "RiskOps Project Center: treatments, owners, and status"
+            },
+            {
+              "type": "image",
+              "src": "media/cloudsignals/sla-governance.png",
+              "caption": "SLA governance for remediation work"
+            },
+            {
+              "type": "image",
+              "src": "media/cloudsignals/third-party-register.png",
+              "caption": "Third-party risk register"
             },
             {
               "type": "video",
@@ -104,13 +144,28 @@
             },
             {
               "type": "image",
-              "src": "../academy/screenshots/portfolio-exposure.png",
-              "caption": "Portfolio exposure"
+              "src": "media/cloudsignals/ai-security-brief.png",
+              "caption": "AI Security Intelligence Brief: the executive readout"
             },
             {
               "type": "image",
-              "src": "../academy/screenshots/risk-register.png",
-              "caption": "Risk register"
+              "src": "media/cloudsignals/riskops-insights.png",
+              "caption": "RiskOps Insights: data protection compliance results"
+            },
+            {
+              "type": "image",
+              "src": "media/cloudsignals/vision-chat.png",
+              "caption": "Vision Chat: your AI CISO and risk advisor"
+            },
+            {
+              "type": "image",
+              "src": "media/cloudsignals/vision-model-insights.png",
+              "caption": "Vision model insights and telemetry"
+            },
+            {
+              "type": "image",
+              "src": "media/cloudsignals/risk-landscape.png",
+              "caption": "Risk landscape from the AI Security Intelligence Brief"
             }
           ],
           "links": [
@@ -226,8 +281,8 @@
         {
           "id": "aire",
           "name": "AIRE Agentic Mesh™",
-          "status": "alpha",
-          "suite": "Defense suite · Alpha · GA target Q3 2026",
+          "status": "coming-soon",
+          "suite": "Defense suite · Coming soon",
           "headline": "Autonomous remediation. Verified. Auditable.",
           "summary": "Policy-guided remediation agents route findings to the right playbook, execute approved fixes with dry-run preview and rollback, re-scan to verify, and leave a signed evidence trail.",
           "capabilities": [
@@ -237,35 +292,14 @@
             "Human approval gates via email, Slack, or Teams",
             "Two-way Jira and ServiceNow sync"
           ],
-          "media": [
-            {
-              "type": "image",
-              "src": "../academy/screenshots/pending-decisions.png",
-              "caption": "Pending decisions queue"
-            },
-            {
-              "type": "video",
-              "src": "../academy/screenshots/clip-treatments.webm",
-              "caption": "Treatments workflow"
-            },
-            {
-              "type": "image",
-              "src": "../academy/screenshots/projects-sla.png",
-              "caption": "Remediation SLAs"
-            },
-            {
-              "type": "image",
-              "src": "../academy/screenshots/projects-main.png",
-              "caption": "Remediation projects"
-            }
-          ],
+          "media": [],
           "links": [
             {
               "label": "AIRE Agentic Mesh",
               "href": "../air-remediation.html"
             },
             {
-              "label": "Request alpha access",
+              "label": "Get notified",
               "href": "../air-remediation.html",
               "primary": true
             }
@@ -307,28 +341,7 @@
             "Natural-language chat over findings, evidence, and compliance state",
             "Trend analysis by control, environment, owner, or framework"
           ],
-          "media": [
-            {
-              "type": "image",
-              "src": "../assets/images/app/VISION-Chat-Entry.jpg",
-              "caption": "Vision AI chat"
-            },
-            {
-              "type": "image",
-              "src": "../assets/images/app/VISION-Chat-QandA.jpg",
-              "caption": "Ask about your posture in plain English"
-            },
-            {
-              "type": "image",
-              "src": "../assets/images/app/Findings-dashboard-RiskPlot.jpg",
-              "caption": "Risk plot"
-            },
-            {
-              "type": "image",
-              "src": "../academy/screenshots/vision-chat.png",
-              "caption": "Your AI CISO and risk advisor"
-            }
-          ],
+          "media": [],
           "links": [
             {
               "label": "Vision AI and narratives",
@@ -447,21 +460,6 @@
               "type": "image",
               "src": "../assets/images/brand/Threat-Signals-1.png",
               "caption": "External exposure map (concept render)"
-            },
-            {
-              "type": "image",
-              "src": "../academy/screenshots/findings-critical-high.png",
-              "caption": "Critical and high findings across the attack surface"
-            },
-            {
-              "type": "image",
-              "src": "../academy/screenshots/assets-dashboard.png",
-              "caption": "Asset inventory and command strip"
-            },
-            {
-              "type": "image",
-              "src": "../academy/screenshots/scans-list.png",
-              "caption": "Scan operations"
             }
           ],
           "links": [
@@ -489,18 +487,7 @@
             "Executive-ready attack reports",
             "Findings flow directly to AIRE for remediation"
           ],
-          "media": [
-            {
-              "type": "image",
-              "src": "../academy/screenshots/riskops-scenarios.png",
-              "caption": "Scenario Intelligence Studio: threat and impact scenarios (CloudSignals+RiskOps)"
-            },
-            {
-              "type": "image",
-              "src": "../assets/images/app/Threat-Score.jpg",
-              "caption": "Threat score and check findings (CloudSignals+RiskOps)"
-            }
-          ],
+          "media": [],
           "links": [
             {
               "label": "Red teaming",
@@ -521,18 +508,7 @@
             "Supply chain risk signals",
             "Early-warning alerts routed to your SIEM"
           ],
-          "media": [
-            {
-              "type": "image",
-              "src": "../academy/screenshots/assets-list.png",
-              "caption": "Asset inventory across environments"
-            },
-            {
-              "type": "image",
-              "src": "../assets/images/app/Findings-dashboard-RiskPipeline.jpg",
-              "caption": "Risk pipeline by source (CloudSignals+RiskOps)"
-            }
-          ],
+          "media": [],
           "links": [
             {
               "label": "Digital risk",
@@ -566,8 +542,8 @@
         {
           "id": "aire-workflow",
           "name": "Proposed work → Approval → Action → Verification",
-          "status": "alpha",
-          "suite": "AIRE Agentic Mesh™ · Alpha",
+          "status": "coming-soon",
+          "suite": "AIRE Agentic Mesh™ · Coming soon",
           "headline": "Every fix traceable from trigger to close.",
           "summary": "The AIRE bridge is where operators watch agent playbooks move through four stages: proposed work, human approval, execution, and verification, with an immutable audit trail behind each step.",
           "capabilities": [
@@ -576,18 +552,7 @@
             "Action: agents execute within policy scope, rollback ready",
             "Verification: automatic re-scan, before/after diff, signed evidence bundle"
           ],
-          "media": [
-            {
-              "type": "image",
-              "src": "../academy/screenshots/pending-decisions.png",
-              "caption": "Approvals waiting on a human"
-            },
-            {
-              "type": "video",
-              "src": "../academy/screenshots/clip-treatments.webm",
-              "caption": "Treatment execution"
-            }
-          ],
+          "media": [],
           "links": [
             {
               "label": "AIRE Agentic Mesh",
@@ -631,28 +596,7 @@
             "Priority risks, progress, and decisions in one table view",
             "Board-ready readouts"
           ],
-          "media": [
-            {
-              "type": "image",
-              "src": "../academy/screenshots/pending-decisions.png",
-              "caption": "Decisions waiting on leadership"
-            },
-            {
-              "type": "image",
-              "src": "../academy/screenshots/projects-exceptions.png",
-              "caption": "Security exceptions with approvals"
-            },
-            {
-              "type": "image",
-              "src": "../academy/screenshots/portfolio-exposure.png",
-              "caption": "Portfolio exposure for the board"
-            },
-            {
-              "type": "image",
-              "src": "../academy/screenshots/riskops-command-center.png",
-              "caption": "Risk Governance Command Center"
-            }
-          ],
+          "media": [],
           "links": [
             {
               "label": "Book a walkthrough",
@@ -681,13 +625,13 @@
           "media": [
             {
               "type": "image",
-              "src": "../academy/screenshots/vision-intelligence-brief.png",
+              "src": "media/cloudsignals/ai-security-brief.png",
               "caption": "AI Security Intelligence Brief: the executive readout"
             },
             {
               "type": "image",
-              "src": "../academy/screenshots/riskops-quantification.png",
-              "caption": "Quantification Studio: monetary signal behind each priority"
+              "src": "media/cloudsignals/risk-landscape.png",
+              "caption": "Risk landscape: what the 90-day plan is built from"
             }
           ],
           "links": [
@@ -737,11 +681,6 @@
               "type": "image",
               "src": "../academy/screenshots/integration-hub.png",
               "caption": "Integration Hub: SIEM, ticketing, notifications, and storage exports feeding the Fabric"
-            },
-            {
-              "type": "image",
-              "src": "../academy/screenshots/integration-m365.png",
-              "caption": "Microsoft 365 integration"
             }
           ],
           "links": [
