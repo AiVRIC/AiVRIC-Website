@@ -1,30 +1,12 @@
 # Inside AiVRIC — explorable operations floor
 
-A static web experience that lives at `aivric.com/experience/`: a cinematic render of the AiVRIC / 3HUE operations
-floor that visitors can walk through. Click a room (Defense, Client Vision, Offense, AIRE, Executive Decisions,
-Fabric) to fly into a close-up render, then browse that room's solutions with real screenshots and video.
+A self-contained, static web experience: a cinematic render of the AiVRIC / 3HUE operations floor that visitors
+can walk through. Click a room (Defense, Client Vision, Offense, AIRE, Executive Decisions, Fabric) to fly into a
+close-up render, then browse that room's solutions with real screenshots and video.
 
-The concept shows how the AiVRIC platform converges with human operators from disparate teams around one shared
-goal: Defense and Offense findings flow into Client Vision, AIRE coordinates approved remediation, and every stream
-ends at the executive table where 3HUE advisors turn findings into decisions.
-
-- No build step, no framework, no vendored libraries. Plain HTML, CSS, and ES modules. Fully independent of the
-  Bootstrap/jQuery stack used by the rest of the site, so it can be iterated in isolation.
-- Relative paths only. Product screenshots and clips are shared with the main site (`../academy/screenshots/`,
-  `../assets/images/`); only the scene renders, the intro film, and one compressed walkthrough clip live under
-  `experience/media/`.
+- No build step, no framework, no vendored libraries. Plain HTML, CSS, and ES modules.
+- Works from any static host (GitHub Pages, Vercel, S3). Relative paths only.
 - All copy, media, hotspots, and streams live in one manifest: `content/experience.json`.
-- `tools/reference/inside-aivric-infographic.png` is the original image-first concept this experience was built
-  from (the numbered Defense / Offense / Client Vision / 3HUE Advisor layout).
-
-## Run locally
-
-From the repo root (not from `experience/`, since media and links reach up into `../`):
-
-```bash
-python -m http.server 8000
-# then open http://localhost:8000/experience/?skipintro=1
-```
 
 ## Folder layout
 
@@ -43,33 +25,62 @@ experience/
   js/ui/intro.js             opening film overlay
   content/experience.json    THE manifest
   media/scene/master.jpg     master wide shot (2560×1440)
-  media/scene/rooms/*.jpg    per-room close-ups (2048×1152)
-  media/cloudsignals/        compressed walkthrough clip + poster (the 42 MB original is in ../assets/videos)
+  media/scene/rooms/*.jpg    per-room close-ups (2048×1152): defense, offense, vision, aire, decisions, fabric
+  media/<station-id>/        screenshots and clips per station
   media/film/                intro film + poster
   tools/hotspot-tool.html    click-to-get-coordinates helper (dev only)
-  tools/apply-site-links.py  wires the top bar, mega-menu, footer, and suite-page links across the site (idempotent)
-  tools/reference/           original concept infographic
+  tools/fetch-seed-media.sh  one-time pull of academy screenshots (dev only)
   tools/render-prompts/      prompts used to generate the scene renders
 ```
 
-## Where it is wired into the site
+## Embed into aivric.com
 
-- `index.html` top bar: an "Explore the floor" link next to Platform Guide / Academy / Trust Center.
-- `index.html` "Platform in Action" section: a "Walk the operations floor" CTA in the `ve-cta-row`.
-- Every page with the shared header: "Inside AiVRIC" in the top bar, an "Inside AiVRIC" card in the Portfolio
-  mega-menu (By Solution tab), and an "Inside AiVRIC" link in the footer Company column.
-- Deep links on the suite pages: `defense-suite.html` → `#/room/defense`, `offense-suite.html` → `#/room/offense`,
-  `vision-suite.html` → `#/room/vision`, `air-remediation.html` → `#/room/aire-bridge`, plus `solutions-portal.html`.
-- The related CSS is appended at the bottom of `assets/css/style.css` (`mega-card-experience`, `portal-floor-link`,
-  `sp-floor-link`), and `style.css?v=` was bumped to `20260906` so browsers pick it up.
-- All of this is applied by `tools/apply-site-links.py`. It is idempotent: run it from the repo root after adding a
-  new page (or after regenerating the shared header) and it inserts only what is missing.
-- Deep links work anywhere in marketing or sales emails, for example
-  `https://aivric.com/experience/#/station/rogueagent` opens straight into the Offense room with RogueAgent selected.
-- `?skipintro=1` skips the opening film. The film is also skipped automatically after the first visit in a session.
+1. Copy this folder into the website repo as `experience/` (next to its `index.html`) **without the
+   git history**. `aivric-experience/.git` is a real repository of about 26 MB; `cp -r` followed by
+   `git add` records a gitlink (a submodule pointer) instead of files, and the deployed `experience/`
+   directory ends up empty. Run this from the directory that holds both checkouts:
+   ```bash
+   rsync -a --exclude .git --exclude .gitignore aivric-experience/ AiVRIC-Website/experience/
+   cd AiVRIC-Website && git add experience && git status
+   ```
+   `git status` must list individual files (`experience/index.html`, `experience/js/main.js`, …). If it
+   shows one entry reading `new file: experience` with no trailing slash, a `.git` came along: delete
+   `AiVRIC-Website/experience/`, `git rm --cached experience`, and run the `rsync` again.
+2. Add a nav link. In the header mega-menu of each page (or just `index.html`), add:
+   ```html
+   <a href="experience/">Explore the floor</a>
+   ```
+3. Optional CTA under the "Platform in Action" section of `index.html` (around the `ve-` video block):
+   ```html
+   <a href="experience/" class="ve-btn"><i class="fas fa-door-open"></i>&nbsp;Walk the operations floor</a>
+   ```
+4. Deep links work anywhere in marketing or sales emails, for example
+   `https://aivric.com/experience/#/station/rogueagent` opens straight into the Offense room with RogueAgent selected.
+5. `?skipintro=1` skips the opening film. The film is also skipped automatically after the first visit in a session.
 
 GitHub Pages serves `.js` modules with the right MIME type. No server configuration is required.
 A copy of the site favicon ships in the folder so the page is self-contained.
+
+### Where to commit
+
+**Commit `experience/` to `gh-pages`.** In `AiVRIC/AiVRIC-Website`, `gh-pages` is both the repository
+default branch and the GitHub Pages source (Pages settings: branch `gh-pages`, path `/`, custom domain
+`aivric.com`). The host repo's own `CLAUDE.md` says `main` is production — it is wrong. `main` is a
+stale stub, last committed in October 2025 and several hundred commits behind `gh-pages`; pushing
+there deploys nothing.
+
+```bash
+cd AiVRIC-Website && git checkout gh-pages
+git add experience && git commit -m "Add the operations floor experience" && git push origin gh-pages
+```
+
+- Expect `https://aivric.com/experience/` to be live a minute or two after the push, once the Pages
+  build finishes. Check it with `gh api repos/AiVRIC/AiVRIC-Website/pages/builds/latest --jq .status`.
+- **Never name a file or folder inside `experience/` starting with `_` or `.`.** The site uses the
+  classic (Jekyll) Pages build with no `.nojekyll` at the site root, and Jekyll drops underscore- and
+  dot-prefixed paths from the output. A `media/_clips/` or `media/.cache/` folder would work perfectly
+  on a local static server and 404 in production. The `.nojekyll` shipped in this folder only counts at
+  the root of a site, so it does not protect `experience/` on the host.
 
 ## Add or change content
 
@@ -77,15 +88,13 @@ Everything is in `content/experience.json`.
 
 ### Add a screenshot or video to a station
 
-1. If the screenshot already exists in the main site, reference it in place (`../academy/screenshots/...` or
-   `../assets/images/...`). Otherwise drop the file into `media/<station-id>/` (create the folder if needed).
-   Keep images ≤ 1600 px wide and videos ≤ 5 MB, H.264 MP4 or WebM.
+1. Drop the file into `media/<station-id>/` (create the folder if needed). Keep images ≤ 1600 px wide and videos ≤ 5 MB, H.264 MP4 or WebM.
 2. Add an entry to that station's `media` array:
    ```json
-   { "type": "image", "src": "../academy/screenshots/exposure-map.png", "caption": "External exposure map" }
+   { "type": "image", "src": "media/rogueagent/exposure-map.png", "caption": "External exposure map" }
    { "type": "video", "src": "media/rogueagent/demo.mp4", "poster": "media/rogueagent/demo-poster.jpg", "caption": "Recon pipeline demo" }
    ```
-   The first item is shown largest in the panel. Stations with an empty `media` array simply omit the gallery.
+   The first item is shown largest in the panel. Empty `media` arrays render a styled "Add screenshot or video" slot.
 
 ### Station fields
 
@@ -111,15 +120,17 @@ Everything is in `content/experience.json`.
 
 `streams` are SVG paths in master-image pixels (2560×1440). `color` picks the palette, `room` links the stream to a room so it brightens on hover, `delay` offsets the dash animation so parallel streams don't move in lockstep.
 
-## Regenerate scene renders
+## Scene renders
 
-The renders were produced with OpenAI `gpt-image-2` using the prompts in `tools/render-prompts/`. The shared
-style block is `tools/render-style-block.txt`; each room prompt appends its own SCENE paragraph. Regenerate a room
-by re-running its prompt at 2048×1152 (master at 2560×1440) and replacing the file in `media/scene/`. Renders
-must contain **no text or UI**; the interface is real HTML drawn on top.
+The seven scene images come from the **Inside AiVRIC photographic image library** (produced 2026-09-07). That
+package holds the native renders, 8K/4K PNG masters, per-image checksums, a cast and continuity reference sheet,
+and the prompt history. `media/scene/` carries its web copies at the exact sizes this app loads:
+`master.jpg` 2560×1440 and each room 2048×1152.
 
-If a new master is generated, re-check `hotspot`, `zoomTo`, and `streams` with the hotspot tool. Everything else
-is independent of the images.
+Renders must contain **no text or UI**; the interface is real HTML drawn on top. To swap in a new set, copy the
+library's `web/master.jpg` and `web/rooms/*.jpg` over `media/scene/`, then re-check `hotspot`, `zoomTo`, and the
+`streams` paths with `tools/hotspot-tool.html` — those coordinates are tied to the master's composition, so a new
+master moves every pin. `tools/render-prompts/` keeps the earlier gpt-image-2 prompts for reference.
 
 ## Behaviour notes
 
@@ -127,9 +138,15 @@ is independent of the images.
 - `prefers-reduced-motion` disables parallax, stream animation, and long transitions.
 - Under 768 px the panel becomes a bottom sheet and a scrollable room strip replaces the HUD room buttons.
 - Esc closes the lightbox first, then exits the room. Browser back/forward works because routes are hash-based.
-- Media is lazy-loaded per station; the master image (≈540 KB) and film (≈3 MB) are the only up-front loads.
+- Media is lazy-loaded per station. The master render (≈1.0 MB) is the only up-front load: the `<video>`
+  in `index.html` carries `preload="none"` and no `poster`, and `js/ui/intro.js` sets both immediately
+  before it plays, so the 2.9 MB film costs nothing on a deep link, a `?skipintro=1` load, or a
+  same-session revisit.
+- When the film reaches its end it eases over ~1.5 s into a finished state — the last frame recedes and
+  the headline and "Enter the building" button take the frame. "Play with sound" sits next to
+  "Skip film" on the first frame; nothing ever autoplays with sound.
 
 ## Credits
 
-Concept and first build: 3HUE. Scene renders: generated imagery, direction by 3HUE. Product screenshots: AiVRIC
-CloudSignals+RiskOps. Fonts: Jost and Inter via Google Fonts (same as aivric.com).
+Scene renders: Inside AiVRIC photographic image library, direction by 3HUE. Product screenshots: AiVRIC CloudSignals+RiskOps.
+Fonts: Jost and Inter via Google Fonts (same as aivric.com).
