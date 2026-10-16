@@ -1,0 +1,165 @@
+WEBVTT
+
+1
+00:00:01.200 --> 00:00:03.709
+Your clients want coverage for everything.
+
+2
+00:00:03.719 --> 00:00:04.476
+AI.
+
+3
+00:00:04.486 --> 00:00:05.242
+Vendors.
+
+4
+00:00:05.252 --> 00:00:06.322
+The plant floor.
+
+5
+00:00:06.332 --> 00:00:07.812
+The next headline.
+
+6
+00:00:08.462 --> 00:00:12.218
+Only 36% of MSPs sell compliance.
+
+7
+00:00:12.270 --> 00:00:13.170
+Build it?
+
+8
+00:00:13.187 --> 00:00:14.041
+Years.
+
+9
+00:00:14.058 --> 00:00:15.109
+Resell it?
+
+10
+00:00:15.161 --> 00:00:16.885
+Someone else’s logo.
+
+11
+00:00:17.236 --> 00:00:18.573
+Here’s what it takes.
+
+12
+00:00:18.583 --> 00:00:22.258
+Estate: every asset, every cloud, every threat.
+
+13
+00:00:22.298 --> 00:00:25.051
+Govern: every risk, control and decision,
+
+14
+00:00:25.061 --> 00:00:27.134
+mapped to the frameworks that matter.
+
+15
+00:00:27.221 --> 00:00:31.065
+Respond: every incident, step by step, on the record.
+
+16
+00:00:31.075 --> 00:00:35.272
+Operate: every project, milestone and hour… live.
+
+17
+00:00:35.591 --> 00:00:37.548
+Ready when the auditor asks.
+
+18
+00:00:38.198 --> 00:00:40.491
+What if… it had your name on it?
+
+19
+00:00:41.041 --> 00:00:41.925
+Your logo.
+
+20
+00:00:41.935 --> 00:00:42.749
+Your colors.
+
+21
+00:00:42.759 --> 00:00:43.892
+Your domain.
+
+22
+00:00:44.342 --> 00:00:46.589
+Your clients sign in… to you.
+
+23
+00:00:47.639 --> 00:00:48.442
+Cloud.
+
+24
+00:00:48.452 --> 00:00:49.289
+AI.
+
+25
+00:00:49.299 --> 00:00:50.148
+OT.
+
+26
+00:00:50.158 --> 00:00:51.495
+The world outside.
+
+27
+00:00:51.505 --> 00:00:52.064
+Risk.
+
+28
+00:00:52.074 --> 00:00:53.213
+Rogue agents.
+
+29
+00:00:53.223 --> 00:00:54.398
+Remediation.
+
+30
+00:00:54.408 --> 00:00:57.943
+All of it, flowing into… your Client Vision.
+
+31
+00:00:57.960 --> 00:01:00.242
+Coverage you didn’t have yesterday.
+
+32
+00:01:01.392 --> 00:01:03.681
+Every client, one console.
+
+33
+00:01:03.691 --> 00:01:05.086
+Sealed from each other.
+
+34
+00:01:05.096 --> 00:01:07.354
+True multi-tenancy.
+
+35
+00:01:08.304 --> 00:01:10.535
+Board reports with your name on the cover.
+
+36
+00:01:10.545 --> 00:01:13.570
+A trust page with your name… when it counts.
+
+37
+00:01:14.319 --> 00:01:19.399
+New services to sell, new revenue to keep, and not one new hire.
+
+38
+00:01:20.549 --> 00:01:22.401
+Client Vision.
+
+39
+00:01:22.453 --> 00:01:23.441
+Your brand.
+
+40
+00:01:23.451 --> 00:01:24.916
+Powered by AiVRIC.
+
+41
+00:01:24.926 --> 00:01:28.740
+Buy direct, or join the Service Delivery Partner Program.

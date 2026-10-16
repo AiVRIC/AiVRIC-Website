@@ -1,0 +1,103 @@
+{
+  "_": "Readiness data file. Source: the Alignment Pack's readiness pills; public labels per D14 (15 Oct 2026). Update with each pack edition; the site's cards and chapters follow this file (P4 wires it; today the cards are static HTML that must match it).",
+  "updated": "2026-10-16",
+  "labels": {
+    "Market now": "Available now",
+    "Prepare quietly": "In build",
+    "HOLD": null
+  },
+  "capabilities": [
+    {
+      "key": "client-vision",
+      "name": "Client Vision",
+      "stage": "Show",
+      "readiness": "Market now",
+      "pmf": 3.5,
+      "label": "Available now",
+      "public": true,
+      "page": "/providers/",
+      "apps": ["client-vision"]
+    },
+    {
+      "key": "enterprise-vision",
+      "name": "AiVRIC Enterprise Vision",
+      "stage": "Show",
+      "readiness": "Prepare quietly",
+      "pmf": 2,
+      "label": "Available now",
+      "public": true,
+      "page": "/enterprise/",
+      "apps": ["enterprise-vision"],
+      "note": "Provisional in the pack; capturable in a demo tenant since 15 Oct 2026. The label applies once the edition ships on captured screens; v0 carries stand-ins."
+    },
+    {
+      "key": "cloudsignals",
+      "name": "CloudSignals",
+      "stage": "Signal",
+      "readiness": "Market now",
+      "pmf": 3,
+      "label": "Available now",
+      "public": true,
+      "chapter": "/platform/cloudsignals/",
+      "apps": ["enterprise-vision", "client-vision"],
+      "sayable": "AI-native cloud security posture, risk operations and continuous compliance, landing as findings in the workspace. Privacy module (privacy processing inventory, privacy risk register, AI privacy brief) sayable in analyst-reviewed language. Tier names only; no price figures until D2."
+    },
+    {
+      "key": "riskops",
+      "name": "AiVRIC RiskOps",
+      "stage": "Decide",
+      "readiness": "Prepare quietly",
+      "label": "In build",
+      "public": true,
+      "chapter": "/platform/riskops/",
+      "apps": ["enterprise-vision", "client-vision"],
+      "note": "Name only; no capability claims until a design-partner tenant runs on live data."
+    },
+    {
+      "key": "aisignals",
+      "name": "AISignals",
+      "stage": "Signal",
+      "readiness": "Prepare quietly",
+      "pmf": 2,
+      "label": "In build",
+      "public": true,
+      "chapter": "/platform/aisignals/",
+      "apps": ["enterprise-vision", "client-vision"],
+      "designedTo": "Designed for full-stack observability of production language models.",
+      "note": "ISO/IEC 42001 governance workspace is NDA-only: 'designed to support ISO/IEC 42001 programmes', never 'compliant' or 'certified'."
+    },
+    {
+      "key": "otsignals",
+      "name": "OTSignals",
+      "stage": "Signal",
+      "readiness": "Prepare quietly",
+      "pmf": 2.5,
+      "label": null,
+      "public": false,
+      "chapter": "/platform/otsignals/",
+      "note": "Problem-led content only (CIP-015 deadline 1 Oct 2028, mid-market monitoring gap, AMI as the blind spot). No product name, no GBPC, console captures internal until real telemetry."
+    },
+    {
+      "key": "aire",
+      "name": "AIRE Agentic Mesh",
+      "stage": "Act",
+      "readiness": "Prepare quietly",
+      "label": "In build",
+      "public": true,
+      "chapter": "/platform/aire/",
+      "apps": ["enterprise-vision", "client-vision"],
+      "designedTo": "Designed for governed, verified remediation with hash-chained evidence.",
+      "note": "Internal and NDA beyond the designed-to line until it runs in a tenant. The RiskOps hand-off story stays locked."
+    },
+    {
+      "key": "rogueagent",
+      "name": "RogueAgent",
+      "stage": "Validate",
+      "readiness": "HOLD",
+      "hold": "D4 third-party licence",
+      "label": null,
+      "public": false,
+      "note": "The name stays off every public surface until D4 closes. rogueagent.html on the live site is an open exposure (noindex or soften)."
+    }
+  ]
+}

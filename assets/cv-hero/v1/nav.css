@@ -1,0 +1,320 @@
+/* ==========================================================================
+   AiVRIC nav — the Mercury-style bar
+   Loads after styles.css and overrides it. Two states:
+
+     solid  the default, and what every page without a hero gets. Today's
+            appearance, minus the utility strip that used to sit above it.
+     over   transparent, light ink, sitting on top of a dark hero. A page
+            opts in with data-nav="over" on <body>; cvh.js drops back to
+            solid once the hero has scrolled away.
+
+   Because it is the site-wide header now, the solid state has to stand on
+   its own — check-nav.mjs fails the build if it ever goes unreadable.
+   ========================================================================== */
+
+.site-header {
+  --nav-ink: #f2f7fb;
+  --nav-ink-dim: rgba(242, 247, 251, 0.74);
+  --nav-frost: rgba(255, 255, 255, 0.15);
+  --nav-frost-line: rgba(255, 255, 255, 0.28);
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    backdrop-filter 0.35s ease;
+}
+
+/* --- geometry, both states ------------------------------------------------
+   Nav items become pills rather than bare text, so the hover state has a
+   shape to fill. Applied in both states so nothing shifts when they swap. */
+.site-header :is(.nav-link, .nav-trigger) {
+  padding: 9px 14px;
+  border-radius: 40px;
+  white-space: nowrap;
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+.site-header .theme-toggle-label {
+  white-space: nowrap;
+}
+
+/* Dropping the utility strip and the Contact item freed enough room to keep the full
+   label down to 1200px — styles.css swapped it for "Guided Tour" below 1500. */
+@media (min-width: 1200px) {
+  .site-header .nav-experience-long { display: inline; }
+  .site-header .nav-experience-short { display: none; }
+}
+.site-header :is(.nav-link, .nav-trigger):hover {
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+.site-header .nav-login {
+  padding: 9px 14px;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+  color: inherit;
+  white-space: nowrap;
+  transition: background 0.18s ease;
+}
+.site-header .nav-login:hover {
+  background: color-mix(in srgb, currentColor 10%, transparent);
+}
+/* Keyboard focus. The site's focus ring is scoped inside .cvh-page and the header sits
+   outside it, so without this the bar has no visible focus at all. currentColor tracks
+   whichever state the bar is in, light or dark. */
+.site-header :is(a, button):focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 40px;
+}
+
+.site-header .header-actions {
+  gap: 10px;
+  flex: none;
+}
+/* the logo must never be the thing that gives way when the row is tight */
+.site-header .brand {
+  flex: none;
+}
+/* the items carry their own padding now, so the old gap between them is doubled-up space */
+.site-header .nav-list {
+  gap: 2px;
+}
+.site-header .site-nav {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+/* a full-width bar, the way Mercury's runs edge to edge */
+.site-header .header-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  box-sizing: border-box;
+  column-gap: 11px;
+  padding-inline: clamp(16px, 2vw, 24px);
+  padding-block: 12px;
+}
+.site-header .header-brand-cluster {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  justify-self: start;
+}
+.site-header .header-brand-cluster .brand { margin: 0; }
+.site-header .site-nav {
+  justify-self: center;
+  min-width: 0;
+}
+.site-header .nav-list { justify-content: center; }
+.site-header .header-actions {
+  justify-self: end;
+  margin-left: 0;
+}
+
+/* Mercury-style chevrons on menu items; Pricing is a plain link and gets none. */
+.site-header .nav-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.site-header .nav-trigger::before {
+  content: "";
+  order: 2;
+  width: 6px;
+  height: 6px;
+  flex: none;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-2px);
+  transition: transform 0.18s ease;
+}
+.site-header .nav-item.is-open .nav-trigger::before {
+  transform: rotate(225deg) translate(-1px, -1px);
+}
+
+/* The compact desktop band keeps the primary links centered without crowding
+   the brand pill or the actions on either side. */
+@media (max-width: 1399px) {
+  .site-header .theme-toggle-label {
+    display: none;
+  }
+  .site-header .theme-toggle {
+    padding: 6px 8px;
+  }
+  .site-header .header-inner {
+    column-gap: 8px;
+  }
+  .site-header .nav-list {
+    font-size: 13px;
+  }
+  .site-header :is(.nav-link, .nav-trigger, .nav-login) {
+    padding-inline: 5px;
+  }
+  .site-header .nav-link-experience { padding-inline: 7px; }
+  .site-header .header-actions { gap: 6px; }
+  .site-header .nav-cta { padding-inline: 12px; font-size: 13px; }
+}
+/* the underline still marks the current page; it just no longer doubles as hover */
+.site-header .nav-link[aria-current="page"]::after,
+.site-header .nav-item.is-open .nav-trigger::after,
+.site-header .nav-item.is-active .nav-trigger::after {
+  margin-top: 2px;
+}
+.site-header .nav-item.is-open .nav-trigger::after,
+.site-header .nav-item.is-active .nav-trigger::after {
+  content: none;
+}
+.site-header .nav-item.is-open .nav-trigger,
+.site-header .nav-item.is-active .nav-trigger {
+  box-shadow: inset 0 -2px 0 var(--link);
+}
+
+@media (max-width: 1279px) {
+  .site-header .header-inner {
+    display: flex;
+    justify-content: space-between;
+  }
+  .site-header .site-nav,
+  .site-header .header-actions {
+    display: none;
+  }
+  .site-header .header-brand-cluster .nav-link-experience {
+    display: none;
+  }
+  .site-header .menu-toggle {
+    display: flex;
+    margin-left: auto;
+  }
+}
+@media (min-width: 768px) and (max-width: 1279px) {
+  .site-header .header-brand-cluster .nav-link-experience {
+    display: inline-flex;
+  }
+}
+
+/* ==========================================================================
+   OVER — transparent, on a hero
+   ========================================================================== */
+
+/* The bar floats over the hero image stage without consuming part of its native frame.
+   Sticky would occupy a strip above the image and push it down. */
+body[data-nav="over"] .site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+body[data-nav="over"] .cvh-page {
+  --cvh-header: 0px;
+}
+
+body[data-nav="over"]:not(.is-nav-solid) .site-header {
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-bottom-color: transparent;
+  color: var(--nav-ink);
+}
+
+/* .nav-link and .nav-trigger are `color: inherit`, but they inherit from .nav-list, which
+   sets its own --ink-muted (styles.css:873) — so the colour has to go there. They are also
+   coloured directly under [data-theme="dark"] (styles.css:4765), and a direct rule beats an
+   inherited one however specific the ancestor is, so they are named here as well. */
+body[data-nav="over"]:not(.is-nav-solid) .site-header .nav-list,
+body[data-nav="over"]:not(.is-nav-solid) .site-header :is(.nav-link, .nav-trigger, .nav-login, .brand) {
+  color: var(--nav-ink);
+}
+body[data-nav="over"]:not(.is-nav-solid) .site-header :is(.nav-link, .nav-trigger):hover,
+body[data-nav="over"]:not(.is-nav-solid) .site-header .nav-login:hover {
+  background: var(--nav-frost);
+}
+body[data-nav="over"]:not(.is-nav-solid) .site-header .nav-item.is-open .nav-trigger {
+  background: var(--nav-frost);
+  color: var(--nav-ink);
+}
+
+/* The supplied PNG is white artwork on transparency. Keep its pixels untouched and
+   recolor only the header instance on light surfaces; the asset remains white over
+   the hero and on dark surfaces. */
+.brand-mark-2026 {
+  display: block;
+  filter: brightness(0) saturate(100%) invert(8%) sepia(21%) saturate(3255%) hue-rotate(177deg) brightness(98%) contrast(96%);
+}
+body[data-nav="over"]:not(.is-nav-solid) .site-header .brand-mark-2026,
+[data-theme="dark"] .brand-mark-2026 {
+  filter: none;
+}
+
+/* the tour pill: frosted rather than outlined */
+body[data-nav="over"]:not(.is-nav-solid) .site-header .nav-link-experience {
+  background: var(--nav-frost);
+  border-color: var(--nav-frost-line);
+  color: var(--nav-ink);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+body[data-nav="over"]:not(.is-nav-solid) .site-header .nav-link-experience:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+body[data-nav="over"]:not(.is-nav-solid) .site-header .nav-badge {
+  background: var(--nav-ink);
+  color: #0b2138;
+}
+
+/* the dark-mode toggle, frosted to match */
+body[data-nav="over"]:not(.is-nav-solid) .site-header .theme-toggle {
+  background: var(--nav-frost);
+  border-color: var(--nav-frost-line);
+  color: var(--nav-ink-dim);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+body[data-nav="over"]:not(.is-nav-solid) .site-header .theme-toggle:hover {
+  color: var(--nav-ink);
+  border-color: rgba(255, 255, 255, 0.45);
+  box-shadow: none;
+}
+body[data-nav="over"]:not(.is-nav-solid) .site-header .theme-toggle-track {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+body[data-nav="over"]:not(.is-nav-solid) .site-header .theme-toggle-thumb {
+  background: var(--nav-ink);
+}
+
+/* the hamburger's three bars are background-coloured spans */
+body[data-nav="over"]:not(.is-nav-solid) .site-header .menu-toggle span {
+  background: var(--nav-ink);
+}
+
+/* Dropdown panels keep their own surface and their own ink — they must not
+   inherit the light nav colour, or their headings vanish on white. */
+.site-header .dropdown,
+.site-header .mega-menu {
+  color: var(--ink-strong);
+}
+
+/* ==========================================================================
+   SOLID — the default everywhere else, and past the hero here
+   Inherited from styles.css; this only restores what the over state changed
+   and keeps the transition honest.
+   ========================================================================== */
+
+body.is-nav-solid .site-header {
+  background: var(--surface-0);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom-color: var(--border-subtle);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header,
+  .site-header :is(.nav-link, .nav-trigger, .nav-login) {
+    transition: none;
+  }
+}
