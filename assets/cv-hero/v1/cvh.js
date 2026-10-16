@@ -181,7 +181,7 @@
 
   /* ======================================================================
      2 · THE PRODUCT PLAYER
-     Mercury's pattern, measured on mercury.com:
+     The pattern (docs/design-notes.md):
      - the active item's clip autoplays muted, plays once, holds a beat and replays;
        it never advances on its own — you click the next item to see the next clip;
      - clicking swaps clips with a 400ms opacity + 8px blur cross-fade, in place

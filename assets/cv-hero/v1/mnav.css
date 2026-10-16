@@ -1,5 +1,5 @@
 /* ==========================================================================
-   The provider page's nav, after Mercury (see tools/mnav.mjs for the markup)
+   The provider page's nav (see tools/mnav.mjs for the markup; the pattern is in docs/design-notes.md)
    Desktop: a click opens one full-width sheet under the bar, in the bar's navy; it stays open until a
    click outside or Escape. Words only, in columns split by faint lines. Phones: a full-screen navy sheet
    with drill-in panels and the calls to action pinned at the bottom.

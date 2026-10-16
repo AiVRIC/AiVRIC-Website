@@ -1,5 +1,5 @@
 /* Desktop hero flight — scroll-scrubbed into the laptop, then handed off to the product player.
-   Mercury's pattern, measured on mercury.com:
+   The pattern (docs/design-notes.md):
    - scroll maps linearly to video time, smoothed by a spring (about 130ms of lag);
    - the footage ends with the screen flattening off the laptop and the room dissolving to the
      page, and its last frame is the product player's first frame;
@@ -23,7 +23,7 @@
 
   var MEDIA = (window.CVH_CONTENT && window.CVH_CONTENT.media) || 'assets/cv-hero/v1/media/';
   var KEY = 'cvh.hero.flight';
-  var SPRING = { k: 200, c: 30, m: 0.5 };      // framer-motion useSpring, as Mercury configures it
+  var SPRING = { k: 200, c: 30, m: 0.5 };      // a framer-motion useSpring with these constants, about 130ms of lag
   var GLIDE_MS = 600;
   var desktop = matchMedia('(min-width: 1024px)');
   var motion = matchMedia('(prefers-reduced-motion: reduce)');

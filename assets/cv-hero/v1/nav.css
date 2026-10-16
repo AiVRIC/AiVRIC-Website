@@ -1,5 +1,5 @@
 /* ==========================================================================
-   AiVRIC nav — the Mercury-style bar
+   AiVRIC nav — the full-width bar (docs/design-notes.md)
    Loads after styles.css and overrides it. Two states:
 
      solid  the default, and what every page without a hero gets. Today's
@@ -85,7 +85,7 @@
   flex: 0 1 auto;
   min-width: 0;
 }
-/* a full-width bar, the way Mercury's runs edge to edge */
+/* a full-width bar that runs edge to edge */
 .site-header .header-inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -116,7 +116,7 @@
   margin-left: 0;
 }
 
-/* Mercury-style chevrons on menu items; Pricing is a plain link and gets none. */
+/* chevrons on menu items; Pricing is a plain link and gets none. */
 .site-header .nav-trigger {
   display: inline-flex;
   align-items: center;

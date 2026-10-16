@@ -1,4 +1,4 @@
-/* The provider page's nav, after Mercury. A click opens a menu (hover does nothing); it stays open until
+/* The provider page's nav. A click opens a menu (hover does nothing); it stays open until
    a click outside the bar or Escape. Clicking the open menu's own trigger closes it; clicking another
    swaps the sheet's contents in place, and the sheet's height eases to fit. On phones the burger opens a
    full-screen sheet; a menu slides in its panel, "‹ Menu" goes back. */

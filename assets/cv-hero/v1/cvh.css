@@ -384,7 +384,7 @@
 }
 
 /* After the hand-off (cvh-scrub.js): the runway is gone and the hero is one still screen at
-   its opening frame, copy restored. One-way for the page load, as on mercury.com. */
+   its opening frame, copy restored. One-way for the page load. */
 @media (min-width: 1024px) {
   .cvh-page.cvh-flight-done .cvh-hero { display: block; height: 100svh; min-height: 0; overflow: hidden; background: #050c18; }
   .cvh-page.cvh-flight-done .cvh-hero-pin {
@@ -400,7 +400,7 @@
 
 /* ==========================================================================
    2 · THE PRODUCT PLAYER
-   Mercury's pattern, measured on mercury.com. A full-bleed clip layer sits behind
+   The pattern (docs/design-notes.md): a full-bleed clip layer sits behind
    the copy; the Client Vision window lands in the right column and runs off the
    edge, fading and softening as it goes. Clicking an item swaps clips with a
    400ms opacity + 8px blur cross-fade in place — the motion itself (the UI
