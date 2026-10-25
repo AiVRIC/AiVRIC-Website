@@ -116,7 +116,7 @@ GF_FOOTER = """        <!-- main-footer -->
           <div class="gf-bottom">
             <div class="auto-container">
               <div class="gf-bottom-inner">
-                <p class="gf-copy">&copy; 2025 <a href="index.html">AiVRIC Technologies</a>. All Rights Reserved.</p>
+                <p class="gf-copy">&copy; 2026 <a href="index.html">AiVRIC Technologies</a>. All Rights Reserved.</p>
                 <div class="gf-bottom-right">
                   <span class="gf-trust-pill"><span class="gf-trust-dot"></span>SOC&nbsp;2 Ready</span>
                   <nav class="gf-bottom-nav">

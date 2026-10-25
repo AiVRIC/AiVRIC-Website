@@ -1,0 +1,34 @@
+# GitHub Pages publishes the gh-pages branch through Jekyll (legacy build, source "/").
+# Jekyll already skips any path that starts with "_" or ".". Everything listed here
+# stays in the repository but is left out of the published site. A pattern that
+# starts with "*" matches at any depth, which also covers the copy of the tooling
+# under aivric-enterprise/.
+exclude:
+  # Repo tooling, notes and build scripts
+  - "*CLAUDE.md"
+  - "*.md"
+  - "*.MD"
+  - "*.py"
+  - "*.php"
+  - "*.bat"
+  - "*.ps1"
+  - "*.sh"
+  - "*.yml"
+  - "*.yaml"
+  - "*Dockerfile*"
+  - "*vercel.json"
+  - "*package.json"
+  - "*package-lock.json"
+  - "*tsconfig.json"
+  - "*deployment-test.txt"
+  - "*sgdsdf"
+  - "*AiVRIC-Wesite-Staging-Report-011026.pdf"
+  # Unbuilt app source and capture tooling
+  - aivric-solution-configurator
+  - academy/capture
+  - experience/tools
+  # Jekyll 3 replaces its default list when exclude is set, so restate the defaults
+  - node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock
