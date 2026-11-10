@@ -18,7 +18,7 @@ PAGE_INDEX = [
     ("Platform Guide Home",          "index.html"),
     ("Getting Started",              "getting-started.html"),
     ("Platform Overview",            "platform-overview.html"),
-    ("CloudSignals+RiskOps Overview","cloudsignals-riskops.html"),
+    ("CloudSignals Overview","cloudsignals-riskops.html"),
     ("Connectors",                   "connectors.html"),
     ("Integrations",                 "integrations.html"),
     ("Security & Trust",             "security-trust.html"),
@@ -124,7 +124,7 @@ def sidebar_html(active_file: str) -> str:
 {link("Platform Overview", "platform-overview.html")}
       </div>
       <div class="nav-section">
-        <p class="nav-label">CloudSignals+RiskOps</p>
+        <p class="nav-label">CloudSignals</p>
 {link("Module Overview", "cloudsignals-riskops.html")}
 {link("Connectors", "connectors.html")}
 {link("Integrations", "integrations.html")}
@@ -320,7 +320,7 @@ INDEX_HTML = f"""{head_block(
         <div class="ug-path-icon amber"><i class="fas fa-shield-alt"></i></div>
         <div class="ug-path-label">Set up compliance</div>
         <div class="ug-path-desc">Map controls to SOC 2, ISO 27001, PCI DSS, HIPAA, and CMMC frameworks automatically.</div>
-        <div class="ug-path-arrow">CloudSignals+RiskOps &rarr;</div>
+        <div class="ug-path-arrow">CloudSignals &rarr;</div>
       </a>
       <a class="ug-path-card" href="ai-governance.html">
         <div class="ug-path-icon purple"><i class="fas fa-brain"></i></div>
@@ -343,7 +343,7 @@ INDEX_HTML = f"""{head_block(
         </ul>
       </article>
       <article class="handbook-card">
-        <h3>&#x1F6E1;&#xFE0F; CloudSignals+RiskOps&trade;</h3>
+        <h3>&#x1F6E1;&#xFE0F; CloudSignals</h3>
         <p>Continuous cloud posture monitoring, compliance automation, and AI-driven remediation.</p>
         <ul>
           <li><a href="cloudsignals-riskops.html">Module overview</a></li>
@@ -431,7 +431,7 @@ INDEX_HTML = f"""{head_block(
           </a>
           <a class="policy-pill" href="cloudsignals-riskops.html">
             <div class="pill-inner">
-              <div class="pill-face pill-front"><span class="pill-acronym">CS+RO</span><span class="pill-title">CloudSignals+RiskOps</span></div>
+              <div class="pill-face pill-front"><span class="pill-acronym">CS+RO</span><span class="pill-title">CloudSignals</span></div>
               <div class="pill-face pill-back"><span class="pill-acronym">CS+RO</span><span class="pill-desc">Continuous posture monitoring, compliance, and risk scoring.</span></div>
             </div>
           </a>
@@ -572,7 +572,7 @@ GETTING_STARTED_CONTENT = """      <span class="badge">Onboarding</span>
       </div>
 
       <h2 id="connect">Connect your environment</h2>
-      <p>All connectors are powered by <strong>CloudSignals+RiskOps&trade;</strong> — AiVRIC's continuous posture monitoring engine. Every connected provider is audited automatically on a 24-hour cycle.</p>
+      <p>All connectors are powered by <strong>CloudSignals</strong> — AiVRIC's continuous posture monitoring engine. Every connected provider is audited automatically on a 24-hour cycle.</p>
       <table class="table">
         <thead><tr><th>Provider</th><th>Purpose</th><th>Quick action</th></tr></thead>
         <tbody>
@@ -613,7 +613,7 @@ GETTING_STARTED_CONTENT = """      <span class="badge">Onboarding</span>
           <a href="connectors.html">View all connectors</a>
         </div>
         <div class="guide-card">
-          <h3>CloudSignals+RiskOps overview</h3>
+          <h3>CloudSignals overview</h3>
           <p>Scan cadence, compliance mapping, alerts, SIEM integration, and reporting.</p>
           <a href="cloudsignals-riskops.html">Read the overview</a>
         </div>
@@ -651,11 +651,11 @@ PLATFORM_OVERVIEW_CONTENT = """      <span class="badge">Documentation</span>
       <p>AiVRIC is composed of four interconnected modules deployed as containerized services on your Kubernetes cluster. All processing stays in your environment — no data leaves your control plane.</p>
       <div class="guide-grid">
         <div class="guide-card">
-          <h3>CloudSignals+RiskOps&trade;</h3>
+          <h3>CloudSignals</h3>
           <p>Continuous cloud posture monitoring, compliance automation, and AI-driven risk remediation across AWS, Azure, GCP, Kubernetes, and more.</p>
         </div>
         <div class="guide-card">
-          <h3>AI Signals&trade;</h3>
+          <h3>AISignals</h3>
           <p>Real-time detection of AI model misuse, shadow AI, prompt injection, PII leakage, and model drift across your AI workloads.</p>
         </div>
         <div class="guide-card">
@@ -663,11 +663,7 @@ PLATFORM_OVERVIEW_CONTENT = """      <span class="badge">Documentation</span>
           <p>Autonomous remediation engine that closes security gaps, raises tickets, and applies approved fixes without human handoff.</p>
         </div>
         <div class="guide-card">
-          <h3>RogueAgent ASPM&trade;</h3>
-          <p>Application Security Posture Management for agentic and AI-driven applications — tracks permissions, dependencies, and runtime behavior.</p>
-        </div>
-        <div class="guide-card">
-          <h3>Vision AI Optics&trade;</h3>
+          <h3>Vision</h3>
           <p>AI/ML-powered threat intelligence and behavioral analytics that surface anomalies before they become incidents.</p>
         </div>
         <div class="guide-card">
@@ -778,7 +774,7 @@ FAQ_CONTENT = """      <span class="badge">Support</span>
       </div>
       <div class="guide-card" style="margin-bottom:10px">
         <h3>What compliance frameworks are supported?</h3>
-        <p>CloudSignals+RiskOps includes pre-built control mappings for SOC 2, ISO 27001, PCI DSS, HIPAA, NIST CSF, CIS Benchmarks, CMMC, and GDPR. Custom frameworks can be authored in YAML.</p>
+        <p>CloudSignals includes pre-built control mappings for SOC 2, ISO 27001, PCI DSS, HIPAA, NIST CSF, CIS Benchmarks, CMMC, and GDPR. Custom frameworks can be authored in YAML.</p>
       </div>
 
       <h2 id="billing">Billing &amp; plans</h2>
@@ -913,17 +909,10 @@ def main():
     (GUIDE / "getting-started.html").write_text(gs, encoding="utf-8")
     print("Built: getting-started.html")
 
-    # 3. Platform overview
-    po = inner_page(
-        "AiVRIC Platform Guide | Platform Overview",
-        "Understand the AiVRIC platform architecture, modules, connectors, guardrails, and operational model.",
-        "platform-overview.html",
-        "https://aivric.com/AiVRIC-UserGuide/platform-overview.html",
-        PLATFORM_OVERVIEW_CONTENT,
-        PLATFORM_OVERVIEW_TOC,
-    )
-    (GUIDE / "platform-overview.html").write_text(po, encoding="utf-8")
-    print("Built: platform-overview.html")
+    # 3. Platform overview: its content is kept as written (rewritten 10 Nov 2026 to match the code and /platform/);
+    #    only the shell around it is rebuilt, like the policy pages. PLATFORM_OVERVIEW_CONTENT below is no longer used.
+    rewrap_policy_page("platform-overview.html")
+    print("Rewrapped: platform-overview.html")
 
     # 4. FAQ
     faq = inner_page(

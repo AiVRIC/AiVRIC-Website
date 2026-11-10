@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
   <title>AiVRIC Platform Guide | Connectors</title>
   <link rel="canonical" href="https://aivric.com/AiVRIC-UserGuide/connectors.html">
-  <meta name="description" content="Step-by-step guides for connecting AWS, Azure, GCP, Kubernetes, GitHub, Microsoft 365, MongoDB Atlas, and Alibaba Cloud to AiVRIC CloudSignals+RiskOps.">
+  <meta name="description" content="Step-by-step guides for connecting AWS, Azure, GCP, Kubernetes, GitHub, Microsoft 365, MongoDB Atlas, and Alibaba Cloud to AiVRIC CloudSignals.">
   <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="../assets/css/aivric-preloader.css" rel="stylesheet">
@@ -55,7 +55,7 @@
         <a class="nav-link" href="platform-overview.html">Platform Overview</a>
       </div>
       <div class="nav-section">
-        <p class="nav-label">CloudSignals+RiskOps</p>
+        <p class="nav-label">CloudSignals</p>
         <a class="nav-link" href="cloudsignals-riskops.html">Module Overview</a>
         <a class="nav-link active" href="connectors.html">Connectors</a>
         <a class="nav-link" href="integrations.html">Integrations</a>
@@ -115,7 +115,7 @@
 
       <span class="badge" id="top">Connector setup</span>
       <h1>Connectors</h1>
-      <p>Connect your cloud accounts, SaaS platforms, and developer tooling to AiVRIC CloudSignals+RiskOps&#8482;. Each connector uses read-only credentials — AiVRIC never requires write access for monitoring. Once connected, an automated audit runs every <strong>24 hours</strong> to detect misconfigurations and posture drift.</p>
+      <p>Connect your cloud accounts, SaaS platforms, and developer tooling to AiVRIC CloudSignals&#8482;. Each connector uses read-only credentials — AiVRIC never requires write access for monitoring. Once connected, an automated audit runs every <strong>24 hours</strong> to detect misconfigurations and posture drift.</p>
 
       <!-- Screenshots: What you see after connectors are active -->
       <div class="ug-figure-row">
@@ -417,7 +417,7 @@
           <h2 style="margin:0;">Microsoft 365</h2>
           <span class="connector-badge">SaaS Platform</span>
         </div>
-        <p>Connect your Microsoft 365 tenant for continuous compliance monitoring and agentic security intelligence. CloudSignals+RiskOps&#8482; will continuously map your tenant controls to frameworks including SOC 2 and PCI DSS.</p>
+        <p>Connect your Microsoft 365 tenant for continuous compliance monitoring and agentic security intelligence. CloudSignals&#8482; will continuously map your tenant controls to frameworks including SOC 2 and PCI DSS.</p>
 
         <div class="prereq-box">
           <strong>Prerequisites — complete in Microsoft Entra ID before connecting</strong>
@@ -758,7 +758,7 @@
           </div>
           <div class="guide-card">
             <h3>Enable compliance frameworks</h3>
-            <p>In <strong>Settings &gt; Policy Packs</strong>, enable SOC 2, PCI DSS, or ISO 27001 mapping. CloudSignals+RiskOps will immediately re-score your posture against the selected framework.</p>
+            <p>In <strong>Settings &gt; Policy Packs</strong>, enable SOC 2, PCI DSS, or ISO 27001 mapping. CloudSignals will immediately re-score your posture against the selected framework.</p>
           </div>
           <div class="guide-card">
             <h3>Set up notifications</h3>
@@ -791,7 +791,7 @@
     (function(){
       var searchInput = document.getElementById('guide-search-input');
       var resultsBox  = document.getElementById('guide-search-results');
-      var pageIndex = [{"title": "Platform Guide Home", "url": "index.html"}, {"title": "Getting Started", "url": "getting-started.html"}, {"title": "Platform Overview", "url": "platform-overview.html"}, {"title": "CloudSignals+RiskOps Overview", "url": "cloudsignals-riskops.html"}, {"title": "Connectors", "url": "connectors.html"}, {"title": "Integrations", "url": "integrations.html"}, {"title": "Security & Trust", "url": "security-trust.html"}, {"title": "AI Governance", "url": "ai-governance.html"}, {"title": "Compliance Overview", "url": "compliance.html"}, {"title": "FAQ & Support", "url": "faq.html"}, {"title": "Insider Early Access", "url": "insider-early-access.html"}, {"title": "Cloud Security", "url": "cloud-security.html"}, {"title": "Network Security", "url": "network-security.html"}, {"title": "Endpoint Security", "url": "endpoint-security.html"}, {"title": "Identity & Access Control", "url": "identification-authorization-control.html"}, {"title": "Data Classification", "url": "data-classification-handling.html"}, {"title": "Data Privacy", "url": "data-privacy.html"}, {"title": "Incident Response", "url": "incident-response-operations.html"}, {"title": "Threat Management", "url": "threat-management.html"}, {"title": "Vulnerability & Patch Mgmt", "url": "vulnerability-patch-management.html"}, {"title": "Security Operations", "url": "security-operations.html"}, {"title": "Risk Assessment", "url": "risk-assessment.html"}, {"title": "Third-Party Management", "url": "third-party-management.html"}, {"title": "AI & Autonomous Technologies", "url": "ai-autonomous-technologies.html"}, {"title": "Secure Engineering Architecture", "url": "secure-engineering-architecture.html"}, {"title": "Web Security", "url": "web-security.html"}, {"title": "Asset Management", "url": "asset-management.html"}, {"title": "Cryptographic Operations", "url": "cryptographic-operations.html"}, {"title": "Information Assurance", "url": "information-assurance.html"}, {"title": "Acceptable Use Policy", "url": "acceptable-use-policy.html"}, {"title": "Business Continuity & DR", "url": "business-continuity-disaster-recovery.html"}, {"title": "Capacity & Performance Mgmt", "url": "capacity-performance-management.html"}, {"title": "Maintenance", "url": "maintenance.html"}, {"title": "Security Awareness & Training", "url": "security-awareness-training.html"}, {"title": "Mobile Device Management", "url": "mobile-device-management.html"}, {"title": "Physical & Environmental Security", "url": "physical-environmental-security.html"}, {"title": "HR Security", "url": "human-resources-security.html"}, {"title": "Project & Resource Management", "url": "project-resource-management.html"}, {"title": "Tech Dev & Acquisition", "url": "technology-development-acquisition.html"}, {"title": "Security & Privacy Governance", "url": "security-privacy-governance.html"}];
+      var pageIndex = [{"title": "Platform Guide Home", "url": "index.html"}, {"title": "Getting Started", "url": "getting-started.html"}, {"title": "Platform Overview", "url": "platform-overview.html"}, {"title": "CloudSignals Overview", "url": "cloudsignals-riskops.html"}, {"title": "Connectors", "url": "connectors.html"}, {"title": "Integrations", "url": "integrations.html"}, {"title": "Security & Trust", "url": "security-trust.html"}, {"title": "AI Governance", "url": "ai-governance.html"}, {"title": "Compliance Overview", "url": "compliance.html"}, {"title": "FAQ & Support", "url": "faq.html"}, {"title": "Insider Early Access", "url": "insider-early-access.html"}, {"title": "Cloud Security", "url": "cloud-security.html"}, {"title": "Network Security", "url": "network-security.html"}, {"title": "Endpoint Security", "url": "endpoint-security.html"}, {"title": "Identity & Access Control", "url": "identification-authorization-control.html"}, {"title": "Data Classification", "url": "data-classification-handling.html"}, {"title": "Data Privacy", "url": "data-privacy.html"}, {"title": "Incident Response", "url": "incident-response-operations.html"}, {"title": "Threat Management", "url": "threat-management.html"}, {"title": "Vulnerability & Patch Mgmt", "url": "vulnerability-patch-management.html"}, {"title": "Security Operations", "url": "security-operations.html"}, {"title": "Risk Assessment", "url": "risk-assessment.html"}, {"title": "Third-Party Management", "url": "third-party-management.html"}, {"title": "AI & Autonomous Technologies", "url": "ai-autonomous-technologies.html"}, {"title": "Secure Engineering Architecture", "url": "secure-engineering-architecture.html"}, {"title": "Web Security", "url": "web-security.html"}, {"title": "Asset Management", "url": "asset-management.html"}, {"title": "Cryptographic Operations", "url": "cryptographic-operations.html"}, {"title": "Information Assurance", "url": "information-assurance.html"}, {"title": "Acceptable Use Policy", "url": "acceptable-use-policy.html"}, {"title": "Business Continuity & DR", "url": "business-continuity-disaster-recovery.html"}, {"title": "Capacity & Performance Mgmt", "url": "capacity-performance-management.html"}, {"title": "Maintenance", "url": "maintenance.html"}, {"title": "Security Awareness & Training", "url": "security-awareness-training.html"}, {"title": "Mobile Device Management", "url": "mobile-device-management.html"}, {"title": "Physical & Environmental Security", "url": "physical-environmental-security.html"}, {"title": "HR Security", "url": "human-resources-security.html"}, {"title": "Project & Resource Management", "url": "project-resource-management.html"}, {"title": "Tech Dev & Acquisition", "url": "technology-development-acquisition.html"}, {"title": "Security & Privacy Governance", "url": "security-privacy-governance.html"}];
       var pageCache = {};
 
       function sanitize(t){ return t.replace(/[<>]/g, function(c){ return c==='<'?'&lt;':'&gt;'; }); }

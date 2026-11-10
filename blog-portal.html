@@ -1,290 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<title>AiVRIC Insights | Security Intelligence Blog</title>
-<meta name="description" content="Security intelligence, cloud compliance, and AI-driven risk management — written by the team building AiVRIC.">
-<link rel="icon" href="assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-<link href="assets/css/aivric-preloader.css" rel="stylesheet">
-<link href="assets/css/font-awesome-all.css" rel="stylesheet">
-<link href="assets/css/flaticon.css" rel="stylesheet">
-<link href="assets/css/owl.css" rel="stylesheet">
-<link href="assets/css/bootstrap.css" rel="stylesheet">
-<link href="assets/css/jquery.fancybox.min.css" rel="stylesheet">
-<link href="assets/css/animate.css" rel="stylesheet">
-<link href="assets/css/nice-select.css" rel="stylesheet">
-<link href="assets/css/color.css" rel="stylesheet">
-<link href="assets/css/elpath.css" rel="stylesheet">
-<link href="assets/css/style.css?v=20260906" rel="stylesheet">
-<link href="assets/css/responsive.css" rel="stylesheet">
-<link href="assets/css/custom.css?v=20250115" rel="stylesheet">
-<style id="bp-styles">
-/* ── Blog Portal ── */
-body.bp-page{
-  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-  background:radial-gradient(1400px 900px at 60% -10%,rgba(0,209,255,.14),transparent 55%),
-    radial-gradient(900px 700px at 5% 20%,rgba(46,113,229,.10),transparent 60%),
-    linear-gradient(180deg,#070b14 0%,#060a12 35%,#050814 100%);
-  color:#e5e7eb;
-}
-/* hero */
-.bp-hero{
-  padding:100px 0 48px;
-  border-bottom:1px solid rgba(148,163,184,.15);
-  position:relative;
-}
-.bp-hero-inner{max-width:680px;}
-.bp-hero-eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:11px;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;
-  color:#00d1ff;margin-bottom:20px;
-}
-.bp-hero-eyebrow::before{
-  content:'';width:24px;height:2px;background:#00d1ff;border-radius:2px;
-}
-.bp-hero-title{
-  font-family:Jost,Inter,sans-serif;font-size:52px;font-weight:800;
-  line-height:1.05;letter-spacing:-1.2px;color:#f8fafc;margin:0 0 14px;
-}
-@media(max-width:768px){.bp-hero-title{font-size:36px;}}
-.bp-hero-sub{
-  font-size:17px;line-height:1.75;color:#94a3b8;max-width:58ch;margin:0 0 32px;
-}
-.bp-search-row{
-  display:flex;align-items:center;gap:0;max-width:440px;
-  background:rgba(255,255,255,.05);border:1px solid rgba(148,163,184,.22);
-  border-radius:12px;overflow:hidden;transition:border-color .2s;
-}
-.bp-search-row:focus-within{border-color:rgba(0,209,255,.4);}
-.bp-search-row input{
-  flex:1;background:transparent;border:none;outline:none;
-  padding:12px 18px;font-size:14px;color:#e2e8f0;font-family:Inter,sans-serif;
-}
-.bp-search-row input::placeholder{color:#3d5268;}
-.bp-search-row button{
-  background:rgba(0,209,255,.10);border:none;padding:12px 18px;
-  color:#00d1ff;cursor:pointer;font-size:14px;transition:background .2s;flex-shrink:0;
-}
-.bp-search-row button:hover{background:rgba(0,209,255,.18);}
-/* filter tabs */
-.bp-filters{padding:20px 0;border-bottom:1px solid rgba(148,163,184,.12);}
-.bp-filter-inner{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
-.bp-filter-btn{
-  background:transparent;border:1px solid rgba(255,255,255,.10);
-  border-radius:999px;padding:7px 16px;font-size:13px;font-weight:600;
-  color:#64748b;cursor:pointer;transition:all .2s;
-}
-.bp-filter-btn:hover{border-color:rgba(0,209,255,.3);color:#cbd5e1;}
-.bp-filter-btn.active{background:rgba(0,209,255,.10);border-color:rgba(0,209,255,.35);color:#00d1ff;}
-/* category badges */
-.bp-cat{
-  display:inline-flex;align-items:center;
-  padding:5px 12px;border-radius:999px;border:1px solid;
-  font-size:12px;font-weight:700;letter-spacing:.2px;flex-shrink:0;
-}
-.bp-cat-sm{
-  display:inline-flex;align-items:center;
-  padding:4px 10px;border-radius:999px;border:1px solid;
-  font-size:11px;font-weight:700;letter-spacing:.2px;flex-shrink:0;
-  position:absolute;top:12px;left:12px;
-  backdrop-filter:blur(8px);
-}
-/* eyebrow */
-.bp-eyebrow{
-  font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
-  color:#00d1ff;
-}
-.bp-section-label{margin-bottom:16px;}
-/* featured card */
-.bp-featured-wrap{padding:52px 0 0;}
-.bp-featured-card{
-  display:grid;grid-template-columns:1.1fr 0.9fr;
-  border-radius:20px;overflow:hidden;
-  background:rgba(255,255,255,.04);border:1px solid rgba(148,163,184,.18);
-  box-shadow:0 20px 60px rgba(0,0,0,.32);
-  text-decoration:none;transition:border-color .25s,box-shadow .25s;
-}
-.bp-featured-card:hover{border-color:rgba(0,209,255,.3);box-shadow:0 28px 72px rgba(0,0,0,.38);}
-@media(max-width:880px){.bp-featured-card{grid-template-columns:1fr;}}
-.bp-featured-img{position:relative;overflow:hidden;min-height:340px;}
-.bp-featured-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;}
-.bp-featured-card:hover .bp-featured-img img{transform:scale(1.03);}
-.bp-featured-img-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(90deg,rgba(7,11,20,.0) 50%,rgba(7,11,20,.55) 100%),
-    linear-gradient(0deg,rgba(7,11,20,.35) 0%,transparent 50%);
-}
-.bp-featured-content{
-  padding:36px 38px;display:flex;flex-direction:column;justify-content:center;gap:0;
-}
-.bp-featured-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
-.bp-meta-sep{color:#3d5268;font-size:12px;}
-.bp-date{font-size:13px;color:#64748b;font-weight:500;}
-.bp-read{font-size:13px;color:#64748b;}
-.bp-featured-title{
-  font-family:Jost,Inter,sans-serif;font-size:28px;font-weight:800;
-  color:#f8fafc;line-height:1.2;letter-spacing:-.4px;margin:0 0 14px;
-}
-.bp-featured-excerpt{font-size:15px;line-height:1.75;color:#94a3b8;margin:0 0 22px;flex:1;}
-.bp-read-cta{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:14px;font-weight:700;color:#00d1ff;
-  transition:gap .2s;
-}
-.bp-featured-card:hover .bp-read-cta{gap:12px;}
-/* article grid */
-.bp-grid-wrap{padding:52px 0 72px;}
-.bp-grid-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
-.bp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
-@media(max-width:1024px){.bp-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:640px){.bp-grid{grid-template-columns:1fr;}}
-/* article card */
-.bp-card{
-  display:flex;flex-direction:column;
-  border-radius:16px;overflow:hidden;
-  background:rgba(255,255,255,.04);border:1px solid rgba(148,163,184,.16);
-  box-shadow:0 8px 28px rgba(0,0,0,.22);
-  text-decoration:none;transition:border-color .22s,box-shadow .22s,transform .22s;
-}
-.bp-card:hover{border-color:rgba(0,209,255,.28);box-shadow:0 14px 44px rgba(0,0,0,.3);transform:translateY(-2px);}
-.bp-card-soon{cursor:default;}
-.bp-card-img{
-  position:relative;overflow:hidden;aspect-ratio:16/9;
-}
-.bp-card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s;}
-.bp-card:hover .bp-card-img img{transform:scale(1.04);}
-.bp-card-soon .bp-card-img img{filter:grayscale(60%) brightness(.65);}
-.bp-soon-overlay{
-  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-}
-.bp-soon-overlay span{
-  font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;
-  color:#f8fafc;background:rgba(7,11,20,.65);backdrop-filter:blur(8px);
-  padding:7px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.18);
-}
-.bp-card-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1;}
-.bp-card-meta{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
-.bp-card-title{
-  font-family:Jost,Inter,sans-serif;font-size:17px;font-weight:700;
-  color:#f1f5f9;line-height:1.3;margin:0 0 8px;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
-}
-.bp-card-soon .bp-card-title{color:#64748b;}
-.bp-card-excerpt{
-  font-size:13.5px;color:#64748b;line-height:1.65;margin:0 0 14px;flex:1;
-  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;
-}
-.bp-card-cta{
-  display:inline-flex;align-items:center;gap:7px;
-  font-size:13px;font-weight:700;color:#00d1ff;margin-top:auto;
-  transition:gap .2s;
-}
-.bp-card:hover .bp-card-cta{gap:10px;}
-/* newsletter strip */
-.bp-newsletter{
-  margin:0 0 80px;
-  border-radius:20px;
-  background:linear-gradient(135deg,rgba(0,209,255,.08),rgba(46,229,157,.04));
-  border:1px solid rgba(0,209,255,.22);
-  box-shadow:0 20px 56px rgba(0,209,255,.07);
-  padding:52px 56px;
-  display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;
-}
-@media(max-width:768px){.bp-newsletter{grid-template-columns:1fr;padding:36px 28px;}}
-.bp-nl-title{
-  font-family:Jost,Inter,sans-serif;font-size:28px;font-weight:800;
-  color:#f8fafc;margin:0 0 8px;letter-spacing:-.4px;
-}
-.bp-nl-sub{font-size:15px;color:#94a3b8;margin:0;line-height:1.6;}
-.bp-nl-form{display:flex;gap:0;max-width:380px;width:100%;}
-.bp-nl-form input{
-  flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(148,163,184,.25);
-  border-right:none;border-radius:10px 0 0 10px;
-  padding:13px 18px;font-size:14px;color:#e2e8f0;font-family:Inter,sans-serif;outline:none;
-  transition:border-color .2s;
-}
-.bp-nl-form input:focus{border-color:rgba(0,209,255,.4);}
-.bp-nl-form input::placeholder{color:#3d5268;}
-.bp-nl-form button{
-  background:#00d1ff;color:#030a12;border:none;
-  padding:13px 22px;border-radius:0 10px 10px 0;
-  font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;
-  transition:background .2s;flex-shrink:0;
-}
-.bp-nl-form button:hover{background:#24ddff;}
-.bp-nl-note{font-size:11.5px;color:#3d5268;margin-top:7px;}
-</style>
-<style id="gf-styles">
-.gf-footer{background:#050b17;position:relative;overflow:hidden;font-family:'Inter',sans-serif}
-.gf-footer::before{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(0,209,255,.045) 1px,transparent 1px);background-size:28px 28px;pointer-events:none}
-.gf-top-rule{height:1px;background:linear-gradient(90deg,transparent 0%,rgba(0,209,255,.55) 30%,rgba(46,229,157,.4) 70%,transparent 100%);position:relative;z-index:1}
-.gf-body{padding:72px 0 52px;position:relative;z-index:1}
-.gf-grid{display:grid;grid-template-columns:1.45fr 1fr 1fr 1fr;gap:52px}
-@media(max-width:991px){.gf-grid{grid-template-columns:1fr 1fr;gap:36px 40px}}
-@media(max-width:599px){.gf-grid{grid-template-columns:1fr;gap:32px}}
-.gf-logo-link{display:inline-block;margin-bottom:14px}
-.gf-logo{height:34px;width:auto;display:block}
-.gf-tagline{font-size:13px;color:#4e637a;line-height:1.7;margin-bottom:22px;max-width:255px}
-.gf-subscribe-row{display:flex;gap:0;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:8px;overflow:hidden;margin-bottom:7px;transition:border-color .2s}
-.gf-subscribe-row:focus-within{border-color:rgba(0,209,255,.35)}
-.gf-subscribe-row input{flex:1;background:transparent;border:none;outline:none;padding:10px 14px;font-size:13px;color:#e2e8f0;font-family:'Inter',sans-serif}
-.gf-subscribe-row input::placeholder{color:#3d5268}
-.gf-subscribe-row button{background:#00d1ff;border:none;padding:10px 15px;color:#030a12;cursor:pointer;font-size:13px;transition:background .2s;flex-shrink:0}
-.gf-subscribe-row button:hover{background:#33daff}
-.gf-subscribe-note{font-size:11px;color:#3d5268;margin:0 0 22px}
-.gf-social{display:flex;gap:8px}
-.gf-social-link{width:33px;height:33px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:#4e637a;font-size:13px;text-decoration:none;transition:all .2s}
-.gf-social-link:hover{background:rgba(0,209,255,.09);border-color:rgba(0,209,255,.28);color:#00d1ff}
-.gf-col-title{font-size:10.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:#94a3b8;margin-bottom:16px;padding-bottom:11px;border-bottom:1px solid rgba(255,255,255,.06)}
-.gf-links{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:9px}
-.gf-links li a{font-size:13.5px;color:#4e637a;text-decoration:none;transition:color .18s;display:inline-block}
-.gf-links li a:hover{color:#cbd5e1}
-.gf-contact-block{display:flex;flex-direction:column;gap:9px;margin-top:4px}
-.gf-contact-link{display:flex;align-items:center;gap:8px;font-size:13px;color:#4e637a;text-decoration:none;transition:color .18s}
-.gf-contact-link i{color:#00d1ff;font-size:12px;width:14px;text-align:center;flex-shrink:0}
-.gf-contact-link:hover{color:#cbd5e1}
-.gf-bottom{border-top:1px solid rgba(255,255,255,.055);padding:16px 0;position:relative;z-index:1}
-.gf-bottom-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
-.gf-copy{font-size:12px;color:#3d5268;margin:0}
-.gf-copy a{color:#4e637a;text-decoration:none;transition:color .18s}
-.gf-copy a:hover{color:#94a3b8}
-.gf-bottom-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.gf-trust-pill{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#2ee59d;background:rgba(46,229,157,.07);border:1px solid rgba(46,229,157,.18);border-radius:100px;padding:4px 12px;letter-spacing:.3px}
-.gf-trust-dot{width:6px;height:6px;border-radius:50%;background:#2ee59d;box-shadow:0 0 6px #2ee59d;animation:gf-blink 2s ease-in-out infinite}
-@keyframes gf-blink{0%,100%{opacity:1}50%{opacity:.25}}
-.gf-bottom-nav{display:flex;gap:18px}
-.gf-bottom-nav a{font-size:12px;color:#3d5268;text-decoration:none;transition:color .18s}
-.gf-bottom-nav a:hover{color:#94a3b8}
-.gf-footer .pattern-layer{display:none!important}
-.gf-footer .links-list,.gf-footer .footer-widget,.gf-footer .widget-section,.gf-footer .footer-bottom{display:none!important}
-</style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-EG2Q8GD30V');
-</script>
-<!-- shell:head -->
-    <link rel="stylesheet" href="assets/cv-hero/v1/shell.css" />
+<!doctype html>
+<html lang="en" data-root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog · AiVRIC Insights</title>
+    <meta name="description" content="AiVRIC Insights: writing on cloud security, continuous compliance, AI risk and how security programs hold up under audit, with framework guides for HIPAA, SOC 2, CMMC and the EU AI Act." />
+    <link rel="canonical" href="https://aivric.com/blog-portal.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Blog · AiVRIC Insights" />
+    <meta property="og:description" content="AiVRIC Insights: writing on cloud security, continuous compliance, AI risk and how security programs hold up under audit, with framework guides for HIPAA, SOC 2, CMMC and the EU AI Act." />
+    <meta property="og:url" content="https://aivric.com/blog-portal.html" />
+    <link rel="icon" href="assets/brand/aivric-shield.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Jost:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/cv-hero/v1/nav.css" />
+    <link rel="stylesheet" href="assets/cv-hero/v1/cvh.css" />
     <link rel="stylesheet" href="assets/cv-hero/v1/mnav.css" />
-    <!-- /shell:head --></head>
-<!-- page wrapper -->
-<body class="bp-page">
-    <!-- shell:header -->
-    <div class="nav-theme" data-theme="dark" style="display:contents">
+    <link rel="stylesheet" href="assets/cv-hero/v1/aivric.css" />
+    <link rel="stylesheet" href="assets/site/v1/site.css" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EG2Q8GD30V"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EG2Q8GD30V');
+    </script>
+  </head>
+  <body>
+<div class="nav-theme" data-theme="dark" style="display:contents">
+<div class="preloader" data-preloader aria-hidden="true">
+      <div class="preloader-inner">
+        <div class="preloader-mark" aria-hidden="true"></div>
+        <div class="preloader-wordmark">AiVRIC</div>
+        <div class="preloader-bar" aria-hidden="true"><span></span></div>
+      </div>
+    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header mnav" data-mnav>
       <div class="mnav-bar">
         <a class="mnav-brand" href="./"><img src="assets/brand/aivric-on-dark.svg" alt="AiVRIC" width="150" height="32" /></a>
         <nav class="mnav-menus" aria-label="Primary"><ul><li><button class="mnav-trigger" type="button" data-mnav-trigger="platform" aria-expanded="false" aria-controls="mnav-panel">Platform<svg class="mnav-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li><li><button class="mnav-trigger" type="button" data-mnav-trigger="portfolio" aria-expanded="false" aria-controls="mnav-panel">Portfolio<svg class="mnav-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li><li><button class="mnav-trigger" type="button" data-mnav-trigger="resources" aria-expanded="false" aria-controls="mnav-panel">Resources<svg class="mnav-chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button></li><li><a class="mnav-trigger mnav-plain" href="integrations.html">Integrations</a></li></ul></nav>
         <div class="mnav-actions">
-          <a class="mnav-login" href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=enterprise_vision&utm_content=site_header">Launch for Free</a>
-          <a class="mnav-cta" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo?primary_color=00b8ff&utm_source=aivric_com&utm_medium=web&utm_campaign=enterprise_vision&utm_content=site_header">Book a call</a>
+          <a class="mnav-login" href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=enterprise_vision&utm_content=compliance_hub">Launch for Free</a>
+          <a class="mnav-cta" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo?primary_color=00b8ff&utm_source=aivric_com&utm_medium=web&utm_campaign=enterprise_vision&utm_content=compliance_hub">Book a call</a>
         </div>
         <button class="mnav-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav-sheet"><span></span><span></span></button>
       </div>
@@ -300,218 +64,93 @@ body.bp-page{
         <ul class="mnav-sheet-list"><li><button type="button" class="mnav-sheet-item" data-mnav-sub="platform">Platform<span aria-hidden="true">›</span></button></li><li><button type="button" class="mnav-sheet-item" data-mnav-sub="portfolio">Portfolio<span aria-hidden="true">›</span></button></li><li><button type="button" class="mnav-sheet-item" data-mnav-sub="resources">Resources<span aria-hidden="true">›</span></button></li><li><a class="mnav-sheet-item" href="integrations.html">Integrations</a></li></ul>
         <div class="mnav-sub" data-mnav-subview="platform" hidden><div class="mnav-sub-cols"><div class="mnav-col"><p class="mnav-col-title">The AiVRIC platform</p><p class="mnav-col-desc">One job each, every decision on the record.</p><p class="mnav-label">How it works</p><ul class="mnav-links"><li><a href="platform/#apps">How the apps fit</a></li><li><a href="platform/#record">The record</a></li><li><a href="platform/#ai">AI that shows its work</a></li></ul></div><div class="mnav-col"><p class="mnav-col-title">Inside the platform</p><p class="mnav-col-desc">Hosted on Google Cloud in the US.</p><p class="mnav-label">Capabilities and operations</p><ul class="mnav-links"><li><a href="platform/#aire">Governed remediation</a></li><li><a href="platform/#aisignals">AI security</a></li><li><a href="platform/#scale">How it runs</a></li><li><a href="platform/#data">Where data lives</a></li></ul></div></div><a class="mnav-foot" href="platform/">Platform overview <span aria-hidden="true">→</span></a></div><div class="mnav-sub" data-mnav-subview="portfolio" hidden><div class="mnav-sub-cols"><div class="mnav-col"><p class="mnav-col-title">Two apps</p><p class="mnav-col-desc">One for your company, one for your clients. Every capability runs inside them.</p><p class="mnav-label">For your company</p><ul class="mnav-links"><li><a href="enterprise/">AiVRIC Enterprise Vision</a></li></ul><p class="mnav-label">For your clients</p><ul class="mnav-links"><li><a href="providers/">Client Vision for Providers</a></li><li><a href="cloudsignals-msp.html">Managed Service Providers</a></li><li><a href="cloudsignals-private-equity.html">Private Equity &amp; Holdings</a></li></ul></div><div class="mnav-col"><p class="mnav-col-title">Capabilities</p><p class="mnav-col-desc">Switched on from inside the app.</p><p class="mnav-label">Available now</p><ul class="mnav-links"><li><a href="solutions-portal.html#cloudsignals">CloudSignals</a></li><li><a href="solutions-portal.html#aisignals">AISignals</a></li><li><a href="solutions-portal.html#aire">AIRE Agentic Mesh™</a></li></ul><p class="mnav-label">In build</p><ul class="mnav-links"><li><a href="solutions-portal.html#riskops">AiVRIC RiskOps</a></li></ul></div><div class="mnav-col"><p class="mnav-col-title">Use cases</p><p class="mnav-col-desc">Frameworks and the people who answer for them.</p><p class="mnav-label">Compliance</p><ul class="mnav-links"><li><a href="compliance/">Compliance overview</a></li><li><a href="compliance/hipaa/">HIPAA</a></li><li><a href="compliance/soc2/">SOC 2</a></li><li><a href="compliance/cmmc/">CMMC</a></li><li><a href="compliance/eu-ai-act/">EU AI Act</a></li></ul><p class="mnav-label">Leadership</p><ul class="mnav-links"><li><a href="enterprise/ciso/">For the CISO</a></li></ul></div></div><a class="mnav-foot" href="solutions-portal.html">View all products <span aria-hidden="true">→</span></a></div><div class="mnav-sub" data-mnav-subview="resources" hidden><div class="mnav-sub-cols"><div class="mnav-col"><p class="mnav-col-title">Learn</p><p class="mnav-col-desc">Guides, courses and the Academy.</p><p class="mnav-label">Learn</p><ul class="mnav-links"><li><a href="AiVRIC-UserGuide/index.html">Platform Guide</a></li><li><a href="https://academy.aivric.com/">Academy</a></li><li><a href="blog-portal.html">Blog</a></li></ul></div><div class="mnav-col"><p class="mnav-col-title">Company</p><p class="mnav-col-desc">Who we are and how we build.</p><p class="mnav-label">Company</p><ul class="mnav-links"><li><a href="about.html">About Us</a></li><li><a href="why-aivric.html">Why AiVRIC</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="trust/">Trust Center</a></li></ul></div></div></div>
       </div>
-      <div class="mnav-sheet-cta"><a class="mnav-cta" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo?primary_color=00b8ff&utm_source=aivric_com&utm_medium=web&utm_campaign=enterprise_vision&utm_content=site_header">Book a call</a><a class="mnav-login-btn" href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=enterprise_vision&utm_content=site_header">Launch for Free</a></div>
+      <div class="mnav-sheet-cta"><a class="mnav-cta" href="https://calendly.com/aivric-sales/aivric-walkthrough-demo?primary_color=00b8ff&utm_source=aivric_com&utm_medium=web&utm_campaign=enterprise_vision&utm_content=compliance_hub">Book a call</a><a class="mnav-login-btn" href="https://gcp-defense.aivric.com/sign-up?plan=pkg-cloudsignals-free&source=enterprise_vision&utm_content=compliance_hub">Launch for Free</a></div>
     </div>
-    </div>
-    <!-- /shell:header -->
+</div>
+    <script>document.documentElement.lang='en';document.body.classList.add('is-preloading');document.body.classList.add('is-nav-solid');</script>
+        <main id="main" class="sx-page">
 
-    <div class="boxed_wrapper">
-
-
-        
-               <!-- preloader -->
-        <div id="apl-wrap">
-          <div class="apl-scan"></div>
-          <div class="apl-corner tl"></div>
-          <div class="apl-corner tr"></div>
-          <div class="apl-corner bl"></div>
-          <div class="apl-corner br"></div>
-          <div class="apl-center">
-            <div class="apl-logo-wrap">
-              <div class="apl-ring r1"></div>
-              <div class="apl-ring r2"></div>
-              <div class="apl-ring r3"></div>
-              <img class="apl-logo" src="assets/images/logo/aivric.svg" alt="AiVRIC">
-            </div>
-            <div class="apl-brand">AiVRIC</div>
-            <div class="apl-tagline">Security Intelligence Platform</div>
-            <div class="apl-progress-wrap">
-              <div class="apl-progress-fill" id="apl-fill"></div>
-            </div>
-            <div class="apl-status-row">
-              <span class="apl-status" id="apl-status">Initializing Signal Engine</span>
-              <span class="apl-pct" id="apl-pct">0%</span>
-            </div>
+      <!-- ============ HERO ============ -->
+      <section class="sx-hero center" aria-labelledby="sx-h1" style="padding-bottom:clamp(30px,4vh,50px)">
+        <nav class="sx-crumbs sx-wrap" aria-label="Breadcrumb">
+          <ol><li><a href="./">AiVRIC</a></li><li><span aria-current="page">Blog</span></li></ol>
+        </nav>
+        <div class="sx-wrap">
+          <div class="sx-hero-inner">
+            <p class="sx-eyebrow" data-reveal>AiVRIC Insights</p>
+            <h1 class="sx-h1" id="sx-h1" data-reveal style="--d:.08s">Notes from the people <span class="sx-grad">building it.</span></h1>
+            <p class="sx-lede" data-reveal style="--d:.16s">On cloud security, continuous compliance, AI risk and how security programs hold up under audit.</p>
           </div>
         </div>
-        <!-- preloader end -->
+      </section>
 
-
-        <!-- main header -->
-        
-<!-- main-header end -->
-        <!-- Mobile Menu  -->
-        <!-- End Mobile Menu -->
-        <div class="bp-outer">
-
-          <!-- ── HERO ──────────────────────────────────────────────────── -->
-          <section class="bp-hero">
-            <div class="auto-container">
-              <div class="bp-hero-inner">
-                <div class="bp-hero-eyebrow">AiVRIC Insights</div>
-                <h1 class="bp-hero-title">Security intelligence.<br>From the people building it.</h1>
-                <p class="bp-hero-sub">In-depth writing on cloud security, compliance automation, AI-driven risk management, and the future of the security operations function.</p>
-                <form class="bp-search-row" action="#" onsubmit="return false;">
-                  <input type="search" placeholder="Search articles..." aria-label="Search articles">
-                  <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
-                </form>
-              </div>
+      <!-- ============ FEATURED ============ -->
+      <section class="sx-section" aria-labelledby="sx-feat-h" style="padding-top:clamp(20px,3vw,40px)">
+        <div class="sx-wrap">
+          <a class="sx-card sx-band" href="why-aivric-exists.html" style="text-decoration:none" data-reveal>
+            <div style="display:grid;gap:16px">
+              <p class="sx-eyebrow">Featured · Company · February 2, 2026</p>
+              <h2 class="sx-h2" id="sx-feat-h" style="font-size:clamp(30px,3.4vw,46px)">Why AiVRIC exists: <span class="sx-grad">a founder's thesis.</span></h2>
+              <p class="sx-lede">Security and compliance don't fail for lack of intent or tooling. They fail because they aren't designed as systems. What years of FDA observations, banking MRAs and audit pressure taught us about building one.</p>
+              <span class="sx-link">Read the thesis <span aria-hidden="true">→</span></span>
             </div>
-          </section>
-
-          <!-- ── CATEGORY FILTERS ──────────────────────────────────────── -->
-          <div class="bp-filters">
-            <div class="auto-container">
-              <div class="bp-filter-inner" id="bp-filters">
-                <button class="bp-filter-btn active" data-filter="all">All Topics</button>
-                <button class="bp-filter-btn" data-filter="Cloud Security">Cloud Security</button>
-                <button class="bp-filter-btn" data-filter="Compliance">Compliance</button>
-                <button class="bp-filter-btn" data-filter="AI &amp; Security">AI &amp; Security</button>
-                <button class="bp-filter-btn" data-filter="Risk Mgmt">Risk Management</button>
-                <button class="bp-filter-btn" data-filter="DevSecOps">DevSecOps</button>
-                <button class="bp-filter-btn" data-filter="Company">Company</button>
-              </div>
+            <div class="sx-statements" style="grid-template-columns:1fr;border-top:0">
+              <div class="sx-statement" style="padding:0 0 18px"><b>Reactive security doesn't scale.</b></div>
+              <div class="sx-statement" style="padding:18px 0;border-left:0;border-top:1px solid var(--sx-line)"><b>Static compliance doesn't hold.</b></div>
+              <div class="sx-statement" style="padding:18px 0 0;border-left:0;border-top:1px solid var(--sx-line)"><b>Fragmented data can't support action.</b></div>
             </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ============ ARTICLES ============ -->
+      <section class="sx-section tint rule" id="articles" aria-labelledby="sx-art-h">
+        <div class="sx-wrap">
+          <div class="sx-head" data-reveal>
+            <p class="sx-eyebrow">Articles</p>
+            <h2 class="sx-h2" id="sx-art-h">From the archive.</h2>
           </div>
-
-          
-          <!-- ── FEATURED ─────────────────────────────────────────────── -->
-          <section class="bp-featured-wrap">
-            <div class="auto-container">
-              <div class="bp-section-label">
-                <span class="bp-eyebrow">Featured</span>
-              </div>
-              <a href="why-aivric-exists.html" class="bp-featured-card">
-                <div class="bp-featured-img">
-                  <img src="assets/images/blog/aivric-vision-human-ai.avif" alt="Why AiVRIC Exists: A Founder's Thesis on Security That Endures">
-                  <div class="bp-featured-img-overlay"></div>
-                </div>
-                <div class="bp-featured-content">
-                  <div class="bp-featured-meta">
-                    <span class="bp-cat" style="color:#f8fafc;background:rgba(248,250,252,.13);border-color:rgba(248,250,252,.35)">Company</span>
-                    <span class="bp-meta-sep">·</span>
-                    <span class="bp-date">Feb 2, 2026</span>
-                    <span class="bp-meta-sep">·</span>
-                    <span class="bp-read">8 min read</span>
-                  </div>
-                  <h2 class="bp-featured-title">Why AiVRIC Exists: A Founder's Thesis on Security That Endures</h2>
-                  <p class="bp-featured-excerpt">Most enterprise security tools are designed to pass audits, not survive incidents. This is the story of why we built AiVRIC — and what we believe a security platform actually owes to the organizations that depend on it when things go wrong.</p>
-                  <span class="bp-read-cta">Read article <i class="fas fa-arrow-right"></i></span>
-                </div>
-              </a>
-            </div>
-          </section>
-
-          <!-- ── ARTICLE GRID ───────────────────────────────────────────── -->
-          <section class="bp-grid-wrap">
-            <div class="auto-container">
-              <div class="bp-grid-header">
-                <span class="bp-eyebrow">Latest Articles</span>
-              </div>
-              <div class="bp-grid">
-              <a href="blog-why-continuous-compliance-matters.html" class="bp-card">
-                <div class="bp-card-img">
-                  <img src="assets/images/blog/SOC-2-compliance.avif" alt="Why Continuous Compliance Matters in 2025" loading="lazy">
-                  <span class="bp-cat-sm" style="color:#2ee59d;background:rgba(46,229,157,.13);border-color:rgba(46,229,157,.35)">Compliance</span>
-                  
-                </div>
-                <div class="bp-card-body">
-                  <div class="bp-card-meta"><span class="bp-date">Apr 13, 2025</span><span class="bp-meta-sep">·</span><span class="bp-read">6 min read</span></div>
-                  <h3 class="bp-card-title">Why Continuous Compliance Matters in 2025</h3>
-                  <p class="bp-card-excerpt">Continuous compliance reduces audit fatigue, improves risk posture, and keeps cloud environments aligned with SOC 2, ISO 27001, PCI DSS, and CMMC — automatically.</p>
-                  <span class="bp-card-cta">Read more <i class="fas fa-arrow-right"></i></span>
-                </div>
-              </a>
-              <a href="blog-future-of-cloud-security.html" class="bp-card">
-                <div class="bp-card-img">
-                  <img src="assets/images/blog/cloud-security-poster.avif" alt="AI-Powered Compliance: The Future of Cloud Security" loading="lazy">
-                  <span class="bp-cat-sm" style="color:#a78bfa;background:rgba(167,139,250,.13);border-color:rgba(167,139,250,.35)">AI & Security</span>
-                  
-                </div>
-                <div class="bp-card-body">
-                  <div class="bp-card-meta"><span class="bp-date">Apr 11, 2025</span><span class="bp-meta-sep">·</span><span class="bp-read">5 min read</span></div>
-                  <h3 class="bp-card-title">AI-Powered Compliance: The Future of Cloud Security</h3>
-                  <p class="bp-card-excerpt">How artificial intelligence is transforming compliance monitoring, managing risk at scale, and turning configuration data into decision-ready intelligence.</p>
-                  <span class="bp-card-cta">Read more <i class="fas fa-arrow-right"></i></span>
-                </div>
-              </a>
-              <a href="blog-integrating-into-DevOps.html" class="bp-card">
-                <div class="bp-card-img">
-                  <img src="assets/images/blog/SOC-analyst-1.avif" alt="Integrating Security Automation into DevOps" loading="lazy">
-                  <span class="bp-cat-sm" style="color:#ffd63a;background:rgba(255,214,58,.13);border-color:rgba(255,214,58,.35)">DevSecOps</span>
-                  
-                </div>
-                <div class="bp-card-body">
-                  <div class="bp-card-meta"><span class="bp-date">Apr 9, 2025</span><span class="bp-meta-sep">·</span><span class="bp-read">7 min read</span></div>
-                  <h3 class="bp-card-title">Integrating Security Automation into DevOps</h3>
-                  <p class="bp-card-excerpt">Seamless security automation accelerates your pipeline, surfaces vulnerabilities earlier, and ensures compliance from code commit to cloud deployment.</p>
-                  <span class="bp-card-cta">Read more <i class="fas fa-arrow-right"></i></span>
-                </div>
-              </a>
-              <div class="bp-card bp-card-soon">
-                <div class="bp-card-img">
-                  <img src="assets/images/blog/compliance-risk-dashboard.avif" alt="The Anatomy of a Multi-Cloud Posture Failure" loading="lazy">
-                  <span class="bp-cat-sm" style="color:#00d1ff;background:rgba(0,209,255,.13);border-color:rgba(0,209,255,.35)">Cloud Security</span>
-                  <div class="bp-soon-overlay"><span>Coming Soon</span></div>
-                </div>
-                <div class="bp-card-body">
-                  <div class="bp-card-meta"><span class="bp-date">Coming Soon</span></div>
-                  <h3 class="bp-card-title">The Anatomy of a Multi-Cloud Posture Failure</h3>
-                  <p class="bp-card-excerpt">A forensic look at how configuration drift, untracked accounts, and stale IAM roles combine into real incidents — and how continuous scanning prevents them.</p>
-                  
-                </div>
-              </div>
-              <div class="bp-card bp-card-soon">
-                <div class="bp-card-img">
-                  <img src="assets/images/blog/threat-detected.avif" alt="Threat Detection Without the Noise: How Scoring Changes Everything" loading="lazy">
-                  <span class="bp-cat-sm" style="color:#fb923c;background:rgba(251,146,60,.13);border-color:rgba(251,146,60,.35)">Risk Mgmt</span>
-                  <div class="bp-soon-overlay"><span>Coming Soon</span></div>
-                </div>
-                <div class="bp-card-body">
-                  <div class="bp-card-meta"><span class="bp-date">Coming Soon</span></div>
-                  <h3 class="bp-card-title">Threat Detection Without the Noise: How Scoring Changes Everything</h3>
-                  <p class="bp-card-excerpt">When every finding is critical, nothing is critical. Business-context scoring is the difference between a signal and a noise complaint.</p>
-                  
-                </div>
-              </div>
-              <div class="bp-card bp-card-soon">
-                <div class="bp-card-img">
-                  <img src="assets/images/blog/aivric-vision-ai.avif" alt="What GRC Automation Looks Like When AI Does the Heavy Lifting" loading="lazy">
-                  <span class="bp-cat-sm" style="color:#a78bfa;background:rgba(167,139,250,.13);border-color:rgba(167,139,250,.35)">AI & Security</span>
-                  <div class="bp-soon-overlay"><span>Coming Soon</span></div>
-                </div>
-                <div class="bp-card-body">
-                  <div class="bp-card-meta"><span class="bp-date">Coming Soon</span></div>
-                  <h3 class="bp-card-title">What GRC Automation Looks Like When AI Does the Heavy Lifting</h3>
-                  <p class="bp-card-excerpt">GRC platforms have been spreadsheets with better branding for a decade. Here is what changes when a purpose-built AI model runs the control monitoring layer.</p>
-                  
-                </div>
-              </div>
-              </div>
-            </div>
-          </section>
-
-          <!-- ── NEWSLETTER ─────────────────────────────────────────────── -->
-          <div class="auto-container">
-            <div class="bp-newsletter">
-              <div>
-                <h2 class="bp-nl-title">Stay ahead of the threat landscape.</h2>
-                <p class="bp-nl-sub">New articles on cloud security, compliance automation, and AI-driven risk management — delivered to your inbox.</p>
-              </div>
-              <div>
-                <form class="bp-nl-form" action="contact.html" method="post" onsubmit="return false;">
-                  <input type="email" name="email" placeholder="Work email address" required>
-                  <button type="submit">Subscribe</button>
-                </form>
-                <p class="bp-nl-note">No spam. Unsubscribe any time.</p>
-              </div>
-            </div>
+          <div class="sx-lib three" data-reveal>
+            <a class="sx-doc" href="blog-details.html"><span class="sx-doc-kind">Cloud security · April 18, 2025</span><b>The CISO's Guide to Cloud Security Posture Management</b><span class="sx-small">CSPM, CIEM, CWPP and CNAPP, untangled, and what posture management has to answer for a CISO.</span><span class="go">Read →</span></a>
+            <a class="sx-doc" href="blog-future-of-cloud-security.html"><span class="sx-doc-kind">AI &amp; security · April 15, 2025</span><b>AI-Powered Compliance: The Future of Cloud Security</b><span class="sx-small">How AI turns configuration data into decision-ready intelligence for compliance teams.</span><span class="go">Read →</span></a>
+            <a class="sx-doc" href="blog-integrating-into-DevOps.html"><span class="sx-doc-kind">DevSecOps · April 14, 2025</span><b>Integrating Security Automation into DevOps</b><span class="sx-small">Surface vulnerabilities earlier and keep compliance from code commit to cloud deployment.</span><span class="go">Read →</span></a>
+            <a class="sx-doc" href="blog-why-continuous-compliance-matters.html"><span class="sx-doc-kind">Compliance · April 13, 2025</span><b>Why Continuous Compliance Matters</b><span class="sx-small">Why point-in-time audits leave a gap, and how continuous posture closes it.</span><span class="go">Read →</span></a>
+            <a class="sx-doc" href="assets/blog-managing-healthcare-risk/"><span class="sx-doc-kind">AI &amp; security · January 18, 2025</span><b>Managing AI Risk in Healthcare</b><span class="sx-small">Governing AI models in clinical settings, with the evidence regulators expect.</span><span class="go">Read →</span></a>
           </div>
+        </div>
+      </section>
 
-        </div><!-- /bp-outer -->
-        <!-- main-footer -->
-        <!-- shell:footer -->
-    <footer class="site-footer">
+      <!-- ============ GUIDES ============ -->
+      <section class="sx-section" aria-labelledby="sx-guide-h">
+        <div class="sx-wrap">
+          <div class="sx-head" data-reveal>
+            <p class="sx-eyebrow">Guides</p>
+            <h2 class="sx-h2" id="sx-guide-h">Framework guides, <span class="sx-grad">kept current.</span></h2>
+            <p class="sx-lede">Each guide is checked against its primary sources, with the date and the link beside every rule.</p>
+          </div>
+          <div class="sx-lib" data-reveal>
+            <a class="sx-doc" href="compliance/hipaa/"><span class="sx-doc-kind">Framework</span><b>HIPAA</b><span class="sx-small">The Security Rule, before the enforcement.</span><span class="go">HIPAA →</span></a>
+            <a class="sx-doc" href="compliance/soc2/"><span class="sx-doc-kind">Framework</span><b>SOC 2</b><span class="sx-small">The Trust Services Criteria, on the record.</span><span class="go">SOC 2 →</span></a>
+            <a class="sx-doc" href="compliance/cmmc/"><span class="sx-doc-kind">Framework</span><b>CMMC</b><span class="sx-small">NIST SP 800-171, practice by practice.</span><span class="go">CMMC →</span></a>
+            <a class="sx-doc" href="compliance/eu-ai-act/"><span class="sx-doc-kind">Regulation</span><b>EU AI Act</b><span class="sx-small">The dates as amended, and your AI risk tiers.</span><span class="go">EU AI Act →</span></a>
+          </div>
+          <p class="sx-chapter-note" data-reveal><b>Using the product?</b> The <a class="sx-link" href="AiVRIC-UserGuide/index.html">Platform Guide</a> covers setup, connectors and every policy area, and the <a class="sx-link" href="https://academy.aivric.com/">Academy</a> has the courses.</p>
+        </div>
+      </section>
+
+      <!-- ============ CLOSE ============ -->
+      <section class="sx-close" aria-labelledby="sx-close-h" style="padding:clamp(80px,10vw,130px) 0">
+        <div class="sx-wrap">
+          <h2 class="sx-h2" id="sx-close-h" data-reveal>New articles, <span class="sx-grad">as they're written.</span></h2>
+          <p class="sx-lede" data-reveal>Follow AiVRIC on LinkedIn for new writing, or ask us the question you'd like answered next.</p>
+          <div class="sx-actions" data-reveal>
+            <a class="sx-btn sx-btn-primary" href="https://www.linkedin.com/company/aivric">Follow on LinkedIn <span class="sx-arrow" aria-hidden="true">→</span></a>
+            <a class="sx-btn sx-btn-ghost" href="contact.html">Suggest a topic</a>
+          </div>
+        </div>
+      </section>
+    </main>
+<footer class="site-footer">
       <div class="container footer-grid">
         <div>
           <a class="brand footer-brand" href="./"><img src="assets/brand/aivric-on-dark.svg" alt="AiVRIC" width="150" height="32" /></a>
@@ -556,46 +195,10 @@ body.bp-page{
         <span><a href="terms-of-use.html">Terms of Service</a> · <a href="privacy-policy.html">Privacy Policy</a></span>
       </div>
     </footer>
-    <script src="assets/cv-hero/v1/mnav.js" defer></script>
-    <!-- /shell:footer -->
-        <!-- main-footer end -->
-
-        <div class="scroll-to-top">
-            <div><div class="scroll-top-inner">
-                <div class="scroll-bar"><div class="bar-inner"></div></div>
-                <div class="scroll-bar-text">Go To Top</div>
-            </div></div>
-        </div>
-
-    </div>
-
-    <script src="assets/js/jquery.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/owl.js"></script>
-    <script src="assets/js/wow.js"></script>
-    <script src="assets/js/validation.js"></script>
-    <script src="assets/js/jquery.fancybox.js"></script>
-    <script src="assets/js/appear.js"></script>
-    <script src="assets/js/scrollbar.js"></script>
-    <script src="assets/js/isotope.js"></script>
-    <script src="assets/js/jquery.nice-select.min.js"></script>
-    <script src="assets/js/parallax-scroll.js"></script>
-    <script src="assets/js/aivric-preloader.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/mega-hover.js"></script>
-    <script src="assets/js/mega-tabs.js"></script>
-    <script>
-    /* Category filter tab highlight */
-    document.addEventListener('DOMContentLoaded', function() {
-      var btns = document.querySelectorAll('.bp-filter-btn');
-      btns.forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          btns.forEach(function(b) { b.classList.remove('active'); });
-          btn.classList.add('active');
-        });
-      });
-    });
-    </script>
-</body>
+        <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"AiVRIC","item":"https://aivric.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://aivric.com/blog-portal.html"}]}]}</script>
+    <script defer src="assets/js/main.js"></script>
+    <script defer src="assets/cv-hero/v1/mnav.js"></script>
+    <!-- the compliance kit: the screen helpers and the Enterprise Vision shell, this framework's screens and data, then the page script -->
+    <script defer src="assets/site/v1/site.js"></script>
+  </body>
 </html>

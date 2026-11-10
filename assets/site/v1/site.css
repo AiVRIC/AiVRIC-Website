@@ -482,3 +482,8 @@
 .sx-chapter-note b { color: #fff; }
 @media (max-width: 1080px) { .sx-jobs, .sx-nums { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sx-ladder { grid-template-columns: 1fr; } .sx-rung + .sx-rung { box-shadow: inset 0 1px 0 var(--sx-line); } }
 @media (max-width: 560px) { .sx-jobs, .sx-nums { grid-template-columns: 1fr; } }
+
+/* a three-up card grid (the Blog) */
+.sx-lib.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1080px) { .sx-lib.three { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .sx-lib.three { grid-template-columns: 1fr; } }

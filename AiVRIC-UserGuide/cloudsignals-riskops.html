@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <title>AiVRIC Platform Guide | CloudSignals+RiskOps</title>
+  <title>AiVRIC Platform Guide | CloudSignals</title>
   <link rel="canonical" href="https://aivric.com/AiVRIC-UserGuide/cloudsignals-riskops.html">
-  <meta name="description" content="CloudSignals+RiskOps: continuous cloud posture monitoring, compliance automation, risk scoring, and remediation guidance across AWS, Azure, GCP, Kubernetes, GitHub, M365, Cloudflare, OpenStack, and more.">
+  <meta name="description" content="CloudSignals: continuous cloud posture monitoring, compliance automation, risk scoring, and remediation guidance across AWS, Azure, GCP, Kubernetes, GitHub, M365, Cloudflare, OpenStack, and more.">
   <link rel="icon" href="../assets/images/Aivric-favicon-logo.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link href="../assets/css/aivric-preloader.css" rel="stylesheet">
@@ -55,7 +55,7 @@
         <a class="nav-link" href="platform-overview.html">Platform Overview</a>
       </div>
       <div class="nav-section">
-        <p class="nav-label">CloudSignals+RiskOps</p>
+        <p class="nav-label">CloudSignals</p>
         <a class="nav-link active" href="cloudsignals-riskops.html">Module Overview</a>
         <a class="nav-link" href="connectors.html">Connectors</a>
         <a class="nav-link" href="integrations.html">Integrations</a>
@@ -113,12 +113,12 @@
 
     <main class="guide-content" id="main-content">
 
-      <span class="badge" id="overview">CloudSignals+RiskOps&#8482;</span>
-      <h1>CloudSignals+RiskOps</h1>
-      <p>CloudSignals+RiskOps&#8482; is AiVRIC's continuous cloud security posture and compliance automation engine. It ingests configuration telemetry from your cloud accounts, SaaS platforms, and developer tooling, then continuously maps findings to compliance frameworks, scores risk, and surfaces prioritized remediation guidance — all updated every 24 hours automatically.</p>
+      <span class="badge" id="overview">CloudSignals&#8482;</span>
+      <h1>CloudSignals</h1>
+      <p>CloudSignals&#8482; is AiVRIC's continuous cloud security posture and compliance automation engine. It ingests configuration telemetry from your cloud accounts, SaaS platforms, and developer tooling, then continuously maps findings to compliance frameworks, scores risk, and surfaces prioritized remediation guidance — all updated every 24 hours automatically.</p>
 
       <div class="callout primary">
-        <strong>Always-on coverage.</strong> Once you connect a provider, CloudSignals+RiskOps runs an automated audit every <strong>24 hours</strong> to detect misconfigurations, identity drift, and posture degradation without requiring manual intervention.
+        <strong>Always-on coverage.</strong> Once you connect a provider, CloudSignals runs an automated audit every <strong>24 hours</strong> to detect misconfigurations, identity drift, and posture degradation without requiring manual intervention.
       </div>
 
       <h2 id="how-it-works">How it works</h2>
@@ -134,7 +134,7 @@
           <div class="step-num">2</div>
           <div class="step-body">
             <h4>Telemetry ingestion</h4>
-            <p>CloudSignals+RiskOps polls your cloud APIs on a scheduled cadence (default: every 24 hours; configurable per connector). Configuration metadata, IAM policies, network rules, and resource settings are collected — no application payload data is ingested.</p>
+            <p>CloudSignals polls your cloud APIs on a scheduled cadence (default: every 24 hours; configurable per connector). Configuration metadata, IAM policies, network rules, and resource settings are collected — no application payload data is ingested.</p>
           </div>
         </div>
         <div class="step-item">
@@ -177,7 +177,7 @@
       </div>
 
       <h2 id="providers">Supported providers</h2>
-      <p>CloudSignals+RiskOps supports the following cloud and SaaS providers. Click any to jump to the connector setup guide.</p>
+      <p>CloudSignals supports the following cloud and SaaS providers. Click any to jump to the connector setup guide.</p>
       <div class="provider-grid">
         <a class="provider-chip" href="connectors.html#aws"><span class="icon">&#9881;</span> Amazon Web Services</a>
         <a class="provider-chip" href="connectors.html#azure"><span class="icon">&#9881;</span> Microsoft Azure</a>
@@ -193,7 +193,7 @@
       </div>
 
       <h2 id="compliance">Compliance framework mapping</h2>
-      <p>CloudSignals+RiskOps continuously maps your posture findings to the following frameworks. Evidence is captured automatically, so you always have an up-to-date audit trail.</p>
+      <p>CloudSignals continuously maps your posture findings to the following frameworks. Evidence is captured automatically, so you always have an up-to-date audit trail.</p>
       <table class="table framework-table">
         <thead>
           <tr><th>Framework</th><th>Coverage</th><th>Evidence output</th></tr>
@@ -301,7 +301,7 @@
           <tr><td>Email</td><td>Configure recipients per workspace in Settings &gt; Notifications.</td><td>Digest (daily/weekly) or real-time per-finding alerts.</td></tr>
           <tr><td>Jira</td><td>OAuth connection to your Jira instance; map projects to AiVRIC workspaces.</td><td>Auto-create tickets on new High/Critical findings; sync status back on remediation.</td></tr>
           <tr><td>ServiceNow</td><td>REST API integration; configure incident priority mapping in Settings &gt; Ticketing.</td><td>Auto-create incidents; bidirectional status sync.</td></tr>
-          <tr><td>Webhook</td><td>Register any HTTPS endpoint to receive CloudSignals+RiskOps event payloads.</td><td>Fully configurable per event type.</td></tr>
+          <tr><td>Webhook</td><td>Register any HTTPS endpoint to receive CloudSignals event payloads.</td><td>Fully configurable per event type.</td></tr>
         </tbody>
       </table>
 
@@ -411,7 +411,7 @@
     (function(){
       var searchInput = document.getElementById('guide-search-input');
       var resultsBox  = document.getElementById('guide-search-results');
-      var pageIndex = [{"title": "Platform Guide Home", "url": "index.html"}, {"title": "Getting Started", "url": "getting-started.html"}, {"title": "Platform Overview", "url": "platform-overview.html"}, {"title": "CloudSignals+RiskOps Overview", "url": "cloudsignals-riskops.html"}, {"title": "Connectors", "url": "connectors.html"}, {"title": "Integrations", "url": "integrations.html"}, {"title": "Security & Trust", "url": "security-trust.html"}, {"title": "AI Governance", "url": "ai-governance.html"}, {"title": "Compliance Overview", "url": "compliance.html"}, {"title": "FAQ & Support", "url": "faq.html"}, {"title": "Insider Early Access", "url": "insider-early-access.html"}, {"title": "Cloud Security", "url": "cloud-security.html"}, {"title": "Network Security", "url": "network-security.html"}, {"title": "Endpoint Security", "url": "endpoint-security.html"}, {"title": "Identity & Access Control", "url": "identification-authorization-control.html"}, {"title": "Data Classification", "url": "data-classification-handling.html"}, {"title": "Data Privacy", "url": "data-privacy.html"}, {"title": "Incident Response", "url": "incident-response-operations.html"}, {"title": "Threat Management", "url": "threat-management.html"}, {"title": "Vulnerability & Patch Mgmt", "url": "vulnerability-patch-management.html"}, {"title": "Security Operations", "url": "security-operations.html"}, {"title": "Risk Assessment", "url": "risk-assessment.html"}, {"title": "Third-Party Management", "url": "third-party-management.html"}, {"title": "AI & Autonomous Technologies", "url": "ai-autonomous-technologies.html"}, {"title": "Secure Engineering Architecture", "url": "secure-engineering-architecture.html"}, {"title": "Web Security", "url": "web-security.html"}, {"title": "Asset Management", "url": "asset-management.html"}, {"title": "Cryptographic Operations", "url": "cryptographic-operations.html"}, {"title": "Information Assurance", "url": "information-assurance.html"}, {"title": "Acceptable Use Policy", "url": "acceptable-use-policy.html"}, {"title": "Business Continuity & DR", "url": "business-continuity-disaster-recovery.html"}, {"title": "Capacity & Performance Mgmt", "url": "capacity-performance-management.html"}, {"title": "Maintenance", "url": "maintenance.html"}, {"title": "Security Awareness & Training", "url": "security-awareness-training.html"}, {"title": "Mobile Device Management", "url": "mobile-device-management.html"}, {"title": "Physical & Environmental Security", "url": "physical-environmental-security.html"}, {"title": "HR Security", "url": "human-resources-security.html"}, {"title": "Project & Resource Management", "url": "project-resource-management.html"}, {"title": "Tech Dev & Acquisition", "url": "technology-development-acquisition.html"}, {"title": "Security & Privacy Governance", "url": "security-privacy-governance.html"}];
+      var pageIndex = [{"title": "Platform Guide Home", "url": "index.html"}, {"title": "Getting Started", "url": "getting-started.html"}, {"title": "Platform Overview", "url": "platform-overview.html"}, {"title": "CloudSignals Overview", "url": "cloudsignals-riskops.html"}, {"title": "Connectors", "url": "connectors.html"}, {"title": "Integrations", "url": "integrations.html"}, {"title": "Security & Trust", "url": "security-trust.html"}, {"title": "AI Governance", "url": "ai-governance.html"}, {"title": "Compliance Overview", "url": "compliance.html"}, {"title": "FAQ & Support", "url": "faq.html"}, {"title": "Insider Early Access", "url": "insider-early-access.html"}, {"title": "Cloud Security", "url": "cloud-security.html"}, {"title": "Network Security", "url": "network-security.html"}, {"title": "Endpoint Security", "url": "endpoint-security.html"}, {"title": "Identity & Access Control", "url": "identification-authorization-control.html"}, {"title": "Data Classification", "url": "data-classification-handling.html"}, {"title": "Data Privacy", "url": "data-privacy.html"}, {"title": "Incident Response", "url": "incident-response-operations.html"}, {"title": "Threat Management", "url": "threat-management.html"}, {"title": "Vulnerability & Patch Mgmt", "url": "vulnerability-patch-management.html"}, {"title": "Security Operations", "url": "security-operations.html"}, {"title": "Risk Assessment", "url": "risk-assessment.html"}, {"title": "Third-Party Management", "url": "third-party-management.html"}, {"title": "AI & Autonomous Technologies", "url": "ai-autonomous-technologies.html"}, {"title": "Secure Engineering Architecture", "url": "secure-engineering-architecture.html"}, {"title": "Web Security", "url": "web-security.html"}, {"title": "Asset Management", "url": "asset-management.html"}, {"title": "Cryptographic Operations", "url": "cryptographic-operations.html"}, {"title": "Information Assurance", "url": "information-assurance.html"}, {"title": "Acceptable Use Policy", "url": "acceptable-use-policy.html"}, {"title": "Business Continuity & DR", "url": "business-continuity-disaster-recovery.html"}, {"title": "Capacity & Performance Mgmt", "url": "capacity-performance-management.html"}, {"title": "Maintenance", "url": "maintenance.html"}, {"title": "Security Awareness & Training", "url": "security-awareness-training.html"}, {"title": "Mobile Device Management", "url": "mobile-device-management.html"}, {"title": "Physical & Environmental Security", "url": "physical-environmental-security.html"}, {"title": "HR Security", "url": "human-resources-security.html"}, {"title": "Project & Resource Management", "url": "project-resource-management.html"}, {"title": "Tech Dev & Acquisition", "url": "technology-development-acquisition.html"}, {"title": "Security & Privacy Governance", "url": "security-privacy-governance.html"}];
       var pageCache = {};
 
       function sanitize(t){ return t.replace(/[<>]/g, function(c){ return c==='<'?'&lt;':'&gt;'; }); }
