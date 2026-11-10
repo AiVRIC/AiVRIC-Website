@@ -65,7 +65,7 @@
     var ctx = cv.getContext('2d'); if (!ctx) return;
     var W = 0, H = 0, dpr = 1, t0 = performance.now(), running = false, raf = 0;
     var px = 0, py = 0, tx = 0, ty = 0;     // pointer parallax, eased
-    var scene = kind === 'orbit' ? orbit() : kind === 'rise' ? rise() : chain();
+    var scene = kind === 'orbit' ? orbit() : kind === 'rise' ? rise() : kind === 'hub' ? hub() : chain();
     function size() {
       var r = cv.getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1);
       W = Math.max(1, r.width); H = Math.max(1, r.height);
@@ -165,6 +165,60 @@
             ctx.font = '600 ' + (g.narrow ? 11 : 13) + 'px Inter, sans-serif'; ctx.fillText(c.c.name, c.x, c.y - r - 12);
             ctx.globalAlpha = 1;
           });
+        }
+      };
+    }
+
+    /* the workspace at the centre; your tools on the left send signals in, the places work happens on the right take it out */
+    function hub() {
+      var ins = JSON.parse(cv.getAttribute('data-in') || '[]'), outs = JSON.parse(cv.getAttribute('data-out') || '[]');
+      var pulses = [];
+      for (var i = 0; i < 34; i++) pulses.push({ side: i % 2, k: i, u: Math.random(), s: 0.12 + Math.random() * 0.12 });
+      function col(list, x, H0, H1) { return list.map(function (n, k) { return { n: n, x: x, y: H0 + (H1 - H0) * (list.length === 1 ? 0.5 : k / (list.length - 1)) }; }); }
+      return {
+        draw: function (s, px, py) {
+          var narrow = W < 760, cx = W / 2 + px * 18, cy = H * 0.5 + py * 10;
+          var L = col(ins, W * (narrow ? 0.3 : 0.17) + px * 30, H * 0.12, H * 0.88), R = col(outs, W * (narrow ? 0.7 : 0.83) + px * 30, H * 0.2, H * 0.8);
+          function curve(a, b, alpha, color) {
+            var g = ctx.createLinearGradient(a.x, a.y, b.x, b.y);
+            g.addColorStop(0, 'rgba(' + color + ',' + alpha * 0.3 + ')'); g.addColorStop(1, 'rgba(' + color + ',' + alpha + ')');
+            ctx.strokeStyle = g; ctx.lineWidth = 1.1; ctx.beginPath(); ctx.moveTo(a.x, a.y);
+            ctx.bezierCurveTo((a.x + b.x) / 2, a.y, (a.x + b.x) / 2, b.y, b.x, b.y); ctx.stroke();
+          }
+          function at(a, b, u) {   // a point along the same bezier
+            var mx = (a.x + b.x) / 2, v = 1 - u;
+            return { x: v * v * v * a.x + 3 * v * v * u * mx + 3 * v * u * u * mx + u * u * u * b.x, y: v * v * v * a.y + 3 * v * v * u * a.y + 3 * v * u * u * b.y + u * u * u * b.y };
+          }
+          var C = { x: cx, y: cy };
+          L.forEach(function (n) { curve(n, C, 0.45, '0,209,255'); });
+          R.forEach(function (n) { curve(C, n, 0.45, '46,229,157'); });
+          pulses.forEach(function (p) {
+            p.u += p.s / 60; if (p.u > 1) p.u = 0;
+            var list = p.side ? R : L; if (!list.length) return;
+            var n = list[p.k % list.length], pt = p.side ? at(C, n, p.u) : at(n, C, p.u);
+            ctx.fillStyle = p.side ? 'rgba(46,229,157,' + Math.sin(p.u * 3.14) + ')' : 'rgba(124,232,255,' + Math.sin(p.u * 3.14) + ')';
+            ctx.beginPath(); ctx.arc(pt.x, pt.y, 2, 0, 6.29); ctx.fill();
+          });
+          // the workspace
+          var R0 = narrow ? 30 : 56;
+          var halo = ctx.createRadialGradient(cx, cy, 0, cx, cy, R0 * 3);
+          halo.addColorStop(0, 'rgba(0,209,255,0.3)'); halo.addColorStop(1, 'rgba(0,209,255,0)');
+          ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(cx, cy, R0 * 3, 0, 6.29); ctx.fill();
+          ctx.fillStyle = '#081a33'; ctx.beginPath(); ctx.arc(cx, cy, R0, 0, 6.29); ctx.fill();
+          ctx.strokeStyle = 'rgba(124,232,255,0.8)'; ctx.lineWidth = 1.2; ctx.stroke();
+          ctx.strokeStyle = 'rgba(124,232,255,0.22)'; ctx.setLineDash([2, 6]); ctx.beginPath(); ctx.arc(cx, cy, R0 + 12, s * 0.3, s * 0.3 + 6.29); ctx.stroke(); ctx.setLineDash([]);
+          ctx.textAlign = 'center'; ctx.fillStyle = '#fff'; ctx.font = '600 ' + (narrow ? 10 : 14) + 'px Jost, Inter, sans-serif'; if (narrow) { ctx.fillText('Your', cx, cy - 2); ctx.fillText('workspace', cx, cy + 10); } else ctx.fillText('Your workspace', cx, cy + 5);
+          // the endpoints
+          function chip(n, right) {
+            ctx.font = '600 ' + (narrow ? 10 : 13) + 'px Inter, sans-serif';
+            var w = ctx.measureText(n.n).width + (narrow ? 18 : 26), h = narrow ? 24 : 30, x = right ? n.x - 8 : n.x - w + 8, y = n.y - h / 2;
+            x = Math.max(6, Math.min(W - w - 6, x));      // always inside the frame
+            ctx.fillStyle = 'rgba(10,26,51,0.92)'; ctx.beginPath();
+            if (ctx.roundRect) ctx.roundRect(x, y, w, h, h / 2); else ctx.rect(x, y, w, h);
+            ctx.fill(); ctx.strokeStyle = right ? 'rgba(46,229,157,0.55)' : 'rgba(0,209,255,0.5)'; ctx.stroke();
+            ctx.fillStyle = '#eaf2fb'; ctx.textAlign = 'center'; ctx.fillText(n.n, x + w / 2, n.y + 4.5);
+          }
+          L.forEach(function (n) { chip(n, false); }); R.forEach(function (n) { chip(n, true); });
         }
       };
     }

@@ -406,3 +406,35 @@
 @media (max-width: 860px) { .sx-band { grid-template-columns: 1fr; } }
 @media (max-width: 560px) { .sx-tiers { grid-template-columns: 1fr; } }
 .sx-scene[data-scene="rise"] { -webkit-mask-image: linear-gradient(180deg, #000 0, #000 88%, transparent 100%); mask-image: linear-gradient(180deg, #000 0, #000 88%, transparent 100%); }
+
+/* ---- the integrations directory ------------------------------------------------------------------ */
+.sx-dir-bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
+.sx-search { position: relative; flex: 0 1 320px; }
+.sx-search input { width: 100%; font: 400 15.5px/1.2 var(--sx-ui); color: #fff; padding: 14px 16px 14px 42px; border: 0; border-radius: 12px; background: rgba(255, 255, 255, 0.045); box-shadow: inset 0 0 0 1px var(--sx-line-2); }
+.sx-search input:focus { outline: none; box-shadow: inset 0 0 0 1px var(--sx-cyan), 0 0 0 4px rgba(0, 209, 255, 0.15); }
+.sx-search input::placeholder { color: #6e7a8e; }
+.sx-search::before { content: ""; position: absolute; left: 16px; top: 50%; width: 13px; height: 13px; border-radius: 50%; box-shadow: inset 0 0 0 1.6px #7f8a9d; transform: translateY(-60%); }
+.sx-search::after { content: ""; position: absolute; left: 27px; top: 58%; width: 6px; height: 1.6px; background: #7f8a9d; transform: rotate(45deg); }
+.sx-int-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.sx-int { padding: 22px; gap: 12px; }
+.sx-int[hidden] { display: none; }
+.sx-int-top { display: flex; align-items: center; gap: 14px; }
+.sx-mono-tile { flex: 0 0 auto; width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; font: 700 13px/1 var(--sx-display); letter-spacing: 0.02em; color: #fff;
+  background: linear-gradient(135deg, rgba(0, 209, 255, 0.22), rgba(46, 229, 157, 0.12)); box-shadow: inset 0 0 0 1px rgba(124, 232, 255, 0.35); }
+.sx-int h3 { font: 650 17px/1.2 var(--sx-display); color: #fff; }
+.sx-int .sx-cat { display: block; font: 600 11px/1 var(--sx-mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--sx-ink-3); margin-top: 5px; }
+.sx-int p { font-size: 14.5px; line-height: 1.55; }
+.sx-int .sx-badge { justify-self: start; }
+.sx-dir-empty { padding: 40px 0; text-align: center; color: var(--sx-ink-3); }
+.sx-dir-count { font-size: 13.5px; color: var(--sx-ink-3); margin-top: 16px; }
+
+/* the Microsoft 365 flow */
+.sx-flowline { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 0; position: relative; counter-reset: sx-fl; }
+.sx-flowline::before { content: ""; position: absolute; left: 6%; right: 6%; top: 22px; height: 1px; background: linear-gradient(90deg, var(--sx-cyan), var(--sx-green)); opacity: 0.55; }
+.sx-flowline li { counter-increment: sx-fl; display: grid; gap: 10px; align-content: start; justify-items: center; text-align: center; padding: 0 10px; position: relative; }
+.sx-flowline li::before { content: counter(sx-fl); width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font: 700 14px/1 var(--sx-mono); color: var(--sx-cyan-2);
+  background: #071327; box-shadow: inset 0 0 0 1px rgba(0, 209, 255, 0.5), 0 0 0 6px var(--sx-bg-2), 0 0 24px -4px rgba(0, 209, 255, 0.6); position: relative; z-index: 1; }
+.sx-flowline b { font: 650 16px/1.25 var(--sx-display); color: #fff; }
+.sx-flowline span { font-size: 13.5px; color: var(--sx-ink-2); line-height: 1.5; }
+@media (max-width: 1080px) { .sx-int-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sx-flowline { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 30px; } .sx-flowline::before { display: none; } }
+@media (max-width: 640px) { .sx-int-grid, .sx-flowline { grid-template-columns: 1fr; } .sx-search { flex-basis: 100%; } }
