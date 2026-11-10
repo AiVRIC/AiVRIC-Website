@@ -1,6 +1,6 @@
 {
   "_": "Readiness data file. Source: the Alignment Pack's readiness pills; public labels per D14 (15 Oct 2026). Update with each pack edition; the site's cards and chapters follow this file (P4 wires it; today the cards are static HTML that must match it).",
-  "updated": "2026-10-16",
+  "updated": "2026-11-10",
   "labels": {
     "Market now": "Available now",
     "Prepare quietly": "In build",
@@ -16,7 +16,9 @@
       "label": "Available now",
       "public": true,
       "page": "/providers/",
-      "apps": ["client-vision"]
+      "apps": [
+        "client-vision"
+      ]
     },
     {
       "key": "enterprise-vision",
@@ -27,7 +29,9 @@
       "label": "Available now",
       "public": true,
       "page": "/enterprise/",
-      "apps": ["enterprise-vision"],
+      "apps": [
+        "enterprise-vision"
+      ],
       "note": "Provisional in the pack; capturable in a demo tenant since 15 Oct 2026. The label applies once the edition ships on captured screens; v0 carries stand-ins."
     },
     {
@@ -39,7 +43,10 @@
       "label": "Available now",
       "public": true,
       "chapter": "/platform/cloudsignals/",
-      "apps": ["enterprise-vision", "client-vision"],
+      "apps": [
+        "enterprise-vision",
+        "client-vision"
+      ],
       "sayable": "AI-native cloud security posture, risk operations and continuous compliance, landing as findings in the workspace. Privacy module (privacy processing inventory, privacy risk register, AI privacy brief) sayable in analyst-reviewed language. Tier names only; no price figures until D2."
     },
     {
@@ -50,21 +57,29 @@
       "label": "In build",
       "public": true,
       "chapter": "/platform/riskops/",
-      "apps": ["enterprise-vision", "client-vision"],
+      "apps": [
+        "enterprise-vision",
+        "client-vision"
+      ],
       "note": "Name only; no capability claims until a design-partner tenant runs on live data."
     },
     {
       "key": "aisignals",
       "name": "AISignals",
       "stage": "Signal",
-      "readiness": "Prepare quietly",
+      "readiness": "Market now",
       "pmf": 2,
-      "label": "In build",
+      "label": "Available now",
       "public": true,
       "chapter": "/platform/aisignals/",
-      "apps": ["enterprise-vision", "client-vision"],
+      "apps": [
+        "enterprise-vision",
+        "client-vision"
+      ],
       "designedTo": "Designed for full-stack observability of production language models.",
-      "note": "ISO/IEC 42001 governance workspace is NDA-only: 'designed to support ISO/IEC 42001 programmes', never 'compliant' or 'certified'."
+      "note": "ISO/IEC 42001 governance workspace is NDA-only: 'designed to support ISO/IEC 42001 programmes', never 'compliant' or 'certified'.",
+      "sayable": "Full-stack observability of production language models.",
+      "change": "Available today per Andrew, 10 Nov 2026 (was Prepare quietly / In build). The ISO/IEC 42001 note below still stands."
     },
     {
       "key": "otsignals",
@@ -81,13 +96,18 @@
       "key": "aire",
       "name": "AIRE Agentic Mesh",
       "stage": "Act",
-      "readiness": "Prepare quietly",
-      "label": "In build",
+      "readiness": "Market now",
+      "label": "Available now",
       "public": true,
       "chapter": "/platform/aire/",
-      "apps": ["enterprise-vision", "client-vision"],
+      "apps": [
+        "enterprise-vision",
+        "client-vision"
+      ],
       "designedTo": "Designed for governed, verified remediation with hash-chained evidence.",
-      "note": "Internal and NDA beyond the designed-to line until it runs in a tenant. The RiskOps hand-off story stays locked."
+      "note": "Internal and NDA beyond the designed-to line until it runs in a tenant. The RiskOps hand-off story stays locked.",
+      "sayable": "Governed, verified remediation with hash-chained evidence.",
+      "change": "Available today per Andrew, 10 Nov 2026 (was Prepare quietly / In build). Fuller capability wording waits for the guardrails doc."
     },
     {
       "key": "rogueagent",

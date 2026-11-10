@@ -438,3 +438,20 @@
 .sx-flowline span { font-size: 13.5px; color: var(--sx-ink-2); line-height: 1.5; }
 @media (max-width: 1080px) { .sx-int-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sx-flowline { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 30px; } .sx-flowline::before { display: none; } }
 @media (max-width: 640px) { .sx-int-grid, .sx-flowline { grid-template-columns: 1fr; } .sx-search { flex-basis: 100%; } }
+
+/* the directory, grouped: a heading per group, a status legend that filters */
+.sx-legend { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 10px; margin-bottom: 22px; }
+.sx-legend-item { display: grid; gap: 8px; justify-items: start; text-align: left; padding: 16px; border: 0; border-radius: 14px; cursor: pointer;
+  background: rgba(255, 255, 255, 0.03); box-shadow: inset 0 0 0 1px var(--sx-line); color: var(--sx-ink-2); font: 400 13px/1.45 var(--sx-ui); transition: background 0.25s, box-shadow 0.25s; }
+.sx-legend-item b { font: 700 26px/1 var(--sx-display); color: #fff; }
+.sx-legend-item:hover { background: rgba(255, 255, 255, 0.06); }
+.sx-legend-item[aria-pressed="true"] { background: rgba(0, 209, 255, 0.08); box-shadow: inset 0 0 0 1px rgba(0, 209, 255, 0.7); }
+.sx-legend-item:focus-visible { outline: 2px solid var(--sx-cyan); outline-offset: 2px; }
+.sx-dir { display: grid; gap: 48px; }
+.sx-int-group[hidden] { display: none; }
+.sx-group-head { display: grid; grid-template-columns: auto auto 1fr; align-items: baseline; gap: 6px 14px; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--sx-line); }
+.sx-group-head h3 { font: 700 clamp(22px, 2vw, 28px)/1.1 var(--sx-display); letter-spacing: -0.015em; color: #fff; }
+.sx-group-n { font: 600 12px/1 var(--sx-mono); color: var(--sx-cyan); padding: 5px 9px; border-radius: 999px; background: rgba(0, 209, 255, 0.08); box-shadow: inset 0 0 0 1px rgba(0, 209, 255, 0.3); }
+.sx-group-head p { justify-self: end; color: var(--sx-ink-3); font-size: 14.5px; text-align: right; }
+@media (max-width: 1080px) { .sx-legend { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .sx-legend { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sx-group-head { grid-template-columns: auto 1fr; } .sx-group-head p { grid-column: 1 / -1; justify-self: start; text-align: left; } }
