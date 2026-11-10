@@ -65,7 +65,7 @@
     var ctx = cv.getContext('2d'); if (!ctx) return;
     var W = 0, H = 0, dpr = 1, t0 = performance.now(), running = false, raf = 0;
     var px = 0, py = 0, tx = 0, ty = 0;     // pointer parallax, eased
-    var scene = kind === 'orbit' ? orbit() : chain();
+    var scene = kind === 'orbit' ? orbit() : kind === 'rise' ? rise() : chain();
     function size() {
       var r = cv.getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1);
       W = Math.max(1, r.width); H = Math.max(1, r.height);
@@ -164,6 +164,43 @@
             ctx.globalAlpha = 0.45 + c.depth * 0.55; ctx.textAlign = 'center'; ctx.fillStyle = '#e6edf7';
             ctx.font = '600 ' + (g.narrow ? 11 : 13) + 'px Inter, sans-serif'; ctx.fillText(c.c.name, c.x, c.y - r - 12);
             ctx.globalAlpha = 1;
+          });
+        }
+      };
+    }
+
+    /* the plan ladder: a column of light per tier, each taller than the last, with motes rising inside */
+    function rise() {
+      var tiers = JSON.parse(cv.getAttribute('data-tiers') || '[]');   // [name, …], lowest first
+      var motes = [];
+      for (var i = 0; i < 70; i++) motes.push({ c: i % Math.max(1, tiers.length), u: Math.random(), x: Math.random(), s: 0.05 + Math.random() * 0.08 });
+      return {
+        draw: function (s, px, py) {
+          var n = tiers.length, narrow = W < 760, gap = W * (narrow ? 0.06 : 0.035), cw = Math.min(narrow ? 76 : 170, (W * 0.8 - gap * (n - 1)) / n);
+          var total = cw * n + gap * (n - 1), x0 = (W - total) / 2 + px * 20, base = H - 6;
+          // the floor line
+          var fl = ctx.createLinearGradient(0, 0, W, 0);
+          fl.addColorStop(0, 'rgba(0,209,255,0)'); fl.addColorStop(0.5, 'rgba(0,209,255,0.5)'); fl.addColorStop(1, 'rgba(0,209,255,0)');
+          ctx.fillStyle = fl; ctx.fillRect(0, base, W, 1);
+          tiers.forEach(function (t, k) {
+            var h = H * (0.26 + 0.19 * k) + Math.sin(s * 0.9 + k) * 3, x = x0 + k * (cw + gap), y = base - h + py * 6 * (k + 1) / n;
+            var g = ctx.createLinearGradient(0, y, 0, base);
+            g.addColorStop(0, 'rgba(0,209,255,' + (0.26 + k * 0.06) + ')'); g.addColorStop(1, 'rgba(0,209,255,0.02)');
+            ctx.fillStyle = g; ctx.fillRect(x, y, cw, base - y);
+            ctx.strokeStyle = 'rgba(175,178,206,0.18)'; ctx.lineWidth = 1; ctx.strokeRect(x + 0.5, y + 0.5, cw - 1, base - y);
+            // the lit top edge
+            var top = ctx.createLinearGradient(x, 0, x + cw, 0);
+            top.addColorStop(0, 'rgba(124,232,255,0)'); top.addColorStop(0.5, k === n - 1 ? 'rgba(46,229,157,1)' : 'rgba(124,232,255,1)'); top.addColorStop(1, 'rgba(124,232,255,0)');
+            ctx.fillStyle = top; ctx.fillRect(x, y - 1, cw, 2);
+            ctx.shadowColor = 'rgba(0,209,255,0.9)'; ctx.shadowBlur = 18; ctx.fillRect(x + cw * 0.3, y - 1, cw * 0.4, 2); ctx.shadowBlur = 0;
+            ctx.textAlign = 'center'; ctx.fillStyle = '#fff'; ctx.font = '600 ' + (narrow ? 11 : 14) + 'px Jost, Inter, sans-serif';
+            ctx.fillText(t, x + cw / 2, y - 14);
+            motes.forEach(function (m) {
+              if (m.c !== k) return;
+              m.u += m.s / 60; if (m.u > 1) { m.u = 0; m.x = Math.random(); }
+              var my = base - m.u * (base - y), mx = x + 6 + m.x * (cw - 12);
+              ctx.fillStyle = 'rgba(124,232,255,' + (0.8 * Math.sin(m.u * 3.14)) + ')'; ctx.beginPath(); ctx.arc(mx, my, 1.6, 0, 6.29); ctx.fill();
+            });
           });
         }
       };
