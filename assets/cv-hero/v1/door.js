@@ -13,12 +13,15 @@
   var hero = page && page.querySelector('.cvh-hero');
   if (!page || !hero) return;
 
-  var ROOT = '../assets/cv-hero/v1/';
+  // every path is absolute, from where this script sits (assets/cv-hero/v1/), so the page works at any depth (the site root)
+  var here = document.currentScript && document.currentScript.src;
+  var ROOT = here ? new URL('./', here).href : '../assets/cv-hero/v1/';
+  var SITE = new URL('../../../', new URL(ROOT, location.href)).href;
   // fx, fy: the desk on the 16:9 frame, where the light centres; zone: the desk and its laptop, where the pointer lights it
   var DOORS = {
-    enterprise: { page: '../enterprise/', flight: ROOT + 'media-enterprise/', mobile: ROOT + 'media-enterprise/poster-mobile.webp',
+    enterprise: { page: SITE + 'enterprise/', flight: ROOT + 'media-enterprise/', mobile: ROOT + 'media-enterprise/poster-mobile.webp',
       fx: 0.308, fy: 0.675, zone: [0.12, 0.47, 0.5, 1] },
-    clients: { page: '../providers/', flight: ROOT + 'flight-clients/', mobile: ROOT + 'flight-clients/poster-mobile.webp',
+    clients: { page: SITE + 'providers/', flight: ROOT + 'flight-clients/', mobile: ROOT + 'flight-clients/poster-mobile.webp',
       fx: 0.695, fy: 0.675, zone: [0.53, 0.875, 0.5, 1] }
   };
   var KEY = 'cvh.door';
@@ -47,13 +50,25 @@
 
   /* ---- both editions, read from their own pages --------------------------------------------- */
   function text(url) { return fetch(url, { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error(url + ' ' + r.status); return r.text(); }); }
+  // the edition's relative URLs are relative to its own page; make them absolute before they move into this one
+  function abs(v, base) { return /^(#|[a-z][a-z0-9+.-]*:|\/\/)/i.test(v) ? v : new URL(v, base).href; }
+  function rebase(doc, base) {
+    ['src', 'href', 'poster', 'data-film', 'data-captions', 'data-src'].forEach(function (a) {
+      [].slice.call(doc.querySelectorAll('[' + a + ']')).forEach(function (e) { var v = e.getAttribute(a); if (v && v.charAt(0) !== '?') e.setAttribute(a, abs(v, base)); });
+    });
+    [].slice.call(doc.querySelectorAll('[srcset]')).forEach(function (e) {
+      e.setAttribute('srcset', e.getAttribute('srcset').split(',').map(function (p) { p = p.trim().split(/\s+/); p[0] = abs(p[0], base); return p.join(' '); }).join(', '));
+    });
+  }
   function edition(d) {
     var base = DOORS[d].page;
     return Promise.all([text(base), text(base + 'content.js')]).then(function (r) {
       var doc = new DOMParser().parseFromString(r[0], 'text/html');
+      rebase(doc, base);
       var shim = {};
       // content.js assigns window.CVH_CONTENT; run it against a stand-in so the two editions never collide
       new Function('window', r[1])(shim);
+      if (shim.CVH_CONTENT && shim.CVH_CONTENT.media) shim.CVH_CONTENT.media = abs(shim.CVH_CONTENT.media, base);
       var srcPage = doc.querySelector('.cvh-page'), srcHero = srcPage && srcPage.querySelector('.cvh-hero');
       var sections = [], n = srcHero && srcHero.nextElementSibling;
       for (; n; n = n.nextElementSibling) sections.push(n);
