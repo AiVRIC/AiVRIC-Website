@@ -14,14 +14,14 @@
     { k: 'Identity & Access', l1: 'Identity', l2: '& Access', d: 'Strong authentication, least privilege, and lifecycle control for privileged and standard access.',
       t: ['Role-based access control and separation of duties', 'SSO / SAML, with optional SCIM provisioning on enterprise plans', 'MFA enforced for privileged access'],
       docs: [['access-control.html', 'Access Control']] },
-    { k: 'Data Protection', l1: 'Data', l2: 'Protection', d: 'Control of customer data is central to the architecture, across SaaS and customer-hosted models.',
-      t: ['Encryption in transit (TLS), and at rest where applicable', 'Scoped access to customer environments, on the principle of least access', 'Configurable retention and export'],
+    { k: 'Data Protection', l1: 'Data', l2: 'Protection', d: 'Control of customer data is built into the architecture, down to the database.',
+      t: ['Encryption in transit (TLS), and at rest where applicable', 'Row-level security: each workspace sees only its own data, with no access by default', 'Read-only cloud connectors with scoped access'],
       docs: [['encryption-in-transit.html', 'Encryption in transit'], ['encryption-at-rest.html', 'Encryption at rest'], ['data-retention-policy.html', 'Data Retention']] },
     { k: 'Secure Engineering', l1: 'Secure', l2: 'Engineering', d: 'Security is built into the software lifecycle through review gates and operational assurance.',
       t: ['Secure SDLC, code review and dependency hygiene', 'Automated scanning and vulnerability management workflows', 'Change management and release controls'],
       docs: [['platform-security-overview.html', 'Platform Security Overview']] },
     { k: 'Monitoring & Detection', l1: 'Monitoring', l2: '& Detection', d: 'We watch operational health and security signals so we can respond, and recover.',
-      t: ['Centralized logging and alerting for security-relevant events', 'Incident triage playbooks and escalation paths', 'Customer-hosted deployments can feed your own SIEM and SOC'],
+      t: ['Centralized logging and alerting for security-relevant events', 'Incident triage playbooks and escalation paths', 'AiVRIC events can feed your own SIEM'],
       docs: [['logging-monitoring.html', 'Logging & Monitoring']] },
     { k: 'Incident Response', l1: 'Incident', l2: 'Response', d: 'A response program built for containment, communication and learning.',
       t: ['A documented plan, with roles and severity handling', 'Post-incident reviews and corrective actions', 'Customer notification aligned to contractual and legal requirements'],
@@ -85,29 +85,29 @@
 
   /* ---- where your data lives ------------------------------------------------------------------------------------ */
   var MODES = {
-    saas: {
-      zones: { you: 'Your environment', hot: 'aivric' },
-      at: { clouds: [85, 190], engine: [435, 135], data: [435, 270], support: [435, 270, 0], ai: [795, 200] },
-      sub: { engine: 'Managed by AiVRIC', data: 'Microsoft Azure · US or as contracted' },
-      facts: [['Where it lives', 'AiVRIC-managed services run on Microsoft Azure, in the US or the region your contract sets. Residency goes in the order form.'],
-        ['Who can touch it', 'Scoped access to your environments, on least access. The subprocessors below are the only third parties, each for one job.'],
-        ['Your AI', 'Bring your own AI is the default. No subprocessor of ours processes or sees those queries.']]
-    },
     hosted: {
-      zones: { you: 'Your environment', hot: 'you' },
-      at: { clouds: [85, 112], engine: [85, 212], data: [85, 312], support: [435, 312, 1], ai: [795, 200] },
-      sub: { engine: 'Runs in your cloud', data: 'Stays in your environment' },
-      facts: [['Where it lives', 'In your own cloud. AiVRIC runs inside your environment, and the scan data stays there.'],
-        ['Who can touch it', 'No subprocessor processes customer scan data. Email and support, if you use them, are the one exception.'],
-        ['Your SOC', 'Logs and alerts can feed your own SIEM and SOC.']]
+      zones: { you: 'Your environment', aivric: 'AiVRIC · Google Cloud, US', hot: 'aivric' },
+      at: { clouds: [85, 190], engine: [435, 135], data: [435, 270], support: [435, 270, 0], ai: [795, 200] },
+      sub: { engine: 'The hosted service', data: 'Isolated by row-level security' },
+      facts: [['Where it lives', 'On Google Cloud in the US. Your workspace sits in the platform\u2019s database, separated from every other workspace by row-level security, with no access by default.'],
+        ['Who can touch it', 'Named users in your workspace, through single sign-on with MFA at your identity provider. Every change lands on an append-only, hash-chained audit trail.'],
+        ['Your AI', 'AI features run on Anthropic, through AiVRIC\u2019s key or your workspace\u2019s own. Prompts aren\u2019t stored, and a person approves every draft.']]
     },
-    windows: {
-      zones: { you: 'Your machine', hot: 'you' },
-      at: { clouds: [85, 112], engine: [85, 212], data: [85, 312], support: [435, 312, 0.35], ai: [795, 200] },
-      sub: { engine: 'Windows executable', data: 'Stored locally' },
-      facts: [['Where it lives', 'On the machine. The Windows executable supports local data storage.'],
-        ['Who can touch it', 'No subprocessor processes customer scan data.'],
-        ['Your AI', 'Bring your own AI keys, and your provider’s terms apply.']]
+    dedicated: {
+      zones: { you: 'Your environment', aivric: 'AiVRIC · Google Cloud, US', hot: 'aivric' },
+      at: { clouds: [85, 190], engine: [435, 135], data: [435, 270], support: [435, 270, 0], ai: [795, 200] },
+      sub: { engine: 'Your own namespace', data: 'Your own database' },
+      facts: [['Where it lives', 'Still on Google Cloud in the US, in a namespace and a database of your own.'],
+        ['Who can touch it', 'The same controls as the hosted service: named users, single sign-on with MFA, and the audit trail.'],
+        ['When', 'On request, for teams whose security review asks for their own environment. Talk to us about self-hosted or air-gapped.']]
+    },
+    cv: {
+      zones: { you: 'Your clients\u2019 environments', aivric: 'AiVRIC · Google Cloud, US', hot: 'aivric' },
+      at: { clouds: [85, 190], engine: [435, 135], data: [435, 270], support: [435, 270, 0], ai: [795, 200] },
+      sub: { engine: 'The provider console', data: 'A database per provider' },
+      facts: [['Where it lives', 'Each provider gets its own database instance, and every client workspace inside it is sealed from the next.'],
+        ['Who can touch it', 'Provider access is by authority, not membership: a band on every screen shows it, and the client\u2019s audit trail records it.'],
+        ['Their connectors', 'Each client\u2019s connectors pull only what that client allows, and the keys are sealed on arrival.']]
     }
   };
   var map = document.getElementById('sx-map'), facts = document.getElementById('sx-facts'), modes = document.getElementById('sx-modes');
@@ -120,7 +120,7 @@
       ai: el('rect', { class: 'zone', x: 730, y: 40, width: 350, height: 370, rx: 18 }, m)
     };
     var ZL = { you: el('text', { class: 'zone-label', x: 44, y: 76 }, m), aivric: el('text', { class: 'zone-label', x: 414, y: 76 }, m), ai: el('text', { class: 'zone-label', x: 754, y: 76 }, m) };
-    ZL.aivric.textContent = 'AiVRIC'; ZL.ai.textContent = 'Your AI provider';
+    ZL.aivric.textContent = 'AiVRIC'; ZL.ai.textContent = 'AI provider';
     var wires = { a: el('path', { class: 'wire' }, m), b: el('path', { class: 'wire' }, m), c: el('path', { class: 'wire ai' }, m), d: el('path', { class: 'wire' }, m) };
     function node(key, title, sub, cls) {
       var g = el('g', { class: 'node' + (cls ? ' ' + cls : '') }, m);
@@ -134,7 +134,7 @@
       engine: node('engine', 'AiVRIC', ''),
       data: node('data', 'Workspace data', '', 'data'),
       support: node('support', 'Email & support', 'Contact info, support artifacts'),
-      ai: node('ai', 'Your AI provider', 'Bring your own keys')
+      ai: node('ai', 'Anthropic', 'AiVRIC\u2019s key, or your own')
     };
     function curve(a, b) {
       var x1 = a.x + W, y1 = a.y + H / 2, x2 = b.x, y2 = b.y + H / 2;
@@ -152,7 +152,7 @@
     var anim = 0, first = true;
     function setMode(key) {
       var M = MODES[key]; if (!M) return;
-      ZL.you.textContent = M.zones.you;
+      ZL.you.textContent = M.zones.you; ZL.aivric.textContent = M.zones.aivric;
       for (var z in Z) Z[z].classList.toggle('hot', z === M.zones.hot);
       N.engine.sub.textContent = M.sub.engine; N.data.sub.textContent = M.sub.data;
       var from = {}, to = {};

@@ -456,3 +456,29 @@
 .sx-group-head p { justify-self: end; color: var(--sx-ink-3); font-size: 14.5px; text-align: right; }
 @media (max-width: 1080px) { .sx-legend { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 640px) { .sx-legend { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sx-group-head { grid-template-columns: auto 1fr; } .sx-group-head p { grid-column: 1 / -1; justify-self: start; text-align: left; } }
+
+/* ---- the Platform page: the jobs, the Trust Ladder, the scanner's numbers --------------------------------------------- */
+.sx-jobs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.sx-job { padding: 24px; gap: 12px; }
+.sx-job .sx-stage-k { font: 600 12px/1 var(--sx-mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--sx-cyan); }
+.sx-job blockquote { margin: 0; font: 600 17px/1.4 var(--sx-display); color: #fff; }
+.sx-job .apps { display: grid; gap: 8px; margin-top: 4px; }
+.sx-job .app { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; background: rgba(255, 255, 255, 0.035); box-shadow: inset 0 0 0 1px var(--sx-line); font-size: 14.5px; color: #fff; font-weight: 600; }
+.sx-job .app .sx-badge { font-size: 10px; padding: 4px 8px; }
+.sx-ladder { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0; border-radius: 18px; overflow: hidden; box-shadow: inset 0 0 0 1px var(--sx-line); }
+.sx-rung { padding: 22px 18px; display: grid; gap: 8px; align-content: start; position: relative; background: linear-gradient(180deg, rgba(0, 209, 255, var(--a, 0.03)), rgba(255, 255, 255, 0.01)); }
+.sx-rung + .sx-rung { box-shadow: inset 1px 0 0 var(--sx-line); }
+.sx-rung .lv { font: 700 13px/1 var(--sx-mono); color: var(--sx-cyan-2); }
+.sx-rung b { font: 650 17px/1.25 var(--sx-display); color: #fff; }
+.sx-rung span { font-size: 13.5px; color: var(--sx-ink-2); line-height: 1.5; }
+.sx-rung::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: linear-gradient(90deg, var(--sx-cyan), var(--sx-green)); opacity: var(--b, 0.2); }
+.sx-floor { margin-top: 14px; padding: 16px 18px; border-radius: 14px; display: flex; gap: 14px; align-items: flex-start; background: rgba(255, 196, 107, 0.06); box-shadow: inset 0 0 0 1px rgba(255, 196, 107, 0.3); color: var(--sx-ink-2); font-size: 14.5px; }
+.sx-floor b { color: var(--sx-amber); white-space: nowrap; }
+.sx-nums { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.sx-num-tile { padding: 22px; border-radius: 16px; background: rgba(255, 255, 255, 0.03); box-shadow: inset 0 0 0 1px var(--sx-line); display: grid; gap: 6px; }
+.sx-num-tile b { font: 700 clamp(30px, 3vw, 42px)/1 var(--sx-display); letter-spacing: -0.02em; }
+.sx-num-tile span { font-size: 14px; color: var(--sx-ink-2); }
+.sx-chapter-note { margin-top: 24px; padding: 18px 20px; border-radius: 14px; background: rgba(255, 255, 255, 0.025); box-shadow: inset 0 0 0 1px var(--sx-line); color: var(--sx-ink-2); font-size: 15px; }
+.sx-chapter-note b { color: #fff; }
+@media (max-width: 1080px) { .sx-jobs, .sx-nums { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sx-ladder { grid-template-columns: 1fr; } .sx-rung + .sx-rung { box-shadow: inset 0 1px 0 var(--sx-line); } }
+@media (max-width: 560px) { .sx-jobs, .sx-nums { grid-template-columns: 1fr; } }

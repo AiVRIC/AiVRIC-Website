@@ -65,7 +65,7 @@
     var ctx = cv.getContext('2d'); if (!ctx) return;
     var W = 0, H = 0, dpr = 1, t0 = performance.now(), running = false, raf = 0;
     var px = 0, py = 0, tx = 0, ty = 0;     // pointer parallax, eased
-    var scene = kind === 'orbit' ? orbit() : kind === 'rise' ? rise() : kind === 'hub' ? hub() : chain();
+    var scene = kind === 'orbit' ? orbit() : kind === 'rise' ? rise() : kind === 'hub' ? hub() : kind === 'flow' ? flow() : chain();
     function size() {
       var r = cv.getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1);
       W = Math.max(1, r.width); H = Math.max(1, r.height);
@@ -164,6 +164,67 @@
             ctx.globalAlpha = 0.45 + c.depth * 0.55; ctx.textAlign = 'center'; ctx.fillStyle = '#e6edf7';
             ctx.font = '600 ' + (g.narrow ? 11 : 13) + 'px Inter, sans-serif'; ctx.fillText(c.c.name, c.x, c.y - r - 12);
             ctx.globalAlpha = 1;
+          });
+        }
+      };
+    }
+
+    /* the platform's jobs as columns (sense, decide, act, show): signed events move left to right between the apps,
+       and decisions write back to the system of record along the arc above */
+    function flow() {
+      var stages = JSON.parse(cv.getAttribute('data-stages') || '[]');   // [{n: 'Signal', apps: [...]}, …]
+      var pulses = [], back = [];
+      for (var i = 0; i < 28; i++) pulses.push({ seg: i % Math.max(1, stages.length - 1), u: Math.random(), s: 0.16 + Math.random() * 0.1, k: i });
+      for (var j = 0; j < 6; j++) back.push({ u: j / 6, s: 0.07 });
+      return {
+        draw: function (s, px, py) {
+          var narrow = W < 760, n = stages.length, pad = W * (narrow ? 0.1 : 0.12);
+          var cols = stages.map(function (st, k) {
+            var x = pad + (W - 2 * pad) * (n === 1 ? 0.5 : k / (n - 1)) + px * 22, ys = [];
+            var gap = narrow ? 30 : 40, top = H * 0.58 - (st.apps.length - 1) * gap / 2 + py * 10;
+            st.apps.forEach(function (a, q) { ys.push(top + q * gap); });
+            return { x: x, ys: ys, st: st };
+          });
+          // the write-back arc, from Show to Decide
+          if (n >= 4) {
+            var a = cols[n - 1], b = cols[1], ya = H * 0.2 + py * 6;
+            ctx.strokeStyle = 'rgba(46,229,157,0.35)'; ctx.setLineDash([3, 6]); ctx.lineWidth = 1.2;
+            ctx.beginPath(); ctx.moveTo(a.x, a.ys[0] - 22); ctx.bezierCurveTo(a.x, ya, b.x, ya, b.x, b.ys[0] - 22); ctx.stroke(); ctx.setLineDash([]);
+            back.forEach(function (p) {
+              p.u += p.s / 60; if (p.u > 1) p.u = 0; var u = p.u, v = 1 - u;
+              var x = v * v * v * a.x + 3 * v * v * u * a.x + 3 * v * u * u * b.x + u * u * u * b.x;
+              var y = v * v * v * (a.ys[0] - 22) + 3 * v * v * u * ya + 3 * v * u * u * ya + u * u * u * (b.ys[0] - 22);
+              ctx.fillStyle = 'rgba(46,229,157,' + Math.sin(u * 3.14) + ')'; ctx.beginPath(); ctx.arc(x, y, 2, 0, 6.29); ctx.fill();
+            });
+            ctx.fillStyle = 'rgba(46,229,157,0.85)'; ctx.font = '600 ' + (narrow ? 9.5 : 11.5) + 'px Inter, sans-serif'; ctx.textAlign = 'center';
+            ctx.fillText('decisions write back', (a.x + b.x) / 2, ya + (narrow ? 22 : 18));
+          }
+          // the links between neighbouring columns
+          for (var k = 0; k < n - 1; k++) cols[k].ys.forEach(function (y1) { cols[k + 1].ys.forEach(function (y2) {
+            var x1 = cols[k].x, x2 = cols[k + 1].x, g = ctx.createLinearGradient(x1, 0, x2, 0);
+            g.addColorStop(0, 'rgba(0,209,255,0.15)'); g.addColorStop(0.5, 'rgba(0,209,255,0.45)'); g.addColorStop(1, 'rgba(0,209,255,0.15)');
+            ctx.strokeStyle = g; ctx.lineWidth = 1.1; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.bezierCurveTo((x1 + x2) / 2, y1, (x1 + x2) / 2, y2, x2, y2); ctx.stroke();
+          }); });
+          pulses.forEach(function (p) {
+            p.u += p.s / 60; if (p.u > 1) { p.u = 0; p.seg = (p.seg + 1) % Math.max(1, n - 1); }
+            var A = cols[p.seg], B = cols[p.seg + 1]; if (!A || !B) return;
+            var y1 = A.ys[p.k % A.ys.length], y2 = B.ys[p.k % B.ys.length], u = p.u, v = 1 - u, mx = (A.x + B.x) / 2;
+            var x = v * v * v * A.x + 3 * v * v * u * mx + 3 * v * u * u * mx + u * u * u * B.x, y = v * v * v * y1 + 3 * v * v * u * y1 + 3 * v * u * u * y2 + u * u * u * y2;
+            ctx.fillStyle = 'rgba(124,232,255,' + Math.sin(u * 3.14) + ')'; ctx.beginPath(); ctx.arc(x, y, 2, 0, 6.29); ctx.fill();
+          });
+          // the stage names and the app chips
+          cols.forEach(function (c) {
+            ctx.textAlign = 'center'; ctx.fillStyle = '#7ce8ff'; ctx.font = '700 ' + (narrow ? 10 : 12) + 'px Inter, sans-serif';
+            ctx.fillText(c.st.n.toUpperCase(), c.x, H * 0.36 + py * 8);
+            c.ys.forEach(function (y, q) {
+              var label = c.st.apps[q]; ctx.font = '600 ' + (narrow ? 10 : 13.5) + 'px Inter, sans-serif';
+              var w = ctx.measureText(label).width + (narrow ? 16 : 28), h = narrow ? 24 : 32, x = Math.max(4, Math.min(W - w - 4, c.x - w / 2));
+              var gl = ctx.createRadialGradient(c.x, y, 0, c.x, y, w * 0.7); gl.addColorStop(0, 'rgba(0,209,255,0.18)'); gl.addColorStop(1, 'rgba(0,209,255,0)');
+              ctx.fillStyle = gl; ctx.beginPath(); ctx.arc(c.x, y, w * 0.7, 0, 6.29); ctx.fill();
+              ctx.fillStyle = 'rgba(10,26,51,0.95)'; ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y - h / 2, w, h, h / 2); else ctx.rect(x, y - h / 2, w, h); ctx.fill();
+              ctx.strokeStyle = 'rgba(124,232,255,0.6)'; ctx.lineWidth = 1; ctx.stroke();
+              ctx.fillStyle = '#fff'; ctx.fillText(label, x + w / 2, y + (narrow ? 3.5 : 4.5));
+            });
           });
         }
       };
