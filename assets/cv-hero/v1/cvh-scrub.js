@@ -21,7 +21,9 @@
   var still = document.getElementById('cvh-stage-still');
   if (!page || !hero || !pin || !video || !product) return;
 
-  var MEDIA = (window.CVH_CONTENT && window.CVH_CONTENT.media) || 'assets/cv-hero/v1/media/';
+  // the flight's own folder when the content names one (the two-desk page flies to either desk), else the media root
+  var C = window.CVH_CONTENT || {};
+  var MEDIA = C.flight || C.media || 'assets/cv-hero/v1/media/';
   var KEY = 'cvh.hero.flight';
   var SPRING = { k: 200, c: 30, m: 0.5 };      // a framer-motion useSpring with these constants, about 130ms of lag
   var GLIDE_MS = 600;

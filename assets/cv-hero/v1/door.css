@@ -1,0 +1,143 @@
+/* The two-desk opener (door.js). Scoped under .cvh-page; loaded after cvh.css. */
+
+@property --cvh-door-x { syntax: '<length>'; inherits: true; initial-value: 0px; }
+@property --cvh-door-y { syntax: '<length>'; inherits: true; initial-value: 0px; }
+
+/* before a desk is picked there is nothing under the hero to scroll to */
+body.cvh-door-waiting .site-footer { display: none; }
+
+/* the light: the room dims a little everywhere but the lit desk */
+.cvh-door-shade {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse 22vw 30vh at var(--cvh-door-x, 30%) var(--cvh-door-y, 60%),
+    transparent 0%, transparent 46%, rgba(3, 14, 30, 0.3) 82%, rgba(3, 14, 30, 0.44) 100%);
+  transition: --cvh-door-x 520ms cubic-bezier(.2, .7, .2, 1), --cvh-door-y 520ms cubic-bezier(.2, .7, .2, 1), opacity 180ms linear;
+  opacity: 0;
+}
+
+/* the two doors */
+.cvh-doors { position: relative; z-index: 3; }
+.cvh-door {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+}
+.cvh-door small {
+  font: 600 10.5px/1.3 var(--cvh-ui, inherit);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.78;
+}
+.cvh-door b { font-size: 15px; font-weight: 700; line-height: 1.25; letter-spacing: -0.005em; }
+.cvh-door:focus-visible { outline: 2px solid #00d1ff; outline-offset: 2px; }
+
+/* the copy swaps when a desk lights */
+/* (only until a desk is picked: an animation's opacity would beat the flight's fade of the copy) */
+.cvh-page.cvh-door-open:not(.cvh-scrub-pending):not(.cvh-scrub-ready) .cvh-hero-inner,
+.cvh-page.cvh-door-open:not(.cvh-scrub-pending):not(.cvh-scrub-ready) .cvh-hero-cta { animation: cvh-door-in 280ms ease backwards; }
+@keyframes cvh-door-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+
+@media (min-width: 1024px) {
+  /* the opening frame: one still screen, the frame cover-fitted, like the flight's first frame */
+  .cvh-page.cvh-door-open:not(.cvh-scrub-pending):not(.cvh-scrub-ready) .cvh-hero { display: block; height: 100svh; min-height: 0; overflow: hidden; background: #050c18; }
+  .cvh-page.cvh-door-open:not(.cvh-scrub-pending):not(.cvh-scrub-ready) .cvh-hero-pin {
+    position: relative; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr);
+    width: 100%; height: 100svh; overflow: hidden;
+  }
+  .cvh-page.cvh-door-open:not(.cvh-scrub-pending):not(.cvh-scrub-ready) .cvh-hero-media { position: absolute; inset: 0; width: 100%; height: 100%; transform: none; }
+  .cvh-page.cvh-door-open:not(.cvh-scrub-pending):not(.cvh-scrub-ready) .cvh-hero-still { object-fit: cover; object-position: 50% 50%; }
+  .cvh-page.cvh-door-open:not(.cvh-scrub-pending):not(.cvh-scrub-ready) .cvh-hero-content { grid-column: 1; grid-row: 1; }
+
+  /* The copy stack sized by the window's height as well as its width, so it always finishes above the two
+     laptops (their screens start at about 52% of the frame), however wide and short the window is. */
+  .cvh-door-page .cvh-hero-inner { padding-top: calc(var(--cvh-nav) + clamp(12px, 3vh, 36px)); }
+  .cvh-door-page .cvh-hero .cvh-h1 { margin-top: 10px; font-size: clamp(2.3rem, min(4.5vw, 7.2vh), 4.2rem); }
+  .cvh-door-page .cvh-hero .cvh-sub { margin-top: 12px; font-size: clamp(0.95rem, min(1.08vw, 1.9vh), 1.06rem); }
+  .cvh-door-page .cvh-hero .cvh-form { margin-top: clamp(14px, 2.2vh, 20px); gap: 12px; }
+  .cvh-door-page .cvh-hero-btn,
+  .cvh-door-page .cvh-hero-ghost { min-height: 44px; padding: 0 22px; font-size: 15px; }
+
+  /* one switch on the floor, centred under the room: its left half is the left desk, its right half the right */
+  .cvh-doors {
+    position: absolute;
+    left: 50%;
+    bottom: clamp(20px, 5.5vh, 52px);
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: min(500px, calc(100vw - 48px));
+    padding: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.26);
+    border-radius: 999px;
+    background: rgba(6, 22, 42, 0.36);
+    box-shadow: 0 18px 48px rgba(3, 14, 30, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: blur(22px) saturate(130%);
+    backdrop-filter: blur(22px) saturate(130%);
+    transition: opacity 180ms linear;
+  }
+  /* the lit half: a thumb that slides between the two */
+  .cvh-doors::before {
+    content: "";
+    position: absolute;
+    top: 4px;
+    bottom: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    border-radius: 999px;
+    background: #ffffff;
+    box-shadow: 0 6px 18px rgba(3, 14, 30, 0.22);
+    transition: transform 420ms cubic-bezier(.2, .7, .2, 1);
+  }
+  .cvh-page[data-door="clients"] .cvh-doors::before { transform: translateX(100%); }
+  .cvh-door {
+    position: relative;
+    z-index: 1;
+    min-height: 50px;
+    padding: 6px 18px;
+    border-radius: 999px;
+    color: rgba(255, 255, 255, 0.92);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+  }
+  .cvh-door:not(.is-lit):hover { color: #ffffff; }
+  .cvh-door.is-lit { color: #0b1220; }
+  .cvh-door.is-lit small { color: #0077b6; opacity: 1; }
+
+  .cvh-page[data-door] .cvh-door-shade { opacity: 1; }
+  /* in flight the switch and the light leave with the copy; after the hand-off they are back on the still */
+  .cvh-page.cvh-scrub-pending .cvh-doors,
+  .cvh-page.cvh-scrub-ready .cvh-doors,
+  .cvh-page.cvh-scrub-ready .cvh-door-shade { opacity: var(--cvh-copy-opacity, 1); }
+  .cvh-page.cvh-scrub-ready .cvh-doors,
+  .cvh-page.cvh-scrub-ready .cvh-door { pointer-events: none; }
+}
+
+/* phones and tablets: no flight, so the two doors are a pair of buttons under the copy */
+@media (max-width: 1023px) {
+  .cvh-doors {
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px 16px 6px;
+  }
+  .cvh-door {
+    flex: 1 1 0;
+    max-width: 230px;
+    min-height: 58px;
+    padding: 9px 12px;
+    border: 1px solid #cfe0ee;
+    border-radius: 14px;
+    background: #f5f9fc;
+    color: #0b1220;
+  }
+  .cvh-door.is-lit { background: #0077b6; border-color: #0077b6; color: #ffffff; }
+}
