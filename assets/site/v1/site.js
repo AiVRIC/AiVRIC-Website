@@ -1,0 +1,219 @@
+/* The editorial pages (Solutions portal, Trust Center): reveals, the pointer light on cards, tabs, the spine fill,
+   and the hero scenes on <canvas data-scene>: "orbit" (the two apps with the capabilities circling between them)
+   and "chain" (linked, hashed evidence blocks drifting on a floor). Reduced motion gets one still frame. */
+(function () {
+  'use strict';
+  var root = document.querySelector('.sx-page');
+  if (!root) return;
+  document.documentElement.classList.add('sx-js');
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- reveals ---------------------------------------------------------------------------- */
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 }) : null;
+  [].slice.call(root.querySelectorAll('[data-reveal], .sx-spine')).forEach(function (el) {
+    if (io && !reduce) io.observe(el); else el.classList.add('is-in');
+  });
+
+  /* ---- the pointer light on cards ------------------------------------------------------------ */
+  root.addEventListener('pointermove', function (e) {
+    var c = e.target.closest && e.target.closest('.sx-card');
+    if (!c) return;
+    var r = c.getBoundingClientRect();
+    c.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    c.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  });
+
+  /* ---- tabs: [role=tablist] with an ink that slides under the selected tab --------------------------- */
+  window.SX = window.SX || {};
+  SX.tabs = function (list, onPick) {
+    var tabs = [].slice.call(list.querySelectorAll('[role="tab"]'));
+    var ink = document.createElement('span'); ink.className = 'sx-tab-ink'; ink.setAttribute('aria-hidden', 'true'); list.prepend(ink);
+    function place(t) { ink.style.width = t.offsetWidth + 'px'; ink.style.transform = 'translate(' + (t.offsetLeft - 5) + 'px,' + (t.offsetTop - 5) + 'px)'; }
+    function pick(t, focus) {
+      tabs.forEach(function (x) { var on = x === t; x.setAttribute('aria-selected', String(on)); x.tabIndex = on ? 0 : -1; });
+      place(t); if (focus) t.focus(); onPick(t.getAttribute('data-key'), t);
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { pick(t); });
+      t.addEventListener('keydown', function (e) {
+        var k = { ArrowRight: 1, ArrowDown: 1, ArrowLeft: -1, ArrowUp: -1 }[e.key];
+        if (k) { e.preventDefault(); pick(tabs[(i + k + tabs.length) % tabs.length], true); }
+        if (e.key === 'Home') { e.preventDefault(); pick(tabs[0], true); }
+        if (e.key === 'End') { e.preventDefault(); pick(tabs[tabs.length - 1], true); }
+      });
+    });
+    var first = tabs.filter(function (t) { return t.getAttribute('aria-selected') === 'true'; })[0] || tabs[0];
+    pick(first);
+    addEventListener('resize', function () { place(tabs.filter(function (t) { return t.getAttribute('aria-selected') === 'true'; })[0]); });
+    return { pick: function (key) { var t = tabs.filter(function (x) { return x.getAttribute('data-key') === key; })[0]; if (t) pick(t); } };
+  };
+
+  /* ---- a hash target (#cloudsignals) lights its card --------------------------------------------- */
+  function target() {
+    [].slice.call(root.querySelectorAll('.is-target')).forEach(function (x) { x.classList.remove('is-target'); });
+    var id = location.hash.slice(1); if (!id) return;
+    var el = document.getElementById(id);
+    if (el && el.classList.contains('sx-cap')) el.classList.add('is-target');
+  }
+  addEventListener('hashchange', target); target();
+
+  /* ---- hero scenes ------------------------------------------------------------------------------------ */
+  [].slice.call(root.querySelectorAll('canvas[data-scene]')).forEach(function (cv) {
+    var kind = cv.getAttribute('data-scene');
+    var ctx = cv.getContext('2d'); if (!ctx) return;
+    var W = 0, H = 0, dpr = 1, t0 = performance.now(), running = false, raf = 0;
+    var px = 0, py = 0, tx = 0, ty = 0;     // pointer parallax, eased
+    var scene = kind === 'orbit' ? orbit() : chain();
+    function size() {
+      var r = cv.getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1);
+      W = Math.max(1, r.width); H = Math.max(1, r.height);
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (scene.resize) scene.resize();
+      if (!running) frame(performance.now());
+    }
+    function frame(now) {
+      px += (tx - px) * 0.05; py += (ty - py) * 0.05;
+      ctx.clearRect(0, 0, W, H);
+      scene.draw((now - t0) / 1000, px, py);
+      if (running) raf = requestAnimationFrame(frame);
+    }
+    function start() { if (reduce || running) return; running = true; raf = requestAnimationFrame(frame); }
+    function stop() { running = false; cancelAnimationFrame(raf); }
+    var host = cv.parentElement;
+    host.addEventListener('pointermove', function (e) { var r = host.getBoundingClientRect(); tx = (e.clientX - r.left) / r.width - 0.5; ty = (e.clientY - r.top) / r.height - 0.5; });
+    host.addEventListener('pointerleave', function () { tx = 0; ty = 0; });
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { es[0].isIntersecting ? start() : stop(); }).observe(cv);
+    else start();
+    document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+    if (window.ResizeObserver) new ResizeObserver(size).observe(cv); else addEventListener('resize', size);
+    size();
+
+    /* the two apps, the capabilities circling between them, data flowing along the links */
+    function orbit() {
+      var apps = [{ name: 'AiVRIC Enterprise Vision', sub: 'for your company', x: 0.2 }, { name: 'Client Vision', sub: 'for your clients', x: 0.8 }];
+      var caps = JSON.parse(cv.getAttribute('data-caps') || '[]');   // [{name, now}]
+      var stars = [], motes = [];
+      for (var i = 0; i < 90; i++) stars.push({ x: Math.random(), y: Math.random(), r: Math.random() * 1.1 + 0.2, p: Math.random() * 6.28 });
+      for (var j = 0; j < 26; j++) motes.push({ c: j % caps.length, a: j % 2, u: Math.random(), s: 0.08 + Math.random() * 0.1 });
+      function geo() {
+        var narrow = W < 760;
+        var cy = H * 0.46, cx = W / 2;
+        return { cx: cx, cy: cy, rx: Math.min(W * (narrow ? 0.24 : 0.27), 400), ry: Math.min(H * 0.17, 58), ax: narrow ? 0.15 : 0.16, narrow: narrow };
+      }
+      return {
+        draw: function (s, px, py) {
+          var g = geo(), ox = px * 26, oy = py * 14;
+          stars.forEach(function (st) {
+            ctx.globalAlpha = 0.25 + 0.35 * Math.sin(s * 0.8 + st.p) * 0.5 + 0.2;
+            ctx.fillStyle = '#9fd8ff'; ctx.beginPath(); ctx.arc(st.x * W + ox * 0.4, st.y * H + oy * 0.4, st.r, 0, 6.29); ctx.fill();
+          });
+          ctx.globalAlpha = 1;
+          var A = apps.map(function (a, k) { var x = (k ? 1 - g.ax : g.ax) * W + ox; return { x: x, y: g.cy + oy, a: a }; });
+          // the orbit
+          ctx.strokeStyle = 'rgba(0,209,255,0.18)'; ctx.lineWidth = 1; ctx.setLineDash([2, 7]);
+          ctx.beginPath(); ctx.ellipse(g.cx + ox, g.cy + oy, g.rx, g.ry, 0, 0, 6.29); ctx.stroke(); ctx.setLineDash([]);
+          // capability positions
+          var C = caps.map(function (c, k) {
+            var ang = s * 0.12 + (k / caps.length) * 6.283;
+            return { x: g.cx + ox + Math.cos(ang) * g.rx, y: g.cy + oy + Math.sin(ang) * g.ry, depth: (Math.sin(ang) + 1) / 2, c: c };
+          });
+          // links
+          C.forEach(function (c) {
+            A.forEach(function (a) {
+              var grd = ctx.createLinearGradient(c.x, c.y, a.x, a.y);
+              grd.addColorStop(0, 'rgba(0,209,255,' + (0.05 + 0.18 * c.depth) + ')'); grd.addColorStop(1, 'rgba(46,229,157,0.04)');
+              ctx.strokeStyle = grd; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(c.x, c.y);
+              ctx.quadraticCurveTo((c.x + a.x) / 2, Math.min(c.y, a.y) - 40, a.x, a.y); ctx.stroke();
+            });
+          });
+          // motes: data flowing from a capability into an app
+          motes.forEach(function (m) {
+            m.u += m.s / 60; if (m.u > 1) { m.u = 0; m.c = (m.c + 1) % C.length; m.a = 1 - m.a; }
+            var c = C[m.c], a = A[m.a]; if (!c) return;
+            var u = m.u, mx = (c.x + a.x) / 2, my = Math.min(c.y, a.y) - 40;
+            var x = (1 - u) * (1 - u) * c.x + 2 * (1 - u) * u * mx + u * u * a.x, y = (1 - u) * (1 - u) * c.y + 2 * (1 - u) * u * my + u * u * a.y;
+            ctx.fillStyle = 'rgba(124,232,255,' + (0.9 * Math.sin(u * 3.14)) + ')';
+            ctx.beginPath(); ctx.arc(x, y, 1.8, 0, 6.29); ctx.fill();
+          });
+          // the apps
+          A.forEach(function (a) {
+            var R = g.narrow ? 28 : 50;
+            var halo = ctx.createRadialGradient(a.x, a.y, 0, a.x, a.y, R * 3.2);
+            halo.addColorStop(0, 'rgba(0,209,255,0.28)'); halo.addColorStop(1, 'rgba(0,209,255,0)');
+            ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(a.x, a.y, R * 3.2, 0, 6.29); ctx.fill();
+            var core = ctx.createRadialGradient(a.x - R * 0.3, a.y - R * 0.3, 2, a.x, a.y, R);
+            core.addColorStop(0, '#16345e'); core.addColorStop(1, '#071327');
+            ctx.fillStyle = core; ctx.beginPath(); ctx.arc(a.x, a.y, R, 0, 6.29); ctx.fill();
+            ctx.strokeStyle = 'rgba(124,232,255,0.75)'; ctx.lineWidth = 1.2; ctx.stroke();
+            ctx.strokeStyle = 'rgba(124,232,255,0.25)'; ctx.beginPath(); ctx.arc(a.x, a.y, R + 9 + Math.sin(s * 1.4) * 2, 0, 6.29); ctx.stroke();
+            ctx.textAlign = 'center'; ctx.fillStyle = '#fff'; ctx.font = '600 ' + (g.narrow ? 12 : 15) + 'px Jost, Inter, sans-serif';
+            ctx.fillText(a.a.name, a.x, a.y + R + 28);
+            ctx.fillStyle = '#7f8a9d'; ctx.font = '500 ' + (g.narrow ? 10.5 : 12) + 'px Inter, sans-serif';
+            ctx.fillText(a.a.sub.toUpperCase(), a.x, a.y + R + 46);
+          });
+          // the capabilities, back to front
+          C.slice().sort(function (p, q) { return p.depth - q.depth; }).forEach(function (c) {
+            var r = 5 + c.depth * 4, col = c.c.now ? '46,229,157' : '255,196,107';
+            var gl = ctx.createRadialGradient(c.x, c.y, 0, c.x, c.y, r * 5);
+            gl.addColorStop(0, 'rgba(' + col + ',0.45)'); gl.addColorStop(1, 'rgba(' + col + ',0)');
+            ctx.fillStyle = gl; ctx.beginPath(); ctx.arc(c.x, c.y, r * 5, 0, 6.29); ctx.fill();
+            ctx.fillStyle = 'rgb(' + col + ')'; ctx.beginPath(); ctx.arc(c.x, c.y, r * 0.7, 0, 6.29); ctx.fill();
+            ctx.globalAlpha = 0.45 + c.depth * 0.55; ctx.textAlign = 'center'; ctx.fillStyle = '#e6edf7';
+            ctx.font = '600 ' + (g.narrow ? 11 : 13) + 'px Inter, sans-serif'; ctx.fillText(c.c.name, c.x, c.y - r - 12);
+            ctx.globalAlpha = 1;
+          });
+        }
+      };
+    }
+
+    /* linked, hashed evidence blocks drifting across a floor in three lanes; a light runs down each chain */
+    function chain() {
+      var labels = JSON.parse(cv.getAttribute('data-blocks') || '[]');
+      var lanes = [{ z: 0.5, y: 0.08, v: 9 }, { z: 0.74, y: 0.33, v: 14 }, { z: 1, y: 0.62, v: 20 }];
+      var hex = '0123456789abcdef';
+      function hash(n) { var s = ''; for (var i = 0; i < 4; i++) s += hex[(n * 7 + i * 13 + 5) % 16]; s += '…'; for (var k = 0; k < 4; k++) s += hex[(n * 11 + k * 3 + 9) % 16]; return s; }
+      return {
+        draw: function (s, px, py) {
+          // the floor
+          var hor = -H * 0.15 + py * 10, vx = W / 2 + px * 60;
+          ctx.strokeStyle = 'rgba(0,209,255,0.07)'; ctx.lineWidth = 1;
+          for (var i = -12; i <= 12; i++) { ctx.beginPath(); ctx.moveTo(vx + i * 30, hor); ctx.lineTo(vx + i * W * 0.22, H * 1.05); ctx.stroke(); }
+          for (var j = 1; j < 9; j++) { var y = hor + (H - hor) * Math.pow(j / 9, 1.8); ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke(); }
+          lanes.forEach(function (L, li) {
+            var bw = 190 * L.z * (W < 760 ? 0.72 : 1), bh = 58 * L.z * (W < 760 ? 0.8 : 1), gap = bw * 0.55, step = bw + gap;
+            var y = H * L.y + py * 18 * L.z, shift = ((s * L.v * L.z) % step) + px * 40 * L.z;
+            var n = Math.ceil(W / step) + 2, base = Math.floor(s * L.v * L.z / step);
+            var pulse = (s * 0.35 + li * 0.33) % 1;      // where the light is along the visible lane
+            var prev = null;
+            for (var k = -1; k < n; k++) {
+              var x = k * step + shift - step, id = base - k + li * 50;
+              var lab = labels[((id % labels.length) + labels.length) % labels.length];
+              var cx = x + bw / 2, pos = cx / W, lit = Math.max(0, 1 - Math.abs(pos - pulse) * 6);
+              var edge = Math.min(1, Math.min(cx, W - cx) / (W * 0.18));
+              ctx.globalAlpha = (0.35 + 0.65 * L.z) * edge;
+              if (prev) {
+                ctx.strokeStyle = 'rgba(0,209,255,' + (0.25 + lit * 0.6) + ')'; ctx.lineWidth = 1.2;
+                ctx.beginPath(); ctx.moveTo(prev, y + bh / 2); ctx.lineTo(x, y + bh / 2); ctx.stroke();
+                ctx.fillStyle = 'rgba(124,232,255,0.9)'; ctx.beginPath(); ctx.arc(x - gap / 2, y + bh / 2, 2.2 * L.z, 0, 6.29); ctx.fill();
+              }
+              ctx.fillStyle = 'rgba(10,26,51,' + (0.88) + ')';
+              rr(x, y, bw, bh, 10 * L.z); ctx.fill();
+              ctx.strokeStyle = lit > 0.05 ? 'rgba(124,232,255,' + (0.35 + lit * 0.65) + ')' : 'rgba(175,178,206,0.25)'; ctx.lineWidth = 1; ctx.stroke();
+              if (lit > 0.05) { ctx.shadowColor = 'rgba(0,209,255,0.8)'; ctx.shadowBlur = 24 * lit; ctx.stroke(); ctx.shadowBlur = 0; }
+              ctx.textAlign = 'left'; ctx.fillStyle = '#eaf2fb'; ctx.font = '600 ' + Math.round(13 * L.z * (W < 760 ? 0.85 : 1)) + 'px Inter, sans-serif';
+              ctx.fillText(lab, x + 14 * L.z, y + bh * 0.44, bw - 26 * L.z);
+              ctx.fillStyle = 'rgba(124,232,255,0.7)'; ctx.font = '500 ' + Math.round(10.5 * L.z * (W < 760 ? 0.85 : 1)) + 'px ui-monospace, Menlo, monospace';
+              ctx.fillText('sha256 ' + hash(Math.abs(id)), x + 14 * L.z, y + bh * 0.76);
+              prev = x + bw;
+            }
+            ctx.globalAlpha = 1;
+          });
+          function rr(x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+        }
+      };
+    }
+  });
+})();
