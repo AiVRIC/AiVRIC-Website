@@ -123,7 +123,7 @@
     // publish modal (as captured)
     const m = modalCard(322, 120, 660, 420); r.modal = m;
     m.append(at(28, 24, 600, 'font:800 22px var(--ui)', 'Publish this document'),
-      at(28, 62, 600, 'font:500 14.5px/1.5 var(--ui);color:var(--ink-2)', 'Publishing freezes the fully rendered document as an IMMUTABLE version — the exact deliverable, reproducible forever. The draft keeps following the catalog afterwards.'),
+      at(28, 62, 600, 'font:500 14.5px/1.5 var(--ui);color:var(--ink-2)', 'Publishing freezes the fully rendered document as an IMMUTABLE version — the exact deliverable, reproducible forever. The draft keeps following the catalog afterward.'),
       at(28, 150, 300, '', h('span', { class: 'k' }, 'VERSION LABEL')), at(28, 174, 604, 'height:42px;border:1.5px solid var(--line);border-radius:9px;font:600 15px/40px var(--mono);padding-left:14px', '1.0'),
       at(28, 232, 400, '', h('span', { class: 'k' }, 'REVISION COMMENT (VERSION HISTORY)')));
     r.comment = h('span', {}, ''); r.caret = caret();
