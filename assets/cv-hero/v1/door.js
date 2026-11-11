@@ -5,7 +5,9 @@
    place) go in under the hero, its content becomes window.CVH_CONTENT with that desk's flight, and the engine starts.
    The choice is remembered; ?door=enterprise or ?door=clients (the nav links) overrides it. Phones and reduced motion
    have no flight: the remembered door goes in at once, and the other label reloads the page on that door.
-   Picking the other desk after the engine has started reloads on that door; the engine runs once per page load. */
+   Back at the top of the page after a pick (scroll 0, the shared first frame) the room is the opener again: either desk
+   lights under the pointer, and scrolling on, or clicking, the other one reloads on that door (the engine runs once per
+   page load) and goes straight in; scrolling on with the same desk lit just carries on with the flight. */
 (function () {
   'use strict';
 
@@ -45,6 +47,7 @@
   try { saved = norm(localStorage.getItem(KEY)); } catch (e) {}
   var lit = asked || saved || 'enterprise';
   var committed = false, started = false;
+  var chosen = null, top = false;   // the desk the engine is running, and whether the page is back at the shared first frame
 
   document.body.classList.add('cvh-door-waiting');
 
@@ -122,6 +125,7 @@
     });
     if (mobileSrc) mobileSrc.setAttribute('srcset', DOORS[d].mobile);
     if (!committed) { dress(d); warm(d); }   // only the lit desk's flight is warmed: its manifest and its last frame
+    else if (top) dress(d);                 // back at the top: the copy follows the light, as in the opener
     place();
   }
   // the hero copy and the header actions become that edition's
@@ -142,7 +146,11 @@
   }
 
   /* ---- picking it -------------------------------------------------------------------------- */
-  function go(d) { location.href = location.pathname + '?door=' + d; }
+  // the other door: reload on it and go straight in (the first frame is the same on both, so the swap barely shows)
+  function go(d) {
+    try { sessionStorage.setItem('cvh.door.again', d); } catch (e) {}
+    location.href = location.pathname + '?door=' + d;
+  }
   function load(srcs, done) {
     var left = srcs.length;
     srcs.forEach(function (src) {
@@ -163,8 +171,9 @@
   }
   function commit(d, after) {
     d = DOORS[d] ? d : lit;
-    if (committed) { if (d !== lit) go(d); else if (after) after(); return; }
+    if (committed) { if (d !== chosen) go(d); else if (after) after(); return; }
     committed = true;
+    chosen = d;
     light(d);
     ready.then(function () {
       var ed = data[d];
@@ -203,14 +212,14 @@
     return null;
   }
   hero.addEventListener('pointermove', function (e) {
-    if (committed || e.pointerType === 'touch') return;
+    if ((committed && !top) || e.pointerType === 'touch') return;
     var d = zoneAt(e.clientX, e.clientY);
     if (d) light(d);
   });
   labels.forEach(function (a) {
     var d = a.getAttribute('data-door');
-    a.addEventListener('pointerenter', function () { if (!committed) light(d); });
-    a.addEventListener('focus', function () { if (!committed) light(d); });
+    a.addEventListener('pointerenter', function () { if (!committed || top) light(d); });
+    a.addEventListener('focus', function () { if (!committed || top) light(d); });
     a.addEventListener('click', function (e) {
       if (page.classList.contains('cvh-door-static')) return;      // plain link to the page
       e.preventDefault();
@@ -224,7 +233,7 @@
       var d = norm(a.getAttribute('href').slice(6));
       if (!d) return;
       e.preventDefault();
-      if (committed) { if (d !== lit) go(d); else window.scrollTo(0, 0); }
+      if (committed) { if (d !== chosen) go(d); else window.scrollTo(0, 0); }
       else commit(d);
       return;
     }
@@ -238,19 +247,35 @@
   });
   // the first scroll picks the lit desk; it is spent on the choice, so the flight starts from its first frame
   var SCROLL_KEYS = { ArrowDown: 1, PageDown: 1, End: 1, ' ': 1, Spacebar: 1 };
+  // back at the top with the other desk lit, the scroll that would start the flight goes to that door instead
+  function swapping() { return committed && top && lit !== chosen; }
   window.addEventListener('wheel', function (e) {
+    if (e.deltaY > 0 && !e.ctrlKey && swapping()) { e.preventDefault(); go(lit); return; }
     if (committed || e.deltaY <= 0 || e.ctrlKey) return;
     e.preventDefault();
     commit(lit);
   }, { passive: false });
   window.addEventListener('keydown', function (e) {
-    if (committed || !SCROLL_KEYS[e.key] || e.altKey || e.ctrlKey || e.metaKey) return;
+    if ((committed && !swapping()) || !SCROLL_KEYS[e.key] || e.altKey || e.ctrlKey || e.metaKey) return;
     var t = e.target;
     if (t && (t.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(t.tagName) || (e.key === ' ' && t.tagName === 'A'))) return;
     e.preventDefault();
-    commit(lit);
+    if (committed) go(lit); else commit(lit);
   });
-  window.addEventListener('scroll', function () { if (!committed && window.scrollY > 0) commit(lit); }, { passive: true });
+  // the top of the page after a pick: the opener again (desktop with a flight only; phones keep their two buttons)
+  function setTop() {
+    var t = started && desktop.matches && !motion.matches && window.scrollY < 4;
+    if (t === top) return;
+    if (!t && lit !== chosen) light(chosen);   // leaving the top on the running desk's terms (its copy, while top is still set)
+    top = t;
+    page.classList.toggle('cvh-door-top', t);
+  }
+  window.addEventListener('scroll', function () {
+    if (!committed) { if (window.scrollY > 0) commit(lit); return; }
+    if (swapping() && window.scrollY > 0) { window.scrollTo(0, 0); go(lit); return; }   // a scrollbar drag with the other desk lit
+    setTop();
+  }, { passive: true });
+  window.addEventListener('cvh:door', setTop);
   addEventListener('resize', place);
   if (window.ResizeObserver) new ResizeObserver(place).observe(pin);
 
@@ -260,8 +285,11 @@
     var nav = performance.getEntriesByType('navigation')[0];
     midFlight = nav && nav.type === 'reload' && sessionStorage.getItem('cvh.hero.flight') !== null;
   } catch (e) {}
+  // swapped doors at the top of the page: this load is that desk, picked already
+  var again = false;
+  try { again = !!asked && sessionStorage.getItem('cvh.door.again') === asked; sessionStorage.removeItem('cvh.door.again'); } catch (e) {}
   light(lit, true);
-  if (!desktop.matches || motion.matches || midFlight) commit(lit);
+  if (!desktop.matches || motion.matches || midFlight || again) commit(lit);
   // a window narrowed to phone width before a pick has no flight to choose either
   var noFlight = function () { if (!committed && (!desktop.matches || motion.matches)) commit(lit); };
   if (desktop.addEventListener) { desktop.addEventListener('change', noFlight); motion.addEventListener('change', noFlight); }

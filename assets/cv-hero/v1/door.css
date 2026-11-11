@@ -118,6 +118,9 @@ body.cvh-door-waiting .site-footer { display: none; }
   .cvh-page.cvh-scrub-ready .cvh-door-shade { opacity: var(--cvh-copy-opacity, 1); }
   .cvh-page.cvh-scrub-ready .cvh-doors,
   .cvh-page.cvh-scrub-ready .cvh-door { pointer-events: none; }
+  /* back at the top after a pick the switch works again (door.js: the other desk reloads on its door) */
+  .cvh-page.cvh-scrub-ready.cvh-door-top .cvh-doors,
+  .cvh-page.cvh-scrub-ready.cvh-door-top .cvh-door { pointer-events: auto; }
 }
 
 /* phones and tablets: no flight, so the two doors are a pair of buttons under the copy */
