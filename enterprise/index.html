@@ -173,9 +173,8 @@
               <p class="cvh-eyebrow">The film</p>
               <h2 class="cvh-h2" id="cvh-film-h">Your program. One picture.</h2>
               <p class="cvh-lede">
-                Estate, govern, respond, operate. Every signal flowing into your Enterprise Vision,
-                and reports with your name on the cover. v0 carries the partner film as a stand-in until the
-                enterprise film is cut.
+                See, score, remediate, report, govern, monitor, decide and trust: the eight words of a security
+                program, and Enterprise Vision bringing your organization into one view. Under two minutes.
               </p>
             </div>
             <figure class="cvh-film-frame">
@@ -184,18 +183,18 @@
                 controls
                 preload="metadata"
                 playsinline
-                poster="../assets/film/poster.jpg"
-                aria-label="Stand-in: the Client Vision partner film, 92 seconds, until the Enterprise Vision film is cut"
+                poster="../assets/cv-hero/v1/media-enterprise/film/poster.jpg"
+                aria-label="The AiVRIC Enterprise Vision overview film, 1 minute 57 seconds"
               >
-                <source src="../assets/film/whitelabel-film.mp4" type="video/mp4" />
-                <track kind="captions" src="../assets/film/whitelabel-film.vtt" srclang="en" label="English" default />
+                <source src="../assets/cv-hero/v1/media-enterprise/film/enterprise-film.mp4" type="video/mp4" />
+                <track kind="captions" src="../assets/cv-hero/v1/media-enterprise/film/enterprise-film.vtt" srclang="en" label="English" default />
               </video>
               <figcaption>
-                Narrated by AiVA, your AiVRIC guide. Captions on. Partner brands, client tenants and figures in the film are fictitious samples.
+                Narrated by AiVA, your AiVRIC guide. Captions on. Screens are from the Big Ventures demo workspace; every figure in the film is a fictitious sample.
               </figcaption>
             </figure>
-            <!-- Captions live in whitelabel-film.vtt. A host that cannot serve .vtt (the artifact preview) falls back to the
-                 same cues from whitelabel-film.txt, attached as a blob track, so captions stay on in both places. -->
+            <!-- Captions live in enterprise-film.vtt. A host that cannot serve .vtt (the artifact preview) falls back to the
+                 same cues from enterprise-film.txt, attached as a blob track, so captions stay on in both places. -->
             <script>(function(){var v=document.getElementById('filmVideo'),t=v&&v.querySelector('track');if(!t)return;function show(){if(v.textTracks[0])v.textTracks[0].mode='showing';}t.addEventListener('error',function(){fetch(t.src.replace(/.vtt$/,'.txt')).then(function(r){return r.ok?r.text():'';}).then(function(s){if(!s)return;var n=document.createElement('track');n.kind='captions';n.srclang='en';n.label='English';n.default=true;n.src=URL.createObjectURL(new Blob([s],{type:'text/vtt'}));t.remove();v.appendChild(n);show();v.addEventListener('loadedmetadata',show);}).catch(function(){});});})();</script>
           </div>
         </section>
