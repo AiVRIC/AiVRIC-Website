@@ -13,6 +13,9 @@
   background: #050c18; border-bottom: 1px solid rgba(175, 178, 206, 0.24);
   font: 400 16px/1.5 Inter, system-ui, sans-serif; color: #ededf3; text-align: left;
 }
+/* mnav.css keeps the bar transparent (!important) unless the body has is-nav-solid, which the kit pages set by script;
+   the older pages never do, so the bar is made solid here, two classes deep so it outranks mnav.css */
+.site-header.mnav { background: var(--mnav-bg, #050c18) !important; border-bottom-color: var(--mnav-line, rgba(175, 178, 206, 0.24)) !important; }
 .mnav :where(ul, ol), .mnav-sheet :where(ul, ol) { list-style: none; margin: 0; padding: 0; }
 .mnav :where(li), .mnav-sheet :where(li) { list-style: none; margin: 0; padding: 0; float: none; }
 .mnav :where(a), .mnav-sheet :where(a) { text-decoration: none; }
